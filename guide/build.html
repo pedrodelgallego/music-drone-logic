@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hypnotic Techno Guide — The Build</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label">Contents</p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="decisions.html"><span class="nav-num">02</span>Decisions</a>
+  <a href="studio.html"><span class="nav-num">03</span>Studio &amp; setup</a>
+  <a href="palette.html"><span class="nav-num">04</span>Sound palette</a>
+  <a href="arrangement.html"><span class="nav-num">05</span>Arrangement</a>
+  <a href="build.html" class="active"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="eyebrow">06 — The build</div>
+    <h1>Step-by-step</h1>
+    <p class="lede">Only now do we touch the gear. Each step is small. Each step has a decision checkpoint.</p>
+  </header>
+
+  <!-- STEP 1 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 14 v20 a2 2 0 0 0 2 2 h28 a2 2 0 0 0 2 -2 v-16 a2 2 0 0 0 -2 -2 h-14 l-4 -4 h-10 a2 2 0 0 0 -2 2 z"/></svg>
+      </div>
+      <div class="step-num">Step 01</div>
+      <h2 class="step-title">Create the Ableton project</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Open a new set</div>
+      <ul>
+        <li><kbd>⌘ N</kbd> for a new Live Set. Press <kbd>Tab</kbd> to switch to <strong>Arrangement</strong> view.</li>
+        <li>Set tempo to <span class="code">124</span>, time signature <span class="code">4/4</span>.</li>
+        <li>Right-click the timeline ruler → <span class="menu">Time Ruler Format → Time</span> to see positions as <span class="code">m:ss</span>.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Audio preferences</div>
+      <ul>
+        <li><kbd>⌘ ,</kbd> → <strong>Audio</strong>. Input + Output device: MOTU M4.</li>
+        <li>Sample Rate <span class="code">48000 Hz</span>, Buffer Size <span class="code">256 samples</span>.</li>
+        <li>Enable Input Config channels <span class="code">1/2</span> mono and stereo.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Enable the Launchpad Pro MK3</div>
+      <ul>
+        <li>Plug the Launchpad in via USB. Open <kbd>⌘ ,</kbd> → <strong>Link, Tempo &amp; MIDI</strong>.</li>
+        <li>Control Surface: <span class="code">Launchpad Pro MK3</span>. Input + Output: <span class="code">LPProMK3 DAW</span>.</li>
+        <li>Enable <strong>Track</strong> and <strong>Remote</strong> for the <span class="code">LPProMK3 MIDI</span> input — note data from Note and Sequencer modes.</li>
+        <li>Press <kbd>Session</kbd> on the Launchpad — pads light up confirming the link.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Send MIDI clock to the MicroFreak</div>
+      <ul>
+        <li>Same Preferences tab. Find the MicroFreak port → enable <strong>Sync</strong> on the output row.</li>
+        <li>MicroFreak: <kbd>Shift</kbd> + <kbd>Tempo</kbd> → source <strong>USB</strong>. The synth now follows Ableton.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Create the tracks</div>
+      <ul>
+        <li><kbd>⌘ ⇧ T</kbd> three times for MIDI tracks: <span class="code">KICK</span>, <span class="code">HAT</span>, <span class="code">PERC</span>.</li>
+        <li><kbd>⌘ T</kbd> three times for audio tracks: <span class="code">MF BASS</span>, <span class="code">MF DRONE</span>, <span class="code">ATMOS</span>.</li>
+        <li><kbd>⌘ ⌥ T</kbd> twice for return tracks: <span class="code">A — REVERB</span>, <span class="code">B — ECHO</span>.</li>
+        <li>Rename with <kbd>⌘ R</kbd>. Color-code tracks. <kbd>⌘ S</kbd> as <span class="code">hypnotic_lab_001.als</span>.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="14" cy="22" r="6"/><circle cx="30" cy="22" r="6"/><line x1="20" y1="22" x2="24" y2="22"/></svg>
+      </div>
+      <div class="step-num">Step 02</div>
+      <h2 class="step-title">Connect and gain-stage the MicroFreak</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Physical signal chain</div>
+      <ul>
+        <li>1/4" TS cable from MicroFreak <strong>Audio Out</strong> → MOTU M4 <strong>Input 1</strong>.</li>
+        <li>On the M4 front panel: hold <span class="menu">MON</span>, set Input 1 to <strong>Line</strong>.</li>
+        <li>Headphone output on the M4 → DT 990 Pro. Knob at halfway to start.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Configure the MF BASS track</div>
+      <ul>
+        <li>Select <span class="code">MF BASS</span>. <kbd>⌘ ⌥ I</kbd> to show I/O.</li>
+        <li>Audio From → <strong>Ext. In</strong>, channel <span class="code">1</span> (mono).</li>
+        <li>Monitor → <strong>In</strong> while dialing sounds. Switch to <strong>Auto</strong> before recording.</li>
+        <li>Arm the track (red circle, or <kbd>F</kbd> when selected).</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Gain staging</div>
+      <ul>
+        <li>Hold a note. Adjust the MicroFreak master volume until peaks land between <span class="code">-12 dBFS</span> and <span class="code">-6 dBFS</span>.</li>
+        <li>If you'd have to push the M4 input gain into the red, push more level out of the synth instead.</li>
+        <li>Test record: <kbd>⌘ ⇧ R</kbd>, 8 bars. Play back. Confirm clean, no clipping, no buzz.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="10" cy="22" r="3" fill="currentColor"/><circle cx="20" cy="14" r="3"/><circle cx="30" cy="30" r="3" fill="currentColor"/><circle cx="38" cy="22" r="3"/></svg>
+      </div>
+      <div class="step-num">Step 03</div>
+      <h2 class="step-title">Build the bass sequence</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Choose the oscillator</div>
+      <ul>
+        <li>MicroFreak <strong>Type</strong> encoder → <span class="code">Wavetable</span>. Strong alternatives: <span class="code">Harmo</span>, <span class="code">SuperWave</span>, <span class="code">KarplusStr</span>.</li>
+        <li><kbd>Shift</kbd> + press Type to initialise.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Starting knob positions</div>
+      <table class="param-table">
+        <caption>Oscillator + Filter</caption>
+        <tr><td>Wave</td><td>~ 30 %</td></tr>
+        <tr><td>Timbre</td><td>~ 50 %</td></tr>
+        <tr><td>Shape</td><td>~ 40 %</td></tr>
+        <tr><td>Filter — Cutoff</td><td>11 o'clock</td></tr>
+        <tr><td>Filter — Resonance</td><td>9 o'clock</td></tr>
+        <tr><td>Glide</td><td>5 – 10 %</td></tr>
+      </table>
+      <table class="param-table">
+        <caption>Envelope + LFO</caption>
+        <tr><td>ENV — Attack / Decay / Sustain / Release</td><td>0 / 25 / 20 / 30</td></tr>
+        <tr><td>LFO — Shape / Rate</td><td>Sine / synced 1/4</td></tr>
+        <tr><td>Mod matrix</td><td>LFO → Cutoff, depth ~ 15</td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Program the sequence</div>
+      <ul>
+        <li>Length 16 steps. Scale: <strong>A natural minor</strong>. Root <span class="note">A1</span>.</li>
+        <li>3–5 notes only. Place the root on step 1, leave silences. Slide one or two steps for acid glides.</li>
+        <li>Sync MicroFreak to Ableton: <kbd>Shift</kbd> + <kbd>Tempo</kbd> → USB.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Record the take</div>
+      <ul>
+        <li>Loop and listen for at least <strong>3 minutes</strong> before deciding it works.</li>
+        <li>Arm <span class="code">MF BASS</span>. Position playhead at bar 1. <kbd>⌘ ⇧ R</kbd>. Record 4 minutes.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Can I listen to this pattern for several minutes without skipping?</li>
+        <li>Does it create tension instead of resolving?</li>
+        <li>Is any step "decorative"?</li>
+        <li>Does it leave headroom for kick and drone?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 22 q9 -4 18 0 t18 0"/><path d="M6 28 q9 -2 18 0 t18 0"/></svg>
+      </div>
+      <div class="step-num">Step 04</div>
+      <h2 class="step-title">Build the drone</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Save bass, init drone</div>
+      <ul>
+        <li><kbd>Shift</kbd> + <kbd>Memory</kbd> → save bass as <span class="code">LAB BASS</span>.</li>
+        <li>Init a fresh patch for the drone. Do not edit the bass patch.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Drone parameters</div>
+      <table class="param-table">
+        <caption>Drone patch</caption>
+        <tr><td>Oscillator</td><td>Speech / Wavetable / Harmo</td></tr>
+        <tr><td>Wave / Timbre / Shape</td><td>40 / 60 / 50</td></tr>
+        <tr><td>Filter — Cutoff</td><td>10 o'clock (dark)</td></tr>
+        <tr><td>LFO — Shape / Rate</td><td>Sine / very slow</td></tr>
+        <tr><td>Mod 1</td><td>LFO → Timbre, ~ 25</td></tr>
+        <tr><td>Mod 2</td><td>Cycling Env → Wave, ~ 15</td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Capture a long take</div>
+      <ul>
+        <li>Press <kbd>Hold</kbd>. Play root <span class="note">A1</span>. Optionally add a fifth (<span class="note">E2</span>).</li>
+        <li>Arm <span class="code">MF DRONE</span>. <kbd>⌘ ⇧ R</kbd>. Record 4 minutes.</li>
+        <li>Do not touch knobs in the first minute. Then very slowly move Cutoff and Timbre.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Process the drone</div>
+      <table class="param-table">
+        <caption>Effects chain on MF DRONE</caption>
+        <tr><td>EQ Eight — HP filter</td><td>120 Hz, 24 dB/oct</td></tr>
+        <tr><td>EQ Eight — LP shelf</td><td>-3 dB above 6 kHz</td></tr>
+        <tr><td>Hybrid Reverb — Algorithm</td><td>Convolution Hall / Plate</td></tr>
+        <tr><td>Hybrid Reverb — Decay</td><td>6 – 8 s</td></tr>
+        <tr><td>Hybrid Reverb — Dry/Wet</td><td>35 %</td></tr>
+        <tr><td>Utility — Width</td><td>120 – 140 %</td></tr>
+      </table>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does the drone create the room the track lives in?</li>
+        <li>Is it sitting around <span class="code">-16 dB</span> peak?</li>
+        <li>Is the 80 – 200 Hz region muddy?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 5 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="14"/><circle cx="22" cy="22" r="5"/></svg>
+      </div>
+      <div class="step-num">Step 05</div>
+      <h2 class="step-title">Build the drum foundation</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Drag in a Drum Rack</div>
+      <ul>
+        <li>From Browser → <span class="menu">Categories → Drums → Drum Rack</span>, drag onto <span class="code">KICK</span>, <span class="code">HAT</span>, <span class="code">PERC</span>.</li>
+        <li>Drag samples to pad <span class="note">C1</span>: dark kick, tight closed hat, one rim or conga.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The 2-bar pattern</div>
+      <div class="pattern-wrap">
+        <div class="pattern">
+          <div class="pattern-label">Kick</div>
+          <div class="pattern-step on">1</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+          <div class="pattern-step on">5</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+          <div class="pattern-step on">9</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+          <div class="pattern-step on">13</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+
+          <div class="pattern-label">Hat</div>
+          <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step accent">3</div><div class="pattern-step"></div>
+          <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step accent">7</div><div class="pattern-step"></div>
+          <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step accent">11</div><div class="pattern-step"></div>
+          <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step accent">15</div><div class="pattern-step"></div>
+
+          <div class="pattern-label">Perc</div>
+          <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+          <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step ghost">8</div>
+          <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+          <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Program on the Launchpad Pro MK3</div>
+      <ul>
+        <li>Select the Kick MIDI clip. Press <kbd>Note</kbd> — Drum Rack maps to the lower-left 4×4 pads.</li>
+        <li>Press <kbd>Sequencer</kbd>. Tap step <span class="code">1, 5, 9, 13</span>. Move to the Hat cell, hit steps <span class="code">3, 7, 11, 15</span>.</li>
+        <li>Hold a step + press a velocity pad to set per-step velocity. Alternate hat 90 / 65.</li>
+        <li>Press <kbd>Patterns</kbd> → save slot 1. Copy to slot 2 for a sparser late-track variation.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Kick + Hat + Perc processing</div>
+      <table class="param-table">
+        <caption>Kick channel</caption>
+        <tr><td>EQ Eight — HP</td><td>30 Hz, 24 dB/oct</td></tr>
+        <tr><td>EQ Eight — Bell @ 60 Hz</td><td>+2 dB body</td></tr>
+        <tr><td>Saturator — Drive</td><td>+3 dB, Soft Sine</td></tr>
+        <tr><td>Fader</td><td>~ -10 dB</td></tr>
+      </table>
+      <table class="param-table">
+        <caption>Hat / Perc</caption>
+        <tr><td>Hat — EQ HP</td><td>500 Hz, 24 dB/oct</td></tr>
+        <tr><td>Hat — Fader</td><td>~ -18 dB</td></tr>
+        <tr><td>Perc — Reverb send</td><td>-12 dB</td></tr>
+        <tr><td>Perc — Echo send</td><td>-9 dB</td></tr>
+        <tr><td>Perc — Fader</td><td>~ -22 dB</td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Sidechain the bass to the kick</div>
+      <ul>
+        <li>Compressor on <span class="code">MF BASS</span>. Sidechain on, Audio From <span class="code">KICK</span> Pre FX.</li>
+        <li>Ratio 4:1, Attack 1 ms, Release 120 ms, ~ <span class="code">-3 dB</span> reduction per kick.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does the groove move without thinking?</li>
+        <li>Is the kick burying the bass?</li>
+        <li>Is the hat supporting or fronting?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 6 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M14 28 a6 6 0 0 1 0 -12 a8 8 0 0 1 15 -2 a6 6 0 0 1 1 14 z"/></svg>
+      </div>
+      <div class="step-num">Step 06</div>
+      <h2 class="step-title">Create the atmosphere layer</h2>
+    </div>
+
+    <p style="color:var(--text-muted);">Pick one method. Don't stack them — one textured layer, not a wall.</p>
+
+    <div class="sub-block">
+      <div class="sub-label">Option A — Reversed drone</div>
+      <ul>
+        <li>Select drone clip, <kbd>⌘ D</kbd>, drag copy to <span class="code">ATMOS</span>.</li>
+        <li>Right-click → <span class="menu">Reverse</span>.</li>
+        <li>Auto Filter HP @ <span class="code">300 Hz</span>, resonance 15 %. Reverb send <span class="code">-6 dB</span>.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Option B — Resample reverb tail</div>
+      <ul>
+        <li>Hybrid Reverb on master, decay <span class="code">15 s</span>, Dry/Wet 100 %.</li>
+        <li>New audio track, Audio From → <strong>Resampling</strong>. Arm. <kbd>⌘ ⇧ R</kbd>. 16 bars.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Option C — Stretched noise</div>
+      <ul>
+        <li>MicroFreak Oscillator <span class="code">Noise</span>. Wave 80, Timbre 30. Record 60 s.</li>
+        <li>Clip view → Warp Mode <strong>Texture</strong>. Set clip BPM to <span class="code">62</span>.</li>
+        <li>Auto Filter BP @ 1.2 kHz → Reverb send <span class="code">-6 dB</span>.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Option D — FX-only</div>
+      <ul>
+        <li>Short drone fragment → Grain Delay: Freq 8.0, Pitch -7 st, Spray 60 ms, Dry/Wet 60 %.</li>
+        <li>Hybrid Reverb large algorithm, decay 10 s. EQ to live in the mids only.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Muting the atmosphere should make the track feel <em>smaller</em>, not missing.</li>
+        <li>If you can clearly name what it's doing, it's too loud.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 7 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 34 Q22 6 38 14"/><circle cx="6" cy="34" r="2.5" fill="currentColor"/><circle cx="38" cy="14" r="2.5" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Step 07</div>
+      <h2 class="step-title">Draw the automation</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Setup</div>
+      <ul>
+        <li><kbd>A</kbd> to show automation lanes. Pencil (<kbd>B</kbd>) for drawing.</li>
+        <li>Right-click any segment → <span class="menu">Curve</span> to bend ramps into S-curves.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Automation map</div>
+      <table class="param-table">
+        <caption>Bass Auto Filter</caption>
+        <tr><td>Cutoff @ 0:00 – 2:00</td><td>~ 600 Hz (closed)</td></tr>
+        <tr><td>Cutoff @ 3:00</td><td>~ 1.2 kHz</td></tr>
+        <tr><td>Cutoff @ 4:30</td><td>~ 3.5 kHz (open)</td></tr>
+        <tr><td>Cutoff @ 5:30 – 6:30</td><td>back to ~ 800 Hz</td></tr>
+        <tr><td>Resonance @ 4:30 – 5:00</td><td>20 % → 55 % → 20 %</td></tr>
+      </table>
+      <table class="param-table">
+        <caption>Drone volume + Reverb send</caption>
+        <tr><td>Volume @ 0:00</td><td>-12 dB</td></tr>
+        <tr><td>Volume @ 3:00</td><td>-16 dB</td></tr>
+        <tr><td>Volume @ 6:30 – 8:00</td><td>-10 dB (fade)</td></tr>
+        <tr><td>Reverb send @ 4:30</td><td>-10 dB → -3 dB</td></tr>
+      </table>
+      <table class="param-table">
+        <caption>Echo feedback + Saturator drive</caption>
+        <tr><td>Echo feedback @ 5:00</td><td>40 % → 65 % → 40 %</td></tr>
+        <tr><td>Saturator drive @ 5:00</td><td>+3 dB → +8 dB → +3 dB</td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Perform automation on the Launchpad</div>
+      <ul>
+        <li><kbd>⌘ M</kbd> for MIDI map. Click Auto Filter Cutoff → tap a Launchpad pad. Set Min/Max to 600 Hz / 3500 Hz.</li>
+        <li>Map four pads: cutoff, resonance, echo feedback, reverb send.</li>
+        <li>Exit map mode. Arm parameters for automation. <kbd>F9</kbd> for Arrangement Record. Tap pads slowly.</li>
+        <li>After: right-click lane → <span class="menu">Simplify Envelope</span>.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>If you can hear the automation move, it's too fast.</li>
+        <li>Can you remove one lane without weakening the arc? If yes, remove it.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 8 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="4" y="14" width="10" height="6" rx="1"/><rect x="16" y="14" width="14" height="6" rx="1"/><rect x="32" y="14" width="8" height="6" rx="1"/><rect x="8" y="24" width="16" height="6" rx="1"/><rect x="26" y="24" width="12" height="6" rx="1"/></svg>
+      </div>
+      <div class="step-num">Step 08</div>
+      <h2 class="step-title">Place clips on the timeline</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Bar positions at 124 BPM</div>
+      <table class="param-table">
+        <caption>Section → Bar</caption>
+        <tr><td>0:00</td><td>Bar 1</td></tr>
+        <tr><td>1:00</td><td>Bar 32</td></tr>
+        <tr><td>2:00</td><td>Bar 63</td></tr>
+        <tr><td>3:00</td><td>Bar 94</td></tr>
+        <tr><td>4:30</td><td>Bar 140</td></tr>
+        <tr><td>5:30</td><td>Bar 171</td></tr>
+        <tr><td>6:30</td><td>Bar 202</td></tr>
+        <tr><td>8:00</td><td>Bar 249</td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Clip placement, section by section</div>
+      <ul>
+        <li><strong>0:00 – 1:00</strong> — Drone from bar 1, atmosphere at <span class="code">-22 dB</span>.</li>
+        <li><strong>1:00 – 2:00</strong> — Kick MIDI from bar 32. First hit at velocity 70 (soft entrance).</li>
+        <li><strong>2:00 – 3:00</strong> — Bass audio from bar 63. <kbd>⌘ E</kbd> to split first 4 bars, fade in via clip corner.</li>
+        <li><strong>3:00 – 4:30</strong> — Hat from bar 94, perc from bar 110. Bass filter opens 600 Hz → 3.5 kHz.</li>
+        <li><strong>4:30 – 5:30</strong> — Nothing new. Energy comes entirely from automation peaks.</li>
+        <li><strong>5:30 – 6:30</strong> — Delete perc, mute hat 32 bars, kick fader -2 dB via automation.</li>
+        <li><strong>6:30 – 8:00</strong> — Cut bass, then kick at 7:00. Drone + atmosphere fade-out on master volume.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Rehearse the arc on the Launchpad first</div>
+      <ul>
+        <li>Drop clips into <strong>Session view</strong>. <kbd>Tab</kbd> to switch views.</li>
+        <li><kbd>Session</kbd> on Launchpad — 8×8 grid mirrors Session.</li>
+        <li>Use track-select row to mute/unmute live across the 8-minute arc.</li>
+        <li>When gestures feel right, replicate as clip placements with fades in Arrangement.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Polyrhythmic perc on Launchpad's internal sequencer</div>
+      <ul>
+        <li>Select <span class="code">PERC</span>. On Launchpad: <kbd>Sequencer</kbd>, Length <span class="code">14 steps</span>.</li>
+        <li>Place 2–3 hits. 14 against 16 phase-shifts slowly — drift without new notes.</li>
+        <li>Record into a long MIDI clip, trim where the drift is welcome.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Shortcuts</div>
+      <table class="param-table">
+        <caption>Keep one hand on trackpad, one on keys</caption>
+        <tr><td>Split clip at playhead</td><td><kbd>⌘ E</kbd></td></tr>
+        <tr><td>Duplicate selection</td><td><kbd>⌘ D</kbd></td></tr>
+        <tr><td>Loop selection</td><td><kbd>⌘ L</kbd></td></tr>
+        <tr><td>Consolidate selection</td><td><kbd>⌘ J</kbd></td></tr>
+        <tr><td>Show automation</td><td><kbd>A</kbd></td></tr>
+        <tr><td>Draw mode</td><td><kbd>B</kbd></td></tr>
+        <tr><td>Move by 1 bar</td><td><kbd>⇧ ←</kbd> / <kbd>⇧ →</kbd></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- STEP 9 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><line x1="12" y1="8" x2="12" y2="36"/><line x1="22" y1="8" x2="22" y2="36"/><line x1="32" y1="8" x2="32" y2="36"/><rect x="9" y="18" width="6" height="3" rx="0.5" fill="currentColor"/><rect x="19" y="24" width="6" height="3" rx="0.5" fill="currentColor"/><rect x="29" y="14" width="6" height="3" rx="0.5" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Step 09</div>
+      <h2 class="step-title">Basic mix pass</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Group and reset</div>
+      <ul>
+        <li>Select <span class="code">KICK</span>, <span class="code">HAT</span>, <span class="code">PERC</span> → <kbd>⌘ G</kbd> → <span class="code">DRUMS</span>.</li>
+        <li><span class="code">MF BASS</span>, <span class="code">MF DRONE</span>, <span class="code">ATMOS</span> → <kbd>⌘ G</kbd> → <span class="code">SYNTHS</span>.</li>
+        <li>Pull all faders to <span class="code">-inf</span>. Bring up one at a time, 30 s between each.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Target fader levels</div>
+      <table class="param-table">
+        <caption>Starting balance</caption>
+        <tr><td>Kick</td><td>-10 dB (peaks ~ -6 dBFS)</td></tr>
+        <tr><td>Bass</td><td>-12 dB</td></tr>
+        <tr><td>Drone</td><td>-16 dB</td></tr>
+        <tr><td>Closed Hat</td><td>-18 dB</td></tr>
+        <tr><td>Percussion</td><td>-22 dB</td></tr>
+        <tr><td>Atmosphere</td><td>-20 dB</td></tr>
+        <tr><td>Return A (Reverb)</td><td>-8 dB</td></tr>
+        <tr><td>Return B (Echo)</td><td>-10 dB</td></tr>
+        <tr><td>Master peak</td><td>≤ -3 dBFS</td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Frequency separation</div>
+      <ul>
+        <li><span class="code">MF DRONE</span>: EQ HP <span class="code">120 Hz</span>, 24 dB/oct.</li>
+        <li><span class="code">ATMOS</span>: HP <span class="code">220 Hz</span>, LP shelf <span class="code">8 kHz</span> -3 dB.</li>
+        <li><span class="code">MF BASS</span>: narrow bell cut <span class="code">200 – 300 Hz</span> by 1.5 dB if woolly.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Master bus check</div>
+      <ul>
+        <li>Spectrum + Utility on master. Nothing else. No limiter for this exercise.</li>
+        <li>Flip Utility Width to 0 % every few minutes — anything disappearing in mono = widening overdone.</li>
+        <li>Take headphones off every 15 minutes. Ear fatigue is the main cause of bad mixes here.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 10 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><polyline points="14 18 22 26 30 18"/><line x1="22" y1="8" x2="22" y2="26"/><line x1="8" y1="34" x2="36" y2="34"/></svg>
+      </div>
+      <div class="step-num">Step 10</div>
+      <h2 class="step-title">Export and step away</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Render region</div>
+      <ul>
+        <li>Click timeline at <span class="code">0:00</span>. <kbd>⇧</kbd>-click at <span class="code">8:00</span>.</li>
+        <li><span class="menu">File → Export Audio / Video</span>.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Export settings</div>
+      <table class="param-table">
+        <caption>Render</caption>
+        <tr><td>Rendered Track</td><td>Master</td></tr>
+        <tr><td>Render Length</td><td>8:00</td></tr>
+        <tr><td>File Type</td><td>WAV</td></tr>
+        <tr><td>Sample Rate</td><td>48000 Hz</td></tr>
+        <tr><td>Bit Depth</td><td>24-bit</td></tr>
+        <tr><td>Normalize</td><td>OFF</td></tr>
+        <tr><td>Convert to Mono</td><td>OFF</td></tr>
+        <tr><td>Filename</td><td>lab_001_v1.wav</td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Listen, but not in Ableton</div>
+      <ul>
+        <li>Copy to phone. Listen in different rooms, on different gear.</li>
+        <li><span class="code">lab_001_notes.txt</span> next to the WAV — maximum 10 lines.</li>
+        <li>Wait one day. Change <strong>one thing</strong>. Render <span class="code">v2</span>. Compare.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-nav">
+    <a href="arrangement.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 05 / Arrangement
+    </a>
+    <a href="reflection.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      07 / Reflection →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note 001 — Hypnotic Techno Build</div>
+
+</div>
+
+</body>
+</html>

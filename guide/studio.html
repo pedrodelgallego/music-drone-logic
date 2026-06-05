@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hypnotic Techno Guide — Studio &amp; Setup</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label">Contents</p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="decisions.html"><span class="nav-num">02</span>Decisions</a>
+  <a href="studio.html" class="active"><span class="nav-num">03</span>Studio &amp; setup</a>
+  <a href="palette.html"><span class="nav-num">04</span>Sound palette</a>
+  <a href="arrangement.html"><span class="nav-num">05</span>Arrangement</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="eyebrow">03 — Studio &amp; setup</div>
+    <h1>Your studio</h1>
+    <p class="lede">Four boxes and one pair of headphones. Every step is written against exactly this setup.</p>
+  </header>
+
+  <div class="cards">
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="10" width="32" height="20" rx="2"/><line x1="16" y1="36" x2="28" y2="36"/><line x1="22" y1="30" x2="22" y2="36"/></svg>
+      </div>
+      <h3 class="card-title">Ableton Live 12 Suite</h3>
+      <ul class="card-points">
+        <li>The studio brain — DAW, hosts everything</li>
+        <li>Drum Racks, audio takes, effects, automation</li>
+        <li>Arrangement, mixing, exporting</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="14" width="32" height="16" rx="2"/><line x1="14" y1="14" x2="14" y2="30"/><line x1="22" y1="14" x2="22" y2="30"/><line x1="30" y1="14" x2="30" y2="30"/></svg>
+      </div>
+      <h3 class="card-title">Arturia MicroFreak</h3>
+      <ul class="card-points">
+        <li>Digital oscillator engines + analogue-style filter</li>
+        <li>Source of bass, drone, and texture layers</li>
+        <li>Onboard sequencer and modulation matrix</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="7" y="7" width="7" height="7" rx="1"/><rect x="18.5" y="7" width="7" height="7" rx="1"/><rect x="30" y="7" width="7" height="7" rx="1"/><rect x="7" y="18.5" width="7" height="7" rx="1"/><rect x="18.5" y="18.5" width="7" height="7" rx="1"/><rect x="30" y="18.5" width="7" height="7" rx="1"/><rect x="7" y="30" width="7" height="7" rx="1"/><rect x="18.5" y="30" width="7" height="7" rx="1"/><rect x="30" y="30" width="7" height="7" rx="1"/></svg>
+      </div>
+      <h3 class="card-title">Launchpad Pro MK3</h3>
+      <ul class="card-points">
+        <li>64 RGB pads + internal step sequencer</li>
+        <li>Tactile drum programming + performance mutes</li>
+        <li>Live automation gestures via MIDI mapping</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="14" width="32" height="16" rx="2"/><circle cx="14" cy="22" r="2.5"/><circle cx="22" cy="22" r="2.5"/><circle cx="30" cy="22" r="2.5"/></svg>
+      </div>
+      <h3 class="card-title">MOTU M4</h3>
+      <ul class="card-points">
+        <li>4-in / 4-out USB audio interface</li>
+        <li>Routes MicroFreak in, monitors out</li>
+        <li>Zero-latency direct monitoring for tracking</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M10 24 a12 12 0 0 1 24 0"/><rect x="6" y="22" width="8" height="12" rx="2"/><rect x="30" y="22" width="8" height="12" rx="2"/></svg>
+      </div>
+      <h3 class="card-title">Beyerdynamic DT 990 Pro</h3>
+      <ul class="card-points">
+        <li>Open-back, 250 Ω studio headphones</li>
+        <li>Wide soundstage, honest about depth</li>
+        <li>Watch for the upper-mid bump near 7–10 kHz</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <h2>How the boxes talk to each other</h2>
+  <p style="text-align:center; max-width:620px; margin:0 auto 24px; color:var(--text-muted);">Two flows run in parallel — audio and control. Knowing which signal lives where prevents most beginner debugging trips.</p>
+
+  <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:11px; letter-spacing:0.2em; text-transform:uppercase;">Audio path</h3>
+  <div class="signal-flow">
+    <span class="signal-node">MicroFreak</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">MOTU M4 In 1</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">Ableton</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">MOTU Out</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">DT 990 Pro</span>
+  </div>
+
+  <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:11px; letter-spacing:0.2em; text-transform:uppercase;">Control + MIDI clock</h3>
+  <div class="signal-flow">
+    <span class="signal-node">Launchpad Pro MK3</span>
+    <span class="signal-arrow">↔ USB ↔</span>
+    <span class="signal-node">Ableton</span>
+    <span class="signal-arrow">→ MIDI clock →</span>
+    <span class="signal-node">MicroFreak</span>
+  </div>
+
+  <h2>Track layout</h2>
+
+  <table>
+    <thead><tr><th>Track</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><td>Kick</td><td>Drum Rack (Ableton)</td></tr>
+      <tr><td>Closed Hat</td><td>Drum Rack (Ableton)</td></tr>
+      <tr><td>Percussion</td><td>Drum Rack (Ableton)</td></tr>
+      <tr><td>MF Bass</td><td>MicroFreak — recorded audio</td></tr>
+      <tr><td>MF Drone</td><td>MicroFreak — recorded audio</td></tr>
+      <tr><td>Atmosphere</td><td>Processed / resampled audio</td></tr>
+      <tr><td>Return A</td><td>Hybrid Reverb</td></tr>
+      <tr><td>Return B</td><td>Echo</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Tempo &amp; mood</h2>
+  <p style="text-align:center; color:var(--text-muted);">Recommended tempo: <span class="code">122–126 BPM</span>. Start at <strong>124 BPM</strong>.</p>
+
+  <div class="tag-row">
+    <span class="tag">dark</span>
+    <span class="tag">hypnotic</span>
+    <span class="tag">mechanical</span>
+    <span class="tag">atmospheric</span>
+    <span class="tag">slightly melancholic</span>
+    <span class="tag">futuristic</span>
+    <span class="tag">late-night</span>
+    <span class="tag">warehouse-like</span>
+  </div>
+
+  <div class="page-nav">
+    <a href="decisions.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 02 / Decisions
+    </a>
+    <a href="palette.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      04 / Sound palette →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note 001 — Hypnotic Techno Build</div>
+
+</div>
+
+</body>
+</html>
