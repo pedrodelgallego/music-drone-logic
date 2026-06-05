@@ -1,0 +1,2151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Build an Original Hypnotic Techno Track with Ableton + MicroFreak</title>
+<style>
+  :root {
+    --bg: #0a0c10;
+    --bg-elevated: #11141a;
+    --bg-card: #14181f;
+    --bg-callout: #0e1419;
+    --border: #1f242d;
+    --border-strong: #2a313c;
+    --text: #d8dde4;
+    --text-muted: #8a93a1;
+    --text-dim: #5f6877;
+    --accent-cyan: #5fd7d0;
+    --accent-blue: #6aa6ff;
+    --accent-violet: #a78bfa;
+    --accent-acid: #b8e34a;
+    --accent-warn: #e88a5a;
+    --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    line-height: 1.65;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background:
+      radial-gradient(ellipse 80% 50% at 50% -10%, rgba(95, 215, 208, 0.06), transparent 60%),
+      radial-gradient(ellipse 60% 40% at 80% 30%, rgba(106, 166, 255, 0.04), transparent 70%),
+      radial-gradient(ellipse 60% 40% at 20% 70%, rgba(167, 139, 250, 0.04), transparent 70%),
+      var(--bg);
+    background-attachment: fixed;
+  }
+
+  .container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 64px 28px 120px;
+  }
+
+  /* HEADER */
+  .hero {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 56px;
+    margin-bottom: 56px;
+  }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent-cyan);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .eyebrow::before {
+    content: "";
+    width: 28px;
+    height: 1px;
+    background: var(--accent-cyan);
+    display: inline-block;
+  }
+
+  h1 {
+    font-size: clamp(28px, 5vw, 44px);
+    line-height: 1.15;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin: 0 0 20px;
+    color: #f1f4f8;
+  }
+
+  .subtitle {
+    font-size: clamp(15px, 2vw, 18px);
+    color: var(--text-muted);
+    max-width: 720px;
+    line-height: 1.55;
+    font-weight: 400;
+    margin: 0 0 36px;
+  }
+
+  .intro {
+    color: var(--text);
+    font-size: 16px;
+    max-width: 760px;
+    margin: 0;
+  }
+
+  .intro p {
+    margin: 0 0 16px;
+  }
+
+  .intro p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* SECTIONS */
+  section {
+    margin-bottom: 72px;
+  }
+
+  .section-number {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  h2 {
+    font-size: clamp(22px, 3.2vw, 28px);
+    letter-spacing: -0.015em;
+    font-weight: 600;
+    margin: 0 0 8px;
+    color: #ecf0f5;
+    line-height: 1.25;
+  }
+
+  .section-lede {
+    color: var(--text-muted);
+    font-size: 15px;
+    max-width: 680px;
+    margin: 0 0 28px;
+  }
+
+  h3 {
+    font-size: 17px;
+    font-weight: 600;
+    color: #e3e8ee;
+    margin: 32px 0 12px;
+    letter-spacing: -0.005em;
+  }
+
+  h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--accent-cyan);
+    margin: 20px 0 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-family: var(--mono);
+  }
+
+  p {
+    margin: 0 0 14px;
+    color: var(--text);
+  }
+
+  ul, ol {
+    color: var(--text);
+    padding-left: 22px;
+    margin: 0 0 16px;
+  }
+
+  li {
+    margin-bottom: 6px;
+  }
+
+  ul li::marker {
+    color: var(--accent-cyan);
+  }
+
+  ol li::marker {
+    color: var(--accent-blue);
+    font-family: var(--mono);
+    font-size: 0.9em;
+  }
+
+  /* CALLOUT */
+  .callout {
+    background: linear-gradient(135deg, rgba(95, 215, 208, 0.05), rgba(106, 166, 255, 0.03));
+    border-left: 2px solid var(--accent-cyan);
+    padding: 22px 26px;
+    margin: 28px 0;
+    border-radius: 2px;
+    position: relative;
+  }
+
+  .callout-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent-cyan);
+    margin-bottom: 6px;
+  }
+
+  .callout p {
+    margin: 0;
+    font-size: 17px;
+    color: #ecf0f5;
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+  .callout.violet {
+    background: linear-gradient(135deg, rgba(167, 139, 250, 0.06), rgba(167, 139, 250, 0.02));
+    border-left-color: var(--accent-violet);
+  }
+  .callout.violet .callout-label { color: var(--accent-violet); }
+
+  .callout.acid {
+    background: linear-gradient(135deg, rgba(184, 227, 74, 0.05), rgba(95, 215, 208, 0.02));
+    border-left-color: var(--accent-acid);
+  }
+  .callout.acid .callout-label { color: var(--accent-acid); }
+
+  /* CARDS GRID */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    margin: 24px 0;
+  }
+
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 22px;
+    transition: border-color 0.2s ease;
+  }
+
+  .card:hover {
+    border-color: var(--border-strong);
+  }
+
+  .card-number {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    color: var(--accent-blue);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+
+  .card-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #ecf0f5;
+    margin: 0 0 12px;
+    line-height: 1.3;
+  }
+
+  .card-body {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* CHECKLIST */
+  .checklist {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 24px 28px;
+    margin: 20px 0;
+  }
+
+  .checklist-title {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .checklist.success .checklist-title { color: var(--accent-cyan); }
+  .checklist.failure .checklist-title { color: var(--accent-warn); }
+
+  .checklist ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .checklist li {
+    padding: 6px 0 6px 26px;
+    position: relative;
+    color: var(--text);
+    border-bottom: 1px dashed rgba(255,255,255,0.04);
+    font-size: 14.5px;
+  }
+
+  .checklist li:last-child {
+    border-bottom: none;
+  }
+
+  .checklist.success li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 14px;
+    width: 12px;
+    height: 12px;
+    border: 1px solid var(--accent-cyan);
+    border-radius: 2px;
+  }
+
+  .checklist.failure li::before {
+    content: "!";
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 14px;
+    height: 14px;
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--accent-warn);
+    border: 1px solid var(--accent-warn);
+    border-radius: 50%;
+    text-align: center;
+    line-height: 12px;
+    font-weight: 700;
+  }
+
+  /* TABLES */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 14px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  th {
+    text-align: left;
+    background: var(--bg-elevated);
+    color: var(--accent-cyan);
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border-strong);
+    font-weight: 600;
+  }
+
+  td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    vertical-align: top;
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+
+  td code {
+    color: var(--accent-acid);
+    font-family: var(--mono);
+    font-size: 13px;
+  }
+
+  /* SIGNAL FLOW */
+  .signal-flow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 20px;
+    margin: 20px 0;
+    font-family: var(--mono);
+    font-size: 13px;
+  }
+
+  .signal-node {
+    padding: 8px 14px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-strong);
+    border-radius: 4px;
+    color: var(--text);
+    letter-spacing: 0.04em;
+  }
+
+  .signal-arrow {
+    color: var(--accent-cyan);
+    font-weight: 600;
+  }
+
+  /* TAG ROW */
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 18px 0;
+  }
+
+  .tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    padding: 6px 12px;
+    border: 1px solid var(--border-strong);
+    background: var(--bg-elevated);
+    color: var(--text-muted);
+    border-radius: 2px;
+    text-transform: lowercase;
+  }
+
+  .tag.cyan { color: var(--accent-cyan); border-color: rgba(95, 215, 208, 0.3); }
+  .tag.blue { color: var(--accent-blue); border-color: rgba(106, 166, 255, 0.3); }
+  .tag.violet { color: var(--accent-violet); border-color: rgba(167, 139, 250, 0.3); }
+  .tag.acid { color: var(--accent-acid); border-color: rgba(184, 227, 74, 0.3); }
+
+  /* TIMELINE */
+  .timeline {
+    margin: 20px 0;
+    border-left: 1px solid var(--border-strong);
+    padding-left: 0;
+  }
+
+  .timeline-row {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 20px;
+    padding: 14px 0 14px 24px;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .timeline-row::before {
+    content: "";
+    position: absolute;
+    left: -4px;
+    top: 22px;
+    width: 7px;
+    height: 7px;
+    background: var(--accent-blue);
+    border-radius: 50%;
+  }
+
+  .timeline-row:last-child {
+    border-bottom: none;
+  }
+
+  .timeline-time {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent-blue);
+    letter-spacing: 0.04em;
+    padding-top: 2px;
+  }
+
+  .timeline-desc {
+    color: var(--text);
+    font-size: 14.5px;
+  }
+
+  /* HOW STEPS */
+  .how-section {
+    background: linear-gradient(180deg, rgba(106, 166, 255, 0.02), transparent);
+    border-top: 1px solid var(--border-strong);
+    border-bottom: 1px solid var(--border-strong);
+    padding: 56px 0;
+    margin: 80px 0 72px;
+  }
+
+  .step {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 28px 30px;
+    margin-bottom: 18px;
+    position: relative;
+  }
+
+  .step-header {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 16px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .step-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--accent-cyan);
+    text-transform: uppercase;
+    flex-shrink: 0;
+  }
+
+  .step-title {
+    font-size: 17px;
+    font-weight: 600;
+    color: #ecf0f5;
+    margin: 0;
+    letter-spacing: -0.005em;
+  }
+
+  .decision-check {
+    background: var(--bg-callout);
+    border: 1px dashed var(--border-strong);
+    border-radius: 4px;
+    padding: 16px 20px;
+    margin-top: 18px;
+  }
+
+  .decision-check-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--accent-violet);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .decision-check p {
+    margin: 0 0 8px;
+    color: var(--text-muted);
+    font-size: 14px;
+  }
+
+  .decision-check ul {
+    margin: 0;
+    padding-left: 20px;
+  }
+
+  .decision-check li {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+
+  /* SUB BLOCK INSIDE STEP */
+  .sub-block {
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px dashed var(--border);
+  }
+
+  .sub-block:first-child {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+  }
+
+  .sub-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: var(--accent-blue);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  /* REFLECTION */
+  .reflection-list {
+    counter-reset: reflection;
+    list-style: none;
+    padding: 0;
+    margin: 24px 0;
+  }
+
+  .reflection-list li {
+    counter-increment: reflection;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-left: 2px solid var(--accent-violet);
+    padding: 16px 22px 16px 56px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    position: relative;
+    color: var(--text);
+    font-size: 15px;
+  }
+
+  .reflection-list li::before {
+    content: counter(reflection, decimal-leading-zero);
+    position: absolute;
+    left: 18px;
+    top: 16px;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent-violet);
+    letter-spacing: 0.05em;
+  }
+
+  /* RULES LIST */
+  .rules-list {
+    counter-reset: rule;
+    list-style: none;
+    padding: 0;
+    margin: 24px 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .rules-list li {
+    counter-increment: rule;
+    padding: 14px 18px 14px 60px;
+    position: relative;
+    color: var(--text);
+    font-size: 15px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .rules-list li:last-child {
+    border-bottom: none;
+  }
+
+  .rules-list li::before {
+    content: counter(rule, decimal-leading-zero);
+    position: absolute;
+    left: 18px;
+    top: 14px;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent-acid);
+    letter-spacing: 0.05em;
+  }
+
+  /* FINAL PRINCIPLE */
+  .final-principle {
+    text-align: center;
+    margin: 80px 0 0;
+    padding: 56px 32px;
+    border: 1px solid var(--border-strong);
+    background: linear-gradient(135deg, rgba(95, 215, 208, 0.04), rgba(167, 139, 250, 0.04));
+    border-radius: 6px;
+  }
+
+  .final-principle-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    color: var(--accent-cyan);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .final-principle p {
+    font-size: clamp(17px, 2.4vw, 22px);
+    color: #ecf0f5;
+    line-height: 1.5;
+    font-style: italic;
+    max-width: 640px;
+    margin: 0 auto;
+    font-weight: 400;
+  }
+
+  /* FOOTER */
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    color: var(--text-dim);
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  /* INLINE CODE + KBD */
+  kbd, .kbd {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    padding: 2px 7px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-strong);
+    border-bottom-width: 2px;
+    border-radius: 3px;
+    color: var(--accent-cyan);
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    display: inline-block;
+    line-height: 1.4;
+  }
+
+  .code {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--accent-acid);
+    background: rgba(184, 227, 74, 0.06);
+    padding: 1px 6px;
+    border-radius: 3px;
+    border: 1px solid rgba(184, 227, 74, 0.12);
+  }
+
+  .menu {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    color: var(--accent-blue);
+    background: rgba(106, 166, 255, 0.05);
+    padding: 1px 7px;
+    border-radius: 3px;
+    border: 1px solid rgba(106, 166, 255, 0.15);
+    white-space: nowrap;
+  }
+
+  .note {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    color: var(--accent-violet);
+    letter-spacing: 0.05em;
+  }
+
+  /* PARAM TABLE — compact 2-col knob settings */
+  .param-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 13px;
+    background: var(--bg-callout);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .param-table caption {
+    text-align: left;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-blue);
+    padding: 10px 14px;
+    background: var(--bg-elevated);
+    border-bottom: 1px solid var(--border);
+    caption-side: top;
+  }
+
+  .param-table td {
+    padding: 8px 14px;
+    border-bottom: 1px dashed var(--border);
+    font-size: 13px;
+    font-family: var(--mono);
+    color: var(--text);
+  }
+
+  .param-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .param-table td:first-child {
+    color: var(--text-muted);
+    width: 52%;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+
+  .param-table td:last-child {
+    color: var(--accent-cyan);
+    text-align: right;
+  }
+
+  /* 16-STEP PATTERN */
+  .pattern-wrap {
+    overflow-x: auto;
+    margin: 14px 0 6px;
+    padding-bottom: 4px;
+  }
+
+  .pattern {
+    display: grid;
+    grid-template-columns: 90px repeat(16, minmax(20px, 1fr));
+    gap: 3px;
+    min-width: 520px;
+    font-family: var(--mono);
+    font-size: 10px;
+  }
+
+  .pattern-label {
+    color: var(--text-muted);
+    padding: 6px 8px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    font-size: 10px;
+  }
+
+  .pattern-step {
+    aspect-ratio: 1;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-dim);
+    font-size: 9px;
+  }
+
+  .pattern-step.on {
+    background: rgba(95, 215, 208, 0.18);
+    border-color: var(--accent-cyan);
+    color: var(--accent-cyan);
+  }
+
+  .pattern-step.accent {
+    background: rgba(184, 227, 74, 0.22);
+    border-color: var(--accent-acid);
+    color: var(--accent-acid);
+  }
+
+  .pattern-step.ghost {
+    background: rgba(167, 139, 250, 0.14);
+    border-color: rgba(167, 139, 250, 0.5);
+    color: var(--accent-violet);
+  }
+
+  .pattern-key {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--text-dim);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin: 8px 0 0;
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+
+  .pattern-key span::before {
+    content: "";
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    border-radius: 2px;
+    margin-right: 6px;
+    vertical-align: middle;
+    border: 1px solid;
+  }
+
+  .pattern-key .k-kick::before { background: rgba(95, 215, 208, 0.2); border-color: var(--accent-cyan); }
+  .pattern-key .k-accent::before { background: rgba(184, 227, 74, 0.22); border-color: var(--accent-acid); }
+  .pattern-key .k-ghost::before { background: rgba(167, 139, 250, 0.14); border-color: var(--accent-violet); }
+
+  /* TIP BOX */
+  .tip {
+    background: linear-gradient(135deg, rgba(106, 166, 255, 0.04), transparent);
+    border-left: 2px solid var(--accent-blue);
+    padding: 12px 18px;
+    margin: 14px 0;
+    border-radius: 0 4px 4px 0;
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+
+  .tip strong {
+    color: var(--accent-blue);
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 4px;
+    font-weight: 600;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 640px) {
+    .container { padding: 40px 18px 80px; }
+    .hero { padding-bottom: 36px; margin-bottom: 36px; }
+    section { margin-bottom: 56px; }
+    .step { padding: 22px 20px; }
+    .card { padding: 18px; }
+    .checklist { padding: 18px 20px; }
+    .signal-flow { padding: 14px; font-size: 11.5px; }
+    .timeline-row { grid-template-columns: 90px 1fr; gap: 12px; }
+    .reflection-list li { padding-left: 50px; }
+    .rules-list li { padding-left: 50px; }
+    th, td { padding: 10px 12px; font-size: 13px; }
+    .how-section { padding: 36px 0; margin: 56px 0; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="eyebrow">Production Brief / Lab Note 001</div>
+    <h1>Build an Original Hypnotic Techno Track with Ableton + MicroFreak</h1>
+    <p class="subtitle">A top-down production guide for repetition, modulation, atmosphere, and long-form evolution.</p>
+    <div class="intro">
+      <p>This guide is a learning exercise inspired by the production philosophy of hypnotic techno artists such as Daniel Avery, Donato Dozzy, Luigi Tozzi, Deepchord, and the wider early 2010s atmospheric and acid techno scene. The aim is not to recreate, imitate, or borrow from any existing track. The track you build must be fully original.</p>
+      <p>The goal is to learn how a minimal amount of musical material — a short bass sequence, a slow drone, a steady kick, a handful of effects — can become deeply immersive through sequencing, modulation, filtering, space, and arrangement discipline. You are not trying to finish a polished commercial release. You are training a producer's intuition.</p>
+    </div>
+  </header>
+
+  <!-- SECTION 1: GOAL -->
+  <section>
+    <div class="section-number">Section 01 / Goal</div>
+    <h2>The objective</h2>
+    <p class="section-lede">Define what you are building before touching a single knob.</p>
+
+    <p>Create an original 6–8 minute hypnotic techno track using only <strong>Ableton Live 12 Suite</strong> and the <strong>Arturia MicroFreak</strong>. The track is a vehicle for learning, not a release candidate. It exists to teach the fundamentals of electronic music production through a single, disciplined exercise.</p>
+
+    <p>The fundamentals you will practice:</p>
+
+    <div class="tag-row">
+      <span class="tag cyan">sequencing</span>
+      <span class="tag cyan">synthesis</span>
+      <span class="tag cyan">modulation</span>
+      <span class="tag blue">drum programming</span>
+      <span class="tag blue">filter movement</span>
+      <span class="tag blue">reverb and delay</span>
+      <span class="tag violet">arrangement</span>
+      <span class="tag violet">sound restraint</span>
+      <span class="tag acid">long-form tension</span>
+      <span class="tag acid">experimental listening</span>
+    </div>
+
+    <div class="callout">
+      <div class="callout-label">Core objective</div>
+      <p>The objective is to understand how a small number of musical ideas can sustain interest over a 6–8 minute journey.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 2: WHY -->
+  <section>
+    <div class="section-number">Section 02 / Reasoning</div>
+    <h2>Why this exercise matters</h2>
+    <p class="section-lede">Hypnotic techno teaches discipline by inverting the beginner's instinct.</p>
+
+    <p>Most beginners try to create interest by stacking. They add more notes. They add more tracks. They add more plugins. They add more sections. They add more dramatic transitions. The track grows wider rather than deeper.</p>
+
+    <p>Hypnotic techno trains the opposite reflex. Interest is built from:</p>
+
+    <ul>
+      <li>Repetition</li>
+      <li>Texture</li>
+      <li>Space</li>
+      <li>Tension</li>
+      <li>Modulation</li>
+      <li>Filter movement</li>
+      <li>Delay feedback</li>
+      <li>Reverb depth</li>
+      <li>Small changes over long periods</li>
+      <li>The listener gradually noticing details that were always there</li>
+    </ul>
+
+    <p>This is a powerful exercise because the skills transfer. The same instincts apply to ambient, IDM, cyberpunk soundtracks, generative music, sound design, and live experimental performance. You are not learning a genre. You are learning how to make sound evolve.</p>
+
+    <div class="callout violet">
+      <div class="callout-label">Principle</div>
+      <p>Do less, but make each element evolve.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 3: KEY DESIGN DECISIONS -->
+  <section>
+    <div class="section-number">Section 03 / Decisions</div>
+    <h2>Key design decisions</h2>
+    <p class="section-lede">Eight decisions made up front, before any sound is recorded. Each one shapes everything that follows.</p>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-number">Decision 01</div>
+        <h3 class="card-title">Use very few elements</h3>
+        <p class="card-body">One bass sequence, one drone, one atmosphere layer, one kick, one closed hat, one percussion element. Limitation forces better decisions. If the track does not work with six elements, adding twenty will not solve the core problem — it will only hide it.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-number">Decision 02</div>
+        <h3 class="card-title">Repetition is the main musical engine</h3>
+        <p class="card-body">The main sequence should repeat for minutes at a time. The listener has to become familiar with it. Familiarity is the prerequisite for meaning — once the pattern is internalised, the smallest change becomes a musical event.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-number">Decision 03</div>
+        <h3 class="card-title">Modulation creates movement</h3>
+        <p class="card-body">The track evolves through filter cutoff automation, resonance changes, LFO movement, reverb send changes, delay feedback changes, saturation changes, and timbre changes. Not through constantly adding new melodies.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-number">Decision 04</div>
+        <h3 class="card-title">Atmosphere is as important as rhythm</h3>
+        <p class="card-body">The drone and atmosphere layer are not background decoration. They carry emotional depth, scale, and immersion. Remove them and a hypnotic techno track collapses into a loop.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-number">Decision 05</div>
+        <h3 class="card-title">Avoid big drops</h3>
+        <p class="card-body">This is not an EDM track. Energy should rise and fall gradually. The reward is not surprise, it is immersion. Build a state, not an event.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-number">Decision 06</div>
+        <h3 class="card-title">Change one thing at a time</h3>
+        <p class="card-body">When learning, change one variable per pass. If the track gets better or worse, you need to know exactly why. Multiple simultaneous changes destroy diagnostic clarity.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-number">Decision 07</div>
+        <h3 class="card-title">Record audio early</h3>
+        <p class="card-body">Record the MicroFreak into Ableton as audio rather than relying on live MIDI. Committing to audio early invites editing, resampling, reversing, slicing, fading, and effect chains that would never happen on a live take.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-number">Decision 08</div>
+        <h3 class="card-title">Use Ableton as the studio brain</h3>
+        <p class="card-body">Ableton handles arrangement, effects, automation, drums, recording, editing, and mixing. The MicroFreak provides character, sequences, drones, and evolving textures. Two tools, two clear roles.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: SUCCESS CRITERIA -->
+  <section>
+    <div class="section-number">Section 04 / Success criteria</div>
+    <h2>How you know it worked</h2>
+    <p class="section-lede">Two checklists. The first is what success looks like. The second is what failure feels like long before you admit it.</p>
+
+    <div class="checklist success">
+      <div class="checklist-title">Success signals</div>
+      <ul>
+        <li>The track works with fewer than eight elements.</li>
+        <li>The main sequence remains interesting after five minutes.</li>
+        <li>The track feels like it evolves even though very little changes.</li>
+        <li>Most movement comes from modulation and automation.</li>
+        <li>The drums support the groove without dominating the track.</li>
+        <li>The drone adds depth and emotion.</li>
+        <li>The arrangement has tension, release, and space.</li>
+        <li>Each element has a clear purpose.</li>
+        <li>The listener can enter a hypnotic state.</li>
+        <li>You can explain why each production decision was made.</li>
+      </ul>
+    </div>
+
+    <div class="checklist failure">
+      <div class="checklist-title">Failure signals</div>
+      <ul>
+        <li>The track needs constant new elements to stay interesting.</li>
+        <li>The bassline becomes annoying after 30 seconds.</li>
+        <li>The drums feel too busy.</li>
+        <li>The atmosphere masks the groove.</li>
+        <li>The reverb makes everything muddy.</li>
+        <li>The arrangement feels like random muting and unmuting.</li>
+        <li>Automation is too dramatic or too fast.</li>
+        <li>The track sounds like a loop pasted for six minutes instead of a loop that evolves.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SECTION 5: STUDIO / GEAR -->
+  <section>
+    <div class="section-number">Section 05 / Studio</div>
+    <h2>Your studio</h2>
+    <p class="section-lede">Four boxes and one pair of headphones. Every step in this guide is written against exactly this setup.</p>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-number">DAW</div>
+        <h3 class="card-title">Ableton Live 12 Suite</h3>
+        <p class="card-body">The studio brain. Hosts the Drum Racks, MicroFreak audio takes, effects, automation, and the arrangement. All composition, editing, and mixing decisions live here.</p>
+        <div class="tag-row" style="margin: 14px 0 0;">
+          <span class="tag blue">arrangement</span>
+          <span class="tag blue">effects</span>
+          <span class="tag blue">automation</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-number">Synth</div>
+        <h3 class="card-title">Arturia MicroFreak</h3>
+        <p class="card-body">Digital oscillator engines, analogue-modelled filter, paraphonic. Onboard sequencer and modulation matrix. Source of the bass sequence, the drone, and one texture layer — captured as audio.</p>
+        <div class="tag-row" style="margin: 14px 0 0;">
+          <span class="tag violet">bass</span>
+          <span class="tag violet">drone</span>
+          <span class="tag violet">texture</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-number">Controller</div>
+        <h3 class="card-title">Novation Launchpad Pro MK3</h3>
+        <p class="card-body">64 RGB pads with a built-in step sequencer, scale-aware Note mode, Patterns memory, and four Custom Modes. Native Ableton integration. In this exercise: tactile drum programming, performance mutes, live automation gestures, and a second polyrhythmic sequencer running alongside the MicroFreak.</p>
+        <div class="tag-row" style="margin: 14px 0 0;">
+          <span class="tag cyan">drums</span>
+          <span class="tag cyan">performance</span>
+          <span class="tag cyan">step seq</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-number">Interface</div>
+        <h3 class="card-title">MOTU M4</h3>
+        <p class="card-body">4-in / 4-out USB audio interface. Routes the MicroFreak into Ableton and the master out to the DT 990 Pro. Clean preamps, low round-trip latency, and zero-latency direct monitoring for tracking long MicroFreak takes.</p>
+        <div class="tag-row" style="margin: 14px 0 0;">
+          <span class="tag acid">audio I/O</span>
+          <span class="tag acid">monitoring</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-number">Monitoring</div>
+        <h3 class="card-title">Beyerdynamic DT 990 Pro</h3>
+        <p class="card-body">Open-back, 250 Ω studio headphones. Wide soundstage, exposed top end, honest about reverb depth and stereo width. Be aware of the upper-mid bump around 7 – 10 kHz when judging hat brightness — leave a little headroom there.</p>
+        <div class="tag-row" style="margin: 14px 0 0;">
+          <span class="tag">open-back</span>
+          <span class="tag">250 Ω</span>
+        </div>
+      </div>
+    </div>
+
+    <h3>How the boxes talk to each other</h3>
+    <p>Two flows run in parallel: audio and control. Knowing which signal lives where prevents most beginner debugging trips.</p>
+
+    <h4>Audio path</h4>
+    <div class="signal-flow">
+      <span class="signal-node">MicroFreak</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">MOTU M4 In 1</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">Ableton</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">MOTU M4 Main Out</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">DT 990 Pro</span>
+    </div>
+
+    <h4>Control + MIDI clock path</h4>
+    <div class="signal-flow">
+      <span class="signal-node">Launchpad Pro MK3</span>
+      <span class="signal-arrow">↔ USB ↔</span>
+      <span class="signal-node">Ableton</span>
+      <span class="signal-arrow">→ USB MIDI clock →</span>
+      <span class="signal-node">MicroFreak</span>
+    </div>
+
+    <p>The Launchpad sends notes and MIDI to Ableton and receives RGB feedback (lit clips, armed tracks, active drum pads). Ableton sends MIDI clock to the MicroFreak over USB so the synth's internal sequencer stays locked to 124 BPM without you having to think about it.</p>
+  </section>
+
+  <!-- SECTION 6: SYSTEM SETUP -->
+  <section>
+    <div class="section-number">Section 06 / Setup</div>
+    <h2>System setup and signal flow</h2>
+    <p class="section-lede">A clean signal chain prevents most beginner mixing problems before they exist.</p>
+
+    <h4>Signal flow</h4>
+    <div class="signal-flow">
+      <span class="signal-node">MicroFreak</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">MOTU M4 input</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">Ableton audio track</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">Effects</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">Master out</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">DT 990 Pro</span>
+    </div>
+
+    <h4>Role of the MicroFreak (3 roles)</h4>
+    <table>
+      <thead>
+        <tr><th>Role</th><th>Purpose</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Bass sequence</td><td>Repetitive, rhythmic, filter-driven core identity of the track.</td></tr>
+        <tr><td>Drone</td><td>Slow, sustained, emotional bed beneath the rhythm.</td></tr>
+        <tr><td>Texture / atmosphere</td><td>Resampled or processed material providing depth and unpredictability.</td></tr>
+      </tbody>
+    </table>
+
+    <h4>Role of the Launchpad Pro MK3 (4 roles)</h4>
+    <table>
+      <thead>
+        <tr><th>Role</th><th>Purpose</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Drum programming</td><td>Step-edit kick / hat / perc patterns on the 8×8 grid with per-step velocity. The pads mirror the active Drum Rack in real time.</td></tr>
+        <tr><td>Performance mutes</td><td>Mute and unmute tracks live during arrangement decisions, then commit the gestures as clip cuts and fades in Arrangement view.</td></tr>
+        <tr><td>Automation performance</td><td>MIDI-map a row of pads to bass cutoff, echo feedback, and reverb send. Move parameters by hand and capture musical automation curves.</td></tr>
+        <tr><td>Secondary step sequencer</td><td>Run a polyrhythmic percussion line in the Launchpad's internal sequencer (e.g. 12 or 14 steps) against the bass's 16, for slow-drifting variation.</td></tr>
+      </tbody>
+    </table>
+
+    <h4>Role of Ableton Live 12 (6 roles)</h4>
+    <table>
+      <thead>
+        <tr><th>Role</th><th>Purpose</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Drum machine</td><td>Kick, hats, percussion via Drum Rack and stock instruments.</td></tr>
+        <tr><td>Audio recorder</td><td>Capture MicroFreak takes as committed audio for editing.</td></tr>
+        <tr><td>Arrangement timeline</td><td>Structure the 6–8 minute journey.</td></tr>
+        <tr><td>Effects processor</td><td>Auto Filter, Echo, Hybrid Reverb, Saturator, EQ Eight, Utility.</td></tr>
+        <tr><td>Automation engine</td><td>Slow, deliberate parameter changes over time.</td></tr>
+        <tr><td>Mixing environment</td><td>Gain staging, frequency separation, spatial depth.</td></tr>
+      </tbody>
+    </table>
+
+    <h4>Recommended track layout</h4>
+    <table>
+      <thead>
+        <tr><th>Track</th><th>Source</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Kick</td><td>Ableton Drum Rack / sample</td></tr>
+        <tr><td>Closed Hat</td><td>Ableton Drum Rack / sample</td></tr>
+        <tr><td>Percussion</td><td>Ableton Drum Rack / sample</td></tr>
+        <tr><td>MicroFreak Bass Sequence</td><td>Recorded audio</td></tr>
+        <tr><td>MicroFreak Drone</td><td>Recorded audio</td></tr>
+        <tr><td>Atmosphere / Resampled Texture</td><td>Processed audio</td></tr>
+        <tr><td>Return A</td><td>Hybrid Reverb</td></tr>
+        <tr><td>Return B</td><td>Echo</td></tr>
+      </tbody>
+    </table>
+
+    <h4>Tempo and mood</h4>
+    <p>Recommended tempo: <code style="font-family: var(--mono); color: var(--accent-acid);">122–126 BPM</code>. Start at <strong>124 BPM</strong>.</p>
+
+    <p>Target mood:</p>
+    <div class="tag-row">
+      <span class="tag violet">dark</span>
+      <span class="tag violet">hypnotic</span>
+      <span class="tag blue">mechanical</span>
+      <span class="tag blue">atmospheric</span>
+      <span class="tag cyan">slightly melancholic</span>
+      <span class="tag cyan">futuristic</span>
+      <span class="tag acid">late-night</span>
+      <span class="tag acid">warehouse-like</span>
+      <span class="tag">cyberpunk but restrained</span>
+    </div>
+  </section>
+
+  <!-- SECTION 6: SOUND PALETTE -->
+  <section>
+    <div class="section-number">Section 07 / Palette</div>
+    <h2>Sound palette</h2>
+    <p class="section-lede">A small set of elements. Each one earns its place by what it does, not by what it adds.</p>
+
+    <h3>Bass sequence</h3>
+    <p>Short, repetitive, slightly acidic, rhythmic, filter-driven, built from three to five notes, strong enough to loop for several minutes without fatigue.</p>
+    <p><strong>MicroFreak approach:</strong></p>
+    <ul>
+      <li>Use a harmonically rich oscillator (Wavetable, Harmo, Karplus, or Superwave).</li>
+      <li>Use low-pass filtering.</li>
+      <li>Add resonance carefully — a little goes a long way.</li>
+      <li>Use the onboard sequencer or arpeggiator.</li>
+      <li>Add slight modulation to timbre or filter.</li>
+      <li>Avoid overly melodic patterns. Rhythm and contour matter more than melody.</li>
+    </ul>
+
+    <h3>Drone</h3>
+    <p>Long, evolving, slightly unstable, spacious, emotional, textural rather than melodic.</p>
+    <p><strong>MicroFreak approach:</strong></p>
+    <ul>
+      <li>Use one sustained note.</li>
+      <li>Use slow LFO modulation.</li>
+      <li>Modulate timbre, wave shape, or filter.</li>
+      <li>Record a long take — three minutes minimum.</li>
+      <li>Process with Hybrid Reverb and Echo inside Ableton.</li>
+    </ul>
+
+    <h3>Atmosphere</h3>
+    <p>The atmosphere layer can be built from any of the following:</p>
+    <ul>
+      <li>A resampled MicroFreak drone</li>
+      <li>Noise processed through reverb</li>
+      <li>Reversed audio</li>
+      <li>A frozen reverb tail</li>
+      <li>A stretched recording</li>
+      <li>A filtered texture</li>
+    </ul>
+
+    <h3>Drums</h3>
+    <p>Minimal by design.</p>
+    <ul>
+      <li>Four-on-the-floor kick.</li>
+      <li>Offbeat closed hat.</li>
+      <li>One simple percussion loop.</li>
+      <li>No complex fills at first.</li>
+      <li>No constant crashes.</li>
+      <li>No over-programming.</li>
+    </ul>
+
+    <h3>Effects</h3>
+    <p>Use Ableton stock effects only. They are sufficient and they force focus.</p>
+
+    <table>
+      <thead>
+        <tr><th>Effect</th><th>Used for</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Auto Filter</td><td>Tension, movement, opening and closing the frequency range.</td></tr>
+        <tr><td>Echo</td><td>Rhythmic space, repeats, feedback, hypnotic motion.</td></tr>
+        <tr><td>Hybrid Reverb</td><td>Depth, scale, atmosphere, long tails.</td></tr>
+        <tr><td>Saturator</td><td>Warmth, grit, density, controlled aggression.</td></tr>
+        <tr><td>Utility</td><td>Gain staging, mono checking, width control.</td></tr>
+        <tr><td>EQ Eight</td><td>Remove mud, carve space, prevent frequency conflicts.</td></tr>
+        <tr><td>Compressor</td><td>Only when truly needed. Not by default.</td></tr>
+        <tr><td>Chorus-Ensemble</td><td>Widening textures, atmosphere layers.</td></tr>
+        <tr><td>Grain Delay</td><td>Experimental texture only. Optional.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- SECTION 7: ARRANGEMENT LOGIC -->
+  <section>
+    <div class="section-number">Section 08 / Arrangement logic</div>
+    <h2>The arc of the track</h2>
+    <p class="section-lede">Slow evolution, not a sequence of unrelated sections. A single curve that bends.</p>
+
+    <div class="timeline">
+      <div class="timeline-row">
+        <div class="timeline-time">0:00 – 1:00</div>
+        <div class="timeline-desc">Drone and atmosphere only. Establish the world. No rhythm yet.</div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-time">1:00 – 2:00</div>
+        <div class="timeline-desc">Introduce the kick. Keep it restrained. Let it lock the listener into the pulse.</div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-time">2:00 – 3:00</div>
+        <div class="timeline-desc">Introduce the bass sequence. The core identity of the track appears.</div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-time">3:00 – 4:30</div>
+        <div class="timeline-desc">Gradually open the filter. Add closed hat and subtle percussion.</div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-time">4:30 – 5:30</div>
+        <div class="timeline-desc">Increase tension through delay feedback, resonance, reverb send, or saturation.</div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-time">5:30 – 6:30</div>
+        <div class="timeline-desc">Reduce energy. Remove drums or thin the bass.</div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-time">6:30 – 8:00</div>
+        <div class="timeline-desc">Return to atmosphere, drone, and filtered fragments. Let the track dissolve.</div>
+      </div>
+    </div>
+
+    <p>This arc has no drop. It has no chorus. It does not reward the listener with a payoff section. It rewards them with depth. The listener becomes more absorbed as the same elements quietly transform around them.</p>
+  </section>
+
+  <!-- SECTION 8: PRODUCTION RULES -->
+  <section>
+    <div class="section-number">Section 09 / Rules</div>
+    <h2>Production rules</h2>
+    <p class="section-lede">Ten guardrails. When in doubt, default to them.</p>
+
+    <ol class="rules-list">
+      <li>Do not add a new element until the current element works.</li>
+      <li>Do not add notes when automation can solve the problem.</li>
+      <li>Do not use more than six main tracks at first.</li>
+      <li>Do not use complex chords.</li>
+      <li>Do not use big EDM risers.</li>
+      <li>Do not use a dramatic drop.</li>
+      <li>Do not overfill the low end.</li>
+      <li>Do not automate everything at once.</li>
+      <li>Do not judge the track after only 20 seconds.</li>
+      <li>Listen to each loop for several minutes before changing it.</li>
+    </ol>
+
+    <div class="callout acid">
+      <div class="callout-label">Discipline</div>
+      <p>The discipline is to make small changes feel large.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 9: HOW -->
+  <div class="how-section">
+    <section style="margin-bottom: 0;">
+      <div class="section-number">Section 10 / How</div>
+      <h2>The step-by-step build</h2>
+      <p class="section-lede">Only now do we touch the gear. Each step is small. Each step has a decision checkpoint before moving on.</p>
+
+      <!-- STEP 1 -->
+      <div class="step">
+        <div class="step-header">
+          <div class="step-num">Step 01</div>
+          <h3 class="step-title">Create the Ableton project</h3>
+        </div>
+
+        <div class="sub-block">
+          <div class="sub-label">Open a new set</div>
+          <ul>
+            <li>Launch Ableton Live 12 Suite.</li>
+            <li><kbd>⌘ N</kbd> for a new Live Set.</li>
+            <li>Press <kbd>Tab</kbd> to switch from Session to <strong>Arrangement</strong> view (we will work in Arrangement for the full 8 minutes).</li>
+            <li>Top-left tempo field: type <code class="code">124</code> and press Enter. Time signature: <code class="code">4/4</code>.</li>
+            <li>Right-click the timeline ruler and set <span class="menu">Time Ruler Format → Time</span> so positions are shown as <code class="code">m:ss</code> instead of bars.</li>
+          </ul>
+        </div>
+
+        <div class="sub-block">
+          <div class="sub-label">Audio preferences</div>
+          <ul>
+            <li>Open <span class="menu">⌘ ,</span> → <strong>Audio</strong> tab.</li>
+            <li><strong>Audio Input Device:</strong> MOTU M4. <strong>Audio Output Device:</strong> MOTU M4.</li>
+            <li><strong>Sample Rate:</strong> <code class="code">48000 Hz</code>. <strong>Buffer Size:</strong> <code class="code">256 samples</code> (raise to 512 if you hear clicks).</li>
+            <li>Under <span class="menu">Input Config</span>, enable inputs <code class="code">1/2</code> mono and stereo. The MicroFreak is mono — we will record from input <code class="code">1</code>.</li>
+          </ul>
+        </div>
+
+        <div class="sub-block">
+          <div class="sub-label">Enable the Launchpad Pro MK3</div>
+          <ul>
+            <li>Plug the Launchpad into the Mac with the supplied USB cable. Wait for the pads to wake.</li>
+            <li>Open <span class="menu">⌘ ,</span> → <strong>Link, Tempo &amp; MIDI</strong> tab.</li>
+            <li>Under <strong>Control Surface</strong>, choose <code class="code">Launchpad Pro MK3</code>. Set <strong>Input</strong> and <strong>Output</strong> both to <code class="code">Launchpad Pro MK3 (LPProMK3 DAW)</code>.</li>
+            <li>In the <strong>MIDI Ports</strong> list below, enable <strong>Track</strong> and <strong>Remote</strong> for the second port — <code class="code">Launchpad Pro MK3 (LPProMK3 MIDI)</code>. That port carries notes from the Launchpad's Note and Sequencer modes into Ableton.</li>
+            <li>Press <kbd>Session</kbd> on the Launchpad. The Ableton ring of cyan / red pads on the right two columns should light up — that's the Session-view mirror confirming the link.</li>
+          </ul>
+        </div>
+
+        <div class="sub-block">
+          <div class="sub-label">Send MIDI clock to the MicroFreak</div>
+          <ul>
+            <li>Same Preferences tab. Find your MicroFreak port (it appears once the synth is connected by USB).</li>
+            <li>On the <strong>Output</strong> row for the MicroFreak, enable <strong>Sync</strong>.</li>
+            <li>On the MicroFreak: <kbd>Shift</kbd> + <kbd>Tempo</kbd> → set source to <strong>USB</strong>. The MicroFreak now follows Ableton's clock exactly.</li>
+          </ul>
+        </div>
+
+        <div class="sub-block">
+          <div class="sub-label">Create the tracks</div>
+          <ul>
+            <li><kbd>⌘ ⇧ T</kbd> three times to create three <strong>MIDI</strong> tracks → rename with <kbd>⌘ R</kbd>: <code class="code">KICK</code>, <code class="code">HAT</code>, <code class="code">PERC</code>.</li>
+            <li><kbd>⌘ T</kbd> three times to create three <strong>audio</strong> tracks: <code class="code">MF BASS</code>, <code class="code">MF DRONE</code>, <code class="code">ATMOS</code>.</li>
+            <li><kbd>⌘ ⌥ T</kbd> twice for two <strong>return</strong> tracks: <code class="code">A — REVERB</code>, <code class="code">B — ECHO</code>.</li>
+            <li>Color-code: drums one colour, MicroFreak audio another, atmosphere a third. Right-click track header → <span class="menu">Color</span>. This is purely so the eye can scan the arrangement at a glance.</li>
+          </ul>
+        </div>
+
+        <div class="sub-block">
+          <div class="sub-label">Save</div>
+          <ul>
+            <li><kbd>⌘ S</kbd>. Save as <code class="code">hypnotic_lab_001.als</code> inside a project folder of the same name.</li>
+            <li>Enable <span class="menu">Options → Auto Save</span>. You will be running long recording passes; do not lose them.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="step">
+        <div class="step-header">
+          <div class="step-num">Step 02</div>
+          <h3 class="step-title">Connect and gain-stage the MicroFreak</h3>
+        </div>
+
+        <div class="sub-block">
+          <div class="sub-label">Physical signal chain</div>
+          <ul>
+            <li>1/4" TS cable from MicroFreak <strong>Audio Out</strong> → MOTU M4 <strong>Input 1</strong> (front panel combo jack).</li>
+            <li>On the MOTU M4 front panel: hold <span class="menu">MON</span> and rotate the encoder to make sure Input 1 is set to <strong>Line</strong> (not Mic/Instrument with +48V).</li>
+            <li>Headphone amp output on the M4 → DT 990 Pro. Set the headphone knob halfway to start.</li>
+          </ul>
+        </div>
+
+        <div class="sub-block">
+          <div class="sub-label">Configure the MF BASS track to record</div>
+          <ul>
+            <li>Select the <code class="code">MF BASS</code> audio track.</li>
+            <li>In the I/O strip (press <kbd>⌘ ⌥ I</kbd> to show I/O if hidden): set <span class="menu">Audio From</span> → <strong>Ext. In</strong>, channel <code class="code">1</code> (mono).</li>
+            <li><span class="menu">Monitor</span> → set to <strong>In</strong> while you're dialling sounds, switch to <strong>Auto</strong> before recording so it follows arm state.</li>
+            <li>Arm the track (red circle on the track header, or <kbd>F</kbd> after selecting it).</li>
+          </ul>
+        </div>
+
+        <div class="sub-block">
+          <div class="sub-label">Gain staging</div>
+          <ul>
+            <li>Play a steady note on the MicroFreak — hold a note with the keyboard.</li>
+            <li>Look at the track meter in Ableton. Adjust the MicroFreak's master volume knob (top right of the synth) until peaks land between <code class="code">-12 dBFS</code> and <code class="code">-6 dBFS</code>.</li>
+            <li>If you have to push the MOTU input gain into the red to hear it, push more level out of the MicroFreak instead. Cleaner gain at the source.</li>
+            <li>Watch the M4's clip LED. If it ever flickers red, lower the source.</li>
+          </ul>
+        </div>
+
+        <div class="sub-block">
+          <div class="sub-label">Test record</div>
+          <ul>
+            <li>Press <kbd>⌘ ⇧ R</kbd> to record into the arrangement (or just <kbd>R</kbd> if shortcut is mapped). Record 8 bars.</li>
+            <li>Stop with <kbd>Space</kbd>. Play back. Confirm: clean signal, no buzz, no clipping, no latency surprises.</li>
+            <li>If you hear unwanted hum, check ground (MOTU USB cable, MicroFreak power brick), and avoid stacking the MicroFreak directly on the M4.</li>
+          </ul>
+        </div>
+
+        <div class="tip">
+          <strong>Latency tip</strong>
+          If you're monitoring through Ableton and feel a slight delay, set <span class="menu">Monitor</span> to <strong>Off</strong> while playing live, and route the MicroFreak directly to the M4 headphone bus via the MOTU mixer (zero-latency direct monitoring).
+        </div>
+      </div>
+
+      <!-- STEP 3 -->
+      <div class="step">
+        <div class="step-header">
+          <div class="step-num">Step 03</div>
+          <h3 class="step-title">Build the bass sequence on the MicroFreak</h3>
+        </div>
+
+        <div class="sub-block">
+          <div class="sub-label">Choose the oscillator</div>
+          <ul>
+            <li>Turn the <strong>Type</strong> encoder to <code class="code">Wavetable</code> (good first choice — harmonically rich, responds well to the filter). Other strong options: <code class="code">Harmo</code>, <code class="code">SuperWave</code>, <code class="code">KarplusStr</code>.</li>
+            <li>Press <kbd>Edit</kbd> to be sure you're starting from a clean init: <kbd>Shift</kbd> + a Type knob press will initialise the engine.</li>
+          </ul>
+        </div>
+
+        <div class="sub-block">
+          <div class="sub-label">Starting knob positions</div>
+          <p>These are starting points, not destinations. Treat them like the centre of a search area.</p>
+          <table class="param-table">
+            <caption>Oscillator + Filter (MicroFreak)</caption>
+            <tr><td>Wave</td><td>~ 30 %</td></tr>
+            <tr><td>Timbre</td><td>~ 50 %</td></tr>
+            <tr><td>Shape</td><td>~ 40 %</td></tr>
+            <tr><td>Filter — Cutoff</td><td>11 o'clock (~ 30 %)</td></tr>
+            <tr><td>Filter — Resonance</td><td>9 o'clock (~ 20 %)</td></tr>
+            <tr><td>Filter — Drive</td><td>12 o'clock</td></tr>
+            <tr><td>Glide</td><td>5 – 10 %</td></tr>
+          </table>
+          <table class="param-table">
+            <caption>Envelope + LFO</caption>
+            <tr><td>ENV — Attack</td><td>0</td></tr>
+            <tr><td>ENV — Decay</td><td>~ 25 %</td></tr>
+            <tr><td>ENV — Sustain</td><td>~ 20 %</td></tr>
+            <tr><td>ENV — Release</td><td>~ 30 %</td></tr>
+            <tr><td>LFO — Shape</td><td>Sine</td></tr>
+            <tr><td>LFO — Rate</td><td>Synced, 1/4 or 1/2</td></tr>
+            <tr><td>Mod matrix</td><td>LFO → Cutoff, depth ~ 15</td></tr>
+          </table>
+        </div>
+
+        <div class="sub-block">
+          <div class="sub-label">Program the sequence</div>
+          <ul>
+            <li>Hold <kbd>Seq</kbd> + <kbd>1</kbd> to select pattern 1. Press <kbd>Seq</kbd> to record-arm step entry.</li>
+            <li>Set length to <strong>16 steps</strong> (Shift + Seq → Length).</li>
+            <li>Scale: <strong>A natural minor</strong> (notes: A, B, C, D, E, F, G). Root <span class="note">A1</span>.</li>
+            <li>Use only 3 – 5 notes. Leave silences. A useful starting pattern idea: place a root note on step 1, a fifth somewhere mid-bar, a minor third near the end, with rests in between. The exact pattern must be yours — change one note and listen for two minutes before changing another.</li>
+            <li>Use the <strong>slide</strong> per step (Shift + step) on 1 or 2 notes only to create acid-style glides.</li>
+            <li>Sync the MicroFreak to Ableton: <kbd>Shift</kbd> + <kbd>Tempo</kbd> → set to <strong>USB</strong> or <strong>MIDI</strong> clock, with Ableton's <span class="menu">Preferences → Link, Tempo &amp; MIDI</span> sending clock to the MicroFreak port. This guarantees the sequencer locks to 124 BPM exactly.</li>
+          </ul>
+        </div>
+
+        <div class="sub-block">
+          <div class="sub-label">Record the take</div>
+          <ul>
+            <li>Loop the sequence and listen for at least <strong>3 minutes</strong> before you decide it works. If you get bored before then, the pattern is too obvious; if you forget it's looping, that's the right zone.</li>
+            <li>Arm the <code class="code">MF BASS</code> track. Position the playhead at bar 1.</li>
+            <li><kbd>⌘ ⇧ R</kbd> to record. Record <strong>at least 4 minutes</strong> (≈ 124 bars). You will edit later — capture more than you need.</li>
+            <li>Stop. Disarm. <kbd>⌘ S</kbd>.</li>
+          </ul>
+        </div>
+
+        <div class="decision-check">
+          <div class="decision-check-label">Decision check</div>
+          <p>Before moving on, answer:</p>
+          <ul>
+            <li>Can I listen to this pattern for several minutes without skipping?</li>
+            <li>Does it create tension instead of resolving?</li>
+            <li>Is it too busy — does any step feel "decorative"?</li>
+            <li>Is it too melodic — does it sound like a hook instead of a loop?</li>
+            <li>Does it leave headroom (frequency and rhythmic space) for kick and drone?</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- STEP 4 -->
+      <div class="step">
+        <div class="step-header">
+          <div class="step-num">Step 04</div>
+          <h3 class="step-title">Build the drone on the MicroFreak</h3>
+        </div>
+
+        <div class="sub-block">
+          <div class="sub-label">Save your bass patch, then init</div>
+          <ul>
+            <li>Save the bass patch to a slot: <kbd>Shift</kbd> + <kbd>Memory</kbd> → choose an empty slot → name it <code class="code">LAB BASS</code>.</li>
+            <li>Init a fresh patch for the drone. Don't try to edit the bass patch into a drone.</li>
+          </ul>
+        </div>
+
+        <div class="sub-block">
+          <div class="sub-label">Drone engine + starting parameters</div>
+          <table class="param-table">
+            <caption>Drone patch (MicroFreak)</caption>
+            <tr><td>Oscillator Type</td><td>Speech, Wavetable, or Harmo</td></tr>
+            <tr><td>Wave</td><td>~ 40 %</td></tr>
+            <tr><td>Timbre</td><td>~ 60 %</td></tr>
+            <tr><td>Shape</td><td>~ 50 %</td></tr>
+            <tr><td>Filter — Cutoff</td><td>10 o'clock (dark)</td></tr>
+            <tr><td>Filter — Resonance</td><td>7 o'clock (almost none)</td></tr>
+            <tr><td>LFO — Shape</td><td>Sine</td></tr>
+            <tr><td>LFO — Rate</td><td>Very slow (un-synced or 1 bar +)</td></tr>
+            <tr><td>Mod 1</td><td>LFO → Timbre, depth ~ 25</td></tr>
+            <tr><td>Mod 2</td><td>Cycling Env → Wave, depth ~ 15</td></tr>
+          </table>
+        </div>
+
+        <div class="sub-block">
+          <div class="sub-label">Capture a long take</div>
+          <ul>
+            <li>Press <kbd>Hold</kbd> on the MicroFreak and play the root note <span class="note">A1</span> (same root as the bass).</li>
+            <li>Optionally hold a second note (a fifth — <span class="note">E2</span> — adds weight without becoming melodic).</li>
+            <li>Re-arm <code class="code">MF DRONE</code>, monitor <strong>In</strong>, hit <kbd>⌘ ⇧ R</kbd>, record at least <strong>4 minutes</strong>.</li>
+            <li>During the take: do not touch knobs in the first minute. Then, very slowly, make tiny moves to Cutoff and Timbre over the next 3 minutes. These manual movements become the personality of the drone.</li>
+          </ul>
+        </div>
+
+        <div class="sub-block">
+          <div class="sub-label">Process the drone in Ableton</div>
+          <p>Add the effects in this order on the <code class="code">MF DRONE</code> track:</p>
+          <table class="param-table">
+            <caption>EQ Eight → Auto Filter → Hybrid Reverb → Utility</caption>
+            <tr><td>EQ Eight — HP filter</td><td>120 Hz, 24 dB/oct</td></tr>
+            <tr><td>EQ Eight — LP shelf</td><td>-3 dB above 6 kHz</td></tr>
+            <tr><td>Auto Filter — Type</td><td>Low-pass 12 dB</td></tr>
+            <tr><td>Auto Filter — Cutoff</td><td>~ 1.5 kHz (we will automate this)</td></tr>
+            <tr><td>Hybrid Reverb — Algorithm</td><td>Convolution, IR: "Hall" or "Plate"</td></tr>
+            <tr><td>Hybrid Reverb — Decay</td><td>6 – 8 s</td></tr>
+            <tr><td>Hybrid Reverb — Predelay</td><td>30 ms</td></tr>
+            <tr><td>Hybrid Reverb — Dry/Wet</td><td>35 %</td></tr>
+            <tr><td>Utility — Width</td><td>120 – 140 %</td></tr>
+          </table>
+          <p>If you want the drone to feel more dub-influenced, send it to <code class="code">Return B — Echo</code> at around <code class="code">-12 dB</code> instead of putting Echo as an insert.</p>
+        </div>
+
+        <div class="decision-check">
+          <div class="decision-check-label">Decision check</div>
+          <p>Solo the drone, then unsolo and listen with the bass. Ask:</p>
+          <ul>
+            <li>Does the drone create the room the track lives in?</li>
+            <li>Does it support the bass sequence rather than fighting it?</li>
+            <li>Is it sitting at roughly <code class="code">-16 dB</code> peak on the meter? Anything louder will dominate.</li>
+            <li>Is it too bright? Pull EQ Eight LP shelf down 2 dB and try again.</li>
+            <li>Is the 80 – 200 Hz region muddy? Tighten the HP.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- STEP 5 -->
+      <div class="step">
+        <div class="step-header">
+          <div class="step-num">Step 05</div>
+          <h3 class="step-title">Build the drum foundation</h3>
+        </div>
+
+        <div class="sub-block">
+          <div class="sub-label">Drag in a Drum Rack</div>
+          <ul>
+            <li>From the Browser <span class="menu">Categories → Drums → Drum Rack</span>, drag an empty Drum Rack onto the <code class="code">KICK</code> track. Do the same for <code class="code">HAT</code> and <code class="code">PERC</code>, or use a single Drum Rack for all three and split MIDI later. Three tracks keeps mixing simpler.</li>
+            <li>Load samples by dragging them onto pad <span class="note">C1</span> of each Drum Rack:
+              <ul>
+                <li><code class="code">KICK</code>: <span class="menu">Packs → Drums → Kicks → Vintage Kit</span> or any dark, tight 808/909-style kick. Avoid trap kicks with long sub tails.</li>
+                <li><code class="code">HAT</code>: a short closed hat. <span class="menu">Packs → Drums → Hihats</span>. Anything labelled "tight" or "vintage" works.</li>
+                <li><code class="code">PERC</code>: a rim, conga, or short metallic tick. One sample only.</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <div class="sub-block">
+          <div class="sub-label">Program a 2-bar pattern</div>
+          <p>Double-click an empty arrangement slot on each track to create a 2-bar MIDI clip (<kbd>⌘ B</kbd> opens the clip detail view). Set loop length to <code class="code">2.0.0</code>. Use the piano roll (<kbd>⌘ L</kbd> to loop, drawing pencil with <kbd>B</kbd>).</p>
+
+          <div class="pattern-wrap">
+            <div class="pattern">
+              <div class="pattern-label">Kick</div>
+              <div class="pattern-step on">1</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+              <div class="pattern-step on">5</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+              <div class="pattern-step on">9</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+              <div class="pattern-step on">13</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+
+              <div class="pattern-label">Hat</div>
+              <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step accent">3</div><div class="pattern-step"></div>
+              <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step accent">7</div><div class="pattern-step"></div>
+              <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step accent">11</div><div class="pattern-step"></div>
+              <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step accent">15</div><div class="pattern-step"></div>
+
+              <div class="pattern-label">Perc</div>
+              <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+              <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step ghost">8</div>
+              <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+              <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+            </div>
+          </div>
+          <div class="pattern-key">
+            <span class="k-kick">kick on 1, 5, 9, 13</span>
+            <span class="k-accent">hat offbeats: 3, 7, 11, 15</span>
+            <span class="k-ghost">perc only on step 8 of bar 1 (skip bar 2)</span>
+          </div>
+        </div>
+
+        <div class="sub-block">
+          <div class="sub-label">Enter the pattern on the Launchpad Pro MK3 (recommended)</div>
+          <ul>
+            <li>Select the Kick MIDI clip. Press <kbd>Note</kbd> on the Launchpad — with a Drum Rack track selected, the lower-left 4×4 maps to the 16 Drum Rack pads, and the upper half becomes a 32-step view.</li>
+            <li>Press <kbd>Sequencer</kbd> to enter step-edit mode for the active cell. Tap step <code class="code">1</code>, <code class="code">5</code>, <code class="code">9</code>, <code class="code">13</code> in the top row. The kick is in.</li>
+            <li>Switch to the Hat cell (tap its drum pad), then place hits on steps <code class="code">3</code>, <code class="code">7</code>, <code class="code">11</code>, <code class="code">15</code>.</li>
+            <li><strong>Per-step velocity:</strong> hold a step and press one of the eight velocity pads on the right column to set its value. Use this to alternate the hat between 90 and 65 instead of opening the piano roll.</li>
+            <li>Press <kbd>Patterns</kbd> to store this 2-bar groove in slot 1. Tap <kbd>Patterns</kbd> + slot 2 to copy it; use slot 2 for a sparser late-track variation (kick only, no hat) you can recall during the 5:30 – 6:30 breakdown.</li>
+          </ul>
+        </div>
+
+        <div class="sub-block">
+          <div class="sub-label">Kick processing</div>
+          <table class="param-table">
+            <caption>Kick channel</caption>
+            <tr><td>EQ Eight — HP filter</td><td>30 Hz, 24 dB/oct</td></tr>
+            <tr><td>EQ Eight — Bell at 60 Hz</td><td>+2 dB, Q 1.2 (body)</td></tr>
+            <tr><td>EQ Eight — Bell at 3 kHz</td><td>+1 dB, Q 1.0 (click)</td></tr>
+            <tr><td>Saturator — Drive</td><td>+3 dB, Curve "Soft Sine"</td></tr>
+            <tr><td>Track fader</td><td>~ -10 dB</td></tr>
+          </table>
+        </div>
+
+        <div class="sub-block">
+          <div class="sub-label">Hat + Perc processing</div>
+          <table class="param-table">
+            <caption>Hat channel</caption>
+            <tr><td>EQ Eight — HP filter</td><td>500 Hz, 24 dB/oct</td></tr>
+            <tr><td>EQ Eight — Bell at 8 kHz</td><td>-2 dB if sibilant</td></tr>
+            <tr><td>Velocity</td><td>Alternate 90 / 65 every other hit</td></tr>
+            <tr><td>Track fader</td><td>~ -18 dB</td></tr>
+          </table>
+          <table class="param-table">
+            <caption>Perc channel</caption>
+            <tr><td>Send to Reverb (Return A)</td><td>-12 dB</td></tr>
+            <tr><td>Send to Echo (Return B)</td><td>-9 dB</td></tr>
+            <tr><td>Track fader</td><td>~ -22 dB</td></tr>
+          </table>
+        </div>
+
+        <div class="sub-block">
+          <div class="sub-label">Sidechain the bass to the kick (optional, recommended)</div>
+          <ul>
+            <li>Add <span class="menu">Compressor</span> on the <code class="code">MF BASS</code> track.</li>
+            <li>Enable <strong>Sidechain</strong>. Audio From: <code class="code">KICK</code> → <code class="code">Pre FX</code>.</li>
+            <li>Ratio 4:1, Attack 1 ms, Release 120 ms, Threshold so you get about <code class="code">-3 dB</code> of gain reduction on each kick.</li>
+            <li>The point is rhythm, not loudness. You should feel the bass breathe with the kick.</li>
+          </ul>
+        </div>
+
+        <div class="decision-check">
+          <div class="decision-check-label">Decision check</div>
+          <p>Loop the drums + bass + drone for two full minutes. Then ask:</p>
+          <ul>
+            <li>Does the groove move without me thinking about it? If you're nodding, you're done.</li>
+            <li>Is the kick burying the bass? If yes, move the kick bell at 60 Hz down 1 dB or cut bass at 60 Hz.</li>
+            <li>Is the hat poking out instead of supporting? Drop it 2 dB and add a touch of reverb send.</li>
+            <li>Is the percussion drawing attention away from the bass? If yes, mute it for now — you can re-introduce it during the arrangement.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- STEP 6 -->
+      <div class="step">
+        <div class="step-header">
+          <div class="step-num">Step 06</div>
+          <h3 class="step-title">Create the atmosphere layer</h3>
+        </div>
+        <p>Pick one of these methods. Don't do all of them — the point is a single textured layer, not a wall of background noise.</p>
+
+        <div class="sub-block">
+          <div class="sub-label">Option A — Reversed, filtered drone</div>
+          <ul>
+            <li>Select the drone audio clip. <kbd>⌘ D</kbd> to duplicate. Drag the copy to the <code class="code">ATMOS</code> track.</li>
+            <li>Right-click → <span class="menu">Reverse</span> (or shortcut <kbd>R</kbd> with clip selected).</li>
+            <li>Add <span class="menu">Auto Filter</span>: HP, cutoff <code class="code">300 Hz</code>, resonance 15 %. Then Hybrid Reverb send <code class="code">-6 dB</code>.</li>
+            <li>Set the track fader to <code class="code">-20 dB</code>. The reversed swells should be felt as a "breathing in" gesture before each phrase.</li>
+          </ul>
+        </div>
+
+        <div class="sub-block">
+          <div class="sub-label">Option B — Freeze + resample a reverb tail</div>
+          <ul>
+            <li>Solo the drone. On the master, add Hybrid Reverb with Decay <code class="code">15 s</code>, Dry/Wet 100 %.</li>
+            <li>Create a new audio track <code class="code">ATMOS</code>. Set <span class="menu">Audio From</span> → <strong>Resampling</strong>. Arm.</li>
+            <li>Play 16 bars. <kbd>⌘ ⇧ R</kbd> to capture. You now have a slow, dense tail clip — drag it across the arrangement as a slow-moving bed.</li>
+            <li>Remove the reverb from the master afterwards.</li>
+          </ul>
+        </div>
+
+        <div class="sub-block">
+          <div class="sub-label">Option C — MicroFreak noise, stretched</div>
+          <ul>
+            <li>On the MicroFreak: Oscillator Type <code class="code">Noise</code>. Wave ~ 80 (filtered), Timbre ~ 30 (resonant peaks).</li>
+            <li>Record 60 seconds onto a new clip in <code class="code">ATMOS</code>.</li>
+            <li>Open the clip view. Set <span class="menu">Warp Mode</span> to <strong>Texture</strong>. Set the clip BPM to <code class="code">62</code> (half-tempo) so it stretches 2× and gains grain.</li>
+            <li>Add Auto Filter (BP, cutoff 1.2 kHz, sweep slowly) → Hybrid Reverb send <code class="code">-6 dB</code>.</li>
+          </ul>
+        </div>
+
+        <div class="sub-block">
+          <div class="sub-label">Option D — FX-only atmosphere</div>
+          <ul>
+            <li>Drag a short fragment of the drone (1 – 2 bars) onto <code class="code">ATMOS</code>.</li>
+            <li>Add <span class="menu">Grain Delay</span>: Frequency 8.0, Pitch -7 st, Spray 60 ms, Dry/Wet 60 %.</li>
+            <li>Follow with Hybrid Reverb (large algorithm, decay 10 s).</li>
+            <li>EQ Eight to roll off everything below 200 Hz and above 6 kHz so the atmosphere lives in the mids.</li>
+          </ul>
+        </div>
+
+        <div class="tip">
+          <strong>Reference</strong>
+          The atmosphere should sit so quietly that muting it makes the track feel <em>smaller</em> rather than missing an element. If you can clearly name what the atmosphere is doing, it is probably too loud.
+        </div>
+
+        <div class="decision-check">
+          <div class="decision-check-label">Decision check</div>
+          <ul>
+            <li>Mute the atmosphere. Does the track feel narrower or flatter?</li>
+            <li>Unmute. Does it feel deeper without becoming muddier?</li>
+            <li>Look at a spectrum analyzer (Spectrum on the master). Is anything below 150 Hz appearing only because of the atmosphere? If so, HP higher.</li>
+            <li>Is the atmosphere drawing attention every time it appears? It should not be a focal element.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- STEP 7 -->
+      <div class="step">
+        <div class="step-header">
+          <div class="step-num">Step 07</div>
+          <h3 class="step-title">Draw the automation</h3>
+        </div>
+
+        <div class="sub-block">
+          <div class="sub-label">Setup</div>
+          <ul>
+            <li>Press <kbd>A</kbd> in Arrangement view to reveal automation lanes on every track.</li>
+            <li>On a track, click the small triangle/arrow under the track name to expand it, then choose the device + parameter from the two dropdowns.</li>
+            <li>Draw points with the pencil (<kbd>B</kbd> to toggle). Right-click any segment → <span class="menu">Curve</span> to bend linear ramps into smooth S-curves. Most movement in this track should be curved, not linear.</li>
+          </ul>
+        </div>
+
+        <div class="sub-block">
+          <div class="sub-label">Automation map — timing and values</div>
+          <p>These are the only automations you need for a first pass. Anything more is decoration.</p>
+          <table class="param-table">
+            <caption>Bass — Auto Filter on MF BASS</caption>
+            <tr><td>Cutoff @ 0:00 – 2:00</td><td>~ 600 Hz (closed)</td></tr>
+            <tr><td>Cutoff @ 3:00</td><td>~ 1.2 kHz</td></tr>
+            <tr><td>Cutoff @ 4:30</td><td>~ 3.5 kHz (open)</td></tr>
+            <tr><td>Cutoff @ 5:30 – 6:30</td><td>back to ~ 800 Hz</td></tr>
+            <tr><td>Resonance @ 4:30 – 5:00</td><td>spike from 20 % → 55 % → 20 %</td></tr>
+          </table>
+          <table class="param-table">
+            <caption>Drone — Volume + Reverb Send</caption>
+            <tr><td>Volume @ 0:00</td><td>-12 dB (drone leads alone)</td></tr>
+            <tr><td>Volume @ 3:00</td><td>-16 dB (yield to bass + drums)</td></tr>
+            <tr><td>Volume @ 6:30 – 8:00</td><td>back to -10 dB (final fade)</td></tr>
+            <tr><td>Send to Reverb @ 4:30</td><td>climb -10 dB → -3 dB</td></tr>
+            <tr><td>Send to Reverb @ 5:30</td><td>back to -10 dB</td></tr>
+          </table>
+          <table class="param-table">
+            <caption>Echo (Return B) — Feedback + Filter</caption>
+            <tr><td>Feedback @ 0:00 – 4:30</td><td>40 %</td></tr>
+            <tr><td>Feedback @ 5:00</td><td>65 % (peak tension)</td></tr>
+            <tr><td>Feedback @ 5:30</td><td>back to 40 %</td></tr>
+            <tr><td>Filter LP @ 5:00</td><td>open from 4 kHz → 8 kHz</td></tr>
+          </table>
+          <table class="param-table">
+            <caption>Saturator on MF BASS</caption>
+            <tr><td>Drive @ 0:00 – 4:00</td><td>+3 dB</td></tr>
+            <tr><td>Drive @ 5:00</td><td>+8 dB (push, grit)</td></tr>
+            <tr><td>Drive @ 6:00</td><td>back to +3 dB</td></tr>
+          </table>
+        </div>
+
+        <div class="sub-block">
+          <div class="sub-label">Perform the automation on the Launchpad Pro MK3</div>
+          <ul>
+            <li>Drawing automation with the mouse produces square, mechanical curves. Performing it with your fingers produces musical ones. The Launchpad is the bridge.</li>
+            <li>Enter <kbd>⌘ M</kbd> in Ableton (MIDI map mode). Click the bass <strong>Auto Filter Cutoff</strong> knob, then tap any pad on the Launchpad — it now sends MIDI to that parameter. Set <strong>Min</strong> and <strong>Max</strong> in the map list to the values from the table above (600 Hz → 3500 Hz).</li>
+            <li>Repeat for: bass Resonance, Echo Feedback (Return B), Reverb Send (track), and Saturator Drive. Map them to four adjacent pads.</li>
+            <li>Exit map mode (<kbd>⌘ M</kbd> again). Switch the Launchpad to <kbd>Custom 1</kbd> for a clean view of just those four mapped pads.</li>
+            <li>Arm the four target parameters for automation (right-click the parameter → <span class="menu">Show Automation</span>, then click the red arm circle on the lane).</li>
+            <li>Press <kbd>F9</kbd> to enable Arrangement Record. Play. Tap the pads slowly, deliberately, watching the lane fill with your gesture.</li>
+            <li>After the pass, right-click the lane → <span class="menu">Simplify Envelope</span> to clean up jitter while keeping the human shape.</li>
+          </ul>
+        </div>
+
+        <div class="tip">
+          <strong>Rule of thumb</strong>
+          If you can hear the automation move, it's probably too fast. The right automation is the kind a listener only notices when comparing 30 seconds ago to now.
+        </div>
+
+        <div class="decision-check">
+          <div class="decision-check-label">Decision check</div>
+          <ul>
+            <li>Play from 0:00 to 6:00 without touching anything. Which automation made you feel a shift?</li>
+            <li>Are any moves dramatic enough to be noticed in 4 bars? If yes, stretch them across 16 bars instead.</li>
+            <li>Is the resonance peak at 4:30 actually creating tension, or just sounding nasal?</li>
+            <li>Can you remove one automation lane without weakening the arc? If yes, remove it.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- STEP 8 -->
+      <div class="step">
+        <div class="step-header">
+          <div class="step-num">Step 08</div>
+          <h3 class="step-title">Place clips on the timeline</h3>
+        </div>
+
+        <div class="sub-block">
+          <div class="sub-label">Bar positions at 124 BPM</div>
+          <p>Use this reference to drop clips at the right place. With <span class="menu">Time Ruler Format → Time</span> you can also just snap to the <code class="code">m:ss</code> marks.</p>
+          <table class="param-table">
+            <caption>Section → Bar (124 BPM, 4/4)</caption>
+            <tr><td>0:00</td><td>Bar 1</td></tr>
+            <tr><td>1:00</td><td>Bar 32</td></tr>
+            <tr><td>2:00</td><td>Bar 63</td></tr>
+            <tr><td>3:00</td><td>Bar 94</td></tr>
+            <tr><td>4:30</td><td>Bar 140</td></tr>
+            <tr><td>5:30</td><td>Bar 171</td></tr>
+            <tr><td>6:30</td><td>Bar 202</td></tr>
+            <tr><td>8:00</td><td>Bar 249</td></tr>
+          </table>
+        </div>
+
+        <div class="sub-block">
+          <div class="sub-label">Clip placement, section by section</div>
+          <ul>
+            <li><strong>0:00 – 1:00</strong> &mdash; Drag the drone recording starting at bar 1. Extend with <kbd>⌘</kbd>-drag the right edge if the clip is shorter than 1 minute. Atmosphere starts here too at <code class="code">-22 dB</code>.</li>
+            <li><strong>1:00 – 2:00</strong> &mdash; Drop the kick MIDI clip at bar 32. Use <kbd>⌘ ⇧ D</kbd> to duplicate it across the next 32 bars. Leave the first kick hit slightly quieter (velocity 70) so the entrance is soft.</li>
+            <li><strong>2:00 – 3:00</strong> &mdash; Drag the bass audio clip in at bar 63. Use <kbd>⌘ E</kbd> to split out the first 4 bars and fade them in via the clip fade handle (top-left corner of the waveform).</li>
+            <li><strong>3:00 – 4:30</strong> &mdash; Hat MIDI clip from bar 94, duplicated to bar 140. Perc clip from bar 110 only. Bass Auto Filter cutoff opens from 600 Hz → 3.5 kHz across this stretch.</li>
+            <li><strong>4:30 – 5:30</strong> &mdash; All elements playing. Echo feedback automation peaks. Saturator drive automation peaks. No new clips here — energy is built entirely from automation.</li>
+            <li><strong>5:30 – 6:30</strong> &mdash; Cut (<kbd>⌘ E</kbd>) and delete the perc clip. Mute the hat for 32 bars. The kick remains but pull its fader down 2 dB via automation.</li>
+            <li><strong>6:30 – 8:00</strong> &mdash; Cut the bass clip. Cut the kick at 7:00. Drone + atmosphere only. Final 30 seconds: long fade-out drawn on the master volume.</li>
+          </ul>
+        </div>
+
+        <div class="sub-block">
+          <div class="sub-label">Rehearse the arc on the Launchpad first</div>
+          <ul>
+            <li>Before painting the arrangement, drop your audio and MIDI clips into <strong>Session view</strong> (one clip per track). Press <kbd>Tab</kbd> to switch views.</li>
+            <li>Press <kbd>Session</kbd> on the Launchpad. The 8×8 grid mirrors the Session view; each row is a scene, each column a track.</li>
+            <li>Use the bottom row's track-select buttons to <strong>mute</strong> and <strong>unmute</strong> tracks live while the loops play.</li>
+            <li>Play through an 8-minute imagined arc by hand: bring elements in, push them out, let the drone breathe alone. You will hear what the arrangement actually wants, instead of guessing on a timeline.</li>
+            <li>When the gestures feel right, switch to Arrangement and replicate them as clip placements with fades. The performance pass turns arrangement from a layout problem into a felt decision.</li>
+          </ul>
+        </div>
+
+        <div class="sub-block">
+          <div class="sub-label">Polyrhythmic perc on the Launchpad's internal sequencer (optional)</div>
+          <ul>
+            <li>The Launchpad Pro MK3 has its own step sequencer that runs even when Ableton is stopped. Use it as a second source of drift on the perc track.</li>
+            <li>Select the <code class="code">PERC</code> track in Ableton so its Drum Rack receives the Launchpad's MIDI.</li>
+            <li>On the Launchpad: <kbd>Sequencer</kbd> → set Length to <code class="code">14 steps</code>. Place 2 – 3 hits inside that 14-step loop.</li>
+            <li>Because 14 doesn't divide 16, the perc will phase-shift against the bass and kick over many bars, producing slow polyrhythmic variation without any new notes.</li>
+            <li>Record it into a long MIDI clip on the <code class="code">PERC</code> track, then trim to the sections of the arrangement where the drift is welcome.</li>
+          </ul>
+        </div>
+
+        <div class="sub-block">
+          <div class="sub-label">Useful arrangement shortcuts</div>
+          <table class="param-table">
+            <caption>Keep one hand on the trackpad, one on the keys</caption>
+            <tr><td>Split clip at playhead</td><td><kbd>⌘ E</kbd></td></tr>
+            <tr><td>Duplicate clip / time</td><td><kbd>⌘ D</kbd></td></tr>
+            <tr><td>Loop selection</td><td><kbd>⌘ L</kbd></td></tr>
+            <tr><td>Consolidate selection</td><td><kbd>⌘ J</kbd></td></tr>
+            <tr><td>Show / hide automation</td><td><kbd>A</kbd></td></tr>
+            <tr><td>Toggle draw mode</td><td><kbd>B</kbd></td></tr>
+            <tr><td>Zoom to selection</td><td><kbd>Z</kbd> (back with <kbd>⇧ Z</kbd>)</td></tr>
+            <tr><td>Move selection by 1 bar</td><td><kbd>⇧ ←</kbd> / <kbd>⇧ →</kbd></td></tr>
+          </table>
+        </div>
+
+        <div class="sub-block">
+          <div class="sub-label">Arrangement rules</div>
+          <ul>
+            <li>Remove elements as often as you add them.</li>
+            <li>Avoid sudden transitions unless they feel intentional. Use 4 – 8 bar fades on the clip handles.</li>
+            <li>Use filter movement instead of new sections.</li>
+            <li>Let silence and space matter. A 4-bar bass drop-out before the perc returns is more powerful than a riser.</li>
+            <li>Keep the track patient. If you're tempted to do something at bar 100, wait until bar 120 and see if it's still needed.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- STEP 9 -->
+      <div class="step">
+        <div class="step-header">
+          <div class="step-num">Step 09</div>
+          <h3 class="step-title">Basic mix pass</h3>
+        </div>
+        <p>Resist the urge to polish. This is a balance pass, not a mastering session.</p>
+
+        <div class="sub-block">
+          <div class="sub-label">Group and reset</div>
+          <ul>
+            <li>Select <code class="code">KICK</code>, <code class="code">HAT</code>, <code class="code">PERC</code> → <kbd>⌘ G</kbd> → name the group <code class="code">DRUMS</code>.</li>
+            <li>Select <code class="code">MF BASS</code>, <code class="code">MF DRONE</code>, <code class="code">ATMOS</code> → <kbd>⌘ G</kbd> → name it <code class="code">SYNTHS</code>.</li>
+            <li>Hold <kbd>⌘</kbd> and click the master fader to reset it to 0 dB. Then pull every track fader down to <code class="code">-inf</code>.</li>
+          </ul>
+        </div>
+
+        <div class="sub-block">
+          <div class="sub-label">Target fader levels</div>
+          <p>Bring up one fader at a time, in this order. Listen for at least 30 seconds between each before moving on.</p>
+          <table class="param-table">
+            <caption>Starting fader balance</caption>
+            <tr><td>Kick</td><td>-10 dB (peaks ~ -6 dBFS)</td></tr>
+            <tr><td>Bass</td><td>-12 dB</td></tr>
+            <tr><td>Drone</td><td>-16 dB</td></tr>
+            <tr><td>Closed Hat</td><td>-18 dB</td></tr>
+            <tr><td>Percussion</td><td>-22 dB</td></tr>
+            <tr><td>Atmosphere</td><td>-20 dB</td></tr>
+            <tr><td>Return A (Reverb)</td><td>-8 dB</td></tr>
+            <tr><td>Return B (Echo)</td><td>-10 dB</td></tr>
+            <tr><td>Master</td><td>0 dB, peaks no higher than -3 dBFS</td></tr>
+          </table>
+        </div>
+
+        <div class="sub-block">
+          <div class="sub-label">Frequency separation</div>
+          <ul>
+            <li><strong>MF DRONE</strong>: EQ Eight HP at <code class="code">120 Hz</code>, 24 dB/oct. The drone has no business in the kick's space.</li>
+            <li><strong>ATMOS</strong>: HP at <code class="code">220 Hz</code>, LP shelf at <code class="code">8 kHz</code> -3 dB.</li>
+            <li><strong>MF BASS</strong>: narrow bell cut at <code class="code">200 – 300 Hz</code> by 1.5 dB if the low-mid feels woolly.</li>
+            <li><strong>KICK</strong>: confirm there's a clean shelf below 30 Hz so sub rumble doesn't eat headroom.</li>
+          </ul>
+        </div>
+
+        <div class="sub-block">
+          <div class="sub-label">Master bus check</div>
+          <ul>
+            <li>Add <span class="menu">Spectrum</span> and <span class="menu">Utility</span> on the master. Nothing else.</li>
+            <li>Utility: leave at unity. Use it only to flip a mono check on with the <strong>Width</strong> knob → 0 % every couple of minutes. If something disappears in mono, your widening is overdone.</li>
+            <li>Spectrum: confirm the kick punches around 50 – 70 Hz, the bass sits around 80 – 250 Hz, the drone fills the 400 Hz – 2 kHz region, and the hats live above 4 kHz.</li>
+            <li>Master peak should not exceed <code class="code">-3 dBFS</code>. Don't insert a limiter for this exercise — clear peaks are more honest feedback than a smashed master.</li>
+          </ul>
+        </div>
+
+        <div class="tip">
+          <strong>Reference</strong>
+          Take the headphones off every 15 minutes. Ear fatigue is the main cause of bad mixes at this stage, not bad skills.
+        </div>
+      </div>
+
+      <!-- STEP 10 -->
+      <div class="step">
+        <div class="step-header">
+          <div class="step-num">Step 10</div>
+          <h3 class="step-title">Export and step away</h3>
+        </div>
+
+        <div class="sub-block">
+          <div class="sub-label">Set the render region</div>
+          <ul>
+            <li>Click in the timeline at <code class="code">0:00</code>. Press <kbd>⇧</kbd>-click at <code class="code">8:00</code> to make a selection that covers the full track plus any reverb tail.</li>
+            <li><kbd>⌘ ⇧ R</kbd> &mdash; wait, that's Record. Use <span class="menu">File → Export Audio / Video</span> instead (<kbd>⌘ ⇧ R</kbd> may conflict on some setups).</li>
+          </ul>
+        </div>
+
+        <div class="sub-block">
+          <div class="sub-label">Export dialog values</div>
+          <table class="param-table">
+            <caption>Export settings</caption>
+            <tr><td>Rendered Track</td><td>Master</td></tr>
+            <tr><td>Render Start</td><td>0:00</td></tr>
+            <tr><td>Render Length</td><td>8:00 (or selection)</td></tr>
+            <tr><td>File Type</td><td>WAV</td></tr>
+            <tr><td>Sample Rate</td><td>48000 Hz (match project)</td></tr>
+            <tr><td>Bit Depth</td><td>24-bit</td></tr>
+            <tr><td>Normalize</td><td>OFF</td></tr>
+            <tr><td>Convert to Mono</td><td>OFF</td></tr>
+            <tr><td>Dither Options</td><td>None</td></tr>
+            <tr><td>Filename</td><td>lab_001_v1.wav</td></tr>
+          </table>
+        </div>
+
+        <div class="sub-block">
+          <div class="sub-label">Listen, but not in Ableton</div>
+          <ul>
+            <li>Copy the WAV to your phone. Listen on the walk to the kitchen. Listen on earbuds. Listen on a small Bluetooth speaker.</li>
+            <li>Each playback location reveals different problems. Bass-heavy on the phone? Reverb-heavy in the kitchen? Note the place, not just the impression.</li>
+            <li>Keep a <code class="code">lab_001_notes.txt</code> next to the WAV. Write a maximum of 10 lines. The constraint forces clarity.</li>
+            <li>Do not return to the project for at least one day. Then change <strong>one thing</strong> from your notes, render <code class="code">v2</code>, and compare.</li>
+          </ul>
+        </div>
+
+        <div class="tip">
+          <strong>Version, don't overwrite</strong>
+          Always export with a new version number. <code class="code">v1</code>, <code class="code">v2</code>, <code class="code">v3</code>. The point of this exercise is to hear your decisions accumulate, which only works if you can A/B them.
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- SECTION 10: REFLECTION -->
+  <section>
+    <div class="section-number">Section 11 / Reflection</div>
+    <h2>Reflection</h2>
+    <p class="section-lede">Most of the learning happens here, not while making the track. Answer slowly. Write the answers down.</p>
+
+    <ol class="reflection-list">
+      <li>Which element created the most hypnosis?</li>
+      <li>Which element created the most atmosphere?</li>
+      <li>Which automation had the biggest impact?</li>
+      <li>Which element could be removed without weakening the track?</li>
+      <li>Did the track need more notes, or did it need better movement?</li>
+      <li>Did the bass sequence remain interesting after five minutes?</li>
+      <li>Did the drone support the track emotionally?</li>
+      <li>Did the drums create groove without dominating?</li>
+      <li>Did the arrangement feel like a journey?</li>
+      <li>What would I do differently in the next session?</li>
+    </ol>
+
+    <div class="final-principle">
+      <div class="final-principle-label">Final principle</div>
+      <p>The best result is not the most complex track. The best result is the clearest demonstration that repetition, modulation, and atmosphere can create immersion.</p>
+    </div>
+  </section>
+
+  <footer>
+    Lab Note 001 — Hypnotic Techno Build / Ableton Live 12 Suite + Arturia MicroFreak
+  </footer>
+
+</div>
+</body>
+</html>
