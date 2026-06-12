@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Replicate: micro-swing</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="index.html" class="active"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="eyebrow">Block 1 · Replication lesson</div>
+    <h1>Replicate: micro-swing</h1>
+    <p class="lede">Program a few percussion voices dead straight, then give each its own tiny fixed offset — one early, one late, one on the line — until the ensemble rolls like the record.</p>
+  </header>
+  <div class="callout">
+    <div class="callout-label">The point</div>
+    <p>When each percussion voice has its own small consistent offset, the ensemble rolls — groove as a table of tiny numbers, one per voice.</p>
+  </div>
+
+  <table class="param-table">
+    <caption>The system you are replicating</caption>
+    <tr><td>Source record</td><td>Ricardo Villalobos — “Easy Lee”</td></tr>
+    <tr><td>The effect</td><td>the percussion seems to rotate — many small clocks, one rolling feel</td></tr>
+    <tr><td>The mechanism</td><td>a different fixed micro-timing offset per voice, over a steady frame</td></tr>
+    <tr><td>Fidelity</td><td>As close to the record’s section as your rig allows; closeness is the measure of your hearing.</td></tr>
+  </table>
+
+  <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Ricardo+Villalobos+Easy+Lee" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Ricardo%20Villalobos%20Easy%20Lee">Spotify</a></p>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Before you start</div>
+    </div>
+    <ul>
+      <li>Digitakt II main outs → M4 inputs 3/4, clock-slaved to Live as in the previous lessons</li>
+      <li>New set saved as <span class="code">REP-easy-lee</span></li>
+      <li>Phones knob at the Lab 001 mark</li>
+      <li>Timebox: one sitting, 60–120 minutes — tuning a combination of offsets takes more passes than tuning one, and the passes are the lesson</li>
+    </ul>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Reference pass · 10 minutes</div>
+      <h3 class="step-title">Describe the system before you copy it</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Listen to two or three minutes of “Easy Lee” and choose the 8–16 bars where the percussion’s roll is most exposed — that section is what you will replicate. Answer in the logbook, one line each, <strong>before</strong> touching gear. Check each answer against the reveal only after you have written your own.</p>
+    <ol class="rules-list">
+      <li>The rolling feeling — where does it live? In one sound, or between sounds?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Between sounds. Solo any single voice in your head and it is just a steady part; the rotation only appears when the voices play together, because it is made of the fixed timing gaps between them. That is the lesson’s whole claim: the groove is a property of the combination, not of any member. Relisten twice — once following one voice, once letting the whole field blur — and notice the roll only exists in the second listening.</p></div></details>
+      </li>
+      <li>Pick one percussion voice and follow only it for a minute. Is it consistent?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Yes — eerily so. Whichever voice you picked repeats its placement exactly, minute after minute; nothing in the percussion is wandering. The ensemble rolls while every part stands still, which is only possible if each part carries its own fixed offset. Relisten with a different voice and confirm the same thing: consistent part, rolling whole.</p></div></details>
+      </li>
+      <li>Does the frame — kick, bass — move at all?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>No. The kick holds minimal-techno time for minutes without a flicker, and the bass holds with it — that steadiness is what gives the small offsets something to be measured against. If the frame moved too, the offsets would smear into mush instead of rotating. Tap quarters through the section: your foot locks to the kick and never needs to correct.</p></div></details>
+      </li>
+      <li>Why does it roll instead of sounding like a timing mess?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Because every offset is tiny, fixed, and repeated — the ear learns the pattern of gaps within a few bars and starts riding it, the way it rides swing. A mess is offsets that change; a roll is offsets that hold. The amounts also stay small, milliseconds-scale, so no voice ever reads as a mistake on its own. Relisten and feel how quickly the rotation becomes predictable — by bar four your body already knows the route.</p></div></details>
+      </li>
+    </ol>
+    <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Build only after the answers exist — you replicate the section you described, not the one you remember.</p>
+  </div>
+
+  <h2>Steps</h2>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Sound target:</strong> three or four percussion voices, each with its own fixed micro-offset, rolling together over a dead-steady frame — like the record’s section.</li>
+      <li>Each voice on its own sounds straight and consistent; only the combination rolls.</li>
+      <li>You can write the groove down as a table: voice, direction, amount.</li>
+    </ul>
+  </div>
+
+  <!-- PHASE 1 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Phase 1 · ~25 min</div>
+      <h3 class="step-title">Transcribe and program the voices — dead straight</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">First the control condition: the record’s percussion patterns with every trig exactly on the grid. The straight version is the zero column of the offsets table you will build — without it you cannot hear, or measure, what the offsets add.</p>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <ol>
+        <li>Drop “Easy Lee” into Live on a track named <span class="code">REF</span> and loop the 8–16 bars you chose. Gain-match it with a Utility, set Live’s tempo to the record’s by tapping, and keep <span class="code">REF</span> one solo away all sitting.</li>
+        <li>Transcribe the frame first: their kick pattern on the Digitakt, dead on the grid.</li>
+        <li>Transcribe 3–4 percussion voices — shaker, rim, conga, or whatever your section carries — onto their own tracks, closest sounds you have, every trig on the grid.</li>
+        <li>Loop against <span class="code">REF</span> and correct voice by voice until the patterns are theirs. No swing, no micro-timing, anywhere — confirm every track reads 50% swing and every trig sits at zero.</li>
+      </ol>
+      <div class="pattern-wrap">
+        <div class="pattern">
+          <div class="pattern-label">Kick</div>
+          <div class="pattern-step on">1</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+          <div class="pattern-step on">5</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+          <div class="pattern-step on">9</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+          <div class="pattern-step on">13</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+
+          <div class="pattern-label">Shaker</div>
+          <div class="pattern-step ghost">1</div><div class="pattern-step"></div><div class="pattern-step ghost">3</div><div class="pattern-step"></div>
+          <div class="pattern-step ghost">5</div><div class="pattern-step"></div><div class="pattern-step ghost">7</div><div class="pattern-step"></div>
+          <div class="pattern-step ghost">9</div><div class="pattern-step"></div><div class="pattern-step ghost">11</div><div class="pattern-step"></div>
+          <div class="pattern-step ghost">13</div><div class="pattern-step"></div><div class="pattern-step ghost">15</div><div class="pattern-step"></div>
+
+          <div class="pattern-label">Rim</div>
+          <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step ghost">4</div>
+          <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+          <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step ghost">12</div>
+          <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+
+          <div class="pattern-label">Conga</div>
+          <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+          <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step ghost">7</div><div class="pattern-step"></div>
+          <div class="pattern-step"></div><div class="pattern-step ghost">10</div><div class="pattern-step"></div><div class="pattern-step"></div>
+          <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step ghost">15</div><div class="pattern-step"></div>
+        </div>
+      </div>
+      <p style="color: var(--text-muted); font-size: 13.5px; margin: 8px 0 0;">One plausible shape — your transcription may differ; the grid is the method, not the answer. Only the kick row is drawn honestly: every other voice is marked dim because on the record it lives a few fixed milliseconds off its cell — a different few for each voice. The grid cannot draw that — the offsets table will.</p>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Expected result</div>
+      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">The record’s percussion, machine-straight in your sounds. Against <span class="code">REF</span> it is recognizably the same parts — but flat where theirs rotates. The rotation is missing because the offsets are missing; that is the gap the next phase closes.</p>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">If it fails</div>
+      <table>
+        <thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead>
+        <tbody>
+          <tr><td>You cannot isolate the voices by ear</td><td>The record’s percussion field is dense and quiet-mixed</td><td>Pick the three loudest voices and ignore the rest — three consistent voices roll; seven half-heard ones do not</td></tr>
+          <tr><td>Yours already rolls before any offsets</td><td>Leftover per-track swing or live-recorded trigs with micro-timing</td><td>Set every track to 50% swing and zero every trig’s micro-timing — the zero column must be real</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- PHASE 2 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Phase 2 · ~30 min</div>
+      <h3 class="step-title">Give each voice its own clock</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Now the mechanism: one small fixed offset per voice. Start with a deliberate spread — one voice early, one late, one on the line — and keep each voice internally identical: every trig of a voice carries that voice’s number, no exceptions. The kick gets nothing; it is the clock the other clocks are measured against.</p>
+
+    <div class="signal-flow">
+      <span class="signal-node">Kick · 0</span>
+      <span class="signal-arrow">+</span>
+      <span class="signal-node">Shaker · a touch early</span>
+      <span class="signal-arrow">+</span>
+      <span class="signal-node">Rim · a touch late</span>
+      <span class="signal-arrow">+</span>
+      <span class="signal-node">Conga · on the line</span>
+      <span class="signal-arrow">=</span>
+      <span class="signal-node">one rolling feel</span>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <ol>
+        <li>On the Digitakt, hold each shaker trig and tap the <strong>left</strong> arrow the same number of clicks — two or three to start. Every shaker trig, the same number.</li>
+        <li>Hold each rim trig and tap the <strong>right</strong> arrow the same number of clicks — late, by its own amount, every rim trig identical.</li>
+        <li>Leave the conga (or your third voice) at zero for now — one voice on the line keeps the ensemble anchored.</li>
+        <li>Loop and listen for a couple of minutes before judging. Micro-offsets need a few bars to register as a feel rather than a flaw.</li>
+      </ol>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Expected result</div>
+      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">The flatness breaks: the percussion field starts to circulate, even at this first guess. It will not yet roll like the record — the directions are probably right, the amounts probably wrong. That is what Phase 3 tunes.</p>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">If it fails</div>
+      <table>
+        <thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead>
+        <tbody>
+          <tr><td>A voice now sounds like a flam against the kick</td><td>Its offset is too big — it reads as a wrong note, not a feel</td><td>Halve that voice’s clicks; micro-swing lives below the threshold where a hit sounds displaced</td></tr>
+          <tr><td>The roll stutters once per bar</td><td>One trig in a voice missed its clicks — internal inconsistency</td><td>Hold every trig of that voice and read its value; set the strays to the voice’s number</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- PHASE 3 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Phase 3 · ~25 min</div>
+      <h3 class="step-title">Tune the combination against the record</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Now the tuning passes: A/B against the record and adjust one voice at a time, one click at a time, until your ensemble rotates the way theirs does. You are tuning a combination, so change only one number between listens — otherwise you cannot know which change did what.</p>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <ol>
+        <li>Loop yours against <span class="code">REF</span>, a few bars each, back and forth. Ask one question per pass: is the rotation too wide (offsets too big), too subtle (too small), or circling the wrong way (a direction wrong)?</li>
+        <li>Adjust a single voice by one click and listen again. Resist touching two voices between listens, however sure you feel.</li>
+        <li>Try moving your third voice off zero and back — hear what anchoring costs and what it buys. Keep whichever the record agrees with.</li>
+        <li>Stop when the A/B stops settling — when yours and theirs roll at the same width and the same way. Then play yours alone for a minute and confirm the roll survives without the reference.</li>
+      </ol>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Expected result</div>
+      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">A combination of three or four small numbers at which the loop rolls like the section — and a felt sense of how sensitive the system is: one click on one voice audibly changes the whole field’s rotation.</p>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">If it fails</div>
+      <table>
+        <thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead>
+        <tbody>
+          <tr><td>Every adjustment seems to make it worse</td><td>Changing several voices between listens — no stable baseline</td><td>Zero everything back to the Phase 2 spread and restart the tuning, one voice, one click, one listen</td></tr>
+          <tr><td>It rolls, but not like the record</td><td>Right mechanism, wrong assignments — maybe their shaker is the late one</td><td>Swap the directions between two voices and re-tune; direction is a hypothesis, test it</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- PHASE 4 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Phase 4 · ~15 min</div>
+      <h3 class="step-title">Observe — write the groove as a table</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Last, the groove becomes a document. You print the loop, verify each voice’s offset with the ms ruler, and write the offsets table. That table <em>is</em> the groove — the rolling feel you tuned by ear, stated as engineering, reproducible on any machine that can read it.</p>
+
+    <div class="signal-flow">
+      <span class="signal-node">Digitakt II · per-voice offsets</span>
+      <span class="signal-arrow">→ main outs →</span>
+      <span class="signal-node">M4 in 3/4</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">Live record · Ext. In 3/4 · Monitor Off</span>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <ol>
+        <li>Restart the transport — the Lab 002 reset rule — then record 2 minutes of the tuned loop into Live (<span class="code">Ext. In 3/4</span>, Monitor <strong>Off</strong>).</li>
+        <li><strong>Observe — see it, not just hear it.</strong> Set the ruler to minutes:seconds:milliseconds, as in Lab 002, and zoom to one hit of each voice. Measure its distance from the grid line — early as minus, late as plus.</li>
+        <li>Check the same voice in a distant bar: the number must repeat. Consistent part, rolling whole — now visible.</li>
+        <li>Fill in the offsets table below and copy it into the logbook, clicks and measured ms both.</li>
+      </ol>
+      <table class="param-table">
+        <caption>The offsets table — the groove, stated as engineering</caption>
+        <tr><td>Kick</td><td>0 — the reference clock</td></tr>
+        <tr><td>Shaker</td><td>early · ___ clicks = ___ ms</td></tr>
+        <tr><td>Rim</td><td>late · ___ clicks = ___ ms</td></tr>
+        <tr><td>Conga</td><td>___ · ___ clicks = ___ ms</td></tr>
+      </table>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Expected result</div>
+      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">A filled table of tiny signed numbers that fully describes the feel you spent an hour finding. Read it once more and let the point land: this is what “groove” means on this record — three or four milliseconds-scale constants, held without exception.</p>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">If it fails</div>
+      <table>
+        <thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead>
+        <tbody>
+          <tr><td>A voice’s measured ms varies between bars</td><td>A stray trig with different micro-timing, or clock drift over the take</td><td>Re-check every trig of that voice holds the voice’s number; restart the transport and re-record</td></tr>
+          <tr><td>Even the kick sits off the grid</td><td>Driver error compensation unset or stale</td><td>Re-run Lab 002’s loopback at the current buffer size and enter the difference</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Verify against the record</div>
+    <p>A/B your recording against the <span class="code">REF</span> section, then answer:</p>
+    <ul>
+      <li>Pick one voice in your loop and follow only it for a minute, then do the same with theirs. Is each voice consistent while its ensemble rolls?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Both should pass the same test: any single voice, theirs or yours, sounds like a metronome with a personality — fixed placement, no wander — while the combined field rotates. If one of your voices wanders, the table is not yet true on the machine: some trig disagrees with its voice’s number. Fix the stray, not the feel, and relisten following that one voice until it bores you — boring parts, rolling whole is exactly the spec.</p></div></details>
+      </li>
+      <li>10 seconds of yours, 10 of theirs — does the rotation circle the same way, at the same width? Would a friend hesitate?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Same way and same width is the honest target — a roll can match in size but circle differently if your early/late assignments are swapped relative to theirs. If the friend would not hesitate, listen once more for which voice leads the rotation in each version; the leader is usually the earliest voice, and swapping two directions is a one-minute experiment. Log whether your miss was width (amounts) or direction (assignments) — they are different fixes, and naming the right one is the skill.</p></div></details>
+      </li>
+    </ul>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Logbook — the miss list, three lines:</strong> <em>Matched: ___</em> · <em>Missed: ___ (best guess why)</em> · <em>Change next: ___</em></li>
+      <li>These three lines feed the full miss list in <a href="lab-r1.html">replication lab R1</a>.</li>
+      <li><strong>What carries into the lab:</strong> a groove can be designed per voice and written down — the offsets table is a patch sheet for time.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="rep-let-it-go.html">
+      <span class="page-nav-direction">Previous</span>
+      ← Replicate: ahead of the beat
+    </a>
+    <a href="lab-002.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      ↩ back to Lab 002
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Block 1 · Replication lesson</div>
+
+</div>
+
+</body>
+</html>
