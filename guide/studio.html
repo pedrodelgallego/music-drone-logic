@@ -29,7 +29,7 @@
   <header class="page-header">
     <div class="eyebrow">03 — Studio &amp; setup</div>
     <h1>Your studio</h1>
-    <p class="lede">Four boxes and one pair of headphones. Every step is written against exactly this setup.</p>
+    <p class="lede">Five boxes and one pair of headphones. Every step is written against exactly this setup — and this page explains every cable, every gain stage, and every clock signal between them.</p>
   </header>
 
   <div class="cards">
@@ -40,9 +40,21 @@
       </div>
       <h3 class="card-title">Ableton Live 12 Suite</h3>
       <ul class="card-points">
-        <li>The studio brain — DAW, hosts everything</li>
-        <li>Drum Racks, audio takes, effects, automation</li>
-        <li>Arrangement, mixing, exporting</li>
+        <li>The studio brain — records, edits, arranges</li>
+        <li>Audio takes, effects, automation, mixing</li>
+        <li>Master MIDI clock for both hardware boxes</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="8" width="32" height="28" rx="2"/><rect x="10" y="12" width="10" height="7" rx="1"/><circle cx="29" cy="15.5" r="3"/><rect x="10" y="24" width="4" height="4" rx="0.7"/><rect x="17" y="24" width="4" height="4" rx="0.7"/><rect x="24" y="24" width="4" height="4" rx="0.7"/><rect x="31" y="24" width="4" height="4" rx="0.7"/></svg>
+      </div>
+      <h3 class="card-title">Elektron Digitakt II</h3>
+      <ul class="card-points">
+        <li>16-track stereo drum computer and sampler</li>
+        <li>Kick, hats, percussion, resampled texture</li>
+        <li>Parameter locks, trig conditions, retrigs, mutes</li>
       </ul>
     </div>
 
@@ -65,7 +77,7 @@
       <h3 class="card-title">Launchpad Pro MK3</h3>
       <ul class="card-points">
         <li>64 RGB pads + internal step sequencer</li>
-        <li>Tactile drum programming + performance mutes</li>
+        <li>Ableton clip launching + track mutes</li>
         <li>Live automation gestures via MIDI mapping</li>
       </ul>
     </div>
@@ -76,9 +88,9 @@
       </div>
       <h3 class="card-title">MOTU M4</h3>
       <ul class="card-points">
-        <li>4-in / 4-out USB audio interface</li>
-        <li>Routes MicroFreak in, monitors out</li>
-        <li>Zero-latency direct monitoring for tracking</li>
+        <li>4-in / 4-out USB-C audio interface</li>
+        <li>Inputs 1/2: front combo preamps with gain knobs</li>
+        <li>Inputs 3/4: rear line inputs, full-screen metering</li>
       </ul>
     </div>
 
@@ -97,19 +109,110 @@
   </div>
 
   <h2>How the boxes talk to each other</h2>
-  <p style="text-align:center; max-width:620px; margin:0 auto 24px; color:var(--text-muted);">Two flows run in parallel — audio and control. Knowing which signal lives where prevents most beginner debugging trips.</p>
+  <p style="text-align:center; max-width:620px; margin:0 auto 24px; color:var(--text-muted);">Two flows run in parallel — audio and control. Knowing which signal lives where prevents most beginner debugging trips. Read this section once before touching a cable; refer back whenever something is silent, doubled, or out of time.</p>
 
   <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:11px; letter-spacing:0.2em; text-transform:uppercase;">Audio path</h3>
   <div class="signal-flow">
-    <span class="signal-node">MicroFreak</span>
-    <span class="signal-arrow">→</span>
-    <span class="signal-node">MOTU M4 In 1</span>
-    <span class="signal-arrow">→</span>
+    <span class="signal-node">MicroFreak Out</span>
+    <span class="signal-arrow">→ TS →</span>
+    <span class="signal-node">M4 In 1</span>
+    <span class="signal-arrow">+</span>
+    <span class="signal-node">Digitakt II Main L/R</span>
+    <span class="signal-arrow">→ 2 × TRS →</span>
+    <span class="signal-node">M4 In 3/4</span>
+    <span class="signal-arrow">→ USB-C →</span>
     <span class="signal-node">Ableton</span>
-    <span class="signal-arrow">→</span>
-    <span class="signal-node">MOTU Out</span>
+    <span class="signal-arrow">→ USB-C →</span>
+    <span class="signal-node">M4 Phones</span>
     <span class="signal-arrow">→</span>
     <span class="signal-node">DT 990 Pro</span>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Recommended path</div>
+    <p>Use the MOTU M4 as the single audio device in Ableton: MicroFreak mono into input 1, Digitakt II stereo into inputs 3/4, headphones from the M4. One audio device, one clock, no aggregate-device complexity.</p>
+  </div>
+
+  <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:11px; letter-spacing:0.2em; text-transform:uppercase;">Every cable, jack by jack</h3>
+  <table>
+    <thead><tr><th>From</th><th>To</th><th>Cable</th><th>Carries</th></tr></thead>
+    <tbody>
+      <tr><td>MicroFreak <span class="code">Audio Out</span> (1/4", mono, unbalanced)</td><td>M4 <span class="code">Input 1</span> (front combo jack)</td><td>1 × 1/4" TS</td><td>Mono synth audio — bass, drone, noise takes</td></tr>
+      <tr><td>Digitakt II <span class="code">Main Out L</span> (1/4", impedance-balanced)</td><td>M4 <span class="code">Input 3</span> (rear 1/4" line in)</td><td>1 × 1/4" TRS</td><td>Left half of the stereo drum mix</td></tr>
+      <tr><td>Digitakt II <span class="code">Main Out R</span> (1/4", impedance-balanced)</td><td>M4 <span class="code">Input 4</span> (rear 1/4" line in)</td><td>1 × 1/4" TRS</td><td>Right half of the stereo drum mix</td></tr>
+      <tr><td>M4 <span class="code">Phones</span></td><td>DT 990 Pro</td><td>1/4" headphone plug</td><td>Your entire monitoring world</td></tr>
+      <tr><td>M4 <span class="code">USB-C</span></td><td>Computer</td><td>USB-C</td><td>4 channels of audio each way + the M4's clock</td></tr>
+      <tr><td>Digitakt II <span class="code">USB</span></td><td>Computer</td><td>USB</td><td>MIDI clock + transport in this setup (audio stays analog)</td></tr>
+      <tr><td>MicroFreak <span class="code">USB</span></td><td>Computer</td><td>USB</td><td>MIDI clock + power</td></tr>
+      <tr><td>Launchpad Pro MK3 <span class="code">USB</span></td><td>Computer</td><td>USB</td><td>Control surface data, clip launching, MIDI mapping</td></tr>
+    </tbody>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>TS vs TRS:</strong> the MicroFreak output is unbalanced, so a plain TS guitar-style cable is correct there. The Digitakt II main outs are impedance-balanced — TRS cables on those two runs reject hum over longer distances. TS cables also work; you just lose the noise rejection.</li>
+      <li><strong>Why input 1 and not 1/2:</strong> the MicroFreak is mono. Recording it to a mono Ableton input keeps the file half the size and forces you to create width deliberately (with effects) instead of accidentally.</li>
+      <li><strong>Keep audio and power cables apart.</strong> If you hear a faint whine, the usual suspect is an audio cable lying across a power supply or a USB hub.</li>
+    </ul>
+  </div>
+
+  <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:11px; letter-spacing:0.2em; text-transform:uppercase;">The gain chain — where level is set, in order</h3>
+  <p style="text-align:center; max-width:640px; margin:0 auto 18px; color:var(--text-muted);">Audio passes through five level controls before it reaches your ears. Each one has exactly one job. Set them in this order, left to right, and never fix a problem at the wrong stage.</p>
+
+  <table>
+    <thead><tr><th>Stage</th><th>Control</th><th>Set it to</th><th>Its one job</th></tr></thead>
+    <tbody>
+      <tr><td>1 — Source</td><td>MicroFreak <span class="code">Master Volume</span></td><td>~ 70–80 %</td><td>Send a healthy line-level signal. Too low and you amplify noise later; full clockwise can sound brittle into some inputs.</td></tr>
+      <tr><td>1 — Source</td><td>Digitakt II <span class="code">Main Volume</span></td><td>~ 12 o'clock, then adjust</td><td>Inputs 3/4 on the M4 have no gain knobs — they are fixed line inputs. The Digitakt's own volume <em>is</em> the record level for the drums. It can also out-shout them: Elektron outs peak hotter than the 3/4 inputs accept, so near-full main volume will clip the converter with no knob to save you.</td></tr>
+      <tr><td>2 — Preamp</td><td>M4 <span class="code">Input 1 gain</span></td><td>Meter green, occasional amber, never red</td><td>Match the MicroFreak to the converter. Watch the M4's on-screen meters while holding a loud note.</td></tr>
+      <tr><td>3 — Converter → DAW</td><td>Ableton input meter</td><td>Peaks <span class="code">-12 to -6 dBFS</span></td><td>Confirm what is actually being written to disk. This is the number that matters; everything before it serves this.</td></tr>
+      <tr><td>4 — Mix</td><td>Ableton track faders</td><td>Set in the mix pass (Step 09)</td><td>Balance recorded material. Faders never change what was recorded — only what you hear.</td></tr>
+      <tr><td>5 — Ears</td><td>M4 <span class="code">Monitor / Phones knobs</span></td><td>Comfortable, then leave it</td><td>Listening level only. It has zero effect on the recording. Riding this knob while mixing destroys your level judgement.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">The golden rule of gain</div>
+    <p>Fix level problems at the <em>earliest</em> stage that causes them. If Ableton's meter is low, turn up the synth or the preamp — never the track fader. If your ears hurt, turn down the phones knob — never the synth.</p>
+  </div>
+
+  <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:11px; letter-spacing:0.2em; text-transform:uppercase;">Monitoring &amp; latency</h3>
+  <table>
+    <thead><tr><th>Situation</th><th>Monitor through</th><th>Why</th></tr></thead>
+    <tbody>
+      <tr><td>Designing sounds, jamming, sequencing hardware</td><td>M4 direct monitoring (the per-channel <span class="code">MON</span> buttons) with the Ableton track Monitor set to <strong>Off</strong></td><td>Zero latency — the input is routed to your headphones inside the interface, before the computer. Knob moves feel instant.</td></tr>
+      <tr><td>Recording a take</td><td>Ableton track Monitor on <strong>Auto</strong>, M4 <span class="code">MON</span> off for that channel</td><td>You hear exactly what is being recorded, including any Ableton effects. Never both at once — both at once = a flanged double.</td></tr>
+      <tr><td>Editing, arranging, mixing</td><td>Ableton playback only</td><td>The hardware is silent or muted; latency is irrelevant.</td></tr>
+    </tbody>
+  </table>
+
+  <table class="param-table">
+    <caption>Buffer size at 48 kHz — pick per task</caption>
+    <tr><td>128 samples</td><td>~ 2.7 ms buffer each way. Use when software-monitoring through Ableton effects feels sluggish.</td></tr>
+    <tr><td>256 samples</td><td>~ 5.3 ms each way, ~ 12–15 ms round trip. The course default — stable and low enough for everything here.</td></tr>
+    <tr><td>512+ samples</td><td>Use for the mix and export sessions. Latency no longer matters; CPU headroom does.</td></tr>
+  </table>
+
+  <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:11px; letter-spacing:0.2em; text-transform:uppercase;">Audio connection options</h3>
+  <table>
+    <thead><tr><th>Option</th><th>Use it when</th></tr></thead>
+    <tbody>
+      <tr><td>Option A — MOTU analog, recommended</td><td>MicroFreak Audio Out → M4 Input 1. Digitakt II Main L/R → M4 Inputs 3/4. Ableton input/output device: MOTU M4. This is the simplest, most stable setup for the course.</td></tr>
+      <tr><td>Option B — Digitakt II USB audio</td><td>Digitakt II connects by USB and sends audio directly to the computer. Use this if you want one cable for Digitakt audio/MIDI, but avoid recording the same Digitakt signal from both USB and M4 at once.</td></tr>
+      <tr><td>Option C — Overbridge later</td><td>Use Overbridge when you want deeper computer integration or separate Digitakt tracks in Ableton. Keep the first build on the analog route so routing does not become the lesson.</td></tr>
+      <tr><td>Option D — MicroFreak into Digitakt II</td><td>MicroFreak Audio Out → Digitakt II Inputs. Use this when you want to sample the MicroFreak into Digitakt II, resample it, sequence it, or process it before Ableton.</td></tr>
+      <tr><td>Option E — macOS aggregate device</td><td>Use Audio MIDI Setup only if you need M4 and Digitakt II USB audio available at the same time. This adds complexity and is not needed for the first track.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Avoid doubled audio</div>
+    <ul>
+      <li>If Digitakt II is connected by both audio cables and USB, decide which path Ableton is recording.</li>
+      <li>Doubled monitoring causes comb filtering, hollow drums, or a tiny slap delay.</li>
+      <li>For this course, record Digitakt II from <span class="code">M4 Inputs 3/4</span> and use USB for MIDI clock unless you deliberately switch to USB audio.</li>
+      <li>Same trap on the synth: if a channel's M4 <span class="code">MON</span> button is lit <em>and</em> the Ableton track Monitor is In/Auto with the track armed, you hear it twice. One or the other.</li>
+    </ul>
   </div>
 
   <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:11px; letter-spacing:0.2em; text-transform:uppercase;">Control + MIDI clock</h3>
@@ -117,23 +220,47 @@
     <span class="signal-node">Launchpad Pro MK3</span>
     <span class="signal-arrow">↔ USB ↔</span>
     <span class="signal-node">Ableton</span>
-    <span class="signal-arrow">→ MIDI clock →</span>
+    <span class="signal-arrow">→ MIDI clock + transport →</span>
+    <span class="signal-node">Digitakt II</span>
+    <span class="signal-arrow">+</span>
     <span class="signal-node">MicroFreak</span>
+  </div>
+
+  <table>
+    <thead><tr><th>Device</th><th>Clock role</th><th>Transport</th><th>Port</th></tr></thead>
+    <tbody>
+      <tr><td>Ableton Live</td><td><strong>The only clock master</strong></td><td>Play/stop originates here</td><td>—</td></tr>
+      <tr><td>Digitakt II</td><td>Receives clock — its sequencer runs at Ableton's tempo</td><td>Receives start/stop — pressing play in Live starts the pattern</td><td>USB (<span class="menu">Settings → MIDI Config → Sync</span>: clock + transport receive ON)</td></tr>
+      <tr><td>MicroFreak</td><td>Receives clock — sequencer and synced LFO follow Ableton</td><td>Sequencer starts when notes/clock arrive</td><td>USB (<kbd>Shift</kbd> + <kbd>Tempo</kbd> → source <strong>USB</strong>)</td></tr>
+      <tr><td>Launchpad Pro MK3</td><td>None needed — it is a control surface, not a sequencer here</td><td>Launches Ableton clips/scenes</td><td>USB (Control Surface: <span class="code">Launchpad Pro MK3</span>)</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">One clock to rule them all</div>
+    <p>Exactly one device generates tempo. Everything else listens. If the Digitakt's screen shows a tempo different from Ableton's, clock sync is broken — stop and fix it before recording anything, because a take recorded against a drifting clock cannot be repaired.</p>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>USB clock has small jitter</strong> (well under a millisecond on a direct port). For this music it is inaudible. Plug both hardware boxes directly into the computer, not through an unpowered hub, to keep it that way.</li>
+      <li><strong>Hardware starts can land a few milliseconds late</strong> relative to bar 1 in Ableton. Don't fight it during recording — record long takes, then nudge the clip to the grid afterwards. Step 02 of the build shows how to measure and compensate.</li>
+    </ul>
   </div>
 
   <h2>Track layout</h2>
 
   <table>
-    <thead><tr><th>Track</th><th>Source</th></tr></thead>
+    <thead><tr><th>Track</th><th>Source</th><th>Ableton input</th></tr></thead>
     <tbody>
-      <tr><td>Kick</td><td>Drum Rack (Ableton)</td></tr>
-      <tr><td>Closed Hat</td><td>Drum Rack (Ableton)</td></tr>
-      <tr><td>Percussion</td><td>Drum Rack (Ableton)</td></tr>
-      <tr><td>MF Bass</td><td>MicroFreak — recorded audio</td></tr>
-      <tr><td>MF Drone</td><td>MicroFreak — recorded audio</td></tr>
-      <tr><td>Atmosphere</td><td>Processed / resampled audio</td></tr>
-      <tr><td>Return A</td><td>Hybrid Reverb</td></tr>
-      <tr><td>Return B</td><td>Echo</td></tr>
+      <tr><td>DT Drums</td><td>Digitakt II main L/R — recorded stereo audio</td><td>Ext. In <span class="code">3/4</span> (stereo)</td></tr>
+      <tr><td>DT Kick</td><td>Digitakt II track 1 — optional separate pass</td><td>Ext. In <span class="code">3/4</span>, recorded with other tracks muted</td></tr>
+      <tr><td>DT Hats/Perc</td><td>Digitakt II tracks 2–4 — optional separate pass</td><td>Ext. In <span class="code">3/4</span>, recorded with kick muted</td></tr>
+      <tr><td>MF Bass</td><td>MicroFreak — recorded audio</td><td>Ext. In <span class="code">1</span> (mono)</td></tr>
+      <tr><td>MF Drone</td><td>MicroFreak — recorded audio</td><td>Ext. In <span class="code">1</span> (mono)</td></tr>
+      <tr><td>Atmosphere</td><td>Processed / resampled MicroFreak or Digitakt II audio</td><td>Resampling, or Ext. In <span class="code">1</span> / <span class="code">3/4</span></td></tr>
+      <tr><td>Return A</td><td>Hybrid Reverb</td><td>—</td></tr>
+      <tr><td>Return B</td><td>Echo</td><td>—</td></tr>
     </tbody>
   </table>
 
