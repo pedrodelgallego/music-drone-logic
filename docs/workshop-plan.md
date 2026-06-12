@@ -232,7 +232,8 @@ paperwork. A one-page seven-layer worksheet exists for capstones only.
 Listening is a first-class strand. Two layers:
 
 **1. Per-lab comparative listening — the hypothesis source.** Every build
-lab's front matter carries a `listening` field: **6–10 recordings** chosen
+lab's front matter carries a `listening` field: **at least 10 recordings**
+(no upper limit) chosen
 as contrasting implementations of the lab's system — each teaching a
 **distinct facet of the lab's lens** — plus one video. One reference is
 never enough, and three is still too few: a single example teaches its own
@@ -258,11 +259,16 @@ patterns, levels — on their own rig, following exact numbered actions
 (knobs, menus, values), with the lesson's concept as the lens. One lesson page
 per reference (model: The point · The system you are replicating · Before
 you start · Steps · Verify against the record · Logbook), linked from the
-reference's accordion entry. With 6–10 references per build lab, a block
-carries roughly 25–50 replication lessons — the listening strand is the
+reference's accordion entry. With at least 10 references per build lab, a
+block carries 40+ replication lessons — the listening strand is the
 workshop's center of gravity, and the lessons spread across the lab's
 cycle as its listening work; the student need not complete every lesson
 before building, but every lesson completed sharpens the hypothesis.
+Lessons are **optional drills by default**; a lab may promote specific
+lessons to **required drills** when its build assumes their moves — the
+promotion is named in the lab's Before-you-start and in the block hub's
+required path. (Lab 003 requires three: machine-tight grid + clock,
+p-lock vocabulary + mutes, sends + mapping + riding.)
 
 **4. Replication labs (R1–R8) — the analysis, verified.** One per block, a
 half-cycle paired with the programme's Samples session. The student rebuilds
@@ -309,6 +315,35 @@ one historical lineage for the whole field of possible systems.
 | L7 | 7 | Performance practice | David Tudor archival footage; contemporary hardware live sets; rig-breakdown videos — watched for recovery from failure, not just flow |
 | L8 | 8 | The student's own archive | Three years of output heard as a stranger, through the seven layers; one artist retrospective as a model of a voice evolving |
 
+### Listening taxonomy — categories per block
+
+Each block's references are organized into named **listening categories**:
+facets of the block's lens that the lab's references (minimum 10 per lab,
+no upper limit) must cover between them. Every category needs at least two
+references; beyond that, depth is welcome. Rules:
+
+- **One home per reference.** A reference appears in exactly one block and
+  gets exactly one replication lesson there. Later blocks may *cite* an
+  earlier lesson as prerequisite (e.g. Spiegel in Block 6 building on
+  Block 1's *Patchwork*), never duplicate it. Block 1's authored lessons
+  already claim a wide slice of the canon; later blocks pick fresh works.
+- **The category names the lens, not the genre.** Where a work could live
+  in several blocks, its category decides what the worksheet listens for
+  (Eleh in Block 1 is a *monitoring* study, not a drone study).
+- Example references below are seeds, curated fully during authoring;
+  the canon breadth rule applies per category.
+
+| Block | Categories → example references |
+|---|---|
+| 1 | **hypnotic / deep techno** (authored: DBX *Losing Control*, Mike Parker *Spiral Snare*, Plastikman *Spastik*, …) · **noise floor as lead** (authored: Pole *Tanzen*) · **signal-path pressure** (authored: SOPHIE *Faceshopping*, Gesaffelstein *Pursuit*, Sunn O))) ) · **low-end monitoring study** (new: Eleh *Floating Frequencies*; Thomas Köner *Permafrost*) |
+| 2 | **ambient drone** (Stars of the Lid; Celer) · **concrète** (Schaeffer *Étude aux chemins de fer*; Ferrari *Presque Rien No. 1*) · **texture** (Fennesz *Endless Summer*) · **field recording lattice** (Chris Watson *El Tren Fantasma*; López *La Selva*; Westerkamp *Kits Beach Soundwalk*) · **electroacoustic drone** (Radigue *Kyema*; Folke Rabe *What??*; Niblock) · **contact/EM source study** (Kubisch *Five Electrical Walks*; Tsunoda; Kirkegaard *4 Rooms*) |
+| 3 | **minimal** (Villalobos *Dexter*; Studio 1) · **broken techno** (Blawan; Shed *The Traveller*) · **phasing techno** (Voices from the Lake) · **polyrhythm** (Burnt Friedman & Liebezeit) · **pulse minimalism** (Reich *Piano Phase*, *Clapping Music*; Riley *A Rainbow in Curved Air*) · **percussion/process study** (Reich *Drumming I*; Midori Takada) · **machine funk** (Drexciya; Model 500 *No UFO's*) · **ritual percussion** (Konono Nº1; Jajouka; Olatunji) |
+| 4 | **acid** (Plastikman *Plasticity*; Hardfloor *Acperience 1*) · **industrial** (Regis *Gymnastics*; Throbbing Gristle) · **ambient IDM** (Boards of Canada; Autechre *Amber*) · **breaks** (Photek *Ni Ten Ichi Ryu*; Source Direct) · **tape music** (Reich *It's Gonna Rain*; Le Caine *Dripsody*; Oram) · **tape loop decay — analog/generational** (Basinski *Disintegration Loop 1.1*; Philip Jeck; The Caretaker) · **sample degradation system — digital** (Oval *Do While*; Yasunao Tone; OPN *Replica*) — worksheets name the contrast: erosion vs error · **granular ambient** (Tim Hecker *In the Fog I*; Belong) · **resonance study** (Lucier *I Am Sitting in a Room*; Rrose *Vanishing Pools*) |
+| 5 | **dub techno** (Maurizio *M5*; Porter Ricks *Port Gentil*; Echospace) · **deep ambient** (Biosphere *Kobresia*; Deathprod; Oliveros *Deep Listening* as the reverb-as-instrument anchor) · **dub** (Pablo/Tubby *King Tubby Meets Rockers Uptown*; Scientist) · **subtractive minimalism** (Alva Noto & Sakamoto *Uoon I*; Monolake *Hongkong*) · **shimmer ambient** (Eno *An Ending (Ascent)*; Budd & Eno) · **feedback dub system** (King Tubby *Dub Fi Gwan*; Porter Ricks *Biokinetics 1*) · **delay-as-composition, incl. loop systems** (Fripp & Eno *Evening Star*; Eno *Discreet Music*; Riley *Poppy Nogood* — the time-lag accumulator, rebuildable on the rig) |
+| 6 | **generative ambient** (Eno *Music for Airports 1/1*, *Reflection*) · **self-playing patch** (Ciani *Buchla Concerts 1975*; K. F. Whitman *Generator 1*) · **aleatoric** (Cage *Music of Changes*, *Imaginary Landscape No. 4*) · **microtonal drone** (La Monte Young *The Well-Tuned Piano*; Hennix *The Electric Harpsichord*; Kali Malone) · **generative counterpoint** (Spiegel *The Expanding Universe*, citing Block 1's *Patchwork* lesson; Hiller *Illiac Suite*) · **autonomous drone installation** (Neuhaus *Times Square*; Kayn *Tektra*; Dream House footage for the video session) · **chance loop system** (Eno *Music for Airports 2/1* — co-prime loop lengths; Hainbach, rig-relatable for the video session) |
+| 7 | **Tudor / live experimental electronics** (Tudor *Rainforest IV*; Mumma *Hornpipe*) · **sampler performance** (Araabmuzik live MPC video; KiNK Boiler Room Sofia) · **long form** (Villalobos *Fizheuer Zieheuer*; Mills *Exhibitionist* for the video session) · **live hardware techno** (Surgeon live — Elektron-centric, this workshop's hardware; Octave One; 999999999 as a panic-path case study) · **live resampling system** (Tim Exile's Flow Machine; Colin Benders) · **feedback performance** (Nakamura no-input mixing board — the 029 safety reference; Lucier *Bird and Person Dyning*) · **long-form drone performance** (Charlemagne Palestine *Strumming Music*; Tony Conrad *Four Violins*) |
+| 8 | **personal system** (Autechre; Mark Fell *Multistability*) · **cross-domain composition** (Andy Stott *Luxury Problems*; Actress *R.I.P*; Burial *Archangel*) · **signature piece** (Jlin *Black Origami*) · **teaching/documentation & archive practice** (*Sisters with Transistors*; Oblique Strategies as a decision archive) · **hybrid personal system** (Caterina Barbieri *Fantas*; Kaitlyn Aurelia Smith *First Flight*) · **three-track EP system** (Maurizio M-series — one system, numbered variations, the model for C7; Skee Mask *ISS* series) · **personal constraint language** (Lorenzo Senni *Superimpositions* — one constraint as an identity, the lab 032 reference; Mark Fell's rule-sets, cross-referencing the personal-system lesson) |
+
 ## Page models (per lab type)
 
 - **Track lab**: 5 pages — Overview · System & Engineering Specs · Bench
@@ -350,7 +385,8 @@ Competencies recur as **required behaviors** — every track lab and capstone
 files an Engineering Spec and runs one fault — not just as topics. Each
 competency also has a home lab where it is taught explicitly:
 
-- Signal flow, gain staging → **001**; clock, latency, monitoring → **002**
+- Signal flow, gain staging → **001**; clock, latency, monitoring, and the
+  control path (MIDI notes vs CC, mapping with ranges) → **002**
 - Sampling paths → **006**; field technique → **008**
 - Resampling paths (internal vs USB vs analog loop) → **007**, deepened in
   015–017 and 028
@@ -547,7 +583,8 @@ teach** a system that sounds like them.
 | R8 | Rebuild Your Own — one Year 1 piece reconstructed from its print map and documentation alone; the archive's reproducibility test | R | S4 | — | — | — | F1 |
 | → C7 (Final capstone) | | | | | | | |
 
-Prerequisites are linear with explicit extras: 020 → 029; 027 → 028, C6;
+Prerequisites are linear with explicit extras: three required drills → 003
+(see the listening curriculum); 020 → 029; 027 → 028, C6;
 032 → 033; each replication lab requires its block's Samples session; year
 capstones require their year's blocks and listening programmes complete.
 
@@ -747,7 +784,8 @@ awaiting content.
   (3–6) is this table. Prose assumes no prior audio vocabulary — any term
   not in the table is said in plain words.
 - **Listening references teach how to listen.** Every build lab carries
-  **6–10 references**, each teaching a distinct facet of the lab's lens,
+  **at least 10 references** (no upper limit), each teaching a distinct
+  facet of the lab's lens,
   and every reference carries: one plain sentence on why it is here ·
   "Listen for" (2–3 concrete things, named before listening) · "After —
   verify" (questions with hinted answers and a relisten pointer for
