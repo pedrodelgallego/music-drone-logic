@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workshop References</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="references.html" class="active"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="eyebrow">References</div>
+    <h1>Shared workshop references</h1>
+    <p class="lede">Written once, used by every lab. These pages are stubs in the scaffold; the assessment frame below is already final.</p>
+  </header>
+
+  <h2>The two specs</h2>
+
+  <p style="text-align: center; color: var(--text-muted); max-width: 640px; margin: 0 auto 18px;">Every track lab and capstone opens with both, before any gear is touched. Year 1: provided, you verify. Year 3: you author them blank.</p>
+
+  <div class="cards two">
+    <div class="card">
+      <h3 class="card-title">System Spec — composition-facing</h3>
+      <ul class="card-points">
+        <li>Inputs — what raw material enters the system</li>
+        <li>Transforms — what changes it, in what order</li>
+        <li>Feedback / variation — what keeps it alive</li>
+        <li>Constraints — what prevents clutter</li>
+        <li>Human role — performed, decided, or curated</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Engineering Spec — path-facing</h3>
+      <ul class="card-points">
+        <li>Signal path · gain plan · clock and sync</li>
+        <li>Latency · stereo and phase · noise budget</li>
+        <li>Print strategy — what is committed, when, why</li>
+        <li>Failure mode — what will go wrong, how to diagnose it</li>
+        <li>Safety — feedback, headphone level, field, live</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>The fault ritual</h2>
+
+  <div class="signal-flow">
+    <span class="signal-node">Predict the symptom</span><span class="signal-arrow">→</span>
+    <span class="signal-node">Create the fault</span><span class="signal-arrow">→</span>
+    <span class="signal-node">Observe</span><span class="signal-arrow">→</span>
+    <span class="signal-node">Diagnose the location</span><span class="signal-arrow">→</span>
+    <span class="signal-node">Fix</span><span class="signal-arrow">→</span>
+    <span class="signal-node">Write the rule</span>
+  </div>
+
+  <p style="text-align: center; color: var(--text-muted); max-width: 640px; margin: 0 auto;">One controlled breakage per track lab, bench lab, and capstone — never punitive. Fault classes: gain, monitoring, clock, phase, routing, latency, noise, state, performance.</p>
+
+  <h2>The lab report</h2>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-label">Filed for every track lab, étude, and capstone</div>
+    </div>
+    <ul>
+      <li>Rendered piece — 24-bit WAV, −3 dBFS</li>
+      <li>Routing diagram — drawn before patching, corrected after; the diff is the lesson</li>
+      <li>Recording plan — what gets printed, when, at what stage</li>
+      <li>Patch notes — the settings that mattered</li>
+      <li>Session notes</li>
+      <li>Reflection answers, citing the lab’s listening assignment</li>
+      <li>One removal decision — what was cut, and why</li>
+      <li>Fault entry — symptom, cause, fix, prevention rule</li>
+      <li>Print map — what exists as audio, MIDI, automation, patch state, memory</li>
+      <li>System diff — “I thought it worked like X; I discovered it worked like Y.”</li>
+    </ul>
+  </div>
+
+  <h2>The seven layers — the graduate frame</h2>
+
+  <p style="text-align: center; color: var(--text-muted); max-width: 640px; margin: 0 auto 18px;">Used at capstone reviews, L8, and the final defense: describe any system through material, signal, control, time, decision, human, and archive layers.</p>
+
+  <h2>Reference pages</h2>
+
+  <table>
+    <tr><th>Page</th><th>Contents</th><th>Status</th></tr>
+    <tr>
+      <td><span class="lab-title">Studio Reference</span></td>
+      <td>The living operating manual: routing, gain chain, MIDI clock, cables — extracted from the original guide; versioned with the Studio Signal Map</td>
+      <td><span class="status">forthcoming</span></td>
+    </tr>
+    <tr>
+      <td><span class="lab-title">Gear Roadmap</span></td>
+      <td>What arrives at which block, alternatives, and the purchase test; core-rig fallback for every gear-dependent lab</td>
+      <td><span class="status">forthcoming</span></td>
+    </tr>
+    <tr>
+      <td><span class="lab-title">Listening Index</span></td>
+      <td>All programmes and per-lab assignments; the six-question analysis worksheet</td>
+      <td><span class="status">forthcoming</span></td>
+    </tr>
+    <tr>
+      <td><span class="lab-title">Fault-Finding Tree</span></td>
+      <td>Master symptom → cause → fix reference, aggregated from every lab’s diagnosis page</td>
+      <td><span class="status">forthcoming</span></td>
+    </tr>
+    <tr>
+      <td><span class="lab-title">Glossary</span></td>
+      <td>Terms used across the workshop</td>
+      <td><span class="status">forthcoming</span></td>
+    </tr>
+    <tr>
+      <td><span class="lab-title">Portfolio &amp; Logbook guide</span></td>
+      <td>The continuous journal, year syntheses, and the printable curriculum checklist</td>
+      <td><span class="status">forthcoming</span></td>
+    </tr>
+  </table>
+
+  <div class="page-nav">
+    <a href="block-8/index.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 08 / Synthesis &amp; Voice
+    </a>
+    <a href="index.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      00 / Overview →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — References</div>
+
+</div>
+
+</body>
+</html>
