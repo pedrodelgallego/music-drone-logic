@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab 008 — The Field Kit</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="index.html" class="active"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="eyebrow">Block 2 · Lab 008 · Bench</div>
+    <h1>The Field Kit</h1>
+    <p class="lede">Recorder, contact mics, induction coil — three ways to hear a place, and the gain decisions you make standing in it. This bench lab assembles the kit, certifies your handling of it, and ends with the same object captured through air, surface, and electromagnetic field.</p>
+  </header>
+  <p class="block-meta">Bench lab · S2 · E2 M3 · field recording · full cycle · new concepts: 5</p>
+
+  <div class="signal-flow">
+    <span class="signal-node">listen</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">hypothesis</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">pack the kit</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">calibrate gain</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">capture × 3 paths</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">fault</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">diagnose</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">compare</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">delta</span>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Start here</div>
+    </div>
+    <ul>
+      <li>Work the listening accordion and write the hypothesis before packing anything.</li>
+      <li>Read the field safety &amp; ethics checklist below — it travels with the kit, every time.</li>
+      <li>Copy the kit table into the logbook; it is a capability list, not a shopping list.</li>
+      <li>Lab 006’s gain discipline is assumed: you already own the too-quiet / correct / too-hot comparison indoors.</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The point</div>
+    <p>In the studio a bad level costs a retake; in the field it costs the moment — the train passes once, the ice cracks once. Capture discipline is the whole craft out there: everything else can be fixed later, the level cannot.</p>
+  </div>
+
+  <h2>How this lab works</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3 class="card-title">The three capture paths</h3>
+      <ul class="card-points">
+        <li>Air: the recorder’s microphones — what the room or the street carries</li>
+        <li>Solid: contact mic or piezo pressed to a surface — what the material carries</li>
+        <li>Electromagnetic: the induction coil — what circuits leak, inaudible until translated</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Gain in the field</h3>
+      <ul class="card-points">
+        <li>One preamp, one meter — the recorder’s own — and no second take</li>
+        <li>Set for the loudest thing that might happen, not the quietest that is happening</li>
+        <li>Rehearse the level move before the moment, the way a photographer pre-focuses</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Two checklists, one habit</h3>
+      <ul class="card-points">
+        <li>The kit checklist: leave with everything you arrived with</li>
+        <li>The ethics checklist: harm nothing — people, places, or the kit itself</li>
+        <li>Both verified before and after every field session, as ritual</li>
+      </ul>
+    </div>
+  </div>
+
+  <table class="param-table">
+    <caption>Pass standard</caption>
+    <tr><td>Minimum pass</td><td>The kit is assembled and verified, the three-path comparison exists, and the field log, fault entry, and system diff are filed.</td></tr>
+    <tr><td>Solid pass</td><td>Every recording in the comparison is usable: no clipping, no wind blast, no handling thumps, levels defensible.</td></tr>
+    <tr><td>Advanced transfer</td><td>You can walk into an unfamiliar location, choose the right capture path for it in advance, and explain the choice before pressing record.</td></tr>
+  </table>
+
+  <h2>New concepts — in plain words</h2>
+
+  <table>
+    <tr><th>Concept</th><th>In plain words</th></tr>
+    <tr><td><span class="lab-title">Air vs solid vs electromagnetic</span></td><td>Three physical worlds, three kinds of ear. A microphone hears what the air carries. A contact mic hears what surfaces carry — press it to a fence and the fence becomes the recording. An induction coil hears what circuits leak — electricity humming and chattering where your ears report silence. Same object, three completely different sounds.</td></tr>
+    <tr><td><span class="lab-title">The recorder’s gain</span></td><td>Your only preamp out there — one knob between the world and the file. Set it for the loudest thing that <em>might</em> happen, not the quietest thing currently happening: a level that flatters the birdsong will be destroyed by the truck.</td></tr>
+    <tr><td><span class="lab-title">Self-noise</span></td><td>The kit’s own hiss — every microphone and preamp makes a little, and in a quiet place it becomes audible. In the studio the room covers it; in a silent forest at high gain, the hiss is the loudest performer you brought.</td></tr>
+    <tr><td><span class="lab-title">Wind and handling</span></td><td>The two field killers. Wind hitting a bare mic is not “the sound of wind” — it is a low blast that ruins the file. Your fingers shifting on the recorder print as thumps. Both have cheap fixes: foam over the capsules, and grip discipline — hold still, or put the recorder down.</td></tr>
+    <tr><td><span class="lab-title">Monitoring in the field</span></td><td>Closed headphones, so you judge the recording instead of the place — your ears hear the location, the phones hear the file, and they disagree more than you expect. One ear sometimes slipped free, because a recordist who cannot hear traffic is a safety problem.</td></tr>
+  </table>
+
+  <div class="tag-row">
+    <span class="tag">air vs solid vs electromagnetic</span>
+    <span class="tag">the recorder’s gain</span>
+    <span class="tag">self-noise</span>
+    <span class="tag">wind and handling</span>
+    <span class="tag">field monitoring</span>
+  </div>
+
+  <h2>Listening — the hypothesis source</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Seven recordists, seven answers to the same question: which physical world do you point the kit at? Each gets a brief: what to listen for before you press play, and how to check yourself after.</p>
+
+  <div class="listen-acc">
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">01</span>
+        <span class="listen-title">Jana Winderen — <em>Energy Field</em></span>
+        <span class="listen-tag">below the surface</span>
+      </summary>
+      <div class="listen-body">
+        <p>Hydrophones under ice and open water — a world you cannot hear unaided, made audible only because someone chose a transducer that lives where ears cannot.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Sounds with no airborne equivalent: creaks, pressure groans, crackles that exist only underwater.</li>
+          <li>The sense of depth and distance — how far away events feel in a medium that carries sound differently.</li>
+          <li>How little is “musical” by intent, and how composed it feels anyway.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Could any of this have been recorded with a normal microphone above the ice? No — and that is the lab’s first lesson made audible: the transducer choice happened <em>before</em> the recording, and it decided everything. Name one sound you could not identify. Keep it unidentified — the unfamiliarity is the evidence that you crossed into another medium. If everything sounded explicable, relisten for the high crackle and ask what, in air, ever sounds like that.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Jana+Winderen+Energy+Field" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Jana%20Winderen%20Energy%20Field">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">02</span>
+        <span class="listen-title">Christina Kubisch — <em>Five Electrical Walks</em></span>
+        <span class="listen-tag">the coil hears the invisible</span>
+      </summary>
+      <div class="listen-body">
+        <p>Electromagnetic induction as a sense organ — exactly this lab’s third path. Kubisch walks cities wearing coil headphones, and the security gates, tram lines, and ATM machines perform.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Rhythms no one composed: switching power supplies pulsing, data lines chattering.</li>
+          <li>How different two “silent” machines sound — every circuit leaks its own signature.</li>
+          <li>The total absence of air: no footsteps, no voices, no room — this world has no acoustics.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>What is missing from these recordings that every microphone recording has? Space — there is no reverb, no distance, no room tone, because electromagnetic fields do not echo. Did any source surprise you by having a rhythm? It should: regularity is what machines do, and the coil turns that regularity into sequenced music nobody wrote. If you missed the absence of space, relisten and try to place any sound in a room — you cannot.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Christina+Kubisch+Five+Electrical+Walks" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Christina%20Kubisch%20Five%20Electrical%20Walks">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">03</span>
+        <span class="listen-title">Francisco López — <em>La Selva</em></span>
+        <span class="listen-tag">the field unedited</span>
+      </summary>
+      <div class="listen-body">
+        <p>A rainforest presented as music, with no processing argued for — López’s position is that the capture, framed and attended to, already is the piece.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Layers at every distance: insects close, birds mid-field, weather far — a mix nobody mixed.</li>
+          <li>How the density changes over time, like an arrangement with no arranger.</li>
+          <li>Your own attention: when does it stop hearing “a recording of a forest” and start hearing form?</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Where was the recordist’s artistry, if nothing was processed? In everything before the file existed: where to stand, which hours to keep, what gain to hold through the loud and quiet — the decisions this lab certifies. Did the piece develop, even though nobody edited development into it? Yes — choosing <em>when</em> and <em>where</em> is composition. If it stayed “just a forest” for you, relisten to ten minutes and log every entrance and exit like tracks in a mix.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Francisco+Lopez+La+Selva" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Francisco%20Lopez%20La%20Selva">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">04</span>
+        <span class="listen-title">Toshiya Tsunoda — <em>Extract from Field Recording Archive</em></span>
+        <span class="listen-tag">the solid world</span>
+      </summary>
+      <div class="listen-body">
+        <p>Contact mics on small vibrations — pipes, railings, the inside of a bottle on a pier. Placement is the art: move the transducer a hand’s width and the piece changes.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Sounds with body but no room: vibration arriving through material, dry and close.</li>
+          <li>How huge tiny events become — a wire’s hum or a floor’s tremor filling the frame.</li>
+          <li>The ordinary objects implied: what is this surface, and what is exciting it?</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Why do these recordings feel like they happen inside your head rather than in a space? Because solid-borne sound never traveled through air — no air, no room, no distance cues; the surface speaks directly into the transducer. Could you guess what excited each surface — wind, traffic, footsteps? Partly at best, and that gap is the instrument: the surface filters the world into its own voice. If everything still sounded like “a weird mic,” relisten and ask of one track: where would I have had to press the sensor to get this?</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Toshiya+Tsunoda+Extract+from+Field+Recording+Archive" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Toshiya%20Tsunoda%20Extract%20from%20Field%20Recording%20Archive">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">05</span>
+        <span class="listen-title">Jacob Kirkegaard — <em>Eldfjall</em></span>
+        <span class="listen-tag">the earth as source</span>
+      </summary>
+      <div class="listen-body">
+        <p>Geothermal vibration in Iceland recorded through accelerometers — sensors pushed into the ground where steam and pressure move rock. The planet itself is the oscillator.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The bottom of the spectrum: rumbles and pulses below where most music lives.</li>
+          <li>Textures that read as synthesis — drones and granular hiss that no synthesizer made.</li>
+          <li>Slow change: geology’s tempo, events unfolding over minutes.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>If you heard this blind, would you call it electronic music? Almost certainly — and that confusion is the finding: a transducer in the right place makes the earth indistinguishable from an oscillator, which should loosen your idea of what counts as a “source.” What was the loudest event, and did it arrive suddenly or grow? Growth is geology’s signature; a synth would jump. If you cannot recall, relisten to one track at the marked headphone level and follow only the lowest layer.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Jacob+Kirkegaard+Eldfjall" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Jacob%20Kirkegaard%20Eldfjall">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">06</span>
+        <span class="listen-title">BJ Nilsen — <em>The Invisible City</em></span>
+        <span class="listen-tag">the urban field</span>
+      </summary>
+      <div class="listen-body">
+        <p>A city listened to like a forest — ventilation, traffic, machinery, and weather treated with the same patience naturalists give birdsong.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The city’s drones: ventilation and distant traffic holding steady tones underneath everything.</li>
+          <li>Layered rhythms nobody coordinated — footsteps against machinery against dripping water.</li>
+          <li>Where recordings blend: can you find the seams between locations?</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>What did the city sound like once you stopped hearing it as noise? Like an ensemble — sustained tones, pulses, and accents in every register, available every day for free. Could you find the seams between locations? Mostly not, and that is craft: matched levels and tone make separate captures read as one space. The transferable lesson — your own street is a source library. If it stayed “noise,” relisten and hunt for the lowest continuous tone, then name the machine that might be making it.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=BJ+Nilsen+The+Invisible+City" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:BJ%20Nilsen%20The%20Invisible%20City">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">07</span>
+        <span class="listen-title">Chris Watson — <em>Stepping into the Dark</em></span>
+        <span class="listen-tag">the atmosphere of places</span>
+      </summary>
+      <div class="listen-body">
+        <p>Single locations held long enough to become pieces — Watson sets the kit, commits to the place, and lets duration do the composing.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The patience: one place, unbroken, with no cutting away when nothing “happens.”</li>
+          <li>How clean the captures are — no wind blast, no handling, no hiss bed; this is the technical bar.</li>
+          <li>The atmosphere that accumulates: how a place becomes a presence after minutes, not seconds.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>What did you hear at minute four that you could not hear at minute one? Detail and depth — not because the place changed but because your attention settled; duration is a capture decision exactly like gain. Did you catch a single technical flaw — one gust, one thump, one audible hiss bed? You should not have; that cleanliness is what the field certification in this lab is for. If you stopped listening early, that is the data: go back and sit through one full track.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Chris+Watson+Stepping+into+the+Dark" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Chris%20Watson%20Stepping%20into%20the%20Dark">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+  </div>
+
+  <p style="color: var(--text-muted); font-size: 14.5px; margin: 18px 0 0;">Before packing anything, write a one-sentence hypothesis in the logbook naming what you stole from across these seven recordists — a transducer below the ice, a coil where ears report silence, the unedited frame, the surface as filter, the planet as oscillator, the city as ensemble, duration as a level decision. The target is something like: <strong style="color: var(--text);">the kit chooses what the world can say — pick the path before the place.</strong> Your sentence, in your words; the three-path comparison below is what will test it.</p>
+
+  <h2>Reference — the kit, the safety checklist, the comparison</h2>
+
+  <table class="param-table">
+    <caption>The field kit — capability targets, not endorsements</caption>
+    <tr><td>Air path — handheld recorder with owned gain decisions (Zoom H5studio class) + spare batteries and a spare card</td><td>never leaves the bag</td></tr>
+    <tr><td>Wind protection — foam over every capsule, dead-cat if wind is likely</td><td>fitted before leaving</td></tr>
+    <tr><td>Solid path — contact mic / piezo (AKG C411 class, or a DIY piezo kit)</td><td>with mounting putty + tape</td></tr>
+    <tr><td>Electromagnetic path — induction coil (LOM Elektrosluch class, or a telephone pickup coil)</td><td>tested on a known device</td></tr>
+    <tr><td>Closed headphones for field monitoring</td><td>packed, cable coiled</td></tr>
+    <tr><td>Gaffer tape + cable discipline — every cable coiled, strain-relieved, accounted for</td><td>count out, count back</td></tr>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Gear principle:</strong> these entries are capability targets — the lab requirement is the path opened, not the brand. Any recorder whose gain you control, any transducer that hears surfaces, any coil that hears circuits is valid, and each appears in the Studio Signal Map when it arrives. The core-rig fallback: a phone recorder plus a DIY piezo covers two of the three paths while the kit is pending.</li>
+    </ul>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Field safety &amp; ethics — read before every session, not once</div>
+    </div>
+    <ul>
+      <li>Consent and privacy when recording people — if a voice is identifiable, you ask; if you cannot ask, you do not keep it</li>
+      <li>Batteries and storage — charged, spares packed, card space checked before leaving, files backed up on return</li>
+      <li>Weather and moisture — electronics and rain do not negotiate; bag the kit, watch condensation moving between cold and warm</li>
+      <li>Traffic and public-space awareness — closed phones remove your ears from the street; one ear free near roads, rails, and bikes</li>
+      <li>Cable strain and trip hazards — no cable crosses a path at ankle height; tape it or reroute it</li>
+      <li>Caution with electromagnetic pickups around unknown electrical installations — the coil listens from a distance; nothing gets touched, opened, or probed</li>
+    </ul>
+  </div>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Required comparison — this lab’s deliverable</div>
+    <p>The same object captured three ways: <strong>air</strong> (the recorder’s mics), <strong>contact</strong> (the piezo on its surface), and <strong>electromagnetic</strong> (the coil at its circuits). One object, three files, one logbook page comparing what each path could and could not hear. A refrigerator, a fence under wind, a ticket machine — anything that hums, vibrates, and leaks will do.</p>
+  </div>
+
+  <h2>Procedure — <span class="status">forthcoming</span></h2>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>This section is scaffolded, not written.</strong> The full procedure — kit verification on the bench, the gain rehearsal (set for the loudest thing that might happen, then prove it), the three-path capture session, and the field-level fault ritual — lands when Block 2 is authored. The kit table, safety checklist, and required comparison above are stable; assemble and certify against them.</li>
+    </ul>
+  </div>
+
+  <h2>Reference &amp; diagnosis</h2>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Pass gate — the lab is complete when all exist</div>
+    </div>
+    <ul>
+      <li>The kit list verified — counted out, counted back, every capability present or its fallback named</li>
+      <li>The three-path comparison recordings — air, contact, and electromagnetic captures of the same object, levels defensible</li>
+      <li>Field log — location, time, weather, gain settings per capture, and what the place did that the plan did not predict</li>
+      <li>Fault entry — symptom, cause, fix, prevention rule (Block 2’s fault emphasis: field level and source handling)</li>
+      <li>System diff sentence — “I thought the field worked like X; standing in it, I discovered it worked like Y”</li>
+    </ul>
+  </div>
+
+  <p style="color: var(--text-muted); font-size: 13.5px; text-align: center; max-width: 560px; margin: 0 auto;">The kit and its checklists are living documents: re-versioned when gear arrives, audited before every field session, and carried into R2, C2, and every capture the workshop makes after this.</p>
+
+  <div class="final">
+    <div class="final-label">Bench principle</div>
+    <p>The field does not offer retakes. Choose the path before the place, set gain for what might happen, and leave with everything — the recording, the kit, and the place intact.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="lab-007.html">
+      <span class="page-nav-direction">Previous</span>
+      ← Lab 007 / The Sampler Eats Itself
+    </a>
+    <a href="lab-r2.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      R2 / Rebuild the Gesture →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Block 2 · Lab 008</div>
+
+</div>
+
+</body>
+</html>
