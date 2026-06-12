@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab 003 — Repetition as Engine</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="index.html" class="active"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="eyebrow">Block 1 · Lab 003 · Track lab</div>
+    <h1>Repetition as Engine</h1>
+    <p class="lede">A hypnotic track is a short loop that plays for eight minutes without getting boring. The trick is not the loop — it is changing exactly one thing at a time, slowly, so the listener keeps noticing without knowing why. You will build one here, from one chord and a few drum sounds.</p>
+  </header>
+  <p class="block-meta">Track lab · S1 · D3 E2 M1 F2 · hypnotic techno · full cycle</p>
+
+  <div class="signal-flow">
+    <span class="signal-node">listen</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">hypothesis</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">draw the path</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">calibrate</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">build</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">fault</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">diagnose</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">print</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">delta</span>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Start here</div>
+    </div>
+    <ul>
+      <li>Bring forward one engine from L1 and, if completed, one miss from R1.</li>
+      <li>Save a new set as <span class="code">LAB-003-repetition-engine</span>.</li>
+      <li>Write the System Spec and Engineering Spec before patching; the filled examples on this page set the expected granularity.</li>
+      <li>Then build the loop, not the arrangement: one chord, a few drums, one slow engine.</li>
+    </ul>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>This lab condenses Lab Note 001.</strong> The full seven-page course at <a href="../../guide/index.html">../guide/index.html</a> remains the deep reference for every build step — sound design, wiring, arrangement timing, mixing. This page adds what the course predates: the two specs (filled), the fault ritual, and the full report bundle.</li>
+      <li><strong>Originality constraint:</strong> the piece you <em>file</em> is fully original — the listening analysis steals systems, never material, and nothing from a reference or from the <a href="lab-r1.html">R1 replica session</a> migrates into this one. Replication is a legitimate way to learn the system first; that is what R1 is for. Copy there to learn; compose your own here.</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The point</div>
+    <p>When almost nothing changes, the smallest change becomes an event. Keep the frame still, move one thing at a time, and a single chord can carry eight minutes.</p>
+  </div>
+
+  <h2>How this lab works</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3 class="card-title">Make material that loops</h3>
+      <ul class="card-points">
+        <li>Build steps 1–4</li>
+        <li>One chord on the MicroFreak, one drum grid on the Digitakt, tuned to each other</li>
+        <li>Test: can the bare loop hold your attention for four minutes?</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Give it an engine</h3>
+      <ul class="card-points">
+        <li>Build steps 5–7</li>
+        <li>Add the delay send — the place change will come from</li>
+        <li>Write the evolution map: a small table of what changes, and when</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Perform, print, subtract</h3>
+      <ul class="card-points">
+        <li>Build steps 8–12</li>
+        <li>Record the ride in one take, mistakes included</li>
+        <li>Commit the loops to audio, then arrange by removing things</li>
+      </ul>
+    </div>
+  </div>
+
+  <table class="param-table">
+    <caption>Pass standard</caption>
+    <tr><td>Minimum pass</td><td>Audible original piece, routing diagram, fault entry, print map, and system diff exist.</td></tr>
+    <tr><td>Solid pass</td><td>The piece follows one named repetition engine, and the listener can hear where variation enters without reading the report.</td></tr>
+    <tr><td>Advanced transfer</td><td>You can rebuild the same engine with different material while keeping the rule intact.</td></tr>
+  </table>
+
+  <h2>New concepts — in plain words</h2>
+
+  <table>
+    <tr><th>Concept</th><th>In plain words</th></tr>
+    <tr><td>The engine</td><td>The thing that creates change over time. The loop is the car’s body; the engine is what moves it. Three engines exist in this style: filtering the loop from outside, removing and adding parts over time, or letting something inside the sound drift on its own.</td></tr>
+    <tr><td>Send / return</td><td>A separate channel where an effect lives — here, a delay. You send a <em>copy</em> of a sound to it; the original stays clean, and you control how much of the copy goes in. Like a hallway with an echo: you choose how wide to open the door.</td></tr>
+    <tr><td>One-variable rule</td><td>Only one parameter is allowed to change at a time, at most one move per 8 bars. Not a style choice: if two things move at once, you cannot know which one worked.</td></tr>
+    <tr><td>Parameter lock</td><td>On the Digitakt, a setting applied to a single step only: hold the step, turn a knob. The 5th hat can be longer than all the others without needing a second track.</td></tr>
+    <tr><td>Conditional trig</td><td>A step that only plays sometimes — for example, 1 time in 4 loops. Cheap variation: the pattern stays alive without any new sounds.</td></tr>
+    <tr><td>Print / resample</td><td>Recording the result of your effects and riding as a new audio file. It commits you: the printed version is now the instrument, and you cannot endlessly tweak it. That limit is the point.</td></tr>
+  </table>
+
+  <h2>Listening — the hypothesis source</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Seven records, one effect — a loop that never bores — built by seven different engines. Each gets a short brief: what to listen for before you press play, and how to check yourself after. The full six-question worksheets live in <a href="listening-l1.html">programme L1</a>.</p>
+
+  <div class="listen-acc">
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">01</span>
+        <span class="listen-title">Basic Channel — “Quadrant Dub I”</span>
+        <span class="listen-tag">dub-filtered loop</span>
+      </summary>
+      <div class="listen-body">
+        <p>The chord never changes — every event comes from outside it: a filter, an echo, a level.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>How muffled or bright the chord is, moment to moment</li>
+          <li>How much echo surrounds it, and when that changes</li>
+          <li>The actual events in two minutes — count them</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Was your count under ten? Most people remember more than they heard — the difference is the trick working. If you counted “lots,” relisten watching only the chord.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Basic+Channel+Quadrant+Dub+I" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Basic%20Channel%20Quadrant%20Dub%20I">Spotify</a></p>
+        <p class="listen-rep"><a href="rep-quadrant-dub.html">Replicate it — step-by-step lesson →</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">02</span>
+        <span class="listen-title">Plastikman — <em>Consumed</em> (title track)</span>
+        <span class="listen-tag">subtractive automation</span>
+      </summary>
+      <div class="listen-body">
+        <p>The piece is carved, not assembled — what is missing carries as much weight as what plays.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>What is <em>absent</em> at any moment</li>
+          <li>Pick a minute and name what just left</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Could you name one element that disappeared, and when it came back? If not, relisten to any two-minute span and write down each exit.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Plastikman+Consumed" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Plastikman%20Consumed">Spotify</a></p>
+        <p class="listen-rep"><a href="rep-consumed.html">Replicate it — step-by-step lesson →</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">03</span>
+        <span class="listen-title">Donato Dozzy &amp; Nuel — <em>The Aquaplano Sessions</em></span>
+        <span class="listen-tag">modulation drift</span>
+      </summary>
+      <div class="listen-body">
+        <p>Nothing ever repeats exactly, and the differences are too small to be a person editing.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Pick <em>one</em> sound and follow it for three minutes</li>
+          <li>The differences between cycles — too small to be edits</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Describe what changed about your chosen sound in one sentence (brighter? closer? rougher?). If you can’t, follow a different, simpler element.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Donato+Dozzy+Nuel+Aqua+1" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Donato%20Dozzy%20Nuel%20Aqua%201">Spotify</a></p>
+        <p class="listen-rep"><a href="rep-aquaplano.html">Replicate it — step-by-step lesson →</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">04</span>
+        <span class="listen-title">Jeff Mills — “The Bells”</span>
+        <span class="listen-tag">the jump cut</span>
+      </summary>
+      <div class="listen-body">
+        <p>Energy comes from hard block switches — no transitions, no fills. The cut itself is the event.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>How sections change: instantly, on the bar — nothing is eased in or out</li>
+          <li>What every block shares (the kick) and what each block swaps</li>
+          <li>How long each block holds before the next cut</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Count the blocks and describe how each change lands. If you heard a transition anywhere, relisten — there are none; that absence is the engine.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Jeff+Mills+The+Bells" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Jeff%20Mills%20The%20Bells">Spotify</a></p>
+        <p class="listen-rep"><a href="rep-the-bells.html">Replicate it — step-by-step lesson →</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">05</span>
+        <span class="listen-title">The Field — “Over the Ice”</span>
+        <span class="listen-tag">the micro-loop</span>
+      </summary>
+      <div class="listen-body">
+        <p>A loop so short it stops being a phrase and becomes a texture — repetition below the level of melody.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The loop point — can you find it?</li>
+          <li>What the slice might have been before it was cut</li>
+          <li>How the kick turns a shimmer into a track</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>How long is the loop — your best guess? It is shorter than you think; the ear stops hearing an edit somewhere under a second. Relisten trying to count its repeats per bar.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=The+Field+Over+the+Ice" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:The%20Field%20Over%20the%20Ice">Spotify</a></p>
+        <p class="listen-rep"><a href="rep-over-the-ice.html">Replicate it — step-by-step lesson →</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">06</span>
+        <span class="listen-title">Steve Reich — <em>Music for 18 Musicians</em></span>
+        <span class="listen-tag">pulse + slow change</span>
+      </summary>
+      <div class="listen-body">
+        <p>The original repetition engine — even pulses, harmony changing at the speed of breath.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The pulse that never stops, passed from instrument to instrument</li>
+          <li>When the harmony actually shifts — try to catch the moment</li>
+          <li>Voices and winds swelling in and out, like lungs</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Could you point at the moment the harmony changed? Barely — that is the design: the change is felt before it is noticed. Relisten to one section watching only the bass register.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Steve+Reich+Music+for+18+Musicians" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Steve%20Reich%20Music%20for%2018%20Musicians">Spotify</a></p>
+        <p class="listen-rep"><a href="rep-music-for-18.html">Replicate it — step-by-step lesson →</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">07</span>
+        <span class="listen-title">GAS — “Pop 1”</span>
+        <span class="listen-tag">the submerged loop</span>
+      </summary>
+      <div class="listen-body">
+        <p>A loop drowned in haze until its edges vanish — repetition felt as weather, not as rhythm.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The faint pulse under the wash — find it and hold on to it</li>
+          <li>Where the loop starts — try to locate an edge anywhere</li>
+          <li>What changes over minutes: not the material, the weather around it</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Can you find the loop’s start? You shouldn’t — the reverb has dissolved every edge, and the pulse is the only clock left. Relisten once at low volume and notice the loop is still unmistakably there.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=GAS+Pop+1" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:GAS%20Pop%201">Spotify</a></p>
+        <p class="listen-rep"><a href="rep-pop-1.html">Replicate it — step-by-step lesson →</a></p>
+      </div>
+    </details>
+  </div>
+
+  <table>
+    <tr><th>Record</th><th>Engine</th><th>Where variation lives</th></tr>
+    <tr>
+      <td><span class="lab-title">Basic Channel — “Quadrant Dub I”</span></td>
+      <td>dub-filtered loop</td>
+      <td>In the sends: filter and delay carve a near-static loop differently on every pass; the source barely changes.</td>
+    </tr>
+    <tr>
+      <td><span class="lab-title">Plastikman — <em>Consumed</em> (title track)</span></td>
+      <td>subtractive automation</td>
+      <td>In the channel: cutoff, level, and space are drawn down and back up over minutes — the writing is the automation.</td>
+    </tr>
+    <tr>
+      <td><span class="lab-title">Donato Dozzy &amp; Nuel — <em>The Aquaplano Sessions</em></span></td>
+      <td>modulation drift</td>
+      <td>Inside the patch: slow, unsynced modulators keep the timbre from ever repeating exactly, with almost no hands.</td>
+    </tr>
+    <tr>
+      <td><span class="lab-title">Jeff Mills — “The Bells”</span></td>
+      <td>the jump cut</td>
+      <td>In the arrangement: whole blocks switched hard on the bar, no transitions — the cut itself is the only event.</td>
+    </tr>
+    <tr>
+      <td><span class="lab-title">The Field — “Over the Ice”</span></td>
+      <td>the micro-loop</td>
+      <td>Below the phrase: a sub-second slice repeats until it reads as texture; the ear stops hearing an edit and starts hearing a surface.</td>
+    </tr>
+    <tr>
+      <td><span class="lab-title">Steve Reich — <em>Music for 18 Musicians</em></span></td>
+      <td>pulse + slow change</td>
+      <td>In the harmony: even pulses never break; chords change at the speed of breath, so the shift is felt before it is noticed.</td>
+    </tr>
+    <tr>
+      <td><span class="lab-title">GAS — “Pop 1”</span></td>
+      <td>the submerged loop</td>
+      <td>In the space: reverb dissolves the loop’s edges until repetition becomes weather, with a faint pulse as the only clock.</td>
+    </tr>
+  </table>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Requirement</div>
+    <p>Your written hypothesis names <strong>which engine this piece will run</strong> — dub-filtered loop, subtractive automation, modulation drift, the jump cut, the micro-loop, pulse with slow change, or the submerged loop — and what was stolen from the comparison. What you steal is a structure, never a sound. If you ran <a href="lab-r1.html">R1</a>, bring its miss list: the things you couldn’t rebuild are the things to listen for now.</p>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Before you start</div>
+    </div>
+    <ul>
+      <li>Labs 001–002 artifacts on the desk: the gain ledger, the monitoring table, the loopback number</li>
+      <li>New Live set saved as <span class="code">LAB-003</span> · tempo set — pick one in <span class="code">126–132 BPM</span> and write it down</li>
+      <li>Clock sync on: Live → <span class="menu">Preferences → Link, Tempo &amp; MIDI</span> → Sync <strong>ON</strong> for the Digitakt port · Digitakt <span class="menu">Settings → MIDI Config → Sync</span> → clock + transport <strong>receive</strong></li>
+      <li>Monitoring declared per source, from lab 002’s table — no undeclared paths</li>
+      <li>Phones at the mark</li>
+      <li>Expected time: this is one full cycle — two to three weeks of part-time sessions; do not attempt it in one sitting</li>
+    </ul>
+  </div>
+
+  <h2>1 · Overview</h2>
+
+  <p style="max-width: 680px; margin: 0 auto 16px;">Hypnotic techno sounds like music in which nothing happens. In fact, exactly one thing happens at a time, inside a frame so stable that the ear has nothing else to attend to. The loop carries the weight, but it does not move the piece — the engine does: a filter opening over two minutes, an echo growing slightly on each pass, a hat that breathes from bar to bar. Because the frame never changes, the smallest change becomes an event.</p>
+
+  <p style="max-width: 680px; margin: 0 auto 16px;">The one-variable rule, defined above, is the working law of the whole build. The instinct to fight is additive — more notes, more tracks, a bigger drop. This lab forbids all of it. If the piece gets boring while you build, that is information, not failure: it tells you which element has stopped changing. The fix is never a new element — it is more movement in one you already have.</p>
+
+  <p style="max-width: 680px; margin: 0 auto 16px;"><strong>Done means four checks:</strong> the piece runs 6–8 minutes at 126–132 BPM; it uses six tracks or fewer; it is fully original — the listening analysis steals a structure, never a sound; and the ten-item report bundle is filed. This is an <strong>S1 lab</strong> — the most scaffolded kind — so both specs below are already filled in for you. Build the piece and mark every place your studio disagreed with the page. Those marks are the lesson, and they are exactly what the report’s system-diff sentence exists to capture.</p>
+
+  <h2>2 · The two specs — filled, the worked example</h2>
+
+  <table class="param-table">
+    <caption>System Spec — filled, verify against your build</caption>
+    <tr><td>Inputs</td><td>One MicroFreak chord loop (single paraphonic voicing, engine of your choice) + Digitakt kit: kick, closed hat, one percussion, one texture</td></tr>
+    <tr><td>Transforms</td><td>MicroFreak analog filter (performed) · one dub-style delay send · gentle drum-bus saturation</td></tr>
+    <tr><td>Feedback / variation</td><td>Slow LFO drift on filter cutoff · delay feedback ridden by hand · one variable per 8 bars</td></tr>
+    <tr><td>Constraints</td><td>≤6 tracks · one chord for the whole piece · no breakdown · 6–8 minutes</td></tr>
+    <tr><td>Human role</td><td>Filter and send riding, performed in one take and printed as automation</td></tr>
+  </table>
+
+  <table class="param-table">
+    <caption>Engineering Spec — filled, correct after building</caption>
+    <tr><td>Signal path</td><td>MicroFreak → M4 in 1 → Live track 1 · Digitakt L/R → M4 in 3–4 → Live track 2 · Live master → M4 → phones/monitors</td></tr>
+    <tr><td>Gain plan</td><td>Peaks −12 dBFS while tracking · drum bus peaking −6 · master −3 for the render</td></tr>
+    <tr><td>Clock / sync</td><td>Live is master, Digitakt slaved over USB-MIDI · drift point: long transport runs — restart before the take (lab 002’s measurement applies)</td></tr>
+    <tr><td>Latency</td><td>MicroFreak software-monitored at low buffer so the delay send is audible while riding · Digitakt monitored from its own outs</td></tr>
+    <tr><td>Stereo / phase</td><td>MicroFreak mono, Digitakt stereo · width only from returns · one mono check before the render</td></tr>
+    <tr><td>Noise budget</td><td>MicroFreak output hiss at high preamp gain — set gain by the ledger, not by ear</td></tr>
+    <tr><td>Print strategy</td><td>Resample 8-bar loops of the synth-plus-delay interaction · print the ride take as audio</td></tr>
+    <tr><td>Failure mode</td><td>Intermittent clipping that only appears when the filter LFO opens (this lab’s injected fault)</td></tr>
+    <tr><td>Safety</td><td>Headphone level at the mark set in lab 001 · long sessions, open-backs, loudness creep</td></tr>
+  </table>
+
+  <h2>3 · Bench</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Draw both paths before any cable moves — audio and control are two different diagrams. The corrected version after building goes in the report.</p>
+
+  <div class="signal-flow">
+    <span class="signal-node">MicroFreak out (mono ¼″)</span>
+    <span class="signal-arrow">→ TS →</span>
+    <span class="signal-node">M4 in 1</span>
+    <span class="signal-arrow">→ USB-C →</span>
+    <span class="signal-node">Live track 1</span>
+    <span style="flex-basis: 100%; height: 0;"></span>
+    <span class="signal-node">Digitakt II main L/R</span>
+    <span class="signal-arrow">→ 2 × TRS →</span>
+    <span class="signal-node">M4 in 3–4</span>
+    <span class="signal-arrow">→ USB-C →</span>
+    <span class="signal-node">Live track 2</span>
+    <span style="flex-basis: 100%; height: 0;"></span>
+    <span class="signal-node">Live master</span>
+    <span class="signal-arrow">→ USB-C →</span>
+    <span class="signal-node">M4 out</span>
+    <span class="signal-arrow">→ ¼″ phones →</span>
+    <span class="signal-node">DT 990 / monitors</span>
+  </div>
+
+  <div class="signal-flow">
+    <span class="signal-node">Live (clock + notes)</span>
+    <span class="signal-arrow">→ USB →</span>
+    <span class="signal-node">MicroFreak</span>
+    <span class="signal-arrow">&amp;</span>
+    <span class="signal-node">Digitakt II</span>
+    <span style="flex-basis: 100%; height: 0;"></span>
+    <span class="signal-node">Launchpad Pro MK3</span>
+    <span class="signal-arrow">↔ USB ↔</span>
+    <span class="signal-node">Live</span>
+  </div>
+
+  <div class="timeline">
+    <div class="timeline-row">
+      <div class="timeline-time">jam</div>
+      <div class="timeline-desc">Explore the chord, the grid, the send — nothing is precious, nothing is kept by default.</div>
+    </div>
+    <div class="timeline-row">
+      <div class="timeline-time">select</div>
+      <div class="timeline-desc">Choose the 8 bars that survive. Everything else is deleted before arrangement begins.</div>
+    </div>
+    <div class="timeline-row">
+      <div class="timeline-time">print</div>
+      <div class="timeline-desc">Resample the selected loops to audio. A commitment is a constraint, not a loss.</div>
+    </div>
+    <div class="timeline-row">
+      <div class="timeline-time">ride</div>
+      <div class="timeline-desc">The one-take performance: filter and delay send, recorded with mistakes included.</div>
+    </div>
+    <div class="timeline-row">
+      <div class="timeline-time">arrange</div>
+      <div class="timeline-desc">Subtraction only — the piece is the loop with things removed at the right moments.</div>
+    </div>
+  </div>
+
+  <table>
+    <thead><tr><th>Moment</th><th>What gets printed</th><th>Why now</th></tr></thead>
+    <tbody>
+      <tr><td>After the loop test</td><td>The 8-bar core as audio</td><td>Commitment is a constraint</td></tr>
+      <tr><td>After the ride</td><td>The full take as audio + automation</td><td>A performance is unrepeatable</td></tr>
+      <tr><td>Before arranging</td><td>2–3 resampled transition loops</td><td>The only new material allowed</td></tr>
+      <tr><td>At the end</td><td>The render at −3 dBFS</td><td>Done is a deliverable</td></tr>
+    </tbody>
+  </table>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Pre-flight — before the first note</div>
+    </div>
+    <ul>
+      <li>Gain ledger from lab 001 applied at every stage</li>
+      <li>Monitoring mode declared per source (lab 002’s table)</li>
+      <li>Clock master declared, transport restarted before the take</li>
+      <li>Both spec tables read against the actual session</li>
+      <li>Headphone mark checked</li>
+    </ul>
+  </div>
+
+  <div class="sub-block">
+    <div class="sub-label">Logbook</div>
+    <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Four declarations, written before the first note: gain values applied at each stage (from the ledger) · monitoring mode per source · clock master and the transport-restart rule · headphone mark position. A declaration that exists only in your head is not a declaration.</p>
+  </div>
+
+  <h2>4 · Build</h2>
+
+  <ol class="rules-list">
+    <li><strong>Design the chord.</strong> Initialise one MicroFreak engine, build a single paraphonic voicing, and leave the filter mostly closed. The chord must bore you slightly when static — if it is interesting on its own, it leaves the engine nothing to do. Full sound-design walk: <a href="../../guide/palette.html">palette</a>.</li>
+    <li><strong>The grid.</strong> Kick and closed hat on the Digitakt: kick on 1/5/9/13, hats on the offbeats with one ghost on 16 leading back to the downbeat. Program it in grid recording and save the pattern before touching anything else. Full version, including swing and micro-timing: <a href="../../guide/build.html">the build</a>.</li>
+    <li><strong>Tune the kick to the chord root.</strong> Use the Digitakt’s <span class="code">SRC</span> tune until the kick’s fundamental agrees with the MicroFreak voicing — a detuned kick under a tonal chord is permanent low-end blur. Name the note in the logbook; “somewhere around A” is not a measurement.</li>
+    <li><strong>The loop test.</strong> Loop the bare chord plus grid for four full minutes without touching anything. If your attention dies in the first minute, the material is wrong, not the arrangement — go back to step 1 or 2 and change one thing.</li>
+    <li><strong>Add the delay send.</strong> Put a dub-style delay on a return, send the chord to it, and find the feedback point just below self-oscillation — that edge is where the engine lives. Ride the send once through the loop to learn its range before anything is recorded.</li>
+    <li><strong>Write the evolution map.</strong> A small table of bar spans × the one variable that changes in each span: bars 1–32 nothing moves, 33–64 filter cutoff drifts up, 65–96 delay feedback rises, and so on to the end. If a span lists two variables, the map is wrong. The long-form arc this compresses: <a href="../../guide/arrangement.html">arrangement</a>.</li>
+    <li><strong>Add percussion and texture as variations, not patterns.</strong> Both enter as parameter-locked changes to existing trigs — decay, sample start, filter — never as new musical material. Conditional trigs (<span class="code">25–50%</span>, or <span class="code">1:4</span>) keep the grid alive without new elements. Depth reference: <a href="../../guide/palette.html">palette</a>.</li>
+    <li><strong>Record the ride take.</strong> Filter cutoff and delay send, one take, the full length of the piece, mistakes included — a corrected performance is no longer a performance. Print it as automation and audio. Riding technique and mapping: <a href="../../guide/build.html">the build</a>.</li>
+    <li><strong>Resample.</strong> Print two or three 8-bar loops of the synth–delay interaction back into the Digitakt or Live. These become transition material: the only “new” sounds the arrangement is allowed, and they are made entirely of old ones.</li>
+    <li><strong>Arrange by subtraction.</strong> The piece is the loop with things removed at the right moments — the strip-back makes the earlier fullness retroactively bigger. Mark one removal decision for the report: what was cut, and what cutting it did. Full timeline: <a href="../../guide/arrangement.html">arrangement</a>.</li>
+    <li><strong>Inject the fault.</strong> Run the fault ritual below in full — predict, create, observe, diagnose, fix, rule — and log the entry before continuing. The fault is part of the lab, not an interruption of it.</li>
+    <li><strong>Mono check, then render.</strong> Collapse the master to mono for ten seconds and confirm the chord and returns survive. Render 24-bit WAV, master peaking −3 dBFS, 6–8 minutes.</li>
+  </ol>
+
+  <p style="max-width: 640px; margin: 26px auto 14px; color: var(--text-muted); text-align: center;">The twelve steps above are the map of the build. Four of them carry most of the failure modes; those four are expanded below as full recipes — the numbers match the list.</p>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Build step 01, expanded</div>
+      <h3 class="step-title">The chord on the MicroFreak</h3>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <ul>
+        <li>Pick <strong>one</strong> engine with the <span class="code">Type</span> encoder and stay on it — auditioning engines is a different session.</li>
+        <li>Press <span class="code">Paraphonic</span> so it lights — four voices are now available.</li>
+        <li>Voice <strong>one</strong> chord shape and hold it. This shape is the whole piece’s harmony; choose it slowly.</li>
+        <li>Close the <span class="code">Filter</span> cutoff to roughly <span class="code">30 %</span>, resonance low. The closed filter is the headroom the evolution map spends later.</li>
+        <li><span class="code">Glide</span> at <span class="code">0</span> — pitch movement belongs to nothing in this piece.</li>
+        <li>Hold <span class="code">Save</span> and store the preset to a slot. The slot number goes in the logbook.</li>
+      </ul>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Expected result</div>
+      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">A chord that slightly bores you when static — if it is interesting frozen, it leaves the engine nothing to do.</p>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">If it fails</div>
+      <table>
+        <thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead>
+        <tbody>
+          <tr><td>Chord clips into the M4</td><td>Rear master <span class="code">Volume</span> hotter than the ledger entry</td><td>Set it to the lab-001 ledger value, not by ear</td></tr>
+          <tr><td>Notes cut off while voicing</td><td>Paraphony is 4 voices — a fifth note steals one</td><td>Voice your chord within four voices</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Logbook</div>
+      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Engine name · chord voicing as note names · preset slot number.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Build step 02, expanded</div>
+      <h3 class="step-title">The grid on the Digitakt</h3>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <ul>
+        <li>Pick a kick on track 1 and a closed hat on track 2 — nothing else yet.</li>
+        <li>Press <span class="code">REC</span> to enter grid recording.</li>
+        <li>Place kick trigs on steps <span class="code">1 / 5 / 9 / 13</span> with the <span class="code">TRIG</span> keys; hats on the offbeats.</li>
+        <li>One ghost: hold the trig on step <span class="code">16</span> and lower its velocity — a parameter lock on that step only.</li>
+        <li>Save the pattern before touching anything else.</li>
+      </ul>
+      <div class="pattern-wrap">
+        <div class="pattern">
+          <div class="pattern-label">Kick</div>
+          <div class="pattern-step on">1</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+          <div class="pattern-step on">5</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+          <div class="pattern-step on">9</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+          <div class="pattern-step on">13</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+
+          <div class="pattern-label">Hat</div>
+          <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step accent">3</div><div class="pattern-step"></div>
+          <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step accent">7</div><div class="pattern-step"></div>
+          <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step accent">11</div><div class="pattern-step"></div>
+          <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step accent">15</div><div class="pattern-step ghost">16</div>
+        </div>
+      </div>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Expected result</div>
+      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">The loop runs at Live’s tempo when you press play <strong>in Live</strong> — transport receive is the proof that the clock is wired, not assumed.</p>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">If it fails</div>
+      <table>
+        <thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead>
+        <tbody>
+          <tr><td>Pattern runs at its own tempo</td><td>Clock receive off</td><td>Digitakt <span class="menu">Settings → MIDI Config → Sync</span> → clock + transport receive on</td></tr>
+          <tr><td>Flams against the Live click</td><td>Long transport run has drifted</td><td>Restart the transport — lab 002’s rule</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Logbook</div>
+      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Pattern slot · ghost-trig velocity value.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Build step 06, expanded</div>
+      <h3 class="step-title">The evolution map</h3>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <ul>
+        <li>Copy the worked example below into the logbook and replace the right column with your own plan.</li>
+        <li>One variable per span, at most one move per 8 bars — the one-variable rule, written down before any automation exists.</li>
+      </ul>
+      <table class="param-table">
+        <caption>Evolution map — worked example, replace with yours</caption>
+        <tr><td>Bars 1–32</td><td>nothing moves — establish the frame</td></tr>
+        <tr><td>Bars 33–64</td><td>filter cutoff drifts up (LFO, very slow)</td></tr>
+        <tr><td>Bars 65–96</td><td>delay send rises on the chord</td></tr>
+        <tr><td>Bars 97–128</td><td>hat decay breathes (p-lock drift)</td></tr>
+        <tr><td>Bars 129–160</td><td>delay feedback ridden to the edge</td></tr>
+        <tr><td>Bars 161–192</td><td>strip: texture out, then perc</td></tr>
+        <tr><td>Bars 193–224</td><td>kick out 8 bars, return, end</td></tr>
+      </table>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Expected result</div>
+      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Any two adjacent 8-bar windows differ by exactly one thing — no more, no less.</p>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">If it fails</div>
+      <table>
+        <thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead>
+        <tbody>
+          <tr><td>A span lists two variables</td><td>The map is wrong, not the music</td><td>Split the span or cut one variable</td></tr>
+          <tr><td>32 bars pass and nothing is audible</td><td>The move is too small in range</td><td>Widen the variable’s range, never add a second variable</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Logbook</div>
+      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">The filled map <em>is</em> the entry — date it, and mark every span you later changed during the build.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Build step 08, expanded</div>
+      <h3 class="step-title">The ride take</h3>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <ul>
+        <li>Arm the chord’s audio track with the monitoring mode you declared in pre-flight — not the one that happens to be set.</li>
+        <li><kbd>⌘ M</kbd> for MIDI-map mode: map the <span class="code">Return A</span> send of the chord track to a Launchpad fader. Exit map mode.</li>
+        <li>Record the <strong>full length</strong> in one take: one hand rides the MicroFreak <span class="code">Filter</span> cutoff, the other rides the mapped send.</li>
+        <li>Mistakes stay — a corrected performance is no longer a performance.</li>
+      </ul>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Expected result</div>
+      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">A take with audible intention and at least one imperfection.</p>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">If it fails</div>
+      <table>
+        <thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead>
+        <tbody>
+          <tr><td>Riding the fader does nothing to the send</td><td>MIDI-map mode is still open</td><td>Exit with <kbd>⌘ M</kbd>, then ride</td></tr>
+          <tr><td>Doubled, hollow sound while riding</td><td>Two monitor paths at once — lab 002’s fault</td><td>One path only: M4 direct <em>or</em> Live’s monitor, never both</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Logbook</div>
+      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Take number kept · the bar where the imperfection lands and why it stays.</p>
+    </div>
+  </div>
+
+  <p style="max-width: 640px; margin: 26px auto 0; color: var(--text-muted); text-align: center;">The map is the arc, drawn as bars.</p>
+
+  <div class="signal-flow" style="display:block; padding:26px 16px;">
+    <svg viewBox="0 0 760 170" width="100%" role="img" aria-label="Tension arc across the arrangement — one variable per 8 bars">
+      <line x1="40" y1="130" x2="720" y2="130" stroke="#6e7681" stroke-width="1"/>
+      <path d="M40 122 C 160 118, 220 92, 340 70 C 420 56, 480 52, 540 58 C 580 62, 620 92, 660 112 L 720 122" fill="none" stroke="#7dd3c0" stroke-width="1.8"/>
+      <line x1="200" y1="124" x2="200" y2="136" stroke="#6e7681" stroke-width="1"/>
+      <line x1="420" y1="124" x2="420" y2="136" stroke="#6e7681" stroke-width="1"/>
+      <line x1="580" y1="124" x2="580" y2="136" stroke="#6e7681" stroke-width="1"/>
+      <text x="120" y="152" fill="#8b949e" font-size="10.5" text-anchor="middle">frame · bars 1–32</text>
+      <text x="310" y="152" fill="#8b949e" font-size="10.5" text-anchor="middle">accumulate · 33–96</text>
+      <text x="500" y="152" fill="#8b949e" font-size="10.5" text-anchor="middle">plateau · 97–160</text>
+      <text x="650" y="152" fill="#8b949e" font-size="10.5" text-anchor="middle">strip · 161–224</text>
+      <text x="40" y="40" fill="#8b949e" font-size="10.5">tension</text>
+      <text x="720" y="118" fill="#8b949e" font-size="10.5" text-anchor="end">bars →</text>
+    </svg>
+  </div>
+
+  <div class="sub-block">
+    <div class="sub-label">Logbook — frame constants</div>
+    <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Two numbers anchor everything above: the chosen tempo (exact BPM, from the pre-start checklist) and the kick’s note name from build step 03. Write both before the loop test — “somewhere around A” is not a measurement.</p>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Fault ritual · faultType: gain</div>
+      <h3 class="step-title">Intermittent clipping that follows the modulator</h3>
+    </div>
+    <div class="signal-flow">
+      <span class="signal-node">predict</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">create</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">observe</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">diagnose</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">fix</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">rule</span>
+    </div>
+    <p style="color: var(--text-muted); font-size: 14.5px; margin: 14px 0 0;">The fault: add <span class="code">+6 dB</span> of clip gain on the texture track, so it clips its saturator only when the filter LFO opens. At idle every meter reads clean — the distortion appears and disappears with the modulation, which is exactly the kind of fault a static meter check misses. Write your predicted symptom first, then create the fault and loop a section where the LFO swings. Locate it with the channel meters watched across a full LFO cycle and with your ears, fix it at the clip gain, and write the rule: <strong>intermittent distortion follows the modulator, not the fader</strong> — when a fault comes and goes with the music, look for what is moving.</p>
+  </div>
+
+  <h2>5 · Diagnosis &amp; report</h2>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">The full report bundle — ten items, filed in the logbook</div>
+    </div>
+    <ul>
+      <li>Rendered piece — 24-bit WAV, master peaking −3 dBFS</li>
+      <li>Routing diagram — drawn before patching, corrected after; the diff is the lesson</li>
+      <li>Recording plan — what was printed, when, at what stage</li>
+      <li>Patch notes — the settings that mattered</li>
+      <li>Session notes</li>
+      <li>Reflection answers, including the listening comparison — which record contributed what to the hypothesis</li>
+      <li>One removal decision — what was cut from the finished piece and what cutting it did</li>
+      <li>Fault entry — symptom, cause, fix, prevention rule</li>
+      <li>Print map — what now exists as audio, MIDI, automation, patch state, or device memory; what is reproducible and what is gone</li>
+      <li>System diff sentence — “I thought the system worked like X; after building it, I discovered it worked like Y.”</li>
+    </ul>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Minimum pass gate:</strong> audible output · routing diagram · fault entry · print map · system diff. Without these five, the lab is incomplete regardless of audio quality — a musically strong piece cannot bypass the engineering spine.</li>
+    </ul>
+  </div>
+
+  <h3 style="text-align: center;">Reflection prompts</h3>
+
+  <ol class="reflection-list">
+    <li>Which engine did you actually build — the one you named in the hypothesis? If it drifted, when, and what pulled it?</li>
+    <li>Where did reality disagree with the provided specs? List every row you had to mark.</li>
+    <li>What did you remove, and what did removing it do to everything that remained?</li>
+    <li>What does your fault rule generalize to — where else in your studio could a fault hide behind a modulator?</li>
+    <li>At which minute of the four-minute loop test did your attention die, and what change fixed it?</li>
+  </ol>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Worked system diff — the expected granularity</div>
+    <p>“I thought the hypnosis lived in the loop; it lived in the filter’s relationship to the delay — the loop was just the carrier.”</p>
+  </div>
+
+  <div class="final">
+    <div class="final-label">Track-lab principle</div>
+    <p>Steal the engine, never the sound; do less, but make every element evolve.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="lab-r1.html">
+      <span class="page-nav-direction">Previous</span>
+      ← R1 / Rebuild the Loop
+    </a>
+    <a href="lab-004.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      Lab 004 / One Oscillator, One Filter →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Block 1 · Lab 003</div>
+
+</div>
+
+</body>
+</html>

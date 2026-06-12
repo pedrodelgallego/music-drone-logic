@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab 004 — One Oscillator, One Filter</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="index.html" class="active"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="eyebrow">Block 1 · Lab 004 · Étude</div>
+    <h1>One Oscillator, One Filter</h1>
+    <p class="lede">One synthesizer voice — one tone generator, one filter, one volume shape — and nothing else. Three minutes of music. It sounds impossible until you discover how much variety hides inside a single sound.</p>
+  </header>
+  <p class="block-meta">Étude · S1 · D2 E1 M1 F1 · deep techno · half-cycle — pair with a listening session or a review week</p>
+
+  <div class="signal-flow">
+    <span class="signal-node">listen</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">hypothesis</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">draw the path</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">calibrate</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">build</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">fault</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">diagnose</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">print</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">delta</span>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Start here</div>
+    </div>
+    <ul>
+      <li>Physically remove extra sources from the bench; this étude starts by making the constraint visible.</li>
+      <li>Save a new set as <span class="code">LAB-004-etude</span>.</li>
+      <li>Choose one oscillator engine and one filter path, then stay with them for the whole piece.</li>
+      <li>Expected time: one focused half-cycle, or two short sessions.</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The point</div>
+    <p>When you can’t add anything new, you are forced to find the variation inside the sound itself — and that skill is worth more than any new piece of gear.</p>
+  </div>
+
+  <h2>How this lab works</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3 class="card-title">Design one voice</h3>
+      <ul class="card-points">
+        <li>Build a tone that works low as bass and high as lead.</li>
+        <li>Find the drums hiding in the same patch.</li>
+        <li>Steps 1–3.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Make it move by itself</h3>
+      <ul class="card-points">
+        <li>Give the patch one slow internal motion — no hands.</li>
+        <li>Sequence patterns A and B, one note apart.</li>
+        <li>Steps 4–5.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Record, subtract, finish</h3>
+      <ul class="card-points">
+        <li>Record three passes — low, mid, high.</li>
+        <li>Arrange by removing, down to exactly three minutes.</li>
+        <li>Steps 6–8.</li>
+      </ul>
+    </div>
+  </div>
+
+  <table class="param-table">
+    <caption>Pass standard</caption>
+    <tr><td>Minimum pass</td><td>Three-minute piece exists, made from one synth voice, with one small fault and one system diff.</td></tr>
+    <tr><td>Solid pass</td><td>The same voice clearly plays more than one musical role because filter, register, envelope, or modulation changed.</td></tr>
+    <tr><td>Advanced transfer</td><td>You can make a second étude from a different single voice without adding tracks to solve the problem.</td></tr>
+  </table>
+
+  <h2>New concepts — in plain words</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">This is the first time you design a sound from scratch, so here is the vocabulary. Six words, no mystery.</p>
+
+  <table>
+    <tr><th>Concept</th><th>In plain words</th></tr>
+    <tr><td><strong>Oscillator</strong></td><td>The part that actually makes the raw sound: a rich, buzzing tone, like a violin string before the player shapes it. The MicroFreak offers many “engines” — different kinds of raw tone. You pick one and stay.</td></tr>
+    <tr><td><strong>Filter</strong></td><td>A tone control that removes part of the sound, usually the brightness. Closing it muffles the tone — like a hand over your mouth. Opening it lets the sound through. “Cutoff” is where it starts cutting.</td></tr>
+    <tr><td><strong>Resonance</strong></td><td>The filter ringing at its own cutting point. A little adds character; a lot makes it whistle. At the extreme, paired with a very short volume shape, it becomes a click or a thump — that is where this étude’s drums come from.</td></tr>
+    <tr><td><strong>Envelope</strong></td><td>The volume (or brightness) shape of one note over time: how fast it starts (attack), how fast it falls (decay), where it settles (sustain). A piano and an organ playing the same note differ mostly by envelope.</td></tr>
+    <tr><td><strong>LFO</strong></td><td>A slow, invisible hand turning a knob for you, around and around, in cycles. Too slow to hear as a tone — you hear it as movement.</td></tr>
+    <tr><td><strong>Mod matrix</strong></td><td>The MicroFreak’s patch bay: a grid where you connect the movers (LFO, envelopes) to the knobs they should turn. “Route the LFO to cutoff, small amount” means the invisible hand gently works the tone control.</td></tr>
+  </table>
+
+  <h2>Listening first</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Seven records, all built on almost nothing. Listen for one thing: where does variation come from when nothing new ever arrives?</p>
+
+  <div class="listen-acc">
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">01</span>
+        <span class="listen-title">Robert Hood — <em>Minimal Nation</em></span>
+        <span class="listen-tag">every element load-bearing</span>
+      </summary>
+      <div class="listen-body">
+        <p>A whole career built on almost nothing — every element is load-bearing.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Count the elements in one track (expect 3–5).</li>
+          <li>Notice how each one does a job nothing else does.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Name each element and its job in one word (pulse, answer, tension…). If two elements share a job, listen again — one of them is doing something you missed.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Robert+Hood+Minimal+Nation" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Robert%20Hood%20Minimal%20Nation">Spotify</a></p>
+        <p class="listen-rep"><a href="rep-minimal-nation.html">Replicate it — step-by-step lesson →</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">02</span>
+        <span class="listen-title">Mike Parker — “Spiral Snare”</span>
+        <span class="listen-tag">one gesture, patience</span>
+      </summary>
+      <div class="listen-body">
+        <p>One gesture, repeated with geologic patience — variation almost entirely inside the sound.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>How the central sound slowly changes texture rather than melody.</li>
+          <li>How long he is willing to wait.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>How many “new sounds” actually arrived during the whole track? Very few. If your count was high, relisten — what felt new was the same sound in a different state.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Mike+Parker+Spiral+Snare" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Mike%20Parker%20Spiral%20Snare">Spotify</a></p>
+        <p class="listen-rep"><a href="rep-spiral-snare.html">Replicate it — step-by-step lesson →</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">03</span>
+        <span class="listen-title">Phuture — “Acid Tracks”</span>
+        <span class="listen-tag">one voice, every role</span>
+      </summary>
+      <div class="listen-body">
+        <p>The founding document of doing this with one machine — one TB-303 bass synthesizer and a drum machine for eleven minutes. All the variation is the filter and resonance knobs being turned.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The same notes becoming squelchy, dull, screaming — that is one filter doing all of it.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Can you trace every non-drum sound back to the single 303? If something seemed like a second instrument, relisten — it is the same voice with the filter elsewhere. That is exactly the skill this étude trains.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Phuture+Acid+Tracks" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Phuture%20Acid%20Tracks">Spotify</a></p>
+        <p class="listen-rep"><a href="rep-acid-tracks.html">Replicate it — step-by-step lesson →</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">04</span>
+        <span class="listen-title">Joey Beltram — “Energy Flash”</span>
+        <span class="listen-tag">one riff, all menace</span>
+      </summary>
+      <div class="listen-body">
+        <p>One two-bar riff carries the whole track — intensity does the arranging. The notes never change; the pressure on them never stops changing.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>What changes between minute one and minute three — filter and pressure, not notes.</li>
+          <li>Where the track leans in and where it breathes.</li>
+          <li>How few other elements exist around the riff.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Hum the riff. Now hum the second one — there is only one. Everything you remember as “another part” is that single riff under different pressure; if you counted more, relisten and watch the count collapse.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Joey+Beltram+Energy+Flash" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Joey%20Beltram%20Energy%20Flash">Spotify</a></p>
+        <p class="listen-rep"><a href="rep-energy-flash.html">Replicate it — step-by-step lesson →</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">05</span>
+        <span class="listen-title">DBX — “Losing Control”</span>
+        <span class="listen-tag">one bassline, six minutes</span>
+      </summary>
+      <div class="listen-body">
+        <p>Daniel Bell runs one bassline and one phrase for six minutes. Accents and dropouts are the only story — emphasis and subtraction instead of new material.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>How variation is made: accents, mutes, the moment the hat enters.</li>
+          <li>How a dropout makes the return feel like an event.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Did the bassline’s <strong>notes</strong> ever change? They didn’t — every shift you heard was emphasis or absence. If you were sure a note moved, relisten to that bar and find the accent doing the work.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=DBX+Losing+Control" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:DBX%20Losing%20Control">Spotify</a></p>
+        <p class="listen-rep"><a href="rep-losing-control.html">Replicate it — step-by-step lesson →</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">06</span>
+        <span class="listen-title">Laurie Spiegel — “Patchwork”</span>
+        <span class="listen-tag">patterns from one voice</span>
+      </summary>
+      <div class="listen-body">
+        <p>Pre-DAW computer music built by permuting a small cell — pattern logic as composition. The logic is audible, and the logic is the music.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The small cell itself — a handful of notes that everything else is made from.</li>
+          <li>Its rearrangements: reversed, shifted, doubled, gapped.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Can you sing the cell? How many rearrangements did you count? If you can’t sing it, the permutations blurred together on you — relisten to the opening minute, where the cell arrives nearly naked.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Laurie+Spiegel+Patchwork" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Laurie%20Spiegel%20Patchwork">Spotify</a></p>
+        <p class="listen-rep"><a href="rep-patchwork.html">Replicate it — step-by-step lesson →</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">07</span>
+        <span class="listen-title">Terrence Dixon — “Minimalism”</span>
+        <span class="listen-tag">the tiny variation</span>
+      </summary>
+      <div class="listen-body">
+        <p>One bar looped where exactly one thing differs per pass — Detroit’s version of drift. The smallest possible engine, run with total patience.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The single changing parameter — find it and stay on it.</li>
+          <li>How long each state holds before the next tiny delta.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Name the changing parameter in one word. If you need a sentence, you are describing the effect, not the cause — relisten to two consecutive passes and isolate the one thing that differs.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Terrence+Dixon+Minimalism" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Terrence%20Dixon%20Minimalism">Spotify</a></p>
+        <p class="listen-rep"><a href="rep-minimalism.html">Replicate it — step-by-step lesson →</a></p>
+      </div>
+    </details>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Hypothesis to write:</strong> economy as system — when there is nothing to add, variation must come from inside the voice. One short paragraph naming what each of the seven records showed you; that paragraph is what you build.</li>
+    </ul>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Before you start — five minutes, then sound</div>
+    </div>
+    <ul>
+      <li>On the bench: MicroFreak, M4, headphones, Live — nothing else. Physically unplug or power off the Digitakt; the constraint starts at the wall.</li>
+      <li>New set saved as <span class="code">LAB-004-etude</span>, tempo <span class="code">122–126</span>.</li>
+      <li>MicroFreak ¼″ out → M4 in 1, gain set by your lab-001 ledger.</li>
+      <li>Monitoring declared in one line — software or direct, per the lab-002 table.</li>
+      <li>Timebox written down: a handful of sessions, then done.</li>
+    </ul>
+  </div>
+
+  <h2>Brief &amp; system</h2>
+
+  <div class="callout">
+    <div class="callout-label">The brief</div>
+    <p>A three-minute piece from one MicroFreak voice: one oscillator engine, the analog filter, the volume envelope. Everything in the piece — bass, lead, drums if any — comes from this one voice.</p>
+  </div>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">The drums are not an exception — they are the test. Resonance clicks, short-envelope blips, filter-driven thumps: the drum kit is hiding inside the patch. Allowed in Live: recording, arrangement, and a utility/limiter on the master. Forbidden: the Digitakt, any Live instruments, any effect devices — no delay, no reverb. Dryness is the constraint. One take per moment, plus at most one overdub pass. D2 means sequenced: notes come from Live’s sequencer or the Launchpad, not free playing.</p>
+
+  <table class="param-table">
+    <caption>System spec — provided (S1: verify it against what you actually build)</caption>
+    <tr><td>Inputs</td><td>one MicroFreak voice, one engine</td></tr>
+    <tr><td>Transforms</td><td>analog filter + amp envelope — nothing downstream</td></tr>
+    <tr><td>Variation</td><td>mod-matrix routings + cycling envelope — inside the patch</td></tr>
+    <tr><td>Constraints</td><td>3 minutes · dry · one voice · sequenced</td></tr>
+    <tr><td>Human role</td><td>patch design + sequencing — no live riding</td></tr>
+  </table>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">This is the entire instrument for three minutes; the variation must live in the dashed arrows.</p>
+
+  <div class="signal-flow" style="display:block; padding:26px 16px;">
+    <svg viewBox="0 0 760 250" width="100%" role="img" aria-label="MicroFreak voice architecture — where the variation lives">
+      <defs>
+        <marker id="arrV" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#7dd3c0"/>
+        </marker>
+        <marker id="arrVg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#6e7681"/>
+        </marker>
+      </defs>
+      <rect x="40" y="50" width="160" height="58" rx="10" fill="#1f2530" stroke="#7dd3c0" stroke-width="1.2"/>
+      <text x="120" y="74" fill="#e6edf3" font-size="13" text-anchor="middle">Oscillator</text>
+      <text x="120" y="92" fill="#8b949e" font-size="10" text-anchor="middle">one digital engine</text>
+      <rect x="300" y="50" width="160" height="58" rx="10" fill="#1f2530" stroke="#7dd3c0" stroke-width="1.2"/>
+      <text x="380" y="74" fill="#e6edf3" font-size="13" text-anchor="middle">Analog filter</text>
+      <text x="380" y="92" fill="#8b949e" font-size="10" text-anchor="middle">12 dB · LP / BP / HP</text>
+      <rect x="560" y="50" width="160" height="58" rx="10" fill="#1f2530" stroke="#7dd3c0" stroke-width="1.2"/>
+      <text x="640" y="74" fill="#e6edf3" font-size="13" text-anchor="middle">Amp → M4 in 1</text>
+      <text x="640" y="92" fill="#8b949e" font-size="10" text-anchor="middle">¼″ TS · mono</text>
+      <line x1="204" y1="79" x2="296" y2="79" stroke="#7dd3c0" stroke-width="1.5" marker-end="url(#arrV)"/>
+      <line x1="464" y1="79" x2="556" y2="79" stroke="#7dd3c0" stroke-width="1.5" marker-end="url(#arrV)"/>
+      <rect x="60" y="170" width="130" height="50" rx="10" fill="#1f2530" stroke="#6e7681" stroke-width="1.2"/>
+      <text x="125" y="191" fill="#e6edf3" font-size="12" text-anchor="middle">LFO</text>
+      <text x="125" y="207" fill="#8b949e" font-size="10" text-anchor="middle">rate · sync</text>
+      <rect x="300" y="170" width="160" height="50" rx="10" fill="#1f2530" stroke="#6e7681" stroke-width="1.2"/>
+      <text x="380" y="191" fill="#e6edf3" font-size="12" text-anchor="middle">Cycling envelope</text>
+      <text x="380" y="207" fill="#8b949e" font-size="10" text-anchor="middle">rise / fall / hold</text>
+      <rect x="560" y="170" width="130" height="50" rx="10" fill="#1f2530" stroke="#6e7681" stroke-width="1.2"/>
+      <text x="625" y="191" fill="#e6edf3" font-size="12" text-anchor="middle">Envelope</text>
+      <text x="625" y="207" fill="#8b949e" font-size="10" text-anchor="middle">A / D / S</text>
+      <line x1="125" y1="166" x2="122" y2="112" stroke="#6e7681" stroke-width="1.2" stroke-dasharray="5 5" marker-end="url(#arrVg)"/>
+      <line x1="380" y1="166" x2="380" y2="112" stroke="#6e7681" stroke-width="1.2" stroke-dasharray="5 5" marker-end="url(#arrVg)"/>
+      <line x1="625" y1="166" x2="622" y2="112" stroke="#7dd3c0" stroke-width="1.2" marker-end="url(#arrV)"/>
+      <text x="380" y="240" fill="#8b949e" font-size="10.5" text-anchor="middle">dashed = assign in the Matrix — the variation must live here, not in your hands</text>
+    </svg>
+  </div>
+
+  <table class="param-table">
+    <caption>Starting patch — provided; verify, then make it yours</caption>
+    <tr><td><span class="code">Type</span> — choose one engine and commit</td><td>Waveshaper or V.Analog</td></tr>
+    <tr><td><span class="code">Paraphonic</span> — one voice is the étude</td><td>OFF</td></tr>
+    <tr><td><span class="code">Filter</span></td><td>LP · Cutoff ~45 % · Resonance ~15 %</td></tr>
+    <tr><td><span class="code">Envelope</span></td><td>Attack fast · Decay medium · Sustain to taste</td></tr>
+    <tr><td><span class="code">Cycling Envelope</span> — Matrix → Timbre or Wave</td><td>Rise/Fall slow · small amount</td></tr>
+    <tr><td><span class="code">LFO</span> — Matrix → Cutoff</td><td>very slow · small amount</td></tr>
+    <tr><td><span class="code">Glide</span></td><td>0</td></tr>
+  </table>
+
+  <table class="param-table">
+    <caption>The percussion hiding in the same patch</caption>
+    <tr><td><span class="code">Filter Resonance</span></td><td>~85 %</td></tr>
+    <tr><td><span class="code">Envelope</span></td><td>Attack 0 · Decay very short · Sustain 0</td></tr>
+    <tr><td><span class="code">Cutoff</span></td><td>becomes the drum’s pitch — tune it</td></tr>
+    <tr><td>Play staccato low notes</td><td>clicks and thumps</td></tr>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Log both settings groups</strong> — tone and percussion — you will switch between them every pass.</li>
+      <li><strong>No live riding this time.</strong> If the piece needs your hand on the cutoff to stay alive, the system is not carrying it — go back to the mod matrix.</li>
+    </ul>
+  </div>
+
+  <h2>Build &amp; report</h2>
+
+  <ol class="rules-list">
+    <li><strong>Pick one engine and commit.</strong> Audition if you must, but after step 2 there is no engine-surfing — the constraint starts here. Turn <span class="code">Type</span> to your engine, write its name in your log, and do not touch that knob again.</li>
+    <li><strong>Design the core tone</strong> with the filter half-open. It must work as both bass and lead depending on octave; if it only works in one register, keep shaping. Start from the provided patch and shape only <span class="code">Wave</span> and <span class="code">Timbre</span> until octave 1 reads as bass and octave 3 reads as lead.</li>
+    <li><strong>Find the percussion inside the voice:</strong> high resonance plus the fastest envelope is a click. Dial the second table, then write both settings groups on paper.</li>
+    <li><strong>Sequence an A pattern</strong> (16 steps) <strong>and a B pattern</strong> that differs by exactly one note or one octave. The difference should be felt before it is noticed. Draw A in a one-bar MIDI clip, then <kbd>⌘ D</kbd> and change exactly one note.</li>
+    <li><strong>Use the mod matrix for motion:</strong> one LFO or cycling-envelope routing, slow. This is where the variation lives — the patch must move on its own. Turn the <span class="code">Matrix</span> encoder to <span class="code">LFO → Cutoff</span>, press it, and dial a small amount.</li>
+    <li><strong>Record three passes</strong> at different octave and pattern combinations. Each pass is one voice; together they are the arrangement’s raw material. Follow the recipe below exactly.</li>
+    <li><strong>Arrange to exactly three minutes by subtraction</strong> — start with everything playing and remove until the piece breathes. Lay all three passes across the timeline below, then delete until every remaining bar earns its place.</li>
+    <li><strong>Render.</strong> Done is part of the étude. <span class="menu">File → Export Audio/Video</span>, WAV, 24-bit, named <span class="code">LAB-004-etude</span>.</li>
+  </ol>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Recipe</div>
+      <h3 class="step-title">The sequencing pass, exactly</h3>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <ul>
+        <li>MIDI track: <span class="menu">MIDI To → MicroFreak</span>, channel <span class="code">1</span>.</li>
+        <li>Draw the 16-step A pattern in a one-bar clip; <kbd>⌘ D</kbd> the clip, change exactly one note or octave → B pattern.</li>
+        <li>Audio track <span class="code">MF PRINT</span>: <span class="menu">Audio From → Ext. In → 1</span>, armed — it records while the MIDI clip plays.</li>
+        <li>Record three passes at different octave/pattern combinations; rename the clips <span class="code">PASS-LOW</span>, <span class="code">PASS-MID</span>, <span class="code">PASS-HIGH</span> with <kbd>⌘ R</kbd>.</li>
+      </ul>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Expected result</div>
+      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Three takes that are obviously the same voice in three roles.</p>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">If it fails</div>
+      <table class="param-table">
+        <tr><td>MIDI notes do nothing</td><td>track output not set to the MicroFreak port — check local keys vs USB</td></tr>
+        <tr><td>recorded audio is double-speed flutter or silence</td><td>sample-rate mismatch — re-check 48 kHz</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">A default three-minute shape to deviate from, not a rule.</p>
+
+  <div class="timeline">
+    <div class="timeline-row">
+      <div class="timeline-time">0:00–0:30</div>
+      <div class="timeline-desc">Percussion pattern alone — the clicks are the intro.</div>
+    </div>
+    <div class="timeline-row">
+      <div class="timeline-time">0:30–1:15</div>
+      <div class="timeline-desc">Low pass enters; the voice takes the bass role.</div>
+    </div>
+    <div class="timeline-row">
+      <div class="timeline-time">1:15–2:00</div>
+      <div class="timeline-desc">Mid/high pass over it; the B pattern appears.</div>
+    </div>
+    <div class="timeline-row">
+      <div class="timeline-time">2:00–2:40</div>
+      <div class="timeline-desc">Subtraction begins — remove one pass at a time.</div>
+    </div>
+    <div class="timeline-row">
+      <div class="timeline-time">2:40–3:00</div>
+      <div class="timeline-desc">The first sound alone again, then out.</div>
+    </div>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Prescribed fault:</strong> record one extra pass with the M4 preamp deliberately too hot, into clipping. Compare it against the MicroFreak’s own filter resonance driven hard. Write <strong>one rule</strong> distinguishing converter clipping from instrument drive — the former is flat and positional, it lives at the input; the latter is musical and moves with the patch. No full write-up; the rule is the deliverable.</li>
+    </ul>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Pass gate — étude complete when</div>
+    </div>
+    <ul>
+      <li>The rendered piece</li>
+      <li>A mini routing sketch — one line: MicroFreak → M4 in 1 → Live</li>
+      <li>The one prescribed-fault rule</li>
+      <li>One constraint/removal note — what the dryness or the single voice forced you to do</li>
+      <li>One sentence of reflection</li>
+    </ul>
+  </div>
+
+  <p style="color: var(--text-muted); font-size: 13.5px; text-align: center; max-width: 560px; margin: 0 auto;">Do not file the full track-lab bundle. Do not gold-plate. Timebox the whole étude to a handful of sessions — an étude that balloons defeats its own lesson.</p>
+
+  <div class="final">
+    <div class="final-label">Étude principle</div>
+    <p>Economy as system — a constraint is not a limitation, it is the location of the variation.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="lab-003.html">
+      <span class="page-nav-direction">Previous</span>
+      ← Lab 003 / Repetition as Engine
+    </a>
+    <a href="capstone-c1.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      C1 / Capstone — Gate →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Block 1 · Lab 004</div>
+
+</div>
+
+</body>
+</html>
