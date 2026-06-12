@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab 004b — One Voice, No Clock</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="index.html" class="active"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="eyebrow">Block 1 · Lab 004b · Étude</div>
+    <h1>One Voice, No Clock</h1>
+    <p class="lede">The beatless twin of Lab 004: the same single MicroFreak voice, the same three minutes — with the sequencer, the grid, and the pulse removed. Two études, one patch; the difference between them is exactly what the time grid was doing for you.</p>
+  </header>
+  <p class="block-meta">Étude · context: sustained tone · runs after Lab 004, on the same patch</p>
+
+  <div class="callout">
+    <div class="callout-label">The point</div>
+    <p>When the clock leaves, three things must replace it: beating, slow movement inside the tone, and level. This étude makes you build all three — and teaches the bench lesson the kick-based labs cannot: sustained material meters differently, records differently, and tires you differently.</p>
+  </div>
+
+  <h2>How this lab works</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3 class="card-title">Same voice, no edges</h3>
+      <ul class="card-points">
+        <li>Reload the saved Lab 004 patch — engine untouched.</li>
+        <li>Slow the envelope until the note has no attack and no end.</li>
+        <li>No sequencer, no MIDI clip, no grid: notes are held by hand or by <span class="code">Hold</span>.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Three held passes</h3>
+      <ul class="card-points">
+        <li>Low, mid, high — the Lab 004 roles, sustained instead of sequenced.</li>
+        <li>The mid pass is detuned a few cents against the low: the beating is the étude's pulse.</li>
+        <li>Each pass printed whole; a held tone is a performance, not a loop.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Compose with level only</h3>
+      <ul class="card-points">
+        <li>Three minutes arranged entirely by volume rides — no mutes, no cuts.</li>
+        <li>Every ride spans at least thirty seconds.</li>
+        <li>A/B the result against your Lab 004 étude: same voice, two kinds of time.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>New concepts — in plain words</h2>
+
+  <table>
+    <tr><th>Concept</th><th>In plain words</th></tr>
+    <tr>
+      <td><strong>Crest factor</strong></td>
+      <td>The gap between a signal's peaks and its body. A kick is almost all gap — tall spikes, near-silence between. A held tone is almost no gap — its body sits just under its peaks. Two takes can both "peak at −12 dBFS" and be wildly different in how loud they feel, how hard they work the converter, and how fast they tire your ears. The ledger's peak numbers were calibrated on spiky material; this étude shows you what they miss.</td>
+    </tr>
+    <tr>
+      <td><strong>Beating</strong></td>
+      <td>Two near-identical pitches pulsing against each other as they drift in and out of phase. The pulse rate equals the detune: tones 1 Hz apart beat once per second. Rhythm as arithmetic, with no clock anywhere.</td>
+    </tr>
+    <tr>
+      <td><strong>Free modulation</strong></td>
+      <td>An LFO with nothing to sync to, running at its own speed — here, cycles measured in tens of seconds. Inside a held tone it is the difference between alive and parked.</td>
+    </tr>
+  </table>
+
+  <h2>Listening first</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Two short references, both already in this block's replication shelf. Run the six-question frame on at least the first.</p>
+
+  <table class="param-table">
+    <tr><td>Coil — <em>Time Machines</em></td><td>one tone, slow phase — the engine this étude borrows · <a href="rep-time-machines.html">replication lesson</a></td></tr>
+    <tr><td>Eleh — <em>Floating Frequencies / Intuitive Synthesis</em></td><td>level as composition — the arrangement method this étude borrows · <a href="rep-eleh.html">replication lesson</a></td></tr>
+  </table>
+
+  <h2>The bench comparison — do this before the music</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Required</div>
+      <h3 class="step-title">Kick loop vs held tone, same peak target</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">One ten-minute experiment that justifies this étude's existence. Record two takes to the <em>same</em> −12 dBFS peak target: eight bars of a Digitakt kick pattern, then thirty seconds of the held MicroFreak tone. Then compare everything except the peak number.</p>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <ol>
+        <li>Record both takes, each peaking ≈ <span class="code">−12 dBFS</span> on Live's meter — the gain set on the held tone's <em>sustain</em>, not its first swell.</li>
+        <li>Play each for thirty seconds at the marked phones level. Note which one <em>feels</em> louder, and by roughly how much.</li>
+        <li>Watch the meters: the kick's meter dances and rests; the tone's meter parks just under the peak and never leaves. The tone delivers many times the energy at the same peak reading.</li>
+        <li>Write one ledger amendment in the logbook: your personal peak target for sustained material (most people land at <span class="code">−15</span> or lower), and the rule that gain for a drone is set on the body, not the strike.</li>
+      </ol>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Expected result</div>
+      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">The held tone feels substantially louder and more tiring than the kick loop at an identical peak reading — and now you know why every drone session in this workshop budgets more headroom and schedules ear breaks.</p>
+    </div>
+  </div>
+
+  <h2>Brief &amp; system</h2>
+
+  <ol class="rules-list">
+    <li><strong>Reload the Lab 004 patch.</strong> The engine knob does not move; this étude inherits the constraint.</li>
+    <li><strong>Remove the edges:</strong> attack 2 s or longer, sustain full, release long. If the note still "speaks", keep slowing.</li>
+    <li><strong>Add one free LFO routing:</strong> Matrix, LFO → Timbre or Cutoff, unsynced, one cycle per 15–20 seconds, small amount. Hold a note for two minutes and confirm the tone is alive on its own.</li>
+    <li><strong>Print three held passes</strong> at low, mid, and high register — 3–4 minutes each, hands off after the first 30 seconds. For the mid pass, monitor the printed low pass and nudge fine-tune until the pair beats at roughly one pulse per 1–3 seconds. Write the beat rate down.</li>
+    <li><strong>Compose three minutes with faders only.</strong> Plan the level story on paper first (low alone → low + mid beating → high surfaces → back to low). Ride or draw the four fades; nothing faster than 30 seconds.</li>
+    <li><strong>No reverb until the last move.</strong> Earn the tone dry; add one send at the end if the piece truly needs a room, and note what it cost in clarity.</li>
+    <li><strong>Render</strong> — WAV, 24-bit, named <span class="code">LAB-004B-etude</span> — then A/B against <span class="code">LAB-004-etude</span> at matched loudness and write three sentences on what the grid had been doing.</li>
+  </ol>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Prescribed fault:</strong> record one extra pass with the input gain set on the tone's first swell instead of its sustain. Watch what happens to the meter — and the file — once the body settles or the LFO pushes the level past the swell. Write <strong>one rule</strong> about where in a sustained note the gain decision belongs.</li>
+    </ul>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Pass gate — étude complete when</div>
+    </div>
+    <ul>
+      <li>The rendered piece, three minutes, zero rhythmic events</li>
+      <li>The bench comparison's ledger amendment — your sustained-material peak target, in writing</li>
+      <li>The beat rate of the low/mid pair, named in cycles per second</li>
+      <li>The one prescribed-fault rule</li>
+      <li>Three sentences from the A/B against Lab 004 — what the clock was doing</li>
+    </ul>
+  </div>
+
+  <p style="color: var(--text-muted); font-size: 13.5px; text-align: center; max-width: 560px; margin: 0 auto;">Timebox to a handful of sessions, like Lab 004. Phones at the mark, off every fifteen minutes — this étude is where that habit is built, because this is the material that punishes its absence.</p>
+
+  <div class="final">
+    <div class="final-label">Étude principle</div>
+    <p>Remove the clock and three things must replace it: beating, slow movement, level. If the piece works, you built all three; if it bores, one is missing — name which.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="lab-004.html">
+      <span class="page-nav-direction">Previous</span>
+      ← Lab 004 / One Oscillator, One Filter
+    </a>
+    <a href="capstone-c1.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      C1 / Capstone — Gate →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Block 1 · Lab 004b</div>
+
+</div>
+
+</body>
+</html>
