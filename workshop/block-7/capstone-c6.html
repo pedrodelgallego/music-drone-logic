@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Capstone C6 — Gate</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="index.html" class="active"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="eyebrow">Block 7 · Capstone C6 · Gate</div>
+    <h1>The Live Set</h1>
+    <p class="lede">Thirty minutes, performed and recorded. Not thirty minutes of material played back — thirty minutes <strong>operated</strong>: a system you designed, certified on lab 031&rsquo;s rig, rehearsed to fail, and then ran in real time from the first sound to the last. The gate is not whether the set was good; it is whether, when the system became unstable, you understood it well enough to recover musically.</p>
+  </header>
+  <p class="block-meta">Capstone · Gate tier · constraints-only brief · one cycle · closes Block 7 · requires labs 027–031, programme L7, and lab 031&rsquo;s rig certification · <span class="status">scaffold</span></p>
+
+  <div class="signal-flow">
+    <span class="signal-node">listen</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">hypothesis</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">draw the path</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">calibrate</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">build</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">fault</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">diagnose</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">print</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">delta</span>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Start here</div>
+    </div>
+    <ul>
+      <li>Confirm the prerequisites: labs 027–031 filed, programme L7 complete with its stolen principle named, R7&rsquo;s miss list in hand, and lab 031&rsquo;s rig certification current — an uncertified rig does not perform this set.</li>
+      <li>Write both specs first. The Engineering Spec for a performed work is the live routing diagram plus the panic path — drawn before any material is chosen.</li>
+      <li>Schedule the performance date in the logbook before you feel ready. A live set without a date is a studio project.</li>
+      <li>Plan the failure rehearsal as a session of its own, before the set — it is documented evidence, not a warm-up.</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">What a gate is</div>
+    <p>A block does not end when its labs are done; it ends when you can run the operating loop without scaffolding. C6 runs the loop at S4 and in real time: the brief is constraints only, the specs are authored blank, and the fault — for the first time in three years — is not injected into a session you can pause. The audience can be one person, a room, or a camera; what cannot be substituted is the clock running forward only.</p>
+  </div>
+
+  <h2>1 — Brief &amp; constraints</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Design, rehearse, and perform a <strong>30-minute live set</strong> of fully original material, in one continuous performance, recorded. The set is a system: committed elements and performed elements declared in advance, transitions designed, every section escapable. The stolen principle you named during L7 is now due: it must appear structurally in the set — in its form, its rig, or its rules — and you must point to it in the defense.</p>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Scaffolding:</strong> C6 is S4 — both specs authored from the brief alone. The System Spec declares inputs, transforms, variation, constraints, and the human role minute by minute; the Engineering Spec is led by its live fields: signal path, gain plan, clock, monitoring, <strong>panic path</strong>, recording strategy, failure mode.</li>
+      <li><strong>Material:</strong> fully original — your Year 3 pieces (027–030 output) are the natural repertoire, reworked for performance rather than played back. Steal systems, never material. Nothing from any replication session appears in the set.</li>
+      <li><strong>The rig:</strong> the configuration certified in lab 031, on your own hardware — Live, Digitakt, MicroFreak, the mixer, and whatever the Block 7 gear (Octatrack-class sampler, ride controller) added. Any change to the rig after certification re-opens the certification.</li>
+      <li><strong>Constraint menu:</strong> the full menu — track ceilings, committed/performed ratios, no-laptop-screen clauses, single-fallback rules — lands with Block 7 authoring. <span class="status">forthcoming</span> Until then the four constraints below are the fixed core; they are not optional and they are sufficient to run the gate.</li>
+    </ul>
+  </div>
+
+  <ol class="rules-list">
+    <li><strong>Thirty minutes, one take.</strong> The set runs continuously from first sound to last. Stopping is a panic-path event, documented in the fault report — not a reset.</li>
+    <li><strong>Performed, not played back.</strong> At least one declared element is ridden live in every section; a set that could run identically with your hands in your pockets fails the brief by definition.</li>
+    <li><strong>Recorded, redundantly.</strong> The recording strategy names a primary print path and one fallback (board feed + room, or two independent printers). A set that exists only in memory did not happen.</li>
+    <li><strong>Every section escapable.</strong> The panic path — mute, limiter, bypass, stop, fallback loop — is wired, physically reachable, and rehearsed for every section of the set before performance day.</li>
+  </ol>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Decision check</div>
+    <p>For each minute of the planned set, ask: if the worst plausible fault hit <em>right here</em>, what would I do, and how long would the music be undefended? If any answer is &ldquo;I don&rsquo;t know&rdquo; or &ldquo;longer than a phrase&rdquo;, the design isn&rsquo;t finished — redesign the section or extend the fallback layer before rehearsing it.</p>
+  </div>
+
+  <h2>2 — Bench delta</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Gate capstones renew the bench certification — and this gate extends it to the live rig. The bench delta for C6 has three parts: the live routing diagram, the failure rehearsal, and the signal-map re-version.</p>
+
+  <ol class="rules-list">
+    <li><strong>Draw the full live routing diagram from memory</strong> — every source, every gain stage, the clock topology, the monitoring path, the record path, and the panic path drawn as part of the signal flow, not as a footnote. Then compare against the rig and correct; the diff is the lesson.</li>
+    <li><strong>Run the failure rehearsal, documented, before the set.</strong> From your live signal-flow diagram, list the five most plausible performance faults — Block 7&rsquo;s territory: a runaway level, a dead element, a clock dropout, a wrong scene, a monitoring loss. For each: predict the symptom, trigger it in rehearsal, walk the panic path, time the recovery, write the rule learned. The rehearsal log — five faults, five timed recoveries — files with the bundle. This is lab 031&rsquo;s checklist run in anger, and it is required evidence, not advice.</li>
+    <li><strong>Re-version the Studio Signal Map.</strong> The map re-versions at every capstone; the live rig configuration becomes its own sheet of the map, marked with what differs from the studio configuration and why.</li>
+    <li><strong>Re-run lab 031&rsquo;s pre-set checklist</strong> — cables, power, clock, gain, record-arm — on performance day, out loud, before the first sound.</li>
+  </ol>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Rig certification — renewed at C6</div>
+    </div>
+    <ul>
+      <li>Draw the full live path, panic path included, from memory</li>
+      <li>Identify every gain stage between every source and both the room and the recording</li>
+      <li>State the clock master and what happens to every follower if it drops</li>
+      <li>State what you are monitoring at any moment of the set — and what the recording is taking, which is not the same thing</li>
+      <li>Demonstrate every escape route with the set running, in under two seconds each</li>
+    </ul>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>If any item fails:</strong> return to lab 031 before scheduling the performance. The gate waits — there is no penalty for the detour, only for performing on a rig you cannot draw.</li>
+    </ul>
+  </div>
+
+  <h2>3 — Report &amp; synthesis</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">C6 files the full report bundle with the performed-work additions below. The capstone&rsquo;s fault is not injected after the fact: whatever actually became unstable during the thirty minutes — and something will — is the fault entry, diagnosed from the recording in the post-performance fault report.</p>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><rect x="10" y="6" width="24" height="32" rx="3"/><line x1="16" y1="14" x2="28" y2="14"/><line x1="16" y1="21" x2="28" y2="21"/><line x1="16" y1="28" x2="24" y2="28"/></svg></div>
+      <div class="checklist-label">The C6 bundle</div>
+    </div>
+    <ul>
+      <li>The set recording — the full thirty minutes, 24-bit WAV, primary print path, with the fallback recording archived beside it</li>
+      <li>Live routing diagram — drawn before, corrected after; panic path drawn in the signal flow</li>
+      <li>Both specs, authored blank, dated before the build began</li>
+      <li>The failure-rehearsal log — five faults, predicted symptoms, timed recoveries, rules learned, dated before the performance</li>
+      <li>The set plan — committed vs performed, minute by minute, with escape routes per section</li>
+      <li><strong>The post-performance fault report</strong> — every instability of the actual set: symptom, moment (timestamped against the recording), cause, what you did, what the panic path contributed, prevention rule. Written within a day of the set, from the recording, not from memory</li>
+      <li>Reflection answers, including the listening comparison — which L7 observation contributed what to the set&rsquo;s design</li>
+      <li>One removal decision — what was cut from the set and why</li>
+      <li>Print map — what of this set now exists: audio, scenes, patterns, patch state; what is reproducible and what was only ever live</li>
+      <li>System diff sentence — &ldquo;I thought the set worked like X; after performing it, I discovered it worked like Y.&rdquo;</li>
+    </ul>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Minimum pass gate:</strong> the set recording · live routing diagram · post-performance fault report · print map · system diff. Missing any one of these means C6 is incomplete regardless of how the set sounded — a musically strong set cannot bypass the engineering spine.</li>
+    </ul>
+  </div>
+
+  <table class="param-table">
+    <caption>Pass standard — rubric detail <span class="status">forthcoming</span></caption>
+    <tr><td>Minimum pass</td><td>The minimum gate above is complete, the rig certification is renewed, the failure rehearsal is documented and dated before the set, and the defense is answered.</td></tr>
+    <tr><td>Solid pass</td><td>The set audibly distinguishes committed from performed material, at least one real instability was recovered musically, and the stolen principle can be located in the set&rsquo;s structure.</td></tr>
+    <tr><td>Advanced transfer</td><td>You can explain how the same set would be re-rigged for an unfamiliar venue — different monitoring, different power, no second take — without losing its structure or its escape routes.</td></tr>
+  </table>
+
+  <h3 style="text-align: center;">The seven-layer worksheet</h3>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Capstones only — one page, seven answers, written about <em>this performance</em>. Each layer is a question you answer in a few honest lines.</p>
+
+  <table class="param-table">
+    <caption>Seven layers — answered for this set</caption>
+    <tr><td>What were the sounds, and which existed before the set began?</td><td>Material</td></tr>
+    <tr><td>Where did audio travel, change level, clip, sum — and where did the recording tap it?</td><td>Signal</td></tr>
+    <tr><td>What was mapped, ridden, triggered — and what did each hand own?</td><td>Control</td></tr>
+    <tr><td>What was clocked, what drifted, and what could never be paused?</td><td>Time</td></tr>
+    <tr><td>Which choices were made before the set, and which were only ever made during it?</td><td>Decision</td></tr>
+    <tr><td>What did your hands actually do in the bad seconds?</td><td>Human</td></tr>
+    <tr><td>What is printed, what was only ever live, and what is unrecoverable?</td><td>Archive</td></tr>
+  </table>
+
+  <h3 style="text-align: center;">The defense</h3>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Answered in the logbook — but out loud first, as if walking a promoter&rsquo;s engineer through the rig before doors. Gate-scaled: short answers, checked against the recording and the diagrams.</p>
+
+  <ol class="reflection-list">
+    <li>Draw the final audio path from memory.</li>
+    <li>Draw the control path separately.</li>
+    <li>Identify the most fragile part of the system.</li>
+    <li>Explain one failure and its fix.</li>
+    <li>Explain what was printed, what remains live, and what cannot be recovered.</li>
+    <li>Name the stolen principle and point to where it appears structurally in the set.</li>
+    <li>Name one thing you removed and why.</li>
+  </ol>
+
+  <h3 style="text-align: center;">Block synthesis</h3>
+
+  <p style="max-width: 640px; margin: 0 auto 24px; color: var(--text-muted); text-align: center;">One paragraph in the logbook: what does Block 7 claim, in your own words — and where did your performance disagree with it? The disagreement is not a failure of the block or of you; it is the most useful sentence you will write this cycle.</p>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Passing the gate:</strong> bundle complete + rig certification renewed + defense answered. Then Block 8 — Synthesis &amp; Voice opens: the final block, where the operator becomes the author.</li>
+    </ul>
+  </div>
+
+  <div class="final">
+    <div class="final-icon">
+      <svg viewBox="0 0 44 44"><path d="M8 38V14M36 38V14M8 14a14 14 0 0 1 28 0"/><line x1="8" y1="30" x2="36" y2="30"/></svg>
+    </div>
+    <div class="final-label">Gate principle</div>
+    <p>The set is not the gate; the recovery is. Anyone can perform a system that behaves — the graduate performs the one that doesn&rsquo;t.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="listening-l7.html">
+      <span class="page-nav-direction">Previous</span>
+      ← Programme L7 / Performance Practice
+    </a>
+    <a href="../block-8/index.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      08 / Synthesis &amp; Voice →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Block 7 · Capstone C6</div>
+
+</div>
+
+</body>
+</html>

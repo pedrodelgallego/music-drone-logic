@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab 033 — Hybrid Systems</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="index.html" class="active"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="eyebrow">Block 8 · Lab 033 · Track lab</div>
+    <h1>Hybrid Systems</h1>
+    <p class="lede">The first piece built from your own paper. You take the contract and specs you authored in lab 032 and build a system that crosses two technique domains — sources × time, transformation × decision systems, space × performance — letting each domain do what the other cannot. The seam where the two domains meet is where this lab lives, and where it is most likely to fail.</p>
+  </header>
+  <p class="block-meta">Track lab · S4 · D4 E3 F2 · your own spec, two domains · full cycle · requires lab 032</p>
+
+  <div class="signal-flow">
+    <span class="signal-node">listen</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">hypothesis</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">draw the path</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">calibrate</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">build</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">fault</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">diagnose</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">print</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">delta</span>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Start here</div>
+    </div>
+    <ul>
+      <li><strong>Hard prerequisite:</strong> your lab 032 contract and both specs exist in the logbook. No contract, no lab.</li>
+      <li>Run the ten references below — each is a working hybrid; the question is which two domains are crossed and where the seam is audible.</li>
+      <li>Save a new set as <span class="code">LAB-033-hybrid</span>; bring the 032 documents to the desk printed or hand-copied, not on a screen.</li>
+      <li>This is an S4 lab: nothing on this page fills a spec row for you. Your 032 paper is the spec; this lab tests it against reality.</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The point</div>
+    <p>A hybrid is not two systems playing at once — it is one system in which each domain does what the other cannot, joined at a seam you engineered on purpose.</p>
+  </div>
+
+  <h2>How this lab works</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3 class="card-title">Choose the crossing</h3>
+      <ul class="card-points">
+        <li>Pick two technique domains from the workshop's map — sources, time, transformation, space &amp; mix, decision systems, performance.</li>
+        <li>Name what each domain contributes that the other cannot — if either could be removed without loss, it is decoration, not a hybrid.</li>
+        <li>The crossing must be legal under your 032 contract; renegotiating a rule is allowed, but in writing, before the build.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Engineer the seam</h3>
+      <ul class="card-points">
+        <li>Find the exact point where domain A's output becomes domain B's input — name it in the path drawing.</li>
+        <li>The seam carries the integration risk: clock, level, and meaning all change hands there.</li>
+        <li>Calibrate the seam first, before either domain is musically interesting.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Build the piece</h3>
+      <ul class="card-points">
+        <li>6–8 minutes, fully original, built to your own spec exactly as written.</li>
+        <li>Every deviation from the 032 paper is logged — the deviation list is the lab's most honest finding.</li>
+        <li>The fault ritual runs at the seam, because that is where this system genuinely breaks.</li>
+      </ul>
+    </div>
+  </div>
+
+  <table class="param-table">
+    <caption>Pass standard</caption>
+    <tr><td>Minimum pass</td><td>Audible original piece, routing diagram, fault entry, print map, and system diff exist — and the 032 contract was followed or renegotiated in writing.</td></tr>
+    <tr><td>Solid pass</td><td>A listener can hear both domains working and cannot remove either in imagination without the piece collapsing.</td></tr>
+    <tr><td>Advanced transfer</td><td>You can name a third domain and say precisely what it would cost and contribute — and why you refused it.</td></tr>
+  </table>
+
+  <h2>New concepts — in plain words</h2>
+
+  <table>
+    <tr><th>Concept</th><th>In plain words</th></tr>
+    <tr><td><strong>Technique domain</strong></td><td>One of the workshop's six territories — sources, time, transformation, space &amp; mix, decision systems, performance. Each block trained one; a hybrid deliberately yokes two together in a single system.</td></tr>
+    <tr><td><strong>The seam</strong></td><td>The exact point where one domain's output becomes the other's input — a captured source entering a probability sequencer, a generative pattern feeding a send choreography. Like a plumbing joint: invisible when right, the source of every leak when wrong.</td></tr>
+    <tr><td><strong>Integration failure</strong></td><td>Both halves work alone and the whole fails anyway — levels disagree at the handoff, clocks fight, or each domain politely ignores the other. This block's signature fault class: the bug that lives in neither component.</td></tr>
+    <tr><td><strong>Domain hierarchy</strong></td><td>In a working hybrid one domain usually leads and the other serves — deciding which is which is a composition decision, not an engineering one. Two leaders is the most common way a hybrid turns into two tracks stapled together.</td></tr>
+    <tr><td><strong>Renegotiation</strong></td><td>Changing a contract rule mid-project — legal, but only in writing, with a reason, before the build continues. Silent exceptions are how a constraint language dies.</td></tr>
+  </table>
+
+  <h2>Listening — the hypothesis source</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Ten hybrids that work. For each one, the Block 8 question — <strong>what is the constraint, and where is it audible?</strong> — gets a second clause: which two domains are crossed, and where is the seam?</p>
+
+  <div class="listen-acc">
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">01</span>
+        <span class="listen-title">Caterina Barbieri — “Fantas”</span>
+        <span class="listen-tag">pattern logic becomes a voice</span>
+      </summary>
+      <div class="listen-body">
+        <p>A sequencer pattern — pure time-domain logic, Block 3 material — run on a synthesis voice so charged that the pattern stops being a process and becomes a melody you grieve over. Time × sources, seamlessly enough that listeners argue about which one they are hearing.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The pattern's machinery: transpositions, rotations, additive lengthening — Block 3 vocabulary, fully audible.</li>
+          <li>The voice's contribution: detune, portamento, and width that make the same pattern read as emotion rather than process.</li>
+          <li>The seam: moments where a pattern change and a timbre change land together — who is leading?</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Which domain leads? Arguably time — the piece's events are all pattern operations — but remove the voice and you have an étude; remove the pattern and you have a preset demo. That mutual non-removability is the test your own hybrid must pass. If you heard only melody, relisten counting the pattern's length each time it changes.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Caterina+Barbieri+Fantas" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Caterina%20Barbieri%20Fantas">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">02</span>
+        <span class="listen-title">Kaitlyn Aurelia Smith — “First Flight”</span>
+        <span class="listen-tag">modular × the breath</span>
+      </summary>
+      <div class="listen-body">
+        <p>A Buchla system — patched, generative, Block 6 territory — interwoven with processed voice and breath until the machine seems to inhale. Decision systems × sources, with the human body as one of the sources.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Which events are patch-generated and which are sung — and where you genuinely cannot tell.</li>
+          <li>The voice treated as a module: chopped, enveloped, and sequenced by the same logic that drives the synthesis.</li>
+          <li>The seam: voice entering the patch's processing, and patch gestures shaped to vocal phrasing.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Where does the patch end and the person begin? The honest answer is a region, not a line — and that blur is engineered: the voice is routed <em>through</em> the system, not laid on top of it. A vocal layered over a finished patch would sit apart; this sits inside. If you could always tell them apart, relisten to the bubbling mid-register figures and ask what a filter did to that consonant.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Kaitlyn+Aurelia+Smith+First+Flight" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Kaitlyn%20Aurelia%20Smith%20First%20Flight">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">03</span>
+        <span class="listen-title">Andy Stott — <em>Luxury Problems</em></span>
+        <span class="listen-tag">voice as material, weight as form</span>
+      </summary>
+      <div class="listen-body">
+        <p>A trained singer's voice — clean, intimate, close-miked — used as raw material inside slowed, saturated, physically heavy techno. Sources × transformation: the record's identity is the distance between how pure the input is and how crushed the world around it sounds.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The voice arriving intact and leaving as texture — looped, stretched, buried, exhumed.</li>
+          <li>The drums' degradation as a chosen finish: slow, tape-thick, deliberately overdriven — Block 4 craft at album scale.</li>
+          <li>The contrast doing the composing: sections defined by how much of the voice's purity survives.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>What is the constraint? Roughly: one voice as the only melodic source, and weight — slowness plus saturation — as the only setting. Where is the seam audible? Every time the clean voice and the filthy floor touch: the production never smooths that joint, because the joint is the subject. If the record read as gloomy techno with vocals, relisten tracking only what processing the voice has undergone by each section.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Andy+Stott+Luxury+Problems" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Andy%20Stott%20Luxury%20Problems">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">04</span>
+        <span class="listen-title">Actress — <em>R.I.P</em></span>
+        <span class="listen-tag">one haze grammar across every genre</span>
+      </summary>
+      <div class="listen-body">
+        <p>House, ambient, techno, and broken electronics, all passed through one private set of treatments until genre stops mattering — a personal transformation grammar crossing every material it touches. Transformation × decision: the rules choose what survives the fog.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The shared finish: wildly different track types wearing the same blur, bit-reduction, and narrowed image.</li>
+          <li>Structures that end early or refuse to develop — decisions audibly made by rule, not by genre convention.</li>
+          <li>Whether you could assign any single track to a genre without hesitating — and why not.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>What unifies a record this varied? Not tempo, not genre, not palette — the treatment grammar: everything is heard through the same damaged lens, so the lens becomes the author. That is a hybrid where one domain (transformation) leads and every other domain serves. If the album felt incoherent, relisten to three adjacent tracks attending only to the surface texture — same fog, three weathers.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Actress+R.I.P+album" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Actress%20R.I.P">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">05</span>
+        <span class="listen-title">Arthur Russell — <em>World of Echo</em></span>
+        <span class="listen-tag">one performer, two domains at once</span>
+      </summary>
+      <div class="listen-body">
+        <p>Cello, voice, and a hand on the echo — performed simultaneously, live, as one instrument. Sources × space: the effects are not applied to the performance, they are part of the playing.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Echo changing within phrases, not between them — the send is being ridden as a third hand.</li>
+          <li>The cello's many roles: bass line, percussion, drone — one source doing a band's work under the space's cover.</li>
+          <li>Mistakes and breath kept in — the seam between player and processing left audible on purpose.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Could the echo be removed and the songs survive? No — phrases are shaped to their own repeats; the space is structural, not cosmetic. This is the record to study if your hybrid crosses into performance: the two domains are joined in one body, in real time, which is the tightest seam there is. If it read as demos with too much reverb, relisten to one track and notice the echo entering and leaving <em>mid-line</em>, played.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Arthur+Russell+World+of+Echo" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Arthur%20Russell%20World%20of%20Echo">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">06</span>
+        <span class="listen-title">James Holden — <em>The Animal Spirits</em></span>
+        <span class="listen-tag">a generative patch joins the band</span>
+      </summary>
+      <div class="listen-body">
+        <p>A modular system tuned to listen — clocked loosely, allowed to drift — improvising in a room with drums, saxophone, and humans. Decision systems × performance: the patch is treated as a band member, not a backing track.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The synth's timing breathing with the drummer — neither is the master clock; they negotiate.</li>
+          <li>Generative figures that repeat <em>almost</em> — drift kept in, because a quantized patch could not sit in this room.</li>
+          <li>The seam: moments where the humans audibly follow the machine, and moments where it follows them.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Who is leading? It trades — and that trading is the design: the patch was built to be followable and to follow, which meant sacrificing tightness for negotiability. Note the engineering cost for your own spec: a hybrid that includes performance must let its clock be argued with. If it read as a band with synths, relisten for the figures no human would repeat that imperfectly for that long.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=James+Holden+The+Animal+Spirits" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:James%20Holden%20The%20Animal%20Spirits">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">07</span>
+        <span class="listen-title">Colleen — <em>Captain of None</em></span>
+        <span class="listen-tag">a viol played through a dub desk</span>
+      </summary>
+      <div class="listen-body">
+        <p>A treble viola da gamba — a centuries-old bowed instrument — sent through delays, filters, and dub-desk moves learned from Jamaican engineering. Sources × space &amp; mix: Block 2's capture discipline meets Block 5's routing choreography in one quiet room.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The instrument's woody attack surviving every treatment — capture quality audible under the dub.</li>
+          <li>Delay throws used as punctuation: single notes flicked into the echo on purpose, dub-engineer style.</li>
+          <li>Basslines, percussion, and chords all coming from the one viol — routing multiplying a single source into an arrangement.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>What does each domain contribute that the other cannot? The viol brings a body — grain, bow noise, wood — that no synthesis supplies; the dub routing brings architecture — space, repetition, arrangement — that one bowed instrument cannot. Remove either and the record evaporates. If the dub moves escaped you, relisten for notes that echo when their neighbours do not: that is a send being opened for one beat.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Colleen+Captain+of+None" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Colleen%20Captain%20of%20None">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">08</span>
+        <span class="listen-title">Visible Cloaks — <em>Reassemblage</em></span>
+        <span class="listen-tag">translation as the instrument</span>
+      </summary>
+      <div class="listen-body">
+        <p>Melodies run through software translation — MIDI mistranslations, machine transcription, rule-driven re-voicing — into a palette of glassy digital timbres. Decision systems × sources: the duo composes the rules of translation more than the notes themselves.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Phrases that feel transcribed rather than played — grace notes and timings no hand would choose.</li>
+          <li>The palette's consistency: fretless glides, breath-adjacent flutes, pitched percussion — a curated timbre world acting as a contract.</li>
+          <li>Where the process is audible: the same figure re-voiced across different instruments within one track.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>What is the constraint, and where is it audible? The material must pass through a translation layer — and you hear it in the not-quite-human phrasing everywhere. The lesson for your hybrid: a seam can be a <em>procedure</em>, not a cable; domain A's output enters domain B as data. If it read as ambient pastiche, relisten to one melody and ask whether any human played that rhythm.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Visible+Cloaks+Reassemblage" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Visible%20Cloaks%20Reassemblage">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">09</span>
+        <span class="listen-title">Nala Sinephro — <em>Space 1.8</em></span>
+        <span class="listen-tag">harp and modular share one space</span>
+      </summary>
+      <div class="listen-body">
+        <p>Pedal harp and modular synthesis recorded into one continuous ambient-jazz space — the acoustic and the synthetic mixed so they share overtones, room, and patience. Sources × space &amp; mix, by a composer who treats the mix as the composition.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The handoffs: harp arpeggios dissolving into synth textures and back — find one and time how gradual it is.</li>
+          <li>One shared space: reverb and placement making two unrelated sound producers read as one ensemble.</li>
+          <li>The dynamic ceiling: everything kept low and slow, a contract about restraint holding both domains.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>How do a harp and a modular end up sounding related? They are mixed into the same space at the same scale, and each imitates the other's gestures — the synth arpeggiates like a harp, the harp sustains like a pad. Seam engineering as mixing, this lab's gentlest model. If you never lost track of which was which, relisten to a transition at low volume and try to mark the exact second the harp stops.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Nala+Sinephro+Space+1.8" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Nala%20Sinephro%20Space%201.8">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">10</span>
+        <span class="listen-title">Oren Ambarchi — “Hubris”</span>
+        <span class="listen-tag">a guitar refusing to be one</span>
+      </summary>
+      <div class="listen-body">
+        <p>Guitar reduced by rule to a single repeating staccato cell, layered into a motorik pulse machine and pushed for half an hour — sources × time, with the source's identity deliberately erased by the time logic.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>That it is guitars at all — the attack is plucked, but nothing else about it says guitar.</li>
+          <li>Accumulation as the only form: layers enter, the pulse thickens, and the harmony shifts by addition, never by chord change.</li>
+          <li>The long game: what has changed by minute ten that no single minute revealed.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>What rule built this piece? Something like: <em>one note-length, one dynamic, one function per layer — the guitar may only pulse.</em> The instrument's whole expressive range is forbidden, and the forbidding is what makes the piece possible. For your hybrid: sometimes domain A must be flattened for domain B to compose with it. If it read as one long loop, relisten comparing minute one and minute eight at matched volume — the loop is a staircase.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Oren+Ambarchi+Hubris" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Oren%20Ambarchi%20Hubris">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+  </div>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Requirement</div>
+    <p>Your written hypothesis names <strong>which two domains your system crosses, where the seam sits, and which domain leads</strong> — and what was stolen from the comparison: a pattern given a voice, a voice routed through the patch, purity against weight, one grammar over every material, both domains in one body, a clock that negotiates, one source multiplied by routing, translation as the seam, a shared space as the glue, or a source flattened so time can compose with it. What you steal is a structure, never a sound — and the hypothesis must be legal under your 032 contract.</p>
+  </div>
+
+  <h2>1 · The two specs — yours, from lab 032</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">This is an S4 lab: no spec content is provided. Your lab 032 System Spec and Engineering Spec are this lab's specs — copy them into the session unchanged, then extend them with the rows below, which the hybrid adds.</p>
+
+  <table class="param-table">
+    <caption>System Spec — your 032 paper, extended (every answer yours)</caption>
+    <tr><td>The two domains</td><td>name them — and what each contributes that the other cannot</td></tr>
+    <tr><td>The seam</td><td>name the exact point where domain A's output becomes domain B's input</td></tr>
+    <tr><td>Domain hierarchy</td><td>which domain leads, which serves — one sentence defending the choice</td></tr>
+    <tr><td>Contract status</td><td>every 032 rule restated · any renegotiation written and dated before the build</td></tr>
+    <tr><td>Form</td><td>6–8 minutes · the one-variable rule applies at the seam too</td></tr>
+  </table>
+
+  <table class="param-table">
+    <caption>Engineering Spec — your 032 paper, audited at the seam (every answer yours)</caption>
+    <tr><td>Signal path</td><td>your 032 path, redrawn with the seam marked — what physically crosses it: audio, MIDI, CV, a file, a measurement?</td></tr>
+    <tr><td>Gain plan</td><td>your plan, plus the seam's level handoff — what is nominal on each side?</td></tr>
+    <tr><td>Clock / sync</td><td>who is master on each side of the seam — and what happens if they disagree</td></tr>
+    <tr><td>Latency</td><td>what the crossing costs in time, and whether it is compensated or kept</td></tr>
+    <tr><td>Stereo / phase</td><td>the mono check on both sides of the seam, and after the join</td></tr>
+    <tr><td>Noise budget</td><td>which side is noisier, and whether the seam adds a stage</td></tr>
+    <tr><td>Print strategy</td><td>is the seam printed or live? — decide before the build, in writing</td></tr>
+    <tr><td>Failure mode</td><td>faultType is <strong>integration</strong>: predict how the seam fails when both halves work alone</td></tr>
+    <tr><td>Safety</td><td>yours — feedback and level risks introduced by the crossing</td></tr>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Fault ritual (faultType: integration):</strong> predict the seam's failure in writing — clock disagreement, level mismatch, or a domain ignoring its partner — then create it deliberately: detune the handoff, break the sync, mis-set the gain across the join. Observe, diagnose the location (neither component, the joint), fix, and write the rule learned. Run the ritual at the seam; a fault anywhere else is dodging this block's material.</li>
+    </ul>
+  </div>
+
+  <h2>2 · Bench preflight</h2>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Pre-flight — before the first note</div>
+    </div>
+    <ul>
+      <li>The 032 contract on the desk, on paper — and read aloud once, because you wrote it to be kept</li>
+      <li>Both specs copied into the session notes, seam rows filled, path drawn with the seam marked</li>
+      <li>Each domain calibrated <em>alone</em> first: domain A passes its own levels and clock checks, then domain B, then the join</li>
+      <li>The seam's handoff measured — level and timing across the join, written as numbers</li>
+      <li>The deviation log opened: every departure from the 032 paper gets a line, dated</li>
+      <li>Monitoring declared, phones at the lab-001 mark</li>
+    </ul>
+  </div>
+
+  <h2>3 · Build — forthcoming</h2>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>The step-by-step build lands when Block 8 is authored;</strong> the Phase 0 exit gate governs the order. The listening, the spec frames, the seam discipline, and the pass gate on this page are stable — the numbered build recipe is the part still to come. <span class="status">forthcoming</span></li>
+    </ul>
+  </div>
+
+  <h2>4 · Diagnosis &amp; report</h2>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">The full report bundle — ten items, filed in the logbook</div>
+    </div>
+    <ul>
+      <li>Rendered piece — 24-bit WAV, master peaking −3 dBFS, 6–8 minutes, fully original</li>
+      <li>Routing diagram — drawn before patching with the seam marked, corrected after; the diff is the lesson</li>
+      <li>Recording plan — what was printed, when, at what stage, and on which side of the seam</li>
+      <li>Patch notes — the settings that mattered, including the seam's measured handoff values</li>
+      <li>Session notes — plus the deviation log: every departure from the 032 paper, dated and reasoned</li>
+      <li>Reflection answers, including the listening comparison — which hybrid contributed what to the hypothesis</li>
+      <li>One removal decision — what was cut from the finished piece and what cutting it did</li>
+      <li>Fault entry — symptom, cause, fix, prevention rule (faultType: integration)</li>
+      <li>Print map — what exists as audio, MIDI, automation, patch state; whether the seam itself was printed or remains live</li>
+      <li>System diff sentence — “I thought the system worked like X; after building it, I discovered it worked like Y.”</li>
+    </ul>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Minimum pass gate:</strong> audible output · routing diagram · fault entry · print map · system diff. Without these five, the lab is incomplete regardless of audio quality — a musically strong piece cannot bypass the engineering spine.</li>
+    </ul>
+  </div>
+
+  <div class="final">
+    <div class="final-label">Track-lab principle</div>
+    <p>A hybrid succeeds where its seam succeeds — join two domains so that each does what the other cannot, and put your engineering attention where their outputs change hands.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="lab-032.html">
+      <span class="page-nav-direction">Previous</span>
+      ← Lab 032 / Constraint Design
+    </a>
+    <a href="lab-034.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      Lab 034 / The Signature Piece →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Block 8 · Lab 033</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab 015 — Granular Reconstruction</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="index.html" class="active"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="eyebrow">Block 4 · Lab 015 · Track lab</div>
+    <h1>Granular Reconstruction</h1>
+    <p class="lede">A sound chopped into grains a few milliseconds long stops being a recording and becomes a material — a cloud you can stretch, freeze, and rebuild into harmony the source never contained. This lab grinds your own captures into clouds and composes an ambient piece from them, while the meters learn this block's hard lesson: a hundred overlapping grains are a hundred copies of the same level, summed.</p>
+  </header>
+  <p class="block-meta">Track lab · S3 · D3 E3 M4 F2 · ambient IDM · full cycle · new concepts: 6</p>
+
+  <div class="signal-flow">
+    <span class="signal-node">listen</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">hypothesis</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">draw the path</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">calibrate</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">build</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">fault</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">diagnose</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">print</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">delta</span>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Start here</div>
+    </div>
+    <ul>
+      <li>Choose parent material from your own archive — lab 005's drone takes, lab 006's captures, lab 008's field kit recordings. Nothing external enters this lab.</li>
+      <li>Save a new set as <span class="code">LAB-015-granular</span>; load Granulator (M4L) and Simpler — both will be compared.</li>
+      <li>Run the listening accordion and write the hypothesis first.</li>
+      <li>This is an S3 lab: <strong>no filled specs arrive.</strong> You author both from the prompt lists below, before any sound.</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The point</div>
+    <p>Below roughly 50 milliseconds, the ear stops hearing "a recording of something" and starts hearing texture. Granular processing lives below that line: it un-records your material, then lets you re-compose it — pitch without time, time without pitch, a chord made of one breath.</p>
+  </div>
+
+  <h2>How this lab works</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3 class="card-title">Un-record the parent</h3>
+      <ul class="card-points">
+        <li>One or two of your own recordings become grain clouds in Granulator and in a self-built Simpler equivalent.</li>
+        <li>Find the threshold: sweep grain size until the source's identity dissolves — write down the millisecond value.</li>
+        <li>Test: a listener who knows the parent should not be able to name it from the cloud.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Compose with the cloud</h3>
+      <ul class="card-points">
+        <li>Freeze a moment and play it as a pad; transpose grains into intervals — texture becomes harmony.</li>
+        <li>Position, size, spray, and density are the score; MIDI notes just choose where the cloud sits.</li>
+        <li>6–8 minutes, ambient IDM: slow harmony from clouds, with one rhythmic element allowed.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Account for the sum</h3>
+      <ul class="card-points">
+        <li>Density × overlap is a gain stage: measure the cloud's level against its parent at equal settings.</li>
+        <li>Resample the best clouds (lab 007's paths) and granulate the resample — note what a second generation costs.</li>
+        <li>Every printed cloud gets a level in / level out line in the diagram.</li>
+      </ul>
+    </div>
+  </div>
+
+  <table class="param-table">
+    <caption>Pass standard</caption>
+    <tr><td>Minimum pass</td><td>Audible original piece, routing diagram, fault entry, print map, and system diff exist — plus both specs, authored by you before building.</td></tr>
+    <tr><td>Solid pass</td><td>The piece's harmony is audibly built from your parent material, and you can state the grain-size threshold where its identity dissolved, in milliseconds.</td></tr>
+    <tr><td>Advanced transfer</td><td>You can predict, before printing, how a given density/overlap setting will move the meter relative to the parent — and be right within a couple of dB.</td></tr>
+  </table>
+
+  <h2>New concepts — in plain words</h2>
+
+  <table>
+    <tr><th>Concept</th><th>In plain words</th></tr>
+    <tr><td><span class="lab-title">Grain</span></td><td>A tiny slice of a recording, usually 1–100 milliseconds, with its edges faded so it does not click. One grain is a speck of the original sound — too short to be recognizable, long enough to carry its color.</td></tr>
+    <tr><td><span class="lab-title">Grain cloud</span></td><td>Many grains played at once, overlapping, drawn from around one point in the file. Like a photo blown into a mist of pixels: stand back and you see a color that the original image only implied.</td></tr>
+    <tr><td><span class="lab-title">Window</span></td><td>The fade shape applied to each grain's edges. Sharp windows keep attack and add buzz; soft windows smear everything into wash. It is the grain's envelope — the same idea as an amp envelope, ten times a second.</td></tr>
+    <tr><td><span class="lab-title">Spray</span></td><td>Randomness added to where each grain is taken from. Zero spray reads as a frozen instant; wide spray smears a whole phrase into one texture. It is the blur radius of the cloud.</td></tr>
+    <tr><td><span class="lab-title">Freeze</span></td><td>Parking the playback position so grains keep sampling the same instant forever — a single moment of your recording held like an organ note for as long as you like. Time stops; timbre stays.</td></tr>
+    <tr><td><span class="lab-title">Density as gain</span></td><td>How many grains sound at once. Each grain carries the parent's level, and simultaneous grains <em>add</em> — double the overlap and the cloud is several dB hotter than its parent at the same fader. The musical knob is secretly a gain knob; this block makes you treat it as one.</td></tr>
+  </table>
+
+  <div class="tag-row">
+    <span class="tag">grain</span>
+    <span class="tag">grain cloud</span>
+    <span class="tag">window</span>
+    <span class="tag">spray</span>
+    <span class="tag">freeze</span>
+    <span class="tag">density as gain</span>
+  </div>
+
+  <h2>Listening — the hypothesis source</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Ten works where sound was ground into grains — or blurred until it behaves like grains — and rebuilt into something the source never contained. Each gets a brief: what to listen for before you press play, and how to check yourself after.</p>
+
+  <div class="listen-acc">
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">01</span>
+        <span class="listen-title">Boards of Canada — “Turquoise Hexagon Sun”</span>
+        <span class="listen-tag">texture as memory</span>
+      </summary>
+      <div class="listen-body">
+        <p>Pads that sound like a recording of a recording of a summer — the blur, wobble, and grain are the emotional content, not a finish applied to it.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The instability inside every sustained sound: pitch that drifts like worn tape, texture that shimmers like grains.</li>
+          <li>The distant voices: processed past intelligibility but not past humanity.</li>
+          <li>What is clean in the track — the drums — and how that contrast frames the haze.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Would this track work with pristine, stable pads? Imagine it: the chords are simple, almost slight — the blur is doing the emotional lifting. That is texture as content, the target of this lab. If the haze read as lo-fi accident, relisten to one pad through its full length: the instability is consistent and musical, which accidents never are.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Boards+of+Canada+Turquoise+Hexagon+Sun" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Boards%20of%20Canada%20Turquoise%20Hexagon%20Sun">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">02</span>
+        <span class="listen-title">Autechre — <em>Amber</em></span>
+        <span class="listen-tag">synthetic textures, ambient grammar</span>
+      </summary>
+      <div class="listen-body">
+        <p>The ambient IDM blueprint at album scale: melodic material dissolved into slowly transforming surfaces, machine textures composed with a drone composer's patience.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Pads whose insides move — pick one track and listen to a single chord's texture evolving across a minute.</li>
+          <li>The division of labor: rhythm articulates time while the textures carry all the feeling.</li>
+          <li>Across the album: how few elements each track runs — count them anywhere; it is fewer than you expect.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Where does the emotion live on this record — in the notes or in the surfaces? Hum a melody from memory: you will mostly retrieve textures instead, which answers the question. The lesson for your build is that a texture sustained and slowly varied <em>is</em> a composition. If you retrieved actual tunes, relisten to “Nine” or any beatless track and ask what is left if the timbre is replaced with a plain organ — much less than the track currently is.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Autechre+Amber+full+album" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Autechre%20Amber">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">03</span>
+        <span class="listen-title">Aphex Twin — “Rhubarb”</span>
+        <span class="listen-tag">the loop that breathes</span>
+      </summary>
+      <div class="listen-body">
+        <p>Selected Ambient Works Volume II's gentlest face: a short harmonic loop, soft-edged and slightly blurred, repeating for eight minutes without exhausting itself — the form this lab's piece will most likely take.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The loop's edges: where it joins itself, and how the softness of the texture hides the seam.</li>
+          <li>Variation between repetitions — is any pass actually identical, or does something always shimmer differently?</li>
+          <li>The texture's grain: not clean synthesis, not tape — a soft smear that keeps the ear from finishing with the sound.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Why does a loop this short survive eight minutes? Because its surface is unstable enough that attention keeps finding new detail — blur is the renewable resource. A clean version of the same loop would exhaust in a minute. If every repetition sounded identical to you, relisten to two consecutive passes on phones and compare the high shimmer — it never lands twice the same way.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Aphex+Twin+Rhubarb" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Aphex%20Twin%20Rhubarb">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">04</span>
+        <span class="listen-title">Tim Hecker — “In the Fog I”</span>
+        <span class="listen-tag">an instrument granulated live</span>
+      </summary>
+      <div class="listen-body">
+        <p>A church pipe organ recorded in Reykjavík, then shredded into digital fog — the parent instrument and its granular ruin sound simultaneously, fighting for the same space.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The organ surfacing and submerging — moments where you hear the actual instrument versus its processed cloud.</li>
+          <li>The cloud's level behavior: when the texture thickens, the whole mix swells — density is audibly a gain event.</li>
+          <li>Low end that stays architectural while the top half disintegrates.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Could you tell which sounds were the organ and which were grains of the organ? The honest answer is "not always" — and that ambiguity is the composition: source and transformation presented as one continuous material. Note the swells too: when the fog thickens, the level rises — that is the density-as-gain lesson played as drama. If the piece read as one undifferentiated wash, relisten to the opening two minutes and mark each time something recognizably "organ" appears.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Tim+Hecker+In+the+Fog+I" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Tim%20Hecker%20In%20the%20Fog%20I">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">05</span>
+        <span class="listen-title">Belong — <em>October Language</em></span>
+        <span class="listen-tag">melody dissolved to weather</span>
+      </summary>
+      <div class="listen-body">
+        <p>Guitars and melodies processed until only their glow remains — every track is harmony with the events sanded off, the grain cloud as a wall of warm light.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Chord changes with no attack announcing them — harmony that arrives like weather changing.</li>
+          <li>The surface: constant, fizzing micro-activity over very slow underlying movement — two timescales at once.</li>
+          <li>Whether you can identify the source instrument anywhere on the record.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>What survived the dissolution — and what was removed? Pitch and harmony survived; attacks, notes, and the instrument's identity were ground away. That split is precisely what granular processing does: it keeps spectrum and discards events. If you found a clearly identifiable guitar, mark the timestamp and relisten — it is usually the residue of an attack the grains were too long to erase, which is a grain-size lesson you can use.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Belong+October+Language" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Belong%20October%20Language">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">06</span>
+        <span class="listen-title">Fennesz — <em>Venice</em></span>
+        <span class="listen-tag">grains with a songwriter inside</span>
+      </summary>
+      <div class="listen-body">
+        <p>Guitar songs granulated into glittering dust without losing their chord progressions — the disciplined middle path between the song and the cloud, from the artist whose <em>Endless Summer</em> anchored Block 2's resampling lab.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The granular surface as orchestration: the dust swells exactly where a string section would.</li>
+          <li>Transitions between intact guitar and fully granulated guitar — find one handover and time it.</li>
+          <li>How the processing density tracks the song's emotional shape rather than wandering freely.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Who is in charge on this record, the song or the texture? The song — the clouds thicken and thin on the harmony's schedule, which makes the granular layer an arrangement section, not an effect. That subordination is a compositional choice your spec must make one way or the other. If the textures seemed decorative, relisten to one track's climax: remove the dust in your imagination and the climax collapses.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Fennesz+Venice+album" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Fennesz%20Venice">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">07</span>
+        <span class="listen-title">Barry Truax — “Riverrun”</span>
+        <span class="listen-tag">the technique's source code</span>
+      </summary>
+      <div class="listen-body">
+        <p>The 1986 landmark of real-time granular synthesis: a river built grain by grain, from droplets to torrent — the technique demonstrated at full scale by one of its inventors.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The opening: individual grains sparse enough to count, like first raindrops — density near zero.</li>
+          <li>The transition from countable events to continuous texture — the exact perceptual threshold this lab asks you to find.</li>
+          <li>How "more water" is made: not louder samples but denser grains — the crescendo is a density curve.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Where did single events become texture? Somewhere a few minutes in, the grains cross the rate where the ear stops counting — the same threshold you will find with your own parent, in milliseconds and grains-per-second. And notice the level consequence: the torrent is enormously louder than the droplets with no fader touched. If you missed the threshold, relisten to the first five minutes and raise a finger each time you can still distinguish an individual grain; when the finger stops, write down the time.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Barry+Truax+Riverrun" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Barry%20Truax%20Riverrun">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">08</span>
+        <span class="listen-title">Curtis Roads — <em>Point Line Cloud</em></span>
+        <span class="listen-tag">the grain at every scale</span>
+      </summary>
+      <div class="listen-body">
+        <p>The microsound theorist's own compositions: grains deployed as points (single specks), lines (streams), and clouds (masses) — a vocabulary lesson for everything granular you will ever make.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The three states named in the title — find a passage of each: isolated specks, a connected stream, a massed cloud.</li>
+          <li>Silence as a structural element: how much empty space these pieces hold compared to ambient music.</li>
+          <li>Stereo placement of individual grains — single specks landing in precise, different positions.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Which of the three states does your planned piece live in? These works show the full menu: most ambient granular music uses only "cloud," but points and lines are available to your arrangement as contrast. If the music read as random sputter, relisten to one piece tracking only density — the dramatic arc is drawn in grains-per-second, and once you hear that axis the form appears.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Curtis+Roads+Point+Line+Cloud" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Curtis%20Roads%20Point%20Line%20Cloud">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">09</span>
+        <span class="listen-title">Kara-Lis Coverdale — <em>Grafts</em></span>
+        <span class="listen-tag">contemporary cloud harmony</span>
+      </summary>
+      <div class="listen-body">
+        <p>A 2017 long-form piece grafting organ, voice, and synthetic textures into one continuously transforming harmonic surface — the contemporary state of the art for composing harmony out of processed material.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The grafting: joins between source materials hidden inside sustained textures — try to catch one handover.</li>
+          <li>Harmony that progresses without chord "changes" — voices entering and leaving one at a time.</li>
+          <li>The piece's single long arc: where its center of gravity sits across twenty-plus minutes.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>How many distinct source materials did you count, and where did one graft onto the next? Most listeners find the joins only approximately — they are dissolved in texture, which is the technique: the cloud is the solvent that lets unlike materials fuse. Your piece can use the same trick to join unrelated parents. If it read as one synth throughout, relisten to the opening ten minutes and listen for breath and pipe — two acoustic ancestors are in there.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Kara-Lis+Coverdale+Grafts" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Kara-Lis%20Coverdale%20Grafts">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">10</span>
+        <span class="listen-title">Holly Herndon — “Chorus”</span>
+        <span class="listen-tag">grains with a pulse</span>
+      </summary>
+      <div class="listen-body">
+        <p>Voice and laptop-life recordings chopped into grains and sequenced into a dance track — the granular cloud taken out of ambient weather and put on a grid, the IDM half of this lab's genre tag.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Vocal grains used as percussion: syllable-fragments landing as hits, their pitch flickering per grain.</li>
+          <li>The alternation between rhythmic grain-bursts and sustained cloud passages — both states from the same material.</li>
+          <li>How human the track stays despite total fragmentation — what property of the voice survives the grinder.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>What kept the voice human at grain scale? Its texture — breath, formant color, micro-pitch — survives in every fragment even when no word does; identity lives below the word level, which is why your own captures will still sound like <em>yours</em> after granulation. If the track read as synthetic, relisten to the chorus and notice each "synth stab" swallow or breathe — machines do not.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Holly+Herndon+Chorus" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Holly%20Herndon%20Chorus">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+  </div>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Requirement</div>
+    <p>Your written hypothesis names <strong>what this piece's clouds will be made of and what job they do</strong> — texture as the emotional content, surfaces over rhythm, the breathing loop, source and ruin coexisting, harmony with the events sanded off, the cloud as orchestration, the density curve as form, points and lines as contrast, grafts dissolved in texture, or grains on a grid — and what was stolen from the comparison. The target idea across all ten: <strong>a grain cloud keeps the parent's color and discards its events — and its density is a gain stage.</strong> What you steal is a structure, never a sound.</p>
+  </div>
+
+  <h2>1 · The two specs — author them from prompts</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">This is an S3 lab: no filled table arrives. Answer each prompt in one or two written lines in the logbook — the answers <em>are</em> your specs, and you correct them against reality after the build. Lab 007's three-path diagram and lab 005's filled specs are your models for granularity.</p>
+
+  <table class="param-table">
+    <caption>System Spec — prompts (you author every field)</caption>
+    <tr><td>Inputs</td><td>Which of your own recordings become parents, and why those — what color do they carry that a cloud would keep? Name the files. A strong answer names two parents with different spectra, not two takes of the same thing.</td></tr>
+    <tr><td>Transforms</td><td>Granulator, Simpler in grain mode, or both — doing what, in what order? Which parameters are <em>composed</em> (set per section) and which are <em>performed</em> (ridden)? Does a resample-and-regranulate second generation appear, and after which decision?</td></tr>
+    <tr><td>Feedback / variation</td><td>What keeps an eight-minute cloud alive — spray drift, slow position scans, density curves, regenerated material? Name the one variation source that runs the whole piece and the one reserved for its center.</td></tr>
+    <tr><td>Constraints</td><td>What is forbidden? Decide now: how many parents (suggest ≤2), how many simultaneous cloud voices, whether any unprocessed parent audio may appear, and the one rhythmic element you are allowed.</td></tr>
+    <tr><td>Human role</td><td>What do your hands do — which knob is performance, which moments are curated from takes? If the answer is "nothing after setup," say so and defend it; that is a legitimate D3 answer, but it must be chosen, not defaulted into.</td></tr>
+  </table>
+
+  <table class="param-table">
+    <caption>Engineering Spec — prompts (you author every row, then correct it after building)</caption>
+    <tr><td>Signal path</td><td>Draw it: parent file → grain device → track → bus → master, plus the resampling return path if generation two exists. Which of lab 007's three architectures does your resample leg use, and why?</td></tr>
+    <tr><td>Gain plan</td><td>The block question, yours to answer with numbers: what level does the parent enter the granulator at, and what comes out at your chosen density and overlap? Measure the delta at minimum and maximum density and write both down — this is the lab's critical row.</td></tr>
+    <tr><td>Clock / sync</td><td>Do the grains need the transport at all? If a rhythmic element exists, what is master, and does grain spawn rate sync to it or run free? Declare it.</td></tr>
+    <tr><td>Latency</td><td>If you perform cloud parameters live against the playing set, which monitoring mode are you in (lab 002's table) and does it matter at these timescales? One line.</td></tr>
+    <tr><td>Stereo / phase</td><td>Grain spread fans copies of identical material across the image — what happens to your cloud in mono? Plan the mono check and predict its result before running it.</td></tr>
+    <tr><td>Noise budget</td><td>Grains amplify whatever the parent's floor was, times density. Where is the noise in your parents, and does the cloud lift it into audibility? State the noisiest parent and your plan for it (keep, gate, or feature).</td></tr>
+    <tr><td>Print strategy</td><td>Clouds are patch state, and patch state rots: which clouds get printed as audio, at which generation, and what stays live until the final render? A strong answer prints every cloud the arrangement depends on.</td></tr>
+    <tr><td>Failure mode</td><td>Predict one likely failure in path terms — the canonical one for this lab: a dense cloud clipping the track while the parent's meter reads safe (faultType: <strong>gain into processing</strong>). Name yours and how you would locate it.</td></tr>
+    <tr><td>Safety</td><td>Dense high-frequency clouds fatigue ears quickly and mask loudness creep. State your phones level (lab 001 mark), session length, and break plan.</td></tr>
+  </table>
+
+  <h2>2 · Bench preflight</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">The block rule: <strong>a level written at the input and output of every processor</strong>. The granulator is a processor whose output level is a function of a musical knob — so it gets measured at the settings extremes, not just once.</p>
+
+  <div class="signal-flow">
+    <span class="signal-node">parent file</span>
+    <span class="signal-arrow">→ level in →</span>
+    <span class="signal-node">granulator · density × overlap</span>
+    <span class="signal-arrow">→ level out →</span>
+    <span class="signal-node">Live track</span>
+    <span class="signal-arrow">→ resample? →</span>
+    <span class="signal-node">generation 2 parent</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">bus → master −3 dBFS</span>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Pre-flight — before the first cloud</div>
+    </div>
+    <ul>
+      <li>Parents audited: peak level, noise floor, and one sentence on character, each — filed before any granulation</li>
+      <li>Both specs authored from the prompts above and dated in the logbook</li>
+      <li>The density gain test run on one parent: cloud level at minimum and maximum density/overlap, both numbers written at the diagram's arrows</li>
+      <li>Grain-size identity threshold found and noted in milliseconds — sweep until the parent is unnameable</li>
+      <li>Resample leg (if any) chosen from lab 007's three architectures and patched cold</li>
+      <li>Phones at the lab 001 mark; a break every thirty minutes — clouds mask creep better than any other material</li>
+    </ul>
+  </div>
+
+  <h2>3 · Build — <span class="status">forthcoming</span></h2>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>This section is scaffolded, not written.</strong> The full build — the identity-threshold survey, freeze-and-transpose harmony writing, the density fault ritual (predicted symptom: a section swells into clipping with no fader moved, located at the granulator's output, not the parent), the second-generation resample, and the arrangement — lands when Block 4 is authored. The listening, spec prompts, and preflight above are stable; build against them.</li>
+    </ul>
+  </div>
+
+  <h2>4 · Diagnosis &amp; report</h2>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">The full report bundle — ten items, filed in the logbook</div>
+    </div>
+    <ul>
+      <li>Rendered piece — 24-bit WAV, master peaking −3 dBFS, 6–8 minutes</li>
+      <li>Routing diagram — drawn before patching, corrected after, with the density gain deltas written at the granulator</li>
+      <li>Recording plan — which clouds were printed, at which generation, when</li>
+      <li>Patch notes — grain size, window, spray, density and overlap per section; the identity threshold in ms</li>
+      <li>Session notes</li>
+      <li>Reflection answers, including the listening comparison — which work contributed what to the hypothesis</li>
+      <li>One removal decision — what was cut from the finished piece and what cutting it did</li>
+      <li>Fault entry — symptom, cause, fix, prevention rule (faultType: gain into processing)</li>
+      <li>Print map — which clouds exist as audio, which only as patch state, which parents are now generations deep and unrecoverable</li>
+      <li>System diff sentence — “I thought the system worked like X; after building it, I discovered it worked like Y.”</li>
+    </ul>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>The fault ritual:</strong> predict the symptom in writing, then create the fault — automate density and overlap to maximum during a held cloud and watch which stage clips first while the parent's level never moves. Observe, locate (granulator output? track? bus?), fix it at the right stage with post-gain, not by re-recording the parent, and write the rule learned.</li>
+      <li><strong>Minimum pass gate:</strong> audible output · routing diagram · fault entry · print map · system diff — plus, in this lab, the authored specs. Without these, the lab is incomplete regardless of audio quality.</li>
+    </ul>
+  </div>
+
+  <div class="final">
+    <div class="final-label">Track-lab principle</div>
+    <p>A grain cloud keeps the parent's color and discards its events — and every grain carries the parent's level, so density is a gain stage you compose with open eyes.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="lab-014.html">
+      <span class="page-nav-direction">Previous</span>
+      ← Lab 014 / Saturation Staging
+    </a>
+    <a href="lab-016.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      Lab 016 / Slice &amp; Reassemble →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Block 4 · Lab 015</div>
+
+</div>
+
+</body>
+</html>

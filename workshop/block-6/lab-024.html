@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab 024 — The Modulation Organism</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="index.html" class="active"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="eyebrow">Block 6 · Lab 024 · Track lab</div>
+    <h1>The Modulation Organism</h1>
+    <p class="lede">A patch that plays itself: modulators modulating other modulators’ rates and depths until the sound stops being predictable and starts having habits, moods, weather. You design the organism, prove it can live alone for ten minutes, record hours, and curate minutes.</p>
+  </header>
+  <p class="block-meta">Track lab · S3 · D5 E3 M1 F3 · self-playing patch · full cycle · new concepts: 5</p>
+
+  <div class="signal-flow">
+    <span class="signal-node">listen</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">hypothesis</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">draw the path</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">calibrate</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">build</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">fault</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">diagnose</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">print</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">delta</span>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Start here</div>
+    </div>
+    <ul>
+      <li>Run the ten listening references below first; the hypothesis they produce is the start of the build.</li>
+      <li>Save a new set as <span class="code">LAB-024-organism</span>.</li>
+      <li>This is an S3 lab: both specs are <strong>authored by you</strong> from the prompts below, on paper, before any patching.</li>
+      <li>Declare state, seed, and boundary before the first note — this lab is D5 autonomous, so all three rows carry real weight.</li>
+      <li>Record-arm from minute zero of every session: an organism’s best moment never comes back.</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The point</div>
+    <p>When a modulator modulates another modulator, behavior stops being predictable and starts being characteristic. You are no longer playing the patch — you are raising it, and your instrument is the boundary: the minimum and maximum on every knob it is allowed to turn.</p>
+  </div>
+
+  <h2>How this lab works</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3 class="card-title">Grow the organism</h3>
+      <ul class="card-points">
+        <li>MicroFreak matrix: the cycling envelope pushes the LFO’s rate; the LFO pushes oscillator timbre and its own depth via the matrix — two layers minimum.</li>
+        <li>In Live, Max for Live LFOs pointed at each other’s rate and depth, then at device parameters.</li>
+        <li>A modulator of a parameter is a patch; a modulator of a modulator is an organism.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Prove it can live alone</h3>
+      <ul class="card-points">
+        <li>The 10-minute unattended test, this lab’s centerpiece: start it, hands off, record everything.</li>
+        <li>Pass: never silent past its own design, never clipping, never frozen in a loop you can hum.</li>
+        <li>Fail: adjust a boundary — a min/max range — never a moment. Then run the full ten minutes again.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Record hours, curate minutes</h3>
+      <ul class="card-points">
+        <li>Long captures — 30, 45, 60 minutes — printed in full while the organism lives.</li>
+        <li>The human role is gardener: prune the recordings into a 15+ minute long form.</li>
+        <li>Cuts and crossfades only; nothing is overdubbed onto an autonomous system after the fact.</li>
+      </ul>
+    </div>
+  </div>
+
+  <table class="param-table">
+    <caption>Pass standard</caption>
+    <tr><td>Minimum pass</td><td>Audible original long-form piece, audio-path and control-path diagrams, fault entry, print map, and system diff exist.</td></tr>
+    <tr><td>Solid pass</td><td>The 10-minute unattended test passes on record, and a listener cannot find a repeating loop anywhere in the final 15 minutes.</td></tr>
+    <tr><td>Advanced transfer</td><td>You can predict the organism’s reaction to one range change before making it — and rebuild the same <em>class</em> of behavior on a different engine.</td></tr>
+  </table>
+
+  <h2>New concepts — in plain words</h2>
+
+  <table>
+    <tr><th>Concept</th><th>In plain words</th></tr>
+    <tr><td><span class="lab-title">Self-playing patch</span></td><td>A sound system that produces musical change with no hands on it. Not a loop — a loop repeats; a self-playing patch develops, because its modulators keep pushing each other into new combinations.</td></tr>
+    <tr><td><span class="lab-title">Cross-modulation</span></td><td>A modulator aimed at another modulator instead of at the sound — an LFO changing another LFO’s speed, an envelope changing an LFO’s depth. One layer gives motion; two layers give behavior, because the motion itself now drifts.</td></tr>
+    <tr><td><span class="lab-title">Autonomy (D5)</span></td><td>The top of the workshop’s depth axis: the system decides in real time and would keep deciding if you left the room. Sequenced music replays decisions; autonomous music makes them.</td></tr>
+    <tr><td><span class="lab-title">State</span></td><td>Everything the system remembers that isn’t written in a file: where each LFO is in its cycle, the sample-and-hold’s last value, the knob you nudged and never saved. An organism is mostly state — which is why it can die.</td></tr>
+    <tr><td><span class="lab-title">The unattended test</span></td><td>Ten minutes, hands off, recorded. The block’s honesty check for anything called “self-playing”: if it needs your hand inside ten minutes, it is a performance patch wearing a lab coat.</td></tr>
+  </table>
+
+  <div class="tag-row">
+    <span class="tag">self-playing patch</span>
+    <span class="tag">cross-modulation</span>
+    <span class="tag">autonomy</span>
+    <span class="tag">state</span>
+    <span class="tag">the unattended test</span>
+  </div>
+
+  <h2>Listening — the hypothesis source</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Ten systems that play themselves — Buchla patches, cybernetic processes, a sound that has lived under a Manhattan street since 1977, finches, and five hundred small motors. Each gets a brief: what to listen for before you press play, and how to check yourself after.</p>
+
+  <div class="listen-acc">
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">01</span>
+        <span class="listen-title">Suzanne Ciani — <em>Buchla Concerts 1975</em></span>
+        <span class="listen-tag">the patch as a living instrument</span>
+      </summary>
+      <div class="listen-body">
+        <p>Live Buchla performances in which the patch generates continuously and Ciani steers tendencies — the clearest recorded picture of a human living <em>with</em> an autonomous system rather than playing an instrument.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Layers that evolve with no possible hand on them — count how many things are changing at once.</li>
+          <li>Transitions that are tendencies, not events: the music leans somewhere long before it arrives.</li>
+          <li>Where you can hear the performer at all — the few moments that are clearly a decision, not a drift.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>How much of what you heard was performed? Far less than it seems — the patch supplies the motion; the performer supplies the direction. That division of labor is this lab’s human role exactly. If you couldn’t separate them, relisten asking of each change: could one hand have done this while everything else also moved? When the answer is no, you are hearing the organism.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Suzanne+Ciani+Buchla+Concerts+1975" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Suzanne%20Ciani%20Buchla%20Concerts%201975">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">02</span>
+        <span class="listen-title">Keith Fullerton Whitman — “Generator 1”</span>
+        <span class="listen-tag">the generator runs, the human frames</span>
+      </summary>
+      <div class="listen-body">
+        <p>A modular patch built to generate — sequenced voltages feeding modulators feeding each other — recorded in long takes and released as the run itself, frame and all.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Patterns that almost repeat: the generator circles an idea without ever landing on it twice.</li>
+          <li>Rate changes that arrive on their own schedule — a modulator somewhere just crossed a threshold.</li>
+          <li>The recording as documentation: no fades dress it up; what the patch did is what you get.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Was that a sequence or an organism? Both — a sequence at the bone, modulators at the joints; the near-repetition is the audible signature of cross-modulation bending a fixed pattern. Your build wants exactly this: enough skeleton to cohere, enough drift to live. Relisten to any two minutes and mark each time the “loop” comes back changed — then count what changed: rate, register, or depth?</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Keith+Fullerton+Whitman+Generator" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Keith%20Fullerton%20Whitman%20Generator">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">03</span>
+        <span class="listen-title">Roland Kayn — <em>Tektra</em></span>
+        <span class="listen-tag">cybernetics at installation scale</span>
+      </summary>
+      <div class="listen-body">
+        <p>Hours of music produced by self-regulating electronic systems — Kayn designed feedback networks that steered themselves, then let them compose at a scale no hand could sustain. Cite it as installation-scale autonomy: the system, not the composer, holds the form.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Form with no architecture: no sections, no returns — only a system passing through regions of itself.</li>
+          <li>Sounds regulating each other: one layer swells and another audibly retreats in response.</li>
+          <li>Your own time sense dissolving — note when you stop waiting for events and start observing conditions.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Who shaped the passage you just heard? The network — Kayn’s authorship lives entirely in the connections and their limits, set long before the recording ran. This is your boundary declaration scaled to hours: the composer writes the constitution, the system governs. If it read as formless, relisten to twenty minutes as <em>weather</em> — fronts moving through — and the regulation becomes audible.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Roland+Kayn+Tektra" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Roland%20Kayn%20Tektra">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">04</span>
+        <span class="listen-title">Max Neuhaus — “Times Square”</span>
+        <span class="listen-tag">an organism living under a street</span>
+      </summary>
+      <div class="listen-body">
+        <p>A continuous, unsignposted sound installation humming beneath a Times Square pedestrian island since 1977 — an autonomous system whose unattended test has lasted decades. Hear it through documentation recordings, or in person if you ever can.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>A sound designed to be discovered, not presented — it neither starts nor ends for you.</li>
+          <li>How the city becomes the modulator: traffic, footsteps, and weather change what you notice, not what plays.</li>
+          <li>The texture itself: rich enough to reward attention, stable enough to ignore — a boundary tuned for decades.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>What does this piece do when nobody listens? Exactly the same thing — and that is the point: autonomy means the system’s life does not depend on attention, yours included. Your ten-minute test is this work in miniature. Relisten to the documentation asking which decisions Neuhaus made once, in advance, so that no decision would ever be needed again.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Max+Neuhaus+Times+Square+sound+installation" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Max%20Neuhaus%20Times%20Square">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">05</span>
+        <span class="listen-title">Morton Subotnick — <em>Silver Apples of the Moon</em></span>
+        <span class="listen-tag">the electronic music box</span>
+      </summary>
+      <div class="listen-body">
+        <p>The first electronic work commissioned for home listening, built on the Buchla’s sequencer and modulation: patches set in motion like clockwork toys, gestures generated rather than played.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Sequences that audibly run themselves — and the modulation that keeps them from being mere repetition.</li>
+          <li>Gestures no keyboard player could phrase: voltage shapes, not finger shapes.</li>
+          <li>The seams where one patch state hands over to another — the composer’s scissors between the machine’s sentences.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Where was the human? Between the runs — designing patches, choosing states, cutting and ordering the results: record hours, curate minutes, fifty years early. The lesson for your build is the seam: an autonomous system’s output still needs an editor’s form. Relisten to side B and mark three edits you are confident were made with tape, not voltage.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Morton+Subotnick+Silver+Apples+of+the+Moon" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Morton%20Subotnick%20Silver%20Apples%20of%20the%20Moon">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">06</span>
+        <span class="listen-title">Steve Reich — “Pendulum Music”</span>
+        <span class="listen-tag">a system swung and released</span>
+      </summary>
+      <div class="listen-body">
+        <p>Microphones swung over loudspeakers feed back as they pass — performers set the pendulums moving, release, and sit down; physics plays the piece and physics ends it.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The feedback chirps slowing as the swings decay — the system’s energy budget is audible.</li>
+          <li>Phasing between the pendulums: rhythms nobody is keeping, drifting in and out of alignment.</li>
+          <li>The ending: not a decision but an equilibrium — the piece is over when the system stops changing.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>What did the performers actually perform? Initial conditions — height, timing, release — and nothing after; every sound that followed was the system spending those conditions. This is the purest unattended test on record: it cannot be interrupted, only set up better or worse. Relisten and time how long the system stays interesting — then ask what “boundary” a pendulum has, and notice the answer is its starting swing.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Steve+Reich+Pendulum+Music" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Steve%20Reich%20Pendulum%20Music">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">07</span>
+        <span class="listen-title">Alessandro Cortini — <em>Forse 1</em></span>
+        <span class="listen-tag">one instrument, slow weather</span>
+      </summary>
+      <div class="listen-body">
+        <p>Long pieces for a single Buchla Music Easel: simple patches whose internal modulation does the developing, recorded in takes and left mostly alone — an organism small enough to fully understand.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>How few elements there are — one voice, one motion system — against how long it stays alive.</li>
+          <li>The modulation breathing at the edge of perception: tuning, timbre, and tremolo drifting together.</li>
+          <li>Repetition used as a canvas for instability — the loop holds still so the drift can show.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>What was the smallest thing keeping each piece alive? Usually one slow modulator leaning on another — depth breathing on a vibrato, rate easing on a swell. The lesson is economy: an organism needs two layers of motion, not ten. If it sounded static, relisten to one piece at low volume and attend only to the tuning — it is never still.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Alessandro+Cortini+Forse+1" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Alessandro%20Cortini%20Forse">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">08</span>
+        <span class="listen-title">Emily A. Sprague — <em>Water Memory</em></span>
+        <span class="listen-tag">the patch as garden</span>
+      </summary>
+      <div class="listen-body">
+        <p>Contemporary modular ambient grown from patches that generate and drift — the composer plants, waters, and prunes; the patch does the growing. The nearest living relative of what your rig will build this cycle.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Melodic cells that recur in new orders — generated sequence, not played phrase.</li>
+          <li>Texture changes that feel tended rather than performed: a hand intervened, then withdrew.</li>
+          <li>The warmth: nothing about autonomy requires coldness, and this record proves it.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Could you tell the planted from the grown? The cell content is planted; its order, spacing, and decoration are grown — and the music’s gentleness is a designed boundary, not a mood. This is your curation model: intervene between takes, never inside them. Relisten and find one moment you would call an “edit”; there are far fewer than in composed ambient, and that scarcity is the style.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Emily+A+Sprague+Water+Memory" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Emily%20A%20Sprague%20Water%20Memory">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">09</span>
+        <span class="listen-title">Céleste Boursier-Mougenot — “from here to ear” (video)</span>
+        <span class="listen-tag">finches play the patch</span>
+      </summary>
+      <div class="listen-body">
+        <p>A gallery aviary where zebra finches land on amplified, open-tuned electric guitars — every hop and takeoff strums the system. Watch the installation footage: the “modulators” have wings, and the boundary is the tuning.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>How the open tuning guarantees consonance — any bird, any landing, no wrong notes: boundary design at its purest.</li>
+          <li>Density tracking the flock’s behavior: feeding time is a crescendo nobody conducted.</li>
+          <li>What the artist controls (tuning, gain, layout) versus what the birds control (everything else).</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Why does it never sound bad? Because the only decisions left to chance were made safe in advance — the tuning is the forbidden list, physically enforced. Your organism wants the same property: any state it can reach should be musical, because the ranges forbid the rest. Rewatch five minutes asking only: what could possibly go wrong here, and what design choice already prevented it?</p>
+        <p class="listen-rep">Watch: <a href="https://www.youtube.com/results?search_query=Celeste+Boursier-Mougenot+from+here+to+ear" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Celeste%20Boursier-Mougenot">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">10</span>
+        <span class="listen-title">Zimoun — prepared dc-motors installations (video)</span>
+        <span class="listen-tag">mass mechanics as texture</span>
+      </summary>
+      <div class="listen-body">
+        <p>Hundreds of identical small motors driving wires, boxes, and balls — each unit trivially simple, the mass producing a complex, breathing texture. Watch the documentation: variation emerges from mechanical tolerance, not from control.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>One unit’s sound versus the mass — the texture exists only at population scale.</li>
+          <li>Drift without modulation: no two motors run identically, and their disagreements are the music.</li>
+          <li>The absence of any control path at all — once powered, nothing decides anything; the variation is physical.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Where is the modulator? Nowhere — tolerance does the modulating: tiny manufacturing differences accumulate into waves of density. This is the limit case of the lab’s spectrum: behavior with zero decisions. Rewatch and ask what a “seed” could even mean here — then notice your answer (“rebuild it and it behaves the same in kind, never in detail”) is exactly R6’s motto: compare behavior, not output.</p>
+        <p class="listen-rep">Watch: <a href="https://www.youtube.com/results?search_query=Zimoun+prepared+dc+motors+installation" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Zimoun">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+  </div>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Requirement</div>
+    <p>Your written hypothesis names <strong>where this organism’s life will come from</strong> — a patch steered by tendencies, a generator circling without landing, networks regulating each other, a system that outlives attention, clockwork toys edited into form, initial conditions spent by physics, one modulator breathing on another, a tended garden, a boundary that makes every reachable state musical, or variation from tolerance alone — and what was stolen from the comparison. The target idea across all ten: <strong>design the behavior and its limits; let the system live; curate what it lived.</strong> What you steal is a structure, never a sound.</p>
+  </div>
+
+  <h2>1 · The two specs — author from prompts</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">This is an S3 lab: no fields are provided. Answer each prompt in writing — your answers <em>are</em> the spec — then correct every row against reality after the build.</p>
+
+  <table class="param-table">
+    <caption>System Spec — author from these prompts</caption>
+    <tr><td>Inputs</td><td>Which engine hosts the organism — MicroFreak patch, Live devices, or both layered? What sounds when nothing modulates — write down the resting state you are animating.</td></tr>
+    <tr><td>Transforms</td><td>List every modulation route as “source → destination, range”: which LFO touches which rate, which envelope touches which depth? Two layers minimum — name the route that makes it an organism, not a patch.</td></tr>
+    <tr><td>Feedback / variation</td><td>What stops the motion from being periodic — cross-modulation, sample-and-hold, free-running rates that never align? How long before the system audibly repeats, if ever? Estimate it, then test it.</td></tr>
+    <tr><td>Constraints</td><td>Track budget for the long form? What may never happen — silence beyond N seconds, register leaps, clipping? Every “never” must exist as a set min/max somewhere; name where.</td></tr>
+    <tr><td>Human role</td><td>Gardener, not player: when may a hand intervene — between takes only? What is forbidden during a take? Who makes the final cut, and by what criterion?</td></tr>
+  </table>
+
+  <table class="param-table">
+    <caption>Engineering Spec — author from these prompts, correct after building</caption>
+    <tr><td>Signal path</td><td>Draw both: organism → recorder and organism → ears. MicroFreak into which M4 input; Live’s own devices on which track; where do the two layers sum?</td></tr>
+    <tr><td>Gain plan</td><td>The organism decides its own dynamics — what is the loudest state it can legally reach, and what peak does that state hit at the M4? Set the ceiling for the worst case, not the average; quote the lab-001 ledger.</td></tr>
+    <tr><td>Clock / sync</td><td>Free-running or synced? If any modulator follows Live’s transport, what happens to the organism when the transport stops? Declare which clocks exist and which is master — “none” is a valid, declared answer.</td></tr>
+    <tr><td>Latency</td><td>Nothing is performed in time — what buffer do you choose and why? If you monitor while it records for an hour, what are you actually listening for?</td></tr>
+    <tr><td>Stereo / phase</td><td>Mono organism widened later, or stereo by design? One mono check on the densest passage — does the behavior survive the collapse?</td></tr>
+    <tr><td>Noise budget</td><td>An hour-long take exposes every floor in the chain. Record one minute of the resting state and write down what hisses, hums, or breathes before the organism does.</td></tr>
+    <tr><td>Print strategy</td><td>Everything, always: an autonomous system’s state cannot be recalled, so the print <em>is</em> the archive. From which minute is the recorder armed, and what file naming survives a week of takes?</td></tr>
+    <tr><td>Failure mode</td><td>Predict one likely failure and its symptom. This lab’s faultType is <strong>state</strong> — the canonical failure is a reloaded set that does not resume the organism, because its life was never in the file.</td></tr>
+    <tr><td>Safety</td><td>The system may swell while you are away — set a hard level ceiling (limiter or M4 output cap) before the first unattended minute, and write the phones level for your return.</td></tr>
+  </table>
+
+  <h2>2 · State · seed · boundary — declare before the first note</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">The Block 6 ritual, at full weight: a D5 system is mostly state, barely seeded, and only as safe as its boundary.</p>
+
+  <table class="param-table">
+    <caption>Decision-system declaration — authored, then corrected after the build</caption>
+    <tr><td>State</td><td>List every place the organism’s life resides: LFO phases, envelope stages, sample-and-hold values, unsaved knob positions, device memory vs panel state on the MicroFreak. Mark each item: saved by the file, or lost on close?</td></tr>
+    <tr><td>Seed</td><td>Can a run be reproduced? Declare honestly: the patch sheet and ranges are reproducible; the run is not. What you log — routes, ranges, date, take number — reproduces the <em>behavior class</em>. Write R6’s motto into the spec: compare behavior, not output.</td></tr>
+    <tr><td>Boundary</td><td>What may the organism decide — timbre, density, rate, level within ranges? Write the min/max for every modulation route. What is forbidden — silence past N seconds, clipping, the final cut? The ranges are the leash; the leash is the instrument.</td></tr>
+  </table>
+
+  <h2>3 · Bench preflight — two paths, drawn separately</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">The audio path is short and boring — by design. The control path is the organism: every arrow on it is a decision being made continuously. Draw them separately; the control drawing will be the densest diagram you have made in this workshop.</p>
+
+  <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:11px; letter-spacing:0.2em; text-transform:uppercase;">Audio path — what carries sound</h3>
+  <div class="signal-flow">
+    <span class="signal-node">MicroFreak out</span>
+    <span class="signal-arrow">→ TRS →</span>
+    <span class="signal-node">M4 in 1</span>
+    <span class="signal-arrow">→ USB-C →</span>
+    <span class="signal-node">Live audio track (record-armed)</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">master + ceiling</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">M4 → DT 990</span>
+  </div>
+
+  <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:11px; letter-spacing:0.2em; text-transform:uppercase;">Control path — what carries decisions (the organism)</h3>
+  <div class="signal-flow">
+    <span class="signal-node">cycling env</span>
+    <span class="signal-arrow">→ rate of →</span>
+    <span class="signal-node">LFO</span>
+    <span class="signal-arrow">→ matrix →</span>
+    <span class="signal-node">osc timbre · filter · own depth</span>
+    <span style="flex-basis: 100%; height: 0;"></span>
+    <span class="signal-node">M4L LFO 1</span>
+    <span class="signal-arrow">→ rate &amp; depth of →</span>
+    <span class="signal-node">M4L LFO 2</span>
+    <span class="signal-arrow">→ mapped →</span>
+    <span class="signal-node">device parameters (min/max set)</span>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Honest rig note:</strong> the MicroFreak’s matrix plus Max for Live LFOs is a complete organism habitat. The gear roadmap’s Make Noise Strega is this lab’s dedicated patchable voice when it arrives — instability by design, CV from the KeyStep 37. The routes transfer; only the patch cables become real.</li>
+      <li><strong>Every range on the diagram:</strong> a control arrow without a written min/max is an undeclared boundary — the drawing is not finished until every arrow carries its leash.</li>
+    </ul>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Pre-flight — before the first unattended minute</div>
+    </div>
+    <ul>
+      <li>Both specs authored on paper from the prompts — this is S3: blank pages, your answers</li>
+      <li>State, seed, and boundary declared — the state inventory item by item</li>
+      <li>Both diagrams drawn — the control path with a min/max on every arrow</li>
+      <li>Gain ledger applied; ceiling set for the loudest <em>legal</em> state, verified by forcing that state once, by hand</li>
+      <li>Recorder armed from minute zero — the print is the archive; state cannot be recalled</li>
+      <li><strong>The 10-minute unattended test:</strong> start the organism, leave the controls, record. Pass: no silence past its design, no clipping, no hummable loop. Fail: change one range, run the full ten minutes again</li>
+      <li>Phones at the lab-001 mark; breaks every fifteen minutes during long monitoring</li>
+    </ul>
+  </div>
+
+  <h2>4 · Build — forthcoming</h2>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>The step-by-step build lands when Block 6 is authored;</strong> the Phase 0 exit gate governs the order. The listening, spec prompts, declaration, preflight, and unattended test on this page are stable — the numbered build recipe (growing the routes layer by layer, the long captures, the pruning passes) is the part still to come. <span class="status">forthcoming</span></li>
+    </ul>
+  </div>
+
+  <h2>5 · Diagnosis &amp; report</h2>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Fault ritual — faultType: state</div>
+    <p>Predict the symptom → create the fault → observe → diagnose → fix → write the rule. The fault: mid-run, save the set, close it, reopen it, and try to resume the print where it left off. The organism does not resume — LFO phases, sample-and-hold values, and unsaved panel nudges were state the file never held. Diagnose exactly which state items died (check them against your state inventory), then write the prevention rule. The expected lesson: <em>print while it lives</em> — for an autonomous system, audio is the only honest memory.</p>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">The full report bundle — ten items, filed in the logbook</div>
+    </div>
+    <ul>
+      <li>Rendered piece — 24-bit WAV, master peaking −3 dBFS, 15+ minutes, pruned from the long captures</li>
+      <li>Routing diagrams — audio path <em>and</em> control path with ranges, drawn before patching, corrected after; the diff is the lesson</li>
+      <li>Recording plan — which takes ran, how long, which minutes survived</li>
+      <li>Patch notes — every modulation route as “source → destination, min/max”; the full state inventory</li>
+      <li>Session notes — per take: what the organism did that the ranges did not predict</li>
+      <li>Reflection answers, including the listening comparison — which reference contributed what to the hypothesis</li>
+      <li>One removal decision — a route or a passage cut, and what cutting it did</li>
+      <li>Fault entry — symptom, cause, fix, prevention rule (faultType: state)</li>
+      <li>Print map — which takes exist as audio, which behavior survives as patch sheet, and which states are gone forever</li>
+      <li>System diff sentence — “I thought the system worked like X; after building it, I discovered it worked like Y.”</li>
+    </ul>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Minimum pass gate:</strong> audible output · routing diagrams (both paths) · fault entry · print map · system diff. Without these five, the lab is incomplete regardless of audio quality — a musically strong piece cannot bypass the engineering spine.</li>
+    </ul>
+  </div>
+
+  <div class="final">
+    <div class="final-label">Track-lab principle</div>
+    <p>An organism is mostly state: its life lives in phases and values no file can hold. Design the boundary, pass the unattended test, and print while it lives — audio is the only honest memory an autonomous system has.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="lab-023.html">
+      <span class="page-nav-direction">Previous</span>
+      ← Lab 023 / Rule-Based Sequencing
+    </a>
+    <a href="lab-025.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      Lab 025 / Chance Operations →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Block 6 · Lab 024</div>
+
+</div>
+
+</body>
+</html>

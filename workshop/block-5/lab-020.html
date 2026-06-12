@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab 020 — Feedback Paths</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="index.html" class="active"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="eyebrow">Block 5 · Lab 020 · Track lab</div>
+    <h1>Feedback Paths</h1>
+    <p class="lede">A feedback path is the only routing where the system can produce more level than you put in. That makes it the most musical architecture in this block — the dub desk runs on it — and the only one that begins with a safety checklist instead of a sound.</p>
+  </header>
+  <p class="block-meta">Track lab · S3 · D4 E4 M5 F2 · dub · full cycle · new concepts: 5 · prerequisite for lab 029</p>
+
+  <div class="signal-flow">
+    <span class="signal-node">listen</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">hypothesis</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">draw the path</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">calibrate</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">build</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">fault</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">diagnose</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">print</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">delta</span>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The point</div>
+    <p>Below unity, a feedback loop is an echo. At unity, it is an instrument that sustains itself. Above unity, it is a hazard that grows until something — ideally your limiter, never your ears — stops it. The music of dub lives at that threshold, which is why this lab is drawn twice: as a musical system and as a safety-critical one.</p>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Safety — complete before any sound exists</div>
+    <p>This checklist is the lab's first deliverable. Every line is verified, in order, with the monitoring low and the loop unpatched — and the answers are written in the logbook before the first test tone. A feedback patch is never improvised into a live monitor path.</p>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M22 6L6 36h32L22 6z"/><path d="M22 18v8"/><path d="M22 30v2"/></svg></div>
+      <div class="checklist-label">The in-lab feedback safety checklist — all seven, before sound</div>
+    </div>
+    <ul>
+      <li><strong>Limiter location</strong> — a brickwall limiter sits on the master (the last device before the converters), ceiling set, and you have <em>proven it works</em> with a deliberate over-level test tone before the loop is patched. Name where it sits in the chain in writing.</li>
+      <li><strong>Emergency mute</strong> — one physical control that kills the loop instantly (return fader, master mute, or the M4 monitor dial), chosen now, named in the logbook, and rehearsed: hand to control, eyes closed, under one second.</li>
+      <li><strong>Send amount</strong> — every send into the loop starts at −∞ and is raised only by hand, slowly, during tests. No send into a feedback path is ever automated before its safe range is logged.</li>
+      <li><strong>Return level</strong> — the return fader's nominal position is written down before patching. The return is never pushed up to "find" the loop; the send finds the loop while the return holds still.</li>
+      <li><strong>Monitoring level</strong> — first tests on monitors at low level, never on headphones. The DT 990s stay off your head until the loop's behavior is mapped and its maximum level is known and limited.</li>
+      <li><strong>Pre/post-fader status</strong> — the pre/post setting of every send in the session is checked and written down. A pre-fader send keeps feeding the loop after its fader is down — know which kind you have before you trust a fader to save you.</li>
+      <li><strong>Maximum safe test procedure</strong> — limiter proven → mute hand ready → monitoring low → send at −∞ → raise slowly until the loop <em>just</em> sustains → back off and log the number. Approach thresholds; never jump to a value, never load a saved set with a closed loop and an open send.</li>
+    </ul>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Start here — after the safety checklist, nothing before it</div>
+    </div>
+    <ul>
+      <li>Run the ten listening references below; the hypothesis they produce is the start of the build.</li>
+      <li>Save a new set as <span class="code">LAB-020-feedback</span> — saved with all sends at −∞, as the safety procedure requires.</li>
+      <li>This is an S3 lab: both specs are authored by you from the guided prompts, and the system is drawn <em>twice</em> — musical and safety-critical.</li>
+      <li>Hardware mixer with an aux send is this lab's natural home if it has arrived; Live's return-to-send routing is the core-rig fallback. The tape-style delay pedal, if present, lives inside the loop.</li>
+    </ul>
+  </div>
+
+  <h2>How this lab works</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3 class="card-title">Draw the loop twice</h3>
+      <ul class="card-points">
+        <li>Once as a musical system: what grows, what decays, where tone accumulates per pass.</li>
+        <li>Once as a safety-critical system: where it can run away, and the two points where it is cut.</li>
+        <li>Both drawings filed before patching; both corrected after.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Find unity</h3>
+      <ul class="card-points">
+        <li>The loop-gain threshold, located by the safe test procedure and logged as a number.</li>
+        <li>Below it: dying echoes. At it: self-sustain. Above it: growth — the limiter's territory.</li>
+        <li>The musical range is the few dB around unity; map yours before composing in it.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Compose the instability</h3>
+      <ul class="card-points">
+        <li>M5 — emergent: the material is what the loop makes of what you feed it.</li>
+        <li>D4 — rule-generated: written rules decide when you feed, filter, and starve the loop.</li>
+        <li>6–8 minutes of dub where the system's behavior, ridden by hand, is the arrangement.</li>
+      </ul>
+    </div>
+  </div>
+
+  <table class="param-table">
+    <caption>Pass standard</caption>
+    <tr><td>Minimum pass</td><td>Audible original piece, both routing diagrams, the completed safety checklist, fault entry, print map, and system diff exist.</td></tr>
+    <tr><td>Solid pass</td><td>You can state your loop's unity point as a number, demonstrate sustain at it, and return to it without searching.</td></tr>
+    <tr><td>Advanced transfer</td><td>You can predict, before patching, how adding a filter inside the loop moves the unity point and which frequency will run away first — and be right.</td></tr>
+  </table>
+
+  <h2>New concepts — in plain words</h2>
+
+  <table>
+    <tr><th>Concept</th><th>In plain words</th></tr>
+    <tr><td><strong>Feedback path</strong></td><td>Any routing where a device's output can reach its own input — the return sends back into itself, or the delay's output is fed to its feed. The signal goes in circles, and each lap it is changed by everything in the circle.</td></tr>
+    <tr><td><strong>Loop gain &amp; unity</strong></td><td>The total gain around the circle, all stages multiplied. Below 1 (unity), each lap is quieter and the sound dies; at exactly 1 it sustains forever; above 1 it grows each lap. Unity is a cliff edge measured in fractions of a dB — the whole lab is learning to stand near it.</td></tr>
+    <tr><td><strong>Self-oscillation</strong></td><td>What a loop does above unity with no input at all: it amplifies its own noise floor into a tone. The pitch comes from the loop's delay time and filtering — sound from nothing, which is lab 029's whole subject and this lab's horizon.</td></tr>
+    <tr><td><strong>Pre vs post-fader</strong></td><td>A post-fader send follows its channel fader — pull the fader down and the send dies too. A pre-fader send is tapped before the fader and keeps feeding the loop with the fader at zero. Musically it is a choice; in a feedback patch it is a safety fact you verify, not assume.</td></tr>
+    <tr><td><strong>The limiter as seatbelt</strong></td><td>A device that refuses to pass anything above its ceiling, parked last in the chain. It does not make the loop safe to drive carelessly — it makes one class of crash survivable. It is proven with a test signal before it is trusted, like any seatbelt worth wearing.</td></tr>
+  </table>
+
+  <div class="tag-row">
+    <span class="tag">feedback path</span>
+    <span class="tag">loop gain &amp; unity</span>
+    <span class="tag">self-oscillation</span>
+    <span class="tag">pre vs post-fader</span>
+    <span class="tag">the limiter as seatbelt</span>
+  </div>
+
+  <h2>Listening — the hypothesis source</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Ten works built on feedback paths — the Kingston desks where the architecture was invented, and the systems that abstracted it. Each gets a brief: what to listen for before you press play, and how to check yourself after.</p>
+
+  <div class="listen-acc">
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">01</span>
+        <span class="listen-title">Augustus Pablo / King Tubby — “King Tubby Meets Rockers Uptown”</span>
+        <span class="listen-tag">the dub desk, canonical</span>
+      </summary>
+      <div class="listen-body">
+        <p>The most celebrated dub mix ever cut: Tubby remixing Pablo's melodica tune live at the desk — drops, throws, and echo feedback performed as a second composition over the first.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The drops: whole sections of the band vanishing on a fader, leaving drum and bass naked.</li>
+          <li>Echo throws whose repeats <em>grow</em> before they die — feedback pushed up for a phrase, then pulled back.</li>
+          <li>The spring reverb crashing into self-resonance when hit hard — the space itself overdriven.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Find one throw where the repeats get louder before fading — that is a hand riding feedback above unity for two seconds and retreating, the exact maneuver your safe-test procedure rehearses slowly. Was the mix performed or programmed? Performed: every drop and throw is a fader move on a desk, one take. If the throws read as a fixed effect, relisten counting the repeats of two different throws — the counts differ, because the feedback knob was never in the same place twice.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=King+Tubby+Meets+Rockers+Uptown" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:King%20Tubby%20Meets%20Rockers%20Uptown">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">02</span>
+        <span class="listen-title">King Tubby — “Dub Fi Gwan”</span>
+        <span class="listen-tag">feedback as a voice</span>
+      </summary>
+      <div class="listen-body">
+        <p>Tubby with the feedback higher and the band thinner — long regenerating tails that take over the mix and become the lead instrument for bars at a time.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Tails that outlive their source by four bars or more — count the laps.</li>
+          <li>The tone of late repeats: darker and softer each lap, the loop's filter eating the top per pass.</li>
+          <li>Moments where the echo is the only melodic content sounding.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>What changed in the repeats as they aged? Each lap was darker — the loop has a tone, and the tone compounds: that per-lap filtering is what your "what's inside the loop" prompt designs. Could the desk have held those tails just below unity for that long by accident? No — that is a hand parked on the knob, balancing on the threshold. If the tails read as one long smear, relisten and count laps on a single throw; somewhere around lap five you can hear the hand make a correction.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=King+Tubby+Dub+Fi+Gwan" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:King%20Tubby%20Dub%20Fi%20Gwan">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">03</span>
+        <span class="listen-title">Scientist — “Your Teeth in My Neck”</span>
+        <span class="listen-tag">the next generation at the desk</span>
+      </summary>
+      <div class="listen-body">
+        <p>Tubby's apprentice with a cleaner desk and surgical timing — feedback and EQ moves placed with rhythmic precision, the architecture played like a drum.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Throws landing exactly on musical boundaries — the send opened for one snare only.</li>
+          <li>High-pass and low-pass moves on the echo return while it rings.</li>
+          <li>How clean the dry channels stay — the chaos is quarantined inside the loop.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Where does the wildness live on this mix? Entirely inside the return — the drums and bass never blur, because the feedback path is isolated from the dry path and only the send connects them. That quarantine is an architecture decision your routing diagram must show explicitly. If it sounded simply "tighter than Tubby," relisten to one throw and notice the return being filtered <em>while it rings</em> — two hands working the loop at once.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Scientist+Your+Teeth+in+My+Neck" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Scientist%20Your%20Teeth%20in%20My%20Neck">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">04</span>
+        <span class="listen-title">Prince Jammy — <em>Kamikazi Dub</em></span>
+        <span class="listen-tag">the desk as house style</span>
+      </summary>
+      <div class="listen-body">
+        <p>Jammy's set at the same desk lineage — an album-length demonstration that one feedback architecture yields a recognizable signature when one engineer's habits ride it.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Recurring moves across tracks: the same kind of throw, the same depth of drop — habits, not accidents.</li>
+          <li>The balance of dry to loop compared with Tubby and Scientist — where does Jammy park the return?</li>
+          <li>The spring reverb's character versus the delay's — two different feedback systems sharing one mix.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Could you tell Jammy from Scientist blind? After a side of each, mostly yes — same architecture, different hands, audibly different defaults on send depth, feedback range, and filter timing. The system constrains; the operator's numbers are the voice. If they blurred together, relisten to one track from each back to back and compare only the average length of the echo tails — the two engineers live at different distances from unity.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Prince+Jammy+Kamikazi+Dub" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Prince%20Jammy%20Kamikazi%20Dub">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">05</span>
+        <span class="listen-title">Keith Hudson — <em>Pick a Dub</em></span>
+        <span class="listen-tag">dub by subtraction first</span>
+      </summary>
+      <div class="listen-body">
+        <p>One of the first full dub albums — and notably dry by Tubby standards: the architecture is mostly drops and EQ, with feedback used sparingly, which makes every loop moment land twice as hard.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>How much of the dub language here is <em>removal</em> — band in, band out — rather than echo.</li>
+          <li>The few feedback moments: where are they spent, and why those bars?</li>
+          <li>The weight of the bass when everything above it is cut away.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>How many big echo moments did one track actually contain? Often two or three — the rest of the drama is faders and silence. The lesson for your piece: a feedback path is a budgeted voice, and scarcity is what makes a throw an event. If the record felt plain next to Tubby, relisten to what the mix does <em>instead</em> of echo — that subtraction language is lab 022 arriving early.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Keith+Hudson+Pick+a+Dub" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Keith%20Hudson%20Pick%20a%20Dub">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">06</span>
+        <span class="listen-title">The Upsetters — <em>Blackboard Jungle Dub</em></span>
+        <span class="listen-tag">the loop as a haunted room</span>
+      </summary>
+      <div class="listen-body">
+        <p>Lee Perry and Tubby together — the loop pushed until it stops being an effect and becomes an unstable weather system over the band; the wildest desk behavior in the ten. (Perry's <em>Super Ape</em> is homed in Block 1; this is the sibling study.)</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Echoes of echoes — throws fed back into the loop while the previous throw still rings.</li>
+          <li>Sounds at the edge of control: tails that wobble in pitch and level as the hardware strains.</li>
+          <li>Stereo behavior — voices and echoes wandering across the image mid-phrase.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Did the mix ever almost get away from them? Yes — and those near-losses are the best moments: the loop audibly approaches runaway and a hand hauls it back. That is composing <em>at</em> unity rather than below it, the riskiest and richest setting of this lab's dial. If it read as sloppy, relisten to one chaotic passage and notice it resolves on time, every time — controlled instability, not luck. Your rules section decides how close to this edge your piece lives.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Upsetters+Blackboard+Jungle+Dub" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Upsetters%20Blackboard%20Jungle%20Dub">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">07</span>
+        <span class="listen-title">Dub Syndicate — <em>The Pounding System</em></span>
+        <span class="listen-tag">the architecture emigrates</span>
+      </summary>
+      <div class="listen-body">
+        <p>Adrian Sherwood's On-U Sound take — the Kingston feedback architecture rebuilt in London with digital delays, gated reverbs, and a producer's appetite for processing the processing.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>What digital delays change: cleaner repeats, longer times, feedback that stays stable for more laps.</li>
+          <li>Effects on the effects — reverb on the delay return, gates chopping tails short.</li>
+          <li>Where the reggae grammar survives and where studio abstraction takes over.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>What did the cleaner loop cost and buy? It buys length and stability — tails that circulate for many laps without degrading — and costs the warm per-lap decay that made the Kingston desks self-limiting. A digital loop near unity will sit there indefinitely, which changes the safety math: nothing about the tone warns you it is growing. If the record just sounded "eighties," relisten to one long tail and notice how little it changes per lap compared to Tubby's — that flatness is the engineering difference.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Dub+Syndicate+The+Pounding+System" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Dub%20Syndicate%20The%20Pounding%20System">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">08</span>
+        <span class="listen-title">Mad Professor — <em>Dub Me Crazy</em></span>
+        <span class="listen-tag">feedback in stereo</span>
+      </summary>
+      <div class="listen-body">
+        <p>Ariwa's first statement — UK dub that treats the stereo field as part of the loop: echoes that pan as they regenerate, feedback paths with a left and a right.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Repeats that move across the image lap by lap — the loop includes a panner.</li>
+          <li>Different feedback behavior per side: one channel's tail outliving the other's.</li>
+          <li>What this does in mono — predict it now; lab 021 will make you test it.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Where is the panning happening — on the source or inside the loop? Inside: the repeats themselves migrate, so the motion compounds with each lap exactly like gain does. Anything placed inside a feedback path is applied repeatedly — pan, filter, distortion — and that compounding is the deepest sentence in this lab. If the image motion escaped you, relisten on phones to one long throw and track a single repeat family across the field.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Mad+Professor+Dub+Me+Crazy" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Mad%20Professor%20Dub%20Me%20Crazy">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">09</span>
+        <span class="listen-title">Porter Ricks — “Biokinetics 1”</span>
+        <span class="listen-tag">the loop abstracted into techno</span>
+      </summary>
+      <div class="listen-body">
+        <p>The dub feedback path with the reggae removed — what remains is pure system: pulses circulating through filtered regeneration until texture, rhythm, and space are one process.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Material you cannot source: is that hiss, water, a chord? It is the loop's own residue, farmed.</li>
+          <li>The regeneration's rhythm interlocking with the kick — the loop is clocked into the groove.</li>
+          <li>Slow timbral drift over minutes: the loop's filter migrating, one decision stretched across the track.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>What is the "instrument" on this track? The path itself — most of what you hear was generated by circulation, not played into it; this is M5, emergent material, in its purest form in the ten. If you searched for a synth line and failed, that failure is correct: the input was minimal and the system did the synthesis. Relisten asking only "what is one lap of this loop doing?" — length, filter, gain — and the whole track becomes legible as a single circulating process.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Porter+Ricks+Biokinetics" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Porter%20Ricks%20Biokinetics">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">10</span>
+        <span class="listen-title">Pole — “Modul”</span>
+        <span class="listen-tag">a broken filter as the dub desk</span>
+      </summary>
+      <div class="listen-body">
+        <p>Built from the crackle of a damaged Waldorf 4-Pole filter, dubbed through delay and feedback — the noise floor itself as the input to the loop, and the loop as the entire band. (Pole's "Tanzen 2" is homed in Block 1; this is the sibling study, listened to for the path.)</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The source: clicks and crackle — material with no pitch and no sustain until the loop gives it both.</li>
+          <li>Echo turning accident into groove: the crackle's repeats <em>are</em> the rhythm section.</li>
+          <li>The dub bass as the only conventional instrument — everything else is fault, circulated.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>What did the feedback path contribute that the broken filter could not? Time and pitch: the crackle is instantaneous and toneless, but circulated through a tuned, filtered loop it acquires rhythm, sustain, and color — the loop is a synthesizer whose oscillator is an accident. If it read as "glitch with bass," relisten to one crackle pattern and separate the original clicks from their circulated children; the children carry the music. The least promising input in the ten produced a whole language — your loop does not need precious material, it needs a well-designed circle.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Pole+Modul" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Pole%20Modul">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+  </div>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Requirement</div>
+    <p>Your written hypothesis names <strong>how your loop will be ridden</strong> — throws that grow and retreat, feedback parked as a voice, chaos quarantined behind a send, an operator's signature numbers, scarcity as drama, composing at the edge of runaway, a clean loop's flat laps, motion compounding inside the circle, material farmed from circulation, or an accident given pitch and time by the path — and what was stolen from the comparison. The target idea across all ten: <strong>a feedback path is an instrument whose dial is distance from unity.</strong> What you steal is a structure, never a sound.</p>
+  </div>
+
+  <h2>1 · The two specs — author from prompts</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">This is an S3 lab: no spec is provided. Answer each prompt in writing in the logbook — one or two lines per row — before touching gear, then correct every row against reality after the build. The safety checklist above is already complete before this section begins.</p>
+
+  <table class="param-table">
+    <caption>System Spec — prompts (author, then verify)</caption>
+    <tr><td>Inputs</td><td>What feeds the loop — Digitakt drum hits, a MicroFreak stab, a recorded fragment? The loop will transform anything; choose the input for how it <em>circulates</em>, not how it sounds dry. What property of yours survives twenty laps?</td></tr>
+    <tr><td>Transforms</td><td>What lives inside the circle — delay, filter, EQ, saturation? Everything inside is applied once per lap and compounds. Name the chain in order and predict what each device does to lap five that it did not do to lap one.</td></tr>
+    <tr><td>Feedback / variation</td><td>This lab's variation <em>is</em> the feedback: write the rules (D4) that govern the ride — when is the loop fed, when filtered, when starved, and how close to unity does each section live? Three written rules minimum.</td></tr>
+    <tr><td>Constraints</td><td>One feedback loop only · the loop may never exceed the logged safe maximum · ≤6 tracks · 6–8 minutes · every throw is performed, none drawn in afterward. Add one constraint of your own.</td></tr>
+    <tr><td>Human role</td><td>The dub engineer's role: which hand is on the send, which on the return filter, and what does the emergency mute hand do the rest of the time? Name the gesture that will define the piece's climax.</td></tr>
+  </table>
+
+  <table class="param-table">
+    <caption>Engineering Spec — prompts (author, then correct after building)</caption>
+    <tr><td>Signal path</td><td>Draw it twice before patching. Musical drawing: sources → sends → return chain → the return's own send closing the circle → master. Safety drawing: the same circle with the two cut points marked (emergency mute, limiter) and the monitoring tap labeled. Where does the loop close — in Live, in the mixer, in the pedal?</td></tr>
+    <tr><td>Gain plan</td><td>List every gain stage inside the circle and its setting — their product is the loop gain. Where is the one knob that moves the loop toward unity, and what is its logged safe maximum from the test procedure?</td></tr>
+    <tr><td>Clock / sync</td><td>Is the delay in the loop synced to the Digitakt's tempo or free? A synced loop's laps land on the grid and read as groove; a free loop drifts against it and reads as weather. Who is clock master, and does the loop care?</td></tr>
+    <tr><td>Latency</td><td>If the loop closes through Live, the buffer adds to every lap — the loop's effective delay time is device delay plus round trip. State the lab-002 number and whether it matters at your delay times.</td></tr>
+    <tr><td>Stereo / phase</td><td>Is the circle mono or stereo? If stereo, do the sides have equal loop gain — and what happens to the image as laps accumulate? Predict the mono sum of a long tail in writing, then test it.</td></tr>
+    <tr><td>Noise budget</td><td>Near unity, the loop amplifies its own floor every lap — hiss is the loop's seed material (ask Pole). Which stage's noise enters the circle, and at what loop gain does it bloom into audible texture? Decide whether that is a flaw or your material.</td></tr>
+    <tr><td>Print strategy</td><td>A ridden loop is unrepeatable: print the performance, not the patch. What is recorded — the return alone, the full mix, both? When does a take become the take?</td></tr>
+    <tr><td>Failure mode</td><td>Predict one and write its symptom: runaway (send nudged past the logged maximum — this lab's fault, run under the safe procedure), a pre-fader send that survives its fader, or a loop that mysteriously dies (something in the circle is eating more gain than the plan says).</td></tr>
+    <tr><td>Safety</td><td>Restate the seven checklist answers in one paragraph: limiter location and proof, emergency mute and rehearsal time, send start, return nominal, monitoring level, every send's pre/post status, and the maximum safe test procedure with your logged unity number.</td></tr>
+  </table>
+
+  <h2>2 · Bench preflight</h2>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Pre-flight — before the first note</div>
+    </div>
+    <ul>
+      <li>The seven-point safety checklist completed, in order, answers in the logbook — this is the gate; nothing sounds before it</li>
+      <li>Both specs authored · both drawings (musical + safety-critical) on paper</li>
+      <li>Limiter proven with a test tone · emergency mute rehearsed under one second</li>
+      <li>All sends at −∞ · return at its written nominal · pre/post status of every send verified and noted</li>
+      <li>Unity located by the safe test procedure and logged as a number before any composing</li>
+      <li>Monitors low for all tests · the DT 990s stay off until the loop's maximum is known and limited</li>
+    </ul>
+  </div>
+
+  <h2>3 · Build — forthcoming</h2>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>The step-by-step build lands when Block 5 is authored;</strong> the Phase 0 exit gate governs the order. The safety checklist, listening, spec prompts, preflight, and pass gate on this page are stable — the numbered build recipe (closing the circle · locating unity · the ride rules · performing the throws · the fault ritual · printing the performance) is the part still to come. <span class="status">forthcoming</span></li>
+    </ul>
+  </div>
+
+  <h2>4 · Diagnosis &amp; report</h2>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>The fault ritual (faultType: feedback routing).</strong> Run only after the safety checklist is complete and only under the maximum safe test procedure. Predict in writing how many seconds the loop takes to grow from sustain to the limiter's ceiling when the send sits 1 dB above your logged unity. Then create the fault deliberately: monitors low, mute hand ready, nudge past unity and let the loop grow into the limiter. Observe the growth curve and which frequency wins the race upward; diagnose why that frequency (the loop's filter shape decides it); fix by returning to the logged number; write the rule learned. This ritual is the dress rehearsal for lab 029, where the input is nothing at all.</li>
+    </ul>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">The full report bundle — ten items, filed in the logbook</div>
+    </div>
+    <ul>
+      <li>Rendered piece — 24-bit WAV, master peaking −3 dBFS, 6–8 minutes</li>
+      <li>Routing diagrams — <em>both</em> drawings, musical and safety-critical, drawn before patching, corrected after; the diff is the lesson</li>
+      <li>Recording plan — what was printed, when; which takes are performances and which are safeties</li>
+      <li>Patch notes — the settings that mattered: every loop-gain stage, the logged unity number, the ride rules as written and as actually ridden</li>
+      <li>Session notes — including the completed safety checklist with its seven answers</li>
+      <li>Reflection answers, including the listening comparison — which record contributed what to the hypothesis</li>
+      <li>One removal decision — what was cut from the finished piece and what cutting it did</li>
+      <li>Fault entry — symptom, cause, fix, prevention rule (faultType: feedback routing)</li>
+      <li>Print map — which performances exist as audio, what patch state is saved, and why the takes themselves are unrecoverable as performances</li>
+      <li>System diff sentence — “I thought the system worked like X; after building it, I discovered it worked like Y.”</li>
+    </ul>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Minimum pass gate:</strong> audible output · both routing diagrams · completed safety checklist · fault entry · print map · system diff. Without these, the lab is incomplete regardless of audio quality — and a feedback lab without its safety checklist is not a lab, it is a hazard with a tempo.</li>
+    </ul>
+  </div>
+
+  <div class="final">
+    <div class="final-label">Track-lab principle</div>
+    <p>Below unity an echo, at unity an instrument, above unity a hazard. The music lives at the threshold — and the checklist is why you are allowed to live there too.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="lab-019.html">
+      <span class="page-nav-direction">Previous</span>
+      ← Lab 019 / Reverb as Instrument
+    </a>
+    <a href="lab-021.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      Lab 021 / Monitoring &amp; Translation →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Block 5 · Lab 020</div>
+
+</div>
+
+</body>
+</html>

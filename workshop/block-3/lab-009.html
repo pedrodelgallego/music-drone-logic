@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab 009 — Micro-Variation &amp; Groove</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="index.html" class="active"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="eyebrow">Block 3 · Lab 009 · Track lab</div>
+    <h1>Micro-Variation &amp; Groove</h1>
+    <p class="lede">One bar of your own sampled hits, kept alive for six to eight minutes by decisions smaller than a sixteenth note: parameter locks, swing, micro-timing shifts, and velocity that behaves like a hand. The loop is the canvas; the micrometer is the music.</p>
+  </header>
+  <p class="block-meta">Track lab · S2 · D3 E2 M2 F2 · minimal · full cycle · new concepts: 5</p>
+
+  <div class="signal-flow">
+    <span class="signal-node">listen</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">hypothesis</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">draw the path</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">calibrate</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">build</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">fault</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">diagnose</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">print</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">delta</span>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Start here</div>
+    </div>
+    <ul>
+      <li>Work the ten listening references at the bottom of this page first; the hypothesis they produce is the start of the build.</li>
+      <li>Sample your own hit kit — MicroFreak percussion patches or struck objects through the M4 — into the Digitakt before any sequencing; this is an M2 lab.</li>
+      <li>Save a new set as <span class="code">LAB-009-groove</span>; keep the lab-001 gain ledger and the lab-002 loopback number on the desk.</li>
+      <li>Complete the gaps in both specs — this is an S2 lab: most fields are provided, the blanks are yours.</li>
+      <li>Expected time: one full cycle — two to three weeks of part-time sessions.</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The point</div>
+    <p>A loop does not groove because of what repeats — it grooves because of what refuses to repeat <em>exactly</em>. Swing, velocity, and parameter locks are differences of milliseconds and decibels, and those differences are the entire composition.</p>
+  </div>
+
+  <h2>How this lab works</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3 class="card-title">Build a kit you own</h3>
+      <ul class="card-points">
+        <li>Six to eight one-shot hits, self-sampled: MicroFreak percussion, struck objects, anything through the M4.</li>
+        <li>Trim, normalize per the ledger, name, and file — the kit is a deliverable.</li>
+        <li>Test: each hit readable at a glance on the Digitakt screen and by ear in solo.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Write one bar, then vary it microscopically</h3>
+      <ul class="card-points">
+        <li>One pattern, ≤4 Digitakt tracks sounding at once; the variation budget is p-locks, swing, micro-timing, and velocity — never new notes.</li>
+        <li>Every variation is a written decision: which step, which parameter, by how much, why.</li>
+        <li>Test: mute the variations and the pattern goes dead — that deadness is your measurement.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Prove the time, then print</h3>
+      <ul class="card-points">
+        <li>Declare the master clock, predict bar 64, record one drift test, write the reset strategy.</li>
+        <li>Record long takes into Live with mutes and p-lock changes performed by hand.</li>
+        <li>6–8 minutes, fully original — the hits are yours, the grid is interrogated, nothing is copied.</li>
+      </ul>
+    </div>
+  </div>
+
+  <table class="param-table">
+    <caption>Pass standard</caption>
+    <tr><td>Minimum pass</td><td>Audible original piece, routing + timing diagrams, fault entry, print map, and system diff exist.</td></tr>
+    <tr><td>Solid pass</td><td>A listener can feel the difference between the flat bar and the worked bar in a blind A/B — and you can name which micro-decision did it.</td></tr>
+    <tr><td>Advanced transfer</td><td>You can take an unfamiliar dead loop and bring it to life in ten minutes using only swing, velocity, and p-locks — and predict which move will matter most before touching it.</td></tr>
+  </table>
+
+  <h2>New concepts — in plain words</h2>
+
+  <table>
+    <tr><th>Concept</th><th>In plain words</th></tr>
+    <tr><td><span class="lab-title">Parameter lock (p-lock)</span></td><td>A setting change that belongs to one step instead of the whole track — hold the step, turn the knob, and only that step remembers. Like writing a margin note on one word of a sentence instead of re-writing the sentence.</td></tr>
+    <tr><td><span class="lab-title">Swing</span></td><td>Delaying every second sixteenth note by a chosen amount so the grid leans instead of marching. A limp built on purpose: 50% is a robot, 70% is a strut.</td></tr>
+    <tr><td><span class="lab-title">Micro-timing</span></td><td>Nudging a single hit a few milliseconds ahead of or behind its grid line. Too small to hear as "early" or "late," big enough to feel as push or drag — the drummer's accent, measured in thousandths of a second.</td></tr>
+    <tr><td><span class="lab-title">Velocity humanization</span></td><td>Making repeated hits land at slightly different strengths, the way no hand ever strikes twice identically. On a sampler, velocity only matters if it is wired to something — level, filter, decay — so humanizing is a routing decision, not a checkbox.</td></tr>
+    <tr><td><span class="lab-title">Clock drift</span></td><td>Two devices that each keep their own time slowly disagreeing, like two watches set together this morning reading differently tonight. Inaudible per bar, unmistakable by bar 64 — which is why this block makes you measure it instead of trusting it.</td></tr>
+  </table>
+
+  <div class="tag-row">
+    <span class="tag">parameter lock</span>
+    <span class="tag">swing</span>
+    <span class="tag">micro-timing</span>
+    <span class="tag">velocity humanization</span>
+    <span class="tag">clock drift</span>
+  </div>
+
+  <h2>1 · The two specs — provided, complete the gaps</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">This is an S2 lab: most fields are filled, the <span class="code">___</span> blanks are yours, and every row gets corrected against reality after the build.</p>
+
+  <table class="param-table">
+    <caption>System Spec — complete the blanks, then verify</caption>
+    <tr><td>Inputs</td><td>Six to eight self-sampled one-shot hits — name the kit and its source: <span class="code">___</span> — loaded to Digitakt tracks 1–8</td></tr>
+    <tr><td>Transforms</td><td>One bar of sequencing, then micro-variation only: p-locks on filter/decay/tune, one global swing value, per-step micro-timing nudges, velocity wired to <span class="code">___</span> (level, filter, or decay — choose and defend)</td></tr>
+    <tr><td>Feedback / variation</td><td>The variation grammar: which steps vary, on what cycle, by how much — written as a list before sequencing · performed mutes and p-lock rides during the take</td></tr>
+    <tr><td>Constraints</td><td>One pattern only · ≤4 tracks sounding at once · no new notes after the first hour — variation must come from the micrometer · 6–8 minutes · your added constraint: <span class="code">___</span></td></tr>
+    <tr><td>Human role</td><td>Design the grammar, then perform it: mutes, p-lock rides, swing changes between sections — list what is ridden live vs sequenced: <span class="code">___</span></td></tr>
+  </table>
+
+  <table class="param-table">
+    <caption>Engineering Spec — complete the blanks, then correct after building</caption>
+    <tr><td>Signal path</td><td>Sampling pass: MicroFreak (or object mic) → M4 in 1 → Live → transfer to Digitakt · performance pass: Digitakt main out L/R → M4 in 3/4 → Live → M4 → phones · draw both before patching</td></tr>
+    <tr><td>Gain plan</td><td>Hits sampled peaking −12 dBFS by the lab-001 ledger · Digitakt main out at unity · Live record peaks: <span class="code">___</span> dBFS measured, master −3 dBFS for the render</td></tr>
+    <tr><td>Clock / sync</td><td><strong>Master clock declared:</strong> Digitakt internal clock is master; Live's transport runs free as a tape recorder, BPM matched but unsynced — write what that choice costs you later at the edit stage: <span class="code">___</span></td></tr>
+    <tr><td>Latency</td><td>Nothing is monitored through Live during the take — direct monitoring via M4, so the lab-002 buffer number only matters at the sampling pass · note it anyway: <span class="code">___</span> ms</td></tr>
+    <tr><td>Stereo / phase</td><td>Hits are mono; the Digitakt pans them · one mono check on the printed take — the groove must survive the collapse</td></tr>
+    <tr><td>Noise budget</td><td>The Digitakt output is clean; the exposure is the sampling pass — audit thirty seconds of silence on the sampling input before the first hit</td></tr>
+    <tr><td>Print strategy</td><td>Print full performed takes (no loop-clip arranging) · keep the flat bar and the worked bar as separate renders for the A/B · 24-bit WAV</td></tr>
+    <tr><td>Failure mode</td><td>faultType: <strong>drift</strong> — two clocks, no sync: the take flams against Live's grid by bar 64; diagnosed with the recorded drift test below</td></tr>
+    <tr><td>Safety</td><td>Repetitive listening at one level for hours — phones at the lab-001 mark, off every fifteen minutes; loudness creep hides inside a loop even faster than inside a drone</td></tr>
+  </table>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Block 3 ritual — time, proven</div>
+    <p>Before the build is called done, this lab files five timing artifacts: a <strong>timing diagram</strong> (every device that keeps time, and the arrows between them) · the <strong>master-clock declaration</strong> above · a <strong>"what happens after 64 bars?" prediction</strong>, written before the test (predicted flam at bar 64: <span class="code">___</span> ms) · one <strong>recorded drift test</strong> — 64 bars of the pattern against Live's unsynced grid, measured at bar 1 and bar 64 · and a <strong>reset strategy</strong>: what returns the system to state zero? (For this lab: pattern restart from step 1 — verify that swing and micro-timing survive a stop/start, and write down what does not: <span class="code">___</span>)</p>
+  </div>
+
+  <h2>2 · Bench preflight</h2>
+
+  <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:11px; letter-spacing:0.2em; text-transform:uppercase;">Sampling pass — build the kit</h3>
+  <div class="signal-flow">
+    <span class="signal-node">MicroFreak / object</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">M4 in 1</span>
+    <span class="signal-arrow">→ USB-C →</span>
+    <span class="signal-node">Live (trim, name)</span>
+    <span class="signal-arrow">→ transfer →</span>
+    <span class="signal-node">Digitakt tracks 1–8</span>
+  </div>
+
+  <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:11px; letter-spacing:0.2em; text-transform:uppercase;">Performance pass — Digitakt is the clock, Live is the tape</h3>
+  <div class="signal-flow">
+    <span class="signal-node">Digitakt main out L/R</span>
+    <span class="signal-arrow">→ 2 × TRS →</span>
+    <span class="signal-node">M4 in 3/4</span>
+    <span class="signal-arrow">→ USB-C →</span>
+    <span class="signal-node">Live (record)</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">M4 out → phones</span>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Pre-flight — before the first take</div>
+    </div>
+    <ul>
+      <li>Gain ledger applied at M4 in 1 (sampling) and in 3/4 (performance) — set by the number, not by ear</li>
+      <li>Recording plan written: flat-bar reference take · drift test take (64 bars) · performed long takes — in that order</li>
+      <li>Timing diagram drawn: Digitakt (master) · Live (free) · MicroFreak (sampled, no clock role) — arrows and their absence both labeled</li>
+      <li>Warp OFF on Live's record tracks — Live must not "fix" the micro-timing this lab is made of</li>
+      <li>Swing value and every micro-timing nudge written in the logbook as numbers — "feels better" is not a measurement</li>
+      <li>Phones at the mark · a break planned every fifteen minutes</li>
+    </ul>
+  </div>
+
+  <h2>3 · Build — forthcoming</h2>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>The step-by-step build lands when Block 3 is authored;</strong> the listening, specs, preflight, timing ritual, and pass gate on this page are stable — the numbered recipe is the part still to come. <span class="status">forthcoming</span></li>
+    </ul>
+  </div>
+
+  <h2>4 · Diagnosis &amp; report</h2>
+
+  <table class="param-table">
+    <caption>Symptom → cause → fix</caption>
+    <tr><th>Symptom</th><th>Likely cause</th><th>Fix</th></tr>
+    <tr><td>The groove dies the moment it is recorded into Live</td><td>Warp engaged on the record track — Live quantized your micro-timing back onto its own grid</td><td>Disable warp on record tracks; re-record; compare waveforms at a swung step to confirm the nudge survived</td></tr>
+    <tr><td>Hits flam against Live's grid by bar 64</td><td>Two clocks, no sync — Digitakt and Live each keep their own time (this lab's injected fault)</td><td>Measure the offset at bar 1 and bar 64, compute drift per bar, then either declare Live a free tape (edit by ear) or sync and re-test</td></tr>
+    <tr><td>Swing audible on hats but the pattern still marches</td><td>Swing only moves off-grid sixteenths — kick and snare on downbeats are untouched</td><td>Give the swing something to act on: ghost hits on swung steps, or micro-timing nudges on the snare</td></tr>
+    <tr><td>Velocity variation inaudible</td><td>Velocity is not wired to anything — the sample plays at full level regardless</td><td>Map velocity to level, filter, or decay in the track's setup; re-test with two extreme velocities before trusting subtle ones</td></tr>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">The fault ritual — drift, on purpose</div>
+    <p><strong>Predict</strong> the flam in milliseconds at bar 64 with Live unsynced → <strong>create</strong> the fault: record 64 bars with both transports started by hand → <strong>observe</strong> the waveform against Live's grid at bar 1 and bar 64 → <strong>diagnose</strong> which device ran fast and by how much per bar → <strong>fix</strong> it: declare one master (sync over USB MIDI clock, or accept the free-tape model and say why) → <strong>write the rule learned</strong> in the logbook as one sentence.</p>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">The full report bundle — ten items, filed in the logbook</div>
+    </div>
+    <ul>
+      <li>Rendered piece — 24-bit WAV, master peaking −3 dBFS, 6–8 minutes</li>
+      <li>Routing diagram and timing diagram — drawn before patching, corrected after; the diff is the lesson</li>
+      <li>Recording plan — flat bar, drift test, performed takes; what was printed, when, at what stage</li>
+      <li>Patch notes — the kit list, the swing value, every micro-timing nudge and p-lock that mattered, as numbers</li>
+      <li>Session notes — including the flat-bar vs worked-bar A/B verdict</li>
+      <li>Reflection answers, including the listening comparison — which reference contributed what to the hypothesis</li>
+      <li>One removal decision — what was cut from the finished piece and what cutting it did</li>
+      <li>Fault entry — symptom, cause, fix, prevention rule (faultType: drift)</li>
+      <li>Print map — what exists as audio, pattern data, or device memory; what is reproducible and what is gone</li>
+      <li>System diff sentence — "I thought the system worked like X; after building it, I discovered it worked like Y."</li>
+    </ul>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Minimum pass gate:</strong> audible output · routing diagram · fault entry · print map · system diff. Without these five, the lab is incomplete regardless of audio quality — a musically strong piece cannot bypass the engineering spine.</li>
+    </ul>
+  </div>
+
+  <h2>Listening — the hypothesis source</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Ten grooves, from Detroit machines to a Lagos drum chair, each answering the same question a different way: when almost nothing changes, what makes it move? Each gets a brief — what to listen for before you press play, and how to check yourself after.</p>
+
+  <div class="listen-acc">
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">01</span>
+        <span class="listen-title">Ricardo Villalobos — “Dexter”</span>
+        <span class="listen-tag">micro-variation as the lead</span>
+      </summary>
+      <div class="listen-body">
+        <p>Almost nothing happens for nine minutes, and every bar is different — the micro-detail is not decoration on the track, it <em>is</em> the track.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Pick the hi-hat layer and follow it for two minutes — count how many bars pass before it repeats exactly. You may not find one.</li>
+          <li>The bass figure’s timing against the kick: it sits slightly off, and the offset itself breathes.</li>
+          <li>How sections are marked — no riser, no drop, just a slightly different density of small decisions.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Did the track have an arrangement? Yes — but it is built from variation density, not from new elements: the “chorus” is where the micro-decisions cluster. If you heard it as static, relisten to any 16 bars and write a tally mark for every change you catch; most people run out of paper before bar 8.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Ricardo+Villalobos+Dexter" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Ricardo%20Villalobos%20Dexter">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">02</span>
+        <span class="listen-title">Studio 1 — “Rot”</span>
+        <span class="listen-tag">the grid stripped to decisions</span>
+      </summary>
+      <div class="listen-body">
+        <p>Wolfgang Voigt’s untitled color series: minimal techno reduced to a handful of elements per track, so every tiny filter move and level shift is fully exposed — nowhere to hide a lazy decision.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Count the elements — most tracks run on three to five sounds, total.</li>
+          <li>What carries the six minutes: not new sounds but one parameter moving on one element at a time.</li>
+          <li>The off-beat chord stab’s placement — exactly how late it sits, and that it never moves from there.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>With so few elements, what kept you listening? The single moving parameter — your ear locks onto whichever sound is changing and treats it as the soloist. If you got bored, relisten and consciously assign your attention to the changing element instead of waiting for a new one; the track assumes you will.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Studio+1+Wolfgang+Voigt+Rot" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Studio%201%20Wolfgang%20Voigt%20Rot">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">03</span>
+        <span class="listen-title">Robert Hood — <em>Internal Empire</em></span>
+        <span class="listen-tag">minimal as funk discipline</span>
+      </summary>
+      <div class="listen-body">
+        <p>The blueprint for minimal techno that still moves like funk — patterns cut to the bone, with the swing and accent doing the work a bassline would do elsewhere.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The accents inside the hat patterns — which sixteenths are loud, and how that choice creates the funk.</li>
+          <li>How short each sound is: nothing rings; the groove lives in the gaps.</li>
+          <li>One track held against another: the same vocabulary, a different accent map — the accent map is the composition.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Where does the funk live, given that the sounds are almost neutral? In the accent pattern and the spaces — move the loud sixteenth one slot and you would have a different track. If you could not isolate the accents, relisten to one track and tap only the loud hits; the shape your finger learns is the composition.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Robert+Hood+Internal+Empire" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Robert%20Hood%20Internal%20Empire">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">04</span>
+        <span class="listen-title">Theo Parrish — “Solitary Flight”</span>
+        <span class="listen-tag">hand-swing at machine tempo</span>
+      </summary>
+      <div class="listen-body">
+        <p>House built on a drum machine but swung like a hand — the timing leans so far it is almost falling over, and that lean is the signature.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>How far behind the grid the hats and chords sit — drag your own finger taps to match.</li>
+          <li>The repeats that are not quite identical: levels and lengths breathing across bars.</li>
+          <li>Whether the drag stays constant or deepens as the track settles in.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Could a quantized session reproduce this feel? Not at 50% — the lean is the identity, and it is a chosen, extreme swing value plus level breathing, not randomness. If you felt it as “sloppy,” relisten and notice the drag never wavers: sloppiness is inconsistent, swing is a discipline.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Theo+Parrish+Solitary+Flight" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Theo%20Parrish%20Solitary%20Flight">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">05</span>
+        <span class="listen-title">Moodymann — “I Can’t Kick This Feeling When It Hits”</span>
+        <span class="listen-tag">the loop with a pulse rate</span>
+      </summary>
+      <div class="listen-body">
+        <p>A sampled loop ridden like an instrument — filter, level, and mutes performed by hand, so a fixed loop acquires a pulse rate it never had on the source record.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The moments the loop ducks, opens, or loses a layer — those are hands, not edits.</li>
+          <li>What stays bit-identical underneath (the sample) versus what never repeats (the riding).</li>
+          <li>How long he dares to let the loop run untouched before the next move.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>What was varied, given that the sample itself never changes? The treatment: filter, level, mutes — variation applied <em>around</em> a fixed object. That is exactly this lab’s grammar: the pattern is fixed, the micrometer moves. If you missed the hands, relisten and mark every event you are sure is not in the source loop.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Moodymann+I+Can%27t+Kick+This+Feeling+When+It+Hits" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Moodymann%20I%20Can%27t%20Kick%20This%20Feeling%20When%20It%20Hits">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">06</span>
+        <span class="listen-title">Model 500 — “No UFO’s”</span>
+        <span class="listen-tag">machine funk, the origin</span>
+      </summary>
+      <div class="listen-body">
+        <p>Juan Atkins proving in 1985 that a drum machine and a sequencer could be funky on their own terms — not by imitating a drummer, but by making the machine’s precision swing.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The bassline’s syncopation against the four-on-the-floor — the funk is in the note placement, not the timing looseness.</li>
+          <li>Accent patterns on the machine drums: which hits are hard, which are ghosts.</li>
+          <li>How mechanical precision reads as <em>intent</em> rather than stiffness here.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Is this track swung? Barely — the groove comes from syncopated placement and accents on a tight grid, the opposite strategy to Theo Parrish’s drag. Two opposite answers to the same problem; your lab must choose its position between them. If you heard them as the same kind of groove, relisten to both back to back at matched volume.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Model+500+No+UFO%27s" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Model%20500%20No%20UFO%27s">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">07</span>
+        <span class="listen-title">Drexciya — “Andreaen Sand Dunes”</span>
+        <span class="listen-tag">touch programmed into electro</span>
+      </summary>
+      <div class="listen-body">
+        <p>Detroit electro where the machines sound played — stabs and percussion placed with a performer’s asymmetry, then locked and repeated by the sequencer.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The percussion hits that land off the expected slot — and then land off it identically every bar.</li>
+          <li>Dynamics inside the synth stabs: repeated notes at unequal strengths.</li>
+          <li>The difference between this and a quantized preset beat — name one concrete placement that a default grid would never produce.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Played or programmed? Both — the asymmetry was performed or deliberately placed once, then the machine repeats it exactly, which is precisely what a p-lock is. The lesson: humanization is not randomness, it is a specific irregularity, committed to. If everything sounded grid-perfect, relisten to the percussion alone and find the hit that always comes early.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Drexciya+Andreaen+Sand+Dunes" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Drexciya%20Andreaen%20Sand%20Dunes">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">08</span>
+        <span class="listen-title">Tony Allen — <em>Jealousy</em></span>
+        <span class="listen-tag">the human pole of micro-timing</span>
+      </summary>
+      <div class="listen-body">
+        <p>Afrobeat’s drummer with Africa 70 — one human kit doing everything this lab does with p-locks: accent, displacement, and velocity as a continuous living grammar. The calibration reference for what your machine is imitating.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The hi-hat: never two strokes at the same strength — listen to one bar as eight separate decisions.</li>
+          <li>The snare ghost notes between the accents — felt as texture until you listen for them, then suddenly everywhere.</li>
+          <li>What stays fixed across minutes (the pattern’s skeleton) versus what never fixes (every stroke’s weight).</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>What does Allen vary and what does he hold? The pattern holds; the weights never do — a fixed skeleton with continuously varying velocity, which is the exact target of this lab’s velocity work. If the kit sounded “even” to you, relisten to thirty seconds of hi-hat only; the unevenness is the instrument.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Tony+Allen+Africa+70+Jealousy" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Tony%20Allen%20Jealousy">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">09</span>
+        <span class="listen-title">Isolée — “Beau Mot Plage”</span>
+        <span class="listen-tag">micro-edits as groove</span>
+      </summary>
+      <div class="listen-body">
+        <p>Microhouse where the groove is assembled from tiny cuts — guitar slivers and clicks placed at edit resolution, so the editing itself swings.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The guitar fragments: how short they are, and how their start points stagger against the beat.</li>
+          <li>Sounds that function as percussion but are clearly not drums — clicks, pops, sliced vowels.</li>
+          <li>How the track builds momentum with no element longer than a syllable.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Where is the groove stored in this track? In the placement of the cuts — the material is almost incidental; move the slice points and the funk evaporates. That is p-lock thinking applied with a razor. If you heard a “guitar riff,” relisten: there is no riff, only fragments arranged to imply one.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Isolee+Beau+Mot+Plage" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Isolee%20Beau%20Mot%20Plage">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">10</span>
+        <span class="listen-title">Konduku — “Kıran”</span>
+        <span class="listen-tag">contemporary minimal percussion</span>
+      </summary>
+      <div class="listen-body">
+        <p>Contemporary minimal from Ruben Üvez: spacious percussion patterns that drift and shimmer at low intensity — proof the micro-variation tradition is alive and does not require a four-on-the-floor.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Where the pulse actually is — the kick is not the metronome here; something quieter is.</li>
+          <li>Percussion hits whose timbre shifts slightly on each recurrence — p-lock-style variation on tuned drums.</li>
+          <li>The dub space around each hit: how emptiness is used as a groove element.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>What kept the time once you noticed the kick was not doing it? A quieter recurring element — the track delegates the clock to the background, which frees the foreground to vary. If you lost the pulse entirely, relisten and tap along to whatever survives every bar; that survivor is the real clock, and finding it is a Block 3 skill.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Konduku+Kiran" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Konduku%20Kiran">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+  </div>
+
+  <p style="color: var(--text-muted); font-size: 14.5px; margin: 18px 0 0;">Before touching gear, write a one-sentence hypothesis in the logbook naming what you stole from across these ten records — variation density as arrangement, the exposed single parameter, the accent map as composition, drag committed to as identity, riding a fixed loop, syncopation on a tight grid, irregularity locked and repeated, the skeleton fixed while every weight moves, groove stored in cut placement, or the clock delegated to the background. The target is something like: <strong style="color: var(--text);">groove is a set of small decisions, repeated exactly — design the decisions, not the notes.</strong> Your sentence, in your words; the flat-bar vs worked-bar A/B is what will test it.</p>
+
+  <div class="final">
+    <div class="final-label">Track-lab principle</div>
+    <p>The grid is free; the groove is engineered. Every millisecond of push, every decibel of accent is a decision the listener feels and never hears — make them on purpose, write them down.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="index.html">
+      <span class="page-nav-direction">Previous</span>
+      ← Block 3 hub
+    </a>
+    <a href="lab-010.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      Lab 010 / Probability Grammar →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Block 3 · Lab 009</div>
+
+</div>
+
+</body>
+</html>

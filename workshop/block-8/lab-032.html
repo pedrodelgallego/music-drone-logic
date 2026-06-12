@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab 032 — Constraint Design</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="index.html" class="active"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="eyebrow">Block 8 · Lab 032 · Étude</div>
+    <h1>Constraint Design</h1>
+    <p class="lede">Thirty-one labs handed you their rules. This étude is the handover: you write a personal constraint language — a three-to-five-rule contract that sounds like you — and author both specs for a system that obeys it. No audio is required. The contract and the specs are the deliverable, and lab 033 will build from nothing else.</p>
+  </header>
+  <p class="block-meta">Étude · S4 · constraint design · half-cycle — pair with a listening session or the L8 archive work</p>
+
+  <div class="signal-flow">
+    <span class="signal-node">listen</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">hypothesis</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">draw the path</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">calibrate</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">build</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">fault</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">diagnose</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">print</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">delta</span>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Start here</div>
+    </div>
+    <ul>
+      <li>Run the ten references below first — each is one artist's contract made audible; the question is always the same: <em>what is the constraint, and where do you hear it?</em></li>
+      <li>Bring your logbook and three years of print maps to the desk — the rules you are about to write are already in there, obeyed but unwritten.</li>
+      <li>This is an S4 étude: no spec is provided, no frame is pre-filled. The brief below is all you get.</li>
+      <li>Expected time: one focused half-cycle — one listening pass plus two writing sessions.</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The point</div>
+    <p>A voice is not a sound — it is a small set of rules kept for years. Write yours down and they become an instrument; leave them unwritten and they remain a habit.</p>
+  </div>
+
+  <h2>How this lab works</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3 class="card-title">Mine the archive</h3>
+      <ul class="card-points">
+        <li>Read your own logbook as a stranger: which decisions repeat across three years?</li>
+        <li>List ten candidate rules — things you always do, and things you never do.</li>
+        <li>Keep only the ones a listener could verify by ear. The rest are preferences, not rules.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Write the contract</h3>
+      <ul class="card-points">
+        <li>Three to five rules, each one sentence, each enforceable and audible.</li>
+        <li>At least one positive rule (what must always happen) and one negative rule (what is forbidden).</li>
+        <li>Test each rule: could a stranger audit a track against it and say pass or fail?</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Author both specs</h3>
+      <ul class="card-points">
+        <li>Write a full System Spec and Engineering Spec for a system that obeys the contract — from blank pages.</li>
+        <li>Every spec row must trace to a rule or to the bench; nothing decorative survives.</li>
+        <li>These specs are lab 033's starting condition. Write them to be built from.</li>
+      </ul>
+    </div>
+  </div>
+
+  <table class="param-table">
+    <caption>Pass standard</caption>
+    <tr><td>Minimum pass</td><td>A written contract of three to five audible rules, plus both specs authored blank, filed in the logbook.</td></tr>
+    <tr><td>Solid pass</td><td>Every rule survives the audit test — a stranger could check a track against each rule and rule pass or fail by ear alone.</td></tr>
+    <tr><td>Advanced transfer</td><td>You can name, for each rule, the lab or reference it was stolen from — and what the rule forbids that you genuinely wanted to keep.</td></tr>
+  </table>
+
+  <h2>New concepts — in plain words</h2>
+
+  <table>
+    <tr><th>Concept</th><th>In plain words</th></tr>
+    <tr><td><strong>Constraint language</strong></td><td>A small set of rules that generates your decisions instead of you making each one fresh. Like a house style for a writer: not what any sentence says, but what every sentence obeys.</td></tr>
+    <tr><td><strong>The contract</strong></td><td>The rules written down and signed — to yourself. Unwritten habits drift and excuse themselves; a written rule can be kept, broken on purpose, or renegotiated, but never quietly ignored.</td></tr>
+    <tr><td><strong>Positive vs negative rules</strong></td><td>A positive rule says what must always happen ("every sound passes through the room once"); a negative rule says what is forbidden ("no sound ever resolves"). Negative rules are usually stronger — they cut the option space instead of adding to the to-do list.</td></tr>
+    <tr><td><strong>The audibility test</strong></td><td>A rule a listener could never detect is not a musical rule, it is a private ritual. Every contract rule must change what comes out of the speakers — otherwise it belongs in your diary, not your spec.</td></tr>
+    <tr><td><strong>Constraint vs limitation</strong></td><td>A limitation is imposed (the MicroFreak has one filter); a constraint is chosen (this system uses only one filter, even where more exist). Same boundary, different author — and only the chosen one is a voice.</td></tr>
+  </table>
+
+  <h2>Listening — the hypothesis source</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Ten artists who wrote their contract and kept it — some for one record, some for thirty years. Block 8 listens for one thing only: <strong>the system behind the voice</strong>. For every reference, name the constraint and point to the second where you hear it.</p>
+
+  <div class="listen-acc">
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">01</span>
+        <span class="listen-title">Lorenzo Senni — “Superimpositions”</span>
+        <span class="listen-tag">one constraint as an identity</span>
+      </summary>
+      <div class="listen-body">
+        <p>The lab 032 reference. Senni isolates one gesture — the trance build-up — and forbids everything around it: no kick, no drop, no release, ever. One negative rule, kept across a whole catalogue, became an instantly recognizable artist.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The promise being made constantly — every bar leans toward a drop — and the rule that never lets it arrive.</li>
+          <li>How much variety lives inside the single allowed gesture: arpeggio shapes, supersaw voicings, rises of different lengths.</li>
+          <li>Your own body: how long before you stop waiting for the kick and start hearing the build as the whole music?</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>State Senni's contract in one sentence. Something like: <em>only the build-up is allowed; the payoff is forbidden.</em> One rule — and you could audit any of his tracks against it by ear in ten seconds, which is exactly the audibility test your own rules must pass. If you heard this as a track missing its drop rather than a system, relisten until the absence flips from a defect into the subject.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Lorenzo+Senni+Superimpositions" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Lorenzo%20Senni%20Superimpositions">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">02</span>
+        <span class="listen-title">Mark Fell — <em>Multistability</em></span>
+        <span class="listen-tag">the rule-set as the voice</span>
+      </summary>
+      <div class="listen-body">
+        <p>A handful of FM preset timbres and a set of time rules that refuse the grid — no swing, no groove templates, durations chosen by ratio. The palette is almost nothing; the rule-set is everything, and it is unmistakably one person.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>How few distinct sounds the whole record uses — count them on one track; most people run out of fingers with some left over.</li>
+          <li>The timing: patterns that stutter and re-divide without ever settling into a danceable bar — rules about duration, not feel.</li>
+          <li>That you could identify the artist from any ten seconds, despite the palette being stock FM presets anyone owns.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Where does the identity live — in the sounds or in the rules? The sounds are deliberately generic; the voice is entirely in the time logic and the refusal of groove. That is the cleanest proof in this list that a contract can be the whole instrument. If the record read as random, relisten to one track and notice the same duration-logic repeating — rigid rules, alien grid.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Mark+Fell+Multistability" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Mark%20Fell%20Multistability">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">03</span>
+        <span class="listen-title">Matthew Herbert — the “PCCOM” manifesto</span>
+        <span class="listen-tag">the contract, written and signed</span>
+      </summary>
+      <div class="listen-body">
+        <p>Herbert's <em>Personal Contract for the Composition of Music</em>: a published document forbidding drum machines, presets, and sounds he did not record himself. You replicated the audible result in Block 2's <em>Around the House</em> lesson; this time the assignment is the document, not the record — read it as the model for what you are about to write.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Read first: which rules are negative (no presets, no other people's samples) and which are positive — count the ratio.</li>
+          <li>Then audit: play any Herbert production and check it against the contract, rule by rule — can you hear the compliance?</li>
+          <li>The escape clauses — where the document allows exceptions, and that the exceptions are themselves written rules.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Why publish the contract instead of just keeping the habit? Because a published rule cannot be quietly ignored — the document converts taste into accountability, which is exactly the difference between a style and a system. Which PCCOM rule would cost you the most? Write it in the logbook; your own contract needs at least one rule that expensive. If the audit step felt impossible, relisten to the <em>Around the House</em> material with the no-presets rule in mind — the domesticity of every hit is the compliance, audible.</p>
+        <p class="listen-rep">Read &amp; listen: <a href="https://www.youtube.com/results?search_query=Matthew+Herbert+PCCOM+personal+contract+composition" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Matthew%20Herbert%20Around%20the%20House">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">04</span>
+        <span class="listen-title">Beatrice Dillon — <em>Workaround</em></span>
+        <span class="listen-tag">one tempo, the whole record</span>
+      </summary>
+      <div class="listen-body">
+        <p>An entire album locked to 150 BPM, dry by rule — almost no reverb anywhere — with every guest instrument cut to fit the same grid. Two written constraints, and out of them comes one of the most distinctive rhythm records of its decade.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The constancy: track to track, the pulse never moves — notice when you stop noticing.</li>
+          <li>The dryness as a sound: with reverb forbidden, every event ends sharply, and the silence between hits becomes part of the palette.</li>
+          <li>How tabla, pedal steel, and cello all submit to the same two rules without losing their character.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Name the two rules. One tempo (150), and dryness — space made by silence, not by reverb tails. Did the single tempo make the record monotonous? The opposite: with tempo settled once, every track's attention goes to timbre and placement — a constraint frees the budget it locks. If you did not hear the dryness as a rule, relisten to any track and wait for a reverb tail that never comes.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Beatrice+Dillon+Workaround" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Beatrice%20Dillon%20Workaround">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">05</span>
+        <span class="listen-title">SND — <em>Atavism</em></span>
+        <span class="listen-tag">a palette frozen for a decade</span>
+      </summary>
+      <div class="listen-body">
+        <p>Mark Fell and Mat Steel as SND: clipped drum-machine hits and one warm chord palette, and nothing else — held across a decade of releases. The duo's contract is so strict that the variation between records is almost entirely rhythmic.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The two-element budget: percussion and chords — try to find a third element class anywhere.</li>
+          <li>What carries the music when the palette cannot: placement, displacement, and the patience of repetition.</li>
+          <li>The chords' role — harmonic content treated as a drum, struck and cut, never sustained into a pad.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>What is SND's negative rule? Roughly: <em>nothing that is not a drum hit or a chord stab — no bass line, no lead, no pad, no voice.</em> Did you miss the missing elements? Mostly not — the ear renegotiates what "complete" means within minutes, which is the practical argument for a small contract. If it read as unfinished house music, relisten and attend to the rhythmic detail the empty space is buying.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=SND+Atavism+Mark+Fell" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:SND%20Atavism">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">06</span>
+        <span class="listen-title">Errorsmith — <em>Superlative Fatigue</em></span>
+        <span class="listen-tag">one instrument, total commitment</span>
+      </summary>
+      <div class="listen-body">
+        <p>An entire album from a single synthesizer — Razor, which Erik Wiegand co-designed himself. The constraint is one instrument; the twist is that he built the instrument first, so the contract and the tool are the same object.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The family resemblance: every sound on the record — kick, lead, voice-like squelch — shares one synthesis signature.</li>
+          <li>The range wrung from one engine: how far apart the brightest and dullest, silliest and heaviest sounds sit.</li>
+          <li>That nothing is sampled: every timbre is the same additive engine wearing a different face.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Could you tell it was one instrument? Probably only by the family resemblance — a shared glassy edge on everything — which is the audible trace of the rule. The deeper lesson for your contract: Wiegand did not find a constraint, he <em>manufactured</em> one, then obeyed it. Your rig is small; this record proves small is a stance, not a ceiling. If the unity escaped you, relisten comparing the kick's tone to the lead's — same DNA.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Errorsmith+Superlative+Fatigue" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Errorsmith%20Superlative%20Fatigue">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">07</span>
+        <span class="listen-title">Holly Herndon — <em>PROTO</em></span>
+        <span class="listen-tag">the ensemble as the constraint</span>
+      </summary>
+      <div class="listen-body">
+        <p>A record whose rule is about <em>who</em> makes the sound: a human vocal ensemble plus an AI voice model trained only on that ensemble. The constraint is a membership list — every sound must come from the choir or its machine student.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The boundary blurring: passages where you cannot assign a voice to the humans or the model.</li>
+          <li>The training audible as imperfection — the model's mistakes are kept, like preamp hiss kept in a drone.</li>
+          <li>How the rule shapes the writing: everything is voice-shaped, even what functions as a synth or a drum.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>State the contract: <em>all material originates in this ensemble — human or trained-on-human — and nowhere else.</em> Notice it is Herbert's PCCOM rule pointed at people instead of objects: provenance as the constraint. Could you hear the rule? Yes — in the total absence of any sound that is not voice-descended. If you heard ordinary synths, relisten to one "synth" line and catch the breath and formant inside it.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Holly+Herndon+PROTO" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Holly%20Herndon%20PROTO">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">08</span>
+        <span class="listen-title">Pan Sonic — <em>Vakio</em></span>
+        <span class="listen-tag">test equipment as a palette</span>
+      </summary>
+      <div class="listen-body">
+        <p>Sine, pulse, and noise — the vocabulary of a calibration bench, run at techno pressure. Mika Vainio and Ilpo Väisänen's contract reads like a lab inventory: tones a signal generator can make, and almost nothing else.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>How few waveform classes are in play — sine, pulse, noise — and how each track rations them.</li>
+          <li>Dynamics doing the work melody usually does: level, distortion onset, and silence as the expressive axes.</li>
+          <li>The bench heritage: sounds you have met in labs 001–002 as test signals, here promoted to music.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>What is the constraint, and where is it audible? The palette is restricted to elementary signals — audible in the first bar of any track, because nothing has the complexity of a sampled or acoustic source. For your contract, note what this buys: with material this poor, every musical event is unmistakably a <em>decision</em>. If it read as harsh minimalism only, relisten for how much articulation lives in pure level changes.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Pan+Sonic+Vakio" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Pan%20Sonic%20Vakio">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">09</span>
+        <span class="listen-title">Ryoji Ikeda — <em>Dataplex</em></span>
+        <span class="listen-tag">the rule at the edge of hearing</span>
+      </summary>
+      <div class="listen-body">
+        <p>Sine tones, clicks, and bursts of raw data placed with metric precision — a contract so strict it approaches engineering: only signals, only extremes of the spectrum, only exact placement.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The frequency extremes: content living at the very top and very bottom of your hearing, with the comfortable middle refused.</li>
+          <li>Precision as expression — no event is loose; the grid itself is the performance.</li>
+          <li>What your playback system does to it: this record audits your monitoring as much as you audit the record.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Name one rule you can hear. Candidates: no acoustic material ever; the midrange is forbidden territory; every event sits exactly on a grid. Did the record sound different on phones versus monitors? Radically — which teaches a sober lesson for your own contract: a rule that lives at the edge of audibility puts your listener's equipment inside your system. If the precision read as sterile, relisten and notice the rhythm your body finds in the clicks anyway.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Ryoji+Ikeda+Dataplex" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Ryoji%20Ikeda%20Dataplex">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">10</span>
+        <span class="listen-title">Steve Reich — “Music as a Gradual Process”</span>
+        <span class="listen-tag">the rule published as the score</span>
+      </summary>
+      <div class="listen-body">
+        <p>A 1968 essay, three pages, in which Reich states his contract outright: the process must be audible, and once running it is not interfered with. Read it, then test it against any early Reich you met in Block 3 — the document predicts the music.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Read first: underline every sentence that is a rule rather than a description — there are more than you expect.</li>
+          <li>The central demand: "I want to be able to hear the process happening throughout the sounding music" — that is the audibility test, stated in 1968.</li>
+          <li>Then play any phase piece and audit it: can you, in fact, hear the process at every moment?</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>What makes this a contract and not an aesthetic? It is checkable: a piece either lets you hear its process throughout or it does not, and Reich rejected his own work when it failed the test. Your three-to-five rules need the same property — each one a test your future tracks can fail. If the essay read as philosophy, reread it next to one minute of phasing and watch every sentence turn into an instruction.</p>
+        <p class="listen-rep">Read &amp; listen: <a href="https://www.youtube.com/results?search_query=Steve+Reich+Music+as+a+Gradual+Process" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Steve%20Reich%20early%20works">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+  </div>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Requirement</div>
+    <p>Before writing your contract, file one logbook line per reference answering the Block 8 question — <strong>what is the constraint, and where is it audible?</strong> The target idea across all ten: <strong>a voice is a small rule-set, kept — and every rule worth keeping can be heard.</strong> Your contract steals structures from this list, never sounds.</p>
+  </div>
+
+  <h2>1 · Brief &amp; system</h2>
+
+  <div class="callout">
+    <div class="callout-label">The brief — all you get (S4)</div>
+    <p>Write a personal constraint language: <strong>three to five rules</strong>, each one sentence, each passing the audibility test, at least one positive and one negative, every rule traceable to your own three-year archive. Then author a <strong>full System Spec and Engineering Spec</strong> for a system obeying the contract, from blank pages. No audio is due. Lab 033 builds from these documents exactly as written.</p>
+  </div>
+
+  <table class="param-table">
+    <caption>The contract — your frame, your rules</caption>
+    <tr><td>Rule 1</td><td>yours — must be audible, enforceable, and yours alone</td></tr>
+    <tr><td>Rule 2</td><td>yours — at least one rule in the set must be negative: something forbidden, forever</td></tr>
+    <tr><td>Rule 3</td><td>yours — at least one rule must be positive: something that must always happen</td></tr>
+    <tr><td>Rule 4–5</td><td>optional — five is the ceiling; a contract longer than five rules is a wishlist</td></tr>
+    <tr><td>Per rule</td><td>one line each: where in your archive it came from · how a stranger would audit it by ear · what it forbids that you wanted to keep</td></tr>
+  </table>
+
+  <table class="param-table">
+    <caption>System Spec — author from the contract alone (S4: every row blank, every row yours)</caption>
+    <tr><td>Inputs</td><td>yours to author — what material does the contract admit?</td></tr>
+    <tr><td>Transforms</td><td>yours — what changes it, in what order, and which rule each transform serves</td></tr>
+    <tr><td>Feedback / variation</td><td>yours — what keeps the system alive without breaking a rule</td></tr>
+    <tr><td>Constraints</td><td>the contract, verbatim — plus track budget and the one-variable rule</td></tr>
+    <tr><td>Human role</td><td>yours — what is performed, decided, or curated, and what the rules take out of your hands</td></tr>
+  </table>
+
+  <table class="param-table">
+    <caption>Engineering Spec — author from the contract alone (S4: name the path before the rig exists)</caption>
+    <tr><td>Signal path</td><td>yours — full path, source → recorder and source → ears, drawn for the system the contract implies</td></tr>
+    <tr><td>Gain plan</td><td>yours — nominal and peak levels, where gain is added and removed</td></tr>
+    <tr><td>Clock / sync</td><td>yours — master clock, followers, drift points</td></tr>
+    <tr><td>Latency</td><td>yours — what is monitored live, what is delayed, what is compensated</td></tr>
+    <tr><td>Stereo / phase</td><td>yours — mono and stereo sources, widening points, the mono check</td></tr>
+    <tr><td>Noise budget</td><td>yours — the noisy stages this system will actually have</td></tr>
+    <tr><td>Print strategy</td><td>yours — what gets committed, when, and why; the contract may legislate this directly</td></tr>
+    <tr><td>Failure mode</td><td>yours — the one most likely fault and how it will be diagnosed</td></tr>
+    <tr><td>Safety</td><td>yours — name the hazard even if the answer is "headphone level only"</td></tr>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Prescribed fault (archive ambiguity):</strong> leave one rule deliberately ambiguous in your first draft. A week later — or the same day, after a long walk — read the contract cold and write down what the ambiguous rule permits. Compare with what you meant. Write <strong>one rule</strong> about rules: a constraint that can be read two ways is two different systems wearing one sentence. Then fix the wording. No full write-up; the rule is the deliverable.</li>
+    </ul>
+  </div>
+
+  <h2>2 · Build &amp; report — forthcoming</h2>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>The step-by-step writing session lands when Block 8 is authored;</strong> the Phase 0 exit gate governs the order. The brief, the contract frame, the blank spec frames, and the pass gate on this page are stable — the guided archive-mining procedure is the part still to come. <span class="status">forthcoming</span></li>
+    </ul>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Pass gate — étude complete when</div>
+    </div>
+    <ul>
+      <li>The contract — three to five rules, each audited as audible and enforceable, filed in the logbook</li>
+      <li>Both specs authored from blank pages, every row traceable to a rule or to the bench</li>
+      <li>The one prescribed-fault rule — what the ambiguous wording taught</li>
+      <li>One removal note — the candidate rule you cut, and why it did not survive</li>
+      <li>One sentence of reflection</li>
+    </ul>
+  </div>
+
+  <p style="color: var(--text-muted); font-size: 13.5px; text-align: center; max-width: 560px; margin: 0 auto;">Prerequisite chain: this étude feeds <a href="lab-033.html">lab 033, Hybrid Systems</a> directly — 033 may not begin until this contract and both specs exist in the logbook.</p>
+
+  <div class="final">
+    <div class="final-label">Étude principle</div>
+    <p>Thirty-one labs gave you rules to obey; this one makes you the author. A voice is a contract kept in public — write yours so it can be audited, broken on purpose, and taught.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="index.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 08 / Synthesis &amp; Voice
+    </a>
+    <a href="lab-033.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      Lab 033 / Hybrid Systems →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Block 8 · Lab 032</div>
+
+</div>
+
+</body>
+</html>

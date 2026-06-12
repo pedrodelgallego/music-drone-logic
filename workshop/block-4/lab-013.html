@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab 013 — Resonance as Melody</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="index.html" class="active"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="eyebrow">Block 4 · Lab 013 · Track lab</div>
+    <h1>Resonance as Melody</h1>
+    <p class="lede">One bass pattern, never edited, for the whole piece — and a filter whose resonant peak does all the singing. The notes are not the melody; the cutoff is. This is the block's first lesson in level into transformation: the same filter is a polite tone control at low resonance and a screaming second oscillator at high, and what you feed it decides which one you get.</p>
+  </header>
+  <p class="block-meta">Track lab · S2 · D2 E2 M1 F2 · acid · full cycle · new concepts: 5</p>
+
+  <div class="signal-flow">
+    <span class="signal-node">listen</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">hypothesis</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">draw the path</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">calibrate</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">build</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">fault</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">diagnose</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">print</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">delta</span>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Start here</div>
+    </div>
+    <ul>
+      <li>Run the ten listening references below first; the hypothesis they produce is the start of the build.</li>
+      <li>Save a new set as <span class="code">LAB-013-acid</span>; the lab 001 gain ledger stays on the desk.</li>
+      <li>Complete the gaps in both specs — this is an S2 lab: most fields are provided, the blanks are yours.</li>
+      <li>Expected time: one full cycle — two to three weeks of part-time sessions.</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The point</div>
+    <p>A resonant filter is an instrument hiding inside a tone control. Turn resonance up far enough and the filter stops shaping a sound and starts <em>being</em> one — the melody of acid lives in the cutoff knob, not the keyboard.</p>
+  </div>
+
+  <h2>How this lab works</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3 class="card-title">Freeze the notes</h3>
+      <ul class="card-points">
+        <li>One 16-step bass pattern on the MicroFreak, written in the first hour and never edited again.</li>
+        <li>Accent and slide are the pattern's only vocabulary — the 303 grammar.</li>
+        <li>Test: the pattern alone, filter wide open, should be almost boring. If it is interesting unfiltered, it will fight the filter.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Make the filter sing</h3>
+      <ul class="card-points">
+        <li>Resonance high enough that the peak has its own pitch; cutoff ridden by hand and recorded as automation.</li>
+        <li>Every musical event for 6–8 minutes is a cutoff move, a resonance move, or an accent landing on both.</li>
+        <li>Test: hum the "melody" back after a take — if you hummed the notes, the filter is not yet the voice.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Measure what resonance costs</h3>
+      <ul class="card-points">
+        <li>The resonant peak adds level the meter must absorb: measure the same accented step at low and high resonance.</li>
+        <li>Level into the filter changes the filter's character — drive it and the peak compresses and growls.</li>
+        <li>Both numbers go in the gain plan; "it got louder" is not a measurement.</li>
+      </ul>
+    </div>
+  </div>
+
+  <table class="param-table">
+    <caption>Pass standard</caption>
+    <tr><td>Minimum pass</td><td>Audible original piece, routing diagram, fault entry, print map, and system diff exist.</td></tr>
+    <tr><td>Solid pass</td><td>The pattern never changes after hour one, and a listener can still describe a verse, a peak, and a release — all of it done with cutoff, resonance, and accent.</td></tr>
+    <tr><td>Advanced transfer</td><td>You can state, with measured numbers, how much level your resonance setting adds at the peak, and set the input gain into the filter on purpose for the growl you want.</td></tr>
+  </table>
+
+  <h2>New concepts — in plain words</h2>
+
+  <table>
+    <tr><th>Concept</th><th>In plain words</th></tr>
+    <tr><td><span class="lab-title">Resonance</span></td><td>A boost the filter adds right at its cutoff point — a peak that emphasizes whatever frequency the cutoff is parked on. Like running a wet finger around a wine glass: push the emphasis hard enough and the glass starts to sing on its own.</td></tr>
+    <tr><td><span class="lab-title">Self-oscillation</span></td><td>What happens when resonance goes all the way: the filter's peak becomes a pure tone with no input needed. The tone control has become an oscillator — and its pitch is the cutoff knob.</td></tr>
+    <tr><td><span class="lab-title">Accent</span></td><td>The 303's signature move: one step hits both louder <em>and</em> brighter, because velocity pushes level and cutoff together. One control, two destinations — an accent is a gain event that the filter turns into a timbre event.</td></tr>
+    <tr><td><span class="lab-title">Slide</span></td><td>Two notes tied so the pitch glides between them instead of stepping. On the grid everything is even; the slide is the one place the bass line moves like a voice instead of a machine.</td></tr>
+    <tr><td><span class="lab-title">Drive into the filter</span></td><td>The level of the signal <em>entering</em> the filter. Filters with character are nonlinear: feed them gently and they sweep cleanly; feed them hot and the resonant peak compresses, thickens, and growls. Same knob positions, different sound — the input level is a hidden parameter.</td></tr>
+  </table>
+
+  <div class="tag-row">
+    <span class="tag">resonance</span>
+    <span class="tag">self-oscillation</span>
+    <span class="tag">accent</span>
+    <span class="tag">slide</span>
+    <span class="tag">drive into the filter</span>
+  </div>
+
+  <h2>Listening — the hypothesis source</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Ten records where a resonant peak — of a filter or of a room — is the lead voice. Eight rode a 303 or its descendants; two prove the principle without one. Each gets a brief: what to listen for before you press play, and how to check yourself after.</p>
+
+  <div class="listen-acc">
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">01</span>
+        <span class="listen-title">Plastikman — “Plasticity”</span>
+        <span class="listen-tag">one knob, eleven minutes</span>
+      </summary>
+      <div class="listen-body">
+        <p>A 303 line that barely changes its notes for eleven minutes while the filter writes the entire dramatic arc — the patient end of acid, where the sweep is the story.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>How rarely the actual notes change versus how constantly the timbre does — try to catch one new note entering.</li>
+          <li>The speed of the cutoff moves: minutes-long openings, not bar-long wobbles.</li>
+          <li>Where resonance, not cutoff, is the thing moving — the peak narrowing and sharpening over the same brightness.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>What changed across the whole piece: the pattern or the filter? Almost entirely the filter — the notes are a fixed conveyor belt and the cutoff is the hand sculpting what rides it. If you heard “new parts” arriving, relisten: most are the same line crossing a resonance threshold where new harmonics suddenly speak.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Plastikman+Plasticity" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Plastikman%20Plasticity">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">02</span>
+        <span class="listen-title">Hardfloor — “Acperience 1”</span>
+        <span class="listen-tag">stacked resonances</span>
+      </summary>
+      <div class="listen-body">
+        <p>Not one 303 but several, layered and ridden against each other — the maximalist proof that a resonant peak is a voice, because here it is a choir.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>How many distinct acid lines are running at once — count them at the peak; it is more than two.</li>
+          <li>Each line's register: the layers stay out of each other's way by cutoff range, like singers by tessitura.</li>
+          <li>The long build: which layer's filter opens first, and which is saved for last.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>How were the layers kept separate — by notes or by filter range? By filter range: the patterns overlap, but each peak lives in its own band, which is arrangement done with cutoff. If the layers blurred into one for you, relisten to the breakdown and follow a single line back out into the full texture.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Hardfloor+Acperience+1" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Hardfloor%20Acperience%201">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">03</span>
+        <span class="listen-title">Armando — “Land of Confusion”</span>
+        <span class="listen-tag">the grammar, raw</span>
+      </summary>
+      <div class="listen-body">
+        <p>Chicago 1988: a 303, a drum machine, and almost nothing else — the accent-and-slide grammar at its most exposed, before anyone polished it.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The accents: which steps jump out louder <em>and</em> brighter at once — that pairing is the 303's signature.</li>
+          <li>The slides: pitches that pour into each other instead of stepping.</li>
+          <li>How few elements there are in total — count the tracks; it is fewer than five.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Could you separate the accent's loudness from its brightness? You should not be able to — they are one gesture, level driving timbre, which is this block's whole thesis in a single step. If accents and slides blurred together, relisten to eight bars and mark each on paper: accents punch, slides smear.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Armando+Land+of+Confusion" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Armando%20Land%20of%20Confusion">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">04</span>
+        <span class="listen-title">Charanjit Singh — “Raga Bhairav”</span>
+        <span class="listen-tag">acid before acid</span>
+      </summary>
+      <div class="listen-body">
+        <p>Bombay, 1982: a 303 and an 808 playing raga scales, years before Chicago — proof that the machine's grammar was discovered, not invented, and that it carries melody traditions far older than house music.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The 303 playing an actual mode — long melodic phrases, not riff loops.</li>
+          <li>How little the filter moves compared to Chicago acid — here the notes lead and the resonance colors.</li>
+          <li>The ornaments: where slides stand in for the vocal glides of the raga.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Same machine as “Land of Confusion” — what flipped? The hierarchy: here pitch leads and resonance decorates; in Chicago, resonance leads and pitch is a conveyor. Hearing both tells you the machine has no genre — the grammar is a choice. If they sounded alike, relisten to thirty seconds of each back to back and ask which knob you would have to touch to turn one into the other.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Charanjit+Singh+Raga+Bhairav" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Charanjit%20Singh%20Raga%20Bhairav">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">05</span>
+        <span class="listen-title">Josh Wink — “Higher State of Consciousness”</span>
+        <span class="listen-tag">resonance pushed to the pain line</span>
+      </summary>
+      <div class="listen-body">
+        <p>The famous sweep that takes resonance to the edge of self-oscillation and holds it there — a study in how much level a peak can add and how long an ear will tolerate it.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The moment the filter peak gets louder than everything else in the track — it is a gain event, not just a timbre event.</li>
+          <li>How the peak's pitch tracks the sweep — at maximum resonance the cutoff is audibly a note.</li>
+          <li>What the production does to survive it: what ducks or disappears while the peak screams.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>At the climax, was the filter shaping the sound or producing it? Producing — the peak is effectively a second oscillator riding the bass line, and the engineer had to budget level for it. If you only heard “a sweep,” relisten on low volume and watch for the peak crossing from color to pitch — there is a findable moment where it becomes a note.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Josh+Wink+Higher+State+of+Consciousness" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Josh%20Wink%20Higher%20State%20of%20Consciousness">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">06</span>
+        <span class="listen-title">Emmanuel Top — “Acid Phase”</span>
+        <span class="listen-tag">the slow European ride</span>
+      </summary>
+      <div class="listen-body">
+        <p>One line, enormous patience, and a filter ride stretched across nine minutes — acid rebuilt as hypnosis rather than frenzy, the closest relative to what this lab asks you to make.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The rate of change: how many bars pass between audibly different filter states.</li>
+          <li>The dynamic arc drawn with resonance alone — tension is a Q setting here.</li>
+          <li>What the track uses instead of a breakdown — find the moment of maximum closure and what it releases into.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Where was the track's emotional peak, and which knob made it? Almost certainly a point of maximum resonance and near-closed cutoff — tension is the peak sharpening, release is it opening. If you located the peak at a drum change instead, relisten with the drums deliberately ignored: the filter was telling the story underneath the whole time.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Emmanuel+Top+Acid+Phase" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Emmanuel%20Top%20Acid%20Phase">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">07</span>
+        <span class="listen-title">Tin Man — “Nonneo”</span>
+        <span class="listen-tag">acid as melancholy</span>
+      </summary>
+      <div class="listen-body">
+        <p>Contemporary Vienna acid: the same machine grammar slowed and saddened, the resonant peak singing an actual mournful melody — proof the vocabulary still has unexplored emotional registers.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The 303 as a lead singer with a feeling, not an energy machine — name the mood in one word.</li>
+          <li>How low the resonance sits compared to rave acid — the peak rounds the notes instead of slicing them.</li>
+          <li>The space around the line: reverb and patience doing what extra layers would in older acid.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>What made this acid sad where “Acperience” is euphoric — notes or treatment? Mostly treatment: moderate resonance, slower tempo, space. The same grammar at a different operating point is a different emotion, which is exactly the transfer this lab wants from you. If the mood read as “generic acid,” relisten following only the longest slides — they droop, and the drooping is the melancholy.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Tin+Man+Nonneo" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Tin%20Man%20Nonneo">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">08</span>
+        <span class="listen-title">Luke Vibert — “I Love Acid”</span>
+        <span class="listen-tag">the grammar, self-aware</span>
+      </summary>
+      <div class="listen-body">
+        <p>Acid about acid: every classic move — accent, slide, sweep, scream — deployed knowingly, like a writer quoting a language they love. Useful here because the moves are unusually legible.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Each named device arriving almost on schedule: find one clean accent run, one long slide, one full sweep.</li>
+          <li>The interplay of two lines with different resonance settings — one rounded, one sharp.</li>
+          <li>How the mix leaves the midrange empty for the peaks to live in.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Could you point to one accent, one slide, and one sweep with confidence? You should — this track is the vocabulary list read aloud. If any of the three still escapes you, relisten with that single device as your only assignment; do not return to your own pattern until all three are findable on demand.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Luke+Vibert+I+Love+Acid" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Luke%20Vibert%20I%20Love%20Acid">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">09</span>
+        <span class="listen-title">Alvin Lucier — “I Am Sitting in a Room”</span>
+        <span class="listen-tag">a room is a filter</span>
+      </summary>
+      <div class="listen-body">
+        <p>A voice re-recorded into the same room again and again until only the room's resonant frequencies remain — resonance as melody with no synthesizer at all, and a preview of lab 017's generational method.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Which frequencies grow with each generation and which vanish — the room is choosing.</li>
+          <li>The moment speech stops being speech — somewhere the words lose to the tones.</li>
+          <li>The final state: a chord. Whose chord is it? Not the speaker's.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>What was the filter in this piece, and what was the resonance? The room was the filter; its standing waves were the resonant peaks, and repetition turned those peaks into the melody. Each pass is the same trick as turning a resonance knob up one notch. If the endpoint sounded like electronics to you, relisten to the first three generations in a row — you can hear the room's pitches already lurking under the words.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Alvin+Lucier+I+Am+Sitting+in+a+Room" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Alvin%20Lucier%20I%20Am%20Sitting%20in%20a%20Room">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">10</span>
+        <span class="listen-title">Rrose — “Vanishing Pools”</span>
+        <span class="listen-tag">resonance as texture-melody</span>
+      </summary>
+      <div class="listen-body">
+        <p>Modern hypnotic techno where narrow resonant bands drift through a dense surface — the acid idea abstracted: no 303, no riff, just peaks moving like slow melodies inside texture.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Narrow bands of emphasis sliding through the spectrum — follow one as far as you can.</li>
+          <li>Whether the moving peaks have pitch — hum along with one; you can.</li>
+          <li>How the drifting resonances replace chord changes — the harmony is where the peaks currently sit.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Was there a melody in this track? Yes — but it was played on emphasis, not on notes: the resonant bands trace singable contours through a static texture. That is the lab's idea freed from its genre. If you heard only texture, relisten and hum whatever your ear tracks; the line you produce is the resonance path, and that you could hum it is the proof.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Rrose+Vanishing+Pools" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Rrose%20Vanishing%20Pools">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+  </div>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Requirement</div>
+    <p>Your written hypothesis names <strong>where this piece's melody will live in the filter</strong> — the patient single ride, stacked peaks in separate bands, the raw accent grammar, pitch-led versus resonance-led hierarchy, the peak as a budgeted gain event, tension as a Q setting, the grammar at a sadder operating point, the legible vocabulary, the room as filter, or peaks drifting through texture — and what was stolen from the comparison. The target idea across all ten: <strong>resonance is a voice, and its level is part of the writing.</strong> What you steal is a structure, never a sound.</p>
+  </div>
+
+  <h2>1 · The two specs — provided, complete the gaps</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">This is an S2 lab: most fields are filled, the <span class="code">___</span> blanks are yours, and every row gets corrected against reality after the build.</p>
+
+  <table class="param-table">
+    <caption>System Spec — complete the blanks, then verify</caption>
+    <tr><td>Inputs</td><td>One MicroFreak voice: a simple oscillator shape into the analog filter — name the oscillator type you chose and why it feeds resonance well: <span class="code">___</span> · a minimal Digitakt spine (kick, closed hat, one more: <span class="code">___</span>)</td></tr>
+    <tr><td>Transforms</td><td>The MicroFreak analog filter, resonance high, cutoff ridden by hand and printed as automation · accent = velocity routed to both level and cutoff · slide = glide on tied steps</td></tr>
+    <tr><td>Feedback / variation</td><td>The pattern is frozen after hour one; all variation is cutoff, resonance, and accent placement · your one additional variation source (drive, LFO on resonance, pattern mute — pick one): <span class="code">___</span></td></tr>
+    <tr><td>Constraints</td><td>One 16-step bass pattern for the whole piece · melody lives in the filter, never in new notes · ≤5 tracks · 6–8 minutes</td></tr>
+    <tr><td>Human role</td><td>Write the pattern, then perform the filter: every take is a ride, recorded in full · the arrangement is curated from rides, not drawn with a mouse</td></tr>
+  </table>
+
+  <table class="param-table">
+    <caption>Engineering Spec — complete the blanks, then correct after building</caption>
+    <tr><td>Signal path</td><td>MicroFreak out → M4 in 1 → Live track 1 · Digitakt outs → M4 in 3/4 → Live track 2 · Live master → M4 → DT 990 / monitors · draw it before patching</td></tr>
+    <tr><td>Gain plan</td><td>Set MicroFreak output by the lab 001 ledger at <em>maximum resonance, accented step</em> — not at the polite setting · measured peak delta between resonance at minimum and at your performance setting, same step: <span class="code">___</span> dB · headroom reserved for it at the M4: <span class="code">___</span> dB</td></tr>
+    <tr><td>Clock / sync</td><td>Live is master clock over USB MIDI · MicroFreak sequencer and Digitakt follow · arp/sequence sync verified at bar 1 and bar 64</td></tr>
+    <tr><td>Latency</td><td>The filter ride is performed against the playing track — monitor through the path you measured in lab 002 and state which monitoring mode you ride in: <span class="code">___</span></td></tr>
+    <tr><td>Stereo / phase</td><td>MicroFreak is mono — width, if any, comes later in the chain and is named in the print map · one mono check on the rendered piece</td></tr>
+    <tr><td>Noise budget</td><td>High resonance lifts the MicroFreak's floor into audibility between notes — record thirty seconds of the armed, silent chain at performance settings and write down what you hear: <span class="code">___</span></td></tr>
+    <tr><td>Print strategy</td><td>Every ride printed as audio in full, named takes · the winning ride is committed; the automation curve is kept as the score</td></tr>
+    <tr><td>Failure mode</td><td>The resonant peak clips a downstream stage on accented steps — input meter green, M4 or Live track red only when the peak and an accent line up; faultType: <strong>gain into processing</strong></td></tr>
+    <tr><td>Safety</td><td>A high-Q peak at 2–4 kHz on DT 990s is genuinely painful — set phones level at the lab 001 mark <em>before</em> the first high-resonance test, and sweep upward, never downward, on first contact</td></tr>
+  </table>
+
+  <h2>2 · Bench preflight</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">The block rule starts here: <strong>a level written down at the input and output of every processor</strong>. The filter is the lab's only transformation, so it gets both numbers — twice, once polite and once at performance resonance.</p>
+
+  <div class="signal-flow">
+    <span class="signal-node">MicroFreak osc</span>
+    <span class="signal-arrow">→ level in →</span>
+    <span class="signal-node">analog filter · res high</span>
+    <span class="signal-arrow">→ level out →</span>
+    <span class="signal-node">MicroFreak out</span>
+    <span class="signal-arrow">→ TS →</span>
+    <span class="signal-node">M4 in 1</span>
+    <span class="signal-arrow">→ USB-C →</span>
+    <span class="signal-node">Live track 1</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">master</span>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Pre-flight — before the first ride</div>
+    </div>
+    <ul>
+      <li>Gain ledger applied at M4 in 1 — set against the <em>worst case</em>: maximum resonance, accented step, cutoff at the peak's loudest point</li>
+      <li>Two measurements in the logbook: track peak with resonance at zero, and at your performance setting, same step — the delta is your resonance tax</li>
+      <li>Accent depth chosen and written down: how much velocity adds to level and to cutoff</li>
+      <li>Monitoring mode declared from lab 002's table; the ride must feel immediate</li>
+      <li>Thirty seconds of armed silence recorded at performance settings — know the floor resonance exposes</li>
+      <li>Phones at the lab 001 mark; first high-resonance sweep done at low volume, opened upward</li>
+    </ul>
+  </div>
+
+  <h2>3 · Build — <span class="status">forthcoming</span></h2>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>This section is scaffolded, not written.</strong> The full build — writing the frozen pattern, calibrating accent depth, the ride takes, the gain-into-processing fault ritual (predicted symptom: clean meters everywhere except where accent and peak coincide), and curating the arrangement from printed rides — lands when Block 4 is authored. The listening, specs, and preflight above are stable; build against them.</li>
+    </ul>
+  </div>
+
+  <h2>4 · Diagnosis &amp; report</h2>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">The full report bundle — ten items, filed in the logbook</div>
+    </div>
+    <ul>
+      <li>Rendered piece — 24-bit WAV, master peaking −3 dBFS, 6–8 minutes</li>
+      <li>Routing diagram — drawn before patching, corrected after, with level in and level out written at the filter</li>
+      <li>Recording plan — which rides were printed, when, at what stage</li>
+      <li>Patch notes — oscillator type, resonance setting, accent depth, glide time, and the measured resonance tax in dB</li>
+      <li>Session notes</li>
+      <li>Reflection answers, including the listening comparison — which record contributed what to the hypothesis</li>
+      <li>One removal decision — what was cut from the finished piece and what cutting it did</li>
+      <li>Fault entry — symptom, cause, fix, prevention rule (faultType: gain into processing)</li>
+      <li>Print map — which rides exist as audio, which as automation, what patch state is reproducible and what is gone</li>
+      <li>System diff sentence — “I thought the system worked like X; after building it, I discovered it worked like Y.”</li>
+    </ul>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>The fault ritual:</strong> predict the symptom in writing, then create the fault on purpose — push resonance to maximum and drive an accented step into the filter hot. Predict where it clips first: inside the MicroFreak, at the M4 input, or in Live. Observe, locate the actual stage, fix it by lowering the right level (not the nearest fader), and write the rule learned.</li>
+      <li><strong>Minimum pass gate:</strong> audible output · routing diagram · fault entry · print map · system diff. Without these five, the lab is incomplete regardless of audio quality.</li>
+    </ul>
+  </div>
+
+  <div class="final">
+    <div class="final-label">Track-lab principle</div>
+    <p>A resonant filter is a voice, and a voice has a level — write the melody with the cutoff, and budget for the peak like you would for a singer.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="index.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 04 / Transformation
+    </a>
+    <a href="lab-014.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      Lab 014 / Saturation Staging →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Block 4 · Lab 013</div>
+
+</div>
+
+</body>
+</html>

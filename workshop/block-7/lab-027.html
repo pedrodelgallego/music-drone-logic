@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab 027 — Printed Movement</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html" class="active"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="eyebrow">Block 7 · Lab 027 · Track lab</div>
+    <h1>Printed Movement</h1>
+    <p class="lede">Riding as performance. The arrangement of this piece is not drawn, edited, or programmed — it is your hands on faders and macros, recorded in full takes and printed as commitment. What you ride is what ships.</p>
+  </header>
+  <p class="block-meta">Track lab · S4 · D3 E3 M2 F2 · performance · full cycle · new concepts: 5</p>
+
+  <div class="signal-flow">
+    <span class="signal-node">listen</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">hypothesis</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">draw the path</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">calibrate</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">build</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">fault</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">diagnose</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">print</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">delta</span>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Start here</div>
+    </div>
+    <ul>
+      <li>This is Block 7’s first lab and Year 3’s first cycle — read the block’s engineering focus below; it governs every lab through C6.</li>
+      <li>Work the listening accordion and write the hypothesis before mapping a single control.</li>
+      <li>Save a new set as <span class="code">LAB-027-rides</span>; printing/committing audio was taught in lab 003 — this lab formalizes it.</li>
+      <li>This is an S4 lab: author both specs from the brief alone — no prompts, no pre-filled rows.</li>
+      <li>Lab 028 requires this lab: the take discipline you certify here is its entry condition.</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The point</div>
+    <p>An arrangement can be a performance: map a handful of controls, ride them once from start to end, and print the ride. Commitment replaces editing — the recorded movement <em>is</em> the piece.</p>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Block 7 — operational engineering</div>
+    <p>Every performance lab in this block requires five things: a <strong>live signal-flow diagram</strong>, a <strong>panic path</strong> (mute, limiter, bypass, stop, fallback loop), a <strong>failure rehearsal</strong>, a <strong>recording strategy</strong>, and a <strong>post-performance fault report</strong>. The question is never “did the take go well?” — it is “when the system became unstable, did you understand it well enough to recover musically?”</p>
+  </div>
+
+  <h2>How this lab works</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3 class="card-title">Map a ride surface</h3>
+      <ul class="card-points">
+        <li>At most six controls, chosen and mapped with ranges before any take — the macro budget is the composition.</li>
+        <li>The roadmap proposes a Faderfox EC4 at this block; the core-rig fallback is Push/Launchpad faders or six mapped MIDI CCs — the capability is the lab, not the brand.</li>
+        <li>Test: every mapped control must do something you would miss — unmapped is uncomposed.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Rehearse, then perform the take</h3>
+      <ul class="card-points">
+        <li>Full takes only: start to end, no punch-ins — a wrong move is recovered, not repaired.</li>
+        <li>One failure rehearsal before the real take: stage a wrong move on purpose and practice playing through it.</li>
+        <li>The panic path sits written next to the ride surface, one gesture per line.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Print and commit</h3>
+      <ul class="card-points">
+        <li>The chosen take’s rides are printed — automation becomes audio, the lanes are retired.</li>
+        <li>No post-take arrangement edits; the removal decision happens by performing another take, not by cutting.</li>
+        <li>File the post-performance fault report while the take is still warm in your hands.</li>
+      </ul>
+    </div>
+  </div>
+
+  <table class="param-table">
+    <caption>Pass standard</caption>
+    <tr><td>Minimum pass</td><td>Audible original piece arranged only by recorded rides, live signal-flow diagram, panic path, fault entry, print map, and system diff exist.</td></tr>
+    <tr><td>Solid pass</td><td>The arrangement audibly breathes like hands, and at least one imperfect moment was kept because the recovery was musical.</td></tr>
+    <tr><td>Advanced transfer</td><td>You can re-perform the piece tomorrow from the diagram and the mapping table alone, and a listener accepts both takes as the same piece.</td></tr>
+  </table>
+
+  <h2>New concepts — in plain words</h2>
+
+  <table>
+    <tr><th>Concept</th><th>In plain words</th></tr>
+    <tr><td><span class="lab-title">The ride</span></td><td>A continuous hand movement on one control, recorded as part of the music — a fader pushed up over thirty seconds is a crescendo nobody drew. Mixing engineers have “ridden” vocal faders for decades; here the ride is promoted from correction to composition.</td></tr>
+    <tr><td><span class="lab-title">Printing (committing)</span></td><td>Turning a live, editable thing — an automation lane, a synth patch under modulation — into fixed audio. Like ink over pencil: you lose the eraser and gain a decision. After the print, the ride can never be tweaked, only re-performed.</td></tr>
+    <tr><td><span class="lab-title">Macro budget</span></td><td>The deliberate cap on how many controls you allow under your hands — six here. Two hands cannot honestly ride twelve knobs; a budget forces the mapping to name what actually matters in this piece.</td></tr>
+    <tr><td><span class="lab-title">The full take</span></td><td>One unbroken performance from bar one to the end. No punch-ins, no comping halves together. The take is the arrangement, so splicing two takes would mean splicing two arrangements.</td></tr>
+    <tr><td><span class="lab-title">Panic path</span></td><td>The written, rehearsed escape route for when the system runs away: which mute, which limiter, which bypass, which stop, which fallback loop — in that order, one gesture each. A panic path you have not rehearsed is a wish, not a path.</td></tr>
+  </table>
+
+  <div class="tag-row">
+    <span class="tag">the ride</span>
+    <span class="tag">printing</span>
+    <span class="tag">macro budget</span>
+    <span class="tag">the full take</span>
+    <span class="tag">panic path</span>
+  </div>
+
+  <h2>Listening — the hypothesis source</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Ten documents of hands arranging music in real time — from an hour-long mixer ride in 1981 to faders handed to a crowd. Watch the videos for hands, not lights: what is ridden, what is pre-planned, what is recovered. Each gets a brief: what to listen for before you press play, and how to check yourself after.</p>
+
+  <div class="listen-acc">
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">01</span>
+        <span class="listen-title">Manuel Göttsching — <em>E2-E4</em></span>
+        <span class="listen-tag">one hour, one take, one mixer</span>
+      </summary>
+      <div class="listen-body">
+        <p>1981: a two-chord sequencer figure ridden at the mixing desk for an hour, in a single take — the archetype of this lab; the form is the log of his hands.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Which changes are mutes, which are fader rides, which are a new layer arriving — three different hand gestures, three different musical meanings.</li>
+          <li>How long a state is left alone before anything is touched — time one gap; restraint is the loudest move.</li>
+          <li>The guitar entry around the half-way mark: how an hour of riding earns one event.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Could this have been edited together? Almost nothing here behaves like an edit — levels lean and overshoot the way hands do, not the way drawn ramps do. That human imprecision is the arrangement. If it read as programmed, relisten to any ten minutes and follow only the hi-hat level: it never sits still, because a hand is holding it.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Manuel+Gottsching+E2-E4" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Manuel%20Gottsching%20E2-E4">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">02</span>
+        <span class="listen-title">Tangerine Dream — <em>Ricochet</em></span>
+        <span class="listen-tag">sequencers under hands, 1975</span>
+      </summary>
+      <div class="listen-body">
+        <p>Sequencer music from before total recall existed: every filter sweep and level change on this live-derived album had to be performed, because nothing could be saved.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Filter movements that accelerate and hesitate — a wrist, not an LFO.</li>
+          <li>Transitions between sections: how the players cross-fade worlds by hand without stopping.</li>
+          <li>What stays rigid (the sequencer pattern) versus what never repeats exactly (everything ridden over it).</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Name one moment you are sure was performed rather than programmed. The honest answer is most of them — in 1975 the patch <em>was</em> the performance, unrepeatable once the knobs moved on. That is this lab’s commitment constraint enforced by history. If everything sounded planned, relisten to one long filter sweep and notice it never travels at a constant speed.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Tangerine+Dream+Ricochet" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Tangerine%20Dream%20Ricochet">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">03</span>
+        <span class="listen-title">Richie Hawtin — <em>DE9: Closer to the Edit</em></span>
+        <span class="listen-tag">the ride as edit</span>
+      </summary>
+      <div class="listen-body">
+        <p>Hundreds of records reduced to fragments and ridden into one continuous piece — the mix as a performed composition, where the “edit” happens on faders in time rather than on a timeline.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>How few elements sound at once despite the source count — the rides are mostly subtraction.</li>
+          <li>Entrances you cannot place: layers that are suddenly present and were never heard arriving.</li>
+          <li>The difference between a DJ blend and a ride: levels that move <em>musically</em>, shaping phrases rather than joining tracks.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Where does one source end and the next begin? You mostly cannot say — the rides dissolve boundaries that a cut would expose. The lesson for your take: movement hides seams that edits create. If you heard it as one long track, that is the verification; relisten to any five minutes and count how many distinct loops you can actually isolate.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Richie+Hawtin+DE9+Closer+to+the+Edit" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Richie%20Hawtin%20DE9%20Closer%20to%20the%20Edit">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">04</span>
+        <span class="listen-title">Plastikman — <em>EX</em> (live at the Guggenheim, 2013)</span>
+        <span class="listen-tag">rides printed straight to album</span>
+      </summary>
+      <div class="listen-body">
+        <p>A one-evening live performance released as an album essentially as it happened — the clearest modern case of printed movement: the takes were the record.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Long single-parameter journeys — one filter or one delay ridden across minutes as the only event.</li>
+          <li>Moments where a move slightly overshoots and is eased back — kept, not corrected.</li>
+          <li>How sparse the material is: the macro budget is audibly small, and the piece spends it slowly.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Does this sound like a studio album or a document? Both — and that ambiguity is the print decision: committing the performance gave up the option to fix it, and what was bought is urgency you can hear. Find one blemish that survived to the release; if you found none, relisten for a ride that wobbles mid-travel — they are there, and they are the signature.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Plastikman+EX+live+Guggenheim" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Plastikman%20EX">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">05</span>
+        <span class="listen-title">Octave One — Boiler Room Moscow (2014)</span>
+        <span class="listen-tag">mute buttons as arrangement · video</span>
+      </summary>
+      <div class="listen-body">
+        <p>Two brothers, a table of hardware, and an arrangement made almost entirely of mutes and fader throws — watch where the four hands actually go.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The division of labor: who owns rhythm, who owns rides — two performers, two halves of one panic path.</li>
+          <li>How a mute, timed well, lands with the force of a new element.</li>
+          <li>What is monitored: glances at meters versus glances at each other.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Count the controls each performer actually touches in five minutes. It is a small number — a working macro budget on camera, two hands honest about their limit. What carried the set’s biggest moment, a new sound or a returning one? Mostly the return: mutes spend material and bring it back. If you watched the lights instead of the hands, rewatch five minutes tracking one hand only.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Octave+One+Boiler+Room+Moscow" target="_blank" rel="noopener">YouTube</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">06</span>
+        <span class="listen-title">Karenn — Boiler Room London (2014)</span>
+        <span class="listen-tag">no safety net · video</span>
+      </summary>
+      <div class="listen-body">
+        <p>Blawan and Pariah improvising brute hardware techno with no computer in sight — a set where every sound is live, so every ride is also a risk.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Sections that emerge from knob-work rather than launch — form discovered, not recalled.</li>
+          <li>Rough moments left in: levels that jump, a pattern that lands late — and how fast they are absorbed.</li>
+          <li>Where the low end lives while both performers mangle the mids — someone is always minding the floor.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Did anything go wrong? Yes — several times, if you listen for it — and the set never acknowledges it, because recovery is part of the instrument. That is this block’s question answered live: instability understood well enough to be played through. If you heard no mistakes, relisten to a transition and notice how often the new pattern arrives a touch early or hot, then gets ridden into place.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Karenn+Boiler+Room+London" target="_blank" rel="noopener">YouTube</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">07</span>
+        <span class="listen-title">Lady Starlight — Boiler Room Berlin (2016)</span>
+        <span class="listen-tag">one machine, total focus · video</span>
+      </summary>
+      <div class="listen-body">
+        <p>Elektron-centric live techno from a performer who has explained her rig in public — a small machine surface ridden with full commitment, on this workshop’s own hardware family.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>How much music one box yields when the performer never stops working it.</li>
+          <li>Parameter rides versus pattern changes — the continuous hand and the discrete hand.</li>
+          <li>The pacing of risk: when she pushes a sound toward breakup and when she pulls it home.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>What was her macro budget — how many controls did the whole set actually run on? Fewer than ten, and the set never feels small, because each control is musically loaded. That is the mapping lesson for your six. If the set blurred together, rewatch a few minutes asking only: is this gesture a ride, a mute, or a pattern change?</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Lady+Starlight+Boiler+Room+Berlin" target="_blank" rel="noopener">YouTube</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">08</span>
+        <span class="listen-title">KiNK — Boiler Room × Ballantine’s True Music Valencia (2018)</span>
+        <span class="listen-tag">the ride made visible · video</span>
+      </summary>
+      <div class="listen-body">
+        <p>A performer who turns riding into theatre — waveforms drawn in the air, faders offered to the crowd — without ever losing the engineering underneath.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The showmanship’s cost and payoff: every visible gesture is also a real control move that must land.</li>
+          <li>How he keeps a groove alive while improvising structure on top of it — the stable layer that buys freedom.</li>
+          <li>Recovery moments when an audience-touched control comes back wrong.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Is the performance for the eyes or the ears? Check by listening without watching: the set still works, which means the gestures are real controls, not mime. Then watch without sound and notice you can almost hear it — the movement <em>is</em> the arrangement, legible in both directions. If you doubt it, rewatch one crowd-interaction moment and track how he repairs the level afterwards.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=KiNK+Boiler+Room+Valencia" target="_blank" rel="noopener">YouTube</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">09</span>
+        <span class="listen-title">Stimming — studio live-jam videos</span>
+        <span class="listen-tag">the jam as documentation · video</span>
+      </summary>
+      <div class="listen-body">
+        <p>One-take hardware jams filmed in the studio, camera on the desk — a contemporary working model of this lab’s deliverable: a piece that exists because a take was kept.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Pre-jam preparation you can infer: what was sound-designed before the camera rolled versus what is decided live.</li>
+          <li>The mixer as instrument — sends and EQ ridden as expressively as any synth.</li>
+          <li>Where the jam sags, and what he reaches for to save it.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Draw the line: which decisions happened before the take (patches, levels, patterns) and which during (rides, mutes, sends)? The before-list is long and the during-list is short — exactly the ratio your lab session should have. Preparation is what makes a single take printable. If the line was unclear, rewatch the first two minutes: everything touched there was prepared; everything touched later is performance.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Stimming+live+jam" target="_blank" rel="noopener">YouTube</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">10</span>
+        <span class="listen-title">Mathew Jonson — Circle of Live (MUTEK Montréal, 2019)</span>
+        <span class="listen-tag">improvised form at ensemble scale</span>
+      </summary>
+      <div class="listen-body">
+        <p>Hours of fully improvised live electronics with several performers sharing one unbroken arc — riding scaled up from a piece to an evening.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Handovers: how one performer’s ride creates space for another’s entry without a word.</li>
+          <li>Form over the long span — peaks that no one planned arriving anyway.</li>
+          <li>What “wrong” means in a music with no score: clashes that resolve into material.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Who was leading at the moment you found most musical? Often no one — the form emerges from listening between performers, each riding toward what they hear. Your solo version of this: your own printed layers become the partner you ride against. If the span felt shapeless, relisten to twenty minutes and mark every peak; the spacing will turn out to be more deliberate than random.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Mathew+Jonson+Circle+of+Live" target="_blank" rel="noopener">YouTube</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+  </div>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Requirement</div>
+    <p>Your written hypothesis names <strong>where this piece’s movement will live</strong> — the hour-long mixer ride, knobs that could not be saved, edits dissolved by motion, takes printed as the record, mutes as form, risk played through, one machine fully worked, gesture made legible, preparation buying the take, or form emerging from listening — and what was stolen from the comparison. The target idea across all ten: <strong>movement recorded once, committed forever, is an arrangement no editor can draw.</strong> What you steal is a structure, never a sound.</p>
+  </div>
+
+  <h2>1 · The two specs — yours to author</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">This is an S4 lab: both specs are authored from the brief alone. The frames below are deliberately blank — the granularity standard is lab 003’s worked example.</p>
+
+  <div class="callout">
+    <div class="callout-label">The brief — constraints only</div>
+    <p>A 6–8 minute original piece whose entire arrangement is <strong>recorded rides</strong>: no drawn automation, no arrangement edits after the take. At most <strong>six mapped controls</strong>, with ranges documented before the first take. Material is self-sampled or self-synthesized. Full takes only; the chosen take’s rides are <strong>printed to audio</strong> and the lanes retired. Required artifacts: live signal-flow diagram · written panic path · one failure rehearsal (a staged wrong move, played through) · recording strategy that captures both the audio and the ride data · post-performance fault report. <span class="code">faultType: performance failure</span>.</p>
+  </div>
+
+  <table class="param-table">
+    <caption>System Spec — blank (S4: author from the brief alone)</caption>
+    <tr><td>Inputs</td><td><span class="code">___</span></td></tr>
+    <tr><td>Transforms</td><td><span class="code">___</span></td></tr>
+    <tr><td>Feedback / variation</td><td><span class="code">___</span></td></tr>
+    <tr><td>Constraints</td><td><span class="code">___</span></td></tr>
+    <tr><td>Human role</td><td><span class="code">___</span></td></tr>
+  </table>
+
+  <table class="param-table">
+    <caption>Engineering Spec — blank (S4: author, then correct after the take)</caption>
+    <tr><td>Signal path</td><td><span class="code">___</span></td></tr>
+    <tr><td>Gain plan</td><td><span class="code">___</span></td></tr>
+    <tr><td>Clock / sync</td><td><span class="code">___</span></td></tr>
+    <tr><td>Latency</td><td><span class="code">___</span></td></tr>
+    <tr><td>Stereo / phase</td><td><span class="code">___</span></td></tr>
+    <tr><td>Noise budget</td><td><span class="code">___</span></td></tr>
+    <tr><td>Print strategy</td><td><span class="code">___</span></td></tr>
+    <tr><td>Failure mode</td><td><span class="code">___</span></td></tr>
+    <tr><td>Safety</td><td><span class="code">___</span></td></tr>
+  </table>
+
+  <h2>2 · Bench preflight</h2>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Pre-flight — before the first take</div>
+    </div>
+    <ul>
+      <li>Live signal-flow diagram drawn and taped where you can see it mid-take — performer’s eye view, not engineer’s</li>
+      <li>Panic path written next to the ride surface: mute → limiter → bypass → stop → fallback loop, one gesture per line, rehearsed once</li>
+      <li>Mapping table filed: six controls at most, each with name, range, and musical job</li>
+      <li>Recording strategy armed and tested: audio printed at the master <em>and</em> the ride data captured — confirm both exist after a 30-second dry run</li>
+      <li>Failure rehearsal scheduled: one staged wrong move in a throwaway take, played through, before the real takes begin</li>
+      <li>Gain ledger applied; monitoring mode declared; phones at the lab-001 mark</li>
+    </ul>
+  </div>
+
+  <h2>3 · Build — forthcoming</h2>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>The step-by-step build lands when Block 7 is authored;</strong> the Phase 0 exit gate governs the order. The listening, brief, blank spec frames, preflight, and pass gate on this page are stable — the numbered build recipe is the part still to come. <span class="status">forthcoming</span></li>
+    </ul>
+  </div>
+
+  <h2>4 · Diagnosis &amp; report</h2>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">The full report bundle — ten items, filed in the logbook</div>
+    </div>
+    <ul>
+      <li>Rendered piece — 24-bit WAV, master peaking −3 dBFS, 6–8 minutes, arranged only by recorded rides</li>
+      <li>Routing diagram — the live signal-flow diagram, drawn before the take, corrected after; the diff is the lesson</li>
+      <li>Recording plan — what was printed, when, at what stage, including the ride-data capture</li>
+      <li>Patch notes — the mapping table with ranges, plus the settings that mattered</li>
+      <li>Session notes — including which take was chosen over which, and why</li>
+      <li>Reflection answers, including the listening comparison — which document contributed what to the hypothesis</li>
+      <li>One removal decision — what was performed out (not edited out) between takes, and what that did</li>
+      <li>Fault entry — the post-performance fault report: symptom, cause, fix, prevention rule (faultType: performance failure)</li>
+      <li>Print map — which rides now exist only as audio, what remains live, what cannot be recovered</li>
+      <li>System diff sentence — “I thought the system worked like X; after building it, I discovered it worked like Y.”</li>
+    </ul>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Minimum pass gate:</strong> audible output · routing diagram · fault entry · print map · system diff. Without these five, the lab is incomplete regardless of audio quality — a musically strong piece cannot bypass the engineering spine.</li>
+    </ul>
+  </div>
+
+  <div class="final">
+    <div class="final-label">Track-lab principle</div>
+    <p>Commitment is a sound. A ride printed once carries a human imprecision that no drawn automation reproduces — and giving up the eraser is what puts it there.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="index.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 07 / Performance &amp; Curation
+    </a>
+    <a href="lab-028.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      Lab 028 / Live Resampling →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Block 7 · Lab 027</div>
+
+</div>
+
+</body>
+</html>

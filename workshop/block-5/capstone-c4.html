@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Capstone C4 — Gate</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="index.html" class="active"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="eyebrow">Block 5 · Capstone C4 · Gate</div>
+    <h1>A Dub-System Piece, Translation-Tested</h1>
+    <p class="lede">Constraints only, no recipe. You have labs 018–022, R5, and programme L5 behind you; this brief asks for one original piece whose space is a drawn architecture, then makes the mix prove itself on three playback systems. The gate is not the piece — it is whether the system you drew survives contact with a phone speaker.</p>
+  </header>
+  <p class="block-meta">Capstone · Gate tier · constraints-only brief · full cycle · requires Block 5 labs + programme L5 complete · closes Block 5 · <span class="status">scaffold</span></p>
+
+  <div class="signal-flow">
+    <span class="signal-node">listen</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">hypothesis</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">draw the path</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">calibrate</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">build</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">fault</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">diagnose</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">print</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">delta</span>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Start here</div>
+    </div>
+    <ul>
+      <li>Open the logbook entries for L5, labs 018–022, and R5 before writing anything — the R5 miss list is your sharpest hypothesis.</li>
+      <li>Write the System Spec and Engineering Spec first; the System Spec must contain the full send/return/feedback drawing before anything is patched.</li>
+      <li>If the architecture includes a feedback path, the <a href="lab-020.html">lab 020 safety checklist</a> runs before any sound, every session.</li>
+      <li>Plan the translation test into the schedule — it is a build stage, not a final check.</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">What a gate is</div>
+    <p>A block does not end when its labs are done; it ends when you can run the operating loop without scaffolding. C4 is deliberately the genre the block has been circling — a dub system — and the only new variables are the absence of instructions and the presence of witnesses: three playback systems that do not care how it sounded on your monitors.</p>
+  </div>
+
+  <h2>1 — Brief &amp; constraints</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Build one original dub-system piece, 6–8 minutes, fully original — steal systems, never material. The space must be a routing architecture you designed: sends, returns, and at least one element whose life happens on a return rather than a track. The stolen principle you named during L5 is now due: it must appear structurally in this piece, and you must point to it in the defense — in the routing, the choreography, or the rules the piece runs on.</p>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Scaffolding:</strong> C4 runs at S3 — both specs are authored from prompts, nothing arrives pre-filled. Write them <em>before</em> patching, using lab 003&rsquo;s filled specs only as a model of granularity. A spec written after the piece is a description, not a spec.</li>
+      <li><strong>The drawing is mandatory.</strong> The System Spec must include the <strong>full send/return/feedback architecture, drawn</strong>: every source, every send (pre or post marked), every return, every feedback path with its safe maximum, and where each level is set. Nothing is patched until the drawing exists; the corrected drawing after the build is part of the bundle, and the diff is the lesson.</li>
+      <li><strong>The translation test is part of the brief,</strong> not a quality bonus: the finished mix is verified across monitors, mono, and a phone speaker, and the written translation report files with the bundle. A mix that only exists on one system does not pass the gate.</li>
+    </ul>
+  </div>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">As at every gate, the brief is a constraint menu — pick four, write them at the top of the spec before anything else, and check them for contradictions before patching. The full C4 constraint menu is <span class="status">forthcoming</span>; the seeds below show its direction and are valid picks now.</p>
+
+  <ol class="rules-list">
+    <li><strong>One space only.</strong> A single return carries every wet sound in the piece — one delay or one reverb, load-bearing, shared by everything.</li>
+    <li><strong>The desk pass.</strong> The final arrangement is one recorded performance of sends and mutes, R5-style — edited takes allowed, drawn automation forbidden.</li>
+    <li><strong>Return-only lead.</strong> The piece&rsquo;s most prominent voice is never heard dry — its dry signal exists only to feed the send.</li>
+    <li><strong>Mono until the last minute.</strong> The mix is built entirely in mono; stereo width may be introduced only once, late, and must survive the mono collapse check unchanged in meaning.</li>
+    <li><strong>One feedback path, performed.</strong> The architecture includes one feedback loop whose amount is ridden as a musical voice — with the lab 020 safety checklist in force.</li>
+  </ol>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Decision check</div>
+    <p>Do your four chosen constraints contradict each other anywhere? A return-only lead inside a mono-until-the-end mix is a hard corner — where will depth come from when width is forbidden? Finding the contradiction before patching is part of the spec work; finding it during the build means the spec was incomplete.</p>
+  </div>
+
+  <h2>2 — Bench delta</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Gate capstones renew the bench certification. Block 5 added sends, returns, a hardware aux path, and a feedback-capable loop to your studio; the gate checks whether the map in your head still matches the room — and then puts the room itself on trial with the translation ritual.</p>
+
+  <ol class="rules-list">
+    <li><strong>Redraw the Studio Signal Map from memory</strong> — no peeking at the current version, no opening sessions. Every source, every gain stage, every monitoring path, and now every send, return, and feedback path, as you believe they are.</li>
+    <li><strong>Compare against the current map.</strong> Mark every discrepancy — a return you forgot, a pre/post state you misremembered, a feedback path with no drawn safe maximum. The diff is the lesson.</li>
+    <li><strong>File the redrawn map as the next version.</strong> The map re-versions at every capstone and every gear arrival; the current version is whichever one survives a redraw.</li>
+    <li><strong>Run the translation ritual below</strong> on the finished mix, and file the written report.</li>
+  </ol>
+
+  <h3 style="text-align: center;">The translation ritual</h3>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">The lab 021 bench, applied with stakes. Play the rendered mix on each system below, at matched moderate level, taking notes <em>during</em> playback — then fix, re-render, and re-test until the piece&rsquo;s meaning survives all three. Each round is logged; the report is the history, not just the final verdict.</p>
+
+  <table class="param-table">
+    <caption>Translation report — one column of notes per system, per round</caption>
+    <tr><td>Monitors (the mixing position)</td><td>the reference: what is the piece&rsquo;s spine, space, and widest element here?</td></tr>
+    <tr><td>Mono (summed, one speaker)</td><td>what survived, what vanished, what changed level? phase and correlation casualties show up here first</td></tr>
+    <tr><td>Phone speaker (worst case)</td><td>does the piece still make sense with no low end and no width? what carries it — and is that what you designed to carry it?</td></tr>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>For every finding:</strong> name the cause in the architecture (a widener on the spine, a return out of phase, a space that only lives in the sides), fix it at the routing — not with a different render setting — and re-run all three systems. The written translation report files the findings, the causes, the fixes, and the rounds it took.</li>
+      <li><strong>Headphone note:</strong> the DT 990 Pro is where you built; it is not one of the three witnesses. If the mix only works there, the report must say so — that sentence is worth more than a flattering render.</li>
+    </ul>
+  </div>
+
+  <h2>3 — Report &amp; synthesis</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">C4 files the full report bundle — the same ten items as a track lab, plus the translation report and the capstone additions below. Capstones run one fault like any track lab: choose a <strong>phase, feedback-routing, or translation</strong> fault — Block 5&rsquo;s territory — and run the full ritual: predict the symptom, create the fault, observe, diagnose the location, fix, write the rule learned.</p>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><rect x="10" y="6" width="24" height="32" rx="3"/><line x1="16" y1="14" x2="28" y2="14"/><line x1="16" y1="21" x2="28" y2="21"/><line x1="16" y1="28" x2="24" y2="28"/></svg></div>
+      <div class="checklist-label">The full bundle — ten items plus one</div>
+    </div>
+    <ul>
+      <li>Rendered piece — 24-bit WAV, peaking around −3 dBFS</li>
+      <li>Routing diagram — the full send/return/feedback architecture, drawn before patching, corrected after; the diff is the lesson</li>
+      <li>Recording plan — what gets printed, when, at what stage; which returns are printed and which stay live</li>
+      <li>Patch notes — the settings that mattered, including every feedback amount and its safe maximum</li>
+      <li>Session notes</li>
+      <li>Reflection answers, including the listening comparison — which L5 reference contributed what to the hypothesis</li>
+      <li>One removal decision — what was cut from the finished piece and why</li>
+      <li>Fault entry — phase, feedback routing, or translation class: predict, create, diagnose, fix, write the prevention rule</li>
+      <li>Print map — what now exists as audio, MIDI, automation, patch state, or device memory; which spaces are printed and which are unrecoverable</li>
+      <li>System diff sentence — &ldquo;I thought the system worked like X; after building it, I discovered it worked like Y.&rdquo;</li>
+      <li><strong>The translation report</strong> — three systems, every finding with its cause, fix, and re-test, signed off only when the piece survives all three</li>
+    </ul>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Minimum pass gate:</strong> audible output · routing diagram · fault entry · print map · system diff · translation report. Missing any one of these means C4 is incomplete regardless of how the piece sounds — a musically strong piece cannot bypass the engineering spine.</li>
+    </ul>
+  </div>
+
+  <table class="param-table">
+    <caption>Pass standard — full rubric <span class="status">forthcoming</span></caption>
+    <tr><td>Minimum pass</td><td>The minimum gate above is complete, the bench certification is renewed, the mix survives monitors, mono, and phone, and the defense questions are answered.</td></tr>
+    <tr><td>Solid pass</td><td>The four constraints audibly shape the piece, the stolen principle can be located in the routing or choreography, and the translation report shows findings that were diagnosed at the architecture, not patched at the render.</td></tr>
+    <tr><td>Advanced transfer</td><td>You can explain how the same dub system would be rewired on an unfamiliar desk — which paths are essential, which are conveniences — without losing the core principle.</td></tr>
+  </table>
+
+  <h3 style="text-align: center;">The seven-layer worksheet</h3>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Capstones only — one page, seven answers, written about <em>this</em> piece. Each layer is a question you answer in a few honest lines.</p>
+
+  <table class="param-table">
+    <caption>Seven layers — answered for this piece</caption>
+    <tr><td>What is the sound, at the level of oscillator, sample, or noise — and which sounds are really returns?</td><td>Material</td></tr>
+    <tr><td>Where does audio travel, get sent, return, feed back, change level, widen, sum?</td><td>Signal</td></tr>
+    <tr><td>What is MIDI, automation, modulation, gesture — which sends were ridden, by what?</td><td>Control</td></tr>
+    <tr><td>What is clocked, what drifts, what resets — and what do the delay times do to the pulse?</td><td>Time</td></tr>
+    <tr><td>Which choices were rules, and which were taste?</td><td>Decision</td></tr>
+    <tr><td>What did your hands actually do, and when?</td><td>Human</td></tr>
+    <tr><td>What is printed, named, versioned — and which spaces are unrecoverable?</td><td>Archive</td></tr>
+  </table>
+
+  <h3 style="text-align: center;">The defense</h3>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Answered in the logbook — but out loud first, as if explaining the piece to a colleague who will check your drawings against the session. Gate-scaled: short answers, no essays.</p>
+
+  <ol class="reflection-list">
+    <li>Draw the final audio path from memory — every send, return, and feedback path included.</li>
+    <li>Draw the control path separately.</li>
+    <li>Identify the most fragile part of the system.</li>
+    <li>Explain one failure and its fix.</li>
+    <li>Explain what was printed, what remains live, and what cannot be recovered.</li>
+    <li>Name the stolen principle and point to where it appears structurally in this piece.</li>
+    <li>Name one thing you removed and why.</li>
+  </ol>
+
+  <h3 style="text-align: center;">Block synthesis</h3>
+
+  <p style="max-width: 640px; margin: 0 auto 24px; color: var(--text-muted); text-align: center;">One paragraph in the logbook: what does Block 5 claim, in your own words — and where did your build disagree with it? The disagreement is not a failure of the block or of you; it is the most useful sentence you will write this cycle.</p>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Passing the gate:</strong> bundle complete + certification renewed + translation report signed off + defense answered. Then Block 6 — Decision Systems opens.</li>
+      <li><strong>Year 2 buffer rule:</strong> if fatigue shows here, the next cycle is a non-portfolio one — repair, remix, documentation cleanup, or a Studio Signal Map revision. The buffer is part of the plan.</li>
+    </ul>
+  </div>
+
+  <div class="final">
+    <div class="final-icon">
+      <svg viewBox="0 0 44 44"><path d="M8 38V14M36 38V14M8 14a14 14 0 0 1 28 0"/><line x1="8" y1="30" x2="36" y2="30"/></svg>
+    </div>
+    <div class="final-label">Gate principle</div>
+    <p>The mix is an architecture, and the architecture is only real if it survives systems that never saw your monitors.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="listening-l5.html">
+      <span class="page-nav-direction">Previous</span>
+      ← L5 / Space as Instrument
+    </a>
+    <a href="../block-6/index.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      06 / Decision Systems →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Block 5 · Capstone C4</div>
+
+</div>
+
+</body>
+</html>

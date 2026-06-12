@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Capstone C2 — Year 1</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="index.html" class="active"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="eyebrow">Block 3 · Capstone C2 · Year 1</div>
+    <h1>Sources × Time, As One System</h1>
+    <p class="lede">Captured sources organized by probabilistic and polymetric time — Block 2&rsquo;s craft and Block 3&rsquo;s craft as a single system, where the captures and the clock logic need each other. Plus a reprise of the C1 piece with the full Year 1 toolkit, and the year synthesis. This is the year&rsquo;s claim — <em>&ldquo;I can trace and capture&rdquo;</em> — made audible and defended.</p>
+  </header>
+  <p class="block-meta">Capstone · Year tier · two cycles · requires Blocks 1–3 and programmes L1–L3 complete · closes Year 1 · <span class="status">scaffold</span></p>
+
+  <div class="signal-flow">
+    <span class="signal-node">listen</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">hypothesis</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">draw the path</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">calibrate</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">build</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">fault</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">diagnose</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">print</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">delta</span>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Start here</div>
+    </div>
+    <ul>
+      <li>Confirm the prerequisites: Blocks 1–3 complete, programmes L1–L3 filed, R1–R3 miss lists in the logbook.</li>
+      <li>Reread the two stolen principles named at L2 and L3 — both are due in this piece.</li>
+      <li>Write the System Spec and Engineering Spec first; a spec written after the piece is only a description.</li>
+      <li>Redraw the Studio Signal Map from memory before opening old maps or sessions.</li>
+      <li>Plan two cycles: the main piece and the C1 reprise are separate builds sharing one report.</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">What a year capstone is</div>
+    <p>A gate capstone checks one block; a year capstone checks whether the blocks have fused. C2&rsquo;s brief is deliberately a sentence, not a recipe: <strong>captured sources organized by probabilistic or polymetric time</strong>. If the piece would survive swapping its field recordings for synth presets, sources and time have not fused — the capture must matter to the clock, and the clock must matter to the capture.</p>
+  </div>
+
+  <h2>1 — Brief &amp; constraints</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Build one original piece, 6–8 minutes, fully original — steal systems, never material — in which your own captured sources (the Block 2 paths: sampling, field, resampling) are organized by the time systems of Block 3 (probability, polymeter, euclidean logic, micro-variation). One system, not a collage: the System Spec must show where the sources and the time rules depend on each other. Both stolen principles — L2&rsquo;s and L3&rsquo;s — are now due: each must appear structurally, and you must point to both in the defense.</p>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Scaffolding:</strong> C2 is an S2 capstone — you author both specs yourself before patching, using lab 003&rsquo;s filled specs as the model for granularity. The Engineering Spec&rsquo;s clock/sync row is the load-bearing one this time: master clock declared, followers named, drift points predicted, reset strategy written. Block 3&rsquo;s five timing artifacts apply to the capstone in full.</li>
+      <li><strong>Constraints menu:</strong> <span class="status">forthcoming</span> — the menu of restrictions (pick four, written at the top of the spec, checked for contradictions before patching) is authored with Block 3. Its shape is final and matches C1&rsquo;s: track budgets, forbidden anchors, clock and length restrictions, capture-only material clauses. Until it lands, the brief above plus the two stolen principles carry the constraint role.</li>
+    </ul>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Second build</div>
+      <h3 class="step-title">The reprise — C1, rebuilt with the Year 1 toolkit</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Reopen the C1 piece — the print map and documentation first, the session second — and rework it with everything the year added: captured sources where there were only synth voices, probability and polymeter where there was only the grid, the resampling paths of lab 007 where there was one path. The reprise is spaced repetition built into assessment: what you reach for now that didn&rsquo;t exist in Block 1 is the measurable difference a year made. File a short before/after note — same piece, new system — beside the render.</p>
+  </div>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Decision check</div>
+    <p>Where exactly do sources and time need each other in your spec? Name the dependency in one sentence before building — &ldquo;the field recording&rsquo;s loudest event resets the polymeter&rdquo; or &ldquo;trig probability rises with the capture&rsquo;s noise floor.&rdquo; If you cannot write the sentence, you have two pieces sharing a project file, not one system.</p>
+  </div>
+
+  <h2>2 — Bench delta</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Year capstones renew the bench certification at year scale. The studio has gained a field kit, a capture archive, and a year of repatching since v1.1; the gate checks whether the map in your head still matches the room — including the paths that didn&rsquo;t exist at C1.</p>
+
+  <ol class="rules-list">
+    <li><strong>Redraw the Studio Signal Map from memory</strong> — every source including the capture paths, every gain stage, every monitoring path, and now every clock relationship: who is master, who follows, where drift can enter.</li>
+    <li><strong>Compare against the latest filed version.</strong> Mark every discrepancy — the diff is the lesson. File the redrawn map as the next version; the current version is whichever one survives a redraw.</li>
+    <li><strong>Re-run the bench certification list from C1</strong> — out loud or on paper, but completely.</li>
+    <li><strong>Renew the Held Tone Test at six minutes</strong> — the lab 005b certification, doubled: one sustained, evolving, beatless passage held for six minutes without losing intention. Time, this block taught, also passes when nothing is triggering.</li>
+  </ol>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Bench certification — renewed at C2</div>
+    </div>
+    <ul>
+      <li>Draw the full studio path, capture paths included</li>
+      <li>Identify every gain stage, field kit included</li>
+      <li>Declare the master clock and every follower; name the drift points</li>
+      <li>State what you are monitoring at any moment — direct, software, pre/post-FX, printed</li>
+      <li>State the reset strategy: what returns the whole system to state zero?</li>
+      <li>Held Tone Test at six minutes</li>
+    </ul>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>If any item fails:</strong> return to the lab that owns it — 001/002 for path and monitoring, 008 for the field kit, 005b for the held tone, 009–012 for clock and reset — before continuing. The gate waits; there is no penalty for the detour, only for skipping it.</li>
+    </ul>
+  </div>
+
+  <h2>3 — Report &amp; synthesis</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">C2 files the full report bundle for the main piece — the same ten items as a track lab — plus the reprise note and the year synthesis. The fault ritual runs in Block 3&rsquo;s territory: choose a clock, drift, or reset fault — a follower left unsynced, a tempo nudged mid-print, a pattern that never returns to state zero — predict its symptom, create it, diagnose, fix, and write the prevention rule.</p>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><rect x="10" y="6" width="24" height="32" rx="3"/><line x1="16" y1="14" x2="28" y2="14"/><line x1="16" y1="21" x2="28" y2="21"/><line x1="16" y1="28" x2="24" y2="28"/></svg></div>
+      <div class="checklist-label">The full bundle — ten items, plus the year additions</div>
+    </div>
+    <ul>
+      <li>Rendered piece — 24-bit WAV, peaking around −3 dBFS</li>
+      <li>Routing diagram — drawn before patching, corrected after; the diff is the lesson</li>
+      <li>Recording plan — what gets printed, when, at what stage</li>
+      <li>Patch notes — the settings that mattered</li>
+      <li>Session notes</li>
+      <li>Reflection answers, including the listening comparison — which L1–L3 reference contributed what to the hypothesis</li>
+      <li>One removal decision — what was cut from the finished piece and why</li>
+      <li>Fault entry — clock, drift, or reset: symptom predicted, fault created, diagnosed, fixed, rule written</li>
+      <li>Print map — what now exists as audio, MIDI, automation, patch state, or device memory; what is reproducible and what is gone</li>
+      <li>System diff sentence — &ldquo;I thought the system worked like X; after building it, I discovered it worked like Y.&rdquo;</li>
+      <li><strong>Year addition:</strong> the C1 reprise render with its before/after note</li>
+      <li><strong>Year addition:</strong> the year synthesis — see below</li>
+    </ul>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Minimum pass gate:</strong> audible output · routing diagram · fault entry · print map · system diff. Missing any one of these means C2 is incomplete regardless of how the piece sounds — a musically strong piece cannot bypass the engineering spine.</li>
+      <li><strong>Self-assessment rubric:</strong> <span class="status">forthcoming</span> — the four-axis rubric (system clarity · audio result · diagnosis · documentation), year-scaled, is authored with Block 3. The track-lab rubric carries you until it lands.</li>
+    </ul>
+  </div>
+
+  <h3 style="text-align: center;">The seven-layer worksheet</h3>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Capstones only — one page, seven answers, written about the <em>main</em> piece. Each layer is a question you answer in a few honest lines. At year tier, the Time row carries the weight: it should read like a small engineering spec on its own.</p>
+
+  <table class="param-table">
+    <caption>Seven layers — answered for this piece</caption>
+    <tr><td>What is the sound — which captures, from where, through which chain?</td><td>Material</td></tr>
+    <tr><td>Where does audio travel, change level, clip, widen, sum?</td><td>Signal</td></tr>
+    <tr><td>What is MIDI, automation, modulation, probability, gesture?</td><td>Control</td></tr>
+    <tr><td>What is clocked, what drifts, what realigns, what resets — and who is master?</td><td>Time</td></tr>
+    <tr><td>Which choices were rules, and which were taste?</td><td>Decision</td></tr>
+    <tr><td>What did your hands actually do, and when?</td><td>Human</td></tr>
+    <tr><td>What is printed, named, versioned — and what is unrecoverable?</td><td>Archive</td></tr>
+  </table>
+
+  <h3 style="text-align: center;">The defense</h3>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Answered in the logbook — but out loud first, as if explaining the piece to a colleague who will check your drawings against the session. Year-scaled: full answers, both builds in scope, both stolen principles named.</p>
+
+  <ol class="reflection-list">
+    <li>Draw the final audio path from memory.</li>
+    <li>Draw the control path separately.</li>
+    <li>Identify the most fragile part of the system.</li>
+    <li>Explain one failure and its fix.</li>
+    <li>Explain what was printed, what remains live, and what cannot be recovered.</li>
+    <li>Name the stolen principle and where it appears structurally — both of them: L2&rsquo;s and L3&rsquo;s, located separately.</li>
+    <li>Name one thing you removed and why.</li>
+  </ol>
+
+  <h3 style="text-align: center;">Year synthesis</h3>
+
+  <p style="max-width: 640px; margin: 0 auto 24px; color: var(--text-muted); text-align: center;">One page in the logbook, written after everything else: what does Year 1 claim — <em>&ldquo;I can trace and capture&rdquo;</em> — and where did your year agree and disagree with it? Cover the three blocks in turn: what the bench taught that the labs didn&rsquo;t say, what capture turned out to mean, what time turned out to be. End with one sentence about what Year 2 should be afraid of, based on your miss lists from R1–R3. The disagreements are not failures of the year or of you; they are the most useful page you will write this cycle.</p>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Closing the year:</strong> bundle complete + reprise filed + certification renewed + defense answered + year synthesis written. Then Year 2 — <a href="../block-4/index.html">Block 4, Transformation</a> — opens, where every path the year built starts being pushed past its clean range.</li>
+    </ul>
+  </div>
+
+  <div class="final">
+    <div class="final-icon">
+      <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="16"/><line x1="22" y1="22" x2="22" y2="11"/><line x1="22" y1="22" x2="30" y2="26"/></svg>
+    </div>
+    <div class="final-label">Year principle</div>
+    <p>A year fuses when its blocks stop being chapters — the capture must matter to the clock, and the clock must matter to the capture.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="listening-l3.html">
+      <span class="page-nav-direction">Previous</span>
+      ← L3 / Process &amp; Pattern
+    </a>
+    <a href="../block-4/index.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      04 / Transformation →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Block 3 · Capstone C2</div>
+
+</div>
+
+</body>
+</html>

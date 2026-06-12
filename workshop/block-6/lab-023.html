@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab 023 — Rule-Based Sequencing</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="index.html" class="active"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="eyebrow">Block 6 · Lab 023 · Track lab</div>
+    <h1>Rule-Based Sequencing</h1>
+    <p class="lede">You stop writing notes and start writing rules: a pool of allowed pitches, a probability table, a density limit. The rules play; you listen, adjust one number at a time, and curate the output into a piece. The music is ambient because the rules are gentle — the method is the whole block in miniature.</p>
+  </header>
+  <p class="block-meta">Track lab · S3 · D4 E2 M1 F2 · generative ambient · full cycle · new concepts: 5</p>
+
+  <div class="signal-flow">
+    <span class="signal-node">listen</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">hypothesis</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">draw the path</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">calibrate</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">build</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">fault</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">diagnose</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">print</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">delta</span>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Start here</div>
+    </div>
+    <ul>
+      <li>Run the ten listening references below first; the hypothesis they produce is the start of the build.</li>
+      <li>Save a new set as <span class="code">LAB-023-rules</span>.</li>
+      <li>This is an S3 lab: both specs are <strong>authored by you</strong> from the prompts below, on paper, before any gear.</li>
+      <li>Declare state, seed, and boundary before the first note — the Block 6 ritual, new in this lab and repeated in every lab of the block.</li>
+      <li>Expected time: one full cycle — two to three weeks of part-time sessions.</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The point</div>
+    <p>Rules generate; you curate. The composer’s job moves one level up — not <em>which note comes next</em>, but <em>which notes are allowed, and how often</em>. A rule you cannot write down as a number is a wish, not a system.</p>
+  </div>
+
+  <h2>How this lab works</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3 class="card-title">Write the rules on paper</h3>
+      <ul class="card-points">
+        <li>A pitch pool of five to seven allowed notes — nothing outside it may sound.</li>
+        <li>A probability table: per step or per beat, the chance that a note fires and the weight of each pitch.</li>
+        <li>A density rule: the maximum number of events per bar — silence is a rule too.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Let the system run</h3>
+      <ul class="card-points">
+        <li>Live 12’s generative MIDI tools (or the Digitakt’s trig conditions) hold the rules; the MicroFreak is the voice.</li>
+        <li>Ten minutes unattended, hands off, recorded in full — the block’s self-running test, run here for the first time.</li>
+        <li>Adjust one number, run again — the one-variable rule applies to rules themselves.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Curate, don’t compose</h3>
+      <ul class="card-points">
+        <li>Record the runs in full; choose 6–8 minutes from the hour.</li>
+        <li>Changing a rule between runs is allowed; grabbing an individual note is forbidden — that is the boundary.</li>
+        <li>Every musical feature in the final piece must be traceable to a rule you can name.</li>
+      </ul>
+    </div>
+  </div>
+
+  <table class="param-table">
+    <caption>Pass standard</caption>
+    <tr><td>Minimum pass</td><td>Audible original piece, audio-path and control-path diagrams (two separate drawings), fault entry, print map, and system diff exist.</td></tr>
+    <tr><td>Solid pass</td><td>You can point at any feature of the piece and name the rule that produced it — and the 10-minute unattended run neither died nor clipped.</td></tr>
+    <tr><td>Advanced transfer</td><td>A fresh run from the logged rule values produces statistically similar music, and you can predict what a rule change will do before you make it.</td></tr>
+  </table>
+
+  <h2>New concepts — in plain words</h2>
+
+  <table>
+    <tr><th>Concept</th><th>In plain words</th></tr>
+    <tr><td><span class="lab-title">Audio path vs control path</span></td><td>Two different rivers. The audio path carries sound — cables, tracks, buses, converters. The control path carries decisions — MIDI, rules, probabilities, mappings. In this block they are always drawn as two separate diagrams, because sound and decisions fail in different ways.</td></tr>
+    <tr><td><span class="lab-title">Generative rule</span></td><td>An instruction that produces notes instead of being notes — a recipe instead of a meal. “Play one pitch from this pool every 1–4 beats, low notes twice as likely” is four bars of music you never wrote.</td></tr>
+    <tr><td><span class="lab-title">Probability table</span></td><td>A list of outcomes with a weight on each — the loaded dice of the system. 60% rest, 30% root, 10% fifth is a musical style expressed as three numbers.</td></tr>
+    <tr><td><span class="lab-title">Seed / repeatability</span></td><td>Where the randomness starts. A seeded system replays the same “random” choices on demand; an unseeded one never repeats. Most of your tools are unseeded — so the logged rule values, run number, and date are your seed substitute. If it isn’t written down, the run is gone.</td></tr>
+    <tr><td><span class="lab-title">Curation</span></td><td>The human role in a generative system: not playing, choosing. The system makes an hour; you decide which six minutes were music and answer for the decision.</td></tr>
+  </table>
+
+  <div class="tag-row">
+    <span class="tag">audio path vs control path</span>
+    <span class="tag">generative rule</span>
+    <span class="tag">probability table</span>
+    <span class="tag">seed</span>
+    <span class="tag">curation</span>
+  </div>
+
+  <h2>Listening — the hypothesis source</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Ten works in which rules did the composing — tape arithmetic, counterpoint laws, probability tables, code, circuits. Each gets a brief: what to listen for before you press play, and how to check yourself after.</p>
+
+  <div class="listen-acc">
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">01</span>
+        <span class="listen-title">Brian Eno — “1/1” (<em>Music for Airports</em>)</span>
+        <span class="listen-tag">the rule is the arrangement</span>
+      </summary>
+      <div class="listen-body">
+        <p>A handful of recorded piano phrases set on long cycles that drift past each other — the “arrangement” is whatever the cycles happen to produce, and it never produces the same minute twice.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>How few distinct phrases there actually are — count them on one pass.</li>
+          <li>Recurrence without exact repetition: the same phrase returns, but its neighbors are always different.</li>
+          <li>The absence of intention — no phrase answers another, yet your ear keeps inventing dialogue between them.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>How many phrases did you count? A small handful — the piece’s wealth comes from combination, not material. Did any pairing repeat exactly? Effectively never: the cycles are long enough that the music outlives your memory of it. If you heard “composition,” relisten tracking one phrase only and notice that its returns obey a cycle, not a feeling.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Brian+Eno+1%2F1+Music+for+Airports" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Brian%20Eno%201%2F1%20Music%20for%20Airports">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">02</span>
+        <span class="listen-title">Brian Eno — <em>Reflection</em></span>
+        <span class="listen-tag">rules at album scale</span>
+      </summary>
+      <div class="listen-body">
+        <p>A generative system released both as software that runs forever and as an album — the album is one print of one run; the rules, not the notes, are the work.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Changes of density and register arriving without sections — no event ever announces itself.</li>
+          <li>The boundary at work: nothing harsh, nothing fast, no register leaps — what has been <em>forbidden</em> is audible as a style.</li>
+          <li>Whether you can catch the system making a “choice” — a moment where you sense an alternative existed.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>What would a second print of this system share with the one you heard? The rules — the palette, the pace, the boundary — and nothing else; every note would differ and the piece would still be unmistakably itself. That is the target of this lab: identity living in the rules, not the output. If that seems abstract, relisten to any ten minutes and ask what stayed constant — it is never a note.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Brian+Eno+Reflection" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Brian%20Eno%20Reflection">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">03</span>
+        <span class="listen-title">Laurie Spiegel — <em>The Expanding Universe</em></span>
+        <span class="listen-tag">logic as counterpoint</span>
+      </summary>
+      <div class="listen-body">
+        <p>Bell Labs’ GROOVE system running compositional logic in real time — algorithmic processes moving several voices at once, and sounding warmer than most hands do. Builds directly on Block 1’s <a href="../block-1/rep-patchwork.html">“Patchwork” lesson</a>; this is the same mind at longer breath.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Several voices changing together in ways one pair of hands could not perform — the tell of a process.</li>
+          <li>Slow harmonic drift that feels inevitable rather than chosen — the rule is steering, not the moment.</li>
+          <li>Where the humanity lives: in the rule design and the curation, not in any played gesture.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Could a performer have played this? The individual lines, perhaps — but not the coordinated drift of all of them; the coherence across voices is the algorithm’s signature. Where “Patchwork” showed you logic at pattern scale, this shows it at form scale. If you heard it as “played,” relisten following two voices simultaneously and notice they turn together, like a flock.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Laurie+Spiegel+The+Expanding+Universe" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Laurie%20Spiegel%20The%20Expanding%20Universe">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">04</span>
+        <span class="listen-title">Lejaren Hiller &amp; Leonard Isaacson — <em>Illiac Suite</em>, Experiment 1</span>
+        <span class="listen-tag">the first computed counterpoint</span>
+      </summary>
+      <div class="listen-body">
+        <p>1956: a computer generates a string quartet by applying the rules of species counterpoint — the first famous answer to “what happens if the rules compose alone?”</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Music that is audibly <em>correct</em> — no forbidden parallels, lawful cadences — yet strangely directionless.</li>
+          <li>The difference between legal and intended: every move is permitted; almost none feels wanted.</li>
+          <li>Moments where the rules accidentally produce beauty — and how you noticed them.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>What was missing? Not correctness — desire. The rules guaranteed grammar, never meaning, and the gap between the two is exactly the space your curation must fill in this lab. Relisten to one movement and mark the two or three passages that work as music; those are the moments a curator would have kept, and the computer could not tell them apart from the rest.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Hiller+Isaacson+Illiac+Suite" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Hiller%20Illiac%20Suite">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">05</span>
+        <span class="listen-title">Terry Riley — “In C”</span>
+        <span class="listen-tag">53 rules, human runtime</span>
+      </summary>
+      <div class="listen-body">
+        <p>Fifty-three short modules and one page of instructions; every performer decides locally when to advance. The score is a generative system whose computer is the ensemble.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The pulse as the only fixed clock — everything else is local decision inside a global rule.</li>
+          <li>Harmonies forming when modules collide — chords nobody wrote, produced by the overlap.</li>
+          <li>The ensemble drifting apart and re-clumping — how the simple “stay within two or three modules of each other” boundary holds the form together.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Who decided the form you heard? Everyone and no one — each player made local choices, and the global arc emerged from the rule. A generative system does not need a computer; it needs a boundary and a clock. If the piece read as chaos, relisten following the pulse and notice how narrow the actual freedom is — that narrowness is the design.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Terry+Riley+In+C" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Terry%20Riley%20In%20C">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">06</span>
+        <span class="listen-title">David Behrman — “On the Other Ocean”</span>
+        <span class="listen-tag">the machine listens back</span>
+      </summary>
+      <div class="listen-body">
+        <p>A 1977 home-built computer listens for specific pitches from flute and bassoon and answers with shifting synthesizer harmonies — a rule system with ears: “when you hear X, do Y.”</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Cause and effect: a played note, then the electronics tilting in response — find three clear instances.</li>
+          <li>The delay between trigger and answer — the system’s reaction time is part of its character.</li>
+          <li>How few rules produce something that feels like conversation.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Who was following whom? Both — the players learn what the machine rewards and start playing <em>to</em> it, which means the rule changed the humans too. An interactive rule is still a rule; the input is just live. If you couldn’t hear the causality, relisten to the opening minutes where the texture is thin and each trigger is exposed.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=David+Behrman+On+the+Other+Ocean" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:David%20Behrman%20On%20the%20Other%20Ocean">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">07</span>
+        <span class="listen-title">Iannis Xenakis — “ST/10-1, 080262”</span>
+        <span class="listen-tag">probability as score</span>
+      </summary>
+      <div class="listen-body">
+        <p>A composition computed on an IBM 7090 from probability distributions — density, pitch, duration, and instrument all drawn from weighted chance. A probability table performed by ten musicians.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Texture as statistics: passages you would describe with a number — “sparser here, denser there” — before you would describe them with a melody.</li>
+          <li>Events that mean nothing alone and everything in mass — single plucks and scrapes that only add up at the scale of seconds.</li>
+          <li>Section boundaries marked by a change of distribution, not a change of theme.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>What did the composer actually choose? Not notes — distributions: how likely, how dense, how long, drawn fresh for each event. That is this lab’s probability table pushed to full scale. If the piece read as random noise, relisten comparing two sections as <em>weather systems</em> — one drizzles, one hails — and the form appears.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Xenakis+ST%2F10" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Xenakis%20ST%2F10">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">08</span>
+        <span class="listen-title">Mileece — <em>Formations</em></span>
+        <span class="listen-tag">code-grown ambient</span>
+      </summary>
+      <div class="listen-body">
+        <p>Generative ambient written as code — small sonic cells seeded and left to grow, the composer working as a gardener of processes rather than a writer of lines.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Organic surface, procedural skeleton — the music sounds grown, not assembled.</li>
+          <li>Cells that recur transformed: the same material at new pitches, spacings, or speeds.</li>
+          <li>How the music breathes without a clock you can tap to.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Did it sound like a machine? Mostly not — which is the finding: rule-based does not mean rigid, and gentleness can be a parameter. The “organic” feel is itself generated: irregular spacing, weighted choices, soft envelopes. Relisten and try to find a grid; failing to find one in code-made music tells you where the craft went.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Mileece+Formations" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Mileece%20Formations">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">09</span>
+        <span class="listen-title">Tristan Perich — <em>1-Bit Symphony</em></span>
+        <span class="listen-tag">the score is a circuit</span>
+      </summary>
+      <div class="listen-body">
+        <p>A microchip in a CD case performs the code live every time you switch it on — there is no recording on the medium at all, only rules waiting to run, with one bit of output: on or off.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Complexity built entirely from on/off — arpeggios and counterpoint with no timbre to hide behind.</li>
+          <li>The ingenuity forced by the constraint: how “loudness” and “space” get faked with rate and pattern.</li>
+          <li>That nothing you hear was ever audio until this playback — the piece exists only as logic.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Where does this piece live? In the rules — the circuit is the score, and every playback is a fresh performance of them. This is the purest version of the lab’s claim: the work <em>is</em> the system. If the one-bit palette wore on you, relisten to one movement asking only what the rules must say — you will start hearing code, which is the point.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Tristan+Perich+1-Bit+Symphony" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Tristan%20Perich%201-Bit%20Symphony">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">10</span>
+        <span class="listen-title">Marsen Jules — <em>The Endless Change of Colour</em></span>
+        <span class="listen-tag">one source, endless run</span>
+      </summary>
+      <div class="listen-body">
+        <p>A single short phrase fed to an algorithm that recombines it without end — the released album is an hour-long excerpt of a piece with no natural stopping point.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>How much variety one source yields when only the rule changes its view of it.</li>
+          <li>The absence of arrival: no minute is more “the piece” than any other.</li>
+          <li>Your own curation reflex — where would you have cut the excerpt, and why there?</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Where did the piece begin and end? Arbitrarily — someone chose a window onto a process that runs forever, which is precisely your final task in this lab: the system makes an hour, the curator answers for six minutes. If every minute sounded the same, relisten to the first and last five minutes back to back; the drift is real, just slower than attention.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Marsen+Jules+The+Endless+Change+of+Colour" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Marsen%20Jules%20The%20Endless%20Change%20of%20Colour">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+  </div>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Requirement</div>
+    <p>Your written hypothesis names <strong>where this piece’s rules will live and what they may decide</strong> — cycles drifting past each other, a boundary audible as style, logic moving voices together, lawful-but-blind counterpoint, modules with human runtime, a rule with ears, probability as weather, gentleness as a parameter, the work existing only as logic, or a window cut from an endless run — and what was stolen from the comparison. The target idea across all ten: <strong>the rules generate, the boundary protects, the human curates.</strong> What you steal is a structure, never a sound.</p>
+  </div>
+
+  <h2>1 · The two specs — author from prompts</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">This is an S3 lab: no fields are provided. Answer each prompt in writing — your answers <em>are</em> the spec — then correct every row against reality after the build.</p>
+
+  <table class="param-table">
+    <caption>System Spec — author from these prompts</caption>
+    <tr><td>Inputs</td><td>Which voice plays the rules — MicroFreak preset, Live instrument? Write the pitch pool as note names: five to seven, no more. What plays besides the generator, if anything?</td></tr>
+    <tr><td>Transforms</td><td>Which rules sit between the pool and the voice — probability per step, density limit, octave rule, rest weight? Write each as a number you could re-enter from the page.</td></tr>
+    <tr><td>Feedback / variation</td><td>What keeps an hour alive — a slow modulation on the rule values themselves, a second rule layer, or nothing but the combinatorics? Where does variation come from when no one is playing?</td></tr>
+    <tr><td>Constraints</td><td>Track budget? One-variable rule between runs? What is <em>forbidden</em> to the system — this row feeds the boundary declaration below.</td></tr>
+    <tr><td>Human role</td><td>Where exactly do you act — rule design, run selection, the final cut? Name what you may <em>not</em> do (touch individual notes) and where that line is written down.</td></tr>
+  </table>
+
+  <table class="param-table">
+    <caption>Engineering Spec — author from these prompts, correct after building</caption>
+    <tr><td>Signal path</td><td>Draw both: source → recorder and source → ears. Which M4 input carries the MicroFreak? Where does the generated MIDI travel — and does it appear on your <em>control-path</em> diagram, not the audio one?</td></tr>
+    <tr><td>Gain plan</td><td>A generative system can fire any density it likes — what peak level do you allow for the densest legal bar, and where is it set? Quote the lab-001 ledger value you are using.</td></tr>
+    <tr><td>Clock / sync</td><td>Who is master clock — Live? Does the generator follow the transport or free-run? What happens to the rules when the transport stops and restarts?</td></tr>
+    <tr><td>Latency</td><td>Is anything monitored live while the system runs? If the run is recorded unattended, what does latency still affect — and what can you safely ignore?</td></tr>
+    <tr><td>Stereo / phase</td><td>Is the voice mono? If width is added, where — and does the piece survive a mono check?</td></tr>
+    <tr><td>Noise budget</td><td>Long quiet stretches are legal output — what will the noise floor be doing during them? Record thirty seconds of “silence” first and write down what you hear.</td></tr>
+    <tr><td>Print strategy</td><td>Do you print every run in full, or only candidates? When a run cannot be reproduced (see seed), what does that force you to print, and when?</td></tr>
+    <tr><td>Failure mode</td><td>Predict one likely failure and how you would see it. This lab’s faultType is <strong>seed</strong> — the canonical failure is a beautiful passage no logged value can regenerate.</td></tr>
+    <tr><td>Safety</td><td>An unattended system plays to an empty chair — set a level ceiling before you leave the room, and write the phones level you will return to.</td></tr>
+  </table>
+
+  <h2>2 · State · seed · boundary — declare before the first note</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">The Block 6 ritual: every lab in this block files this declaration alongside the specs. One honest sentence per row beats a paragraph of hope.</p>
+
+  <table class="param-table">
+    <caption>Decision-system declaration — authored, then corrected after the build</caption>
+    <tr><td>State</td><td>What does the system remember? Where do the rules physically live — Live set, device preset, paper? What survives closing the set, and what evaporates?</td></tr>
+    <tr><td>Seed</td><td>Can a run be reproduced? If your tools expose no seed, declare the substitute: rule values, run number, date, and the printed audio itself. Anything not logged is declared lost in advance.</td></tr>
+    <tr><td>Boundary</td><td>What may the system decide — pitch from the pool, event placement, density up to the limit? What is forbidden — pitch outside the pool, structure, the final cut? The forbidden list is the composition.</td></tr>
+  </table>
+
+  <h2>3 · Bench preflight — two paths, drawn separately</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Block 6 draws every system twice. The audio path carries sound; the control path carries decisions. They share no arrows — if one drawing needs an arrow from the other, you have found a place where a decision becomes audible, and that joint is where faults live.</p>
+
+  <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:11px; letter-spacing:0.2em; text-transform:uppercase;">Audio path — what carries sound</h3>
+  <div class="signal-flow">
+    <span class="signal-node">MicroFreak out</span>
+    <span class="signal-arrow">→ TRS →</span>
+    <span class="signal-node">M4 in 1</span>
+    <span class="signal-arrow">→ USB-C →</span>
+    <span class="signal-node">Live audio track</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">master</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">M4 → DT 990</span>
+  </div>
+
+  <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:11px; letter-spacing:0.2em; text-transform:uppercase;">Control path — what carries decisions</h3>
+  <div class="signal-flow">
+    <span class="signal-node">rule sheet (paper)</span>
+    <span class="signal-arrow">→ entered →</span>
+    <span class="signal-node">Live 12 MIDI generators / transformers</span>
+    <span class="signal-arrow">→ USB MIDI →</span>
+    <span class="signal-node">MicroFreak voice</span>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Honest rig note:</strong> the Digitakt II’s trig conditions, chance, and fill logic are a hardware home for the same rules — and the gear roadmap’s Torso T-1 is this lab’s dedicated path when it arrives. The rules transfer; only the menus change. Whatever holds the rules, it appears on the <em>control</em> diagram only.</li>
+      <li><strong>10-minute unattended test:</strong> this lab self-runs, so it takes the block’s test — start the system, hands off for ten minutes, record everything. Pass: it neither falls silent past its own rules nor clips the densest bar. Fail: fix a rule or a boundary, never a moment.</li>
+    </ul>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Pre-flight — before the first note</div>
+    </div>
+    <ul>
+      <li>Both specs authored on paper from the prompts — this is S3: blank pages, your answers</li>
+      <li>State, seed, and boundary declared — one sentence each, filed with the specs</li>
+      <li>Both diagrams drawn — audio path and control path, two separate drawings</li>
+      <li>Gain ledger from lab 001 applied at M4 in 1; densest-legal-bar peak level chosen and set</li>
+      <li>Control path verified silently first: rules emit MIDI, meters move, no audio yet</li>
+      <li>Every rule value written as a number in the logbook — “some probability” is not a measurement</li>
+      <li>Phones at the lab-001 mark; level ceiling set before any unattended run</li>
+    </ul>
+  </div>
+
+  <h2>4 · Build — forthcoming</h2>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>The step-by-step build lands when Block 6 is authored;</strong> the Phase 0 exit gate governs the order. The listening, spec prompts, declaration, preflight, and pass standard on this page are stable — the numbered build recipe (entering the rules, the unattended runs, the curation passes) is the part still to come. <span class="status">forthcoming</span></li>
+    </ul>
+  </div>
+
+  <h2>5 · Diagnosis &amp; report</h2>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Fault ritual — faultType: seed</div>
+    <p>Predict the symptom → create the fault → observe → diagnose → fix → write the rule. The fault: close the set, reopen it fresh, and attempt to regenerate yesterday’s best passage from the logged rule values alone. Where the regenerated music differs in <em>kind</em> (not just in notes), a value went unlogged — find which one, log it, and write the prevention rule. The expected lesson: an unseeded system is reproducible only as a class, never as a take — which is why the take gets printed.</p>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">The full report bundle — ten items, filed in the logbook</div>
+    </div>
+    <ul>
+      <li>Rendered piece — 24-bit WAV, master peaking −3 dBFS, 6–8 minutes, curated from the runs</li>
+      <li>Routing diagrams — audio path <em>and</em> control path, drawn before patching, corrected after; the diff is the lesson</li>
+      <li>Recording plan — which runs were printed, in full or in part, and when</li>
+      <li>Patch notes — every rule value as a number: pool, weights, density limit, run log</li>
+      <li>Session notes — per run: what the rules did that you did not expect</li>
+      <li>Reflection answers, including the listening comparison — which reference contributed what to the hypothesis</li>
+      <li>One removal decision — a rule or a passage cut, and what cutting it did</li>
+      <li>Fault entry — symptom, cause, fix, prevention rule (faultType: seed)</li>
+      <li>Print map — which runs exist as audio, which rule sets as text, and which passages are gone forever</li>
+      <li>System diff sentence — “I thought the system worked like X; after building it, I discovered it worked like Y.”</li>
+    </ul>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Minimum pass gate:</strong> audible output · routing diagrams (both paths) · fault entry · print map · system diff. Without these five, the lab is incomplete regardless of audio quality — a musically strong piece cannot bypass the engineering spine.</li>
+    </ul>
+  </div>
+
+  <div class="final">
+    <div class="final-label">Track-lab principle</div>
+    <p>The rules generate, the boundary protects, the human curates — and nothing the system makes is yours until you can name the rule that made it and the log that could make it again.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="index.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 06 / Decision Systems
+    </a>
+    <a href="lab-024.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      Lab 024 / The Modulation Organism →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Block 6 · Lab 023</div>
+
+</div>
+
+</body>
+</html>

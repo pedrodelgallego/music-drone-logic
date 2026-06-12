@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab 019 — Reverb as Instrument</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="index.html" class="active"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="eyebrow">Block 5 · Lab 019 · Track lab</div>
+    <h1>Reverb as Instrument</h1>
+    <p class="lede">Reverb pretends to be a room. This lab refuses the pretense: the reverb runs as a sound source — fed single notes, printed, pitched, reversed, and resampled as material — and six to eight minutes of deep ambient are composed from the space itself.</p>
+  </header>
+  <p class="block-meta">Track lab · S3 · D3 E3 M4 F2 · deep ambient · full cycle · new concepts: 5</p>
+
+  <div class="signal-flow">
+    <span class="signal-node">listen</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">hypothesis</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">draw the path</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">calibrate</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">build</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">fault</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">diagnose</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">print</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">delta</span>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Start here</div>
+    </div>
+    <ul>
+      <li>Run the ten listening references below first; the hypothesis they produce is the start of the build.</li>
+      <li>Save a new set as <span class="code">LAB-019-reverb</span>; the resampling diagram from lab 007 returns to the desk — printing tails is a resampling path.</li>
+      <li>This is an S3 lab: both specs are authored by you, from the guided prompts below, before any sound.</li>
+      <li>Material class is M4 — reprocessed: the piece is built from printed tails, not from the notes that made them.</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The point</div>
+    <p>A reverb is only a "room" if you use it as one. Run it 100% wet, feed it one note, and print the tail — you now hold an instrument that no room contains and no synth produces.</p>
+  </div>
+
+  <h2>How this lab works</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3 class="card-title">Build the wet world</h3>
+      <ul class="card-points">
+        <li>A return reverb, 100% wet, with a decay too long to be an honest room.</li>
+        <li>The dry note is a trigger, not a part — it may never reach the master at all.</li>
+        <li>Test: one short note in, and the return sings for ten seconds or more.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Print tails as material</h3>
+      <ul class="card-points">
+        <li>Resample the tails — into Live or the Digitakt — as audio files with names.</li>
+        <li>The print is the instrument: pitch it, reverse it, slice it, stretch it, feed it back in.</li>
+        <li>Each printed tail logged in the print map at the moment of printing, not after.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Compose from space</h3>
+      <ul class="card-points">
+        <li>The piece is assembled from printed tails; the dry sources may never appear.</li>
+        <li>Form comes from which space speaks when — sections are spaces, not riffs.</li>
+        <li>6–8 minutes, fully original — the room is yours because you built it.</li>
+      </ul>
+    </div>
+  </div>
+
+  <table class="param-table">
+    <caption>Pass standard</caption>
+    <tr><td>Minimum pass</td><td>Audible original piece, routing diagram, fault entry, print map, and system diff exist.</td></tr>
+    <tr><td>Solid pass</td><td>A listener cannot point to a single dry note in the final piece — yet nothing reads as "reverb on something"; the space reads as the instrument.</td></tr>
+    <tr><td>Advanced transfer</td><td>You can take one printed tail and name what made it — source note, reverb settings, generation — and rebuild a near match from the print map alone.</td></tr>
+  </table>
+
+  <h2>New concepts — in plain words</h2>
+
+  <table>
+    <tr><th>Concept</th><th>In plain words</th></tr>
+    <tr><td><strong>Reverb as room vs source</strong></td><td>Used as a room, reverb answers "where is this sound?" and should go unnoticed. Used as a source, it answers "what is this sound?" — the tail is the material and the note that triggered it is just the mallet.</td></tr>
+    <tr><td><strong>Tail</strong></td><td>The wash that continues after the input stops — thousands of overlapping reflections fused into a single decaying texture. It carries the input's pitch and color but none of its shape; that is why it can be played as a new sound.</td></tr>
+    <tr><td><strong>Decay time &amp; size</strong></td><td>Decay is how long the tail takes to die; size is how big the imaginary space claims to be. Real rooms couple them. A reverb does not have to — a closet with a sixty-second decay exists nowhere but in your return, which is exactly the point.</td></tr>
+    <tr><td><strong>100% wet</strong></td><td>The device outputs only the processed signal — no dry passes through. On a return this is law (the dry already has its own path), and in this lab it is also the aesthetic: the piece is made of the wet.</td></tr>
+    <tr><td><strong>Printing the tail</strong></td><td>Recording the reverb's output as an audio file — committing space to tape. Printed, a tail stops being a live effect and becomes a sample: pitchable, reversible, sliceable, and feedable back into the reverb for a second generation of space.</td></tr>
+  </table>
+
+  <div class="tag-row">
+    <span class="tag">room vs source</span>
+    <span class="tag">tail</span>
+    <span class="tag">decay &amp; size</span>
+    <span class="tag">100% wet</span>
+    <span class="tag">printing the tail</span>
+  </div>
+
+  <h2>Listening — the hypothesis source</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Ten works where space is the instrument — from a two-million-gallon cistern to studios where the tail outweighs the note. Each gets a brief: what to listen for before you press play, and how to check yourself after.</p>
+
+  <div class="listen-acc">
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">01</span>
+        <span class="listen-title">Pauline Oliveros / Dempster / Panaiotis — “Lear” (<em>Deep Listening</em>)</span>
+        <span class="listen-tag">the cistern is the instrument</span>
+      </summary>
+      <div class="listen-body">
+        <p>Recorded inside the Fort Worden cistern, a tank with a reverberation near forty-five seconds — the players perform <em>with</em> the space, waiting for its answers. This is the lab's anchor: reverb as instrument, literally.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The gap between a played phrase and the room's reply — the musicians leave room for the room.</li>
+          <li>Pitch choices that flatter the tank: notes the space sustains versus notes it swallows.</li>
+          <li>Where the tail of one phrase becomes the drone under the next — the cistern as a third performer holding chords.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Who sustained the long tones — the players or the room? Mostly the room: the performers strike and release, and the cistern does the holding. Notice they never play through their own tails carelessly; the decay time is composed into the phrasing, which is precisely what your spec's decay prompt asks you to decide on purpose. If the space read as "big reverb on horns," relisten to one phrase and time the tail on your phone — then ask what instrument you own that sustains that long. The answer is the return you are about to build.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Pauline+Oliveros+Deep+Listening+Lear" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Pauline%20Oliveros%20Deep%20Listening">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">02</span>
+        <span class="listen-title">Brian Eno — “An Ending (Ascent)”</span>
+        <span class="listen-tag">the tail outweighs the note</span>
+      </summary>
+      <div class="listen-body">
+        <p>A short melody whose treatment is the composition — each note's tail is louder, longer, and more important than its attack, and the harmony lives in the overlap.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The balance: how much of what you hear at any instant is tail rather than note.</li>
+          <li>Chords forming where no chord was played — adjacent notes' tails overlapping into harmony.</li>
+          <li>The shimmer at the top: energy above the played notes, added by the treatment.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Strip the reverb away in your imagination — what remains? A modest, almost plain melody. The piece <em>is</em> the treatment: harmony from overlap, radiance from the processed tail. That is the room-vs-source distinction settled in one track. If you heard it as a melody "with lots of reverb," relisten attending only to what sounds between the notes — that is where most of the music is.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Brian+Eno+An+Ending+Ascent" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Brian%20Eno%20An%20Ending%20Ascent">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">03</span>
+        <span class="listen-title">Harold Budd &amp; Brian Eno — “First Light”</span>
+        <span class="listen-tag">the piano inside the treatment</span>
+      </summary>
+      <div class="listen-body">
+        <p>Budd plays piano <em>into</em> Eno's treatment chain, hearing the processed result as he plays — the space is in the loop of the performance, not added after.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Phrasing shaped by the treatment: slow, sparse playing that leaves the tails room to speak.</li>
+          <li>Where the piano's attack has been softened until it is barely a piano.</li>
+          <li>The treatment changing across the piece — the "room" is being performed too.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Would Budd have played these notes on a dry piano? No — the touch, the tempo, and the gaps only make sense because he was hearing the treated sound while playing. That is the engineering decision hiding in this lab: monitor the wet world while you perform into it, and the performance changes. If the playing seemed merely slow, relisten and ask after each phrase what would have happened to a fast one — the treatment would have smeared it to fog, and the player knows.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Harold+Budd+Brian+Eno+First+Light" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Harold%20Budd%20Brian%20Eno%20First%20Light">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">04</span>
+        <span class="listen-title">Biosphere — “Kobresia”</span>
+        <span class="listen-tag">the voice swallowed by space</span>
+      </summary>
+      <div class="listen-body">
+        <p>A spoken voice dissolved into a vast, cold space until it functions as texture — deep ambient where the reverb decides what the material <em>means</em>.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>How much of the voice is intelligible — and whether you mind that almost none is.</li>
+          <li>The space's color: dark, low-passed, more cave than cathedral; someone EQ'd this room.</li>
+          <li>The few dry-ish elements that keep the piece from floating away entirely.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>What did the reverb do to the voice's meaning? It traded words for atmosphere — the voice stopped being a message and became a place. The room's EQ is the tell that the space is authored: real rooms are not that dark. When you build your return chain, the EQ after the reverb is where you do this kind of authorship. If the space felt "natural," relisten and compare its tone to any real hall you know — it is far darker, and on purpose.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Biosphere+Kobresia" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Biosphere%20Kobresia">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">05</span>
+        <span class="listen-title">Deathprod — “Dead People’s Things”</span>
+        <span class="listen-tag">space as dread</span>
+      </summary>
+      <div class="listen-body">
+        <p>Helge Sten's "audio virus" — old electronics and theremin drowned in cavernous processing until the space itself carries the menace. The same architecture as the shimmer records, tuned to the opposite emotion.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>What makes the space frightening rather than beautiful — darkness, slow swells, no early reflections to grab onto.</li>
+          <li>Sources you cannot identify because the tail has eaten their attacks.</li>
+          <li>The low end of the reverb: rooms this dark have weight, not air.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Same tool as "An Ending (Ascent)" — why does this one read as dread? The spectrum and the attack: tails filtered dark, swells with no onsets, low energy left in the room instead of carved out. Emotion lives in the return chain's EQ and dynamics, not in the notes. If you could not name a single source instrument, good — that is the tail-eats-attack effect your printed tails will exploit. Relisten for one moment where something almost becomes identifiable, then sinks back.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Deathprod+Dead+People%27s+Things" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Deathprod%20Morals%20and%20Dogma">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">06</span>
+        <span class="listen-title">Thomas Köner — <em>Teimo</em></span>
+        <span class="listen-tag">the source disappears entirely</span>
+      </summary>
+      <div class="listen-body">
+        <p>Gongs recorded, processed, and reprocessed until no strike survives — only resonance. The album is the end state of this lab's method: material made entirely of printed, reprocessed tails. (His <em>Permafrost</em> lives in Block 1 as a monitoring study; here the lens is the path.)</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The total absence of attacks — nothing on the record begins; everything is already decaying.</li>
+          <li>Pitch as fog: tonal centers you feel but cannot name a note for.</li>
+          <li>Generations: tails that sound like tails <em>of</em> tails, smoother than any single pass produces.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Could you point to a single event — one moment where a sound starts? No, and that absence is manufacturing: every strike was printed, its onset discarded, and its tail re-fed into the process. This is your print-and-resample loop run to its logical conclusion. If the music felt sourceless, relisten knowing it is gongs — you still will not hear them, and that distance between source and result is the measure of how far printing tails can carry material.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Thomas+K%C3%B6ner+Teimo" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Thomas%20K%C3%B6ner%20Teimo">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">07</span>
+        <span class="listen-title">Loscil — <em>Endless Falls</em></span>
+        <span class="listen-tag">space with a pulse under it</span>
+      </summary>
+      <div class="listen-body">
+        <p>Vancouver deep ambient that keeps a slow dub pulse breathing under the wash — proof that reverb-as-material and rhythm are not enemies, they are a balance.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The rain that opens the record: a real space handing off to built ones.</li>
+          <li>The pulse: felt more than heard, ducking gently under the wash — listen for the tails breathing in time.</li>
+          <li>How the washes are kept from flooding the low end — somewhere, a filter is protecting the pulse.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>What keeps this from becoming shapeless? The pulse — and the discipline of keeping the wash out of the pulse's register. The tails breathe in time, which suggests sidechain or hand-ridden levels: space treated as a mix citizen, not a backdrop. If you did not hear the ducking, relisten to any track at low volume and watch for the wash dimming slightly on each beat. Your return's place in the gain plan is this record's quiet lesson.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Loscil+Endless+Falls" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Loscil%20Endless%20Falls">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">08</span>
+        <span class="listen-title">Rafael Anton Irisarri — <em>A Fragile Geography</em></span>
+        <span class="listen-tag">the wall of tail</span>
+      </summary>
+      <div class="listen-body">
+        <p>Contemporary ambient where reverb and saturation are printed together, layer over layer, into a dense wall — space stacked until it has mass.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Distortion <em>inside</em> the reverb — the grit is part of the space, not the source.</li>
+          <li>Layers of differently-sized spaces sounding at once: near fog and far fog.</li>
+          <li>Swells with no audible trigger — the tail has been edited free of its cause.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Which came first in the chain — the saturation or the reverb? The grain rides evenly through the tails, so much of it lands after or inside the space: a return chain with character devices in it, printed and re-layered. Processor order inside the return is a compositional decision (Block 4's lesson arriving in Block 5's architecture). If the wall read as one space, relisten and separate a close, small darkness from the huge one behind it — at least two geographies are stacked.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Rafael+Anton+Irisarri+A+Fragile+Geography" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Rafael%20Anton%20Irisarri%20A%20Fragile%20Geography">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">09</span>
+        <span class="listen-title">Stars of the Lid — “Don’t Bother They’re Here”</span>
+        <span class="listen-tag">tails as orchestration</span>
+      </summary>
+      <div class="listen-body">
+        <p>Strings and horns whose recorded tails are arranged like voices in a choir — the decay of each chord is given as much compositional attention as its sounding. (Their <em>Requiem</em> lives in Block 2 as a drone study; here the lens is the space.)</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Whether chord changes happen in the notes or in the tails — often a chord "changes" by one tail outliving another.</li>
+          <li>The register placement: tails kept out of each other's way like orchestral parts.</li>
+          <li>The room's size staying constant while the material changes — one space, deliberately maintained.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Where does the harmony actually move? Substantially in the decays: which tail survives decides which chord you are in. That is orchestration applied to reverb — each tail assigned a register and a role. If the piece read as one slow blur, relisten following only the lowest tail and notice it is managed: it always ends before the next low entrance needs the space. Your printed tails deserve the same seating chart.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Stars+of+the+Lid+Don%27t+Bother+They%27re+Here" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Stars%20of%20the%20Lid%20Don%27t%20Bother%20They%27re%20Here">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">10</span>
+        <span class="listen-title">Jónsi &amp; Alex — “Happiness”</span>
+        <span class="listen-tag">shimmer — space above the source</span>
+      </summary>
+      <div class="listen-body">
+        <p>Bowed and sung material lifted into octave-up shimmer — a reverb that adds pitched energy <em>above</em> what entered it, a space that actively transforms instead of reflecting.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The halo an octave above the playing — content no instrument in the room produced.</li>
+          <li>How the shimmer accumulates: each note feeds the halo, and the halo outlasts them all.</li>
+          <li>The emotional reading: why upward-pitched space registers as light, lift, hope.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Is the high radiance being played? No — it is the reverb pitch-shifting its own feedback upward, a space that composes new register. This is the clearest case in the ten of reverb as synthesis: the output contains pitches the input never had. If you heard "strings way up high," relisten to a passage's end — the players stop, and the halo keeps singing. A printed shimmer tail is a melody-maker; treat it as one in your piece.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Jonsi+Alex+Happiness+Riceboy+Sleeps" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Jonsi%20Alex%20Happiness">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+  </div>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Requirement</div>
+    <p>Your written hypothesis names <strong>what your reverb will be as an instrument</strong> — a cistern answered by performers, tails that outweigh notes, a treatment performed into, a space that decides meaning, dread by EQ, sources erased into resonance, a wash with a protected pulse, stacked geographies, tails orchestrated by register, or shimmer that composes new pitch — and what was stolen from the comparison. The target idea across all ten: <strong>space is a sound — print it and it holds still long enough to be played.</strong> What you steal is a structure, never a sound.</p>
+  </div>
+
+  <h2>1 · The two specs — author from prompts</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">This is an S3 lab: no spec is provided. Answer each prompt in writing in the logbook — one or two lines per row — before touching gear, then correct every row against reality after the build.</p>
+
+  <table class="param-table">
+    <caption>System Spec — prompts (author, then verify)</caption>
+    <tr><td>Inputs</td><td>What enters the reverb — MicroFreak notes, Digitakt hits, a recorded object? Triggers are chosen for the tails they produce, not for themselves: which spectra and lengths will excite the space best, and how do you know?</td></tr>
+    <tr><td>Transforms</td><td>The two-stage architecture: reverb (100% wet) makes tails → printing makes them material → what then transforms the prints (pitch, reverse, stretch, slice, re-reverb)? Name the chain and its order, including what sits inside the return after the reverb.</td></tr>
+    <tr><td>Feedback / variation</td><td>Where does the piece keep changing — new triggers into the same space, the same print at new pitches, or second-generation tails (printed tails fed back into the reverb)? Choose one engine of variation and starve the rest.</td></tr>
+    <tr><td>Constraints</td><td>The finished arrangement uses printed tails only — no live reverb in the final pass · ≤6 tracks · one reverb space per section · 6–8 minutes. Add one constraint of your own and defend it.</td></tr>
+    <tr><td>Human role</td><td>What is performed — the triggering, the printing decision (when is a tail worth keeping?), the assembly? Curation is this lab's instrument: who decides which tails live, and by what standard?</td></tr>
+  </table>
+
+  <table class="param-table">
+    <caption>Engineering Spec — prompts (author, then correct after building)</caption>
+    <tr><td>Signal path</td><td>Draw both stages before patching. Stage one: source → M4 in → Live track → send → return (reverb 100% wet) → print to a new track. Stage two: printed tail → transforms → arrangement. Where does the Digitakt sit, and does printing happen in Live, in the Digitakt over USB, or through the analog loop — which lab-007 path, and why?</td></tr>
+    <tr><td>Gain plan</td><td>A reverb tail decays through your noise floor on its way to silence: what level does the tail enter the print at, and how much headroom does the print keep for pitching up later? State nominal and peak for the return and the print.</td></tr>
+    <tr><td>Clock / sync</td><td>Mostly free time — but if tails are sliced to the grid later, who is tempo master at print time? Decide now whether prints are tempo-tagged or left unmeasured.</td></tr>
+    <tr><td>Latency</td><td>Printing through which path adds which delay? If a tail is layered against its own source later, the lab-002 loopback number decides whether they align. State it.</td></tr>
+    <tr><td>Stereo / phase</td><td>The reverb is wide; the print captures that width. Predict in writing what a stereo tail does in mono — then test the print, not just the live return. A tail that vanishes on collapse is this lab's fault, injected on schedule below.</td></tr>
+    <tr><td>Noise budget</td><td>Long tails expose the floor like drones do (lab 005), and every reprint adds a generation (lab 007). Which stage's noise will the prints accumulate, and how many generations before it is audible?</td></tr>
+    <tr><td>Print strategy</td><td>This lab <em>is</em> print strategy: every kept tail is named (<span class="code">tail-source-settings-gen</span>), logged at print time, and entered in the print map. What is the naming scheme, and what makes a tail worth keeping?</td></tr>
+    <tr><td>Failure mode</td><td>Predict one and write its symptom: the wide print that cancels in mono (this lab's fault), a tail printed too hot to pitch up, or second-generation prints that are all floor and no pitch.</td></tr>
+    <tr><td>Safety</td><td>Long-decay washes invite loudness creep exactly like drones do: phones at the lab-001 mark, off every fifteen minutes, and the monitoring level never rises to "hear the tail better" — the fader does.</td></tr>
+  </table>
+
+  <h2>2 · Bench preflight</h2>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Pre-flight — before the first note</div>
+    </div>
+    <ul>
+      <li>Both specs authored in the logbook — every prompt answered in writing</li>
+      <li>Return reverb confirmed 100% wet; decay time written down in seconds, per space</li>
+      <li>The print path chosen and drawn — which lab-007 architecture carries tails to disk, and what it costs</li>
+      <li>Print naming scheme decided before the first print, not after the tenth</li>
+      <li>Gain ledger applied; return and print peaks logged; headroom reserved for pitching</li>
+      <li>Mono check mapped on the master · phones at the mark, off every fifteen minutes</li>
+    </ul>
+  </div>
+
+  <h2>3 · Build — forthcoming</h2>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>The step-by-step build lands when Block 5 is authored;</strong> the Phase 0 exit gate governs the order. The listening, spec prompts, preflight, and pass gate on this page are stable — the numbered build recipe (the wet world · trigger auditions · printing sessions · second generations · assembly from prints · the fault ritual) is the part still to come. <span class="status">forthcoming</span></li>
+    </ul>
+  </div>
+
+  <h2>4 · Diagnosis &amp; report</h2>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>The fault ritual (faultType: phase).</strong> Predict the symptom in writing, then create the fault: take your widest printed tail, push its width to maximum (or swap L/R polarity on one side), and sum the master to mono. Observe what survives — often a thin whisper of a huge sound. Diagnose where the width lived (out-of-phase content cancels; correlated content survives), fix the print (reduce width, check correlation before printing), and write the rule learned. Lab 021 turns this single check into a full bench discipline.</li>
+    </ul>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">The full report bundle — ten items, filed in the logbook</div>
+    </div>
+    <ul>
+      <li>Rendered piece — 24-bit WAV, master peaking −3 dBFS, 6–8 minutes, assembled from printed tails</li>
+      <li>Routing diagram — both stages drawn before patching, corrected after; the diff is the lesson</li>
+      <li>Recording plan — the printing sessions: what was printed, when, through which path</li>
+      <li>Patch notes — per kept tail: source, reverb settings, generation, transforms applied</li>
+      <li>Session notes</li>
+      <li>Reflection answers, including the listening comparison — which record contributed what to the hypothesis</li>
+      <li>One removal decision — which printed tail was cut from the piece and what cutting it did</li>
+      <li>Fault entry — symptom, cause, fix, prevention rule (faultType: phase)</li>
+      <li>Print map — every tail that now exists as audio, its name, its parents, and which parents are unrecoverable</li>
+      <li>System diff sentence — “I thought the system worked like X; after building it, I discovered it worked like Y.”</li>
+    </ul>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Minimum pass gate:</strong> audible output · routing diagram · fault entry · print map · system diff. Without these five, the lab is incomplete regardless of audio quality — a musically strong piece cannot bypass the engineering spine.</li>
+    </ul>
+  </div>
+
+  <div class="final">
+    <div class="final-label">Track-lab principle</div>
+    <p>A reverb fed one note and printed is an instrument no room contains. Space is a sound — commit it to audio and it will hold still long enough to be played.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="lab-018.html">
+      <span class="page-nav-direction">Previous</span>
+      ← Lab 018 / Delay as Composition
+    </a>
+    <a href="lab-020.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      Lab 020 / Feedback Paths →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Block 5 · Lab 019</div>
+
+</div>
+
+</body>
+</html>

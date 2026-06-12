@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Capstone C5 — Year 2</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="index.html" class="active"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="eyebrow">Block 6 · Capstone C5 · Year 2</div>
+    <h1>The Autonomous Installation</h1>
+    <p class="lede">A system that runs for thirty minutes or more with nobody touching it — designed, documented, and defended. This is the lab 024 unattended test scaled up to a piece, and it is where Year 2&rsquo;s claim is tested: that you can transform and diagnose, and that every transformation is path-dependent. The year does not close with a track; it closes with a machine you can stand behind in absentia.</p>
+  </header>
+  <p class="block-meta">Capstone · Year tier · two cycles · requires Blocks 4–6 and programmes L4–L6 complete · closes Year 2</p>
+
+  <div class="signal-flow">
+    <span class="signal-node">listen</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">hypothesis</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">draw the path</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">calibrate</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">build</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">fault</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">diagnose</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">print</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">delta</span>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Start here</div>
+    </div>
+    <ul>
+      <li>Open the logbook entries for L4–L6, labs 013–026, R4–R6, and capstones C3–C4 before writing anything.</li>
+      <li>Confirm the prerequisites: Blocks 4–6 complete, all three programmes filed, three stolen principles named — L6&rsquo;s is due here.</li>
+      <li>Write both specs and both diagrams first — for an autonomous piece, the spec <em>is</em> the piece.</li>
+      <li>Choose the Year 1 piece you will reprise before building the installation; the reprise informs the machine, not the other way around.</li>
+      <li>Plan two cycles. A year capstone is the densest item in the densest year — the Year 2 buffer rule exists for a reason.</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">What a year capstone is</div>
+    <p>A gate capstone closes one block; a year capstone closes three. C5 must integrate transformation (Block 4), space and mix (Block 5), and decision systems (Block 6) into one work — and then prove the year in writing: a reprise that measures how far your hands have come, and a synthesis that says what Year 2 actually taught you, in your own words. It counts as two cycles. Plan it like two.</p>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Unattended is the brief</div>
+    <p>Thirty minutes is three runs of the lab test back to back, and the difference is not arithmetic. At ten minutes a shallow system has not yet embarrassed itself; at thirty, every missing rule, every too-short cycle, every unfenced decision is audible. The piece must remain defensible music the whole time — and you will not be there to save it.</p>
+  </div>
+
+  <h2>1 — Brief &amp; constraints</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Build one original autonomous installation piece. Once started, it runs <strong>30+ minutes unattended</strong> — no hands, no riding, no rescue — and the certification run is recorded from start to finish. Fully original: steal systems, never material. The stolen principle you named during L6 is now due: it must appear structurally in the system&rsquo;s rules, routing, or boundary, and you must point to it in the defense.</p>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Scaffolding:</strong> C5 sits at S3 — you author both specs from prompts, and by now the prompts are the seven questions you would ask anyone else&rsquo;s system: what does it remember, can it be reproduced, what may it decide, what is forbidden, where does audio travel, where do decisions travel, what gets printed.</li>
+      <li><strong>The whole year is admissible.</strong> The system&rsquo;s voices may pass through Block 4&rsquo;s transformations and must sit in a space built with Block 5&rsquo;s routing discipline — sends, returns, translation checked. A Block 6 rule set driving an untreated, unmixed signal path is half a year, not a capstone.</li>
+      <li><strong>Constraint menu:</strong> a menu of formal restrictions for the installation — voice budgets, intervention bans, state ceilings — is <span class="status">forthcoming</span>. The requirements on this page are final and sufficient to run C5 now.</li>
+    </ul>
+  </div>
+
+  <h3 style="text-align: center;">The system spec — documented in full</h3>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">An installation is a system someone else might have to start, stop, and trust. The documentation is therefore not paperwork after the piece — it is a deliverable of equal rank with the audio, and it has three mandatory parts.</p>
+
+  <ol class="rules-list">
+    <li><strong>Two diagrams, drawn separately.</strong> The audio path: every source, gain stage, send, return, and the recorder. The control path: every rule, clock, modulator, probability, and what each one is allowed to touch. If one diagram tries to do both jobs, it fails both.</li>
+    <li><strong>The state / seed / boundary table.</strong> Filled in writing before the certification run — see below. This is the block&rsquo;s three declarations at full scale, and it is what makes the 30-minute run an experiment rather than a hope.</li>
+    <li><strong>The operator card.</strong> One page that lets a stranger run the installation: how to start it, what levels are normal, what failure looks like, how to stop it safely. If the card cannot be written, the system is not yet understood by its own builder.</li>
+    </ol>
+
+  <table class="param-table">
+    <caption>State / seed / boundary — declared before the certification run</caption>
+    <tr><td>State — what the system remembers, at every layer that has memory</td><td>—</td></tr>
+    <tr><td>Seed — what must be restored to reproduce a run; what is honestly irreproducible</td><td>—</td></tr>
+    <tr><td>Boundary — what the system may decide; what is forbidden and how the fence is built</td><td>—</td></tr>
+    <tr><td>Failure plan — the most likely runaway, and what limits it without you in the room</td><td>—</td></tr>
+  </table>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Decision check</div>
+    <p>What happens in minute 23? If your honest answer is &ldquo;I don&rsquo;t know — and the boundary guarantees it will still be music,&rdquo; the system is ready to certify. If the answer is &ldquo;I don&rsquo;t know&rdquo; with no second clause, the boundary work is not done. If the answer is &ldquo;exactly what happened in minute 3,&rdquo; you built a loop, not a system.</p>
+  </div>
+
+  <h3 style="text-align: center;">The certification run</h3>
+
+  <ol class="rules-list">
+    <li><strong>Declare</strong> — file the state / seed / boundary table and both diagrams before starting.</li>
+    <li><strong>Start, record, leave.</strong> The recorder runs for the full duration; you are not in the room. Returning early voids the run; the reason goes in the logbook as a finding.</li>
+    <li><strong>30 minutes minimum, one unbroken take.</strong> The render of this run is the piece filed in the portfolio — curation happens in system design beforehand, not in editing afterwards.</li>
+    <li><strong>Verify against the declaration.</strong> Did the system stay inside its boundary? Did it do anything the spec forbade — or anything the spec never imagined? Both go in the report.</li>
+  </ol>
+
+  <h3 style="text-align: center;">The reprise — a Year 1 piece, rebuilt with the Year 2 toolkit</h3>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Choose one Year 1 piece — C1, C2, or a Block 1–3 track lab — and rework it with what you now have: Block 4&rsquo;s transformations, Block 5&rsquo;s spatial routing, Block 6&rsquo;s decision systems. The reprise is not a remaster and not nostalgia; it is spaced repetition built into assessment. Keep the original&rsquo;s system — its rules, its skeleton — and let the new toolkit change everything the system flows through. File it beside the original render and write one paragraph on the delta: what the 2024-you could not hear, route, or decide that the current you can.</p>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Deliverables of part 1:</strong> the certified 30+ minute render · both diagrams · the state/seed/boundary table · the operator card · the reprise render with its delta paragraph.</li>
+    </ul>
+  </div>
+
+  <h2>2 — Bench delta</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Year capstones re-version the bench at year scale. Two years of gear arrivals — tape deck, mixer, hardware delay, generative sequencer, semi-modular — have rewritten the studio since the map was last redrawn from memory.</p>
+
+  <ol class="rules-list">
+    <li><strong>Redraw the Studio Signal Map from memory</strong> — every source, gain stage, send, return, and monitoring path, including everything that arrived in Year 2. No peeking at prior versions.</li>
+    <li><strong>Draw the studio&rsquo;s control map beside it</strong> — new at this tier: where MIDI, CV, clock, and automation travel between machines. Block 6&rsquo;s two-diagram discipline, applied to the whole room.</li>
+    <li><strong>Compare against the current version and mark every discrepancy.</strong> The diff is the lesson; file the redrawn maps as the next version.</li>
+    <li><strong>Re-run the bench certification list</strong> from C1, plus the year additions below. If any item fails, return to its home lab before continuing — the gate waits.</li>
+  </ol>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Bench certification — renewed at C5</div>
+    </div>
+    <ul>
+      <li>Draw the full studio path, including all Year 2 arrivals</li>
+      <li>Draw the control path of the studio separately — clock, MIDI, CV, automation</li>
+      <li>Identify every gain stage, including every send/return and resampling loop</li>
+      <li>State what you are monitoring at any moment — and what is being printed meanwhile</li>
+      <li>Demonstrate one transformation chain at three input levels and defend one</li>
+      <li>Renew the Held Tone Test at the C5 duration — the C2 test, extended; exact duration with Block 6 authoring <span class="status">forthcoming</span></li>
+    </ul>
+  </div>
+
+  <h2>3 — Report &amp; synthesis</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">C5 files the full report bundle — the same ten items as a track lab, with the year-tier additions below. The fault ritual draws from this block&rsquo;s territory: a <strong>state, seed, or reproducibility</strong> fault — corrupt the saved state, lose the seed declaration, change one rule mid-run — predicted, created, diagnosed, fixed, and written up.</p>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><rect x="10" y="6" width="24" height="32" rx="3"/><line x1="16" y1="14" x2="28" y2="14"/><line x1="16" y1="21" x2="28" y2="21"/><line x1="16" y1="28" x2="24" y2="28"/></svg></div>
+      <div class="checklist-label">The full bundle — ten items, year additions marked</div>
+    </div>
+    <ul>
+      <li>Rendered piece — the certified 30+ minute unattended take, 24-bit WAV, peaking around −3 dBFS</li>
+      <li>Routing diagram<strong>s</strong> — audio path and control path, drawn before patching, corrected after; both diffs are the lesson</li>
+      <li>Recording plan — how a 30-minute unattended take is captured safely: disk, levels, redundancy</li>
+      <li>Patch notes — the settings that mattered, plus the state/seed/boundary table and operator card</li>
+      <li>Session notes — including the voided runs and why they were voided</li>
+      <li>Reflection answers, including the listening comparison — which L4–L6 reference contributed what</li>
+      <li>One removal decision — a rule, voice, or permission you deleted from the system and why</li>
+      <li>Fault entry — a state/seed/reproducibility fault, full ritual</li>
+      <li>Print map — what exists as audio, patch state, rule set, or device memory; what is reproducible from the seed declaration and what is gone forever</li>
+      <li>System diff sentence — &ldquo;I thought the system worked like X; after building it, I discovered it worked like Y.&rdquo;</li>
+    </ul>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Minimum pass gate:</strong> audible output · both routing diagrams · fault entry · print map · system diff. Missing any one of these means C5 is incomplete regardless of how the installation sounds — a musically strong piece cannot bypass the engineering spine.</li>
+    </ul>
+  </div>
+
+  <table class="param-table">
+    <caption>Pass standard — full rubric <span class="status">forthcoming</span></caption>
+    <tr><td>Minimum pass</td><td>The minimum gate above is complete, the 30-minute unattended run is certified in one take, the reprise is filed with its delta paragraph, the bench is re-versioned, and the defense is answered.</td></tr>
+    <tr><td>Solid pass</td><td>The system stayed inside its declared boundary for the full run, the stolen principle is locatable in its rules or routing, and the documentation would let a stranger start and stop the installation safely.</td></tr>
+    <tr><td>Advanced transfer</td><td>A second run from a new seed is a recognizable sibling of the certified run — and you can explain, layer by layer, why the behavior holds while the output differs.</td></tr>
+  </table>
+
+  <h3 style="text-align: center;">The seven-layer worksheet</h3>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Capstones only — one page, seven answers, written about <em>this</em> system. At year tier the Decision and Archive rows carry the most weight: this is the block where decision became a layer you build, and an unattended system is only as real as what survives of it.</p>
+
+  <table class="param-table">
+    <caption>Seven layers — answered for this piece</caption>
+    <tr><td>What is the sound, at the level of oscillator, sample, or noise?</td><td>Material</td></tr>
+    <tr><td>Where does audio travel, change level, clip, widen, sum?</td><td>Signal</td></tr>
+    <tr><td>What is MIDI, CV, automation, modulation, probability — and what does each touch?</td><td>Control</td></tr>
+    <tr><td>What is clocked, what drifts, what cycles, what resets — and over thirty minutes, what repeats?</td><td>Time</td></tr>
+    <tr><td>Which choices were rules, which were chance, which were taste — and where is the boundary?</td><td>Decision</td></tr>
+    <tr><td>What did your hands do, and exactly when did they stop?</td><td>Human</td></tr>
+    <tr><td>What is printed, named, versioned, seeded — and what is unrecoverable?</td><td>Archive</td></tr>
+  </table>
+
+  <h3 style="text-align: center;">The defense</h3>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Answered in the logbook — but out loud first, as if handing the installation to a curator who will run it for a month without you. Year-scaled: full answers, drawings checked against the session, no essays but no shortcuts.</p>
+
+  <ol class="reflection-list">
+    <li>Draw the final audio path from memory.</li>
+    <li>Draw the control path separately — and name what each control line is forbidden to touch.</li>
+    <li>Identify the most fragile part of the system — the rule, patch, or stage most likely to fail in an unattended hour.</li>
+    <li>Explain one failure and its fix — including the fault you injected and any run you had to void.</li>
+    <li>Explain what was printed, what remains live, and what cannot be recovered — could tonight&rsquo;s run be reproduced from the seed declaration alone?</li>
+    <li>Name the stolen principle and point to where it appears structurally in the system.</li>
+    <li>Name one thing you removed and why — a permission counts as a thing.</li>
+  </ol>
+
+  <h3 style="text-align: center;">Year synthesis</h3>
+
+  <p style="max-width: 640px; margin: 0 auto 24px; color: var(--text-muted); text-align: center;">One page in the logbook, beyond the block synthesis: what does Year 2 claim — <em>I can transform and diagnose; every transformation is path-dependent</em> — and where did your year of building agree and disagree with it? Walk the arc in your own words: what Block 4 did to your hearing of degradation, Block 5 to your hearing of space, Block 6 to your idea of authorship. Then one honest paragraph comparing the reprise to its original: the delta between those two renders is the year, measured. End with the sentence Year 3 will be built on: what do you now want a system to do <em>while you perform</em>?</p>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Closing the year:</strong> bundle complete + certification renewed + defense answered + reprise and year synthesis filed. Then Year 3 — <a href="../block-7/index.html">Block 7, Performance &amp; Curation</a> — opens, and the systems you built this year learn to run under stage lights.</li>
+    </ul>
+  </div>
+
+  <div class="final">
+    <div class="final-icon">
+      <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="16"/><path d="M22 12v10l7 5"/></svg>
+    </div>
+    <div class="final-label">Year principle</div>
+    <p>The piece is what the system did while you were out of the room — authorship is everything you decided before you left.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="listening-l6.html">
+      <span class="page-nav-direction">Previous</span>
+      ← L6 / Systems &amp; Chance
+    </a>
+    <a href="../block-7/index.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      07 / Performance →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Block 6 · Capstone C5</div>
+
+</div>
+
+</body>
+</html>

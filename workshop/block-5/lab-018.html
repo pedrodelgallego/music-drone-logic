@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab 018 — Delay as Composition</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="index.html" class="active"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="eyebrow">Block 5 · Lab 018 · Track lab</div>
+    <h1>Delay as Composition</h1>
+    <p class="lede">In dub techno the delay is not polish on a chord — it is the instrument that writes the piece. This lab builds the send/return architecture, feeds it one MicroFreak chord, and composes six to eight minutes where the echoes, not the events, carry the music.</p>
+  </header>
+  <p class="block-meta">Track lab · S3 · D3 E3 M1 F2 · dub techno · full cycle · new concepts: 5</p>
+
+  <div class="signal-flow">
+    <span class="signal-node">listen</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">hypothesis</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">draw the path</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">calibrate</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">build</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">fault</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">diagnose</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">print</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">delta</span>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Start here</div>
+    </div>
+    <ul>
+      <li>Run the ten listening references below first; the hypothesis they produce is the start of the build.</li>
+      <li>Save a new set as <span class="code">LAB-018-dub-delay</span>; the gain ledger from lab 001 stays on the desk.</li>
+      <li>This is an S3 lab: both specs are authored by you, from the guided prompts below, in the logbook — before any cable moves.</li>
+      <li>Hardware aux mixer and tape-style delay welcome if they have arrived (see the block hub); Live return tracks are the full-strength core-rig fallback.</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The point</div>
+    <p>A delay on an insert decorates one track. A delay on a send is a second instrument playing whatever you feed it — and in dub techno, <em>what you send, when, and how hard</em> is the writing.</p>
+  </div>
+
+  <h2>How this lab works</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3 class="card-title">Build the send/return architecture</h3>
+      <ul class="card-points">
+        <li>One return track carrying the delay, 100% wet — the dry channel never touches the device.</li>
+        <li>The send knob, not the clip slot, is where notes are written.</li>
+        <li>Test: with every send at zero, the return is perfectly silent.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Write with the send</h3>
+      <ul class="card-points">
+        <li>One MicroFreak chord stab, sent into the line in patterns — the echo plays more notes than you do.</li>
+        <li>The dry part can sit near silence; the return carries the harmony.</li>
+        <li>Test: mute the dry track for eight bars — the piece must still be there.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Ride regeneration as form</h3>
+      <ul class="card-points">
+        <li>Feedback amount is the arrangement control: low = punctuation, high = weather.</li>
+        <li>Sections are feedback settings, not new elements.</li>
+        <li>Print the ridden sends and returns as audio — the performance is the score.</li>
+      </ul>
+    </div>
+  </div>
+
+  <table class="param-table">
+    <caption>Pass standard</caption>
+    <tr><td>Minimum pass</td><td>Audible original piece, routing diagram, fault entry, print map, and system diff exist.</td></tr>
+    <tr><td>Solid pass</td><td>Mute every dry track for eight bars and the piece still stands — the returns alone carry it.</td></tr>
+    <tr><td>Advanced transfer</td><td>You can rebuild the same passage with the delay as an insert and explain, in routing terms, why it dies.</td></tr>
+  </table>
+
+  <h2>New concepts — in plain words</h2>
+
+  <table>
+    <tr><th>Concept</th><th>In plain words</th></tr>
+    <tr><td><strong>Insert vs send</strong></td><td>An insert puts the effect <em>inside</em> one track's path — everything on that track goes through it. A send pours a copy of the track into a shared bus instead, like cc'ing a letter: the original continues untouched, and the copy goes to the effect.</td></tr>
+    <tr><td><strong>Return track</strong></td><td>The channel where the send's copies arrive and the effect lives. It has its own fader, its own EQ, its own sends — which makes the effect a mixable instrument, not a property of a track.</td></tr>
+    <tr><td><strong>Wet/dry ambiguity</strong></td><td>"Wet" can mean the knob on the device or the balance of the architecture — and the two fight. On a return, the device must be 100% wet; any dry signal it passes arrives twice, slightly late, and combs. The architecture sets the balance; the knob must get out of the way.</td></tr>
+    <tr><td><strong>Regeneration (feedback amount)</strong></td><td>How much of the delay's output is fed back into its own input. At low values each echo is quieter than the last and the tail dies; raise it and the tail lengthens, thickens, and eventually refuses to die. It is the delay's decay-time knob, written as a percentage of survival.</td></tr>
+    <tr><td><strong>Riding the send</strong></td><td>Performing the send amount by hand — feeding the line a loud copy on the hits you choose, starving it the rest of the time. The dub move: the mixer becomes the keyboard, and the echo plays what the ride wrote.</td></tr>
+  </table>
+
+  <div class="tag-row">
+    <span class="tag">insert vs send</span>
+    <span class="tag">return track</span>
+    <span class="tag">wet/dry ambiguity</span>
+    <span class="tag">regeneration</span>
+    <span class="tag">riding the send</span>
+  </div>
+
+  <h2>Listening — the hypothesis source</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Ten works where the delay line is the writing instrument — from Berlin dub techno to the tape-loop systems that invented composing with echo. Each gets a brief: what to listen for before you press play, and how to check yourself after.</p>
+
+  <div class="listen-acc">
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">01</span>
+        <span class="listen-title">Maurizio — “M5”</span>
+        <span class="listen-tag">the chord lives in its echo</span>
+      </summary>
+      <div class="listen-body">
+        <p>One chord, a kick, and a delay line — the canonical dub techno reduction, where the echo carries more of the music than the stab that made it.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>How rarely the chord is actually struck versus how constantly it is present.</li>
+          <li>The echo changing color over the track — same chord, different filtering in the repeats.</li>
+          <li>What defines a "section" when the only materials are a chord, a kick, and a tail.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Count the actual chord hits in one minute — fewer than you remembered, almost certainly. The space between hits is filled by the delay line, and the filtering on the repeats is what makes the track move. If the chord seemed continuous to you, relisten to eight bars and separate the strike (dry, hard left of your attention) from the wash (the return); the proportions are the composition.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Maurizio+M5" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Maurizio%20M5">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">02</span>
+        <span class="listen-title">Basic Channel — “Phylyps Trak”</span>
+        <span class="listen-tag">filter and delay, one organism</span>
+      </summary>
+      <div class="listen-body">
+        <p>The delay does not sit after the music here — it is fused with a moving filter into one breathing system, and the track is the system running.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Whether you can separate "the sound" from "the effect" — and where that separation fails.</li>
+          <li>The filter opening and closing across the repeats, so no two echoes have the same spectrum.</li>
+          <li>How long the track sustains attention with no event you could write in a score.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Could you draw a line between source and treatment? You should not be able to — the chain is the instrument, and the echoes are processed again after they are echoes. That second-stage processing inside the return is what your return chain prompt below is asking about. If you heard "a synth with delay on it," relisten and follow one repeat through its lifetime: it darkens, narrows, and moves — somebody's chain did that to it after the delay.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Basic+Channel+Phylyps+Trak" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Basic%20Channel%20Phylyps%20Trak">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">03</span>
+        <span class="listen-title">Porter Ricks — “Port Gentil”</span>
+        <span class="listen-tag">the room keeps the rhythm</span>
+      </summary>
+      <div class="listen-body">
+        <p>Underwater dub techno where the delay's repeats are placed so they function as percussion — the space does rhythmic work a drum machine would otherwise do.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Echoes landing on rhythmic positions — which subdivisions do the repeats occupy?</li>
+          <li>The texture of the repeats: murky, band-limited, more felt than heard.</li>
+          <li>Which percussive events are actual hits and which are repeats of hits.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Could you tell a played hit from an echoed one? At several points, no — and that ambiguity is the design: a synced delay turns one hit into a rhythm section. If everything read as "drums," relisten to a four-bar stretch and ask of each event: could this be a quieter, darker copy of something two beats earlier? The ones that could are the delay writing the groove.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Porter+Ricks+Port+Gentil" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Porter%20Ricks%20Port%20Gentil">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">04</span>
+        <span class="listen-title">Rhythm &amp; Sound — “King in My Empire”</span>
+        <span class="listen-tag">a song behind the send</span>
+      </summary>
+      <div class="listen-body">
+        <p>A full vocal song run through the dub techno architecture — the sends decide how much of the singer you receive, and the witholding is the arrangement.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The voice's two states: dry and present, or thrown into the echo and dissolving.</li>
+          <li>Which words get sent — the throws are chosen, not periodic.</li>
+          <li>How the band behind the voice is mostly tails: chords you rarely hear struck.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Were the vocal throws on a grid? No — they land on chosen words, which means a hand performed each one on a send. That is riding the send as phrasing: the mixer articulates the lyric. If the throws felt automatic, relisten following only the voice and mark each dissolve — then ask why <em>that</em> word. There is usually an answer, and it is a writer's answer, not an engineer's.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Rhythm+and+Sound+King+in+My+Empire" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Rhythm%20and%20Sound%20King%20in%20My%20Empire">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">05</span>
+        <span class="listen-title">Fluxion — “Lark”</span>
+        <span class="listen-tag">architecture, slowly rotating</span>
+      </summary>
+      <div class="listen-body">
+        <p>Athens dub techno where several delay lines of different lengths run at once — the piece is a building you walk around, hearing the same materials from changing angles.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>More than one delay length operating simultaneously — short repeats inside long ones.</li>
+          <li>Elements drifting against each other as their loops realign — motion nobody is performing.</li>
+          <li>How density is controlled when everything self-multiplies: something must be starved for anything to bloom.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>How many delay lines did you count? Two at minimum, likely three — separable by their repeat times and their tone. With multiple lines, the composer's job inverts: not adding echoes but rationing input so the lines don't flood each other. If it read as one big wash, relisten and time two different repeat intervals against the kick — the moment you hold both, the architecture appears.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Fluxion+Lark+Vibrant+Forms" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Fluxion%20Lark">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">06</span>
+        <span class="listen-title">Yagya — <em>Rhythm of Snow</em></span>
+        <span class="listen-tag">echo as weather</span>
+      </summary>
+      <div class="listen-body">
+        <p>Icelandic dub techno where the delays are tuned so soft and so dense that the repeats stop reading as events and become climate — the gentlest possible answer to the lab's question.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Repeats with no attack: how do you even know they are echoes and not pads?</li>
+          <li>The feedback held just below self-sustain — tails that almost never die, but always do.</li>
+          <li>What carries the rhythm when every echo has been smoothed: usually only the kick and hat survive with edges.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Where is the line between "echo" and "pad" on this record? There almost isn't one — and that is the finding: a delay with filtered, soft-attacked repeats at high regeneration <em>is</em> a pad, synthesized from rhythm. If you heard sustained chords, relisten to their interior: they pulse at the delay time. The weather is made of repeats.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Yagya+Rhythm+of+Snow" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Yagya%20Rhythm%20of%20Snow">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">07</span>
+        <span class="listen-title">DeepChord presents Echospace — <em>The Coldest Season</em></span>
+        <span class="listen-tag">echoes of echoes</span>
+      </summary>
+      <div class="listen-body">
+        <p>Detroit dub techno built by re-recording delay-soaked passes through more delay — generations of echo stacked until the source is a rumor and the processing is the material.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Repeats that themselves have repeats — tails with their own tails, at different times.</li>
+          <li>The hiss and grain riding inside the echoes: noise the loop has farmed across generations.</li>
+          <li>Whether any sound on the record is plausibly first-generation dry.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Did you find a dry sound? Maybe the kick — everything else has been through the line at least once, and most of it more than once. This is lab 007's generation lesson run through Block 5's architecture: the echo of an echo carries both delays' fingerprints. If the layers blurred, relisten to one chord's afterlife and count how many distinct repeat-rates touch it before it is gone.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=DeepChord+presents+Echospace+The+Coldest+Season" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Echospace%20The%20Coldest%20Season">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">08</span>
+        <span class="listen-title">Fripp &amp; Eno — “Evening Star”</span>
+        <span class="listen-tag">the loop accumulates</span>
+      </summary>
+      <div class="listen-body">
+        <p>Guitar played into a long tape-delay loop that keeps everything: each phrase lands on top of the still-circulating past, and the piece is the accumulation.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Phrases returning minutes later, quieter and softer, under the new playing.</li>
+          <li>The harmony thickening over time with no overdubs — the loop is the multitrack.</li>
+          <li>What the player must <em>not</em> do: every note committed will return; restraint is structural.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Where did the chord progression come from? There isn't one in the usual sense — the "progression" is old notes decaying under new ones, harmony as sediment. The performer is composing for the person they will be two minutes from now. If you missed the returns, relisten and pick one distinctive phrase early on, then wait: it comes back, twice, each time more like weather and less like a guitar.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Fripp+Eno+Evening+Star" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Fripp%20Eno%20Evening%20Star">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">09</span>
+        <span class="listen-title">Brian Eno — “Discreet Music”</span>
+        <span class="listen-tag">the system writes the piece</span>
+      </summary>
+      <div class="listen-body">
+        <p>Two short synthesizer phrases fed into a long tape-delay system and left mostly alone — the composer sets up the routing, and the routing does the composing.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>How few distinct melodic inputs there are — two phrases, total — versus half an hour of output.</li>
+          <li>The phrases overlapping at ever-changing offsets: combinations nobody played.</li>
+          <li>The dynamic flatness: no performance gestures, because almost nothing is being performed.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>What did the human contribute after the first few minutes? Almost nothing but supervision — the delay system generated every combination you heard from two inputs. That is the far end of this lab's spectrum: ride the send constantly (dub) or set the architecture and abstain (Eno). Your piece must choose its position. If the piece felt composed bar by bar, relisten and try to find the two source phrases; everything else is the system's arithmetic.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Brian+Eno+Discreet+Music" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Brian%20Eno%20Discreet%20Music">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">10</span>
+        <span class="listen-title">Terry Riley — “Poppy Nogood and the Phantom Band”</span>
+        <span class="listen-tag">the time-lag accumulator</span>
+      </summary>
+      <div class="listen-body">
+        <p>Soprano saxophone into Riley's "time-lag accumulator" — two tape recorders passing one tape between them — so the player duets with their own near past. The phantom band is the delay line, and the rig is rebuildable on yours.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The interval between a played phrase and its first return — the loop length, audible as form.</li>
+          <li>Lines built to interlock with their own repeats: the player phrases <em>for</em> the machine.</li>
+          <li>Density rising and falling with how much Riley feeds the loop — input rationing as dynamics.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Who is the phantom band? The saxophonist, several seconds ago — every voice in the choir is one player displaced in time. Notice that the phrases are written to harmonize with their own returns: the delay time was a compositional decision made before a note was played, exactly the decision your Engineering Spec's clock prompt asks for. If the texture overwhelmed you, relisten to the opening minute and time the first return on your phone; hold that number and the whole piece organizes itself around it.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Terry+Riley+Poppy+Nogood+and+the+Phantom+Band" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Terry%20Riley%20Poppy%20Nogood">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+  </div>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Requirement</div>
+    <p>Your written hypothesis names <strong>where the echo will write in your piece</strong> — the chord living in its repeats, filter and delay fused into one organism, the room keeping rhythm, a song rationed through a send, several lines rotating, repeats smoothed into weather, generations of echo, the loop as sediment, the system left to compose, or phrases written for their own returns — and what was stolen from the comparison. The target idea across all ten: <strong>the echo is not a copy of the music — the echo is the music.</strong> What you steal is a structure, never a sound.</p>
+  </div>
+
+  <h2>1 · The two specs — author from prompts</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">This is an S3 lab: no spec is provided. Answer each prompt in writing in the logbook — one or two lines per row — before touching gear, then correct every row against reality after the build.</p>
+
+  <table class="param-table">
+    <caption>System Spec — prompts (author, then verify)</caption>
+    <tr><td>Inputs</td><td>One MicroFreak chord stab is the writing voice. What about its shape — attack, length, spectrum — lets it survive twenty repeats without turning to mud? Write the patch idea in one line. What else, if anything, enters the system, and why does it earn a send?</td></tr>
+    <tr><td>Transforms</td><td>Design the return chain: delay (100% wet) plus what — a filter? EQ carving the lows out of the loop? gentle saturation inside the repeats? Name the order of devices and defend it: what does each repeat lose or gain per pass?</td></tr>
+    <tr><td>Feedback / variation</td><td>Variation can live in the send amount, the regeneration, or motion inside the return chain. Choose the one you will ride by hand and the ones you will fix — a system where everything moves is a system nobody is playing.</td></tr>
+    <tr><td>Constraints</td><td>≤6 tracks · the dry part must survive being nearly mute · one delay line as the lead voice · 6–8 minutes. Add one constraint of your own and say what clutter it prevents.</td></tr>
+    <tr><td>Human role</td><td>What is performed in real time — the send, the feedback, the mutes? Name the gesture that will be printed as audio, and the moment in the form where it matters most.</td></tr>
+  </table>
+
+  <table class="param-table">
+    <caption>Engineering Spec — prompts (author, then correct after building)</caption>
+    <tr><td>Signal path</td><td>Draw it before patching: MicroFreak → M4 in → Live track → Send A → return (delay, 100% wet) → master → M4 → phones/monitors. Where does the Digitakt sit, and does it get its own send? Which legs are analog, which digital?</td></tr>
+    <tr><td>Gain plan</td><td>Where in the architecture is gain added — send knob, return fader, regeneration? What stops the return from creeping past the dry bus over six minutes? State nominal and peak for the dry bus and the return, in numbers.</td></tr>
+    <tr><td>Clock / sync</td><td>Delay synced to the grid or free-running in milliseconds — which, and what does each cost? (Synced repeats land on subdivisions and read as rhythm; free repeats drift against the kick and read as space.) Who is tempo master?</td></tr>
+    <tr><td>Latency</td><td>The send is ridden live: what are you monitoring while riding — direct or through software — and is the echo you hear the echo that prints? State the buffer and the lab-002 loopback number.</td></tr>
+    <tr><td>Stereo / phase</td><td>Is the delay mono, stereo, or ping-pong? Predict in writing what happens to the echo image in mono — then test it. A ping-pong whose sides cancel is this block's signature wound.</td></tr>
+    <tr><td>Noise budget</td><td>Anything inside a delay loop is copied every repeat — including hiss. Which stage's noise will the loop farm at high regeneration, and at what setting does the floor become audible weather?</td></tr>
+    <tr><td>Print strategy</td><td>Do you print the return separately from the dry bus, or committed together? A ridden send is a performance: when does it become audio, and what stays re-ridable?</td></tr>
+    <tr><td>Failure mode</td><td>Predict one and write its symptom: the return passing dry signal (a combed, hollowed double of the source — this lab's fault), regeneration runaway, or a send stuck pre-fader so muting the track mutes nothing.</td></tr>
+    <tr><td>Safety</td><td>Regeneration has a threshold above which the loop grows without input. Phones at the lab-001 mark, one hand on the return fader for every first test, and know your mute before you need it — lab 020 makes this formal.</td></tr>
+  </table>
+
+  <h2>2 · Bench preflight</h2>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Pre-flight — before the first note</div>
+    </div>
+    <ul>
+      <li>Both specs authored in the logbook — every prompt answered in writing</li>
+      <li>Return track built; delay device confirmed 100% wet; with all sends at −∞ the return meter reads nothing</li>
+      <li>Sends default to −∞ and are raised by hand — never start a session with a send open</li>
+      <li>Gain ledger from lab 001 applied at M4 in; dry-bus and return peaks logged</li>
+      <li>Delay time written down — in note values if synced, in milliseconds if free; "some echo" is not a measurement</li>
+      <li>Mono check mapped on the master · phones at the mark</li>
+    </ul>
+  </div>
+
+  <h2>3 · Build — forthcoming</h2>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>The step-by-step build lands when Block 5 is authored;</strong> the Phase 0 exit gate governs the order. The listening, spec prompts, preflight, and pass gate on this page are stable — the numbered build recipe (architecture · calibration · writing with the send · riding regeneration as form · the fault ritual · printing) is the part still to come. <span class="status">forthcoming</span></li>
+    </ul>
+  </div>
+
+  <h2>4 · Diagnosis &amp; report</h2>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>The fault ritual (faultType: phase).</strong> Predict the symptom in writing, then create the fault: set the return's delay device to pass dry signal (wet/dry at 50%). The send path now delivers the source twice — once on the dry bus, once through the return, a few milliseconds late. Observe the combed, hollow tone; sweep the send and hear the cancellation move; diagnose where the doubled path lives; fix it (device back to 100% wet); write the rule learned. This is the wet/dry ambiguity made audible.</li>
+    </ul>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">The full report bundle — ten items, filed in the logbook</div>
+    </div>
+    <ul>
+      <li>Rendered piece — 24-bit WAV, master peaking −3 dBFS, 6–8 minutes</li>
+      <li>Routing diagram — the send/return architecture drawn before patching, corrected after; the diff is the lesson</li>
+      <li>Recording plan — what was printed, when, at what stage; dry and return printed separately or committed</li>
+      <li>Patch notes — the settings that mattered: delay time, regeneration per section, the return chain in order</li>
+      <li>Session notes</li>
+      <li>Reflection answers, including the listening comparison — which record contributed what to the hypothesis</li>
+      <li>One removal decision — what was cut from the finished piece and what cutting it did</li>
+      <li>Fault entry — symptom, cause, fix, prevention rule (faultType: phase)</li>
+      <li>Print map — what now exists as audio, automation, patch state, or device memory; which rides are reproducible and which are gone</li>
+      <li>System diff sentence — “I thought the system worked like X; after building it, I discovered it worked like Y.”</li>
+    </ul>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Minimum pass gate:</strong> audible output · routing diagram · fault entry · print map · system diff. Without these five, the lab is incomplete regardless of audio quality — a musically strong piece cannot bypass the engineering spine.</li>
+    </ul>
+  </div>
+
+  <div class="final">
+    <div class="final-label">Track-lab principle</div>
+    <p>What you send, when, and how hard — the delay line is the second instrument, and in this music the echo is not a copy of the writing. The echo is the writing.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="index.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 05 / Space &amp; Mix
+    </a>
+    <a href="lab-019.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      Lab 019 / Reverb as Instrument →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Block 5 · Lab 018</div>
+
+</div>
+
+</body>
+</html>

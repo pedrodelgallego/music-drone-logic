@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab 014 — Saturation Staging</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="index.html" class="active"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="eyebrow">Block 4 · Lab 014 · Track lab</div>
+    <h1>Saturation Staging</h1>
+    <p class="lede">The canonical "gain is composition" lab. One chain of nonlinear processors, fed the same material at three input levels — and three different instruments come out. Then the chain is reordered, and a fourth appears. In linear land, level is housekeeping; the moment a saturator enters the path, level is writing. This lab makes that audible, measurable, and then musical: an industrial piece whose arrangement is drive amounts.</p>
+  </header>
+  <p class="block-meta">Track lab · S2 · D3 E3 M2 F2 · industrial · full cycle · new concepts: 5</p>
+
+  <div class="signal-flow">
+    <span class="signal-node">listen</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">hypothesis</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">draw the path</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">calibrate</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">build</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">fault</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">diagnose</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">print</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">delta</span>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Start here</div>
+    </div>
+    <ul>
+      <li>Record your own raw material first — Digitakt drums, struck metal, the MicroFreak run dry: this lab is M2, self-sampled.</li>
+      <li>Save a new set as <span class="code">LAB-014-saturation</span>; the gain ledger stays on the desk and grows new columns here.</li>
+      <li>Work the listening accordion and write the hypothesis before any processing.</li>
+      <li>Complete the gaps in both specs — this is an S2 lab: most fields are provided, the blanks are yours.</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The point</div>
+    <p>Into a linear processor, level is just loudness. Into a nonlinear one, level is <em>tone</em> — the same saturator is a warmer, a thickener, or a destroyer depending only on what you feed it. Once you hear that, the gain knob stops being utility and becomes an instrument.</p>
+  </div>
+
+  <h2>How this lab works</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3 class="card-title">One chain, three levels</h3>
+      <ul class="card-points">
+        <li>Build one fixed chain — e.g. EQ → Saturator → compressor — and never touch its knobs again.</li>
+        <li>Feed the same loop in at low (−20 dBFS), nominal (−12), and hot (−3); print all three.</li>
+        <li>Compare at matched loudness: the differences that remain are what the input level <em>composed</em>.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Order is a parameter</h3>
+      <ul class="card-points">
+        <li>Swap the chain: filter → drive vs drive → filter, EQ before vs after the saturator.</li>
+        <li>Predict the difference in writing before each swap; print and verify.</li>
+        <li>Linear stages commute, nonlinear ones do not — hear where the rule lives.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">A piece written in drive</h3>
+      <ul class="card-points">
+        <li>An industrial track, 6–8 minutes, whose sections are defined by how hard each element hits the chain.</li>
+        <li>Pre-gain pushes, post-gain compensates — loudness stays level while intensity climbs.</li>
+        <li>One deliberate accident kept: the difference between intended distortion and a clip you chose to forgive.</li>
+      </ul>
+    </div>
+  </div>
+
+  <table class="param-table">
+    <caption>Pass standard</caption>
+    <tr><td>Minimum pass</td><td>Audible original piece, routing diagram with levels at every stage, fault entry, print map, and system diff exist.</td></tr>
+    <tr><td>Solid pass</td><td>In a blind A/B of your own renders at matched loudness, you can name which input level and which processor order produced each.</td></tr>
+    <tr><td>Advanced transfer</td><td>You can hear a distorted record and say where in its chain the dirt most likely lives — before the filter or after, intended or accidental — and defend the guess in path terms.</td></tr>
+  </table>
+
+  <h2>New concepts — in plain words</h2>
+
+  <table>
+    <tr><th>Concept</th><th>In plain words</th></tr>
+    <tr><td><span class="lab-title">Linear vs nonlinear</span></td><td>A linear processor treats quiet and loud signals identically — turn the input up 6 dB, the output goes up exactly 6 dB, same shape. A nonlinear one changes its behavior with level, like a polite conversation that becomes a different conversation when you shout.</td></tr>
+    <tr><td><span class="lab-title">Saturation</span></td><td>Gentle, progressive overload: the loudest parts of the wave get squashed and new harmonics appear, related to the input like overtones to a note. Tape, tubes, and the Saturator device all do versions of it — it is distortion with table manners.</td></tr>
+    <tr><td><span class="lab-title">Hard clipping</span></td><td>The cliff edge: a stage that runs out of numbers or volts and simply slices the wave flat. Converter clipping is the accidental kind — it sounds like splatter, carries no music, and lives at whatever stage hit its ceiling, which is rarely the stage you were looking at.</td></tr>
+    <tr><td><span class="lab-title">Pre / post gain compensation</span></td><td>The two knobs around every nonlinear stage: pre-gain decides how hard you hit it (tone), post-gain brings the result back to the planned level (housekeeping). Push one up, pull the other down — intensity changes, loudness does not. This pairing is the lab's core move.</td></tr>
+    <tr><td><span class="lab-title">Processor order</span></td><td>The sequence of the chain. EQ into a saturator changes <em>what gets distorted</em>; a saturator into EQ changes <em>what you keep of the distortion</em>. With linear stages order is cosmetic; with one nonlinear stage in the path, order is composition.</td></tr>
+  </table>
+
+  <div class="tag-row">
+    <span class="tag">linear vs nonlinear</span>
+    <span class="tag">saturation</span>
+    <span class="tag">hard clipping</span>
+    <span class="tag">pre/post gain</span>
+    <span class="tag">processor order</span>
+  </div>
+
+  <h2>Listening — the hypothesis source</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Ten records that compose with overload. None of them is "badly recorded" — every one chose its distortion, staged it, and used level into a nonlinear path as a writing tool. Each gets a brief: what to listen for before you press play, and how to check yourself after.</p>
+
+  <div class="listen-acc">
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">01</span>
+        <span class="listen-title">Regis — “Gymnastics”</span>
+        <span class="listen-tag">drive as groove</span>
+      </summary>
+      <div class="listen-body">
+        <p>Birmingham techno where the saturation is not on the drums — it <em>is</em> the drums: the overload glues kick, hat, and noise into one moving block.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Where one element ends and the next begins — you mostly cannot tell, and that smear is the saturation summing them.</li>
+          <li>The hats: dirty but never harsh — the overload is staged before something that rounds it.</li>
+          <li>What "louder" means inside the track: sections intensify without the meter feeling like it moved.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Was the distortion per-element or on the whole bus? Mostly the bus — the elements share one dirt, which is why they move as a block; per-track distortion would leave each with its own texture. That shared dirt is a print decision, not an effect choice. If you heard separate clean drums, relisten to the hats against the kick: their grit pulses <em>with</em> the kick, which means the kick is driving the stage they share.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Regis+Gymnastics" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Regis%20Gymnastics">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">02</span>
+        <span class="listen-title">Throbbing Gristle — “Discipline”</span>
+        <span class="listen-tag">the system run past its ratings</span>
+      </summary>
+      <div class="listen-body">
+        <p>Live industrial at the origin of the word: every stage — mics, mixer, amps, the room — driven past its comfort zone at once, and the overload of the whole path becomes the music's authority.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>How many different distortions coexist: the vocal's, the synth's, the recording's — each stage clips with its own accent.</li>
+          <li>What stays intelligible anyway — the chant and the pulse survive every overload above them.</li>
+          <li>The crowd and room arriving through the same overdriven path as the band.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Could you separate the performance's distortion from the recording's? Partly — the vocal distortion pumps with the shouting (performance), while a constant grain coats everything evenly (path). Hearing two layers of overload at once is the skill this record trains. If it read as one undifferentiated roar, relisten following only the vocal: notice its dirt <em>moves</em> while the backdrop's dirt holds still.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Throbbing+Gristle+Discipline" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Throbbing%20Gristle%20Discipline">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">03</span>
+        <span class="listen-title">Cabaret Voltaire — “Nag Nag Nag”</span>
+        <span class="listen-tag">fuzz as the front door</span>
+      </summary>
+      <div class="listen-body">
+        <p>Punk-era electronics passed through cheap fuzz until voice, synth, and rhythm box share one snarling surface — distortion as the band's unifying instrument.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The vocal and the synth wearing the same fuzz — evidence they passed through the same box, or boxes set to agree.</li>
+          <li>What the distortion does to the drum machine's timing feel: edges blur, the grid stays.</li>
+          <li>Where the chorus lifts: more drive, not more elements.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>How did the track get bigger at the chorus without adding parts? Input level into the fuzz — harder in, more harmonics out, reads as "more band." That is pre-gain as arrangement, this lab's exact move. If you counted new instruments at the chorus, relisten and try to name one; you will mostly find the same parts, hotter.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Cabaret+Voltaire+Nag+Nag+Nag" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Cabaret%20Voltaire%20Nag%20Nag%20Nag">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">04</span>
+        <span class="listen-title">SPK — “Slogun”</span>
+        <span class="listen-tag">overload as threat</span>
+      </summary>
+      <div class="listen-body">
+        <p>Early industrial at its most extreme: screamed vocals and metal percussion driven so hard the path itself sounds dangerous — the emotional reading of distortion is calibrated by how far past nominal it sits.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The difference between the percussion's distortion (struck metal, naturally rich) and the vocal's (electrically clipped).</li>
+          <li>Moments where the level momentarily drops and the path "recovers" — the cleanest seconds are the scariest by contrast.</li>
+          <li>Whether anything in the track is actually clean — find one element, if you can.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>What made this feel dangerous rather than just loud? The path audibly losing control — clipping that responds to the performance, so the system's distress mirrors the performer's. Calibration note for your build: this is the far end of the drive axis, and it is a <em>choice</em>, reproducible at safe monitoring levels. If it read as noise, relisten once at low volume and notice how composed the structure underneath is.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=SPK+Slogun" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:SPK%20Slogun">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">05</span>
+        <span class="listen-title">Einstürzende Neubauten — “Yü-Gung (Fütter Mein Ego)”</span>
+        <span class="listen-tag">metal into metal</span>
+      </summary>
+      <div class="listen-body">
+        <p>Struck steel and power tools as the drum kit, recorded hot — the source material is already overtone-rich before any electronics, so every later stage multiplies what the metal began.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Which clangs are acoustic overload (the metal itself ringing chaotically) versus electric overload (the chain clipping the recording).</li>
+          <li>The groove's precision underneath the chaos — the hits land machine-tight.</li>
+          <li>How the vocal sits: dry and forward, a clean reference that makes the dirt around it legible.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Why keep the vocal comparatively clean? Contrast calibration — one clean element gives the ear a ruler to measure the surrounding distortion against; dirt on everything reads as mud, dirt against clean reads as power. Note that for your arrangement. If everything sounded equally dirty, relisten to verse one and rank vocal, percussion, and bass by grit — they are distinctly tiered.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Einsturzende+Neubauten+Yu-Gung" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Einsturzende%20Neubauten%20Yu-Gung">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">06</span>
+        <span class="listen-title">Pan Sonic — <em>Vakio</em></span>
+        <span class="listen-tag">distortion under a microscope</span>
+      </summary>
+      <div class="listen-body">
+        <p>Finnish minimalism built from test-tone-like materials and precisely chosen overloads — saturation studied one stage at a time, the laboratory version of what industrial does in a riot.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>How clean the silence around each sound is — the distortion lives <em>inside</em> the elements, never on the bus.</li>
+          <li>Single sine-like tones that clip into buzz and back — you can hear the threshold being crossed and uncrossed.</li>
+          <li>The kick: a thump whose click is pure overload, placed like a drum tuned by drive amount.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Where does the distortion live on this record — per element or on the whole? Per element, surgically: each sound carries its own exactly-dosed overload and the master stays clean, the opposite staging from Regis. Together they are your two poles. If you could not hear thresholds being crossed, relisten to any track's bass tone and wait for the buzz to switch on — that switch is the nonlinearity, naked.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Pan+Sonic+Vakio" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Pan%20Sonic%20Vakio">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">07</span>
+        <span class="listen-title">Ancient Methods — <em>The Jericho Records</em></span>
+        <span class="listen-tag">staged aggression</span>
+      </summary>
+      <div class="listen-body">
+        <p>Modern industrial techno where the aggression is meticulously tiered — drums, chords, and voices each distorted by different amounts, the hierarchy of drive doing the work of a mix.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The tiering: rank three elements in one track by how distorted they are — the ranking is stable and deliberate.</li>
+          <li>Transients surviving the wall: kicks keep their attack inside heavy saturation, which means the order was drive-then-shape, not shape-then-drive.</li>
+          <li>How sections change: drive amounts shift on existing elements more often than elements enter or leave.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Does the heaviest element change from section to section? Listen again to one full track: the answer is usually yes — the drive hierarchy is re-ranked at each section, which is exactly "arrangement by gain." If sections seemed to differ by instrumentation, relisten and check whether the "new" sound is an old one pushed into a new tier.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Ancient+Methods+The+Jericho+Records" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Ancient%20Methods%20The%20Jericho%20Records">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">08</span>
+        <span class="listen-title">Paula Temple — “Deathvox”</span>
+        <span class="listen-tag">contemporary wall engineering</span>
+      </summary>
+      <div class="listen-body">
+        <p>Industrial techno from the 2010s: a distortion wall that would have been mud twenty years earlier, kept legible by modern staging — proof the craft advanced even where the aesthetic stayed brutal.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Low end that stays defined under maximum aggression — the sub is protected from the distortion somewhere in the chain.</li>
+          <li>The wall breathing with the kick: sidechain or bus compression interacting with the saturation.</li>
+          <li>Hi-hats and air on top of the wall — something up there escaped the crush, by routing, not by luck.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>How is the sub still clean inside this much distortion? It is almost certainly split out — distorted mids and highs over a protected low band, a routing decision (band-split drive) rather than a knob setting. Your rig can do this with a crossover or parallel chain. If the whole spectrum seemed equally crushed, relisten on phones and focus below the kick's thump: the fundamental holds steady while everything above it seethes.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Paula+Temple+Deathvox" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Paula%20Temple%20Deathvox">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">09</span>
+        <span class="listen-title">Merzbow — “Woodpecker No. 1”</span>
+        <span class="listen-tag">past the end of the dial</span>
+      </summary>
+      <div class="listen-body">
+        <p>Japanese noise at total saturation: every stage clipping into every other until no source survives — the limit case that defines the axis your piece will sit somewhere along.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Whether you can identify any source at all — what, if anything, survives total overload (rhythmic ghosts, register, gesture).</li>
+          <li>Variation inside the wall: it is not static; the texture churns, which means hands are moving gains somewhere.</li>
+          <li>Your own adaptation: after two minutes, the ear starts hearing detail in what first read as undifferentiated.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Is there composition here? Yes — at full saturation the only remaining parameters are <em>which stage clips</em> and <em>how the gains move</em>, and those are audibly being played. This is the proof that gain riding is performance even when nothing else survives. If you heard only chaos, relisten to the first ninety seconds and track one register (just the lows, say) — it has an arc.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Merzbow+Woodpecker+No+1" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Merzbow%20Woodpecker%20No.%201">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">10</span>
+        <span class="listen-title">British Murder Boys — “Learn Your Lesson”</span>
+        <span class="listen-tag">restraint inside the wall</span>
+      </summary>
+      <div class="listen-body">
+        <p>Regis and Surgeon together: industrial techno where the distortion is constant but the <em>pressure</em> is performed — the track teaches how much dynamic range still exists inside an apparently saturated sound.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Intensity changes that happen with no new elements and no level jump — drive, EQ into the drive, or both.</li>
+          <li>The voice sample: how its intelligibility is rationed by how hard it is hit.</li>
+          <li>The end of the track versus the start: same loop family, different temperature — name what actually changed.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Where does this track keep its dynamics if everything is already loud? Inside the nonlinearity: small pre-gain moves produce large harmonic changes, so the track breathes in <em>density</em> rather than in level. That is the headroom-free dynamics trick your piece should steal. If start and end sounded the same, relisten to the first and last minute only, back to back — the difference you hear was made almost entirely before the distortion stage.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=British+Murder+Boys+Learn+Your+Lesson" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:British%20Murder%20Boys%20Learn%20Your%20Lesson">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+      </div>
+    </details>
+  </div>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Requirement</div>
+    <p>Your written hypothesis names <strong>how this piece will stage its distortion</strong> — bus dirt that glues, the whole path past its ratings, drive as the chorus, overload as threat, a clean ruler against the wall, surgical per-element dosing, a re-ranked drive hierarchy, the protected sub under the crush, gain riding as the last surviving performance, or density as dynamics — and what was stolen from the comparison. The target idea across all ten: <strong>where the level meets the nonlinearity is where this music is written.</strong> What you steal is a structure, never a sound.</p>
+  </div>
+
+  <h2>1 · The two specs — provided, complete the gaps</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">This is an S2 lab: most fields are filled, the <span class="code">___</span> blanks are yours, and every row gets corrected against reality after the build.</p>
+
+  <table class="param-table">
+    <caption>System Spec — complete the blanks, then verify</caption>
+    <tr><td>Inputs</td><td>Self-sampled material only: Digitakt drums, struck metal or objects recorded through the M4, MicroFreak printed dry — list your three parent recordings: <span class="code">___</span></td></tr>
+    <tr><td>Transforms</td><td>One fixed saturation chain (name its three stages in order: <span class="code">___</span>) · input level into the chain as the played parameter · one order-swap variant, printed for comparison</td></tr>
+    <tr><td>Feedback / variation</td><td>Variation comes from drive amounts and processor order, never from new patterns · the drive hierarchy is re-ranked at each section — write the ranking per section before building</td></tr>
+    <tr><td>Constraints</td><td>The chain's knobs freeze after calibration; only gains move · ≤6 tracks · 6–8 minutes · every section change must be explainable as a gain or order decision</td></tr>
+    <tr><td>Human role</td><td>Ride the pre-gains as performance; compensate post-gain so loudness holds while intensity moves · decide which one accident to keep, and defend it</td></tr>
+  </table>
+
+  <table class="param-table">
+    <caption>Engineering Spec — complete the blanks, then correct after building</caption>
+    <tr><td>Signal path</td><td>Parents → Live tracks → per-element chain (utility pre-gain → saturator → post stage) → bus → master · Digitakt material may be driven on-device first — if so, that stage joins the diagram · draw the chain with a level at every arrow</td></tr>
+    <tr><td>Gain plan</td><td>The lab's spine: input to the chain at −20 / −12 / −3 dBFS, same loop · measured output peak and your description of the tone at each: <span class="code">___ / ___ / ___</span> · post-gain values that match all three to equal loudness: <span class="code">___</span></td></tr>
+    <tr><td>Clock / sync</td><td>Live is master; Digitakt follows over USB MIDI · nothing in this lab depends on clock subtleties — flag it only if resampling re-enters the path</td></tr>
+    <tr><td>Latency</td><td>All processing in the box after capture; no live monitoring through the chain is required — if you ride gains live, state your monitoring mode from lab 002: <span class="code">___</span></td></tr>
+    <tr><td>Stereo / phase</td><td>Saturation generates harmonics per channel: check that a stereo parent stays phase-coherent after heavy drive · mono check at each section's hottest moment</td></tr>
+    <tr><td>Noise budget</td><td>Saturation amplifies the floor along with the signal: your −20 dBFS pass lifts the parent's hiss by the make-up amount · measured floor of the hottest section: <span class="code">___</span></td></tr>
+    <tr><td>Print strategy</td><td>Print the three-level comparison and the order-swap comparison as named renders before composing · print each section's processed stems; the riding stays as automation until the final print</td></tr>
+    <tr><td>Failure mode</td><td>Accidental hard clip at a stage you were not watching — track meter green, master or converter red, or a +6 dB utility landing after the saturator instead of before; faultType: <strong>gain into processing</strong></td></tr>
+    <tr><td>Safety</td><td>Distortion at speed invites loudness creep: re-check phones against the lab 001 mark at every session start, and A/B at matched loudness — the louder render always lies</td></tr>
+  </table>
+
+  <h2>2 · Bench preflight</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">The block rule, at full strength: <strong>a level written at the input and output of every processor in the chain</strong> — three times, once per input level. This grid of numbers is the lab's bench artifact; the piece is composed on top of it.</p>
+
+  <div class="signal-flow">
+    <span class="signal-node">parent loop</span>
+    <span class="signal-arrow">→ −20/−12/−3 →</span>
+    <span class="signal-node">pre-gain</span>
+    <span class="signal-arrow">→ level in →</span>
+    <span class="signal-node">saturator</span>
+    <span class="signal-arrow">→ level out →</span>
+    <span class="signal-node">post stage</span>
+    <span class="signal-arrow">→ comp. gain →</span>
+    <span class="signal-node">bus</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">master −3 dBFS</span>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Pre-flight — before any drive is musical</div>
+    </div>
+    <ul>
+      <li>Parents recorded clean at ledger levels — the experiment is worthless if the input is already accidentally dirty</li>
+      <li>The chain built and its knobs frozen; a screenshot or photo of the settings filed</li>
+      <li>The level grid ruled out in the logbook: one row per stage, one column per input level — fill it during calibration</li>
+      <li>Loudness-matching method chosen (post-gain by meter, or a loudness meter on the bus) and noted</li>
+      <li>Order-swap plan written: which two stages swap, and your predicted difference, in writing, before printing</li>
+      <li>Phones at the lab 001 mark; matched-loudness A/B discipline agreed with yourself in advance</li>
+    </ul>
+  </div>
+
+  <h2>3 · Build — <span class="status">forthcoming</span></h2>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>This section is scaffolded, not written.</strong> The full build — calibrating the level grid, printing the three-level and order-swap comparisons, the gain-into-processing fault ritual (predicted symptom: splatter at a stage whose meter you were not watching, traced by walking the chain backwards), and composing the drive-ranked sections — lands when Block 4 is authored. The listening, specs, and preflight above are stable; build against them.</li>
+    </ul>
+  </div>
+
+  <h2>4 · Diagnosis &amp; report</h2>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">The full report bundle — ten items, filed in the logbook</div>
+    </div>
+    <ul>
+      <li>Rendered piece — 24-bit WAV, master peaking −3 dBFS, 6–8 minutes</li>
+      <li>Routing diagram — the chain with the full level grid: in and out of every processor, at all three input levels</li>
+      <li>Recording plan — the comparison renders (three levels, both orders) plus the section stems</li>
+      <li>Patch notes — the frozen chain settings, the post-gain compensation values, and the one forgiven accident</li>
+      <li>Session notes — your tone descriptions per input level, in your own words</li>
+      <li>Reflection answers, including the listening comparison — which record contributed what to the hypothesis</li>
+      <li>One removal decision — what was cut from the finished piece and what cutting it did</li>
+      <li>Fault entry — symptom, cause, fix, prevention rule (faultType: gain into processing)</li>
+      <li>Print map — which drive states exist as audio, which only as automation, and what is no longer reproducible</li>
+      <li>System diff sentence — “I thought the system worked like X; after building it, I discovered it worked like Y.”</li>
+    </ul>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>The fault ritual:</strong> predict the symptom in writing, then create the fault — insert a +6 dB utility <em>after</em> the saturator where the plan said before, and separately push one parent until the converter (not the saturator) clips. Observe both, describe how intended distortion and accidental clipping differ in sound and on the meters, locate each at its stage, fix by moving the right gain, and write the rule learned.</li>
+      <li><strong>Minimum pass gate:</strong> audible output · routing diagram · fault entry · print map · system diff. Without these five, the lab is incomplete regardless of audio quality.</li>
+    </ul>
+  </div>
+
+  <div class="final">
+    <div class="final-label">Track-lab principle</div>
+    <p>Gain is composition: into a nonlinear chain, the level knob writes the timbre, the order writes the sentence, and the compensated loudness is what lets anyone hear it as music instead of as volume.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="lab-013.html">
+      <span class="page-nav-direction">Previous</span>
+      ← Lab 013 / Resonance as Melody
+    </a>
+    <a href="lab-015.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      Lab 015 / Granular Reconstruction →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Block 4 · Lab 014</div>
+
+</div>
+
+</body>
+</html>
