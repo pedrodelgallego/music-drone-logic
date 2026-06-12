@@ -140,6 +140,10 @@
         <td><span class="lab-title">MIDI clock</span></td>
         <td>The metronome signal Live sends over USB so that hardware plays at the same tempo. It keeps the Digitakt at the right speed, but it is coarse: it does not place individual hits precisely.</td>
       </tr>
+      <tr>
+        <td><span class="lab-title">MIDI notes vs CC</span></td>
+        <td>Two different sentences down the same cable: a note says “play this pitch now”; a CC says “this knob is now at value X”. Mapping is deciding which knob a CC sentence steers.</td>
+      </tr>
     </tbody>
   </table>
 
@@ -629,6 +633,41 @@
     </div>
   </div>
 
+  <!-- STEP 6 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Step 06 · Control path</div>
+      <h3 class="step-title">The other cable — notes, CC, and clock</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">The USB cable carries three different sentences — a note (“play this pitch now”), a CC (“this knob is now at value X”), and clock (“tick”). This lab has covered clock; this step proves the other two, because Lab 003’s performance riding depends on them.</p>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <ol>
+        <li>Create a MIDI track (<kbd>⌘ ⇧ T</kbd>), set its output to the MicroFreak port, channel 1, Monitor <strong>In</strong>. Play the Launchpad pads — the MicroFreak sounds: that is the NOTE path, through Live.</li>
+        <li>Now the CC/mapping path: press <kbd>⌘ M</kbd> — Live tints everything mappable. Click a mappable control (a track volume, or a device dial), then move a Launchpad fader or knob; the assignment appears in the mapping browser on the left.</li>
+        <li>Set the Min/Max range for the mapping in that browser row — a mapped knob with a chosen range is a performance decision made in advance.</li>
+        <li>Press <kbd>⌘ M</kbd> again to exit map mode, then move the hardware control and watch the mapped dial follow.</li>
+      </ol>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Expected result</div>
+      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Notes from the pads sound the synth through Live’s path; the mapped dial follows the hardware with the range you chose; and you can say out loud which of the three message types is doing what.</p>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">If it fails</div>
+      <table>
+        <tr><th>Symptom</th><th>Likely cause</th><th>Fix</th></tr>
+        <tr><td>Pads sound nothing</td><td>MIDI track output port or channel wrong, or track Monitor not <strong>In</strong> — or the MicroFreak is sounding from its own keyboard (local), not through Live</td><td>Confirm the output reads the MicroFreak port, channel 1, Monitor <strong>In</strong>; play the Launchpad, not the synth</td></tr>
+        <tr><td>Mapping does nothing when performing</td><td>You are still in <kbd>⌘ M</kbd> map mode</td><td>Exit map mode, then ride</td></tr>
+        <tr><td>The mapped dial jumps harshly when touched</td><td>Range too wide, or hardware far from the dial’s current position</td><td>Narrow the Min/Max range, or move the hardware to the dial’s current position before riding</td></tr>
+      </table>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Logbook</div>
+      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">One line: <em>note path proven · one control mapped, range set · map mode exited.</em></p>
+    </div>
+  </div>
+
   <!-- FAULT RITUAL -->
   <div class="step">
     <div class="step-head">
@@ -707,6 +746,7 @@
       <li>Monitoring-mode comparison completed across all three paths</li>
       <li>“What I hear vs what is printed” table verified and filed</li>
       <li>64-bar drift measurement recorded, with the reset strategy written down</li>
+      <li>One MIDI mapping made, range set, and verified</li>
       <li>Fault entry filed: symptom, cause, fix, prevention rule</li>
       <li>System diff sentence: “I thought monitoring worked like X; it worked like Y”</li>
     </ul>
