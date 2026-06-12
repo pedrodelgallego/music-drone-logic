@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab 005b — The Beatless Long-Form</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="index.html" class="active"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="eyebrow">Block 2 · Lab 005b · Track lab — worked exemplar</div>
+    <h1>The Beatless Long-Form</h1>
+    <p class="lede">The drone strand's worked exemplar: an original 8–12 minute beatless piece, built step by step with every knob position and decision checkpoint spelled out. What Lab 003 is to the loop, this lab is to the drone — and it condenses <a href="../../guide-002/index.html">Lab Note 002</a>, which remains the deep reference.</p>
+  </header>
+  <p class="block-meta">Track lab · S1 · ambient drone · full cycle · condenses Lab Note 002 · introduces the Held Tone Test</p>
+
+  <div class="signal-flow">
+    <span class="signal-node">listen</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">hypothesis</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">draw the path</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">calibrate</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">build</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">fault</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">diagnose</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">print</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">delta</span>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Start here</div>
+    </div>
+    <ul>
+      <li>Run <a href="lab-005.html">Lab 005</a>'s seven listening references first — they are this lab's hypothesis source; do not repeat them here, reuse the worksheets.</li>
+      <li>Read <a href="../../guide-002/index.html">Lab Note 002</a> end to end once before the first session — this page is the condensed path; the note carries the full reasoning.</li>
+      <li>Save a new set as <span class="code">LAB-005B-longform</span>.</li>
+      <li>From Block 1, bring the étude <a href="../block-1/lab-004b.html">004b</a> ledger amendment: your peak target for sustained material. It governs every take in this lab.</li>
+      <li>Expected time: one full cycle — two to three weeks of part-time sessions.</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The point</div>
+    <p>Lab 003 proved that a loop plus subtraction plus drift can carry eight minutes. This lab removes the loop and proves the harder claim: beating, slow modulation, and level can carry ten — with nothing repeating and nothing pulsing.</p>
+  </div>
+
+  <h2>1 · Overview</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3 class="card-title">One patch, four layers</h3>
+      <ul class="card-points">
+        <li>Foundation, interval, and air are three printed passes of one saved MicroFreak patch.</li>
+        <li>The texture bed is that same patch sampled into the Digitakt II and eroded by resampling.</li>
+        <li>Coherence is structural — every layer is the same tone wearing different weight.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Beating is the pulse</h3>
+      <ul class="card-points">
+        <li>The interval pass is detuned against the foundation by a chosen number of cents.</li>
+        <li>Detune in Hz equals beats per second — the pulse is tuned, not programmed.</li>
+        <li>Target 0.3–1.5 Hz; write the number in the spec before recording.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Level is the arrangement</h3>
+      <ul class="card-points">
+        <li>No mutes, no entrances: four volume lanes and one reverb send are the entire form.</li>
+        <li>Every fade is sixty seconds or longer.</li>
+        <li>The "peak" is saturation density at constant level — mass, not loudness.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>2 · The two specs — filled, the worked example</h2>
+
+  <table class="param-table">
+    <caption>System Spec — filled (S1: verify against your build)</caption>
+    <tr><td>Inputs</td><td>One MicroFreak patch (<span class="code">LAB2 VOICE</span>) printed three times — root, interval (detuned a named number of cents), and +2 octaves filtered · one Digitakt II texture bed sampled from the foundation take and resampled 1–2 generations</td></tr>
+    <tr><td>Transforms</td><td>Two slow unsynced modulators inside the patch (LFO → Timbre ~25, one cycle/15–20 s · cycling env → Cutoff ~15, 30–60 s) · per-layer EQ into registers · Hybrid Reverb return blooming mid-piece · Saturator on the bed rising in the final third, gain-compensated</td></tr>
+    <tr><td>Feedback / variation</td><td>Beating at the named rate between foundation and interval · the two modulators never realign · level choreography — which layer is in front, minute by minute</td></tr>
+    <tr><td>Constraints</td><td>One interval for the whole piece · no grid, no synced LFOs, no events · ≤5 tracks + 1 return · every fade ≥60 s · 8–12 minutes</td></tr>
+    <tr><td>Human role</td><td>Design the tone, choose the interval, tune the beat rate — then patience: long hands-off takes, and level rides slower than feels natural</td></tr>
+  </table>
+
+  <table class="param-table">
+    <caption>Engineering Spec — filled (S1: verify, correct after)</caption>
+    <tr><td>Signal path</td><td>MicroFreak → M4 in 1 → <span class="code">FOUNDATION</span>/<span class="code">INTERVAL</span>/<span class="code">AIR</span> (one armed at a time) · Digitakt II main L/R → M4 in 3/4 → <span class="code">BED</span> · master → M4 → DT 990 Pro</td></tr>
+    <tr><td>Gain plan</td><td>Peaks <span class="code">−15 to −12 dBFS</span> — set on the held tone's <em>body</em>, never its first swell; sustained material reads hotter than its peak number (the 004b crest-factor amendment) · master ≤ −3 dBFS including the bloom</td></tr>
+    <tr><td>Clock / sync</td><td>None. Metronome off, ruler in <span class="code">m:ss</span>, every LFO free-running — tempo exists only so the transport records</td></tr>
+    <tr><td>Latency</td><td>Nothing is played in time — buffer 512, software monitoring fine throughout</td></tr>
+    <tr><td>Stereo / phase</td><td>Foundation and interval panned ≤25 % apart · mono check at three points: the beating, the bloom, the erosion must all survive Width 0 %</td></tr>
+    <tr><td>Noise budget</td><td>Hiss is fully exposed under sustained tone — 30 s silence test before the first take; fix at source gain, never later</td></tr>
+    <tr><td>Print strategy</td><td>Ten-minute takes printed whole; editing is trimming and long crossfades only · render 24-bit WAV including the reverb tail</td></tr>
+    <tr><td>Failure mode</td><td>The static drone (modulators too small/slow — diagnosed by A/B of minute 1 vs minute 5) and the wash (reverb carrying unearned interest — diagnosed by muting the return for one minute)</td></tr>
+    <tr><td>Safety</td><td>The most fatiguing material in Year 1: phones at the mark, off every fifteen minutes, no judgments in the first minute back on · low frequencies are felt before they read as loud</td></tr>
+  </table>
+
+  <h2>3 · The Held Tone Test — certified here</h2>
+
+  <div class="callout">
+    <div class="callout-label">A recurring certification</div>
+    <p>Like the bench certification, the Held Tone Test renews at gates: <strong>3 minutes here · 6 minutes at C2 · 10 minutes at C5 and C7</strong>. It is the drone strand's claim, made falsifiable and repeatable.</p>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Certification</div>
+      <h3 class="step-title">One tone, three minutes, documented</h3>
+    </div>
+    <ol class="rules-list">
+      <li>Design and print <strong>one single held tone</strong> — one voice, no layers, no effects — that rewards three unbroken minutes of attention.</li>
+      <li>Sit through it, eyes closed, phones at the mark. No skipping; the test is the sitting.</li>
+      <li>File the take plus <strong>one paragraph naming where the life lives</strong> — which modulator, what rate, what it moves. "It sounds nice" fails; "the cycling envelope opens Wave over 40 seconds while the LFO stirs Timbre every 15" passes.</li>
+      <li>Routing sketch: one line, source to ears, with the gain decision and where it was set (body, not swell).</li>
+    </ol>
+    <div class="decision-check">
+      <div class="decision-check-label">Pass condition</div>
+      <p>You finished the three minutes wanting more rather than checking the clock — and the paragraph proves you know <em>why</em>, mechanically. If it fails, the fix is in the patch (rates, amounts, harmonic content), never in effects.</p>
+    </div>
+  </div>
+
+  <h2>4 · Build — condensed from Lab Note 002</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">The full worked build, with every knob position, choreography table, and decision check, is <a href="../../guide-002/build.html">Lab Note 002 — The build</a>. The condensed path:</p>
+
+  <ol class="rules-list">
+    <li><strong>Gridless project</strong> — metronome off, ruler in minutes, 48 kHz / 24-bit, buffer 512, auto-warp off. Tracks: <span class="code">FOUNDATION</span> · <span class="code">INTERVAL</span> · <span class="code">AIR</span> · <span class="code">BED</span> · return <span class="code">A — REVERB</span> (8–12 s, 100 % wet).</li>
+    <li><strong>The voice</strong> — init patch, one engine committed (Harmo is the worked default), attack ≥2 s, full sustain, cutoff dark. The aliveness mechanism: LFO → Timbre (~25, unsynced, 15–20 s/cycle) and cycling env → Cutoff (~15, 30–60 s loop). Three-minute listen before judging. Save as <span class="code">LAB2 VOICE</span>.</li>
+    <li><strong>Foundation take</strong> — ten minutes, <kbd>Hold</kbd> on the root, hands off for two minutes, at most three minute-long knob moves, drift home by the end. Gain on the body, peaks −15 to −12 dBFS.</li>
+    <li><strong>Interval take</strong> — same patch at the chosen interval; fine-tune against the looping foundation until the pulse sits at the spec's named rate. Ten minutes, hands off. Pan the pair ≤25 % apart; the beating must survive mono.</li>
+    <li><strong>Air + bed</strong> — air: +2 octaves, five minutes, HP 800 Hz, unsynced Echo ≤30 % feedback, fader −25 dB. Bed: sample 30–60 s of the foundation into the Digitakt II, one looped trig, −1 octave, slowest track LFO on cutoff, resample 1–2 generations, print five quiet minutes.</li>
+    <li><strong>Level choreography</strong> — the arrangement is four volume lanes + one send, planned on paper as "which layer is in front, per minute," every fade ≥60 s, S-curves or ridden takes (keep the calmer of two).</li>
+    <li><strong>Bloom and erosion</strong> — reverb send −15 → −6 dB across the middle; Saturator drive +2 → +8 dB on the bed in the final third, output compensated so density rises while the meter does not.</li>
+    <li><strong>Subtract and end</strong> — layers sink in reverse order of arrival; last 60–90 s foundation alone, master fade into the tail.</li>
+    <li><strong>Mix for sustain</strong> — registers by HP (foundation owns &lt;200 Hz), mono check ×3, one full quiet listen, no limiter, peaks ≤ −3 dBFS.</li>
+    <li><strong>Render and step away</strong> — normalize off, listen elsewhere, ten-line notes file, one change next day, <span class="code">v2</span>.</li>
+  </ol>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Prescribed fault — the static drone:</strong> zero both modulation amounts and print two minutes. A/B against the real patch at matched level and write the rule: name the smallest modulation amount at which the tone reads as alive. This is the lab's failure mode, manufactured on purpose so you recognize it when it happens by accident.</li>
+    </ul>
+  </div>
+
+  <h2>5 · Diagnosis &amp; report</h2>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">The full report bundle — ten items, filed in the logbook</div>
+    </div>
+    <ul>
+      <li>Rendered piece — 24-bit WAV, master peaking −3 dBFS, 8–12 minutes</li>
+      <li>Routing diagram — drawn before patching, corrected after; the diff is the lesson</li>
+      <li>Recording plan — what was printed, when, at what stage</li>
+      <li>Patch notes — engine, modulator rates and amounts, the interval, and the beat rate in Hz</li>
+      <li>Session notes</li>
+      <li>Reflection answers, including the listening comparison — which Lab 005 reference contributed what</li>
+      <li>One removal decision — what was cut and what cutting it did</li>
+      <li>Fault entry — symptom, cause, fix, prevention rule</li>
+      <li>Print map — what exists as audio, automation, patch state, device memory; what is gone</li>
+      <li>System diff sentence — “I thought the system worked like X; after building it, I discovered it worked like Y.”</li>
+    </ul>
+  </div>
+
+  <table class="param-table">
+    <caption>Pass standard</caption>
+    <tr><td>Minimum pass</td><td>The bundle above, plus the Held Tone Test certified at 3 minutes.</td></tr>
+    <tr><td>Solid pass</td><td>Minute 1 and minute 5 are audibly different states; no change is catchable in the act; the beating survives mono; the erosion thickens while the meter holds.</td></tr>
+    <tr><td>Advanced transfer</td><td>You can state what each Block 1 loop skill did and did not transfer — and rebuild the same slowness from a different engine or interval.</td></tr>
+  </table>
+
+  <ol class="reflection-list">
+    <li>Where does this piece's slowness live — and is that where your hypothesis said it would?</li>
+    <li>What did the beating contribute that one modulated tone could not?</li>
+    <li>Which level ride mattered most, and was it also the slowest?</li>
+    <li>What did the Lab 003 skills mislead you about here?</li>
+    <li>At which minute did your attention die during the full playback — and which layer's interior was parked when it did?</li>
+  </ol>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Worked system diff — the expected granularity</div>
+    <p>“I thought the piece would live in the layering; it lived in the detune — the layers were just where the beating happened.”</p>
+  </div>
+
+  <div class="final">
+    <div class="final-label">Track-lab principle</div>
+    <p>A drone is slow, not static — remove the clock and beating, modulation, and level must do all of its work.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="lab-005.html">
+      <span class="page-nav-direction">Previous</span>
+      ← Lab 005 / Sustained Tone &amp; Slow Modulation
+    </a>
+    <a href="lab-006.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      Lab 006 / Capturing the World →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Block 2 · Lab 005b</div>
+
+</div>
+
+</body>
+</html>
