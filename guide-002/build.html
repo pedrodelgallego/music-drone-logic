@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beatless Long-Form Guide — The Build</title>
+<link rel="stylesheet" href="../guide/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label">Contents</p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="decisions.html"><span class="nav-num">02</span>Decisions</a>
+  <a href="palette.html"><span class="nav-num">03</span>Sound palette</a>
+  <a href="arrangement.html"><span class="nav-num">04</span>Arrangement</a>
+  <a href="build.html" class="active"><span class="nav-num">05</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">06</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="eyebrow">05 — The build</div>
+    <h1>Step-by-step</h1>
+    <p class="lede">Ten steps, each with a decision checkpoint. The wiring is the <a href="../guide/studio.html">Lab Note 001 studio page</a>, unchanged — keep it open in another tab. Only the settings that differ for beatless work are spelled out here.</p>
+  </header>
+
+  <!-- STEP 1 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 14 v20 a2 2 0 0 0 2 2 h28 a2 2 0 0 0 2 -2 v-16 a2 2 0 0 0 -2 -2 h-14 l-4 -4 h-10 a2 2 0 0 0 -2 2 z"/></svg>
+      </div>
+      <div class="step-num">Step 01</div>
+      <h2 class="step-title">Create the project — gridless</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Open a new set</div>
+      <ul>
+        <li><kbd>⌘ N</kbd>, then <kbd>Tab</kbd> to <strong>Arrangement</strong> view. The whole build lives there.</li>
+        <li>Tempo can stay at any value — nothing will be synced to it. Metronome stays <strong>off</strong> for the entire project.</li>
+        <li>Right-click the timeline ruler → <span class="menu">Time Ruler Format → Time</span>. From here on you think in <span class="code">m:ss</span>, never in bars.</li>
+        <li><kbd>⌘ ,</kbd> → <strong>Audio</strong>: MOTU M4 in and out, <span class="code">48000 Hz</span>, Buffer <span class="code">512</span> — nothing is played against a clock, so latency is irrelevant and the CPU headroom is free.</li>
+        <li><strong>Record, Warp &amp; Launch:</strong> WAV, 24-bit, and turn <strong>OFF</strong> auto-warp defaults exactly as in Lab Note 001 — ten-minute takes must never be quietly time-stretched.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Create the tracks</div>
+      <ul>
+        <li><kbd>⌘ T</kbd> four times: <span class="code">FOUNDATION</span>, <span class="code">INTERVAL</span>, <span class="code">AIR</span>, <span class="code">BED</span> (audio). Inputs: mono Ext. In <span class="code">1</span> for the first three (MicroFreak), stereo <span class="code">3/4</span> for <span class="code">BED</span> (Digitakt II).</li>
+        <li><kbd>⌘ ⌥ T</kbd> once: return <span class="code">A — REVERB</span>, Hybrid Reverb, decay <span class="code">8–12 s</span>, Dry/Wet <span class="code">100 %</span>.</li>
+        <li>One return only. The echo in this piece sits as an insert on <span class="code">AIR</span>, not on a shared return — its smear belongs to one layer.</li>
+        <li><kbd>⌘ S</kbd> → save as <span class="code">beatless_lab_002.als</span>. End every session with <span class="menu">File → Collect All and Save</span>.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Is the metronome off and the ruler in minutes? If either still shows bars, the grid will quietly dictate your ramp lengths later.</li>
+        <li>Can you record Ext. In 1 and Ext. In 3/4 cleanly? Run the 30-second silence test from the studio page and listen back for hiss level — a drone exposes the noise floor like nothing else.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="14" width="32" height="16" rx="2"/><line x1="14" y1="14" x2="14" y2="30"/><line x1="22" y1="14" x2="22" y2="30"/><line x1="30" y1="14" x2="30" y2="30"/></svg>
+      </div>
+      <div class="step-num">Step 02</div>
+      <h2 class="step-title">Design the voice</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Choose the engine</div>
+      <ul>
+        <li><kbd>Shift</kbd> + press the Type encoder — always start from an initialised patch.</li>
+        <li>Engine: pick one and commit, exactly as Lab Note 001 commits to one kick.</li>
+      </ul>
+      <table class="param-table">
+        <caption>Engine choices and what they buy you</caption>
+        <tr><td>Harmo</td><td>The default here. Additive, organ-adjacent, every partial addressable — Timbre literally redistributes the overtones the listener will spend ten minutes inside.</td></tr>
+        <tr><td>Wavetable</td><td>Smooth spectral morph under a slow LFO; darker and grittier than Harmo.</td></tr>
+        <tr><td>V.Analog</td><td>The purest route — best when you want the beating to be the whole show.</td></tr>
+        <tr><td>Speech</td><td>Eerie vowel drones; use only if the piece can absorb its character for its full length.</td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Starting positions</div>
+      <table class="param-table">
+        <caption>Oscillator + Filter + Envelope</caption>
+        <tr><td>Wave / Timbre / Shape</td><td>40 / 60 / 50 — enough harmonic content for the modulators to act on</td></tr>
+        <tr><td>Filter — Cutoff</td><td>10 o'clock, dark. The piece brightens by level and layers, not by this knob</td></tr>
+        <tr><td>Filter — Resonance</td><td>Low — resonance plus a 10-second reverb whistles</td></tr>
+        <tr><td>ENV — Attack</td><td>2 s or longer; the tone must bloom, never speak</td></tr>
+        <tr><td>ENV — Sustain / Release</td><td>Full / long — the note has no edges</td></tr>
+        <tr><td>Paraphonic</td><td>Off for the printed passes; each take is one voice</td></tr>
+      </table>
+      <table class="param-table">
+        <caption>The two slow modulators — the aliveness mechanism</caption>
+        <tr><td>LFO</td><td>Sine, <strong>unsynced</strong>, one cycle per 15–20 s → Matrix to <span class="code">Timbre</span>, amount ~25</td></tr>
+        <tr><td>Cycling Env</td><td>Loop mode, rise + fall totalling 30–60 s → Matrix to <span class="code">Cutoff</span> or <span class="code">Wave</span>, amount ~15</td></tr>
+      </table>
+      <ul>
+        <li>Two modulators at different unsynced rates never realign exactly — the tone cannot repeat itself for the length of any take. This is the same trick as Lab Note 001's drone, promoted from supporting role to the entire piece.</li>
+        <li>Hold one note and listen for <strong>three full minutes</strong> before judging the patch. The patch that bores you at thirty seconds and rewards you at three minutes is the right one.</li>
+        <li>Save as <span class="code">LAB2 VOICE</span>. Every layer of the piece comes from this slot.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Drop a <strong>Spectrum</strong> on the monitor track and watch a held note: can you <em>see</em> the two modulators moving different regions at different speeds?</li>
+        <li>Does the bare tone reward a minute of attention with no effects at all? If it needs the reverb to be interesting, the patch is not done.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 26 q9 -5 18 0 t14 0"/></svg>
+      </div>
+      <div class="step-num">Step 03</div>
+      <h2 class="step-title">Print the foundation — ten minutes</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Gain-stage for sustain</div>
+      <ul>
+        <li>Set the M4 input-1 gain <strong>while the note holds</strong>, not on the attack. Sustained tone has almost no gap between its peaks and its body — it reads hotter and works the converter harder than any kick loop at the same peak value.</li>
+        <li>Target peaks <span class="code">-15 to -12 dBFS</span> — deliberately lower than Lab Note 001's target. The headroom pays for the reverb bloom and the Saturator later.</li>
+        <li>Phones at the mark. Write the start time of the session down; you are taking a break at +15 minutes whether it feels necessary or not.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Record the take</div>
+      <ul>
+        <li>Press <kbd>Hold</kbd> on the MicroFreak, play the root (<span class="note">A1</span> or to taste), and let it sustain hands-free.</li>
+        <li>Arm <span class="code">FOUNDATION</span>, Monitor <strong>Auto</strong>, <kbd>⌘ ⇧ R</kbd> — record <strong>ten minutes</strong>.</li>
+        <li>Minutes 0–2: hands off entirely; the internal modulators carry it. Minutes 2–8: at most three knob moves — cutoff or Timbre — each spread over a full minute. Minutes 8–10: drift back toward the opening state so the take ends near where it began.</li>
+        <li>If you can hear a knob move as an event, it was too fast — that take is raw material for the texture bed, not the foundation. Record again.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>A/B minute 1 against minute 5 of the take at matched level: audibly different states?</li>
+        <li>Could you point at the moment any change happened? You should not be able to.</li>
+        <li>Is the noise floor acceptable under the tone? If hiss intrudes, fix it at the source gain now — every later layer multiplies it.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 20 q9 -5 18 0 t14 0"/><path d="M6 30 q9 -5 18 0 t14 0"/></svg>
+      </div>
+      <div class="step-num">Step 04</div>
+      <h2 class="step-title">Print the interval — and tune the beating</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The arithmetic</div>
+      <ul>
+        <li>Two tones close in pitch pulse at their frequency <em>difference</em>: tones 1 Hz apart beat exactly once per second. The beat rate is not a vibe — it is a number you choose.</li>
+        <li>For this piece aim the slow interior pulse at roughly <span class="code">0.3–1.5 Hz</span> — between one pulse every three seconds and a calm walking pulse.</li>
+        <li>The beating you tune here lives between the foundation's harmonics and the interval layer's — a fifth beats against the root's overtones gently; an octave detuned a few cents beats strongly. The detune knob is your tempo knob.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Record the take</div>
+      <ul>
+        <li>Same patch <span class="code">LAB2 VOICE</span>, untouched. Disarm <span class="code">FOUNDATION</span>, arm <span class="code">INTERVAL</span>.</li>
+        <li>Loop the foundation take and monitor it while you record — the interval must be tuned against the real layer, not against memory.</li>
+        <li>Play the chosen interval and nudge the MicroFreak's fine tune while listening to the pair: stop where the slow pulse sits in the target range and feels like breathing, not wobble.</li>
+        <li><kbd>⌘ ⇧ R</kbd> — record <strong>ten minutes</strong>, hands off after the first minute. The two takes' modulators are already out of phase with each other; that drift is free and unrepeatable.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Place it</div>
+      <ul>
+        <li>Pan <span class="code">FOUNDATION</span> slightly left, <span class="code">INTERVAL</span> slightly right — 15–25 % each, no more.</li>
+        <li>Utility on the master, Width to <span class="code">0 %</span> for ten seconds: the beating <strong>must survive mono</strong>. If the pulse vanishes when collapsed, it was a phase trick, not a tuning — narrow the panning and retune.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Can you name the beat rate in cycles per second? Write it in the project notes.</li>
+        <li>Does the pair sound like one widened tone with a pulse inside — not two instruments?</li>
+        <li>Mono check passed?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 5 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M8 32 q7 -3 14 0 t14 0"/><path d="M14 22 q5 -2 10 0 t6 0" stroke-dasharray="2 3"/></svg>
+      </div>
+      <div class="step-num">Step 05</div>
+      <h2 class="step-title">Print the air, sample the bed</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The air pass</div>
+      <ul>
+        <li>Same patch, two octaves up. Arm <span class="code">AIR</span>, record <strong>five minutes</strong> — it will only be used from the piece's middle onward.</li>
+        <li>On <span class="code">AIR</span>: EQ Eight high-pass at <span class="code">800 Hz</span>, then Echo — <strong>unsynced</strong>, 300–600 ms, feedback ≤ <span class="code">30 %</span>, Dry/Wet ~25 %, high-pass in the Echo around <span class="code">500 Hz</span>. The echo smears; at this feedback it cannot establish a rhythm.</li>
+        <li>Fader starts at <span class="code">-25 dB</span>. The air is light on the ceiling, not a third instrument.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The texture bed — Digitakt II</div>
+      <ul>
+        <li>Route per the studio page's Option D: MicroFreak out → Digitakt II inputs — or simpler, play the printed <span class="code">FOUNDATION</span> take out of Ableton and sample the M4 loopback. Capture <strong>30–60 seconds</strong>.</li>
+        <li>One track, one trig, sample length maxed, loop on — the fragment becomes a held tone again. Drop it an octave on the SRC page.</li>
+        <li>Track LFO: slowest speed, small depth, destination filter cutoff — the bed breathes over minutes.</li>
+        <li>Resample the playing bed once or twice inside the Digitakt: each generation through its filter and reverb gets darker and grainier. Two generations is usually the sweet spot between texture and mud.</li>
+        <li>Record one quiet pass into <span class="code">BED</span> (Ext. In 3/4) — <strong>five minutes</strong>, riding only the Digitakt's filter, slowly. In Ableton: EQ high-pass <span class="code">150 Hz</span>, fader around <span class="code">-20 dB</span>.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Mute the bed: the piece should feel <em>cleaner but smaller</em>. If muting it changes nothing, it is too quiet or too similar; if muting it removes a rhythm, it has acquired a pulse — re-record without one.</li>
+        <li>All four layers are takes of, or descendants of, one patch. Solo each and confirm the family resemblance.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 6 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 34 Q14 10 22 22 T38 12"/><circle cx="6" cy="34" r="2.5" fill="currentColor"/><circle cx="38" cy="12" r="2.5" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Step 06</div>
+      <h2 class="step-title">Choreograph the levels</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">This is the arrangement</div>
+      <ul>
+        <li>Lay the takes on the timeline per the <a href="arrangement.html">arc</a>: foundation from 0:00, interval surfacing at 2:00, air from 4:00, bed from 6:00.</li>
+        <li><kbd>A</kbd> for automation. The only lanes that matter are four volume lanes and one reverb send. Draw with S-curves (right-click → <span class="menu">Curve</span>); a straight line over two minutes still reads as a ruler.</li>
+        <li>Every fade spans <strong>at least sixty seconds</strong>. The interval's entry fade at 2:00 should take 60–90 s from silence to its resting level.</li>
+        <li>Decide, per minute of the piece, <em>which layer is in front</em> — write the sequence on paper first (foundation → foundation/interval equal → air forward → bed forward → foundation). Then draw only what the paper says.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Ride it instead — optional but better</div>
+      <ul>
+        <li><kbd>⌘ M</kbd>, map four Launchpad controls to the four track volumes. Set each mapping's Min/Max to the musical range (e.g. <span class="code">-inf to -8 dB</span>) so the full gesture covers exactly the useful travel.</li>
+        <li><kbd>F9</kbd>, play the whole piece, ride the levels slower than feels natural. Two takes; keep the calmer one. Then <span class="menu">Simplify Envelope</span> per lane.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Play 1:30–3:00 blind: can you say when the interval arrived? You should only know that it is <em>now present</em>.</li>
+        <li>Is any automation lane doing something a listener could whistle? Delete it.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 7 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="14"/><circle cx="22" cy="22" r="5"/></svg>
+      </div>
+      <div class="step-num">Step 07</div>
+      <h2 class="step-title">Bloom and erosion</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The middle blooms</div>
+      <ul>
+        <li>Reverb send on <span class="code">FOUNDATION</span> and <span class="code">INTERVAL</span>: from <span class="code">-15 dB</span> at 3:30 to <span class="code">-6 dB</span> at 5:00, back down by 6:30. Space is this piece's brightness.</li>
+        <li>Optionally ease each layer's EQ high-pass down a touch through the bloom — more body exactly when there is more room.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The final third erodes</div>
+      <ul>
+        <li>Saturator on <span class="code">BED</span> (or on a group of BED + INTERVAL): Drive from <span class="code">+2 dB</span> at 6:00 to <span class="code">+8 dB</span> at 7:30, retreating by 9:00. Pull Output down to match — the density must rise while the meter does not. The mass-from-density lesson, applied as arrangement.</li>
+        <li>This is the only "intensity" the piece gets. It is made of harmonics, not level, and not events.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Watch the master meter through 6:00–8:00: it should barely move while the piece audibly thickens. If the meter climbs with the drive, gain-compensation slipped.</li>
+        <li>Does the bloom read as the piece opening, or as "reverb got louder"? If the latter, halve the send automation's range.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 8 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="4" y="14" width="10" height="6" rx="1"/><rect x="16" y="14" width="14" height="6" rx="1"/><rect x="8" y="24" width="16" height="6" rx="1"/></svg>
+      </div>
+      <div class="step-num">Step 08</div>
+      <h2 class="step-title">Subtract and end</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <ul>
+        <li>From 8:00, sink the layers in reverse order of arrival: bed first, then air, then interval — each over at least sixty seconds.</li>
+        <li>The final 60–90 seconds are the foundation alone, drifting toward its opening state, then a master fade over the last 30–45 seconds into the reverb tail.</li>
+        <li>Where takes are trimmed, use long crossfades (4+ seconds) — a drone exposes every click a groove would hide.</li>
+        <li>Listen to the whole piece end to end <strong>once, away from the screen</strong>, before declaring the arrangement done.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does the ending feel like returning somewhere, not like running out?</li>
+        <li>Is there any moment after 8:00 where something <em>stops</em>? There should not be.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 9 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><line x1="12" y1="8" x2="12" y2="36"/><line x1="22" y1="8" x2="22" y2="36"/><line x1="32" y1="8" x2="32" y2="36"/><rect x="9" y="18" width="6" height="3" rx="0.5" fill="currentColor"/><rect x="19" y="24" width="6" height="3" rx="0.5" fill="currentColor"/><rect x="29" y="14" width="6" height="3" rx="0.5" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Step 09</div>
+      <h2 class="step-title">The mix pass — sustain rules</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Frequency separation</div>
+      <ul>
+        <li><span class="code">FOUNDATION</span> owns everything below <span class="code">200 Hz</span>. High-pass <span class="code">INTERVAL</span> at <span class="code">150–200 Hz</span>, <span class="code">AIR</span> at <span class="code">800 Hz</span>, <span class="code">BED</span> at <span class="code">150 Hz</span>.</li>
+        <li>Sweep for one buildup region per layer pair and carve 1–2 dB — sustained tones overlap constantly, so small EQ moves do what big ones do in a groove.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The sustain-specific checks</div>
+      <ul>
+        <li><strong>Peak vs body:</strong> this mix can read quiet on the peak meter and still be loud. Trust perceived loudness at the marked phones level, not the peak number. If your master peaks at -6 dBFS and it feels relentless, turn the layers down, not the master up.</li>
+        <li><strong>Mono check:</strong> Width 0 % for ten seconds at three points in the piece — the beating, the bloom, and the erosion must all survive.</li>
+        <li><strong>Quiet check:</strong> one full listen at well below the mark. A drone mix that only works loud is borrowing from level.</li>
+        <li><strong>Fatigue protocol:</strong> phones off every fifteen minutes, and never make a judgment in the minute after putting them back on.</li>
+        <li>Master: Spectrum + Utility only, peaks ≤ <span class="code">-3 dBFS</span> including the bloom. No limiter — same reasoning as Lab Note 001.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Can you hear all four layers at the quiet listen, each doing its named job?</li>
+        <li>Is the 80–200 Hz region clear when foundation and bed overlap? If not, raise the bed's high-pass before touching anything else.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 10 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><polyline points="14 18 22 26 30 18"/><line x1="22" y1="8" x2="22" y2="26"/><line x1="8" y1="34" x2="36" y2="34"/></svg>
+      </div>
+      <div class="step-num">Step 10</div>
+      <h2 class="step-title">Export and step away</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Render</div>
+      <table class="param-table">
+        <caption>Export settings</caption>
+        <tr><td>Rendered Track</td><td>Master</td></tr>
+        <tr><td>Render Length</td><td>The full piece including the reverb tail — select past the last fade</td></tr>
+        <tr><td>File Type / Rate / Depth</td><td>WAV · 48000 Hz · 24-bit</td></tr>
+        <tr><td>Normalize</td><td>OFF — the headroom is part of the sound</td></tr>
+        <tr><td>Filename</td><td>lab_002_v1.wav</td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Archive and listen elsewhere</div>
+      <ul>
+        <li><span class="menu">Collect All and Save</span>; save <span class="code">LAB2 VOICE</span> on the MicroFreak and the Digitakt II project. Three recoverable layers, as always: patch, hardware state, audio.</li>
+        <li>Listen on other gear, including quiet small speakers — a drone's mix truths surface at low volume in ordinary rooms.</li>
+        <li><span class="code">lab_002_notes.txt</span>, max 10 lines, timestamped observations. Wait one day. Change one thing. Render <span class="code">v2</span>.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-nav">
+    <a href="arrangement.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 04 / Arrangement
+    </a>
+    <a href="reflection.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      06 / Reflection →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note 002 — Beatless Long-Form Build</div>
+
+</div>
+
+</body>
+</html>
