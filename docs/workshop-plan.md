@@ -468,6 +468,7 @@ same source cleanly at three levels and defend one.
 | 001 | Signal Path & Gain Staging — outputs: **Studio Signal Map v1**, gain ledger, three-level recording, clipping diagnosis table. Fault: clip at the wrong stage, locate it. | B | S1 | — | E2 | — | — |
 | 002 | Clock, Latency & Monitoring — outputs: round-trip latency measurement (loopback), monitoring-mode comparison, "what I hear vs what is printed" table. Fault: doubled-monitoring comb filter, then fix it. | B | S1 | — | E2 | — | — |
 | 003 | Repetition as Engine (hypnotic techno) — *existing Lab Note 001, retrofit; yields the worked example of both specs* | T | S1 | D3 | E2 | M1 | F2 |
+| 003b | Measurement Tools — metering literacy: LUFS, true-peak, spectrum, correlation; reading the meters before trusting the ears | É | S1 | — | E2 | — | F1 |
 | 004 | One Oscillator, One Filter (deep techno) | É | S1 | D2 | E1 | M1 | F1 |
 | R1 | Rebuild the Loop — ≈8 bars of one L1 record, rebuilt from the Samples-session worksheet; output: replica + miss list | R | S1 | — | E2 | M1 | F1 |
 | → C1 | | | | | | | |
@@ -482,8 +483,11 @@ electromagnetic pickup (008).
 |---|---|---|---|---|---|---|---|
 | 005 | Sustained Tone & Slow Modulation (ambient drone) | T | S1 | D2 | E2 | M1 | F2 |
 | 006 | Capturing the World — the sampling path (concrète) | É | S1 | D2 | E2 | M3 | F1 |
+| 006b | Drum Synthesis — building percussion from oscillators and noise, not samples; transient, body, and decay as designed | É | S2 | D2 | E2 | M2 | F1 |
 | 007 | The Sampler Eats Itself — resampling architectures: internal vs USB/DAW vs analog loop; deliverable: the same source through all three paths with notes on noise, latency, image, degradation (texture) | T | S2 | D2 | E3 | M4 | F2 |
+| 007b | Reusable Instruments — building a saveable, recallable instrument from a source so the sound becomes a portable asset | É | S2 | D2 | E2 | M4 | F1 |
 | 008 | The Field Kit — recorder, contact mics, coil; gain in the field; field safety & ethics checklist | B | S2 | — | E2 | M3 | — |
+| 008b | Voice as Material — the voice captured and processed as raw source, not lyric; capture chain, treatment, and consent | É | S2 | D2 | E2 | M3 | F1 |
 | R2 | Rebuild the Gesture — one concrète passage from an L2 reference, re-made with own captures through the analyzed chain | R | S2 | — | E2 | M3 | F1 |
 
 **Block 3 — Time** *(programme L3)* — engineering focus: musical time is
@@ -512,6 +516,7 @@ ten?
 | # | Lab (context) | Type | S | D | E | M | F |
 |---|---|---|---|---|---|---|---|
 | 013 | Resonance as Melody (acid) | T | S2 | D2 | E2 | M1 | F2 |
+| 013b | FM & Inharmonic Spectra — operators, ratios, and feedback as a spectrum-shaping engine; the bell, the metal, the clang | É | S2 | D3 | E2 | M1 | F1 |
 | 014 | Saturation Staging — the canonical "gain is composition" lab: same chain at low/nominal/hot input, processor-order comparison, pre/post gain compensation, intended distortion vs accidental clipping (industrial) | T | S2 | D3 | E3 | M2 | F2 |
 | 015 | Granular Reconstruction (ambient IDM) | T | S3 | D3 | E3 | M4 | F2 |
 | 016 | Slice & Reassemble (breaks) | T | S3 | D3 | E3 | M4 | F2 |
@@ -531,6 +536,7 @@ and correlation, mono collapse, room vs headphones, translation.
 | 020 | Feedback Paths — drawn as both a musical system and a safety-critical system; in-lab safety checklist before sound is made (dub) | T | S3 | D4 | E4 | M5 | F2 |
 | 021 | Monitoring & Translation — mono, width, phase, room | B | S3 | — | E3 | — | — |
 | 022 | Subtractive Arrangement — mixing by removal (minimal) | T | S3 | D3 | E3 | M2 | F2 |
+| 022b | Loudness & the Master — the master chain as a system: LUFS targets, true-peak ceilings, translation, and what the limiter costs | É | S3 | — | E3 | M2 | F2 |
 | R5 | Rebuild the Dub — a send/return choreography passage from L5, re-performed on own mixer routing | R | S3 | — | E3 | M2 | F1 |
 | → C4 | | | | | | | |
 
@@ -545,7 +551,9 @@ the system decide; what is forbidden?). Self-running labs include a
 |---|---|---|---|---|---|---|---|
 | 023 | Rule-Based Sequencing — generative logic (ambient) | T | S3 | D4 | E2 | M1 | F2 |
 | 024 | The Modulation Organism — self-playing patch | T | S3 | D5 | E3 | M1 | F3 |
+| 024b | West-Coast Voice — complex oscillator, wavefolding, low-pass gate, and random sources as a generative timbre system | É | S3 | D4 | E3 | M1 | F2 |
 | 025 | Chance Operations (aleatoric) | T | S3 | D4 | E3 | M2 | F2 |
+| 025b | The Score as System — notation as instruction set: text, graphic, and algorithmic scores that tell the system what to do | É | S3 | D4 | E2 | M2 | F1 |
 | 026 | Tuning as System — microtonality (drone) | T | S3 | D3 | E2 | M1 | F3 |
 | R6 | Rebuild the Rules — a generative system from L6, reimplemented and left to run; compare behavior, not output | R | S3 | — | E2 | M1 | F1 |
 | → C5 (Year 2 capstone) | | | | | | | |
@@ -578,6 +586,7 @@ teach** a system that sounds like them.
 |---|---|---|---|---|---|---|---|
 | 032 | Constraint Design — author your own system + engineering spec | É | S4 | — | — | — | — |
 | 033 | Hybrid Systems — a piece from your own spec, crossing two domains | T | S4 | D4 | E3 | — | F2 |
+| 033b | Near-Silence — the quiet system: working at the noise floor, dynamics as the material, restraint as the technique | É | S4 | D4 | E3 | — | F3 |
 | 034 | The Signature Piece | T | S4 | — | — | — | F3 |
 | 035 | Write the Lab Note — produce the teaching materials for 034 | É | S4 | — | — | — | — |
 | R8 | Rebuild Your Own — one Year 1 piece reconstructed from its print map and documentation alone; the archive's reproducibility test | R | S4 | — | — | — | F1 |
