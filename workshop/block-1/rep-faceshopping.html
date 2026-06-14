@@ -6,7 +6,7 @@
 <title>Replicate: Clipping as Sound Design</title>
 <link rel="stylesheet" href="../styles.css">
 </head>
-<body>
+<body class="page-type-rep" id="top">
 
 <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
 <label for="nav-toggle" class="hamburger" aria-label="Menu">
@@ -16,6 +16,7 @@
 <nav class="nav" aria-label="Workshop contents">
   <p class="nav-label">Workshop</p>
   <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
   <a href="index.html" class="active"><span class="nav-num">01</span>The Bench</a>
   <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
   <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
@@ -28,12 +29,15 @@
 </nav>
 
 <div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 1 · The Bench</a><span class="breadcrumb-sep">/</span><span>Replicate: clipping as sound design</span></nav>
 
   <header class="page-header">
     <div class="eyebrow">Block 1 · Replication lesson</div>
     <h1>Replicate: clipping as sound design</h1>
     <p class="lede">Copy one clear section of SOPHIE — “Faceshopping”. Build the main parts, record a short take, and compare it to the reference at the same loudness.</p>
   </header>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l1.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs">Labs</a><a href="lab-r1.html" data-section="rebuild">Rebuild</a><a href="capstone-c1.html" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep" class="current">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
   <div class="callout">
     <div class="callout-label">The point</div>
     <p>This drill teaches the record's core mechanism: a simple bright source, hard-clipped at a chosen device, sculpted into rhythm. Do only the steps that make that mechanism audible.</p>
@@ -50,7 +54,7 @@
 
   <div class="checklist">
     <div class="checklist-head">
-      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"></path></svg></div>
       <div class="checklist-label">Before you start</div>
     </div>
     <ul>
@@ -74,7 +78,7 @@
       <div class="step-num">Reference pass · 10 minutes</div>
       <h3 class="step-title">Listen before you build</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Listen to about one minute of SOPHIE — “Faceshopping”. Choose the clearest short section. Write one short answer for each question before you touch the gear.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Listen to about one minute of SOPHIE — “Faceshopping”. Choose the clearest short section. Write one short answer for each question before you touch the gear.</p>
     <ol class="rules-list">
       <li>Which sounds <em>are</em> the distortion?
         <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>The metallic, plastic, percussive hits that carry the rhythm - they have no clean original underneath; remove the clipping and there is no sound left. That is the difference between a distorted sound and a sound made of distortion.</p></div></details>
@@ -92,7 +96,7 @@
         <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Above it - the metallic character is a spray of high harmonics that the clipping generates, far above whatever pitch the source had. That spray is what your Spectrum analyzer will show as a wash across the whole band.</p></div></details>
       </li>
     </ol>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Now build the section you described. Do not build from memory.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Now build the section you described. Do not build from memory.</p>
   </div>
 
   <h2>Steps</h2>
@@ -118,7 +122,7 @@
     </ul>
   </div>
 
-  <p style="color: var(--text-muted); font-size: 14.5px; max-width: 640px; margin: 0 auto 14px; text-align: center;">The whole machine in one row: a clean bright source, a chosen clipping device pushed past damage into design, the output pulled back down, and the result placed into rhythm. The drive lives at one address — the Saturator — and nowhere else in the chain.</p>
+  <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); max-width: 640px; margin: 0 auto 14px; text-align: center;">The whole machine in one row: a clean bright source, a chosen clipping device pushed past damage into design, the output pulled back down, and the result placed into rhythm. The drive lives at one address — the Saturator — and nowhere else in the chain.</p>
 
   <div class="signal-flow">
     <span class="signal-node">MicroFreak · bright hit · ledger volume</span>
@@ -130,59 +134,59 @@
     <span class="signal-node">mix · the edge is the sound</span>
   </div>
 
-  <p style="color: var(--text-muted); font-size: 14.5px; max-width: 640px; margin: 18px auto 14px; text-align: center;">What the clipping does to the wave, drawn. The rounded wave carries one strong harmonic; the flat-topped wave is the same note with its top sheared off — and the shearing sprays new harmonics across the whole band. That spray is the metal.</p>
+  <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); max-width: 640px; margin: 18px auto 14px; text-align: center;">What the clipping does to the wave, drawn. The rounded wave carries one strong harmonic; the flat-topped wave is the same note with its top sheared off — and the shearing sprays new harmonics across the whole band. That spray is the metal.</p>
 
 <div class="signal-flow" style="display:block; padding:26px 16px;">
   <svg viewBox="0 0 760 230" width="100%" role="img" aria-label="Clean wave versus hard-clipped wave and the harmonic spray it creates">
-    <rect x="20" y="20" width="345" height="190" rx="10" fill="#1f2530" stroke="#6e7681" stroke-width="1"/>
-    <rect x="395" y="20" width="345" height="190" rx="10" fill="#1f2530" stroke="#7dd3c0" stroke-width="1.2"/>
+    <rect x="20" y="20" width="345" height="190" rx="10" fill="#1f2530" stroke="#6e7681" stroke-width="1"></rect>
+    <rect x="395" y="20" width="345" height="190" rx="10" fill="#1f2530" stroke="#7dd3c0" stroke-width="1.2"></rect>
     <text x="192" y="44" fill="#e6edf3" font-size="12" text-anchor="middle">clean source</text>
     <text x="567" y="44" fill="#e6edf3" font-size="12" text-anchor="middle">hard-clipped · the design</text>
-    <path d="M40 95 q 20 -38 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0" fill="none" stroke="#8b949e" stroke-width="1.5"/>
-    <path d="M415 95 l 8 -27 h 24 l 16 54 h 24 l 16 -54 h 24 l 16 54 h 24 l 16 -54 h 24 l 16 54 h 24 l 16 -54 h 24 l 8 27" fill="none" stroke="#7dd3c0" stroke-width="1.5"/>
+    <path d="M40 95 q 20 -38 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0" fill="none" stroke="#8b949e" stroke-width="1.5"></path>
+    <path d="M415 95 l 8 -27 h 24 l 16 54 h 24 l 16 -54 h 24 l 16 54 h 24 l 16 -54 h 24 l 16 54 h 24 l 16 -54 h 24 l 8 27" fill="none" stroke="#7dd3c0" stroke-width="1.5"></path>
     <text x="192" y="140" fill="#6e7681" font-size="10" text-anchor="middle">spectrum</text>
     <text x="567" y="140" fill="#6e7681" font-size="10" text-anchor="middle">spectrum</text>
-    <rect x="60" y="155" width="10" height="38" fill="#8b949e"/>
-    <rect x="90" y="181" width="10" height="12" fill="#6e7681"/>
-    <rect x="435" y="155" width="10" height="38" fill="#7dd3c0"/>
-    <rect x="465" y="160" width="10" height="33" fill="#7dd3c0"/>
-    <rect x="495" y="164" width="10" height="29" fill="#7dd3c0"/>
-    <rect x="525" y="167" width="10" height="26" fill="#7dd3c0"/>
-    <rect x="555" y="170" width="10" height="23" fill="#7dd3c0"/>
-    <rect x="585" y="173" width="10" height="20" fill="#7dd3c0"/>
-    <rect x="615" y="176" width="10" height="17" fill="#7dd3c0"/>
-    <rect x="645" y="178" width="10" height="15" fill="#7dd3c0"/>
-    <rect x="675" y="180" width="10" height="13" fill="#7dd3c0"/>
-    <rect x="705" y="182" width="10" height="11" fill="#7dd3c0"/>
+    <rect x="60" y="155" width="10" height="38" fill="#8b949e"></rect>
+    <rect x="90" y="181" width="10" height="12" fill="#6e7681"></rect>
+    <rect x="435" y="155" width="10" height="38" fill="#7dd3c0"></rect>
+    <rect x="465" y="160" width="10" height="33" fill="#7dd3c0"></rect>
+    <rect x="495" y="164" width="10" height="29" fill="#7dd3c0"></rect>
+    <rect x="525" y="167" width="10" height="26" fill="#7dd3c0"></rect>
+    <rect x="555" y="170" width="10" height="23" fill="#7dd3c0"></rect>
+    <rect x="585" y="173" width="10" height="20" fill="#7dd3c0"></rect>
+    <rect x="615" y="176" width="10" height="17" fill="#7dd3c0"></rect>
+    <rect x="645" y="178" width="10" height="15" fill="#7dd3c0"></rect>
+    <rect x="675" y="180" width="10" height="13" fill="#7dd3c0"></rect>
+    <rect x="705" y="182" width="10" height="11" fill="#7dd3c0"></rect>
     <text x="192" y="205" fill="#6e7681" font-size="9.5" text-anchor="middle">one note · little above it</text>
     <text x="567" y="205" fill="#6e7681" font-size="9.5" text-anchor="middle">same note · harmonics spray the whole band</text>
   </svg>
 </div>
 
   <!-- PHASE 1 -->
-  <div class="step">
+  <div class="gear-switch"><input type="radio" name="gear" id="gear-hw" class="gear-radio" checked><input type="radio" name="gear" id="gear-sw" class="gear-radio"><input type="radio" name="gear" id="gear-tg" class="gear-radio"><div class="gear-labels"><span class="gear-lead">Your rig</span><label for="gear-hw">MicroFreak + Digitakt II</label><label for="gear-sw">Ableton Live only</label><label for="gear-tg">Analog Rytm MKII · target</label></div><div class="gear-scope"><div class="step">
     <div class="step-head">
       <div class="step-num">Phase 1 · ≈ 15 min</div>
       <h3 class="step-title">The reference and the transcription</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: the reference and the transcription. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: the reference and the transcription. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Live</span> <kbd>⌘ T</kbd>, rename the track <span class="code">REF</span> (<kbd>⌘ R</kbd>), and drag “Faceshopping” into it.</li>
-        <li><span class="system-tag">Live</span> Find the most characteristic 8–16 bars — a stretch where the metallic hits carry the rhythm — and loop them.</li>
-        <li><span class="system-tag">Live</span> Drop <span class="menu">Audio Effects → Utility</span> on <span class="code">REF</span> and trim its gain so the section peaks ≈ <span class="code">−12 dBFS</span>.</li>
-        <li><span class="system-tag">Live</span> <span class="code">REF</span> stays one solo-press away for the whole lesson.</li>
-        <li><span class="system-tag">Logbook</span> Choose <em>one</em> hit from the loop to replicate — the most metallic one — and write three lines about it: which beats it lands on, roughly how long it lasts, and what the texture suggests (sheet metal? plastic? rubber?).</li>
-        <li><span class="system-tag">Live</span> <kbd>⌘ T</kbd> twice; rename: <span class="code">SRC CLEAN</span> (<span class="menu">Ext. In</span> <span class="code">1</span>) and <span class="code">HITS</span> (no input — it will hold edited clips).</li>
-        <li><span class="system-tag">Live</span> Faders at <span class="code">0 dB</span>.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li><kbd>⌘ T</kbd>, rename the track <span class="code">REF</span> (<kbd>⌘ R</kbd>), and drag “Faceshopping” into it.</li>
+        <li>Find the most characteristic 8–16 bars — a stretch where the metallic hits carry the rhythm — and loop them.</li>
+        <li>Drop <span class="menu">Audio Effects → Utility</span> on <span class="code">REF</span> and trim its gain so the section peaks ≈ <span class="code">−12 dBFS</span>.</li>
+        <li><span class="code">REF</span> stays one solo-press away for the whole lesson.</li>
+        <li>Choose <em>one</em> hit from the loop to replicate — the most metallic one — and write three lines about it: which beats it lands on, roughly how long it lasts, and what the texture suggests (sheet metal? plastic? rubber?).</li>
+        <li><kbd>⌘ T</kbd> twice; rename: <span class="code">SRC CLEAN</span> (<span class="menu">Ext. In</span> <span class="code">1</span>) and <span class="code">HITS</span> (no input — it will hold edited clips).</li>
+        <li>Faders at <span class="code">0 dB</span>.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from SOPHIE — “Faceshopping” and use Drum Rack, MIDI clips, Groove Pool, and clip automation.</li><li>Build the phase goal — <em>The reference and the transcription</em> — as the smallest Live set that proves <em>a simple bright source, hard-clipped at a chosen device, sculpted into rhythm</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>clipping so extreme it becomes the sound — metallic, plastic, percussive</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>The reference and the transcription</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>a simple bright source, hard-clipped at a chosen device, sculpted into rhythm</em>, not just the surface of SOPHIE — “Faceshopping”.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">The record loops at ≈ −12 dBFS, one target hit is named and described in the logbook, and two named tracks wait for audio.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">The record loops at ≈ −12 dBFS, one target hit is named and described in the logbook, and two named tracks wait for audio.</p>
     </div>
 
     <div class="sub-block">
@@ -197,30 +201,29 @@
     </div>
   </div>
 
-  <!-- PHASE 2 -->
   <div class="step">
     <div class="step-head">
       <div class="step-num">Phase 2 · ≈ 25 min</div>
       <h3 class="step-title">Design the source — bright, simple, tight</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: design the source — bright, simple, tight. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: design the source — bright, simple, tight. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">MicroFreak</span> MicroFreak: <span class="code">Type</span> → <span class="code">V.Analog</span>, <span class="code">Paraphonic</span> OFF, cutoff ≈ 80 %, resonance ≈ 10 % — bright and plain on purpose.</li>
-        <li><span class="system-tag">MicroFreak</span> Envelope: attack <span class="code">0</span>, decay short, sustain <span class="code">0</span> — a tight percussive blip, nothing held.</li>
-        <li><span class="system-tag">Live</span> Solo <span class="code">REF</span> and find the pitch region of your target hit — exact pitch matters less than register;</li>
-        <li><span class="system-tag">Live</span> test an octave up and down and keep the one that sits where the record’s hit sits.</li>
-        <li><span class="system-tag">Live</span> Set the M4 input-1 gain so peaks sit ≈ <span class="code">−12 dBFS</span> — the ledger value, no red anywhere — and record 8 bars of single staccato notes into <span class="code">SRC CLEAN</span>, several per bar, evenly played.</li>
-        <li><span class="system-tag">Live</span> Listen back once: the take should sound politely useless — a clean, bright blip with none of the record’s violence.</li>
-        <li><span class="system-tag">Live</span> That is correct; the violence is the next phase’s decision.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>MicroFreak: <span class="code">Type</span> → <span class="code">V.Analog</span>, <span class="code">Paraphonic</span> OFF, cutoff ≈ 80 %, resonance ≈ 10 % — bright and plain on purpose.</li>
+        <li>Envelope: attack <span class="code">0</span>, decay short, sustain <span class="code">0</span> — a tight percussive blip, nothing held.</li>
+        <li>Solo <span class="code">REF</span> and find the pitch region of your target hit — exact pitch matters less than register;</li>
+        <li>test an octave up and down and keep the one that sits where the record’s hit sits.</li>
+        <li>Set the M4 input-1 gain so peaks sit ≈ <span class="code">−12 dBFS</span> — the ledger value, no red anywhere — and record 8 bars of single staccato notes into <span class="code">SRC CLEAN</span>, several per bar, evenly played.</li>
+        <li>Listen back once: the take should sound politely useless — a clean, bright blip with none of the record’s violence.</li>
+        <li>That is correct; the violence is the next phase’s decision.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from SOPHIE — “Faceshopping” and use Drum Rack, MIDI clips, Groove Pool, and clip automation.</li><li>Build the phase goal — <em>Design the source — bright, simple, tight</em> — as the smallest Live set that proves <em>a simple bright source, hard-clipped at a chosen device, sculpted into rhythm</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>clipping so extreme it becomes the sound — metallic, plastic, percussive</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>Design the source — bright, simple, tight</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>a simple bright source, hard-clipped at a chosen device, sculpted into rhythm</em>, not just the surface of SOPHIE — “Faceshopping”.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">An 8-bar clean take of tight bright blips, peaking ≈ −12 dBFS, in the register of the record’s hit. No grit anywhere yet.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">An 8-bar clean take of tight bright blips, peaking ≈ −12 dBFS, in the register of the record’s hit. No grit anywhere yet.</p>
     </div>
 
     <div class="sub-block">
@@ -235,13 +238,12 @@
     </div>
   </div>
 
-  <!-- PHASE 3 -->
   <div class="step">
     <div class="step-head">
       <div class="step-num">Phase 3 · ≈ 25 min</div>
       <h3 class="step-title">Clip it — until the edge is the sound</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: clip it — until the edge is the sound. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: clip it — until the edge is the sound. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
 
     <div class="note-block">
       <ul>
@@ -251,24 +253,24 @@
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Live</span> Select <span class="code">SRC CLEAN</span>, <kbd>⌘ D</kbd>, rename the copy <span class="code">SRC CLIPPED</span>.</li>
-        <li><span class="system-tag">Live</span> Identical audio, two addresses.</li>
-        <li><span class="system-tag">Live</span> On <span class="code">SRC CLIPPED</span>, drop in <span class="menu">Audio Effects → Saturator</span> and set the curve to <span class="code">Hard Curve</span>.</li>
-        <li><span class="system-tag">Live</span> Push <span class="code">Drive</span> up — start at <span class="code">+24 dB</span> — and pull <span class="code">Output</span> down by roughly the same amount until both tracks meter the same.</li>
-        <li><span class="system-tag">Live</span> Solo-flip against <span class="code">REF</span> and walk the Drive until the edge matches the record’s hit — more Drive is more metal, less is more plastic.</li>
-        <li><span class="system-tag">Live</span> Re-compensate the Output after every change, and make at least three flip-and-correct passes.</li>
-        <li><span class="system-tag">Live</span> Test the bypass: toggle the Saturator off.</li>
-        <li><span class="system-tag">Live</span> If what remains sounds usable, you are still in “distorted sound” territory — push further until the clean version is obviously not the instrument anymore.</li>
-        <li><span class="system-tag">Live</span> <strong>Observe — see it, not just hear it.</strong> Drop <span class="menu">Audio Effects → Spectrum</span> after the Saturator.</li>
-        <li><span class="system-tag">Live</span> At matched loudness, watch the display while you raise the Drive: the flat-topped wave sprays harmonics across the whole band, and the spray widens as the top flattens.</li>
-        <li><span class="system-tag">Logbook</span> Note in the logbook roughly where the spray reaches at your final setting.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>Select <span class="code">SRC CLEAN</span>, <kbd>⌘ D</kbd>, rename the copy <span class="code">SRC CLIPPED</span>.</li>
+        <li>Identical audio, two addresses.</li>
+        <li>On <span class="code">SRC CLIPPED</span>, drop in <span class="menu">Audio Effects → Saturator</span> and set the curve to <span class="code">Hard Curve</span>.</li>
+        <li>Push <span class="code">Drive</span> up — start at <span class="code">+24 dB</span> — and pull <span class="code">Output</span> down by roughly the same amount until both tracks meter the same.</li>
+        <li>Solo-flip against <span class="code">REF</span> and walk the Drive until the edge matches the record’s hit — more Drive is more metal, less is more plastic.</li>
+        <li>Re-compensate the Output after every change, and make at least three flip-and-correct passes.</li>
+        <li>Test the bypass: toggle the Saturator off.</li>
+        <li>If what remains sounds usable, you are still in “distorted sound” territory — push further until the clean version is obviously not the instrument anymore.</li>
+        <li><strong>Observe — see it, not just hear it.</strong> Drop <span class="menu">Audio Effects → Spectrum</span> after the Saturator.</li>
+        <li>At matched loudness, watch the display while you raise the Drive: the flat-topped wave sprays harmonics across the whole band, and the spray widens as the top flattens.</li>
+        <li>Note in the logbook roughly where the spray reaches at your final setting.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from SOPHIE — “Faceshopping” and use Drum Rack, MIDI clips, Groove Pool, and clip automation.</li><li>Build the phase goal — <em>Clip it — until the edge is the sound</em> — as the smallest Live set that proves <em>a simple bright source, hard-clipped at a chosen device, sculpted into rhythm</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>clipping so extreme it becomes the sound — metallic, plastic, percussive</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>Clip it — until the edge is the sound</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>a simple bright source, hard-clipped at a chosen device, sculpted into rhythm</em>, not just the surface of SOPHIE — “Faceshopping”.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Two tracks with identical audio and one decision between them: the clipped copy is a metallic designed hit at the same loudness, and bypassing the device removes the sound’s identity, not just its dirt.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Two tracks with identical audio and one decision between them: the clipped copy is a metallic designed hit at the same loudness, and bypassing the device removes the sound’s identity, not just its dirt.</p>
     </div>
 
     <div class="sub-block">
@@ -283,28 +285,27 @@
     </div>
   </div>
 
-  <!-- PHASE 4 -->
   <div class="step">
     <div class="step-head">
       <div class="step-num">Phase 4 · ≈ 25 min</div>
       <h3 class="step-title">Sculpt it into the rhythm and A/B</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: sculpt it into the rhythm and A/B. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: sculpt it into the rhythm and A/B. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Live</span> Crop the best single hit from <span class="code">SRC CLIPPED</span> into a short clip and drag copies onto <span class="code">HITS</span>.</li>
-        <li><span class="system-tag">Live</span> Place the copies where the record places its hit — the beats from your phase 1 transcription — across 8 bars, and loop.</li>
-        <li><span class="system-tag">Digitakt II</span> Add the record’s frame minimally: one Digitakt II kick pattern into a new track via inputs <span class="code">3/4</span>, recorded clean at the ledger level, nothing else.</li>
-        <li><span class="system-tag">Live</span> In Arrangement view, tile the loop into a 1–2 minute sketch and mirror the record’s entries and exits, keeping the space around the hits.</li>
-        <li><span class="system-tag">Live</span> Solo-flip <span class="code">REF</span> against the sketch at matched loudness and correct one thing at a time: placement first, hit length second, Drive last.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>Crop the best single hit from <span class="code">SRC CLIPPED</span> into a short clip and drag copies onto <span class="code">HITS</span>.</li>
+        <li>Place the copies where the record places its hit — the beats from your phase 1 transcription — across 8 bars, and loop.</li>
+        <li>Add the record’s frame minimally: one Digitakt II kick pattern into a new track via inputs <span class="code">3/4</span>, recorded clean at the ledger level, nothing else.</li>
+        <li>In Arrangement view, tile the loop into a 1–2 minute sketch and mirror the record’s entries and exits, keeping the space around the hits.</li>
+        <li>Solo-flip <span class="code">REF</span> against the sketch at matched loudness and correct one thing at a time: placement first, hit length second, Drive last.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from SOPHIE — “Faceshopping” and use Drum Rack, MIDI clips, Groove Pool, and clip automation.</li><li>Build the phase goal — <em>Sculpt it into the rhythm and A/B</em> — as the smallest Live set that proves <em>a simple bright source, hard-clipped at a chosen device, sculpted into rhythm</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>clipping so extreme it becomes the sound — metallic, plastic, percussive</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>Sculpt it into the rhythm and A/B</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>a simple bright source, hard-clipped at a chosen device, sculpted into rhythm</em>, not just the surface of SOPHIE — “Faceshopping”.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">A short sketch where your clipped hit carries rhythm over a clean kick with real space between events — and the flip against <span class="code">REF</span> lands on the same edge in the same places.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A short sketch where your clipped hit carries rhythm over a clean kick with real space between events — and the flip against <span class="code">REF</span> lands on the same edge in the same places.</p>
     </div>
 
     <div class="sub-block">
@@ -319,6 +320,9 @@
     </div>
   </div>
 
+  </div></div><!-- PHASE 2 -->
+  <!-- PHASE 3 -->
+  <!-- PHASE 4 -->
   <div class="decision-check">
     <div class="decision-check-label">Verify against the record</div>
     <p>Solo-flip between <span class="code">REF</span> and your sketch at matched loudness — phones at the mark, no level riding while you judge.</p>
@@ -355,5 +359,6 @@
 
 </div>
 
+  <script src="../nav.js"></script>
 </body>
 </html>

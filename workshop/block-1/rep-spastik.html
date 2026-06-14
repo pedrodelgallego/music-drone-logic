@@ -6,7 +6,7 @@
 <title>Replicate: machine-tight, bone dry</title>
 <link rel="stylesheet" href="../styles.css">
 </head>
-<body>
+<body class="page-type-rep" id="top">
 
 <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
 <label for="nav-toggle" class="hamburger" aria-label="Menu">
@@ -16,6 +16,7 @@
 <nav class="nav" aria-label="Workshop contents">
   <p class="nav-label">Workshop</p>
   <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
   <a href="index.html" class="active"><span class="nav-num">01</span>The Bench</a>
   <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
   <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
@@ -28,12 +29,15 @@
 </nav>
 
 <div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 1 · The Bench</a><span class="breadcrumb-sep">/</span><span>Replicate: machine-tight, bone dry</span></nav>
 
   <header class="page-header">
     <div class="eyebrow">Block 1 · Replication lesson · Required drill 1 of 3 for Lab 003</div>
     <h1>Replicate: machine-tight, bone dry</h1>
     <p class="lede">Copy a short dry drum section, sync the Digitakt II to Live, record 16 bars, and measure that the hits stay in the same place.</p>
   </header>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l1.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs">Labs</a><a href="lab-r1.html" data-section="rebuild">Rebuild</a><a href="capstone-c1.html" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep" class="current">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
   <div class="callout">
     <div class="callout-label">The point</div>
     <p>This drill teaches one simple thing: tight timing is something you can set up, record, and measure. The sound stays dry so nothing hides the timing.</p>
@@ -48,7 +52,7 @@
       <tr><td>Hearing and proving “tight” at sample zoom</td><td>The groove judgments of build steps 04–08</td></tr>
     </tbody>
   </table>
-  <p style="color: var(--text-muted); font-size: 14.5px; margin: 0 0 24px;">Do this before Lab 003. Lab 003 expects you to know these moves already.</p>
+  <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0 0 24px;">Do this before Lab 003. Lab 003 expects you to know these moves already.</p>
 
   <table class="param-table">
     <caption>The system you are replicating</caption>
@@ -61,7 +65,7 @@
 
   <div class="checklist">
     <div class="checklist-head">
-      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"></path></svg></div>
       <div class="checklist-label">Before you start</div>
     </div>
     <ul>
@@ -86,7 +90,7 @@
       <div class="step-num">Reference pass · 10 minutes</div>
       <h3 class="step-title">Listen before you build</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Listen to about one minute of “Spastik”. Choose the clearest 8–16 bars. That is the section you will copy. Write one short answer for each question before you touch the gear.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Listen to about one minute of “Spastik”. Choose the clearest 8–16 bars. That is the section you will copy. Write one short answer for each question before you touch the gear.</p>
     <ol class="rules-list">
       <li>Can you hear <em>any</em> echo tail, anywhere?
         <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>No. The track is dry. The drum hit ends, then the sound is gone. If you hear “space”, check again during a gap: it is density and level, not reverb or delay.</p></div></details>
@@ -101,7 +105,7 @@
         <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Tone changes carry the excitement. The grid stays still, but the drum sounds change shape. Follow one sound for 30 seconds and listen for pitch, decay, or brightness changes.</p></div></details>
       </li>
     </ol>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Now build the section you described. Do not build from memory.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Now build the section you described. Do not build from memory.</p>
   </div>
 
   <h2>Steps</h2>
@@ -127,39 +131,39 @@
   </div>
 
   <!-- PHASE 1 -->
-  <div class="step">
+  <div class="gear-switch"><input type="radio" name="gear" id="gear-hw" class="gear-radio" checked><input type="radio" name="gear" id="gear-sw" class="gear-radio"><input type="radio" name="gear" id="gear-tg" class="gear-radio"><div class="gear-labels"><span class="gear-lead">Your rig</span><label for="gear-hw">Digitakt II + Live</label><label for="gear-sw">Ableton Live only</label><label for="gear-tg">Analog Rytm MKII · target</label></div><div class="gear-scope"><div class="step">
     <div class="step-head">
       <div class="step-num">Phase 1 · ~30 min</div>
       <h3 class="step-title">Put the reference in Live and copy the pattern</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">First, put the record in the Live set so you can compare against it quickly. Then copy the pattern onto the Digitakt II one sound at a time. Use only three tracks: kick, snare, closed hat. The goal is not to invent a good techno loop. The goal is to copy where the record puts its hits.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">First, put the record in the Live set so you can compare against it quickly. Then copy the pattern onto the Digitakt II one sound at a time. Use only three tracks: kick, snare, closed hat. The goal is not to invent a good techno loop. The goal is to copy where the record puts its hits.</p>
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Live</span> Drop “Spastik” into Live on a track named <span class="code">REF</span>.</li>
-        <li><span class="system-tag">Live</span> Loop the 8–16 bars you chose in the listening pass.</li>
-        <li><span class="system-tag">Live</span> Put a Utility on <span class="code">REF</span> and set the level so it is comfortable and not louder than your work.</li>
-        <li><span class="system-tag">Digitakt II</span> Press <span class="code">[PTN]</span>, use <span class="code">[LEFT]</span>/<span class="code">[RIGHT]</span> to choose a bank, then press an unused <span class="code">[TRIG]</span> slot.</li>
-        <li><span class="system-tag">Digitakt II</span> Press <span class="code">[PLAY]</span>. If you hear anything, press <span class="code">[STOP]</span> and choose another pattern slot.</li>
-        <li><span class="system-tag">Digitakt II</span> <span class="code">[TRK]</span> + <span class="code">[TRIG 1]</span> selects track 1. Load the closest kick you can find in the <span class="code">+Drive</span>.</li>
-        <li><span class="system-tag">Digitakt II</span> Press <span class="code">[SRC]</span>, turn DATA ENTRY knob D to open the sample list, audition with the active track key, and press <span class="code">[YES]</span> to load the sample.</li>
-        <li><span class="system-tag">Digitakt II</span> <span class="code">[TRK]</span> + <span class="code">[TRIG 2]</span> selects track 2. Load the closest snare.</li>
-        <li><span class="system-tag">Digitakt II</span> Press <span class="code">[SRC]</span>, turn DATA ENTRY knob D to open the sample list, audition with the active track key, and press <span class="code">[YES]</span> to load the sample.</li>
-        <li><span class="system-tag">Digitakt II</span> <span class="code">[TRK]</span> + <span class="code">[TRIG 3]</span> selects track 3. Load the closest closed hat.</li>
-        <li><span class="system-tag">Digitakt II</span> Press <span class="code">[SRC]</span>, turn DATA ENTRY knob D to open the sample list, audition with the active track key, and press <span class="code">[YES]</span> to load the sample.</li>
-        <li><span class="system-tag">Digitakt II</span> Press <span class="code">[RECORD]</span> to enter grid recording.</li>
-        <li><span class="system-tag">Digitakt II</span> The <span class="code">[RECORD]</span> key should light red.</li>
-        <li><span class="system-tag">Digitakt II</span> <span class="code">[TRK]</span> + <span class="code">[TRIG 1]</span> selects track 1. Place the kick trigs with the numbered <span class="code">[TRIG]</span> keys.</li>
-        <li><span class="system-tag">Digitakt II</span> A lit trig key means there is a hit on that step.</li>
-        <li><span class="system-tag">Digitakt II</span> <span class="code">[TRK]</span> + <span class="code">[TRIG 2]</span> selects track 2. Place the snare trigs with the numbered <span class="code">[TRIG]</span> keys.</li>
-        <li><span class="system-tag">Digitakt II</span> <span class="code">[TRK]</span> + <span class="code">[TRIG 3]</span> selects track 3. Place the hat trigs with the numbered <span class="code">[TRIG]</span> keys.</li>
-        <li><span class="system-tag">Digitakt II</span> If one hit is louder or softer on the record, hold that trig and change velocity or level for that step only.</li>
-        <li><span class="system-tag">Live</span> Compare one voice at a time: kick against <span class="code">REF</span>, then snare, then hat.</li>
-        <li><span class="system-tag">Live</span> Fix placement first.</li>
-        <li><span class="system-tag">Live</span> Then tune pitch, decay, and attack.</li>
-        <li><span class="system-tag">Digitakt II</span> Press <span class="code">[FUNC]</span> + <span class="code">[YES]</span> to temporarily save the active pattern.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>Drop “Spastik” into Live on a track named <span class="code">REF</span>.</li>
+        <li>Loop the 8–16 bars you chose in the listening pass.</li>
+        <li>Put a Utility on <span class="code">REF</span> and set the level so it is comfortable and not louder than your work.</li>
+        <li>Press <span class="code">[PTN]</span>, use <span class="code">[LEFT]</span>/<span class="code">[RIGHT]</span> to choose a bank, then press an unused <span class="code">[TRIG]</span> slot.</li>
+        <li>Press <span class="code">[PLAY]</span>. If you hear anything, press <span class="code">[STOP]</span> and choose another pattern slot.</li>
+        <li><span class="code">[TRK]</span> + <span class="code">[TRIG 1]</span> selects track 1. Load the closest kick you can find in the <span class="code">+Drive</span>.</li>
+        <li>Press <span class="code">[SRC]</span>, turn DATA ENTRY knob D to open the sample list, audition with the active track key, and press <span class="code">[YES]</span> to load the sample.</li>
+        <li><span class="code">[TRK]</span> + <span class="code">[TRIG 2]</span> selects track 2. Load the closest snare.</li>
+        <li>Press <span class="code">[SRC]</span>, turn DATA ENTRY knob D to open the sample list, audition with the active track key, and press <span class="code">[YES]</span> to load the sample.</li>
+        <li><span class="code">[TRK]</span> + <span class="code">[TRIG 3]</span> selects track 3. Load the closest closed hat.</li>
+        <li>Press <span class="code">[SRC]</span>, turn DATA ENTRY knob D to open the sample list, audition with the active track key, and press <span class="code">[YES]</span> to load the sample.</li>
+        <li>Press <span class="code">[RECORD]</span> to enter grid recording.</li>
+        <li>The <span class="code">[RECORD]</span> key should light red.</li>
+        <li><span class="code">[TRK]</span> + <span class="code">[TRIG 1]</span> selects track 1. Place the kick trigs with the numbered <span class="code">[TRIG]</span> keys.</li>
+        <li>A lit trig key means there is a hit on that step.</li>
+        <li><span class="code">[TRK]</span> + <span class="code">[TRIG 2]</span> selects track 2. Place the snare trigs with the numbered <span class="code">[TRIG]</span> keys.</li>
+        <li><span class="code">[TRK]</span> + <span class="code">[TRIG 3]</span> selects track 3. Place the hat trigs with the numbered <span class="code">[TRIG]</span> keys.</li>
+        <li>If one hit is louder or softer on the record, hold that trig and change velocity or level for that step only.</li>
+        <li>Compare one voice at a time: kick against <span class="code">REF</span>, then snare, then hat.</li>
+        <li>Fix placement first.</li>
+        <li>Then tune pitch, decay, and attack.</li>
+        <li>Press <span class="code">[FUNC]</span> + <span class="code">[YES]</span> to temporarily save the active pattern.</li>
       </ol>
-      <div class="pattern-wrap">
+      </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Plastikman — “Spastik” and use Drum Rack, MIDI clips, Groove Pool, and clip automation.</li><li>Build the phase goal — <em>Put the reference in Live and copy the pattern</em> — as the smallest Live set that proves <em>one clock master, no swing, no delay, no reverb</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>each drum hit is exact, dry, and exposed</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>Put the reference in Live and copy the pattern</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>one clock master, no swing, no delay, no reverb</em>, not just the surface of Plastikman — “Spastik”.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div><div class="pattern-wrap">
         <div class="pattern">
           <div class="pattern-label">Kick</div>
           <div class="pattern-step on">1</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
@@ -180,11 +184,11 @@
           <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step on">15</div><div class="pattern-step"></div>
         </div>
       </div>
-      <p style="color: var(--text-muted); font-size: 13.5px; margin: 8px 0 0;">Example grid only. Your copied section may use different steps. The point is to mark what you hear, then program what you marked.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-md-plus); margin: 8px 0 0;">Example grid only. Your copied section may use different steps. The point is to mark what you hear, then program what you marked.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">A saved Digitakt II pattern. When you play it against <span class="code">REF</span>, each sound is in the right place. The sounds are close enough to compare honestly.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A saved Digitakt II pattern. When you play it against <span class="code">REF</span>, each sound is in the right place. The sounds are close enough to compare honestly.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">If it fails</div>
@@ -200,36 +204,35 @@
     </div>
   </div>
 
-  <!-- PHASE 2 -->
   <div class="step">
     <div class="step-head">
       <div class="step-num">Phase 2 · ~10 min</div>
       <h3 class="step-title">Turn off everything that smears timing</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Now remove anything that can blur the hits. Swing moves hits away from the grid. Delay creates extra copies. Reverb adds tails. Micro-timing nudges hits early or late. This drill needs none of that.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Now remove anything that can blur the hits. Swing moves hits away from the grid. Delay creates extra copies. Reverb adds tails. Micro-timing nudges hits early or late. This drill needs none of that.</p>
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Digitakt II</span> Press <span class="code">[TEMPO]</span>.</li>
-        <li><span class="system-tag">Digitakt II</span> Turn DATA ENTRY knob D until SWING reads <span class="code">50%</span>.</li>
-        <li><span class="system-tag">Digitakt II</span> Confirm SWING still reads <span class="code">50%</span> before you leave the tempo page. On the Digitakt II, <span class="code">50%</span> means no swing.</li>
-        <li><span class="system-tag">Digitakt II</span> <span class="code">[TRK]</span> + <span class="code">[TRIG 1]</span> selects track 1. Press <span class="code">[FX]</span>. Set delay send to <span class="code">0</span> and reverb send to <span class="code">0</span>.</li>
-        <li><span class="system-tag">Digitakt II</span> <span class="code">[TRK]</span> + <span class="code">[TRIG 2]</span> selects track 2. Press <span class="code">[FX]</span>. Set delay send to <span class="code">0</span> and reverb send to <span class="code">0</span>.</li>
-        <li><span class="system-tag">Digitakt II</span> <span class="code">[TRK]</span> + <span class="code">[TRIG 3]</span> selects track 3. Press <span class="code">[FX]</span>. Set delay send to <span class="code">0</span> and reverb send to <span class="code">0</span>.</li>
-        <li><span class="system-tag">Digitakt II</span> Press <span class="code">[RECORD]</span> for grid recording.</li>
-        <li><span class="system-tag">Digitakt II</span> Hold each lit <span class="code">[TRIG]</span> key and press <span class="code">[LEFT]</span>/<span class="code">[RIGHT]</span> until micro-timing is centered at zero.</li>
-        <li><span class="system-tag">Digitakt II</span> Keep velocity or level locks if you used them.</li>
-        <li><span class="system-tag">Digitakt II</span> Those change loudness, not timing.</li>
-        <li><span class="system-tag">Digitakt II</span> Play the pattern.</li>
-        <li><span class="system-tag">Digitakt II</span> Stop it.</li>
-        <li><span class="system-tag">Digitakt II</span> Listen after the last hit.</li>
-        <li><span class="system-tag">Digitakt II</span> Nothing should ring or repeat.</li>
-        <li><span class="system-tag">Digitakt II</span> Press <span class="code">[FUNC]</span> + <span class="code">[YES]</span> again to update the temporary save.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>Press <span class="code">[TEMPO]</span>.</li>
+        <li>Turn DATA ENTRY knob D until SWING reads <span class="code">50%</span>.</li>
+        <li>Confirm SWING still reads <span class="code">50%</span> before you leave the tempo page. On the Digitakt II, <span class="code">50%</span> means no swing.</li>
+        <li><span class="code">[TRK]</span> + <span class="code">[TRIG 1]</span> selects track 1. Press <span class="code">[FX]</span>. Set delay send to <span class="code">0</span> and reverb send to <span class="code">0</span>.</li>
+        <li><span class="code">[TRK]</span> + <span class="code">[TRIG 2]</span> selects track 2. Press <span class="code">[FX]</span>. Set delay send to <span class="code">0</span> and reverb send to <span class="code">0</span>.</li>
+        <li><span class="code">[TRK]</span> + <span class="code">[TRIG 3]</span> selects track 3. Press <span class="code">[FX]</span>. Set delay send to <span class="code">0</span> and reverb send to <span class="code">0</span>.</li>
+        <li>Press <span class="code">[RECORD]</span> for grid recording.</li>
+        <li>Hold each lit <span class="code">[TRIG]</span> key and press <span class="code">[LEFT]</span>/<span class="code">[RIGHT]</span> until micro-timing is centered at zero.</li>
+        <li>Keep velocity or level locks if you used them.</li>
+        <li>Those change loudness, not timing.</li>
+        <li>Play the pattern.</li>
+        <li>Stop it.</li>
+        <li>Listen after the last hit.</li>
+        <li>Nothing should ring or repeat.</li>
+        <li>Press <span class="code">[FUNC]</span> + <span class="code">[YES]</span> again to update the temporary save.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Plastikman — “Spastik” and use Drum Rack, MIDI clips, Groove Pool, and clip automation.</li><li>Build the phase goal — <em>Turn off everything that smears timing</em> — as the smallest Live set that proves <em>one clock master, no swing, no delay, no reverb</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>each drum hit is exact, dry, and exposed</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>Turn off everything that smears timing</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>one clock master, no swing, no delay, no reverb</em>, not just the surface of Plastikman — “Spastik”.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">The pattern is dry and straight. Swing reads <span class="code">50%</span>. Every send reads <span class="code">0</span>. Every trig’s micro-timing reads zero.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">The pattern is dry and straight. Swing reads <span class="code">50%</span>. Every send reads <span class="code">0</span>. Every trig’s micro-timing reads zero.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">If it fails</div>
@@ -245,13 +248,12 @@
     </div>
   </div>
 
-  <!-- PHASE 3 -->
   <div class="step">
     <div class="step-head">
       <div class="step-num">Phase 3 · ~10 min</div>
       <h3 class="step-title">Make Live the clock master</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Only one device should decide the tempo. In this drill, Live is the master and the Digitakt II follows. Set both ends: Live must send clock, and the Digitakt II must receive clock and transport.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Only one device should decide the tempo. In this drill, Live is the master and the Digitakt II follows. Set both ends: Live must send clock, and the Digitakt II must receive clock and transport.</p>
 
     <div class="signal-flow">
       <span class="signal-node">Live 12 · clock master</span>
@@ -265,28 +267,28 @@
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Live</span> Open <kbd>⌘ ,</kbd> → <span class="menu">Settings/Preferences → Link, Tempo &amp; MIDI → MIDI Ports</span>.</li>
-        <li><span class="system-tag">Digitakt II</span> Find the Digitakt II <em>output</em> port row.</li>
-        <li><span class="system-tag">Digitakt II</span> Turn <strong>Sync</strong> on for that output row.</li>
-        <li><span class="system-tag">Digitakt II + Live</span> Output matters because the clock is leaving Live and going to the Digitakt II.</li>
-        <li><span class="system-tag">Digitakt II + Live</span> Press <span class="code">[SETTINGS]</span>.</li>
-        <li><span class="system-tag">Digitakt II + Live</span> Use <span class="code">[UP]</span>/<span class="code">[DOWN]</span> or LEVEL/DATA to select <span class="menu">MIDI Config</span>, press <span class="code">[YES]</span>, select <span class="menu">Sync</span>, and press <span class="code">[YES]</span>.</li>
-        <li><span class="system-tag">Digitakt II + Live</span> Highlight <strong>Clock Receive</strong> and press <span class="code">[YES]</span> or <span class="code">[LEFT]</span>/<span class="code">[RIGHT]</span> until it reads ON.</li>
-        <li><span class="system-tag">Digitakt II + Live</span> Highlight <strong>Transport Receive</strong> and press <span class="code">[YES]</span> or <span class="code">[LEFT]</span>/<span class="code">[RIGHT]</span> until it reads ON.</li>
-        <li><span class="system-tag">Digitakt II + Live</span> This lets Live’s play and stop buttons control the Digitakt II.</li>
-        <li><span class="system-tag">Live</span> Press play in Live.</li>
-        <li><span class="system-tag">Digitakt II</span> The Digitakt II should start by itself.</li>
-        <li><span class="system-tag">Live</span> Change Live’s tempo by a few BPM.</li>
-        <li><span class="system-tag">Digitakt II</span> The Digitakt II display should follow.</li>
-        <li><span class="system-tag">Live</span> Stop Live.</li>
-        <li><span class="system-tag">Live</span> Press play again.</li>
-        <li><span class="system-tag">Digitakt II</span> This resets the Digitakt II to bar 1 before the take.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>Open <kbd>⌘ ,</kbd> → <span class="menu">Settings/Preferences → Link, Tempo &amp; MIDI → MIDI Ports</span>.</li>
+        <li>Find the Digitakt II <em>output</em> port row.</li>
+        <li>Turn <strong>Sync</strong> on for that output row.</li>
+        <li>Output matters because the clock is leaving Live and going to the Digitakt II.</li>
+        <li>Press <span class="code">[SETTINGS]</span>.</li>
+        <li>Use <span class="code">[UP]</span>/<span class="code">[DOWN]</span> or LEVEL/DATA to select <span class="menu">MIDI Config</span>, press <span class="code">[YES]</span>, select <span class="menu">Sync</span>, and press <span class="code">[YES]</span>.</li>
+        <li>Highlight <strong>Clock Receive</strong> and press <span class="code">[YES]</span> or <span class="code">[LEFT]</span>/<span class="code">[RIGHT]</span> until it reads ON.</li>
+        <li>Highlight <strong>Transport Receive</strong> and press <span class="code">[YES]</span> or <span class="code">[LEFT]</span>/<span class="code">[RIGHT]</span> until it reads ON.</li>
+        <li>This lets Live’s play and stop buttons control the Digitakt II.</li>
+        <li>Press play in Live.</li>
+        <li>The Digitakt II should start by itself.</li>
+        <li>Change Live’s tempo by a few BPM.</li>
+        <li>The Digitakt II display should follow.</li>
+        <li>Stop Live.</li>
+        <li>Press play again.</li>
+        <li>This resets the Digitakt II to bar 1 before the take.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Plastikman — “Spastik” and use Drum Rack, MIDI clips, Groove Pool, and clip automation.</li><li>Build the phase goal — <em>Make Live the clock master</em> — as the smallest Live set that proves <em>one clock master, no swing, no delay, no reverb</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>each drum hit is exact, dry, and exposed</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>Make Live the clock master</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>one clock master, no swing, no delay, no reverb</em>, not just the surface of Plastikman — “Spastik”.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Pressing play in Live starts the Digitakt II. Changing Live’s tempo changes the Digitakt II tempo. There is one tempo source: Live.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Pressing play in Live starts the Digitakt II. Changing Live’s tempo changes the Digitakt II tempo. There is one tempo source: Live.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">If it fails</div>
@@ -302,60 +304,59 @@
     </div>
   </div>
 
-  <!-- PHASE 4 -->
   <div class="step">
     <div class="step-head">
       <div class="step-num">Phase 4 · ~20 min</div>
       <h3 class="step-title">Record 16 bars and measure the kicks</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Now prove the timing with a recording. Record 16 bars. Zoom in on the first kick and the bar 16 kick. Measure how far each one is from the grid line. If the distance stays the same, the clock is stable. If the distance grows, something is drifting.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Now prove the timing with a recording. Record 16 bars. Zoom in on the first kick and the bar 16 kick. Measure how far each one is from the grid line. If the distance stays the same, the clock is stable. If the distance grows, something is drifting.</p>
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Live</span> Press <kbd>⌘ T</kbd> in Live to create a new audio track.</li>
-        <li><span class="system-tag">Live</span> Set its input to <span class="code">Ext. In 3/4</span>.</li>
-        <li><span class="system-tag">Live</span> Set the track Monitor selector to <strong>Off</strong>.</li>
-        <li><span class="system-tag">Digitakt II + Live</span> Play the Digitakt II pattern and check Live’s input meter.</li>
-        <li><span class="system-tag">Digitakt II + Live</span> Aim for peaks around <span class="code">−12 dBFS</span>.</li>
-        <li><span class="system-tag">Digitakt II</span> If the level is wrong, change the Digitakt II <span class="code">Main Volume</span>.</li>
-        <li><span class="system-tag">Digitakt II + Logbook</span> Write down the Digitakt II Main Volume position.</li>
-        <li><span class="system-tag">Digitakt II + Logbook</span> Click the track Arm button so it turns red.</li>
-        <li><span class="system-tag">Live</span> Stop Live.</li>
-        <li><span class="system-tag">Digitakt II</span> Press play again so the Digitakt II restarts at bar 1.</li>
-        <li><span class="system-tag">Digitakt II</span> Record 16 bars.</li>
-        <li><span class="system-tag">Digitakt II</span> Stop.</li>
-        <li><span class="system-tag">Live</span> Switch Live’s ruler to minutes:seconds:milliseconds.</li>
-        <li><span class="system-tag">Live</span> Zoom in on the first kick of bar 1. Measure the distance from the grid line to the start of the waveform.</li>
-        <li><span class="system-tag">Live</span> Zoom in on the kick at bar 16. Measure the same distance.</li>
-        <li><span class="system-tag">Logbook</span> Write both numbers in the table below.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>Press <kbd>⌘ T</kbd> in Live to create a new audio track.</li>
+        <li>Set its input to <span class="code">Ext. In 3/4</span>.</li>
+        <li>Set the track Monitor selector to <strong>Off</strong>.</li>
+        <li>Play the Digitakt II pattern and check Live’s input meter.</li>
+        <li>Aim for peaks around <span class="code">−12 dBFS</span>.</li>
+        <li>If the level is wrong, change the Digitakt II <span class="code">Main Volume</span>.</li>
+        <li>Write down the Digitakt II Main Volume position.</li>
+        <li>Click the track Arm button so it turns red.</li>
+        <li>Stop Live.</li>
+        <li>Press play again so the Digitakt II restarts at bar 1.</li>
+        <li>Record 16 bars.</li>
+        <li>Stop.</li>
+        <li>Switch Live’s ruler to minutes:seconds:milliseconds.</li>
+        <li>Zoom in on the first kick of bar 1. Measure the distance from the grid line to the start of the waveform.</li>
+        <li>Zoom in on the kick at bar 16. Measure the same distance.</li>
+        <li>Write both numbers in the table below.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Plastikman — “Spastik” and use audio clips, Simpler/Sampler, clip envelopes, and resampling.</li><li>Build the phase goal — <em>Record 16 bars and measure the kicks</em> — as the smallest Live set that proves <em>one clock master, no swing, no delay, no reverb</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>each drum hit is exact, dry, and exposed</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>Record 16 bars and measure the kicks</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>one clock master, no swing, no delay, no reverb</em>, not just the surface of Plastikman — “Spastik”.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
 
     <div class="signal-flow" style="display:block; padding:26px 16px;">
       <svg viewBox="0 0 760 310" width="100%" role="img" aria-label="Tight versus drift at sample zoom — a constant offset is latency, a growing offset is drift">
         <text x="40" y="30" fill="#e6edf3" font-size="12">healthy chain — offset never grows</text>
-        <line x1="40" y1="96" x2="720" y2="96" stroke="#6e7681" stroke-width="1"/>
-        <line x1="150" y1="52" x2="150" y2="112" stroke="#8b949e" stroke-width="1.2"/>
-        <line x1="560" y1="52" x2="560" y2="112" stroke="#8b949e" stroke-width="1.2"/>
+        <line x1="40" y1="96" x2="720" y2="96" stroke="#6e7681" stroke-width="1"></line>
+        <line x1="150" y1="52" x2="150" y2="112" stroke="#8b949e" stroke-width="1.2"></line>
+        <line x1="560" y1="52" x2="560" y2="112" stroke="#8b949e" stroke-width="1.2"></line>
         <text x="150" y="128" fill="#8b949e" font-size="10.5" text-anchor="middle">grid · bar 1</text>
         <text x="560" y="128" fill="#8b949e" font-size="10.5" text-anchor="middle">grid · bar 16</text>
-        <path d="M168 96 L172 58 L176 82 L181 90 L188 96" fill="none" stroke="#7dd3c0" stroke-width="1.8"/>
-        <path d="M578 96 L582 58 L586 82 L591 90 L598 96" fill="none" stroke="#7dd3c0" stroke-width="1.8"/>
-        <line x1="150" y1="66" x2="168" y2="66" stroke="#7dd3c0" stroke-width="1" stroke-dasharray="3 3"/>
-        <line x1="560" y1="66" x2="578" y2="66" stroke="#7dd3c0" stroke-width="1" stroke-dasharray="3 3"/>
+        <path d="M168 96 L172 58 L176 82 L181 90 L188 96" fill="none" stroke="#7dd3c0" stroke-width="1.8"></path>
+        <path d="M578 96 L582 58 L586 82 L591 90 L598 96" fill="none" stroke="#7dd3c0" stroke-width="1.8"></path>
+        <line x1="150" y1="66" x2="168" y2="66" stroke="#7dd3c0" stroke-width="1" stroke-dasharray="3 3"></line>
+        <line x1="560" y1="66" x2="578" y2="66" stroke="#7dd3c0" stroke-width="1" stroke-dasharray="3 3"></line>
         <text x="200" y="64" fill="#8b949e" font-size="10.5">+2 ms</text>
         <text x="610" y="64" fill="#8b949e" font-size="10.5">+2 ms</text>
         <text x="380" y="146" fill="#7dd3c0" font-size="11.5" text-anchor="middle">constant = latency — knowable, livable</text>
         <text x="40" y="186" fill="#e6edf3" font-size="12">broken chain — offset grows with time</text>
-        <line x1="40" y1="248" x2="720" y2="248" stroke="#6e7681" stroke-width="1"/>
-        <line x1="150" y1="204" x2="150" y2="264" stroke="#8b949e" stroke-width="1.2"/>
-        <line x1="560" y1="204" x2="560" y2="264" stroke="#8b949e" stroke-width="1.2"/>
+        <line x1="40" y1="248" x2="720" y2="248" stroke="#6e7681" stroke-width="1"></line>
+        <line x1="150" y1="204" x2="150" y2="264" stroke="#8b949e" stroke-width="1.2"></line>
+        <line x1="560" y1="204" x2="560" y2="264" stroke="#8b949e" stroke-width="1.2"></line>
         <text x="150" y="280" fill="#8b949e" font-size="10.5" text-anchor="middle">grid · bar 1</text>
         <text x="560" y="280" fill="#8b949e" font-size="10.5" text-anchor="middle">grid · bar 16</text>
-        <path d="M168 248 L172 210 L176 234 L181 242 L188 248" fill="none" stroke="#7dd3c0" stroke-width="1.8"/>
-        <path d="M626 248 L630 210 L634 234 L639 242 L646 248" fill="none" stroke="#7dd3c0" stroke-width="1.8"/>
-        <line x1="150" y1="218" x2="168" y2="218" stroke="#7dd3c0" stroke-width="1" stroke-dasharray="3 3"/>
-        <line x1="560" y1="218" x2="626" y2="218" stroke="#7dd3c0" stroke-width="1" stroke-dasharray="3 3"/>
+        <path d="M168 248 L172 210 L176 234 L181 242 L188 248" fill="none" stroke="#7dd3c0" stroke-width="1.8"></path>
+        <path d="M626 248 L630 210 L634 234 L639 242 L646 248" fill="none" stroke="#7dd3c0" stroke-width="1.8"></path>
+        <line x1="150" y1="218" x2="168" y2="218" stroke="#7dd3c0" stroke-width="1" stroke-dasharray="3 3"></line>
+        <line x1="560" y1="218" x2="626" y2="218" stroke="#7dd3c0" stroke-width="1" stroke-dasharray="3 3"></line>
         <text x="200" y="216" fill="#8b949e" font-size="10.5">+2 ms</text>
         <text x="658" y="216" fill="#8b949e" font-size="10.5">+14 ms</text>
         <text x="380" y="298" fill="#7dd3c0" font-size="11.5" text-anchor="middle">growing = drift — no compensation fixes this</text>
@@ -373,7 +374,7 @@
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">The bar 1 kick and bar 16 kick have the same offset. Ideally they are very close to the grid because Lab 002 compensation is already set.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">The bar 1 kick and bar 16 kick have the same offset. Ideally they are very close to the grid because Lab 002 compensation is already set.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">If it fails</div>
@@ -389,29 +390,28 @@
     </div>
   </div>
 
-  <!-- PHASE 5 -->
   <div class="step">
     <div class="step-head">
       <div class="step-num">Phase 5 · ~20 min</div>
       <h3 class="step-title">Compare your loop to the record</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Last, compare your recording with the reference section. Match the loudness first. A louder clip will usually sound better, even if it is not closer. Fix one problem per pass.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Last, compare your recording with the reference section. Match the loudness first. A louder clip will usually sound better, even if it is not closer. Fix one problem per pass.</p>
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Live</span> Select the 16-bar recording and press <kbd>⌘ J</kbd> to consolidate it so it loops cleanly from bar 1.</li>
-        <li><span class="system-tag">Live</span> Put it on its own track.</li>
-        <li><span class="system-tag">Live</span> Use Utility to match the loudness of your loop and <span class="code">REF</span>.</li>
-        <li><span class="system-tag">Live</span> Listen to 10 seconds of yours.</li>
-        <li><span class="system-tag">Live</span> Listen to 10 seconds of the record.</li>
-        <li><span class="system-tag">Logbook</span> Write one sentence: “The first thing that gives mine away is ___.”</li>
-        <li><span class="system-tag">Logbook</span> Fix only that one thing.</li>
-        <li><span class="system-tag">Live</span> Repeat the A/B pass three to five times, or stop when you stop hearing new problems.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>Select the 16-bar recording and press <kbd>⌘ J</kbd> to consolidate it so it loops cleanly from bar 1.</li>
+        <li>Put it on its own track.</li>
+        <li>Use Utility to match the loudness of your loop and <span class="code">REF</span>.</li>
+        <li>Listen to 10 seconds of yours.</li>
+        <li>Listen to 10 seconds of the record.</li>
+        <li>Write one sentence: “The first thing that gives mine away is ___.”</li>
+        <li>Fix only that one thing.</li>
+        <li>Repeat the A/B pass three to five times, or stop when you stop hearing new problems.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Plastikman — “Spastik” and use audio clips, Simpler/Sampler, clip envelopes, and resampling.</li><li>Build the phase goal — <em>Compare your loop to the record</em> — as the smallest Live set that proves <em>one clock master, no swing, no delay, no reverb</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>each drum hit is exact, dry, and exposed</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>Compare your loop to the record</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>one clock master, no swing, no delay, no reverb</em>, not just the surface of Plastikman — “Spastik”.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">A clean 16-bar loop. The remaining differences are things you can name, and they are mostly sound differences, not timing differences.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A clean 16-bar loop. The remaining differences are things you can name, and they are mostly sound differences, not timing differences.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">If it fails</div>
@@ -426,6 +426,10 @@
     </div>
   </div>
 
+  </div></div><!-- PHASE 2 -->
+  <!-- PHASE 3 -->
+  <!-- PHASE 4 -->
+  <!-- PHASE 5 -->
   <div class="decision-check">
     <div class="decision-check-label">Final check</div>
     <p>Play your loop against the <span class="code">REF</span> section and answer these in the logbook:</p>
@@ -471,5 +475,6 @@
 
 </div>
 
+  <script src="../nav.js"></script>
 </body>
 </html>

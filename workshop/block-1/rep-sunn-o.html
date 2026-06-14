@@ -6,7 +6,7 @@
 <title>Replicate: Saturation as Mass</title>
 <link rel="stylesheet" href="../styles.css">
 </head>
-<body>
+<body class="page-type-rep" id="top">
 
 <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
 <label for="nav-toggle" class="hamburger" aria-label="Menu">
@@ -16,6 +16,7 @@
 <nav class="nav" aria-label="Workshop contents">
   <p class="nav-label">Workshop</p>
   <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
   <a href="index.html" class="active"><span class="nav-num">01</span>The Bench</a>
   <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
   <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
@@ -28,12 +29,15 @@
 </nav>
 
 <div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 1 · The Bench</a><span class="breadcrumb-sep">/</span><span>Replicate: saturation as mass</span></nav>
 
   <header class="page-header">
     <div class="eyebrow">Block 1 · Replication lesson</div>
     <h1>Replicate: saturation as mass</h1>
     <p class="lede">Copy one clear section of Sunn O))) — “It Took the Night to Believe”. Build the main parts, record a short take, and compare it to the reference at the same loudness.</p>
   </header>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l1.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs">Labs</a><a href="lab-r1.html" data-section="rebuild">Rebuild</a><a href="capstone-c1.html" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep" class="current">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
   <div class="callout">
     <div class="callout-label">The point</div>
     <p>This drill teaches the record's core mechanism: a sustained drone through heavy saturation, changing only by slow filter movement. Do only the steps that make that mechanism audible.</p>
@@ -50,7 +54,7 @@
 
   <div class="checklist">
     <div class="checklist-head">
-      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"></path></svg></div>
       <div class="checklist-label">Before you start</div>
     </div>
     <ul>
@@ -74,7 +78,7 @@
       <div class="step-num">Reference pass · 10 minutes</div>
       <h3 class="step-title">Listen before you build</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Listen to about one minute of Sunn O))) — “It Took the Night to Believe”. Choose the clearest short section. Write one short answer for each question before you touch the gear.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Listen to about one minute of Sunn O))) — “It Took the Night to Believe”. Choose the clearest short section. Write one short answer for each question before you touch the gear.</p>
     <ol class="rules-list">
       <li>How many notes are actually being played?
         <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Shockingly few - a chord, sometimes a single note, held and occasionally re-struck. Everything else you hear is saturation multiplying that note across the spectrum. The wall sounds orchestral, but the score would fit on a napkin.</p></div></details>
@@ -92,7 +96,7 @@
         <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>A place - the saturation is constant, the room the music lives in, not a hit or an effect that comes and goes. That constancy is what makes it read as an amplifier wall rather than a fault: nothing this steady is an accident.</p></div></details>
       </li>
     </ol>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Now build the section you described. Do not build from memory.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Now build the section you described. Do not build from memory.</p>
   </div>
 
   <h2>Steps</h2>
@@ -118,7 +122,7 @@
     </ul>
   </div>
 
-  <p style="color: var(--text-muted); font-size: 14.5px; max-width: 640px; margin: 0 auto 14px; text-align: center;">The wall’s machinery in one row: a low sustained source, heavy saturation generating the spectrum, slow filter movement as the only motion, and a gain-compensated output so the mass never becomes mere level.</p>
+  <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); max-width: 640px; margin: 0 auto 14px; text-align: center;">The wall’s machinery in one row: a low sustained source, heavy saturation generating the spectrum, slow filter movement as the only motion, and a gain-compensated output so the mass never becomes mere level.</p>
 
   <div class="signal-flow">
     <span class="signal-node">MicroFreak · low drone · sustain full</span>
@@ -130,31 +134,31 @@
     <span class="signal-node">mix · full spectrum · ≈ −12 dBFS</span>
   </div>
 
-  <p style="color: var(--text-muted); font-size: 14.5px; max-width: 640px; margin: 18px auto 14px; text-align: center;">What the Spectrum analyzer will show as the Drive rises, drawn as three snapshots. The note count never changes; the spectrum fills from the bottom up until one chord occupies the whole band. The third panel is the wall.</p>
+  <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); max-width: 640px; margin: 18px auto 14px; text-align: center;">What the Spectrum analyzer will show as the Drive rises, drawn as three snapshots. The note count never changes; the spectrum fills from the bottom up until one chord occupies the whole band. The third panel is the wall.</p>
 
 <div class="signal-flow" style="display:block; padding:26px 16px;">
   <svg viewBox="0 0 760 230" width="100%" role="img" aria-label="Spectrum filling from bottom to top as drive rises while one note is played">
-    <rect x="20" y="20" width="225" height="170" rx="10" fill="#1f2530" stroke="#6e7681" stroke-width="1"/>
-    <rect x="267" y="20" width="225" height="170" rx="10" fill="#1f2530" stroke="#6e7681" stroke-width="1"/>
-    <rect x="514" y="20" width="225" height="170" rx="10" fill="#1f2530" stroke="#7dd3c0" stroke-width="1.2"/>
+    <rect x="20" y="20" width="225" height="170" rx="10" fill="#1f2530" stroke="#6e7681" stroke-width="1"></rect>
+    <rect x="267" y="20" width="225" height="170" rx="10" fill="#1f2530" stroke="#6e7681" stroke-width="1"></rect>
+    <rect x="514" y="20" width="225" height="170" rx="10" fill="#1f2530" stroke="#7dd3c0" stroke-width="1.2"></rect>
     <text x="132" y="44" fill="#e6edf3" font-size="12" text-anchor="middle">drive low</text>
     <text x="379" y="44" fill="#e6edf3" font-size="12" text-anchor="middle">drive rising</text>
     <text x="626" y="44" fill="#7dd3c0" font-size="12" text-anchor="middle">the wall</text>
-    <rect x="45" y="120" width="14" height="55" fill="#8b949e"/>
-    <rect x="75" y="160" width="14" height="15" fill="#6e7681"/>
-    <rect x="292" y="115" width="14" height="60" fill="#8b949e"/>
-    <rect x="322" y="130" width="14" height="45" fill="#8b949e"/>
-    <rect x="352" y="145" width="14" height="30" fill="#8b949e"/>
-    <rect x="382" y="155" width="14" height="20" fill="#6e7681"/>
-    <rect x="412" y="163" width="14" height="12" fill="#6e7681"/>
-    <rect x="539" y="110" width="14" height="65" fill="#7dd3c0"/>
-    <rect x="563" y="118" width="14" height="57" fill="#7dd3c0"/>
-    <rect x="587" y="125" width="14" height="50" fill="#7dd3c0"/>
-    <rect x="611" y="131" width="14" height="44" fill="#7dd3c0"/>
-    <rect x="635" y="137" width="14" height="38" fill="#7dd3c0"/>
-    <rect x="659" y="142" width="14" height="33" fill="#7dd3c0"/>
-    <rect x="683" y="147" width="14" height="28" fill="#7dd3c0"/>
-    <rect x="707" y="151" width="14" height="24" fill="#7dd3c0"/>
+    <rect x="45" y="120" width="14" height="55" fill="#8b949e"></rect>
+    <rect x="75" y="160" width="14" height="15" fill="#6e7681"></rect>
+    <rect x="292" y="115" width="14" height="60" fill="#8b949e"></rect>
+    <rect x="322" y="130" width="14" height="45" fill="#8b949e"></rect>
+    <rect x="352" y="145" width="14" height="30" fill="#8b949e"></rect>
+    <rect x="382" y="155" width="14" height="20" fill="#6e7681"></rect>
+    <rect x="412" y="163" width="14" height="12" fill="#6e7681"></rect>
+    <rect x="539" y="110" width="14" height="65" fill="#7dd3c0"></rect>
+    <rect x="563" y="118" width="14" height="57" fill="#7dd3c0"></rect>
+    <rect x="587" y="125" width="14" height="50" fill="#7dd3c0"></rect>
+    <rect x="611" y="131" width="14" height="44" fill="#7dd3c0"></rect>
+    <rect x="635" y="137" width="14" height="38" fill="#7dd3c0"></rect>
+    <rect x="659" y="142" width="14" height="33" fill="#7dd3c0"></rect>
+    <rect x="683" y="147" width="14" height="28" fill="#7dd3c0"></rect>
+    <rect x="707" y="151" width="14" height="24" fill="#7dd3c0"></rect>
     <text x="132" y="208" fill="#6e7681" font-size="9.5" text-anchor="middle">one note · almost alone</text>
     <text x="379" y="208" fill="#6e7681" font-size="9.5" text-anchor="middle">same note · harmonics climbing</text>
     <text x="626" y="208" fill="#6e7681" font-size="9.5" text-anchor="middle">same note · the whole band, filled</text>
@@ -162,30 +166,30 @@
 </div>
 
   <!-- PHASE 1 -->
-  <div class="step">
+  <div class="gear-switch"><input type="radio" name="gear" id="gear-hw" class="gear-radio" checked><input type="radio" name="gear" id="gear-sw" class="gear-radio"><input type="radio" name="gear" id="gear-tg" class="gear-radio"><div class="gear-labels"><span class="gear-lead">Your rig</span><label for="gear-hw">MicroFreak + Digitakt II</label><label for="gear-sw">Ableton Live only</label><label for="gear-tg">Analog Four MKII · target</label></div><div class="gear-scope"><div class="step">
     <div class="step-head">
       <div class="step-num">Phase 1 · ≈ 15 min</div>
       <h3 class="step-title">The reference and the tracks</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: the reference and the tracks. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: the reference and the tracks. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Live</span> <kbd>⌘ T</kbd>, rename the track <span class="code">REF</span> (<kbd>⌘ R</kbd>), and drag “It Took the Night to Believe” into it.</li>
-        <li><span class="system-tag">Live</span> Find the most characteristic two to three minutes — one chord establishing, holding, breathing — and loop them.</li>
-        <li><span class="system-tag">Live</span> Drop <span class="menu">Audio Effects → Utility</span> on <span class="code">REF</span> and trim so the section peaks ≈ <span class="code">−12 dBFS</span>.</li>
-        <li><span class="system-tag">Live</span> <span class="code">REF</span> stays one solo-press away for the whole lesson.</li>
-        <li><span class="system-tag">Live</span> <kbd>⌘ T</kbd> once; rename: <span class="code">DRONE</span>, <span class="menu">Ext. In</span> <span class="code">1</span>, fader at <span class="code">0 dB</span>.</li>
-        <li><span class="system-tag">Digitakt II</span> One source track is the whole session — the Digitakt II rests this lesson.</li>
-        <li><span class="system-tag">Logbook</span> Write the pacing in the logbook: how long the record holds before anything changes.</li>
-        <li><span class="system-tag">Logbook</span> That number, not the tempo, is this lesson’s clock.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li><kbd>⌘ T</kbd>, rename the track <span class="code">REF</span> (<kbd>⌘ R</kbd>), and drag “It Took the Night to Believe” into it.</li>
+        <li>Find the most characteristic two to three minutes — one chord establishing, holding, breathing — and loop them.</li>
+        <li>Drop <span class="menu">Audio Effects → Utility</span> on <span class="code">REF</span> and trim so the section peaks ≈ <span class="code">−12 dBFS</span>.</li>
+        <li><span class="code">REF</span> stays one solo-press away for the whole lesson.</li>
+        <li><kbd>⌘ T</kbd> once; rename: <span class="code">DRONE</span>, <span class="menu">Ext. In</span> <span class="code">1</span>, fader at <span class="code">0 dB</span>.</li>
+        <li>One source track is the whole session — the Digitakt II rests this lesson.</li>
+        <li>Write the pacing in the logbook: how long the record holds before anything changes.</li>
+        <li>That number, not the tempo, is this lesson’s clock.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Sunn O))) — “It Took the Night to Believe” and use Operator or Wavetable into Auto Filter, with clip automation.</li><li>Build the phase goal — <em>The reference and the tracks</em> — as the smallest Live set that proves <em>a sustained drone through heavy saturation, changing only by slow filter movement</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>a wall of mass — one chord filling the whole spectrum, for minutes</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Four MKII for this phase: translate <em>The reference and the tracks</em> into one analog synth track, parameter locks, slides, performance macros, and Overbridge or main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>a sustained drone through heavy saturation, changing only by slow filter movement</em>, not just the surface of Sunn O))) — “It Took the Night to Believe”.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">The record loops at ≈ −12 dBFS, one named, routed, unity-gain track waits for the drone, and the record’s pacing is on paper.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">The record loops at ≈ −12 dBFS, one named, routed, unity-gain track waits for the drone, and the record’s pacing is on paper.</p>
     </div>
 
     <div class="sub-block">
@@ -200,33 +204,32 @@
     </div>
   </div>
 
-  <!-- PHASE 2 -->
   <div class="step">
     <div class="step-head">
       <div class="step-num">Phase 2 · ≈ 25 min</div>
       <h3 class="step-title">The drone patch — low, slow, endless</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: the drone patch — low, slow, endless. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: the drone patch — low, slow, endless. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">MicroFreak</span> MicroFreak: <span class="code">Type</span> → <span class="code">V.Analog</span>, <span class="code">Paraphonic</span> ON for a low two-note chord (a fifth works; the record’s register, not its exact pitches — your ear finds the depth).</li>
-        <li><span class="system-tag">MicroFreak</span> One octave below comfortable is the right neighborhood.</li>
-        <li><span class="system-tag">MicroFreak</span> Envelope: attack slow — the note should bloom in over a second or more — sustain full, release long.</li>
-        <li><span class="system-tag">MicroFreak</span> Cutoff ≈ 30 %, resonance low.</li>
-        <li><span class="system-tag">MicroFreak</span> Hold the chord and listen for a full minute, at the mark or lower.</li>
-        <li><span class="system-tag">MicroFreak</span> If the tone is finished before the minute is — if nothing in you wants to keep listening — slow the attack further and darken the cutoff;</li>
-        <li><span class="system-tag">MicroFreak</span> patience must be in the patch.</li>
-        <li><span class="system-tag">MicroFreak</span> Set the M4 input-1 gain so the held chord peaks ≈ <span class="code">−12 dBFS</span> — sustained material reads hotter than hits;</li>
-        <li><span class="system-tag">MicroFreak</span> set the gain on the held tone, not on the strike.</li>
-        <li><span class="system-tag">MicroFreak</span> Record two to three minutes into <span class="code">DRONE</span>: strike, hold, re-strike at the record’s pacing from phase 1. Weight the keys or use the MicroFreak’s <span class="code">Hold</span> so your hands can leave.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>MicroFreak: <span class="code">Type</span> → <span class="code">V.Analog</span>, <span class="code">Paraphonic</span> ON for a low two-note chord (a fifth works; the record’s register, not its exact pitches — your ear finds the depth).</li>
+        <li>One octave below comfortable is the right neighborhood.</li>
+        <li>Envelope: attack slow — the note should bloom in over a second or more — sustain full, release long.</li>
+        <li>Cutoff ≈ 30 %, resonance low.</li>
+        <li>Hold the chord and listen for a full minute, at the mark or lower.</li>
+        <li>If the tone is finished before the minute is — if nothing in you wants to keep listening — slow the attack further and darken the cutoff;</li>
+        <li>patience must be in the patch.</li>
+        <li>Set the M4 input-1 gain so the held chord peaks ≈ <span class="code">−12 dBFS</span> — sustained material reads hotter than hits;</li>
+        <li>set the gain on the held tone, not on the strike.</li>
+        <li>Record two to three minutes into <span class="code">DRONE</span>: strike, hold, re-strike at the record’s pacing from phase 1. Weight the keys or use the MicroFreak’s <span class="code">Hold</span> so your hands can leave.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Sunn O))) — “It Took the Night to Believe” and use Operator or Wavetable into Auto Filter, with clip automation.</li><li>Build the phase goal — <em>The drone patch — low, slow, endless</em> — as the smallest Live set that proves <em>a sustained drone through heavy saturation, changing only by slow filter movement</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>a wall of mass — one chord filling the whole spectrum, for minutes</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Four MKII for this phase: translate <em>The drone patch — low, slow, endless</em> into one analog synth track, parameter locks, slides, performance macros, and Overbridge or main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>a sustained drone through heavy saturation, changing only by slow filter movement</em>, not just the surface of Sunn O))) — “It Took the Night to Believe”.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Minutes of clean low drone at ≈ −12 dBFS — dark, patient, and politely empty. It should sound nothing like the record yet: the wall does not exist until the saturation builds it.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Minutes of clean low drone at ≈ −12 dBFS — dark, patient, and politely empty. It should sound nothing like the record yet: the wall does not exist until the saturation builds it.</p>
     </div>
 
     <div class="sub-block">
@@ -241,13 +244,12 @@
     </div>
   </div>
 
-  <!-- PHASE 3 -->
   <div class="step">
     <div class="step-head">
       <div class="step-num">Phase 3 · ≈ 25 min</div>
       <h3 class="step-title">Saturate it — heavy, sustained, slow</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: saturate it — heavy, sustained, slow. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: saturate it — heavy, sustained, slow. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
 
     <div class="note-block">
       <ul>
@@ -257,23 +259,23 @@
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Live</span> On <span class="code">DRONE</span>, drop in <span class="menu">Audio Effects → Saturator</span>.</li>
-        <li><span class="system-tag">Live</span> Push <span class="code">Drive</span> heavily — start at <span class="code">+24 dB</span> — and pull <span class="code">Output</span> down by roughly the same amount, until the track meters ≈ −12 dBFS with the device on, same as off.</li>
-        <li><span class="system-tag">Live</span> Solo-flip against <span class="code">REF</span> and walk the Drive until the density matches the record’s wall — at matched loudness, density is the only thing left to compare.</li>
-        <li><span class="system-tag">Live</span> Make at least three flip-and-correct passes.</li>
-        <li><span class="system-tag">MicroFreak + Live</span> Add <span class="menu">Audio Effects → Auto Filter</span> after the Saturator: low-pass, cutoff high.</li>
-        <li><span class="system-tag">MicroFreak + Live</span> Map nothing; move it by hand, slower than feels musical — minutes-long sweeps.</li>
-        <li><span class="system-tag">Live</span> This is the breathing from your reference pass, and it is the only motion this lesson permits.</li>
-        <li><span class="system-tag">Live</span> <strong>Observe — see it, not just hear it.</strong> Drop <span class="menu">Audio Effects → Spectrum</span> at the end of the chain.</li>
-        <li><span class="system-tag">Live</span> At matched loudness, raise the Drive from low to your setting and watch the display fill from the bottom up — the snapshots from the diagram, live — while the played note count stays exactly one chord.</li>
-        <li><span class="system-tag">Logbook</span> Write in the logbook how far up the band your wall reaches.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>On <span class="code">DRONE</span>, drop in <span class="menu">Audio Effects → Saturator</span>.</li>
+        <li>Push <span class="code">Drive</span> heavily — start at <span class="code">+24 dB</span> — and pull <span class="code">Output</span> down by roughly the same amount, until the track meters ≈ −12 dBFS with the device on, same as off.</li>
+        <li>Solo-flip against <span class="code">REF</span> and walk the Drive until the density matches the record’s wall — at matched loudness, density is the only thing left to compare.</li>
+        <li>Make at least three flip-and-correct passes.</li>
+        <li>Add <span class="menu">Audio Effects → Auto Filter</span> after the Saturator: low-pass, cutoff high.</li>
+        <li>Map nothing; move it by hand, slower than feels musical — minutes-long sweeps.</li>
+        <li>This is the breathing from your reference pass, and it is the only motion this lesson permits.</li>
+        <li><strong>Observe — see it, not just hear it.</strong> Drop <span class="menu">Audio Effects → Spectrum</span> at the end of the chain.</li>
+        <li>At matched loudness, raise the Drive from low to your setting and watch the display fill from the bottom up — the snapshots from the diagram, live — while the played note count stays exactly one chord.</li>
+        <li>Write in the logbook how far up the band your wall reaches.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Sunn O))) — “It Took the Night to Believe” and use Operator or Wavetable into Auto Filter, with clip automation.</li><li>Build the phase goal — <em>Saturate it — heavy, sustained, slow</em> — as the smallest Live set that proves <em>a sustained drone through heavy saturation, changing only by slow filter movement</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>a wall of mass — one chord filling the whole spectrum, for minutes</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Four MKII for this phase: translate <em>Saturate it — heavy, sustained, slow</em> into one analog synth track, parameter locks, slides, performance macros, and Overbridge or main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>a sustained drone through heavy saturation, changing only by slow filter movement</em>, not just the surface of Sunn O))) — “It Took the Night to Believe”.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">The same patient drone transformed into a wall: one chord occupying the whole spectrum at ≈ −12 dBFS, its color breathing under the hand-moved filter, its meter never asking for more level than the ledger allows.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">The same patient drone transformed into a wall: one chord occupying the whole spectrum at ≈ −12 dBFS, its color breathing under the hand-moved filter, its meter never asking for more level than the ledger allows.</p>
     </div>
 
     <div class="sub-block">
@@ -288,30 +290,29 @@
     </div>
   </div>
 
-  <!-- PHASE 4 -->
   <div class="step">
     <div class="step-head">
       <div class="step-num">Phase 4 · ≈ 25 min</div>
       <h3 class="step-title">Hold the wall — minutes, then A/B</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: hold the wall — minutes, then A/B. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: hold the wall — minutes, then A/B. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Live</span> In Arrangement view, lay out 3–4 minutes: the recorded drone (or a fresh performance), re-strikes at the pacing you wrote in phase 1, filter sweeps written as slow automation or ridden by hand.</li>
-        <li><span class="system-tag">Live</span> Play it end to end without touching anything else.</li>
-        <li><span class="system-tag">Live</span> Sit through it at the mark or lower.</li>
-        <li><span class="system-tag">Live</span> Resist the urge to add an element — the urge is the lesson arriving.</li>
-        <li><span class="system-tag">Live</span> A/B the wall: one minute of <span class="code">REF</span>, one minute of yours, at matched loudness.</li>
-        <li><span class="system-tag">Live</span> Judge only mass — does one chord fill the band the way the record’s does, and does it breathe at the same patience?</li>
-        <li><span class="system-tag">Logbook</span> Write one sentence in the logbook on where the mass came from — with the words “loud” and “louder” banned from the sentence.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>In Arrangement view, lay out 3–4 minutes: the recorded drone (or a fresh performance), re-strikes at the pacing you wrote in phase 1, filter sweeps written as slow automation or ridden by hand.</li>
+        <li>Play it end to end without touching anything else.</li>
+        <li>Sit through it at the mark or lower.</li>
+        <li>Resist the urge to add an element — the urge is the lesson arriving.</li>
+        <li>A/B the wall: one minute of <span class="code">REF</span>, one minute of yours, at matched loudness.</li>
+        <li>Judge only mass — does one chord fill the band the way the record’s does, and does it breathe at the same patience?</li>
+        <li>Write one sentence in the logbook on where the mass came from — with the words “loud” and “louder” banned from the sentence.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Sunn O))) — “It Took the Night to Believe” and use Operator or Wavetable into Auto Filter, with clip automation.</li><li>Build the phase goal — <em>Hold the wall — minutes, then A/B</em> — as the smallest Live set that proves <em>a sustained drone through heavy saturation, changing only by slow filter movement</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>a wall of mass — one chord filling the whole spectrum, for minutes</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Four MKII for this phase: translate <em>Hold the wall — minutes, then A/B</em> into one analog synth track, parameter locks, slides, performance macros, and Overbridge or main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>a sustained drone through heavy saturation, changing only by slow filter movement</em>, not just the surface of Sunn O))) — “It Took the Night to Believe”.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Minutes of wall that hold attention without rhythm, melody, or level — and an A/B against <span class="code">REF</span> that comes down to density and patience, the record’s actual materials.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Minutes of wall that hold attention without rhythm, melody, or level — and an A/B against <span class="code">REF</span> that comes down to density and patience, the record’s actual materials.</p>
     </div>
 
     <div class="sub-block">
@@ -326,6 +327,9 @@
     </div>
   </div>
 
+  </div></div><!-- PHASE 2 -->
+  <!-- PHASE 3 -->
+  <!-- PHASE 4 -->
   <div class="decision-check">
     <div class="decision-check-label">Verify against the record</div>
     <p>Solo-flip between <span class="code">REF</span> and your wall at matched loudness — phones at the mark or lower, no level riding while you judge.</p>
@@ -362,5 +366,6 @@
 
 </div>
 
+  <script src="../nav.js"></script>
 </body>
 </html>

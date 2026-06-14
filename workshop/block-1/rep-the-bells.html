@@ -6,7 +6,7 @@
 <title>Replicate — The Jump Cut</title>
 <link rel="stylesheet" href="../styles.css">
 </head>
-<body>
+<body class="page-type-rep" id="top">
 
 <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
 <label for="nav-toggle" class="hamburger" aria-label="Menu">
@@ -16,6 +16,7 @@
 <nav class="nav" aria-label="Workshop contents">
   <p class="nav-label">Workshop</p>
   <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
   <a href="index.html" class="active"><span class="nav-num">01</span>The Bench</a>
   <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
   <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
@@ -28,12 +29,15 @@
 </nav>
 
 <div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 1 · The Bench</a><span class="breadcrumb-sep">/</span><span>Replicate: the jump cut</span></nav>
 
   <header class="page-header">
     <div class="eyebrow">Block 1 · Replication lesson</div>
     <h1>Replicate: the jump cut</h1>
     <p class="lede">Copy one clear section of Jeff Mills — “The Bells”. Build the main parts, record a short take, and compare it to the reference at the same loudness.</p>
   </header>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l1.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs">Labs</a><a href="lab-r1.html" data-section="rebuild">Rebuild</a><a href="capstone-c1.html" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep" class="current">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
   <div class="callout">
     <div class="callout-label">The point</div>
     <p>This drill teaches the record's core mechanism: Whole patterns swapped instantly on the bar; a shared kick holds the floor while everything above it jump-cuts. Do only the steps that make that mechanism audible.</p>
@@ -50,7 +54,7 @@
 
   <div class="checklist">
     <div class="checklist-head">
-      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"></path></svg></div>
       <div class="checklist-label">Before you start</div>
     </div>
     <ul>
@@ -73,7 +77,7 @@
       <div class="step-num">Reference pass · 10 minutes</div>
       <h3 class="step-title">Listen before you build</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Listen to about one minute of Jeff Mills — “The Bells”. Choose the clearest short section. Write one short answer for each question before you touch the gear.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Listen to about one minute of Jeff Mills — “The Bells”. Choose the clearest short section. Write one short answer for each question before you touch the gear.</p>
     <ol class="rules-list">
       <li>How many distinct blocks did you count in the looped stretch — sections you could give a one-word name to?
         <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Three or four is a fair count for any short stretch: a drums-only block, the riff block, a stripped block, and recombinations of those.</p></div></details>
@@ -88,7 +92,7 @@
         <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>No - and that absence is the lesson, not an accident. Where another producer would write a fill, the record simply cuts, and the surprise of the bare seam does the fill’s job better.</p></div></details>
       </li>
     </ol>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Now build the section you described. Do not build from memory.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Now build the section you described. Do not build from memory.</p>
   </div>
 
   <div class="note-block">
@@ -113,25 +117,25 @@
     </ul>
   </div>
 
-  <div class="step">
+  <div class="gear-switch"><input type="radio" name="gear" id="gear-hw" class="gear-radio" checked><input type="radio" name="gear" id="gear-sw" class="gear-radio"><input type="radio" name="gear" id="gear-tg" class="gear-radio"><div class="gear-labels"><span class="gear-lead">Your rig</span><label for="gear-hw">Digitakt II + Live</label><label for="gear-sw">Ableton Live only</label><label for="gear-tg">Octatrack MKII · target</label></div><div class="gear-scope"><div class="step">
     <div class="step-head">
       <div class="step-num">Phase 1 — ~30 minutes</div>
       <h3 class="step-title">Build the three blocks as Digitakt II patterns A / B / C</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: build the three blocks as Digitakt II patterns A / B / C. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: build the three blocks as Digitakt II patterns A / B / C. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol class="rules-list">
-        <li><span class="system-tag">Live</span> <strong>Import the record on a REF track.</strong> Drop “The Bells” onto a dedicated REF track in Live, loop your chosen stretch, gain-match it with a Utility, and keep it one solo away for the whole session.</li>
-        <li><span class="system-tag">Digitakt II + Live</span> <strong>Match the shared kick first.</strong> Pick or tune a Digitakt II kick until a soloed A/B against the record’s kick is close</li>
-        <li><span class="system-tag">Digitakt II</span> , thenplace it identically in all three patterns — it is the one element that must never change across a cut.</li>
-        <li><span class="system-tag">Digitakt II + Live</span> <strong>Build pattern A as their fullest block.</strong> Riff stand-in (a sample slot or stab), hats, kick — chase placement and character against the REF, hit by hit.</li>
-        <li><span class="system-tag">Digitakt II</span> <strong>Build B and C by copying A and carving.</strong> Copy the pattern, then remove or replace elements until it matches the record’s second and third blocks.</li>
-        <li><span class="system-tag">Digitakt II</span> Building B and C as edits of A keeps the family resemblance the record’s blocks have.</li>
-        <li><span class="system-tag">Digitakt II</span> <strong>Set the change length.</strong> In each pattern’s scale setup, set the pattern change length (<span class="code">CH.LEN</span>) to <span class="code">16</span> steps so a queued switch always lands on the next bar — the cut must be quantized to the bar, exactly like theirs.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol class="rules-list">
+        <li><strong>Import the record on a REF track.</strong> Drop “The Bells” onto a dedicated REF track in Live, loop your chosen stretch, gain-match it with a Utility, and keep it one solo away for the whole session.</li>
+        <li><strong>Match the shared kick first.</strong> Pick or tune a Digitakt II kick until a soloed A/B against the record’s kick is close</li>
+        <li>, thenplace it identically in all three patterns — it is the one element that must never change across a cut.</li>
+        <li><strong>Build pattern A as their fullest block.</strong> Riff stand-in (a sample slot or stab), hats, kick — chase placement and character against the REF, hit by hit.</li>
+        <li><strong>Build B and C by copying A and carving.</strong> Copy the pattern, then remove or replace elements until it matches the record’s second and third blocks.</li>
+        <li>Building B and C as edits of A keeps the family resemblance the record’s blocks have.</li>
+        <li><strong>Set the change length.</strong> In each pattern’s scale setup, set the pattern change length (<span class="code">CH.LEN</span>) to <span class="code">16</span> steps so a queued switch always lands on the next bar — the cut must be quantized to the bar, exactly like theirs.</li>
       </ol>
-    </div>
-    <p style="max-width: 640px; margin: 18px auto 6px; color: var(--text-muted); font-size: 14.5px; text-align: center;">The record’s montage, drawn as blocks — adjust the labels to the stretch you looped. Note what never appears: a transition row.</p>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Jeff Mills — “The Bells” and use audio clips, Simpler/Sampler, clip envelopes, and resampling.</li><li>Build the phase goal — <em>Build the three blocks as Digitakt II patterns A / B / C</em> — as the smallest Live set that proves <em>Whole patterns swapped instantly on the bar; a shared kick holds the floor while everything above it jump-cuts</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>Relentless forward motion from a handful of static blocks — nothing inside any block ever develops</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Octatrack MKII for this phase: translate <em>Build the three blocks as Digitakt II patterns A / B / C</em> into Flex/Static machines, slices, recorder buffers, scenes, the crossfader, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>Whole patterns swapped instantly on the bar; a shared kick holds the floor while everything above it jump-cuts</em>, not just the surface of Jeff Mills — “The Bells”.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
+    <p style="max-width: 640px; margin: 18px auto 6px; color: var(--text-muted); font-size: var(--fs-lg-plus); text-align: center;">The record’s montage, drawn as blocks — adjust the labels to the stretch you looped. Note what never appears: a transition row.</p>
     <div class="timeline">
       <div class="timeline-row">
         <div class="timeline-time">block A</div>
@@ -156,7 +160,7 @@
     </div>
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Three saved patterns that each read as one of the record’s blocks when soloed against the REF, all sharing one kick, all set to switch on the bar.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Three saved patterns that each read as one of the record’s blocks when soloed against the REF, all sharing one kick, all set to switch on the bar.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">If it fails</div>
@@ -175,22 +179,22 @@
       <div class="step-num">Phase 2 — ~30 minutes</div>
       <h3 class="step-title">Perform the cuts where the record cuts</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: perform the cuts where the record cuts. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: perform the cuts where the record cuts. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol class="rules-list">
-        <li><span class="system-tag">Live + Logbook</span> <strong>Write the cut list.</strong> From the reference pass, note the block order and the bar counts of your looped stretch in the logbook — e.g.</li>
-        <li><span class="system-tag">Live + Logbook</span> <span class="code">A×16 · B×8 · A×8 · C×16</span>.</li>
-        <li><span class="system-tag">Live + Logbook</span> This list is the score.</li>
-        <li><span class="system-tag">Digitakt II + Live</span> <strong>Rehearse the switches.</strong> With Live’s transport running, queue each next pattern just before the bar so the change lands exactly on the downbeat.</li>
-        <li><span class="system-tag">Digitakt II + Live</span> Drill the full cut list at least twice without recording.</li>
-        <li><span class="system-tag">Digitakt II + Live</span> <strong>Record the performance.</strong> Arm the Digitakt II’s audio track in Live and perform the cut list start to finish, one take, mistakes included.</li>
-        <li><span class="system-tag">Digitakt II + Live</span> <strong>Drop a locator at every cut</strong> in the recorded take — <span class="menu">Create → Add Locator</span> — so phase 3 can find the seams instantly.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol class="rules-list">
+        <li><strong>Write the cut list.</strong> From the reference pass, note the block order and the bar counts of your looped stretch in the logbook — e.g.</li>
+        <li><span class="code">A×16 · B×8 · A×8 · C×16</span>.</li>
+        <li>This list is the score.</li>
+        <li><strong>Rehearse the switches.</strong> With Live’s transport running, queue each next pattern just before the bar so the change lands exactly on the downbeat.</li>
+        <li>Drill the full cut list at least twice without recording.</li>
+        <li><strong>Record the performance.</strong> Arm the Digitakt II’s audio track in Live and perform the cut list start to finish, one take, mistakes included.</li>
+        <li><strong>Drop a locator at every cut</strong> in the recorded take — <span class="menu">Create → Add Locator</span> — so phase 3 can find the seams instantly.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Jeff Mills — “The Bells” and use audio clips, Simpler/Sampler, clip envelopes, and resampling.</li><li>Build the phase goal — <em>Perform the cuts where the record cuts</em> — as the smallest Live set that proves <em>Whole patterns swapped instantly on the bar; a shared kick holds the floor while everything above it jump-cuts</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>Relentless forward motion from a handful of static blocks — nothing inside any block ever develops</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Octatrack MKII for this phase: translate <em>Perform the cuts where the record cuts</em> into Flex/Static machines, slices, recorder buffers, scenes, the crossfader, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>Whole patterns swapped instantly on the bar; a shared kick holds the floor while everything above it jump-cuts</em>, not just the surface of Jeff Mills — “The Bells”.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">One recorded take where every block change lands on a downbeat, in the record’s order, at roughly the record’s bar counts.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">One recorded take where every block change lands on a downbeat, in the record’s order, at roughly the record’s bar counts.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">If it fails</div>
@@ -209,17 +213,17 @@
       <div class="step-num">Phase 3 — ~20 minutes</div>
       <h3 class="step-title">A/B the montage rhythm, then look at the seams</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: a/B the montage rhythm, then look at the seams. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: a/B the montage rhythm, then look at the seams. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol class="rules-list">
-        <li><span class="system-tag">Live</span> <strong>A/B the montage rhythm.</strong> Solo back and forth — your take, their stretch — listening only for WHERE the cuts fall and how long each block holds.</li>
-        <li><span class="system-tag">Live</span> Note every cut of yours that arrives early, late, or softened.</li>
-        <li><span class="system-tag">Live</span> <strong>Observe — see it, not just hear it.</strong> Zoom into the waveform at each locator in Arrangement view and LOOK at the seams: vertical edges, no fades, the montage visible as geometry.</li>
-        <li><span class="system-tag">Live</span> Count the cuts you can see and check the count against the cut list — the seam you can see is the event you heard.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol class="rules-list">
+        <li><strong>A/B the montage rhythm.</strong> Solo back and forth — your take, their stretch — listening only for WHERE the cuts fall and how long each block holds.</li>
+        <li>Note every cut of yours that arrives early, late, or softened.</li>
+        <li><strong>Observe — see it, not just hear it.</strong> Zoom into the waveform at each locator in Arrangement view and LOOK at the seams: vertical edges, no fades, the montage visible as geometry.</li>
+        <li>Count the cuts you can see and check the count against the cut list — the seam you can see is the event you heard.</li>
       </ol>
-    </div>
-    <p style="max-width: 640px; margin: 18px auto 6px; color: var(--text-muted); font-size: 14.5px; text-align: center;">The whole rig, drawn — three static patterns, one performed switch, one take.</p>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Jeff Mills — “The Bells” and use audio clips, Simpler/Sampler, clip envelopes, and resampling.</li><li>Build the phase goal — <em>A/B the montage rhythm, then look at the seams</em> — as the smallest Live set that proves <em>Whole patterns swapped instantly on the bar; a shared kick holds the floor while everything above it jump-cuts</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>Relentless forward motion from a handful of static blocks — nothing inside any block ever develops</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Octatrack MKII for this phase: translate <em>A/B the montage rhythm, then look at the seams</em> into Flex/Static machines, slices, recorder buffers, scenes, the crossfader, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>Whole patterns swapped instantly on the bar; a shared kick holds the floor while everything above it jump-cuts</em>, not just the surface of Jeff Mills — “The Bells”.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
+    <p style="max-width: 640px; margin: 18px auto 6px; color: var(--text-muted); font-size: var(--fs-lg-plus); text-align: center;">The whole rig, drawn — three static patterns, one performed switch, one take.</p>
     <div class="signal-flow">
       <span class="signal-node">pattern A</span>
       <span class="signal-arrow">·</span>
@@ -237,7 +241,7 @@
     </div>
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">A take whose seams are vertical in the waveform and whose cut placement lands within a bar of the record’s — plus a written note of every cut that missed.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A take whose seams are vertical in the waveform and whose cut placement lands within a bar of the record’s — plus a written note of every cut that missed.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">If it fails</div>
@@ -251,7 +255,7 @@
     </div>
   </div>
 
-  <div class="decision-check">
+  </div></div><div class="decision-check">
     <div class="decision-check-label">Verify against the record</div>
     <p>A/B your take against the looped stretch of “The Bells” — 10 seconds of yours, 10 of theirs — would a friend hesitate? Then answer two questions in writing.</p>
     <p><strong>Do your cuts land where theirs land — instantly, on the bar, with nothing announcing them?</strong></p>
@@ -283,5 +287,6 @@
 
 </div>
 
+  <script src="../nav.js"></script>
 </body>
 </html>

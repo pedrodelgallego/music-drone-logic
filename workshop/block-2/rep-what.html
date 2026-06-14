@@ -6,7 +6,7 @@
 <title>Replicate: Spectrum as Melody — Folke Rabe</title>
 <link rel="stylesheet" href="../styles.css">
 </head>
-<body>
+<body class="page-type-rep" id="top">
 
 <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
 <label for="nav-toggle" class="hamburger" aria-label="Menu">
@@ -16,6 +16,7 @@
 <nav class="nav" aria-label="Workshop contents">
   <p class="nav-label">Workshop</p>
   <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
   <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
   <a href="index.html" class="active"><span class="nav-num">02</span>Sources</a>
   <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
@@ -28,46 +29,49 @@
 </nav>
 
 <div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 2 · Sources</a><span class="breadcrumb-sep">/</span><span>Replicate: spectrum as melody</span></nav>
 
   <header class="page-header">
     <div class="eyebrow">Block 2 · Replication lesson</div>
     <h1>Replicate: spectrum as melody</h1>
     <p class="lede">Copy one clear section of Folke Rabe — What??. Build the main parts, record a short take, and compare it to the reference at the same loudness.</p>
   </header>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l2.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs">Labs</a><a href="lab-r2.html" data-section="rebuild">Rebuild</a><a href="index.html#capstone" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep" class="current">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
   <div class="callout">
     <div class="callout-label">The point</div>
-    <p>This drill teaches the record's core mechanism: a static, harmonically rich fundamental whose individual overtones are selectively reinforced over time, so the spectrum - not the pitch - carries the tune. Do only the steps that make that mechanism audible.</p>
+    <p>This drill teaches the record's core mechanism: a static, harmonically rich tone (one that contains many overtones) whose individual overtones are selectively brought forward over time, so the changing spectrum — not a changing pitch — carries the melody. Do only the steps that make that mechanism audible.</p>
   </div>
 
   <table class="param-table">
     <caption>The system you are replicating</caption>
     <tr><td>Source record</td><td>Folke Rabe — <em>What??</em> (1967)</td></tr>
-    <tr><td>The effect</td><td>a melody happening inside a tone that never changes pitch — high faint tones surfacing one after another, none of them new arrivals</td></tr>
-    <tr><td>The mechanism</td><td>a static, harmonically rich fundamental whose individual overtones are selectively reinforced over time, so the spectrum — not the pitch — carries the tune</td></tr>
+    <tr><td>The effect</td><td>a melody happening inside a tone whose pitch never changes — faint high tones surfacing one after another, none of them new arrivals: they were always there</td></tr>
+    <tr><td>The mechanism</td><td>a static, harmonically rich tone whose individual overtones (higher harmonics inside the note) are selectively brought forward over time — so the changing spectrum, not a changing pitch, carries the melody</td></tr>
   </table>
 
   <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Folke+Rabe+What" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Folke%20Rabe%20What">Spotify</a></p>
 
   <div class="checklist">
     <div class="checklist-head">
-      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"></path></svg></div>
       <div class="checklist-label">Before you start</div>
     </div>
     <ul>
-      <li>Gear: MicroFreak → M4 input 1, DT 990 Pro in the phones jack — the lab-001 wiring, unchanged; the Digitakt II rests this lesson</li>
-      <li>“What??” was assembled in a tape studio you cannot visit — you are replicating the <em>system</em>: a rich static tone plus a narrow moving resonance. <span class="menu">EQ Eight</span> with one high-Q band is your rig’s honest analogue of that studio’s filters; the MicroFreak’s resonant filter is the hardware alternative</li>
-      <li>New set saved as <span class="code">REP-WHAT</span> — no tempo; the only timing is how long each overtone stays lit</li>
-      <li>A +12 dB resonant peak can bite without warning as it crosses sensitive frequencies — phones at the lab-001 mark <em>or lower</em>, sweeps moved slowly, a real break every 15 minutes</li>
-      <li>Timebox: 60–90 minutes — half of it goes into one printed tone and one slowly moving band</li>
+      <li>Gear: MicroFreak → M4 input 1, DT 990 Pro in the phones jack — the lab-001 wiring. The Digitakt II is not needed this lesson.</li>
+      <li>”What??” was assembled in a tape studio you cannot visit. You are replicating the <em>system</em>: a rich static tone plus a narrow moving resonance. <span class="”menu”">EQ Eight</span> with one high-Q band is your version of that studio’s filters. The MicroFreak’s resonant filter is the hardware alternative.</li>
+      <li>New set saved as <span class="”code”">REP-WHAT</span> — no tempo. The only timing is how long each overtone is held in the foreground.</li>
+      <li>A +12 dB resonant peak can jump to a painful level as it crosses sensitive frequencies. Phones at the lab-001 mark <em>or lower</em>, sweeps moved slowly, real break every 15 minutes.</li>
+      <li>Timebox: 60–90 minutes — half of it goes into one printed tone and one slowly moving EQ band.</li>
     </ul>
   </div>
 
   <div class="note-block">
     <ul>
-      <li><strong>What you will make:</strong> a short replica of Folke Rabe — What??. Focus on this effect: a melody happening inside a tone that never changes pitch - high faint tones surfacing one after another, none of them new arrivals.</li>
-      <li><strong>What you will turn off:</strong> extra parts, decoration, and shortcuts that hide whether the mechanism works.</li>
-      <li><strong>What you will prove:</strong> your version and <span class="code">REF</span> use the same core mechanism: a static, harmonically rich fundamental whose individual overtones are selectively reinforced over time, so the spectrum - not the pitch - carries the tune.</li>
-      <li><strong>What counts as success:</strong> remaining differences are source choices or rig limits, not missing steps.</li>
+      <li><strong>What you will make:</strong> a short replica of Folke Rabe — What??. The goal is this effect: a melody happening inside a tone whose pitch never changes — faint high tones surfacing one after another, none of them new arrivals.</li>
+      <li><strong>What you will turn off:</strong> extra parts, decoration, and anything that hides whether the mechanism works.</li>
+      <li><strong>What you will prove:</strong> your version and <span class="code">REF</span> use the same core mechanism — a static, harmonically rich tone whose individual overtones are selectively brought forward over time, so the changing spectrum, not a changing pitch, carries the melody.</li>
+      <li><strong>What counts as success:</strong> remaining differences come from your source choices or gear limits, not from missing steps.</li>
     </ul>
   </div>
 
@@ -76,25 +80,25 @@
       <div class="step-num">Reference pass · 10 minutes</div>
       <h3 class="step-title">Listen before you build</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Listen to about one minute of Folke Rabe — What??. Choose the clearest short section. Write one short answer for each question before you touch the gear.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Listen to about one minute of Folke Rabe — What??. Choose the clearest short section. Write one short answer for each question before you touch the gear.</p>
     <ol class="rules-list">
-      <li>When do you first notice the high, faint tones above the fundamental?
-        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Minutes in, usually - and the timestamp says more about your attention than about the record. The tones do not fade in at that moment; your ear arrives at them.</p></div></details>
+      <li>When do you first notice the high, faint tones above the main pitch?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Minutes in, usually. The timestamp says more about your attention than about the record. Those tones do not fade in at that moment — your ear arrives at them.</p></div></details>
       </li>
       <li>Are those high tones new arrivals, or were they always there?
-        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Always there. Every harmonic you will ever hear in this piece is present from the first second, quietly, inside the fundamental’s spectrum - the holding and the reinforcement make them audible, one at a time.</p></div></details>
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Always there. Every overtone you will ever hear in this piece is present from the very first second, quietly, inside the tone’s spectrum. The boosting and holding just make them audible, one at a time.</p></div></details>
       </li>
-      <li>Does the fundamental ever move?
-        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>No. The pitch you would sing along to is the same at minute one and minute twenty - everything that feels like motion happens above it.</p></div></details>
+      <li>Does the main pitch ever move?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>No. The pitch you would sing along to is the same at minute one and minute twenty. Everything that feels like motion happens above it.</p></div></details>
       </li>
       <li>If the pitch never changes, what carries the melody?
-        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>The spectrum. Which overtone is forward at any moment is the melodic information - a tune played not by changing the note but by changing which part of the note you are given.</p></div></details>
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>The spectrum (which overtones are prominent at any moment). The melody is played not by changing the note but by changing which part of the note you are hearing.</p></div></details>
       </li>
       <li>How does your attention move as the minutes pass?
-        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Upward. The ear, given nothing new at the bottom, climbs - from the fundamental to the low harmonics to the glassy ones near the top - and the piece is built to escort exactly that climb.</p></div></details>
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Upward. With nothing new happening at the bottom, your ear climbs — from the main pitch to the low overtones to the glassy high ones. The piece is built to guide exactly that climb.</p></div></details>
       </li>
     </ol>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Now build the section you described. Do not build from memory.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Now build the section you described. Do not build from memory.</p>
   </div>
 
   <h2>Steps</h2>
@@ -113,14 +117,14 @@
 
   <div class="note-block">
     <ul>
-      <li><strong>Sound target:</strong> a piece in which a listener hears a melody of surfacing overtones while a tuner and a spectrum analyzer prove the fundamental never moved — both things true at once, as on the record.</li>
-      <li>One printed tone and one narrow EQ band — no second voice, no new layer, nothing entering that was not in the tone from second one.</li>
-      <li>The band dwells at each harmonic — exact multiples of the fundamental, computed on paper, not found by ear alone.</li>
-      <li>The order in which overtones are lit is the melody: compose the order before you automate it.</li>
+      <li><strong>Sound target:</strong> a piece in which a listener hears a melody of surfacing overtones while a tuner and a spectrum analyzer prove the pitch never moved — both things true at once, as on the record.</li>
+      <li>One printed tone and one narrow EQ band. No second voice, no new layer, nothing that was not already inside the tone from second one.</li>
+      <li>The band dwells at each overtone — exact whole-number multiples of the main pitch, calculated on paper, not just found by ear.</li>
+      <li>The order in which overtones are brought forward is the melody. Compose the order before you set up any automation.</li>
     </ul>
   </div>
 
-  <p style="color: var(--text-muted); font-size: 14.5px; max-width: 640px; margin: 0 auto 14px; text-align: center;">The piece’s machinery in one row: one harmonically rich low tone printed for six minutes, a single high-Q EQ band boosted hard and walked slowly along the harmonic series — dwelling at each overtone in a composed order — while a tuner and a spectrum view stand witness that the fundamental never moves.</p>
+  <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); max-width: 640px; margin: 0 auto 14px; text-align: center;">The piece in one row: one harmonically rich low tone printed for six minutes, a single narrow EQ band boosted hard and walked slowly along the harmonic series — resting at each overtone in a composed order — while a tuner and a spectrum display prove the main pitch never moves.</p>
 
   <div class="signal-flow">
     <span class="signal-node">MicroFreak · SawX · one low note · filter open</span>
@@ -132,37 +136,37 @@
     <span class="signal-node">Spectrum + Tuner · the fundamental never moves</span>
   </div>
 
-  <p style="color: var(--text-muted); font-size: 14.5px; max-width: 640px; margin: 18px auto 14px; text-align: center;">The same spectrum at three moments. Every bar is present in every panel — the tall fundamental and its family of overtones — and the only thing that changes is which harmonic the narrow band is lighting. Played in time, the sequence of lit bars is the melody.</p>
+  <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); max-width: 640px; margin: 18px auto 14px; text-align: center;">The same spectrum at three moments. Every bar (every overtone) is present in every panel — nothing enters or leaves. The only thing that changes is which overtone the narrow EQ band is highlighting. Played in time, that sequence of highlighted overtones is the melody.</p>
 
 <div class="signal-flow" style="display:block; padding:26px 16px;">
   <svg viewBox="0 0 760 230" width="100%" role="img" aria-label="A harmonic spectrum at three moments: the fundamental never moves while a narrow boost lights the second, third, then fifth harmonic">
-    <rect x="20" y="20" width="225" height="170" rx="10" fill="#1f2530" stroke="#6e7681" stroke-width="1"/>
-    <rect x="267" y="20" width="225" height="170" rx="10" fill="#1f2530" stroke="#6e7681" stroke-width="1"/>
-    <rect x="514" y="20" width="225" height="170" rx="10" fill="#1f2530" stroke="#7dd3c0" stroke-width="1.2"/>
+    <rect x="20" y="20" width="225" height="170" rx="10" fill="#1f2530" stroke="#6e7681" stroke-width="1"></rect>
+    <rect x="267" y="20" width="225" height="170" rx="10" fill="#1f2530" stroke="#6e7681" stroke-width="1"></rect>
+    <rect x="514" y="20" width="225" height="170" rx="10" fill="#1f2530" stroke="#7dd3c0" stroke-width="1.2"></rect>
     <text x="132" y="44" fill="#e6edf3" font-size="12" text-anchor="middle">band on 2f</text>
     <text x="379" y="44" fill="#e6edf3" font-size="12" text-anchor="middle">band on 3f</text>
     <text x="626" y="44" fill="#7dd3c0" font-size="12" text-anchor="middle">band on 5f</text>
-    <rect x="60" y="72" width="20" height="100" fill="#8b949e"/>
-    <rect x="92" y="96" width="16" height="76" fill="#7dd3c0"/>
-    <rect x="120" y="126" width="16" height="46" fill="#6e7681"/>
-    <rect x="146" y="136" width="16" height="36" fill="#6e7681"/>
-    <rect x="170" y="144" width="16" height="28" fill="#6e7681"/>
-    <rect x="192" y="150" width="16" height="22" fill="#6e7681"/>
-    <path d="M70 110 Q100 54 130 110" fill="none" stroke="#7dd3c0" stroke-width="1.2"/>
-    <rect x="307" y="72" width="20" height="100" fill="#8b949e"/>
-    <rect x="339" y="114" width="16" height="58" fill="#6e7681"/>
-    <rect x="367" y="108" width="16" height="64" fill="#7dd3c0"/>
-    <rect x="393" y="136" width="16" height="36" fill="#6e7681"/>
-    <rect x="417" y="144" width="16" height="28" fill="#6e7681"/>
-    <rect x="439" y="150" width="16" height="22" fill="#6e7681"/>
-    <path d="M345 110 Q375 54 405 110" fill="none" stroke="#7dd3c0" stroke-width="1.2"/>
-    <rect x="554" y="72" width="20" height="100" fill="#8b949e"/>
-    <rect x="586" y="114" width="16" height="58" fill="#6e7681"/>
-    <rect x="614" y="126" width="16" height="46" fill="#6e7681"/>
-    <rect x="640" y="136" width="16" height="36" fill="#6e7681"/>
-    <rect x="664" y="126" width="16" height="46" fill="#7dd3c0"/>
-    <rect x="686" y="150" width="16" height="22" fill="#6e7681"/>
-    <path d="M642 110 Q672 54 702 110" fill="none" stroke="#7dd3c0" stroke-width="1.2"/>
+    <rect x="60" y="72" width="20" height="100" fill="#8b949e"></rect>
+    <rect x="92" y="96" width="16" height="76" fill="#7dd3c0"></rect>
+    <rect x="120" y="126" width="16" height="46" fill="#6e7681"></rect>
+    <rect x="146" y="136" width="16" height="36" fill="#6e7681"></rect>
+    <rect x="170" y="144" width="16" height="28" fill="#6e7681"></rect>
+    <rect x="192" y="150" width="16" height="22" fill="#6e7681"></rect>
+    <path d="M70 110 Q100 54 130 110" fill="none" stroke="#7dd3c0" stroke-width="1.2"></path>
+    <rect x="307" y="72" width="20" height="100" fill="#8b949e"></rect>
+    <rect x="339" y="114" width="16" height="58" fill="#6e7681"></rect>
+    <rect x="367" y="108" width="16" height="64" fill="#7dd3c0"></rect>
+    <rect x="393" y="136" width="16" height="36" fill="#6e7681"></rect>
+    <rect x="417" y="144" width="16" height="28" fill="#6e7681"></rect>
+    <rect x="439" y="150" width="16" height="22" fill="#6e7681"></rect>
+    <path d="M345 110 Q375 54 405 110" fill="none" stroke="#7dd3c0" stroke-width="1.2"></path>
+    <rect x="554" y="72" width="20" height="100" fill="#8b949e"></rect>
+    <rect x="586" y="114" width="16" height="58" fill="#6e7681"></rect>
+    <rect x="614" y="126" width="16" height="46" fill="#6e7681"></rect>
+    <rect x="640" y="136" width="16" height="36" fill="#6e7681"></rect>
+    <rect x="664" y="126" width="16" height="46" fill="#7dd3c0"></rect>
+    <rect x="686" y="150" width="16" height="22" fill="#6e7681"></rect>
+    <path d="M642 110 Q672 54 702 110" fill="none" stroke="#7dd3c0" stroke-width="1.2"></path>
     <text x="70" y="184" fill="#6e7681" font-size="8.5" text-anchor="middle">f</text>
     <text x="100" y="184" fill="#6e7681" font-size="8.5" text-anchor="middle">2</text>
     <text x="128" y="184" fill="#6e7681" font-size="8.5" text-anchor="middle">3</text>
@@ -176,27 +180,27 @@
 </div>
 
   <!-- PHASE 1 -->
-  <div class="step">
+  <div class="gear-switch"><input type="radio" name="gear" id="gear-hw" class="gear-radio" checked><input type="radio" name="gear" id="gear-sw" class="gear-radio"><input type="radio" name="gear" id="gear-tg" class="gear-radio"><div class="gear-labels"><span class="gear-lead">Your rig</span><label for="gear-hw">MicroFreak + Live</label><label for="gear-sw">Ableton Live only</label><label for="gear-tg">Analog Rytm MKII · target</label></div><div class="gear-scope"><div class="step">
     <div class="step-head">
       <div class="step-num">Phase 1 · ≈ 10 min</div>
       <h3 class="step-title">The reference and the surfacing order</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: the reference and the surfacing order. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: the reference and the surfacing order. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Live</span> <kbd>⌘ T</kbd>, rename the track <span class="code">REF</span> (<kbd>⌘ R</kbd>), drag “What??” into it, and loop the first five minutes.</li>
-        <li><span class="system-tag">Live</span> Drop <span class="menu">Audio Effects → Utility</span> on <span class="code">REF</span> and trim so the loop peaks ≈ <span class="code">−12 dBFS</span>.</li>
-        <li><span class="system-tag">Logbook</span> Listen once through with a pen: every time a new overtone surfaces, write a timestamp and a rough placement — “low, near the fundamental,” “an octave-and-a-fifth up,” “glassy, very high.” This list is the record’s melody, transcribed.</li>
-        <li><span class="system-tag">Logbook</span> Hum the fundamental at the start and end of the loop; confirm on paper that it never moved.</li>
-        <li><span class="system-tag">Live</span> <kbd>⌘ T</kbd>; rename <span class="code">TONE</span>, <span class="menu">Ext. In</span> <span class="code">1</span>, fader at <span class="code">0 dB</span>, armed.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li><kbd>⌘ T</kbd>, rename the track <span class="code">REF</span> (<kbd>⌘ R</kbd>), drag “What??” into it, and loop the first five minutes.</li>
+        <li>Drop <span class="menu">Audio Effects → Utility</span> on <span class="code">REF</span> and trim so the loop peaks ≈ <span class="code">−12 dBFS</span>.</li>
+        <li><span class="”system-tag”">Logbook</span> Listen once through with a pen. Every time a new overtone becomes noticeable, write a timestamp and a rough description — “low, near the main pitch,” “an octave-and-a-fifth up,” “glassy, very high.” This list is the record’s melody, written down.</li>
+        <li><span class="”system-tag”">Logbook</span> Hum the main pitch at the start and end of the loop. Confirm on paper that it never moved.</li>
+        <li><kbd>⌘ T</kbd>; rename <span class="code">TONE</span>, <span class="menu">Ext. In</span> <span class="code">1</span>, fader at <span class="code">0 dB</span>, armed.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Folke Rabe — What?? (1967) and use Operator or Wavetable into Auto Filter, with clip automation.</li><li>Build the phase goal — <em>The reference and the surfacing order</em> — as the smallest Live set that proves <em>a static, harmonically rich tone whose individual overtones (higher harmonics inside the note) are selectively brought forward over time — so the changing spectrum, not a changing pitch, carries the melody</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>a melody happening inside a tone whose pitch never changes — faint high tones surfacing one after another, none of them new arrivals: they were always there</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>The reference and the surfacing order</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>a static, harmonically rich tone whose individual overtones (higher harmonics inside the note) are selectively brought forward over time — so the changing spectrum, not a changing pitch, carries the melody</em>, not just the surface of Folke Rabe — What?? (1967).</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">The record loops at ≈ −12 dBFS, a timestamped surfacing order is in the logbook, the fundamental’s constancy is confirmed, and one armed track waits.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">The record loops at ≈ −12 dBFS, a timestamped surfacing order is in the logbook, the fundamental’s constancy is confirmed, and one armed track waits.</p>
     </div>
 
     <div class="sub-block">
@@ -204,39 +208,38 @@
       <table>
         <thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead>
         <tbody>
-          <tr><td>You hear no overtones surfacing at all</td><td>Level too low — the faint partials sit just above the phones’ floor</td><td>Confirm the Utility trim brought the loop up to ≈ −12 dBFS, then listen again; do not exceed the mark</td></tr>
+          <tr><td>You hear no overtones surfacing at all</td><td>Level too low — the faint overtones sit just above the phones’ noise floor</td><td>Confirm the Utility trim brought the loop up to ≈ −12 dBFS, then listen again. Do not exceed the mark.</td></tr>
           <tr><td>No meter movement when testing the input</td><td><span class="menu">Ext. In</span> channel does not match the physical jack</td><td>MicroFreak on <span class="code">1</span> — the lab-001 wiring table</td></tr>
         </tbody>
       </table>
     </div>
   </div>
 
-  <!-- PHASE 2 -->
   <div class="step">
     <div class="step-head">
       <div class="step-num">Phase 2 · ≈ 15 min</div>
       <h3 class="step-title">The tone — rich on purpose, printed long</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: the tone — rich on purpose, printed long. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: the tone — rich on purpose, printed long. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">MicroFreak</span> MicroFreak: <span class="code">Type</span> → <span class="code">SawX</span> (or <span class="code">V.Analog</span> with the wave toward sawtooth), one low note — <span class="code">A1</span> is ideal, its fundamental near <span class="code">55 Hz</span>.</li>
-        <li><span class="system-tag">MicroFreak</span> Filter <em>open</em>, resonance low, zero LFO: the harmonics must survive, unflattered and unmoving.</li>
-        <li><span class="system-tag">MicroFreak</span> Attack slow, sustain full — the tone fades in once and then simply exists.</li>
-        <li><span class="system-tag">MicroFreak</span> Set the M4 input-1 gain on the <em>held</em> tone, peaks ≈ <span class="code">−12 dBFS</span>;</li>
-        <li><span class="system-tag">MicroFreak</span> check after a full minute of holding.</li>
-        <li><span class="system-tag">MicroFreak</span> Engage <span class="code">Hold</span> and print 6 minutes into <span class="code">TONE</span>.</li>
-        <li><span class="system-tag">MicroFreak</span> One take, one note, no edits.</li>
-        <li><span class="system-tag">MicroFreak</span> Drop <span class="menu">Audio Effects → Spectrum</span> on the track and look once: the fundamental tall on the left, the series marching up behind it.</li>
-        <li><span class="system-tag">MicroFreak</span> Count the visible harmonics — they are your keyboard now.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>MicroFreak: <span class="code">Type</span> → <span class="code">SawX</span> (or <span class="code">V.Analog</span> with the wave toward sawtooth), one low note — <span class="code">A1</span> is ideal, its main pitch near <span class="code">55 Hz</span>.</li>
+        <li>Filter <em>open</em>, resonance low, LFO zero. The overtones must be present and unchanging.</li>
+        <li>Attack slow, sustain full — the tone fades in once and then holds steady.</li>
+        <li>Set the M4 input-1 gain on the <em>held</em> tone, peaks ≈ <span class="code">−12 dBFS</span>.</li>
+        <li>Check the level again after a full minute of holding.</li>
+        <li>Engage <span class="code">Hold</span> and record 6 minutes into <span class="code">TONE</span>.</li>
+        <li>One take, one note, no edits.</li>
+        <li>Drop <span class="menu">Audio Effects → Spectrum</span> on the track and look once: the main pitch tall on the left, the overtones lined up behind it.</li>
+        <li>Count the visible overtones — they are your notes now.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Folke Rabe — What?? (1967) and use Operator or Wavetable into Auto Filter, with clip automation.</li><li>Build the phase goal — <em>The tone — rich on purpose, printed long</em> — as the smallest Live set that proves <em>a static, harmonically rich tone whose individual overtones (higher harmonics inside the note) are selectively brought forward over time — so the changing spectrum, not a changing pitch, carries the melody</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>a melody happening inside a tone whose pitch never changes — faint high tones surfacing one after another, none of them new arrivals: they were always there</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>The tone — rich on purpose, printed long</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>a static, harmonically rich tone whose individual overtones (higher harmonics inside the note) are selectively brought forward over time — so the changing spectrum, not a changing pitch, carries the melody</em>, not just the surface of Folke Rabe — What?? (1967).</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Six printed minutes of one rich, static low tone, peaking ≈ −12 dBFS, with the harmonic series plainly visible in Spectrum — a melody’s worth of material inside a single note.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Six printed minutes of one rich, static low tone, peaking ≈ −12 dBFS, with the harmonic series plainly visible in Spectrum — a melody’s worth of material inside a single note.</p>
     </div>
 
     <div class="sub-block">
@@ -244,40 +247,38 @@
       <table>
         <thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead>
         <tbody>
-          <tr><td>Spectrum shows little above the fundamental</td><td>Filter closed too far, or a wave too pure</td><td>Open the cutoff fully and move the wave toward sawtooth; this lesson needs the harmonics the Eleh lesson threw away</td></tr>
-          <tr><td>The printed tone shimmers or drifts on its own</td><td>An LFO or cycling envelope survived in the patch</td><td>Zero all patch movement and re-print — the only legal motion arrives in phase 3, from the EQ</td></tr>
+          <tr><td>Spectrum shows little above the main pitch</td><td>Filter closed too far, or a wave shape too pure (close to a sine)</td><td>Open the filter fully and move the wave shape toward sawtooth. This lesson needs the overtones that other lessons reduce.</td></tr>
+          <tr><td>The printed tone shimmers or drifts on its own</td><td>An LFO or cycling envelope is still active in the patch</td><td>Zero all patch movement and re-record. The only motion allowed arrives in phase 3, from the EQ.</td></tr>
         </tbody>
       </table>
     </div>
   </div>
 
-  <!-- PHASE 3 -->
   <div class="step">
     <div class="step-head">
       <div class="step-num">Phase 3 · ≈ 25 min</div>
       <h3 class="step-title">Light the harmonics — one band, walked by hand</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: light the harmonics — one band, walked by hand. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: light the harmonics — one band, walked by hand. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Logbook</span> Write the series on paper from your printed pitch.</li>
-        <li><span class="system-tag">Logbook</span> For <span class="code">A1 ≈ 55 Hz</span>: <span class="code">110 · 165 · 220 · 275 · 330 · 385 · 440 Hz</span> — the second through eighth harmonics.</li>
-        <li><span class="system-tag">Logbook</span> These are the only addresses the band may visit.</li>
-        <li><span class="system-tag">Logbook</span> Compose the order — the melody.</li>
-        <li><span class="system-tag">Logbook</span> Steal the shape of the record’s surfacing list from phase 1 or write your own, e.g.</li>
-        <li><span class="system-tag">Logbook</span> <span class="code">2f → 3f → 5f → 4f → 6f → 3f</span>, 30–60 seconds at each stop.</li>
-        <li><span class="system-tag">Live</span> <span class="menu">Audio Effects → EQ Eight</span> on <span class="code">TONE</span>: one band, <span class="menu">Bell</span>, <span class="code">Q ≈ 8–10</span>, gain <span class="code">+9 to +12 dB</span>, frequency at your first stop.</li>
-        <li><span class="system-tag">Live</span> In Arrangement, automate the band’s frequency along your composed order: long dwells at each address, slow glides between — the glide itself should take ten seconds or more, a tone climbing through the family, not a jump cut.</li>
-        <li><span class="system-tag">MicroFreak</span> Hardware alternative: re-print instead with the MicroFreak’s filter — resonance high, cutoff swept by hand from harmonic to harmonic.</li>
-        <li><span class="system-tag">Live</span> Less exact, more alive; the system is the same.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>Write the overtone series on paper from your recorded pitch.</li>
+        <li>For <span class="code">A1 ≈ 55 Hz</span>: <span class="code">110 · 165 · 220 · 275 · 330 · 385 · 440 Hz</span> — the second through eighth overtones.</li>
+        <li>These are the only frequencies the EQ band may visit.</li>
+        <li>Compose the order — this is the melody.</li>
+        <li>Either copy the surfacing order you wrote in phase 1, or write your own, e.g. <span class="code">2f → 3f → 5f → 4f → 6f → 3f</span>, 30–60 seconds at each stop.</li>
+        <li><span class="menu">Audio Effects → EQ Eight</span> on <span class="code">TONE</span>: one band, <span class="menu">Bell</span>, <span class="code">Q ≈ 8–10</span>, gain <span class="code">+9 to +12 dB</span>, frequency set to your first overtone.</li>
+        <li>In Arrangement, automate the band’s frequency along your composed order. Dwell long at each overtone, and move slowly between them — each transition should take ten seconds or more, not a jump cut.</li>
+        <li>Hardware alternative: re-record using the MicroFreak’s filter — resonance high, cutoff swept by hand from overtone to overtone.</li>
+        <li>Less precise, more alive. The system is the same.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Folke Rabe — What?? (1967) and use Operator or Wavetable into Auto Filter, with clip automation.</li><li>Build the phase goal — <em>Light the harmonics — one band, walked by hand</em> — as the smallest Live set that proves <em>a static, harmonically rich tone whose individual overtones (higher harmonics inside the note) are selectively brought forward over time — so the changing spectrum, not a changing pitch, carries the melody</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>a melody happening inside a tone whose pitch never changes — faint high tones surfacing one after another, none of them new arrivals: they were always there</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>Light the harmonics — one band, walked by hand</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>a static, harmonically rich tone whose individual overtones (higher harmonics inside the note) are selectively brought forward over time — so the changing spectrum, not a changing pitch, carries the melody</em>, not just the surface of Folke Rabe — What?? (1967).</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Five to six minutes in which faint high tones surface one after another over an unmoving bass — a melody made entirely of addresses inside one printed note.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Five to six minutes in which faint high tones surface one after another over an unchanging bass — a melody made entirely of overtones inside one note.</p>
     </div>
 
     <div class="sub-block">
@@ -285,37 +286,36 @@
       <table>
         <thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead>
         <tbody>
-          <tr><td>A stop boosts nothing — the band hisses instead of singing</td><td>The frequency sits between harmonics; the magnifier is parked on empty air</td><td>Recompute — whole-number multiples of the printed fundamental only — and nudge while watching Spectrum until the partial jumps</td></tr>
-          <tr><td>The surfacing sounds like a filter sweep effect, not a melody</td><td>Glides too fast and dwells too short — motion has upstaged arrival</td><td>Double every dwell and slow every glide; the record’s overtones <em>arrive</em>, they do not fly past</td></tr>
+          <tr><td>A stop boosts nothing — the band hisses instead of singing</td><td>The frequency is between overtones — the EQ band is boosting empty space</td><td>Recalculate — whole-number multiples of your main pitch only — and nudge the frequency while watching Spectrum until the overtone jumps up.</td></tr>
+          <tr><td>The surfacing sounds like a filter sweep, not a melody</td><td>Glides too fast and dwells too short — the motion upstages the arrival</td><td>Double every dwell and slow every glide. The overtones should arrive and stay, not fly past.</td></tr>
         </tbody>
       </table>
     </div>
   </div>
 
-  <!-- PHASE 4 -->
   <div class="step">
     <div class="step-head">
       <div class="step-num">Phase 4 · ≈ 15 min</div>
       <h3 class="step-title">The witness instruments — prove nothing moved</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: the witness instruments — prove nothing moved. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: the witness instruments — prove nothing moved. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
         <li>Drop <span class="menu">Audio Effects → Tuner</span> on <span class="code">TONE</span> and play the piece end to end.</li>
-        <li>The Tuner must read the same note from first minute to last — log the verdict.</li>
-        <li>Watch Spectrum during two surfacings: confirm the partial was visible <em>before</em> the band reached it — present, then lit, never created.</li>
-        <li><span class="system-tag">Logbook</span> Write your piece’s surfacing order next to the record’s phase-1 list and compare shapes: where did the record climb, where did it circle back, and what did your order do?</li>
-        <li><span class="system-tag">Live</span> A/B one minute against <span class="code">REF</span> at matched loudness, judging only the surfacing: do your overtones <em>arrive</em> with the same patience?</li>
-        <li><span class="system-tag">Live</span> The fresh-ears test, on yourself after the break or on a listener: “did new sounds keep entering the piece?” The honest answer — yes to the ear, no to the spectrum — is the record’s effect, replicated.</li>
-        <li><span class="system-tag">Live</span> Log it.</li>
+        <li>The Tuner must read the same note from first minute to last. Log the result.</li>
+        <li>Watch Spectrum during two surfacings: confirm the overtone was visible <em>before</em> the band reached it — it was present already, then lit up. Never created.</li>
+        <li><span class="”system-tag”">Logbook</span> Write your piece’s surfacing order next to the record’s phase-1 list. Compare: where did the record climb, where did it circle back, and what did your order do?</li>
+        <li><span class="”system-tag”">Live</span> A/B one minute against <span class="”code”">REF</span> at matched loudness, judging only the surfacing: do your overtones arrive with the same patience?</li>
+        <li><span class="”system-tag”">Live</span> The fresh-ears test, on yourself after the break or on a listener: “did new sounds keep entering the piece?” The honest answer — yes to the ear, no to the spectrum — is the record’s effect, replicated.</li>
+        <li><span class="”system-tag”">Live</span> Log the verdict.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Folke Rabe — What?? (1967) and use Operator or Wavetable into Auto Filter, with clip automation.</li><li>Build the phase goal — <em>The witness instruments — prove nothing moved</em> — as the smallest Live set that proves <em>a static, harmonically rich tone whose individual overtones (higher harmonics inside the note) are selectively brought forward over time — so the changing spectrum, not a changing pitch, carries the melody</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>a melody happening inside a tone whose pitch never changes — faint high tones surfacing one after another, none of them new arrivals: they were always there</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>The witness instruments — prove nothing moved</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>a static, harmonically rich tone whose individual overtones (higher harmonics inside the note) are selectively brought forward over time — so the changing spectrum, not a changing pitch, carries the melody</em>, not just the surface of Folke Rabe — What?? (1967).</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">A tuner that never wavered, two surfacings witnessed in Spectrum as lit-not-created, two melody lists side by side, and a logged contradiction between ear and analyzer — the lesson, in evidence.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A tuner that never wavered, two surfacings witnessed in Spectrum as lit-not-created, two melody lists side by side, and a logged contradiction between ear and analyzer — the lesson, in evidence.</p>
     </div>
 
     <div class="sub-block">
@@ -330,6 +330,9 @@
     </div>
   </div>
 
+  </div></div><!-- PHASE 2 -->
+  <!-- PHASE 3 -->
+  <!-- PHASE 4 -->
   <div class="decision-check">
     <div class="decision-check-label">Verify against the record</div>
     <p>Solo-flip between <span class="code">REF</span> and your piece at matched loudness — phones at the mark or lower, no level riding while you judge.</p>
@@ -366,5 +369,6 @@
 
 </div>
 
+  <script src="../nav.js"></script>
 </body>
 </html>

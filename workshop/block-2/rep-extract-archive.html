@@ -6,7 +6,7 @@
 <title>Replicate: The Surface as Filter — Toshiya Tsunoda</title>
 <link rel="stylesheet" href="../styles.css">
 </head>
-<body>
+<body class="page-type-rep" id="top">
 
 <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
 <label for="nav-toggle" class="hamburger" aria-label="Menu">
@@ -16,6 +16,7 @@
 <nav class="nav" aria-label="Workshop contents">
   <p class="nav-label">Workshop</p>
   <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
   <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
   <a href="index.html" class="active"><span class="nav-num">02</span>Sources</a>
   <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
@@ -28,34 +29,37 @@
 </nav>
 
 <div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 2 · Sources</a><span class="breadcrumb-sep">/</span><span>Replicate: the surface as filter</span></nav>
 
   <header class="page-header">
     <div class="eyebrow">Block 2 · Replication lesson</div>
     <h1>Replicate: the surface as filter</h1>
     <p class="lede">Copy one clear section of Toshiya Tsunoda — Extract from Field Recording Archive. Build the main parts, record a short take, and compare it to the reference at the same loudness.</p>
   </header>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l2.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs">Labs</a><a href="lab-r2.html" data-section="rebuild">Rebuild</a><a href="index.html#capstone" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep" class="current">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
   <div class="callout">
     <div class="callout-label">The point</div>
-    <p>This drill teaches the record's core mechanism: contact mics and stationary probes fixed to vibrating solids - railings, pipes, floors - held in a fixed, unmoving frame; placement decides everything. Do only the steps that make that mechanism audible.</p>
+    <p>This drill teaches the record's core mechanism: contact mics (sensors pressed against solid surfaces to pick up vibration) fixed to railings, pipes, and floors — held completely still in a fixed position; where you mount the sensor decides everything. Do only the steps that make that mechanism audible.</p>
   </div>
 
   <table class="param-table">
     <caption>The system you are replicating</caption>
     <tr><td>Source record</td><td>Toshiya Tsunoda — <em>Extract from Field Recording Archive</em> (1990s series)</td></tr>
-    <tr><td>The effect</td><td>the same world arriving five different ways — vibration with body and no room, tiny events filling the frame, each surface speaking in its own voice</td></tr>
-    <tr><td>The mechanism</td><td>contact mics and stationary probes fixed to vibrating solids — railings, pipes, floors — held in a fixed, unmoving frame; placement decides everything</td></tr>
+    <tr><td>The effect</td><td>the same outside world arriving five different ways — vibration with body and no room sound, tiny events filling the recording, each surface speaking in its own voice</td></tr>
+    <tr><td>The mechanism</td><td>contact mics fixed to vibrating solids — railings, pipes, floors — held completely still; where you mount the sensor determines what the recording sounds like</td></tr>
   </table>
 
   <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Toshiya+Tsunoda+Extract+from+Field+Recording+Archive" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Toshiya%20Tsunoda%20Extract%20from%20Field%20Recording%20Archive">Spotify</a></p>
 
   <div class="checklist">
     <div class="checklist-head">
-      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"></path></svg></div>
       <div class="checklist-label">Before you start</div>
     </div>
     <ul>
       <li>Gear: the Lab 008 solid path — contact mic / piezo (AKG C411 class or the DIY piezo) with mounting putty and gaffer tape, into the handheld recorder or M4 input 1; closed phones; Live 12 hosts the series at the end</li>
-      <li>One location, five solids, all reachable from it: a window pane, a radiator or water pipe, a table, the floor, a door. The location needs steady ambient life — a street outside, plumbing at work, a household moving around</li>
+      <li>One location, five solids, all reachable from it: a window pane, a radiator or water pipe, a table, the floor, a door. The location needs a consistent source of ambient life — a street outside, active plumbing, a household in motion</li>
       <li>Field checklist items that apply indoors: cables taped or routed so nothing crosses a path at ankle height, and nothing mounted where the mic can fall — putty holds, tape backs it up</li>
       <li>New set saved as <span class="code">REP-TSUNODA</span> — five clips, numbered, in order; that is the whole session</li>
       <li>Timebox: 90–120 minutes — five matched takes plus the listening that compares them</li>
@@ -76,25 +80,25 @@
       <div class="step-num">Reference pass · 10 minutes</div>
       <h3 class="step-title">Listen before you build</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Listen to about one minute of Toshiya Tsunoda — Extract from Field Recording Archive. Choose the clearest short section. Write one short answer for each question before you touch the gear.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Listen to about one minute of Toshiya Tsunoda — Extract from Field Recording Archive. Choose the clearest short section. Write one short answer for each question before you touch the gear.</p>
     <ol class="rules-list">
-      <li>Why is there no room in these recordings?
-        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Because the sound never traveled through air. Solid-borne vibration goes straight from the surface into the transducer - no air, no reflections, no distance cues - so everything arrives dry, close, and inside your head.</p></div></details>
+      <li>Why is there no room sound in these recordings?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Because the sound never traveled through air. Vibration goes straight from the solid surface into the sensor — no air, no reflections, no distance cues — so everything arrives dry, close, and inside your head.</p></div></details>
       </li>
-      <li>Can you tell what is exciting each surface?
-        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Partly at best - wind, traffic, water, footsteps, guessed more than known. That gap between the world and what the surface reports is the instrument: the solid filters reality into its own voice.</p></div></details>
+      <li>Can you tell what is making each surface vibrate?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Partly at best — wind, traffic, water, footsteps, guessed rather than known. That gap between the outside world and what the surface reports is the instrument: the solid filters reality into its own voice.</p></div></details>
       </li>
       <li>What actually changes from track to track?
-        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>The filter, not the world. The harbor keeps being a harbor; what changes is which solid is reporting it and where the probe sits. Move the transducer a hand’s width and the piece changes - placement is composition here.</p></div></details>
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>The filter, not the world. The harbor stays a harbor; what changes is which solid is reporting it and where the sensor sits. Move the contact mic a hand’s width and the piece changes. Placement is the composition here.</p></div></details>
       </li>
-      <li>Why does the presentation feel like measurement — numbered takes, dry factual titles?
-        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Because the frame is fixed and the claim is modest: this surface, this probe, this duration - observed, not dramatized. The titles refuse drama so the vibration can carry all of it; the restraint is what lets tiny events feel enormous.</p></div></details>
+      <li>Why does the presentation feel like measurement — numbered takes, plain factual titles?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Because the frame is fixed and the claim is modest: this surface, this probe, this duration — observed, not dramatized. The plain titles leave all the drama to the vibration itself. That restraint is what lets tiny events feel significant.</p></div></details>
       </li>
       <li>How big are these events, really?
-        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Tiny - a wire’s hum, a floor’s tremor, millimeters of motion. The contact path magnifies: with no room and no distance, the surface’s smallest behavior fills the entire frame.</p></div></details>
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Tiny — a wire’s hum, a floor’s tremor, millimeters of movement. The contact mic magnifies them: with no room and no distance, the surface’s smallest behaviour fills the entire recording.</p></div></details>
       </li>
     </ol>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Now build the section you described. Do not build from memory.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Now build the section you described. Do not build from memory.</p>
   </div>
 
   <h2>Steps</h2>
@@ -110,14 +114,14 @@
 
   <div class="note-block">
     <ul>
-      <li><strong>Sound target:</strong> five matched-length stationary takes — one world, five filters — presented in numbered order with dry factual titles, levels defensible, peaks ≈ <span class="code">−12 dBFS</span>. The series, not any single take, is the piece.</li>
-      <li>One location and one stretch of hours, so the same ambient life excites all five solids.</li>
-      <li>The frame is fixed: mount, leave, record — no touching, no repositioning mid-take.</li>
-      <li>Titles name surface, side, and time. Nothing else — the restraint is part of the replication.</li>
+      <li><strong>Sound target:</strong> five matched-length stationary takes — one outside world, five solid filters — presented in numbered order with plain factual titles, levels consistent, peaks ≈ <span class="code">−12 dBFS</span>. The series as a whole is the piece, not any individual take.</li>
+      <li>One location, one continuous stretch of hours, so the same ambient life is driving all five solids.</li>
+      <li>The sensor stays fixed: mount it, step away, record — no touching, no repositioning mid-take.</li>
+      <li>Titles name surface, side, and time. Nothing else. The restraint is part of the replication.</li>
     </ul>
   </div>
 
-  <p style="color: var(--text-muted); font-size: 14.5px; max-width: 640px; margin: 0 auto 14px; text-align: center;">The piece’s machinery in one row: one piezo, five solids in one room, putty-mounted stationary takes of matched length while the same life happens outside them, and a numbered series whose titles report facts only.</p>
+  <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); max-width: 640px; margin: 0 auto 14px; text-align: center;">The piece in one row: one piezo, five solids in one room, putty-mounted and left still for matched-length takes while the same outside life drives all of them, then a numbered series with titles that state only facts.</p>
 
   <div class="signal-flow">
     <span class="signal-node">one location · steady ambient life</span>
@@ -129,57 +133,57 @@
     <span class="signal-node">numbered series · dry titles</span>
   </div>
 
-  <p style="color: var(--text-muted); font-size: 14.5px; max-width: 640px; margin: 18px auto 14px; text-align: center;">One world, three of your five filters. The street stays the street — what changes is what each solid keeps. The glass keeps the engines, the pipe answers everything at its own note, the floor keeps only what walks on it.</p>
+  <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); max-width: 640px; margin: 18px auto 14px; text-align: center;">One outside world, three of your five solid filters. The street stays the street. What changes is what each solid lets through. The glass keeps the engine rumble; the pipe adds its own resonant note to everything; the floor keeps only what walks on it.</p>
 
 <div class="signal-flow" style="display:block; padding:26px 16px;">
   <svg viewBox="0 0 760 230" width="100%" role="img" aria-label="The same ambient world feeding three surfaces — glass, pipe, floor — each outputting a different filtered waveform">
-    <rect x="20" y="62" width="160" height="106" rx="10" fill="#1f2530" stroke="#6e7681" stroke-width="1"/>
+    <rect x="20" y="62" width="160" height="106" rx="10" fill="#1f2530" stroke="#6e7681" stroke-width="1"></rect>
     <text x="100" y="92" fill="#e6edf3" font-size="11.5" text-anchor="middle">the world</text>
     <text x="100" y="112" fill="#6e7681" font-size="9.5" text-anchor="middle">traffic · voices · wind</text>
     <text x="100" y="128" fill="#6e7681" font-size="9.5" text-anchor="middle">plumbing · footsteps</text>
     <text x="100" y="150" fill="#8b949e" font-size="9.5" text-anchor="middle">the same for all five takes</text>
-    <line x1="180" y1="80" x2="240" y2="48" stroke="#6e7681" stroke-width="1.3"/>
-    <line x1="180" y1="115" x2="240" y2="115" stroke="#6e7681" stroke-width="1.3"/>
-    <line x1="180" y1="150" x2="240" y2="182" stroke="#6e7681" stroke-width="1.3"/>
-    <rect x="244" y="20" width="496" height="56" rx="9" fill="#1f2530" stroke="#7dd3c0" stroke-width="1.2"/>
+    <line x1="180" y1="80" x2="240" y2="48" stroke="#6e7681" stroke-width="1.3"></line>
+    <line x1="180" y1="115" x2="240" y2="115" stroke="#6e7681" stroke-width="1.3"></line>
+    <line x1="180" y1="150" x2="240" y2="182" stroke="#6e7681" stroke-width="1.3"></line>
+    <rect x="244" y="20" width="496" height="56" rx="9" fill="#1f2530" stroke="#7dd3c0" stroke-width="1.2"></rect>
     <text x="258" y="40" fill="#7dd3c0" font-size="11">No. 1 — window pane</text>
-    <polyline points="258,62 268,56 276,66 284,57 294,64 304,56 314,65 324,58 334,63 344,57 354,64 364,58 374,63 384,57 394,64" fill="none" stroke="#7dd3c0" stroke-width="1.3"/>
+    <polyline points="258,62 268,56 276,66 284,57 294,64 304,56 314,65 324,58 334,63 344,57 354,64 364,58 374,63 384,57 394,64" fill="none" stroke="#7dd3c0" stroke-width="1.3"></polyline>
     <text x="726" y="62" fill="#6e7681" font-size="9.5" text-anchor="end">keeps the engines · kills the voices</text>
-    <rect x="244" y="87" width="496" height="56" rx="9" fill="#1f2530" stroke="#6e7681" stroke-width="1"/>
+    <rect x="244" y="87" width="496" height="56" rx="9" fill="#1f2530" stroke="#6e7681" stroke-width="1"></rect>
     <text x="258" y="107" fill="#e6edf3" font-size="11">No. 2 — radiator pipe</text>
-    <polyline points="258,130 270,122 282,138 294,122 306,138 318,122 330,138 342,122 354,138 366,123 378,136 390,125" fill="none" stroke="#8b949e" stroke-width="1.3"/>
+    <polyline points="258,130 270,122 282,138 294,122 306,138 318,122 330,138 342,122 354,138 366,123 378,136 390,125" fill="none" stroke="#8b949e" stroke-width="1.3"></polyline>
     <text x="726" y="129" fill="#6e7681" font-size="9.5" text-anchor="end">answers everything at its own note</text>
-    <rect x="244" y="154" width="496" height="56" rx="9" fill="#1f2530" stroke="#6e7681" stroke-width="1"/>
+    <rect x="244" y="154" width="496" height="56" rx="9" fill="#1f2530" stroke="#6e7681" stroke-width="1"></rect>
     <text x="258" y="174" fill="#e6edf3" font-size="11">No. 4 — floor</text>
-    <polyline points="258,196 290,196 296,186 302,196 350,196 356,188 362,196 420,196 426,185 432,196 470,196" fill="none" stroke="#8b949e" stroke-width="1.3"/>
+    <polyline points="258,196 290,196 296,186 302,196 350,196 356,188 362,196 420,196 426,185 432,196 470,196" fill="none" stroke="#8b949e" stroke-width="1.3"></polyline>
     <text x="726" y="196" fill="#6e7681" font-size="9.5" text-anchor="end">keeps only what walks on it</text>
   </svg>
 </div>
 
   <!-- PHASE 1 -->
-  <div class="step">
+  <div class="gear-switch"><input type="radio" name="gear" id="gear-hw" class="gear-radio" checked><input type="radio" name="gear" id="gear-sw" class="gear-radio"><input type="radio" name="gear" id="gear-tg" class="gear-radio"><div class="gear-labels"><span class="gear-lead">Your rig</span><label for="gear-hw">Recorder</label><label for="gear-sw">Ableton Live only</label><label for="gear-tg">Octatrack MKII · target</label></div><div class="gear-scope"><div class="step">
     <div class="step-head">
       <div class="step-num">Phase 1 · ≈ 15 min</div>
       <h3 class="step-title">The reference, the location, and five predictions</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: the reference, the location, and five predictions. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: the reference, the location, and five predictions. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Live</span> In Live: <kbd>⌘ T</kbd>, rename <span class="code">REF</span>, drag in one Tsunoda track, loop two minutes, trim with <span class="menu">Audio Effects → Utility</span> to peaks ≈ <span class="code">−12 dBFS</span>.</li>
-        <li><span class="system-tag">Live</span> Choose the location: a room with a street outside, working plumbing, or a household in motion — life that will keep happening for the next two hours without your help.</li>
-        <li><span class="system-tag">Live</span> Fix the five solids: window pane, radiator or water pipe, table, floor, door.</li>
-        <li><span class="system-tag">Live</span> Touch each with flat fingertips for ten seconds first — you can feel which ones live.</li>
-        <li><span class="system-tag">Logbook</span> Write one prediction per solid in the logbook: “the pane will keep the bus engines and kill the voices,” “the pipe will ring at one pitch no matter what.” Five sentences, committed before any take.</li>
-        <li><span class="system-tag">Logbook</span> Decide the take length — 3 minutes each — and the order.</li>
-        <li><span class="system-tag">Logbook</span> Both are now fixed.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>In Live: <kbd>⌘ T</kbd>, rename <span class="code">REF</span>, drag in one Tsunoda track, loop two minutes, trim with <span class="menu">Audio Effects → Utility</span> to peaks ≈ <span class="code">−12 dBFS</span>.</li>
+        <li>Choose the location: a room with a street outside, working plumbing, or a household in motion — life that will keep happening for the next two hours without your help.</li>
+        <li>Fix the five solids: window pane, radiator or water pipe, table, floor, door.</li>
+        <li><span class="”system-tag”">Live</span> Touch each with flat fingertips for ten seconds. You can feel which ones are carrying vibration.</li>
+        <li><span class="”system-tag”">Logbook</span> Write one prediction per solid: “the pane will keep the bus engines and lose the voices,” “the pipe will ring at one pitch no matter what.” Five sentences, written down before any recording.</li>
+        <li>Decide the take length — 3 minutes each — and the order.</li>
+        <li>Both are now fixed.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Toshiya Tsunoda — Extract from Field Recording Archive (1990s series) and use audio clips, Simpler/Sampler, clip envelopes, and resampling.</li><li>Build the phase goal — <em>The reference, the location, and five predictions</em> — as the smallest Live set that proves <em>contact mics fixed to vibrating solids — railings, pipes, floors — held completely still; where you mount the sensor determines what the recording sounds like</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>the same outside world arriving five different ways — vibration with body and no room sound, tiny events filling the recording, each surface speaking in its own voice</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Octatrack MKII for this phase: translate <em>The reference, the location, and five predictions</em> into Flex/Static machines, slices, recorder buffers, scenes, the crossfader, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>contact mics fixed to vibrating solids — railings, pipes, floors — held completely still; where you mount the sensor determines what the recording sounds like</em>, not just the surface of Toshiya Tsunoda — Extract from Field Recording Archive (1990s series).</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">The record loops at ≈ −12 dBFS, five solids are chosen and felt, and five written predictions wait to be wrong in interesting ways.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">The record loops at ≈ −12 dBFS, five solids are chosen and felt, and five written predictions wait to be wrong in interesting ways.</p>
     </div>
 
     <div class="sub-block">
@@ -187,37 +191,36 @@
       <table>
         <thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead>
         <tbody>
-          <tr><td>A chosen solid feels dead under the fingers</td><td>Decoupled or massive — some walls and tables swallow vibration</td><td>Swap it for a living relative: the pane’s frame, a thinner door, a different stretch of pipe</td></tr>
-          <tr><td>The ambient life is too intermittent to count on</td><td>Wrong hour — the constant must stay constant across five takes</td><td>Move the session to the location’s busy hours; the world is the control variable</td></tr>
+          <tr><td>A chosen solid feels dead under the fingers</td><td>Decoupled or too massive — some walls and thick tables absorb vibration</td><td>Swap it for something livelier: the window frame, a thinner door, a different section of pipe</td></tr>
+          <tr><td>The ambient life is too intermittent to rely on</td><td>Wrong time of day — the outside life must stay consistent across all five takes</td><td>Move the session to the location’s busy hours; the world is the one variable that must stay constant</td></tr>
         </tbody>
       </table>
     </div>
   </div>
 
-  <!-- PHASE 2 -->
   <div class="step">
     <div class="step-head">
       <div class="step-num">Phase 2 · ≈ 15 min</div>
       <h3 class="step-title">Mount and gain — per solid, logged</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: mount and gain — per solid, logged. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: mount and gain — per solid, logged. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Recorder</span> Mount the piezo on the first solid with putty pressed full and flat — no edge floating — and tape the cable to the surface a hand’s width away, so cable motion never reaches the disc.</li>
-        <li><span class="system-tag">Recorder</span> Phones on: you should hear the solid’s version of the room immediately, dry and close, with the air version gone.</li>
-        <li><span class="system-tag">Recorder</span> Set gain for the loudest thing this surface might carry during three minutes — the bus for the pane, the heating firing for the pipe — peaks ≈ <span class="code">−12 dBFS</span>.</li>
-        <li><span class="system-tag">Recorder</span> Log the gain number next to that solid’s prediction.</li>
-        <li><span class="system-tag">Recorder</span> Every solid gets its own setting and its own line.</li>
-        <li><span class="system-tag">Recorder</span> Rehearse the exit: mount, press record, step away, stand still.</li>
-        <li><span class="system-tag">Recorder</span> Your footsteps are in-band for the floor take especially — plan where you will stand.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>Mount the piezo on the first solid with putty pressed full and flat — no edge floating — and tape the cable to the surface a hand’s width away, so cable motion never reaches the disc.</li>
+        <li>Phones on: you should hear the solid’s version of the world immediately — dry and close, with no room sound at all.</li>
+        <li>Set gain for the loudest thing this surface might carry during three minutes — the bus for the pane, the heating firing for the pipe — peaks ≈ <span class="code">−12 dBFS</span>.</li>
+        <li>Log the gain number next to that solid’s prediction.</li>
+        <li>Every solid gets its own setting and its own line.</li>
+        <li>Rehearse the exit: mount, press record, step away, stand still.</li>
+        <li>Your footsteps are in-band for the floor take especially — plan where you will stand.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Toshiya Tsunoda — Extract from Field Recording Archive (1990s series) and use audio clips, Simpler/Sampler, clip envelopes, and resampling.</li><li>Build the phase goal — <em>Mount and gain — per solid, logged</em> — as the smallest Live set that proves <em>contact mics fixed to vibrating solids — railings, pipes, floors — held completely still; where you mount the sensor determines what the recording sounds like</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>the same outside world arriving five different ways — vibration with body and no room sound, tiny events filling the recording, each surface speaking in its own voice</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Octatrack MKII for this phase: translate <em>Mount and gain — per solid, logged</em> into Flex/Static machines, slices, recorder buffers, scenes, the crossfader, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>contact mics fixed to vibrating solids — railings, pipes, floors — held completely still; where you mount the sensor determines what the recording sounds like</em>, not just the surface of Toshiya Tsunoda — Extract from Field Recording Archive (1990s series).</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">A mounting and gain recipe proven on the first solid — full putty contact, strain-relieved cable, a logged gain — repeatable four more times without invention.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A mounting and gain recipe proven on the first solid — full putty contact, strain-relieved cable, a logged gain — repeatable four more times without invention.</p>
     </div>
 
     <div class="sub-block">
@@ -225,37 +228,34 @@
       <table>
         <thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead>
         <tbody>
-          <tr><td>The take sounds like a quiet, muffled air mic</td><td>Poor coupling — putty bridging unevenly or an edge floating</td><td>Remount: clean surface, fresh putty, press the whole disc flat until it sits without rocking</td></tr>
-          <tr><td>Crackle when anything moves in the room</td><td>Cable motion reaching the disc — strain relief missing</td><td>Tape the cable to the surface near the mount, then again at the floor; the disc must feel no tug</td></tr>
+          <tr><td>The take sounds like a quiet, muffled air mic</td><td>Poor contact — putty bridging unevenly or an edge not touching</td><td>Remount: clean the surface, use fresh putty, press the whole disc flat until it sits without rocking</td></tr>
+          <tr><td>Crackle whenever something moves in the room</td><td>Cable movement is reaching the disc — no strain relief</td><td>Tape the cable to the surface near the mount, then again at floor level; the disc must not feel any pull from the cable</td></tr>
         </tbody>
       </table>
     </div>
   </div>
 
-  <!-- PHASE 3 -->
   <div class="step">
     <div class="step-head">
       <div class="step-num">Phase 3 · ≈ 35 min</div>
       <h3 class="step-title">The series — five matched stationary takes</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: the series — five matched stationary takes. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: the series — five matched stationary takes. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
         <li>Run the five takes in the fixed order, 3 minutes each, same hour, one after another: mount, set the logged gain, record, stand still, stop, move to the next solid.</li>
         <li>During each take, note in pencil what the surface is reporting — one line, plain words, while it is fresh.</li>
-        <li>Title each file on the spot, in Tsunoda’s idiom — surface, side, time: <span class="code">No.</li>
-        <li>1 — window pane, street side, 17:40</span>.</li>
-        <li>No adjectives anywhere.</li>
-        <li>Do not relisten between takes beyond a head-check for damage — comparison waits for phase 4, so the later mounts are not biased toward “fixing” the earlier sounds.</li>
+        <li>Name each file immediately, in Tsunoda’s style — surface, side, time: <span class="”code”">No. 1 — window pane, street side, 17:40</span>. No adjectives anywhere.</li>
+        <li>Do not relisten between takes beyond a quick check for obvious damage. The comparison waits until phase 4, so the later mounts do not get biased toward “fixing” what the earlier sounds did.</li>
         <li>After the fifth take: cables coiled, putty collected, the location exactly as found — counted out, counted back.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Toshiya Tsunoda — Extract from Field Recording Archive (1990s series) and use audio clips, Simpler/Sampler, clip envelopes, and resampling.</li><li>Build the phase goal — <em>The series — five matched stationary takes</em> — as the smallest Live set that proves <em>contact mics fixed to vibrating solids — railings, pipes, floors — held completely still; where you mount the sensor determines what the recording sounds like</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>the same outside world arriving five different ways — vibration with body and no room sound, tiny events filling the recording, each surface speaking in its own voice</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Octatrack MKII for this phase: translate <em>The series — five matched stationary takes</em> into Flex/Static machines, slices, recorder buffers, scenes, the crossfader, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>contact mics fixed to vibrating solids — railings, pipes, floors — held completely still; where you mount the sensor determines what the recording sounds like</em>, not just the surface of Toshiya Tsunoda — Extract from Field Recording Archive (1990s series).</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Five files of matched length with factual titles, five pencil lines, and one ambient world held constant across all of them — the experiment complete, the comparison not yet begun.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Five files of matched length with factual titles, five pencil lines, and one ambient world held constant across all of them — the experiment complete, the comparison not yet begun.</p>
     </div>
 
     <div class="sub-block">
@@ -263,37 +263,35 @@
       <table>
         <thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead>
         <tbody>
-          <tr><td>The world changed mid-series — street died, heating cycled off</td><td>The constant stopped being constant</td><td>Finish the series anyway and log the change; if the comparison collapses, rerun the dead takes at a matching hour tomorrow</td></tr>
-          <tr><td>One solid records almost nothing at its logged gain</td><td>A genuinely quiet surface — they exist</td><td>One remount and one gain revision, logged as a revision; if it stays silent, silence is that solid’s honest report — keep it</td></tr>
+          <tr><td>The outside world changed mid-series — street went quiet, heating cycled off</td><td>The constant variable stopped being constant</td><td>Finish the series anyway and log the change. If the comparison falls apart, rerun the affected takes at the same hour tomorrow.</td></tr>
+          <tr><td>One solid records almost nothing at its logged gain</td><td>A genuinely quiet surface — some are</td><td>One remount and one gain revision, logged as a revision. If it stays nearly silent, that is the solid’s honest report — keep it.</td></tr>
         </tbody>
       </table>
     </div>
   </div>
 
-  <!-- PHASE 4 -->
   <div class="step">
     <div class="step-head">
       <div class="step-num">Phase 4 · ≈ 20 min</div>
       <h3 class="step-title">Sequence, compare, and write the transfer functions</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: sequence, compare, and write the transfer functions. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: sequence, compare, and write the transfer functions. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Live</span> Import all five into <span class="code">REP-TSUNODA</span>, in numbered order on the Arrangement timeline, levels matched toward ≈ <span class="code">−12 dBFS</span> with clip gain only.</li>
-        <li><span class="system-tag">Live</span> Listen to the series end to end at the mark — fifteen minutes, no skipping.</li>
-        <li><span class="system-tag">Live</span> The form of the series is the comparison your ears run.</li>
-        <li><span class="system-tag">Logbook</span> Write each solid’s transfer function in plain words, two clauses: what it keeps, what it kills.</li>
-        <li><span class="system-tag">Logbook</span> Five sentences against five predictions — score them.</li>
-        <li><span class="system-tag">Live</span> A/B your strongest take against <span class="code">REF</span> at matched loudness — judge dryness, distance, and whether tiny events fill the frame.</li>
-        <li><span class="system-tag">Logbook</span> Mark in the logbook which take could <em>only</em> be a solid — the one no air mic could fake.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>Import all five into <span class="code">REP-TSUNODA</span>, in numbered order on the Arrangement timeline, levels matched toward ≈ <span class="code">−12 dBFS</span> with clip gain only.</li>
+        <li>Listen to the series end to end at the mark — fifteen minutes, no skipping. The form of the series is the comparison your ears run.</li>
+        <li>Write each solid’s transfer function (what it does to the signal) in plain words, two clauses: what it keeps, what it removes.</li>
+        <li>Compare your five sentences against your five predictions and score them.</li>
+        <li>A/B your strongest take against <span class="code">REF</span> at matched loudness — judge dryness, distance, and whether tiny events fill the frame.</li>
+        <li>Mark in the logbook which take could <em>only</em> be a solid — the one no air mic could fake.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Toshiya Tsunoda — Extract from Field Recording Archive (1990s series) and use audio clips, Simpler/Sampler, clip envelopes, and resampling.</li><li>Build the phase goal — <em>Sequence, compare, and write the transfer functions</em> — as the smallest Live set that proves <em>contact mics fixed to vibrating solids — railings, pipes, floors — held completely still; where you mount the sensor determines what the recording sounds like</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>the same outside world arriving five different ways — vibration with body and no room sound, tiny events filling the recording, each surface speaking in its own voice</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Octatrack MKII for this phase: translate <em>Sequence, compare, and write the transfer functions</em> into Flex/Static machines, slices, recorder buffers, scenes, the crossfader, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>contact mics fixed to vibrating solids — railings, pipes, floors — held completely still; where you mount the sensor determines what the recording sounds like</em>, not just the surface of Toshiya Tsunoda — Extract from Field Recording Archive (1990s series).</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">A fifteen-minute series that plays as one experiment, five scored predictions, five transfer functions in plain words, and one take flagged as impossible in air.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A fifteen-minute series that plays as one experiment, five scored predictions, five transfer functions in plain words, and one take flagged as impossible in air.</p>
     </div>
 
     <div class="sub-block">
@@ -308,15 +306,18 @@
     </div>
   </div>
 
+  </div></div><!-- PHASE 2 -->
+  <!-- PHASE 3 -->
+  <!-- PHASE 4 -->
   <div class="decision-check">
     <div class="decision-check-label">Verify against the record</div>
     <p>Solo-flip between <span class="code">REF</span> and your series at matched loudness — phones at the mark or lower, no level riding while you judge.</p>
     <ul>
       <li>Same world, five filters — can you state each solid’s transfer function in plain words?
-        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Five sentences, each with both clauses: the pane keeps the engines and kills the consonants; the pipe answers everything at its own note and kills the world’s actual pitches; the floor keeps footsteps and kills the rest. If two sentences read the same, the experiment had a dead variable — two placements too alike — and one take deserves a remount. Relisten to Tsunoda with your five sentences open: his tracks are transfer functions too, written by piers and railings instead of your room.</p></div></details>
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Five sentences, each with both clauses: the pane keeps the engines and loses the consonants; the pipe adds its own note to everything and overrides the world’s actual pitches; the floor keeps footsteps and loses the rest. If two sentences read the same, two placements were too alike and one take deserves a remount. Relisten to Tsunoda with your five sentences in hand: his tracks are transfer functions too, written by piers and railings instead of your room.</p></div></details>
       </li>
       <li>Which take could only be a solid?
-        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>The one with body and zero room — events with mass arriving from no direction, a surface ringing at its own note, detail with no distance behind it. An air mic in that room, at any gain, could not have produced it. If no take qualifies, the piezo was hearing air leakage through a loose mount the whole session, and the mounting recipe — not the concept — is what failed. Relisten to your candidate beside its nearest air-recorded cousin from Lab 008’s comparison and let the impossibility be audible.</p></div></details>
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>The one with weight and zero room — events with mass arriving from no particular direction, a surface ringing at its own pitch, detail with no echoing distance behind it. An air mic in the same room, at any gain, could not have made it. If no take qualifies, the piezo was picking up air leakage through a loose mount the whole session — the mounting, not the idea, is what failed. Relisten to your candidate beside its nearest air-recorded version from Lab 008’s comparison and let the difference be audible.</p></div></details>
       </li>
     </ul>
   </div>
@@ -325,7 +326,7 @@
     <ul>
       <li><strong>Logbook — three-line miss list.</strong> <strong>Matched:</strong> where your version produces the record’s effect. <strong>Missed:</strong> where it doesn’t — and your best guess why. <strong>Change next:</strong> the one move you’d try first.</li>
       <li>These three lines feed the full miss list in <a href="lab-r2.html">replication lab R2</a>.</li>
-      <li><strong>Carries into the lab:</strong> back to Lab 008 — the solid path’s placement lesson, certified: move the transducer a hand’s width and the piece changes. When the lab’s three-path comparison asks for the contact capture, you now choose the surface on purpose.</li>
+      <li><strong>Carries into the lab:</strong> back to Lab 008 — the solid path’s placement lesson, confirmed: move the sensor a hand’s width and the recording changes. When the lab’s three-path comparison asks for the contact capture, you now choose the surface deliberately.</li>
     </ul>
   </div>
 
@@ -344,5 +345,6 @@
 
 </div>
 
+  <script src="../nav.js"></script>
 </body>
 </html>

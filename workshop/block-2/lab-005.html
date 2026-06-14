@@ -6,7 +6,7 @@
 <title>Lab 005 — Sustained Tone &amp; Slow Modulation</title>
 <link rel="stylesheet" href="../styles.css">
 </head>
-<body>
+<body class="page-type-lab" id="top">
 
 <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
 <label for="nav-toggle" class="hamburger" aria-label="Menu">
@@ -16,6 +16,7 @@
 <nav class="nav" aria-label="Workshop contents">
   <p class="nav-label">Workshop</p>
   <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
   <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
   <a href="index.html" class="active"><span class="nav-num">02</span>Sources</a>
   <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
@@ -28,13 +29,16 @@
 </nav>
 
 <div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 2 · Sources</a><span class="breadcrumb-sep">/</span><span>Sustained Tone &amp; Slow Modulation</span></nav>
 
   <header class="page-header">
     <div class="eyebrow">Block 2 · Lab 005 · Track lab</div>
     <h1>Sustained Tone &amp; Slow Modulation</h1>
-    <p class="lede">Sustaining interest with zero rhythm: one tone, held, with modulation slower than attention. No drums, no events, no drops — six to eight minutes carried entirely by what lives inside the sound and how slowly it moves.</p>
+    <p class="lede">How do you hold a listener's attention with no beat, no melody, and no events? This lab answers that question. You hold one tone for six to eight minutes, and all the interest comes from slow changes happening inside the sound itself.</p>
   </header>
   <p class="block-meta">Track lab · S1 · D2 E2 M1 F2 · ambient drone · full cycle</p>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l2.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs" class="current">Labs</a><a href="lab-r2.html" data-section="rebuild">Rebuild</a><a href="index.html#capstone" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
 
   <div class="signal-flow">
     <span class="signal-node">listen</span>
@@ -62,43 +66,43 @@
       <div class="checklist-label">Start here</div>
     </div>
     <ul>
-      <li>Run the ten listening references below first; the hypothesis they produce is the start of the build.</li>
+      <li>Work through the ten listening references below first. What you notice in each one becomes your starting hypothesis for the build.</li>
       <li>Save a new set as <span class="code">LAB-005-drone</span>.</li>
-      <li>Read both provided specs against your actual bench before any sound — this is an S1 lab: verify, don’t author.</li>
+      <li>Read both spec tables against your actual bench before you make any sound. This is an S1 lab: your job is to verify the given specs, not write new ones.</li>
       <li>Expected time: one full cycle — two to three weeks of part-time sessions.</li>
     </ul>
   </div>
 
   <div class="callout">
     <div class="callout-label">The point</div>
-    <p>When nothing repeats and nothing pulses, the ear listens <em>into</em> the sound — a drone is not static, it is slow.</p>
+    <p>When nothing repeats and nothing pulses, your ear starts examining the sound itself. A <strong>drone</strong> — a tone held for a very long time — is not static. It is slow. The interest lives inside it.</p>
   </div>
 
   <h2>How this lab works</h2>
 
   <div class="cards">
     <div class="card">
-      <h3 class="card-title">Design a tone worth living in</h3>
+      <h3 class="card-title">Design a tone worth listening to</h3>
       <ul class="card-points">
-        <li>One MicroFreak voice with a rich inner life — the listener will spend eight minutes inside it.</li>
-        <li>Long attack, long release: the note has no edges.</li>
-        <li>Test: does the bare held tone reward a full minute of attention?</li>
+        <li>One MicroFreak voice with enough internal movement to stay interesting for eight minutes.</li>
+        <li>Long attack, long release: the note fades in and out slowly, with no sharp edges.</li>
+        <li>Test: does the bare held tone hold your attention for a full minute?</li>
       </ul>
     </div>
     <div class="card">
-      <h3 class="card-title">Make it move slower than attention</h3>
+      <h3 class="card-title">Make it change slowly</h3>
       <ul class="card-points">
-        <li>LFO cycles measured in minutes, not beats — change the listener feels but cannot catch.</li>
-        <li>Two held pitches a chosen interval apart, so their beating supplies the only pulse.</li>
-        <li>Test: A/B minute 1 against minute 5 — they must differ, audibly.</li>
+        <li>An <strong>LFO</strong> (a slow automatic knob-mover) with a cycle measured in minutes, not beats. The listener feels the change but cannot catch it happening.</li>
+        <li>Two held pitches a chosen distance apart. Their slight difference in tuning creates a slow pulsing effect called <strong>beating</strong> — the only rhythm in the piece.</li>
+        <li>Test: compare minute 1 against minute 5. They must sound audibly different.</li>
       </ul>
     </div>
     <div class="card">
-      <h3 class="card-title">Hold the room</h3>
+      <h3 class="card-title">Hold it for the full duration</h3>
       <ul class="card-points">
-        <li>6–8 minutes with no events — only weather.</li>
-        <li>The human role is patience: a hand moves only when the tone stops breathing.</li>
-        <li>Print the held takes in full; a drone is a performance, not a loop.</li>
+        <li>6–8 minutes with no events. The piece is the slow change, not a build-up to something.</li>
+        <li>Your job is patience. Only touch a knob if the tone has gone flat and lifeless.</li>
+        <li>Record each held take in full as audio. A drone is a performance — not a short loop you repeat.</li>
       </ul>
     </div>
   </div>
@@ -114,16 +118,16 @@
 
   <table>
     <tr><th>Concept</th><th>In plain words</th></tr>
-    <tr><td><strong>Drone</strong></td><td>A held tone long enough that pitch stops being the news. Once the note no longer changes, your ear gives up waiting for the next one and starts examining the one that is there.</td></tr>
-    <tr><td><strong>Partials / overtones</strong></td><td>The quiet family of tones inside every tone — softer pitches stacked above the one you name. In ordinary music they pass unnoticed; in a drone they are what you actually listen to.</td></tr>
-    <tr><td><strong>Beating</strong></td><td>Two near-identical pitches pulsing against each other — a slow <em>wah-wah-wah</em> made by the tones themselves. Rhythm without a drummer: the closer the pitches, the slower the pulse.</td></tr>
-    <tr><td><strong>Slow modulation</strong></td><td>Change spread so thin in time that it is felt as breathing, not heard as an event. An LFO with a five-minute cycle still moves constantly — you just never catch it in the act.</td></tr>
-    <tr><td><strong>Tuning interval</strong></td><td>The distance between two held pitches. In a piece with no melody and no chords, this one distance is the drone’s entire harmony — choose it like you would choose a key.</td></tr>
+    <tr><td><strong>Drone</strong></td><td>A tone held long enough that your ear stops waiting for the next note and starts listening to what is already there. Pitch is no longer the point — the inner life of the sound is.</td></tr>
+    <tr><td><strong>Partials / overtones</strong></td><td>Every musical note contains quieter pitches stacked above it. In most music these go unnoticed. In a drone, held long enough, they become what you actually hear.</td></tr>
+    <tr><td><strong>Beating</strong></td><td>When two pitches are very close but not identical, they interfere with each other and produce a slow pulse — a gentle <em>wah-wah-wah</em>. No drummer needed: the rhythm comes from the tuning itself. The closer the pitches, the slower the pulse.</td></tr>
+    <tr><td><strong>Slow modulation</strong></td><td>Automatic change happening so gradually that you feel it rather than hear it as a moment. An LFO with a five-minute cycle is always moving — you just can never catch it in the act.</td></tr>
+    <tr><td><strong>Tuning interval</strong></td><td>The gap between two held pitches. With no melody and no chords, this single gap is the entire harmony of the piece. Choose it carefully — it is as important as choosing a key.</td></tr>
   </table>
 
   <h2>Listening — the hypothesis source</h2>
 
-  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Ten drones, none of them static. Each one solves the same problem — sustaining interest with zero rhythm — with a different kind of slowness. Each gets a short brief: what to listen for before you press play, and how to check yourself after.</p>
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Ten drones, none of them static. Each one holds attention with no rhythm, but uses a different type of slowness to do it. For each, you get a brief: what to focus on before you press play, and a check to run afterwards.</p>
 
   <div class="listen-acc">
     <details class="listen-item">
@@ -133,7 +137,7 @@
         <span class="listen-tag">modulation at the speed of weather</span>
       </summary>
       <div class="listen-body">
-        <p>ARP 2500 tones changing so slowly that noticing the change <em>is</em> the piece.</p>
+        <p>Tones made on an ARP 2500 synthesizer that change so slowly that noticing the change is the whole experience.</p>
         <div class="sub-label">Listen for</div>
         <ul>
           <li>Try to catch a change in the act — pick one layer and watch it.</li>
@@ -141,7 +145,7 @@
           <li>Whether anything ever “arrives” — an entrance, an event, a downbeat.</li>
         </ul>
         <div class="sub-label">After — verify</div>
-        <p>Did you ever catch a change as it happened? Almost certainly not — you only noticed afterwards that things were different. That delay is the technique: the modulation runs below the speed of attention. Relisten to any five-minute span and compare its first and last thirty seconds instead of hunting for events.</p>
+        <p>Did you catch a change as it happened? Probably not — you noticed later that things were different. That delay is the technique. The change happens below the speed you can track. Try relisting to any five-minute stretch and compare its first thirty seconds against its last thirty seconds instead of hunting for moments.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Eliane+Radigue+Kyema" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Eliane%20Radigue%20Kyema">Spotify</a></p>
         <p class="listen-rep"><a href="rep-kyema.html">Replicate it — step-by-step lesson →</a></p>
       </div>
@@ -153,7 +157,7 @@
         <span class="listen-tag">sustain as practice</span>
       </summary>
       <div class="listen-body">
-        <p>Held accordion and voice tones; the instruction behind the piece was not to change a tone until the change asks for itself.</p>
+        <p>Held accordion and voice tones. The performer's rule: don't change a tone until the change feels necessary on its own.</p>
         <div class="sub-label">Listen for</div>
         <ul>
           <li>How long each tone holds before it moves — time it once.</li>
@@ -161,7 +165,7 @@
           <li>The difference between a tone being <em>held</em> and a tone being <em>sustained by a machine</em> — the human effort is audible.</li>
         </ul>
         <div class="sub-label">After — verify</div>
-        <p>Could you predict when a tone was about to change? The wavering that precedes each move is the cue — the change “asks for itself” audibly before it happens. If every change surprised you, relisten following one voice only and wait for its edges to soften.</p>
+        <p>Could you predict when a tone was about to change? The slight wavering just before each move is the cue — the sound signals the change before it happens. If every change surprised you, relisten while following one voice only, and wait for its edges to loosen.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Pauline+Oliveros+Horse+Sings+from+Cloud" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Pauline%20Oliveros%20Horse%20Sings%20from%20Cloud">Spotify</a></p>
         <p class="listen-rep"><a href="rep-horse-sings.html">Replicate it — step-by-step lesson →</a></p>
       </div>
@@ -173,7 +177,7 @@
         <span class="listen-tag">the swell as event</span>
       </summary>
       <div class="listen-body">
-        <p>Orchestral drones where the only event is a slow rise and fall — the swell does the work that a drum fill does elsewhere.</p>
+        <p>Orchestral drones where the only event is a slow rise and fall in volume. That swell does the structural work that a drum fill or chord change would do in other music.</p>
         <div class="sub-label">Listen for</div>
         <ul>
           <li>The shape of one swell, start to finish — how long is the rise, how long the decay?</li>
@@ -181,7 +185,7 @@
           <li>What marks a “section” when there are no drums and no bar lines.</li>
         </ul>
         <div class="sub-label">After — verify</div>
-        <p>What was the only kind of event you heard? A level rising and falling — the swell is the bar line, the phrase, and the climax all at once. If you heard “melodies,” relisten: most of them are one layer getting louder while another retreats.</p>
+        <p>What was the only kind of event? A level rising and falling. The swell is the phrase, the climax, and the structure all in one. If you heard “melodies,” relisten: most of them are just one layer getting louder while another gets quieter.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Stars+of+the+Lid+Requiem+for+Dying+Mothers" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Stars%20of%20the%20Lid%20Requiem%20for%20Dying%20Mothers">Spotify</a></p>
         <p class="listen-rep"><a href="rep-requiem.html">Replicate it — step-by-step lesson →</a></p>
       </div>
@@ -193,7 +197,7 @@
         <span class="listen-tag">tuning as the motion</span>
       </summary>
       <div class="listen-body">
-        <p>Organ intervals whose beating does the moving; nothing else needs to.</p>
+        <p>Organ chords whose beating — the pulsing caused by two slightly different pitches — supplies all the movement. Nothing else needs to.</p>
         <div class="sub-label">Listen for</div>
         <ul>
           <li>The pulse inside the held chord — no one is playing it; the tuning is.</li>
@@ -201,7 +205,7 @@
           <li>Which intervals beat hard and which sit almost still.</li>
         </ul>
         <div class="sub-label">After — verify</div>
-        <p>Where did the pulsing come from? Two pipes tuned close enough to interfere — the rhythm is a property of the interval, not a performance. If you heard it as tremolo or vibrato, relisten to one chord change and notice the pulse <em>rate</em> jump the instant the interval does.</p>
+        <p>Where did the pulsing come from? Two pipes tuned close enough to interfere with each other. The rhythm is built into the tuning — no one performed it. If you heard it as tremolo or vibrato, relisten to one chord change and notice the pulse <em>rate</em> jump the moment the interval changes.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Kali+Malone+No+Sun+to+Burn" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Kali%20Malone%20No%20Sun%20to%20Burn">Spotify</a></p>
         <p class="listen-rep"><a href="rep-no-sun.html">Replicate it — step-by-step lesson →</a></p>
       </div>
@@ -213,7 +217,7 @@
         <span class="listen-tag">the overtones surface</span>
       </summary>
       <div class="listen-body">
-        <p>One tone held until its inner family becomes the melody.</p>
+        <p>One tone held long enough that its overtones — the quieter pitches naturally present inside it — gradually become what you hear.</p>
         <div class="sub-label">Listen for</div>
         <ul>
           <li>The high, faint tones above the fundamental — when do you first notice them?</li>
@@ -221,7 +225,7 @@
           <li>How your attention climbs the spectrum as the minutes pass.</li>
         </ul>
         <div class="sub-label">After — verify</div>
-        <p>Did new sounds enter the piece? Mostly no — the overtones were present from the first second; the holding is what made them audible. If you are unsure, relisten to the opening minute knowing what arrives later, and you will already hear it waiting.</p>
+        <p>Did new sounds enter the piece? Mostly no. The overtones were already there from the first second — the holding simply made them audible. If you are unsure, go back to the opening minute knowing what you heard later. You will hear those tones waiting there already.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Folke+Rabe+What" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Folke%20Rabe%20What">Spotify</a></p>
         <p class="listen-rep"><a href="rep-what.html">Replicate it — step-by-step lesson →</a></p>
       </div>
@@ -233,7 +237,7 @@
         <span class="listen-tag">sustain built from repetition</span>
       </summary>
       <div class="listen-body">
-        <p>Rapid strumming fuses into a drone — sustain made of attacks.</p>
+        <p>Rapid piano strumming played so fast and continuously that the individual attacks fuse into a sustained tone. Sustain built entirely from attacks.</p>
         <div class="sub-label">Listen for</div>
         <ul>
           <li>The moment the individual piano attacks blur into a continuous tone.</li>
@@ -241,7 +245,7 @@
           <li>What changes over twenty minutes when the player’s hands never stop doing the same thing.</li>
         </ul>
         <div class="sub-label">After — verify</div>
-        <p>Can you still hear single notes? At speed the attacks fuse, and the real music happens in the overtone cloud the piano builds in the room above them. If the piece read as “just repetition,” relisten with your attention an octave higher than the playing.</p>
+        <p>Can you still hear individual notes? At that speed the attacks blur together, and the real interest happens in the cloud of overtones building above them. If it sounded like “just repetition,” relisten while directing your attention to the higher frequencies above the playing.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Charlemagne+Palestine+Strumming+Music" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Charlemagne%20Palestine%20Strumming%20Music">Spotify</a></p>
         <p class="listen-rep"><a href="rep-strumming.html">Replicate it — step-by-step lesson →</a></p>
       </div>
@@ -253,7 +257,7 @@
         <span class="listen-tag">drone under erosion</span>
       </summary>
       <div class="listen-body">
-        <p>The held tone survives inside distortion and damage.</p>
+        <p>A sustained tone treated with heavy distortion and digital damage. The core pitch stays intact throughout.</p>
         <div class="sub-label">Listen for</div>
         <ul>
           <li>The core pitch under the grit — find it early and hold on to it.</li>
@@ -261,7 +265,7 @@
           <li>Whether the damage moves at the same speed as the tone, or faster.</li>
         </ul>
         <div class="sub-label">After — verify</div>
-        <p>Did the distortion destroy the drone? No — the pitch holds through all of it; the erosion is a surface running at a different speed than the core. If you lost the pitch, relisten at low volume: the grit recedes and the held tone is plainly still there.</p>
+        <p>Did the distortion destroy the drone? No. The pitch holds all the way through. The grit moves at a different speed than the core. If you lost track of the pitch, relisten at lower volume — the distortion recedes and the held tone is clearly still there.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Tim+Hecker+Chimeras" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Tim%20Hecker%20Chimeras">Spotify</a></p>
         <p class="listen-rep"><a href="rep-chimeras.html">Replicate it — step-by-step lesson →</a></p>
       </div>
@@ -273,7 +277,7 @@
         <span class="listen-tag">thickness from detune</span>
       </summary>
       <div class="listen-body">
-        <p>A massive sustained cluster built by stacking the same pitch many times a few cents apart — the beating between near-unisons <em>is</em> the sound; the motion comes from interference, not modulation.</p>
+        <p>A dense sustained sound built by recording the same pitch dozens of times, each slightly out of tune with the others. The beating between those near-identical pitches is the entire sound. The movement comes from interference — not from any modulator.</p>
         <div class="sub-label">Listen for</div>
         <ul>
           <li>The churn inside what is nominally one note — pick a register and stay with it.</li>
@@ -281,7 +285,7 @@
           <li>How the cluster’s width reads as loudness — thickness doing the work of level.</li>
         </ul>
         <div class="sub-label">After — verify</div>
-        <p>Is anything modulating? No — nothing sweeps, nothing drifts; the motion is interference between still layers, near-unisons beating against each other. If it felt like the sound was moving, relisten to one passage and try to catch a single layer in the act of changing — you will not, and that failure is the finding.</p>
+        <p>Is anything modulating? No. Nothing sweeps or drifts. The motion is purely interference between layers that are each completely still. If it felt like the sound was moving, relisten to one passage and try to catch a single layer in the act of changing. You will not catch one — and that is the finding.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Phill+Niblock+Sethwork" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Phill%20Niblock%20Sethwork">Spotify</a></p>
         <p class="listen-rep"><a href="rep-sethwork.html">Replicate it — step-by-step lesson →</a></p>
       </div>
@@ -293,7 +297,7 @@
         <span class="listen-tag">one instrument, emptied out</span>
       </summary>
       <div class="listen-body">
-        <p>Each piece sustains a single instrument class — strings, voice, organ — until its mechanism, the bow noise, the breath, the reed beat, becomes the foreground.</p>
+        <p>Each piece sustains a single instrument type — strings, voice, or organ — for long enough that the mechanical sounds of playing it (bow noise, breath, reed vibration) move to the foreground.</p>
         <div class="sub-label">Listen for</div>
         <ul>
           <li>The mechanism sounds surfacing — breath under the voice, bow grain under the strings.</li>
@@ -301,7 +305,7 @@
           <li>How instrument identity blurs with duration — held long enough, a string section stops being one.</li>
         </ul>
         <div class="sub-label">After — verify</div>
-        <p>Name the mechanism sound foregrounded in the piece you chose — breath, bow grain, a reed’s beat. And when did a “violin” stop sounding like a violin? Somewhere a few minutes in, the label fell away and only the sustained material remained. If you missed it, relisten for the first entry you can actually catch — most are hidden in the overlaps, and finding even one takes full attention.</p>
+        <p>Name the physical playing sound that came to the foreground — breath, bow noise, a reed’s vibration. And at what point did a “violin” stop sounding like a violin? Somewhere a few minutes in, the instrument identity fades and only the sustained sound remains. If you missed it, go back and listen for the first moment you can actually catch. Most entries are hidden under overlapping tones, and finding even one takes real attention.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Sarah+Davachi+All+My+Circles+Run" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Sarah%20Davachi%20All%20My%20Circles%20Run">Spotify</a></p>
         <p class="listen-rep"><a href="rep-circles-run.html">Replicate it — step-by-step lesson →</a></p>
       </div>
@@ -313,7 +317,7 @@
         <span class="listen-tag">the system plays itself</span>
       </summary>
       <div class="listen-body">
-        <p>A wire driven by an oscillator self-resonates — the composer sets the conditions and does not touch; the room and the physics make all the variation.</p>
+        <p>A long wire is driven by an oscillator and left to vibrate on its own. The composer sets the conditions and then steps away. The room, the temperature, and the physics of the wire produce all the variation.</p>
         <div class="sub-label">Listen for</div>
         <ul>
           <li>Drift nobody performed — the pitch and timbre wandering with no hand on anything.</li>
@@ -321,7 +325,7 @@
           <li>The difference between an <em>event</em> and a <em>tendency</em> — the wire has only tendencies.</li>
         </ul>
         <div class="sub-label">After — verify</div>
-        <p>Who made the change you just heard? Nobody — the conditions did; the wire, the room, and the physics are the only performers. Relisten and try to attribute one single event to a hand — you cannot, and that failure is the lesson.</p>
+        <p>Who made the change you just heard? Nobody. The wire, the room, and the physics did it. Relisten and try to point to one event caused by a human hand. You cannot — and that is the lesson.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Alvin+Lucier+Music+on+a+Long+Thin+Wire" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Alvin%20Lucier%20Music%20on%20a%20Long%20Thin%20Wire">Spotify</a></p>
         <p class="listen-rep"><a href="rep-long-thin-wire.html">Replicate it — step-by-step lesson →</a></p>
       </div>
@@ -330,31 +334,31 @@
 
   <div class="decision-check">
     <div class="decision-check-label">Requirement</div>
-    <p>Your written hypothesis names <strong>where this drone’s slowness will live</strong> — weather-speed modulation, the change that asks for itself, the swell, the beating interval, surfacing overtones, fused attacks, erosion over a still core, thickness from interference, the instrument’s mechanism surfacing, or conditions left to play themselves — and what was stolen from the comparison. The target idea across all ten: <strong>a drone is slow, not static — the variation lives inside the tone.</strong> What you steal is a structure, never a sound.</p>
+    <p>Your written hypothesis must name <strong>where this drone’s slowness will live</strong> — for example: weather-speed modulation, a change that asks for itself, a swell, a beating interval, surfacing overtones, fused attacks, erosion over a still core, thickness from interference, an instrument’s mechanism, or conditions left to run themselves. It also names what you borrowed from the listening. The core idea across all ten references: <strong>a drone is slow, not static — the variation lives inside the tone.</strong> What you borrow is a structure, never a specific sound.</p>
   </div>
 
   <h2>1 · The two specs — provided</h2>
 
   <table class="param-table">
     <caption>System Spec — provided (S1: verify against your build)</caption>
-    <tr><td>Inputs</td><td>One MicroFreak voice with long attack and long release — the tone has no edges · a second held pitch a chosen interval away, by paraphony or a second printed take</td></tr>
-    <tr><td>Transforms</td><td>MicroFreak analog filter moved by one very slow LFO (cycle measured in minutes) · gentle space on the master — nothing that creates events</td></tr>
-    <tr><td>Feedback / variation</td><td>Beating between the two pitches · LFO drift on cutoff or timbre · all variation lives inside the tone, never as a new element</td></tr>
+    <tr><td>Inputs</td><td>One MicroFreak voice with long attack and long release so the tone has no sharp edges · a second held pitch at a chosen interval, either by paraphony or a second printed take</td></tr>
+    <tr><td>Transforms</td><td>MicroFreak analog filter moved by one very slow LFO (cycle measured in minutes) · light reverb on the master — nothing that creates rhythmic events</td></tr>
+    <tr><td>Feedback / variation</td><td>Beating between the two pitches · LFO drift on cutoff or timbre · all variation stays inside the tone, never introduced as a new element</td></tr>
     <tr><td>Constraints</td><td>No rhythm, no events, no breakdown · ≤4 tracks · one tuning interval for the whole piece · 6–8 minutes</td></tr>
-    <tr><td>Human role</td><td>Choose the interval · design the tone · then mostly listen — a hand moves only when the tone stops breathing</td></tr>
+    <tr><td>Human role</td><td>Choose the interval · design the tone · then mostly listen — only touch a knob when the tone goes flat and lifeless</td></tr>
   </table>
 
   <table class="param-table">
     <caption>Engineering Spec — provided (S1: verify against your build, correct after)</caption>
     <tr><td>Signal path</td><td>MicroFreak → M4 in 1 → Live track 1 · second pitch by paraphony on the same path, or printed as a second take to Live track 2 · Live master → M4 → phones/monitors</td></tr>
-    <tr><td>Gain plan</td><td>Peaks −12 dBFS while tracking — a sustained tone has no transients to hide behind; the meter sits where it sits · master −3 dBFS for the render</td></tr>
-    <tr><td>Clock / sync</td><td>No grid to keep — tempo is irrelevant; Live’s transport exists only to record · LFO free-running, never synced</td></tr>
-    <tr><td>Latency</td><td>Nothing is played in time — a large, safe buffer is fine; software monitoring acceptable throughout</td></tr>
-    <tr><td>Stereo / phase</td><td>MicroFreak is mono · width comes from panning the two takes apart · one mono check: the beating must survive the collapse</td></tr>
-    <tr><td>Noise budget</td><td>MicroFreak output hiss is fully exposed under a sustained tone — set preamp gain by the lab-001 ledger, then record and audit thirty seconds of “silence” before the first take</td></tr>
-    <tr><td>Print strategy</td><td>Print each held take in full as audio — a drone is a performance of patience, not a loop to repeat · render at the end, 24-bit WAV</td></tr>
-    <tr><td>Failure mode</td><td>A drone that is actually static — LFO too slow or too small to matter, the interval beat-free; diagnosed by A/B-ing minute 1 against minute 5 at matched level</td></tr>
-    <tr><td>Safety</td><td>Long exposure at sustained level is this session’s main hazard — phones at the lab-001 mark, and take them off every fifteen minutes; loudness creep is invisible inside a drone</td></tr>
+    <tr><td>Gain plan</td><td>Peaks −12 dBFS while recording. A sustained tone has no short bursts to hide behind — the meter stays where it is. Master at −3 dBFS for the render.</td></tr>
+    <tr><td>Clock / sync</td><td>No grid needed. Tempo is irrelevant; Live’s transport is only there to record. LFO runs free, never synced to the clock.</td></tr>
+    <tr><td>Latency</td><td>Nothing is played in time, so a larger buffer is fine. Software monitoring is acceptable throughout.</td></tr>
+    <tr><td>Stereo / phase</td><td>MicroFreak is mono. Width comes from panning the two takes apart. One mono check: the beating must survive when left and right are collapsed to mono.</td></tr>
+    <tr><td>Noise budget</td><td>MicroFreak hiss is fully exposed under a sustained tone — nothing masks it. Set preamp gain from the lab-001 ledger, then record and listen back to thirty seconds of silence before the first take.</td></tr>
+    <tr><td>Print strategy</td><td>Record each held take in full as audio. A drone is a performance — not a short loop you repeat. Render at the end, 24-bit WAV.</td></tr>
+    <tr><td>Failure mode</td><td>A drone that is actually static — LFO too slow or too small to hear, the interval producing no beating. Diagnose by comparing minute 1 against minute 5 at matched volume.</td></tr>
+    <tr><td>Safety</td><td>Long exposure at sustained volume is this session’s main hazard. Keep phones at the lab-001 mark and take them off every fifteen minutes. Volume creep is hard to notice inside a drone.</td></tr>
   </table>
 
   <h2>2 · Bench preflight</h2>
@@ -365,10 +369,10 @@
       <div class="checklist-label">Pre-flight — before the first note</div>
     </div>
     <ul>
-      <li>Gain ledger from lab 001 applied at M4 in 1 — set by the number, not by ear</li>
-      <li>Thirty seconds of noise floor recorded and listened back — know your hiss before the take</li>
+      <li>Gain ledger from lab 001 applied at M4 in 1 — set it by the number, not by ear</li>
+      <li>Thirty seconds of silence recorded and listened back — know what your background hiss sounds like before you record any tone</li>
       <li>Monitoring mode declared per source, from lab 002’s table</li>
-      <li>Both spec tables read against the actual session; mark every row reality disagrees with</li>
+      <li>Both spec tables checked against your actual session; mark any row where your setup differs</li>
       <li>LFO rate written down in minutes per cycle — “slow” is not a measurement</li>
       <li>Phones at the mark · a break planned every fifteen minutes</li>
     </ul>
@@ -378,7 +382,7 @@
 
   <div class="note-block">
     <ul>
-      <li><strong>The step-by-step build lands when Block 2 is authored;</strong> the Phase 0 exit gate governs the order. The listening, specs, preflight, and pass gate on this page are stable — the numbered build recipe is the part still to come. <span class="status">forthcoming</span></li>
+      <li><strong>The step-by-step build will be added when Block 2 is complete.</strong> The Phase 0 exit gate controls the order. The listening references, specs, preflight, and pass gate on this page are final. The numbered build recipe is the part still to come. <span class="status">forthcoming</span></li>
     </ul>
   </div>
 
@@ -405,13 +409,13 @@
 
   <div class="note-block">
     <ul>
-      <li><strong>Minimum pass gate:</strong> audible output · routing diagram · fault entry · print map · system diff. Without these five, the lab is incomplete regardless of audio quality — a musically strong piece cannot bypass the engineering spine.</li>
+      <li><strong>Minimum pass gate:</strong> audible output · routing diagram · fault entry · print map · system diff. Without all five, the lab is not complete — even a great-sounding piece does not pass without the engineering record.</li>
     </ul>
   </div>
 
   <div class="final">
     <div class="final-label">Track-lab principle</div>
-    <p>A drone is slow, not static — when nothing repeats and nothing pulses, the variation must live inside the tone.</p>
+    <p>A drone is slow, not static. When nothing repeats and nothing pulses, all the variation must live inside the tone.</p>
   </div>
 
   <div class="page-nav">
@@ -429,5 +433,6 @@
 
 </div>
 
+  <script src="../nav.js"></script>
 </body>
 </html>

@@ -6,7 +6,7 @@
 <title>Capstone C3 — Gate</title>
 <link rel="stylesheet" href="../styles.css">
 </head>
-<body>
+<body class="page-type-capstone" id="top">
 
 <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
 <label for="nav-toggle" class="hamburger" aria-label="Menu">
@@ -16,6 +16,7 @@
 <nav class="nav" aria-label="Workshop contents">
   <p class="nav-label">Workshop</p>
   <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
   <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
   <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
   <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
@@ -28,13 +29,14 @@
 </nav>
 
 <div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 4 · Transformation</a><span class="breadcrumb-sep">/</span><span>Score for an Imagined Scene</span></nav>
 
   <header class="page-header">
     <div class="eyebrow">Block 4 · Capstone C3 · Gate</div>
     <h1>Score for an Imagined Scene</h1>
     <p class="lede">Brief-driven sound design, transformation-heavy. You have labs 013–017, R4, and programme L4 behind you; this gate hands you one paragraph describing a scene that does not exist, and asks for the sound of it — built from your own material, shaped almost entirely by Block 4 transformations. The gate is not the score — it is whether you can explain the system that made it.</p>
   </header>
-  <p class="block-meta">Capstone · Gate tier · constraints-only brief · full cycle · requires labs 013–017 + R4 + programme L4 · closes Block 4</p>
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l4.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs">Labs</a><a href="lab-r4.html" data-section="rebuild">Rebuild</a><a href="capstone-c3.html" data-section="capstone" class="current">Capstone</a><a href="index.html#replication-lessons" data-section="rep">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
 
   <div class="signal-flow">
     <span class="signal-node">listen</span>
@@ -72,7 +74,7 @@
 
   <div class="callout">
     <div class="callout-label">What a gate is</div>
-    <p>A block does not end when its labs are done; it ends when you can run the operating loop without scaffolding. C3 is deliberately not a track: the scene removes the genre conventions you could have leaned on, leaving only material, transformation, and the four questions this block asks of every processor.</p>
+    <p>A block does not end when its labs are done; it ends when you can run the operating loop without a recipe. C3 is deliberately not a track: the scene removes the genre conventions you could have leaned on, leaving only material, transformation, and the four questions this block asks of every processor.</p>
   </div>
 
   <h2>1 — Brief &amp; constraints</h2>
@@ -83,7 +85,7 @@
     <ul>
       <li><strong>The scene brief.</strong> Four sentences are enough: where, when, what happens, what changes. Example shape — &ldquo;An automated lighthouse, decades after the last keeper left. Mid-winter, before dawn. The rotation mechanism is wearing out. By the end, the lamp turns for the last time.&rdquo; Author your own or take one from someone else; either way, freeze it in the logbook before any sound exists, because scoring a moving target proves nothing.</li>
       <li><strong>Transformation-heavy means:</strong> the interest of the score lives in what the chains do to the material, not in what the material is. If a sound appears untransformed, that must be a decision you can defend — the one clean thing in a degraded world is a compositional statement; ten clean things are a Block 2 relapse.</li>
-      <li><strong>Scaffolding:</strong> C3 is S3 — author both specs from prompts. Write your own filled System Spec and Engineering Spec <em>before</em> patching anything; the four Block 4 questions (entry and exit level, linear or nonlinear, order, reversibility) must be answered in the Engineering Spec for every chain in the score.</li>
+      <li><strong>Support level:</strong> C3 is S3 — author both specs from prompts. Write your own filled System Spec and Engineering Spec <em>before</em> patching anything; the four Block 4 questions (entry and exit level, linear or nonlinear, order, reversibility) must be answered in the Engineering Spec for every chain in the score.</li>
       <li><strong>Originality:</strong> the score is fully original portfolio work. Steal systems, never material — nothing from the R4 quarantine, nothing lifted from any reference.</li>
     </ul>
   </div>
@@ -110,7 +112,7 @@
 
   <div class="note-block">
     <ul>
-      <li><strong>Status:</strong> the constraint menu above is final in shape; the worked example brief, the per-constraint guidance notes, and the scene-brief template are <span class="status">forthcoming</span> with Block 4 authoring.</li>
+      <li><strong>Constraint menu:</strong> the menu above is complete; use it to pick restrictions before patching.</li>
     </ul>
   </div>
 
@@ -181,9 +183,14 @@
     <tr><td>Advanced transfer</td><td>You can explain, per element, why its chain — and not another — renders its part of the scene, and what the same brief would sound like rebuilt with Block 2 capture instead of Block 4 transformation.</td></tr>
   </table>
 
-  <div class="note-block">
-    <ul>
-      <li><strong>Status:</strong> the detailed scoring rubric — per-axis descriptors for scene legibility and transformation depth — is <span class="status">forthcoming</span>; the pass standard above is final and sufficient to run the gate now.</li>
+  <div class="callout">
+    <div class="callout-label">Excellence — beyond the gate</div>
+    <p>The minimum gate is pass/fail; the tiers above describe competence. <strong>Excellence</strong> is a separate, optional standard — not required to pass, but the bar a portfolio piece aims for. A score reaches it when all of the following are true:</p>
+    <ul class="rules-list">
+      <li><strong>The transform is inseparable from the meaning.</strong> A stranger does not just recognize the scene — the specific degradation, saturation, or grain <em>is</em> why the scene lands; swap the chain for a clean one and the piece stops being about anything.</li>
+      <li><strong>The engineering and the music are the same decision.</strong> Every gain stage, processor order, and generation count in the Engineering Spec can be justified musically, and every musical choice can be traced to a number — there is no gap between the drawing and the feeling.</li>
+      <li><strong>The stolen principle is transformed, not transplanted.</strong> The L4 idea reappears as something recognizably yours — adapted to this brief, not pasted in — and you can say what you added to it.</li>
+      <li><strong>A refusal is visible in the work.</strong> The score is shaped by what you declined as much as by what you did — name the easy move you refused (per the Block 4 voice prompt) and point to where its absence is audible.</li>
     </ul>
   </div>
 
@@ -249,5 +256,6 @@
 
 </div>
 
+  <script src="../nav.js"></script>
 </body>
 </html>

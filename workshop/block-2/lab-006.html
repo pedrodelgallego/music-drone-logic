@@ -6,7 +6,7 @@
 <title>Lab 006 — Capturing the World</title>
 <link rel="stylesheet" href="../styles.css">
 </head>
-<body>
+<body class="page-type-lab" id="top">
 
 <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
 <label for="nav-toggle" class="hamburger" aria-label="Menu">
@@ -16,6 +16,7 @@
 <nav class="nav" aria-label="Workshop contents">
   <p class="nav-label">Workshop</p>
   <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
   <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
   <a href="index.html" class="active"><span class="nav-num">02</span>Sources</a>
   <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
@@ -28,13 +29,16 @@
 </nav>
 
 <div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 2 · Sources</a><span class="breadcrumb-sep">/</span><span>Capturing the World</span></nav>
 
   <header class="page-header">
     <div class="eyebrow">Block 2 · Lab 006 · Étude</div>
     <h1>Capturing the World</h1>
-    <p class="lede">The sampling path: your first recordings of the world, with the gain decisions owned. Three ways into the interface, one level test run in the field, and a one-minute concrète miniature made only of what you captured.</p>
+    <p class="lede">Record the world and own every volume decision you make. You will try three different ways to get sound into your interface, run a level test in the field, and edit a one-minute piece using only what you captured. <strong>Concrète</strong> is music built from recordings of real-world sounds — that is what this lab makes.</p>
   </header>
   <p class="block-meta">Étude · S1 · D2 E2 M3 F1 · concrète · half-cycle — pair with a listening session or a review week</p>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l2.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs" class="current">Labs</a><a href="lab-r2.html" data-section="rebuild">Rebuild</a><a href="index.html#capstone" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
 
   <div class="signal-flow">
     <span class="signal-node">listen</span>
@@ -71,7 +75,7 @@
 
   <div class="callout">
     <div class="callout-label">The point</div>
-    <p>A recording is never just the sound — it is the sound plus a distance, a room, and a noise floor, all chosen at capture time.</p>
+    <p>A recording is the sound plus the distance you stood from it, the room around it, and the background hiss of the place — and you choose all three before you press record.</p>
   </div>
 
   <h2>How this lab works</h2>
@@ -80,25 +84,25 @@
     <div class="card">
       <h3 class="card-title">Choose and capture</h3>
       <ul class="card-points">
-        <li>Three paths into the M4: mic, line, phone — three doors, three different results.</li>
-        <li>One capture through each door, of sounds you chose on purpose.</li>
-        <li>Every capture logged: place, distance, level.</li>
+        <li>Three ways into the MOTU M4: mic input, line input, or phone — each gives a different sound and noise level.</li>
+        <li>One recording through each path, of sounds you chose deliberately.</li>
+        <li>Log every capture: place, distance, and input level.</li>
       </ul>
     </div>
     <div class="card">
       <h3 class="card-title">The level test</h3>
       <ul class="card-points">
-        <li>The same source captured too quiet, correct, and too hot — in the field, not at the desk.</li>
-        <li>Listen back at home and hear what each mistake costs.</li>
-        <li>This is the block’s required comparison; own the gain decision where it actually happens.</li>
+        <li>Record the same source three times: too quiet, correct, and too loud (clipping). Do this in the field, not back at your desk.</li>
+        <li>Listen to all three at home. Hear exactly what each mistake sounds like.</li>
+        <li>This is the block’s required comparison. You learn to set <strong>gain</strong> (input volume) in the place where it matters.</li>
       </ul>
     </div>
     <div class="card">
       <h3 class="card-title">A one-minute miniature</h3>
       <ul class="card-points">
-        <li>One minute of concrète from your own captures — nothing borrowed.</li>
+        <li>One minute of concrète built entirely from your own recordings — nothing borrowed.</li>
         <li>Selection and editing only: no effects, no synthesis.</li>
-        <li>The writing happened at capture time; the edit just reveals it.</li>
+        <li>The creative decisions happen when you record. Editing just chooses what to keep.</li>
       </ul>
     </div>
   </div>
@@ -107,16 +111,16 @@
 
   <table>
     <tr><th>Concept</th><th>In plain words</th></tr>
-    <tr><td><strong>The capture chain</strong></td><td>Mic → preamp → recorder: three stages in a row, and each one shapes the result. The mic decides what is heard, the preamp decides how loud and how clean, the recorder decides what survives. A weak link anywhere is in every capture forever.</td></tr>
-    <tr><td><strong>Line vs mic vs phone</strong></td><td>Three entry doors into the interface, with different noise and character. A line signal is already strong and clean; a mic signal is tiny and needs the preamp’s help (and inherits its hiss); a phone is a complete chain in your pocket — convenient, opinionated, and already processed.</td></tr>
-    <tr><td><strong>Perspective</strong></td><td>Where the mic stands is a writing decision. One step closer and the source dominates; one step back and the room takes over. You compose the recording with your feet before you press record.</td></tr>
-    <tr><td><strong>Handling noise</strong></td><td>The recordist’s own body in the recording: fingers shifting on the recorder, the cable brushing a sleeve, footsteps through the floor. The mic does not know your touch is not the subject.</td></tr>
-    <tr><td><strong>The noise floor of a place</strong></td><td>Every location has a hiss of its own — ventilation, distant traffic, electricity in the walls — audible the moment you listen for it. It is part of every capture you make there, whether you noticed it or not.</td></tr>
+    <tr><td><strong>The capture chain</strong></td><td>Mic → preamp → recorder: three stages, each shaping the result. The mic picks up the sound, the <strong>preamp</strong> (a circuit that amplifies the tiny mic signal) sets how loud and how clean, and the recorder saves whatever arrives. A problem at any stage is baked into every recording you make.</td></tr>
+    <tr><td><strong>Line vs mic vs phone</strong></td><td>Three ways into the interface, each with different noise and character. A <strong>line-level</strong> signal is already strong and clean. A <strong>mic-level</strong> signal is tiny and needs the preamp to boost it — that boosting also adds a little hiss. A phone is a complete recording chain in your pocket: convenient, but it processes the sound before you even hear it.</td></tr>
+    <tr><td><strong>Perspective</strong></td><td>Where you place the mic is a creative decision. Move one step closer and the source fills the recording. Step back and the room takes over. You shape the recording with your feet, before you press record.</td></tr>
+    <tr><td><strong>Handling noise</strong></td><td>Any sound your body makes while holding the recorder ends up in the recording too: fingers shifting grip, a cable brushing your sleeve, footsteps through the floor. The mic cannot tell your touch apart from the subject.</td></tr>
+    <tr><td><strong>The noise floor of a place</strong></td><td>Every location has its own background hiss — ventilation, distant traffic, electrical hum from the walls. It is in every recording you make there, whether you noticed it at the time or not.</td></tr>
   </table>
 
   <h2>Listening — the hypothesis source</h2>
 
-  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Ten recordists, ten capture strategies. Listen for the decisions made before, during, and just after recording — where to stand, how hot to run, when to start, where to cut, how far one object can be pushed — because those are exactly the decisions this étude hands to you.</p>
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Ten artists, ten capture strategies. As you listen, notice the decisions made before, during, and right after recording: where to stand, how loud to record, when to start, where to cut, how far a single object can be pushed. Those are the exact decisions this étude asks you to make.</p>
 
   <div class="listen-acc">
     <details class="listen-item">
@@ -126,7 +130,7 @@
         <span class="listen-tag">the founding act</span>
       </summary>
       <div class="listen-body">
-        <p>The recorded world becomes material — the first time captured sound was treated as something to compose with, not document.</p>
+        <p>Schaeffer was the first person to treat a recording as raw material for composition rather than as a document. Here he uses train sounds as rhythm and pitch.</p>
         <div class="sub-label">Listen for</div>
         <ul>
           <li>Train sounds treated as rhythm and pitch, not as scenery.</li>
@@ -134,7 +138,7 @@
           <li>The moment you stop hearing “train” and start hearing “pattern.”</li>
         </ul>
         <div class="sub-label">After — verify</div>
-        <p>When did the trains stop being trains for you? Usually at the first exact repeat — repetition strips the label off a sound and leaves only its shape. If they stayed trains throughout, relisten following one short fragment and count its returns.</p>
+        <p>When did the trains stop sounding like trains? For most listeners it happens at the first exact repeat — hearing the same fragment twice tells your brain it is a pattern, not a place. If they stayed trains throughout, try again and follow one short fragment, counting each time it comes back.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Pierre+Schaeffer+Etude+aux+chemins+de+fer" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Pierre%20Schaeffer%20Etude%20aux%20chemins%20de%20fer">Spotify</a></p>
         <p class="listen-rep"><a href="rep-chemins-de-fer.html">Replicate it — step-by-step lesson →</a></p>
       </div>
@@ -146,7 +150,7 @@
         <span class="listen-tag">capture as composition</span>
       </summary>
       <div class="listen-body">
-        <p>A morning by the sea, barely edited — the compositional choices are where to stand and when to start.</p>
+        <p>A morning at the seaside, barely edited. Ferrari's main decisions were where to stand, when to press record, and how to compress twenty minutes of time into twenty minutes of listening.</p>
         <div class="sub-label">Listen for</div>
         <ul>
           <li>How few edits you can actually detect — hunt for one.</li>
@@ -154,7 +158,7 @@
           <li>How the scene changes over twenty minutes — and who chose that arc.</li>
         </ul>
         <div class="sub-label">After — verify</div>
-        <p>What did Ferrari actually <em>do</em>? Almost nothing audible — he chose a place, a perspective, a starting moment, and compressed hours into twenty minutes. The piece argues that those choices alone are composition. If it felt like “just a recording,” relisten asking who decided what you would hear next.</p>
+        <p>What did Ferrari actually do? Almost nothing you can hear. He chose a place, a perspective, and a starting moment. The piece argues that those decisions are enough to count as composition. If it felt like “just a recording,” relisten and ask: who decided what came next?</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Luc+Ferrari+Presque+Rien+No+1" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Luc%20Ferrari%20Presque%20Rien%20No%201">Spotify</a></p>
         <p class="listen-rep"><a href="rep-presque-rien.html">Replicate it — step-by-step lesson →</a></p>
       </div>
@@ -166,7 +170,7 @@
         <span class="listen-tag">gain as authorship</span>
       </summary>
       <div class="listen-body">
-        <p>She turns the city down to make barnacles loud, and tells you so — the gain move is narrated as it happens.</p>
+        <p>Westerkamp turns her recorder's gain down to quiet the city noise, and turns it up to make tiny barnacle clicks fill the speakers — and she narrates each move as she does it.</p>
         <div class="sub-label">Listen for</div>
         <ul>
           <li>The moment she announces she is turning the city down — and the change that follows.</li>
@@ -174,7 +178,7 @@
           <li>The distance of her voice versus the distance of the scene — two perspectives in one recording.</li>
         </ul>
         <div class="sub-label">After — verify</div>
-        <p>What did the gain move change — the beach, or the hierarchy of the beach? The place stayed the same; the level decision rewrote what counted as foreground. That is gain as authorship, and it is the étude’s central lesson. If you missed the move, relisten for the sentence where she names it.</p>
+        <p>What did the gain move change — the beach itself, or which sounds felt most important? The beach stayed the same. The level decision changed what you heard as the foreground. Adjusting gain is a creative choice, not just a technical one. If you missed the move, relisten and wait for the sentence where she announces it.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Hildegard+Westerkamp+Kits+Beach+Soundwalk" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Hildegard%20Westerkamp%20Kits%20Beach%20Soundwalk">Spotify</a></p>
         <p class="listen-rep"><a href="rep-kits-beach.html">Replicate it — step-by-step lesson →</a></p>
       </div>
@@ -186,7 +190,7 @@
         <span class="listen-tag">the composed field</span>
       </summary>
       <div class="listen-body">
-        <p>Places joined into a journey that never happened — field recordings assembled with a composer’s hand.</p>
+        <p>Watson recorded trains across Mexico over many days and positions, then joined them into a single continuous journey that never actually happened.</p>
         <div class="sub-label">Listen for</div>
         <ul>
           <li>The joins between locations — can you find a single edit?</li>
@@ -194,7 +198,7 @@
           <li>How clean the captures are — no handling, no wind thumps, no accidents.</li>
         </ul>
         <div class="sub-label">After — verify</div>
-        <p>Did this train journey ever happen? Not as one ride — it is many captures, from many days and positions, joined into a continuous fiction. The seams you could not find are craft at the capture stage, not the edit. Relisten to one transition and notice how a shared sound carries you across it.</p>
+        <p>Did this journey happen? Not as one continuous ride. It is many separate recordings, from different days and positions, edited into a seamless whole. The invisible joins come from skilled capture, not just clever editing. Relisten to one transition and notice how a shared sound bridges the cut.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Chris+Watson+El+Tren+Fantasma" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Chris%20Watson%20El%20Tren%20Fantasma">Spotify</a></p>
         <p class="listen-rep"><a href="rep-el-tren.html">Replicate it — step-by-step lesson →</a></p>
       </div>
@@ -206,7 +210,7 @@
         <span class="listen-tag">one subject, many positions</span>
       </summary>
       <div class="listen-body">
-        <p>The same river captured along its whole length — one subject, dozens of perspectives.</p>
+        <p>Lockwood recorded the Hudson River at many points along its length — the same subject, but dozens of different positions and distances.</p>
         <div class="sub-label">Listen for</div>
         <ul>
           <li>What changes from site to site: the river, or everything around it?</li>
@@ -214,7 +218,7 @@
           <li>What stays recognizably “river” across every position.</li>
         </ul>
         <div class="sub-label">After — verify</div>
-        <p>What was actually changing between sections? Mostly the position and the place — the subject held still while the perspective moved. The piece is a catalogue of what mic placement alone can say. If two sections sounded like different subjects, relisten: it is the same water at a different distance.</p>
+        <p>What changed between sections? Mostly your position and the surroundings — the river itself stayed the same while the perspective moved. The piece shows how much mic placement alone can say. If two sections sounded like completely different subjects, relisten: it is the same water, just from a different distance.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Annea+Lockwood+A+Sound+Map+of+the+Hudson+River" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Annea%20Lockwood%20Sound%20Map%20of%20the%20Hudson%20River">Spotify</a></p>
         <p class="listen-rep"><a href="rep-sound-map.html">Replicate it — step-by-step lesson →</a></p>
       </div>
@@ -226,7 +230,7 @@
         <span class="listen-tag">captured objects as dance music</span>
       </summary>
       <div class="listen-body">
-        <p>Surgery recordings made groove — capture feeding sequencing, the recorded world pushed all the way to the dancefloor.</p>
+        <p>Matmos recorded sounds from a liposuction surgery and turned them into dance music — the captured sounds are cut, looped, and sequenced into a groove.</p>
         <div class="sub-label">Listen for</div>
         <ul>
           <li>Which sounds are recognizably surgical, and which have lost their origin entirely.</li>
@@ -234,7 +238,7 @@
           <li>The grid imposed on material that had none.</li>
         </ul>
         <div class="sub-label">After — verify</div>
-        <p>Could you name the sources without being told? Mostly not — the groove hides the origin, which is the point: a capture is raw material, not a subject it must stay loyal to. Relisten once knowing it is liposuction, and notice how the knowledge changes nothing about the beat.</p>
+        <p>Could you name the sources without being told? Probably not — the groove hides where the sounds came from. That is the point: a recording is raw material. You do not have to stay loyal to its original meaning. Relisten knowing the source, and notice that the knowledge changes nothing about how the beat feels.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Matmos+Lipostudio+And+So+On" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Matmos%20Lipostudio">Spotify</a></p>
         <p class="listen-rep"><a href="rep-lipostudio.html">Replicate it — step-by-step lesson →</a></p>
       </div>
@@ -246,7 +250,7 @@
         <span class="listen-tag">montage before tape</span>
       </summary>
       <div class="listen-body">
-        <p>A Berlin weekend cut together on optical film sound in 1930 — the first sound-only montage, sampling avant la lettre, two decades before Schaeffer had tape to splice.</p>
+        <p>Ruttmann recorded a Berlin weekend onto optical film in 1930 and cut the sounds together — the first piece made entirely of edited sound, two decades before Schaeffer had tape to work with.</p>
         <div class="sub-label">Listen for</div>
         <ul>
           <li>The cut rhythm — edits arriving like drum hits, the splice itself as percussion.</li>
@@ -254,7 +258,7 @@
           <li>How short each cell is: most sounds get a second or less before the next cut takes over.</li>
         </ul>
         <div class="sub-label">After — verify</div>
-        <p>What instrument is actually playing this piece? The splice — the sounds themselves are ordinary, and the rhythm lives entirely in the cutting. If it read as a documentary collage, relisten tapping along with the edits and notice that you are tapping a tempo.</p>
+        <p>What instrument is playing this piece? The splice itself. The sounds are ordinary; the rhythm lives entirely in how fast they are cut. If it felt like a documentary, relisten while tapping along with the edits — you will find yourself tapping a tempo.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Walter+Ruttmann+Weekend+1930" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Walter%20Ruttmann%20Weekend">Spotify</a></p>
         <p class="listen-rep"><a href="rep-weekend.html">Replicate it — step-by-step lesson →</a></p>
       </div>
@@ -266,7 +270,7 @@
         <span class="listen-tag">one object, a whole catalogue</span>
       </summary>
       <div class="listen-body">
-        <p>One creaking door and a human sigh, exhausted movement after movement — proof that a single captured object holds an entire instrument’s worth of music if the capture and the curiosity go deep enough.</p>
+        <p>The whole album uses one creaking door and a human sigh — nothing else. It shows that a single recorded object contains enough variety to fill an entire work, if you explore it carefully enough.</p>
         <div class="sub-label">Listen for</div>
         <ul>
           <li>How many distinct voices one door has — creak, groan, slam, squeal — each treated as a separate instrument.</li>
@@ -274,7 +278,7 @@
           <li>The variation logic — each movement isolates one behaviour of the object and stays on it.</li>
         </ul>
         <div class="sub-label">After — verify</div>
-        <p>How much source material is there, really? A door, a sigh, and almost nothing else — sounds you could capture in one afternoon, which is exactly the point: depth of attention substitutes for breadth of sources. If the record felt varied beyond two objects, relisten to one movement and name which single behaviour of the door it is built on.</p>
+        <p>How much source material is there? A door, a sigh, and almost nothing else — sounds you could capture in one afternoon. That is the point: focused attention on one object can replace a whole library of sources. If the album felt too varied to be just two objects, pick one movement and name the single door behaviour it is built on.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Pierre+Henry+Variations+pour+une+porte+et+un+soupir" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Pierre%20Henry%20Variations%20pour%20une%20porte%20et%20un%20soupir">Spotify</a></p>
         <p class="listen-rep"><a href="rep-variations.html">Replicate it — step-by-step lesson →</a></p>
       </div>
@@ -286,7 +290,7 @@
         <span class="listen-tag">capture sorted by physics</span>
       </summary>
       <div class="listen-body">
-        <p>An album organised the way a physicist would sort sound — by behaviour: how things strike, bounce, resonate, breathe — with captured and synthetic sources filed side by side under the same laws.</p>
+        <p>Parmegiani organised this album not by what sounds are, but by what they do — striking, bouncing, resonating, breathing. Recorded sounds and synthesized sounds sit side by side because they behave the same way.</p>
         <div class="sub-label">Listen for</div>
         <ul>
           <li>Movements built on one physical behaviour — striking, bouncing, resonating — rather than on one source.</li>
@@ -294,7 +298,7 @@
           <li>How a pairing like “Incidences/Résonances” is audible: the hit, then everything the hit excites.</li>
         </ul>
         <div class="sub-label">After — verify</div>
-        <p>What is the sorting key — what a sound <em>is</em>, or what it <em>does</em>? What it does. A capture and a synth patch that bounce alike are neighbours here, and origin stops mattering. If you caught yourself sorting by source while listening, relisten to one movement and file every sound you hear by behaviour instead.</p>
+        <p>What is the sorting key — what a sound is, or what it does? What it does. A field recording and a synthesizer patch that behave the same way are placed together. Where the sound came from stops mattering. If you found yourself sorting by source, relisten to one movement and try filing each sound by behaviour instead.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Bernard+Parmegiani+De+Natura+Sonorum" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Bernard%20Parmegiani%20De%20Natura%20Sonorum">Spotify</a></p>
         <p class="listen-rep"><a href="rep-de-natura.html">Replicate it — step-by-step lesson →</a></p>
       </div>
@@ -306,7 +310,7 @@
         <span class="listen-tag">the house as drum kit</span>
       </summary>
       <div class="listen-body">
-        <p>House music built from a house — kitchen, bathroom, doors, and dishes sampled and sequenced into dance tracks; the concrète method wearing a groove, fifty years downstream of Schaeffer.</p>
+        <p>Herbert recorded his own kitchen, bathroom, doors, and dishes, then sampled and sequenced them into full dance tracks. It is the concrète method applied to house music, fifty years after Schaeffer's train recordings.</p>
         <div class="sub-label">Listen for</div>
         <ul>
           <li>Drum hits that are audibly domestic — crockery, water, a latch — once you listen past the groove.</li>
@@ -314,7 +318,7 @@
           <li>How few layers each groove needs when every hit carries a real object’s character.</li>
         </ul>
         <div class="sub-label">After — verify</div>
-        <p>Where does the concrète end and the house track begin? Nowhere — they are the same act: capture, trim, repeat; the grid is just repetition with a tempo. If the sources stayed invisible, relisten to one track hunting for a single hit you could re-record in your own kitchen tonight.</p>
+        <p>Where does the concrète end and the house track begin? They are the same thing: capture, trim, repeat. A sequencer grid is just repetition with a fixed tempo. If the sources stayed hidden, relisten to one track and try to find a single hit you could re-record in your own kitchen tonight.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Matthew+Herbert+Around+the+House" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Matthew%20Herbert%20Around%20the%20House">Spotify</a></p>
         <p class="listen-rep"><a href="rep-around-the-house.html">Replicate it — step-by-step lesson →</a></p>
       </div>
@@ -323,7 +327,7 @@
 
   <div class="note-block">
     <ul>
-      <li><strong>Hypothesis to write:</strong> where the mic stands and how hot it runs are writing decisions — the composition begins at capture time, not in the edit. One short paragraph naming what each of the ten recordists decided <em>before or during</em> recording — and, for the four who push past capture (Ruttmann’s montage cut, Henry’s single object exhausted, Parmegiani’s physics taxonomy, Herbert’s domestic drum kit), the first decision made <em>after</em> it; that paragraph is what you take into the field.</li>
+      <li><strong>Hypothesis to write:</strong> where the mic stands and how loud you record are creative decisions — the composition starts at capture time, not in the edit. Write one short paragraph naming what each of the ten artists decided <em>before or during</em> recording. For the four who go beyond pure capture (Ruttmann’s editing rhythm, Henry’s single-object catalogue, Parmegiani’s behaviour taxonomy, Herbert’s domestic drum kit), also name the first decision made <em>after</em> recording. That paragraph is what you take into the field.</li>
     </ul>
   </div>
 
@@ -334,7 +338,7 @@
     </div>
     <ul>
       <li>Recorder or phone charged, storage checked — a dead battery is a capture that never existed.</li>
-      <li>If using a mic into the M4: gain set by the lab-001 ledger before the first take, not by ear in the moment.</li>
+      <li>If using a mic into the M4: set gain using the lab-001 ledger before your first take — do not adjust by ear in the moment.</li>
       <li>Capture log template ready: place · distance · level, one line per capture.</li>
       <li>Headphones for field monitoring at a moderate, fixed level.</li>
       <li>Timebox written down: one outing, one edit session, done.</li>
@@ -345,7 +349,7 @@
 
   <div class="callout">
     <div class="callout-label">The brief</div>
-    <p>Capture the world through three different doors — one air mic, one phone, one line or contact source if available — run the level test on one source in the field, then edit a one-minute concrète miniature from your own captures. Selection and editing only.</p>
+    <p>Record the world using three different input paths: one air mic, one phone, one line or contact source if available. Run the level test on one source while you are in the field. Then edit a one-minute concrète piece from your own recordings. Selection and editing only — no effects, no synthesis.</p>
   </div>
 
   <table class="param-table">
@@ -359,13 +363,13 @@
 
   <div class="note-block">
     <ul>
-      <li><strong>Mini engineering note — the paths:</strong> recorder or phone → file → Live (the gain decision already happened in the field; import changes nothing) · or mic → M4 in 1, gain by the lab-001 ledger. Whichever door you use, the level is decided at capture, not at import — that is what “owning the gain decision” means.</li>
+      <li><strong>Mini engineering note — the paths:</strong> recorder or phone → file → Live (the gain decision already happened in the field; importing does not change the level) · or mic → M4 input 1, gain set by the lab-001 ledger. Either way, the level is locked at capture time, not at import. That is what “owning the gain decision” means.</li>
     </ul>
   </div>
 
   <div class="note-block">
     <ul>
-      <li><strong>Prescribed fault:</strong> record one capture deliberately too hot in the field, then listen back at the desk. Write <strong>one rule</strong>: field clipping is forever — there is no re-take of a moment that has passed, and no fader downstream repairs a clipped converter. No full write-up; the rule is the deliverable.</li>
+      <li><strong>Prescribed fault:</strong> record one capture deliberately too hot in the field so it <strong>clips</strong> (the signal is too loud and the top gets cut off, adding a harsh distortion). Listen back at the desk. Write <strong>one rule</strong>: clipping in the field is permanent — the moment is gone and no fader downstream can fix a clipped recording. One sentence is enough; that rule is the deliverable.</li>
     </ul>
   </div>
 
@@ -373,7 +377,7 @@
 
   <div class="note-block">
     <ul>
-      <li><strong>The step-by-step build lands when Block 2 is authored;</strong> the Phase 0 exit gate governs the order. The brief, spec, fault, and bundle on this page are stable — the numbered field-and-edit recipe is the part still to come. <span class="status">forthcoming</span></li>
+      <li><strong>The step-by-step build will be added when Block 2 is authored.</strong> The brief, spec, fault, and pass gate on this page are final — the numbered field-and-edit recipe is still to come. <span class="status">forthcoming</span></li>
     </ul>
   </div>
 
@@ -391,11 +395,11 @@
     </ul>
   </div>
 
-  <p style="color: var(--text-muted); font-size: 13.5px; text-align: center; max-width: 560px; margin: 0 auto;">Field safety and ethics in one line: ask before recording people, watch batteries, weather, traffic, and cables — the full field safety &amp; ethics checklist arrives with <a href="lab-008.html">lab 008, The Field Kit</a>.</p>
+  <p style="color: var(--text-muted); font-size: var(--fs-md-plus); text-align: center; max-width: 560px; margin: 0 auto;">Field safety and ethics in one line: ask before recording people, watch batteries, weather, traffic, and cables — the full field safety &amp; ethics checklist arrives with <a href="lab-008.html">lab 008, The Field Kit</a>.</p>
 
   <div class="final">
     <div class="final-label">Étude principle</div>
-    <p>Where the mic stands and how hot it runs are writing decisions — the recording is composed before the record button is pressed.</p>
+    <p>Where you place the mic and how loud you record are creative decisions. The recording is shaped before you press record.</p>
   </div>
 
   <div class="page-nav">
@@ -413,5 +417,6 @@
 
 </div>
 
+  <script src="../nav.js"></script>
 </body>
 </html>

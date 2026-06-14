@@ -6,7 +6,7 @@
 <title>Lab 014 — Saturation Staging</title>
 <link rel="stylesheet" href="../styles.css">
 </head>
-<body>
+<body class="page-type-lab" id="top">
 
 <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
 <label for="nav-toggle" class="hamburger" aria-label="Menu">
@@ -16,6 +16,7 @@
 <nav class="nav" aria-label="Workshop contents">
   <p class="nav-label">Workshop</p>
   <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
   <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
   <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
   <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
@@ -28,6 +29,7 @@
 </nav>
 
 <div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 4 · Transformation</a><span class="breadcrumb-sep">/</span><span>Saturation Staging</span></nav>
 
   <header class="page-header">
     <div class="eyebrow">Block 4 · Lab 014 · Track lab</div>
@@ -35,6 +37,8 @@
     <p class="lede">The canonical "gain is composition" lab. One chain of nonlinear processors, fed the same material at three input levels — and three different instruments come out. Then the chain is reordered, and a fourth appears. In linear land, level is housekeeping; the moment a saturator enters the path, level is writing. This lab makes that audible, measurable, and then musical: an industrial piece whose arrangement is drive amounts.</p>
   </header>
   <p class="block-meta">Track lab · S2 · D3 E3 M2 F2 · industrial · full cycle · new concepts: 5</p>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l4.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs" class="current">Labs</a><a href="lab-r4.html" data-section="rebuild">Rebuild</a><a href="capstone-c3.html" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
 
   <div class="signal-flow">
     <span class="signal-node">listen</span>
@@ -151,7 +155,7 @@
         <div class="sub-label">After — verify</div>
         <p>Was the distortion per-element or on the whole bus? Mostly the bus — the elements share one dirt, which is why they move as a block; per-track distortion would leave each with its own texture. That shared dirt is a print decision, not an effect choice. If you heard separate clean drums, relisten to the hats against the kick: their grit pulses <em>with</em> the kick, which means the kick is driving the stage they share.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Regis+Gymnastics" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Regis%20Gymnastics">Spotify</a></p>
-        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-regis-gymnastics.html">lesson</a></p>
       </div>
     </details>
     <details class="listen-item">
@@ -171,7 +175,7 @@
         <div class="sub-label">After — verify</div>
         <p>Could you separate the performance's distortion from the recording's? Partly — the vocal distortion pumps with the shouting (performance), while a constant grain coats everything evenly (path). Hearing two layers of overload at once is the skill this record trains. If it read as one undifferentiated roar, relisten following only the vocal: notice its dirt <em>moves</em> while the backdrop's dirt holds still.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Throbbing+Gristle+Discipline" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Throbbing%20Gristle%20Discipline">Spotify</a></p>
-        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-throbbing-gristle-discipline.html">lesson</a></p>
       </div>
     </details>
     <details class="listen-item">
@@ -191,7 +195,7 @@
         <div class="sub-label">After — verify</div>
         <p>How did the track get bigger at the chorus without adding parts? Input level into the fuzz — harder in, more harmonics out, reads as "more band." That is pre-gain as arrangement, this lab's exact move. If you counted new instruments at the chorus, relisten and try to name one; you will mostly find the same parts, hotter.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Cabaret+Voltaire+Nag+Nag+Nag" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Cabaret%20Voltaire%20Nag%20Nag%20Nag">Spotify</a></p>
-        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-cabaret-voltaire-nag-nag-nag.html">lesson</a></p>
       </div>
     </details>
     <details class="listen-item">
@@ -211,7 +215,7 @@
         <div class="sub-label">After — verify</div>
         <p>What made this feel dangerous rather than just loud? The path audibly losing control — clipping that responds to the performance, so the system's distress mirrors the performer's. Calibration note for your build: this is the far end of the drive axis, and it is a <em>choice</em>, reproducible at safe monitoring levels. If it read as noise, relisten once at low volume and notice how composed the structure underneath is.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=SPK+Slogun" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:SPK%20Slogun">Spotify</a></p>
-        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-spk-slogun.html">lesson</a></p>
       </div>
     </details>
     <details class="listen-item">
@@ -231,7 +235,7 @@
         <div class="sub-label">After — verify</div>
         <p>Why keep the vocal comparatively clean? Contrast calibration — one clean element gives the ear a ruler to measure the surrounding distortion against; dirt on everything reads as mud, dirt against clean reads as power. Note that for your arrangement. If everything sounded equally dirty, relisten to verse one and rank vocal, percussion, and bass by grit — they are distinctly tiered.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Einsturzende+Neubauten+Yu-Gung" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Einsturzende%20Neubauten%20Yu-Gung">Spotify</a></p>
-        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-einsturzende-neubauten-yu-gung-futter-mein-ego.html">lesson</a></p>
       </div>
     </details>
     <details class="listen-item">
@@ -251,7 +255,7 @@
         <div class="sub-label">After — verify</div>
         <p>Where does the distortion live on this record — per element or on the whole? Per element, surgically: each sound carries its own exactly-dosed overload and the master stays clean, the opposite staging from Regis. Together they are your two poles. If you could not hear thresholds being crossed, relisten to any track's bass tone and wait for the buzz to switch on — that switch is the nonlinearity, naked.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Pan+Sonic+Vakio" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Pan%20Sonic%20Vakio">Spotify</a></p>
-        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-pan-sonic-vakio.html">lesson</a></p>
       </div>
     </details>
     <details class="listen-item">
@@ -271,7 +275,7 @@
         <div class="sub-label">After — verify</div>
         <p>Does the heaviest element change from section to section? Listen again to one full track: the answer is usually yes — the drive hierarchy is re-ranked at each section, which is exactly "arrangement by gain." If sections seemed to differ by instrumentation, relisten and check whether the "new" sound is an old one pushed into a new tier.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Ancient+Methods+The+Jericho+Records" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Ancient%20Methods%20The%20Jericho%20Records">Spotify</a></p>
-        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-ancient-methods-the-jericho-records.html">lesson</a></p>
       </div>
     </details>
     <details class="listen-item">
@@ -291,7 +295,7 @@
         <div class="sub-label">After — verify</div>
         <p>How is the sub still clean inside this much distortion? It is almost certainly split out — distorted mids and highs over a protected low band, a routing decision (band-split drive) rather than a knob setting. Your rig can do this with a crossover or parallel chain. If the whole spectrum seemed equally crushed, relisten on phones and focus below the kick's thump: the fundamental holds steady while everything above it seethes.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Paula+Temple+Deathvox" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Paula%20Temple%20Deathvox">Spotify</a></p>
-        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-paula-temple-deathvox.html">lesson</a></p>
       </div>
     </details>
     <details class="listen-item">
@@ -311,7 +315,7 @@
         <div class="sub-label">After — verify</div>
         <p>Is there composition here? Yes — at full saturation the only remaining parameters are <em>which stage clips</em> and <em>how the gains move</em>, and those are audibly being played. This is the proof that gain riding is performance even when nothing else survives. If you heard only chaos, relisten to the first ninety seconds and track one register (just the lows, say) — it has an arc.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Merzbow+Woodpecker+No+1" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Merzbow%20Woodpecker%20No.%201">Spotify</a></p>
-        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-merzbow-woodpecker-no-1.html">lesson</a></p>
       </div>
     </details>
     <details class="listen-item">
@@ -331,7 +335,7 @@
         <div class="sub-label">After — verify</div>
         <p>Where does this track keep its dynamics if everything is already loud? Inside the nonlinearity: small pre-gain moves produce large harmonic changes, so the track breathes in <em>density</em> rather than in level. That is the headroom-free dynamics trick your piece should steal. If start and end sounded the same, relisten to the first and last minute only, back to back — the difference you hear was made almost entirely before the distortion stage.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=British+Murder+Boys+Learn+Your+Lesson" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:British%20Murder%20Boys%20Learn%20Your%20Lesson">Spotify</a></p>
-        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-british-murder-boys-learn-your-lesson.html">lesson</a></p>
       </div>
     </details>
   </div>
@@ -400,12 +404,46 @@
     </ul>
   </div>
 
-  <h2>3 · Build — <span class="status">forthcoming</span></h2>
+  <h2>3 · Build</h2>
 
-  <div class="note-block">
-    <ul>
-      <li><strong>This section is scaffolded, not written.</strong> The full build — calibrating the level grid, printing the three-level and order-swap comparisons, the gain-into-processing fault ritual (predicted symptom: splatter at a stage whose meter you were not watching, traced by walking the chain backwards), and composing the drive-ranked sections — lands when Block 4 is authored. The listening, specs, and preflight above are stable; build against them.</li>
-    </ul>
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Build the lab in five passes. Each pass produces an artifact, not just a better-sounding session: a written rule, a printed comparison, a fault entry, and a corrected system sentence.</p>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Build recipe · Saturation Staging</div>
+      <h3 class="step-title">Make the transformation chain audible</h3>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Do this in order</div>
+      <ol class="rules-list">
+        <li><strong>Print the source.</strong> Record one clean MicroFreak or self-sourced audio phrase into Live at about -12 dBFS. This is SOURCE and never gets overwritten.</li><li><strong>Build the chain.</strong> Duplicate SOURCE to CHAIN. Add only the processor family the lab studies: filter, saturation, grain, slice, or tape/generation loss.</li><li><strong>Level-match the chain.</strong> Put Utility before and after the chain. Pre level drives the processor; post level returns the result to the same apparent loudness.</li><li><strong>Print comparison passes.</strong> Print low, nominal, and hot versions, or first-generation and later-generation versions, as the lab requires.</li><li><strong>Run the fault.</strong> Overdrive the wrong stage or accumulate one bad pass on purpose. Diagnose by walking backward through the chain one stage at a time.</li>
+      </ol>
+    </div>
+    <div class="signal-flow">
+      <span class="signal-node">Live 12</span>
+      <span class="signal-arrow">↔</span>
+      <span class="signal-node">Digitakt II</span>
+      <span class="signal-arrow">+</span>
+      <span class="signal-node">MicroFreak</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">MOTU M4</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">Print + logbook</span>
+    </div>
+  </div>
+
+  <table class="param-table">
+    <caption>Build artifacts</caption>
+    <tr><td>Rule or hypothesis</td><td>one sentence, written before sound</td></tr>
+    <tr><td>System drawing</td><td>audio path and, where relevant, control path</td></tr>
+    <tr><td>Calibration proof</td><td>input level, output level, processor order, and reversibility</td></tr>
+    <tr><td>Printed comparison</td><td>neutral / changed / keeper prints, named and gain matched</td></tr>
+    <tr><td>Fault entry</td><td>symptom → cause → fix → prevention rule</td></tr>
+  </table>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Build exit check</div>
+    <p>The lab can move to diagnosis only when the printed audio proves the written rule. If the rule sounds true only while you explain it, simplify the system and print again.</p>
   </div>
 
   <h2>4 · Diagnosis &amp; report</h2>
@@ -456,5 +494,6 @@
 
 </div>
 
+  <script src="../nav.js"></script>
 </body>
 </html>

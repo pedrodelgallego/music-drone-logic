@@ -6,7 +6,7 @@
 <title>Replicate: Overdrive on Purpose</title>
 <link rel="stylesheet" href="../styles.css">
 </head>
-<body>
+<body class="page-type-rep" id="top">
 
 <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
 <label for="nav-toggle" class="hamburger" aria-label="Menu">
@@ -16,6 +16,7 @@
 <nav class="nav" aria-label="Workshop contents">
   <p class="nav-label">Workshop</p>
   <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
   <a href="index.html" class="active"><span class="nav-num">01</span>The Bench</a>
   <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
   <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
@@ -28,12 +29,15 @@
 </nav>
 
 <div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 1 · The Bench</a><span class="breadcrumb-sep">/</span><span>Replicate: overdrive on purpose</span></nav>
 
   <header class="page-header">
     <div class="eyebrow">Block 1 · Replication lesson</div>
     <h1>Replicate: overdrive on purpose</h1>
     <p class="lede">Copy one clear section of Gesaffelstein — “Pursuit”. Build the main parts, record a short take, and compare it to the reference at the same loudness.</p>
   </header>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l1.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs">Labs</a><a href="lab-r1.html" data-section="rebuild">Rebuild</a><a href="capstone-c1.html" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep" class="current">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
   <div class="callout">
     <div class="callout-label">The point</div>
     <p>This drill teaches the record's core mechanism: drive applied to chosen elements, at a chosen stage, by a chosen amount. Do only the steps that make that mechanism audible.</p>
@@ -50,7 +54,7 @@
 
   <div class="checklist">
     <div class="checklist-head">
-      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"></path></svg></div>
       <div class="checklist-label">Before you start</div>
     </div>
     <ul>
@@ -74,7 +78,7 @@
       <div class="step-num">Reference pass · 10 minutes</div>
       <h3 class="step-title">Listen before you build</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Listen to about one minute of Gesaffelstein — “Pursuit”. Choose the clearest short section. Write one short answer for each question before you touch the gear.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Listen to about one minute of Gesaffelstein — “Pursuit”. Choose the clearest short section. Write one short answer for each question before you touch the gear.</p>
     <ol class="rules-list">
       <li>What is distorted?
         <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>The synth bass - the riff that carries the track - is the driven element; the grit is its identity, not a coating on the mix.</p></div></details>
@@ -92,7 +96,7 @@
         <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Denser. At matched loudness the driven bass does not sit above the rest of the mix - it is thicker, with harmonics stacked on top of the same note.</p></div></details>
       </li>
     </ol>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Now build the section you described. Do not build from memory.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Now build the section you described. Do not build from memory.</p>
   </div>
 
   <h2>Steps</h2>
@@ -118,7 +122,7 @@
     </ul>
   </div>
 
-  <p style="color: var(--text-muted); font-size: 14.5px; max-width: 640px; margin: 0 auto 14px; text-align: center;">The same riff at three addresses. Row one is the clean signal you will record; row two is the record’s move — distortion at a chosen device, gain-compensated; row three is the accident you will recreate at the end, where the converter, not you, decides.</p>
+  <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); max-width: 640px; margin: 0 auto 14px; text-align: center;">The same riff at three addresses. Row one is the clean signal you will record; row two is the record’s move — distortion at a chosen device, gain-compensated; row three is the accident you will recreate at the end, where the converter, not you, decides.</p>
 
   <div class="signal-flow">
     <span class="signal-arrow">clean ·</span>
@@ -144,31 +148,31 @@
   </div>
 
   <!-- PHASE 1 -->
-  <div class="step">
+  <div class="gear-switch"><input type="radio" name="gear" id="gear-hw" class="gear-radio" checked><input type="radio" name="gear" id="gear-sw" class="gear-radio"><input type="radio" name="gear" id="gear-tg" class="gear-radio"><div class="gear-labels"><span class="gear-lead">Your rig</span><label for="gear-hw">MicroFreak + Digitakt II</label><label for="gear-sw">Ableton Live only</label><label for="gear-tg">Syntakt · target</label></div><div class="gear-scope"><div class="step">
     <div class="step-head">
       <div class="step-num">Phase 1 · ≈ 15 min</div>
       <h3 class="step-title">The reference and the tracks</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: the reference and the tracks. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: the reference and the tracks. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Live</span> <kbd>⌘ T</kbd>, rename the track <span class="code">REF</span> (<kbd>⌘ R</kbd>), and drag “Pursuit” into it.</li>
-        <li><span class="system-tag">Live</span> Find the most characteristic 8–16 bars for deliberate drive — the stretch where the driven bass carries everything over a clean kick — and loop them.</li>
-        <li><span class="system-tag">Live</span> Drop <span class="menu">Audio Effects → Utility</span> on <span class="code">REF</span> and trim its gain so the section peaks ≈ <span class="code">−12 dBFS</span>, matched to the build you are about to make.</li>
-        <li><span class="system-tag">Live</span> <span class="code">REF</span> stays one solo-press away for the whole lesson.</li>
-        <li><span class="system-tag">Live</span> <kbd>⌘ T</kbd> twice; rename with <kbd>⌘ R</kbd>: <span class="code">BASS CLEAN</span> and <span class="code">KICK</span>.</li>
-        <li><span class="system-tag">Live</span> <kbd>⌘ ⌥ I</kbd> to show In/Out.</li>
-        <li><span class="system-tag">Live</span> <span class="code">BASS CLEAN</span>: <span class="menu">Ext. In</span> <span class="code">1</span>.</li>
-        <li><span class="system-tag">Live</span> <span class="code">KICK</span>: <span class="menu">Ext. In</span> <span class="code">3/4</span>.</li>
-        <li><span class="system-tag">Live</span> Faders at <span class="code">0 dB</span>.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li><kbd>⌘ T</kbd>, rename the track <span class="code">REF</span> (<kbd>⌘ R</kbd>), and drag “Pursuit” into it.</li>
+        <li>Find the most characteristic 8–16 bars for deliberate drive — the stretch where the driven bass carries everything over a clean kick — and loop them.</li>
+        <li>Drop <span class="menu">Audio Effects → Utility</span> on <span class="code">REF</span> and trim its gain so the section peaks ≈ <span class="code">−12 dBFS</span>, matched to the build you are about to make.</li>
+        <li><span class="code">REF</span> stays one solo-press away for the whole lesson.</li>
+        <li><kbd>⌘ T</kbd> twice; rename with <kbd>⌘ R</kbd>: <span class="code">BASS CLEAN</span> and <span class="code">KICK</span>.</li>
+        <li><kbd>⌘ ⌥ I</kbd> to show In/Out.</li>
+        <li><span class="code">BASS CLEAN</span>: <span class="menu">Ext. In</span> <span class="code">1</span>.</li>
+        <li><span class="code">KICK</span>: <span class="menu">Ext. In</span> <span class="code">3/4</span>.</li>
+        <li>Faders at <span class="code">0 dB</span>.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Gesaffelstein — “Pursuit” and use Live audio/MIDI tracks, Utility, automation, and resampling.</li><li>Build the phase goal — <em>The reference and the tracks</em> — as the smallest Live set that proves <em>drive applied to chosen elements, at a chosen stage, by a chosen amount</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>distortion as the lead sound, clean elements underneath</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Syntakt for this phase: translate <em>The reference and the tracks</em> into machine tracks, trig conditions, parameter locks, the FX block, macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>drive applied to chosen elements, at a chosen stage, by a chosen amount</em>, not just the surface of Gesaffelstein — “Pursuit”.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">The record loops at ≈ −12 dBFS and two named, routed, unity-gain tracks wait for audio. A solo-press flips you between the record and silence.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">The record loops at ≈ −12 dBFS and two named, routed, unity-gain tracks wait for audio. A solo-press flips you between the record and silence.</p>
     </div>
 
     <div class="sub-block">
@@ -183,30 +187,29 @@
     </div>
   </div>
 
-  <!-- PHASE 2 -->
   <div class="step">
     <div class="step-head">
       <div class="step-num">Phase 2 · ≈ 25 min</div>
       <h3 class="step-title">The bass, recorded clean</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: the bass, recorded clean. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: the bass, recorded clean. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">MicroFreak</span> MicroFreak: <span class="code">Type</span> → <span class="code">V.Analog</span>, <span class="code">Paraphonic</span> OFF, cutoff ≈ 35 %, resonance ≈ 15 %, attack 0, decay medium — starting points.</li>
-        <li><span class="system-tag">Live</span> Solo <span class="code">REF</span> and transcribe the riff by ear — same notes, same octave, same rhythm;</li>
-        <li><span class="system-tag">Live</span> the page cannot give the notes, hearing them is the exercise.</li>
-        <li><span class="system-tag">Live</span> Get the rhythm first, then the pitches; most of the riff’s menace is rhythm.</li>
-        <li><span class="system-tag">Live</span> Check the octave explicitly — play your candidate riff an octave up and an octave down against the record and keep the one that sits where the record sits.</li>
-        <li><span class="system-tag">MicroFreak</span> Make at least three solo-flip passes, nudging cutoff and decay one at a time, until the clean tone carries the note under the record’s grit.</li>
-        <li><span class="system-tag">MicroFreak</span> Set the M4 input-1 gain so peaks sit ≈ <span class="code">−12 dBFS</span> — the lab-001 ledger value — and record the 8 bars into <span class="code">BASS CLEAN</span>.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>MicroFreak: <span class="code">Type</span> → <span class="code">V.Analog</span>, <span class="code">Paraphonic</span> OFF, cutoff ≈ 35 %, resonance ≈ 15 %, attack 0, decay medium — starting points.</li>
+        <li>Solo <span class="code">REF</span> and transcribe the riff by ear — same notes, same octave, same rhythm;</li>
+        <li>the page cannot give the notes, hearing them is the exercise.</li>
+        <li>Get the rhythm first, then the pitches; most of the riff’s menace is rhythm.</li>
+        <li>Check the octave explicitly — play your candidate riff an octave up and an octave down against the record and keep the one that sits where the record sits.</li>
+        <li>Make at least three solo-flip passes, nudging cutoff and decay one at a time, until the clean tone carries the note under the record’s grit.</li>
+        <li>Set the M4 input-1 gain so peaks sit ≈ <span class="code">−12 dBFS</span> — the lab-001 ledger value — and record the 8 bars into <span class="code">BASS CLEAN</span>.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Gesaffelstein — “Pursuit” and use audio clips, Simpler/Sampler, clip envelopes, and resampling.</li><li>Build the phase goal — <em>The bass, recorded clean</em> — as the smallest Live set that proves <em>drive applied to chosen elements, at a chosen stage, by a chosen amount</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>distortion as the lead sound, clean elements underneath</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Syntakt for this phase: translate <em>The bass, recorded clean</em> into machine tracks, trig conditions, parameter locks, the FX block, macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>drive applied to chosen elements, at a chosen stage, by a chosen amount</em>, not just the surface of Gesaffelstein — “Pursuit”.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">An 8-bar clean take of the record’s riff, peaking ≈ −12 dBFS — recognisably the same line, just naked. It should sound politely wrong: right notes, none of the record’s violence. The violence comes next, on purpose.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">An 8-bar clean take of the record’s riff, peaking ≈ −12 dBFS — recognisably the same line, just naked. It should sound politely wrong: right notes, none of the record’s violence. The violence comes next, on purpose.</p>
     </div>
 
     <div class="sub-block">
@@ -221,36 +224,35 @@
     </div>
   </div>
 
-  <!-- PHASE 3 -->
   <div class="step">
     <div class="step-head">
       <div class="step-num">Phase 3 · ≈ 25 min</div>
       <h3 class="step-title">Drive it — to the record’s amount</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: drive it — to the record’s amount. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: drive it — to the record’s amount. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Live</span> Select <span class="code">BASS CLEAN</span>, <kbd>⌘ D</kbd>, rename the copy <span class="code">BASS DRIVEN</span>.</li>
-        <li><span class="system-tag">Live</span> Identical audio, two addresses.</li>
-        <li><span class="system-tag">Live</span> On <span class="code">BASS DRIVEN</span>, drop in <span class="menu">Audio Effects → Saturator</span>.</li>
-        <li><span class="system-tag">Live</span> Push <span class="code">Drive</span> up — start at <span class="code">+18 dB</span>.</li>
-        <li><span class="system-tag">Live</span> Pull Saturator’s <span class="code">Output</span> down by roughly the same amount, and A/B against <span class="code">BASS CLEAN</span> with the track activators until both play at matched loudness — same meter peaks, same perceived level.</li>
-        <li><span class="system-tag">Live</span> Solo-flip against <span class="code">REF</span> and correct the <span class="code">Drive</span> until the grit density matches the record’s bass;</li>
-        <li><span class="system-tag">Live</span> the record, not the default, decides the number.</li>
-        <li><span class="system-tag">Live</span> Re-compensate the Output after every Drive change, and make at least three flip-and-correct passes — the first one always overshoots.</li>
-        <li><span class="system-tag">Live</span> <strong>Observe — see it, not just hear it.</strong> Drop <span class="menu">Audio Effects → Spectrum</span> after the Saturator.</li>
-        <li><span class="system-tag">Live</span> Toggle the device on and off and watch new harmonics stack above the fundamental while the meter level stays matched.</li>
-        <li><span class="system-tag">Logbook</span> Note in the logbook roughly where the energy appeared — low-mids?</li>
-        <li><span class="system-tag">Logbook</span> top?</li>
-        <li><span class="system-tag">Logbook</span> — and whether that is where the record’s bass carries its energy too.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>Select <span class="code">BASS CLEAN</span>, <kbd>⌘ D</kbd>, rename the copy <span class="code">BASS DRIVEN</span>.</li>
+        <li>Identical audio, two addresses.</li>
+        <li>On <span class="code">BASS DRIVEN</span>, drop in <span class="menu">Audio Effects → Saturator</span>.</li>
+        <li>Push <span class="code">Drive</span> up — start at <span class="code">+18 dB</span>.</li>
+        <li>Pull Saturator’s <span class="code">Output</span> down by roughly the same amount, and A/B against <span class="code">BASS CLEAN</span> with the track activators until both play at matched loudness — same meter peaks, same perceived level.</li>
+        <li>Solo-flip against <span class="code">REF</span> and correct the <span class="code">Drive</span> until the grit density matches the record’s bass;</li>
+        <li>the record, not the default, decides the number.</li>
+        <li>Re-compensate the Output after every Drive change, and make at least three flip-and-correct passes — the first one always overshoots.</li>
+        <li><strong>Observe — see it, not just hear it.</strong> Drop <span class="menu">Audio Effects → Spectrum</span> after the Saturator.</li>
+        <li>Toggle the device on and off and watch new harmonics stack above the fundamental while the meter level stays matched.</li>
+        <li>Note in the logbook roughly where the energy appeared — low-mids?</li>
+        <li>top?</li>
+        <li>— and whether that is where the record’s bass carries its energy too.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Gesaffelstein — “Pursuit” and use audio clips, Simpler/Sampler, clip envelopes, and resampling.</li><li>Build the phase goal — <em>Drive it — to the record’s amount</em> — as the smallest Live set that proves <em>drive applied to chosen elements, at a chosen stage, by a chosen amount</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>distortion as the lead sound, clean elements underneath</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Syntakt for this phase: translate <em>Drive it — to the record’s amount</em> into machine tracks, trig conditions, parameter locks, the FX block, macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>drive applied to chosen elements, at a chosen stage, by a chosen amount</em>, not just the surface of Gesaffelstein — “Pursuit”.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Two tracks with identical audio and one decision between them: the driven copy is denser and more aggressive at the same loudness, with the note still readable underneath — and the flip against <span class="code">REF</span> lands on the same grit.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Two tracks with identical audio and one decision between them: the driven copy is denser and more aggressive at the same loudness, with the note still readable underneath — and the flip against <span class="code">REF</span> lands on the same grit.</p>
     </div>
 
     <div class="sub-block">
@@ -265,31 +267,30 @@
     </div>
   </div>
 
-  <!-- PHASE 4 -->
   <div class="step">
     <div class="step-head">
       <div class="step-num">Phase 4 · ≈ 20 min</div>
       <h3 class="step-title">The clean ground and the sketch</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: the clean ground and the sketch. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: the clean ground and the sketch. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Digitakt II</span> Digitakt II: press <span class="code">REC</span>, audition for the slot closest to the record’s kick, and place trigs where the record places them — <span class="code">1, 5, 9, 13</span> is the likely shape;</li>
-        <li><span class="system-tag">Live</span> <span class="code">REF</span> confirms it.</li>
-        <li><span class="system-tag">Digitakt II</span> Set <span class="code">Main Volume</span> so <span class="code">KICK</span> sits as far below the bass as the record’s kick does, peaking ≈ <span class="code">−12 dBFS</span> or under, and record 8 bars — clean, no drive anywhere on this track.</li>
-        <li><span class="system-tag">Live</span> In Arrangement view, build a 2-minute sketch — mirror the section.</li>
-        <li><span class="system-tag">Live</span> Loop and tile the clips: <span class="code">BASS DRIVEN</span> carries the riff the whole way;</li>
-        <li><span class="system-tag">Live</span> <span class="code">KICK</span> holds the ground; <span class="code">BASS CLEAN</span> stays muted, kept only for comparison.</li>
-        <li><span class="system-tag">Live</span> Drop elements in and out where the record’s section does, so the drive has to stay musical across the same changes.</li>
-        <li><span class="system-tag">Logbook</span> Play the sketch once end to end against the record’s section, listening only for moments where your grit stops working — note the bar numbers.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>Digitakt II: press <span class="code">REC</span>, audition for the slot closest to the record’s kick, and place trigs where the record places them — <span class="code">1, 5, 9, 13</span> is the likely shape;</li>
+        <li><span class="code">REF</span> confirms it.</li>
+        <li>Set <span class="code">Main Volume</span> so <span class="code">KICK</span> sits as far below the bass as the record’s kick does, peaking ≈ <span class="code">−12 dBFS</span> or under, and record 8 bars — clean, no drive anywhere on this track.</li>
+        <li>In Arrangement view, build a 2-minute sketch — mirror the section.</li>
+        <li>Loop and tile the clips: <span class="code">BASS DRIVEN</span> carries the riff the whole way;</li>
+        <li><span class="code">KICK</span> holds the ground; <span class="code">BASS CLEAN</span> stays muted, kept only for comparison.</li>
+        <li>Drop elements in and out where the record’s section does, so the drive has to stay musical across the same changes.</li>
+        <li>Play the sketch once end to end against the record’s section, listening only for moments where your grit stops working — note the bar numbers.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Gesaffelstein — “Pursuit” and use Live audio/MIDI tracks, Utility, automation, and resampling.</li><li>Build the phase goal — <em>The clean ground and the sketch</em> — as the smallest Live set that proves <em>drive applied to chosen elements, at a chosen stage, by a chosen amount</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>distortion as the lead sound, clean elements underneath</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Syntakt for this phase: translate <em>The clean ground and the sketch</em> into machine tracks, trig conditions, parameter locks, the FX block, macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>drive applied to chosen elements, at a chosen stage, by a chosen amount</em>, not just the surface of Gesaffelstein — “Pursuit”.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">A 2-minute sketch where the driven bass stays consistent and musical across the record’s changes, over a clean kick. If the grit was right in the 8-bar loop, it is still right at bar 60.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A 2-minute sketch where the driven bass stays consistent and musical across the record’s changes, over a clean kick. If the grit was right in the 8-bar loop, it is still right at bar 60.</p>
     </div>
 
     <div class="sub-block">
@@ -304,13 +305,12 @@
     </div>
   </div>
 
-  <!-- PHASE 5 -->
   <div class="step">
     <div class="step-head">
       <div class="step-num">Phase 5 · ≈ 25 min</div>
       <h3 class="step-title">The accident, side by side</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: the accident, side by side. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: the accident, side by side. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
 
     <div class="note-block">
       <ul>
@@ -320,19 +320,19 @@
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Live</span> <strong>Recreate the accident.</strong> New audio track <span class="code">BASS CLIPPED</span>, <span class="menu">Ext. In</span> <span class="code">1</span>.</li>
-        <li><span class="system-tag">Live</span> Raise the M4 input-1 gain until the red clip LED fires on every note — exactly the lab-001 step 07 fault — and record a few seconds of the same riff.</li>
-        <li><span class="system-tag">Live</span> Reset the gain to nominal immediately after.</li>
-        <li><span class="system-tag">Live</span> <strong>Place them side by side.</strong> Drag the clipped clip into the timeline directly after a Saturator passage, match its clip gain so loudness is comparable, and listen through once at the mark.</li>
-        <li><span class="system-tag">Live</span> Listen a second time, attention only on the note edges — where the Saturator rounds, the converter truncates.</li>
-        <li><span class="system-tag">Live + Logbook</span> <strong>Write the sentence.</strong> One sentence in the logbook naming the difference between the Saturator version and the input clip — where each one lives, and which one you chose.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li><strong>Recreate the accident.</strong> New audio track <span class="code">BASS CLIPPED</span>, <span class="menu">Ext. In</span> <span class="code">1</span>.</li>
+        <li>Raise the M4 input-1 gain until the red clip LED fires on every note — exactly the lab-001 step 07 fault — and record a few seconds of the same riff.</li>
+        <li>Reset the gain to nominal immediately after.</li>
+        <li><strong>Place them side by side.</strong> Drag the clipped clip into the timeline directly after a Saturator passage, match its clip gain so loudness is comparable, and listen through once at the mark.</li>
+        <li>Listen a second time, attention only on the note edges — where the Saturator rounds, the converter truncates.</li>
+        <li><strong>Write the sentence.</strong> One sentence in the logbook naming the difference between the Saturator version and the input clip — where each one lives, and which one you chose.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Gesaffelstein — “Pursuit” and use Live audio/MIDI tracks, Utility, automation, and resampling.</li><li>Build the phase goal — <em>The accident, side by side</em> — as the smallest Live set that proves <em>drive applied to chosen elements, at a chosen stage, by a chosen amount</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>distortion as the lead sound, clean elements underneath</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Syntakt for this phase: translate <em>The accident, side by side</em> into machine tracks, trig conditions, parameter locks, the FX block, macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>drive applied to chosen elements, at a chosen stage, by a chosen amount</em>, not just the surface of Gesaffelstein — “Pursuit”.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">The clipped take sounds harsh, positional, and unmusical next to both the record’s drive and yours — same riff, no address, nobody’s decision. The logbook sentence names the difference in your own words.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">The clipped take sounds harsh, positional, and unmusical next to both the record’s drive and yours — same riff, no address, nobody’s decision. The logbook sentence names the difference in your own words.</p>
     </div>
 
     <div class="sub-block">
@@ -347,6 +347,10 @@
     </div>
   </div>
 
+  </div></div><!-- PHASE 2 -->
+  <!-- PHASE 3 -->
+  <!-- PHASE 4 -->
+  <!-- PHASE 5 -->
   <div class="decision-check">
     <div class="decision-check-label">Verify against the record</div>
     <p>Solo-flip between <span class="code">REF</span> and your sketch at matched loudness — phones at the mark, no level riding while you judge.</p>
@@ -383,5 +387,6 @@
 
 </div>
 
+  <script src="../nav.js"></script>
 </body>
 </html>

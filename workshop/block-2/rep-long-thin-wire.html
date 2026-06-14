@@ -6,7 +6,7 @@
 <title>Replicate: The System Plays Itself — Alvin Lucier</title>
 <link rel="stylesheet" href="../styles.css">
 </head>
-<body>
+<body class="page-type-rep" id="top">
 
 <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
 <label for="nav-toggle" class="hamburger" aria-label="Menu">
@@ -16,6 +16,7 @@
 <nav class="nav" aria-label="Workshop contents">
   <p class="nav-label">Workshop</p>
   <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
   <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
   <a href="index.html" class="active"><span class="nav-num">02</span>Sources</a>
   <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
@@ -28,21 +29,24 @@
 </nav>
 
 <div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 2 · Sources</a><span class="breadcrumb-sep">/</span><span>Replicate: the system plays itself</span></nav>
 
   <header class="page-header">
     <div class="eyebrow">Block 2 · Replication lesson</div>
     <h1>Replicate: the system plays itself</h1>
     <p class="lede">Copy one clear section of Alvin Lucier — Music on a Long Thin Wire. Build the main parts, record a short take, and compare it to the reference at the same loudness.</p>
   </header>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l2.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs">Labs</a><a href="lab-r2.html" data-section="rebuild">Rebuild</a><a href="index.html#capstone" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep" class="current">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
   <div class="callout">
     <div class="callout-label">The point</div>
-    <p>This drill teaches the record's core mechanism: a system set near self-resonance and then left alone - tiny changes in tension, temperature, and air move the sound; the composer’s last act is starting it. Do only the steps that make that mechanism audible.</p>
+    <p>This drill teaches the record’s core mechanism: a system set near <strong>self-resonance</strong> (the threshold where a filter or circuit starts to sing on its own) and then left alone. Tiny changes in tension, temperature, and air move the sound. The composer’s last act is starting it. Do only the steps that make that mechanism audible.</p>
   </div>
 
   <table class="param-table">
     <caption>The system you are replicating</caption>
     <tr><td>Source record</td><td>Alvin Lucier — <em>Music on a Long Thin Wire</em> (1977)</td></tr>
-    <tr><td>The effect</td><td>an hour of drifting pitch and blooming harmonics with no performer — a wire, driven by an oscillator through a magnet, resonating on its own terms in a room</td></tr>
+    <tr><td>The effect</td><td>an hour of drifting pitch and blooming harmonics with no performer — a wire, driven by an oscillator through a magnet, resonating in its own way in a room</td></tr>
     <tr><td>The mechanism</td><td>a system set near self-resonance and then left alone — tiny changes in tension, temperature, and air move the sound; the composer’s last act is starting it</td></tr>
   </table>
 
@@ -50,22 +54,22 @@
 
   <div class="checklist">
     <div class="checklist-head">
-      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"></path></svg></div>
       <div class="checklist-label">Before you start</div>
     </div>
     <ul>
-      <li><strong>Safety first, and not as a formality:</strong> this lesson runs a filter at the edge of self-oscillation, which is feedback’s polite cousin — it can jump in level without asking. Before any sound: a <span class="menu">Limiter</span> on Live’s master, ceiling <span class="code">−6 dB</span>; phones at the lab-001 mark <em>or lower</em>, never raised during the print; and the one-hand-on-the-fader rule — whenever the system is running and you are at the bench, one hand rests on the master fader, ready to pull it, not the phones, down</li>
-      <li>Gear: MicroFreak → M4 input 1, DT 990 Pro in the phones jack; the Digitakt II rests. You do not own a fifty-foot wire: a resonant filter pushed to where it sings on its own, nudged by a slow LFO at minimum depth, is the honest analogue — a circuit on the edge instead of a wire under tension, drifting for reasons you likewise do not control</li>
-      <li>New set saved as <span class="code">REP-WIRE</span> — tempo irrelevant; the print is ten unbroken minutes of clock time</li>
+      <li><strong>Safety first, and not as a formality:</strong> this lesson runs a filter at the edge of self-oscillation — the point where a filter starts to ring on its own, close to uncontrolled feedback. It can jump in level without warning. Before any sound: a <span class="menu">Limiter</span> on Live’s master, ceiling <span class="code">−6 dB</span>; phones at the lab-001 mark <em>or lower</em>, never raised during the print; and the one-hand-on-the-fader rule — whenever the system is running, one hand rests on the master fader, ready to pull it down, not the phones volume</li>
+      <li>Gear: MicroFreak → M4 input 1, DT 990 Pro in the phones jack; the Digitakt II rests. You do not own a fifty-foot wire: a resonant filter pushed to where it sings on its own, nudged by a slow LFO at minimum depth, is the honest stand-in — a circuit on the edge instead of a wire under tension, drifting for reasons you likewise cannot control</li>
+      <li>New set saved as <span class="code">REP-WIRE</span> — tempo does not matter; the print is ten unbroken minutes of clock time</li>
     </ul>
   </div>
 
   <div class="note-block">
     <ul>
-      <li><strong>What you will make:</strong> a short replica of Alvin Lucier — Music on a Long Thin Wire. Focus on this effect: an hour of drifting pitch and blooming harmonics with no performer.</li>
+      <li><strong>What you will make:</strong> a short replica of Alvin Lucier — Music on a Long Thin Wire. Focus on this effect: drifting pitch and blooming harmonics with no performer — the system doing everything after being started.</li>
       <li><strong>What you will turn off:</strong> extra parts, decoration, and shortcuts that hide whether the mechanism works.</li>
-      <li><strong>What you will prove:</strong> your version and <span class="code">REF</span> use the same core mechanism: a system set near self-resonance and then left alone - tiny changes in tension, temperature, and air move the sound; the composer’s last act is starting it.</li>
-      <li><strong>What counts as success:</strong> remaining differences are source choices or rig limits, not missing steps.</li>
+      <li><strong>What you will prove:</strong> your version and <span class="code">REF</span> use the same core mechanism: a system set near self-resonance and then left alone — tiny changes in tension, temperature, and air move the sound; the composer’s last act is starting it.</li>
+      <li><strong>What counts as success:</strong> remaining differences are source choices or equipment limits, not missing steps.</li>
     </ul>
   </div>
 
@@ -74,25 +78,25 @@
       <div class="step-num">Reference pass · 10 minutes</div>
       <h3 class="step-title">Listen before you build</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Listen to about one minute of Alvin Lucier — Music on a Long Thin Wire. Choose the clearest short section. Write one short answer for each question before you touch the gear.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Listen to about one minute of Alvin Lucier — Music on a Long Thin Wire. Choose the clearest short section. Write one short answer for each question before you touch the gear.</p>
     <ol class="rules-list">
       <li>Who is playing?
-        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>No one. An oscillator drives a long wire through a magnet; the wire resonates, the room responds, and everything you hear follows from that arrangement. The composer’s performance ended when the system started.</p></div></details>
+        <details class="”reveal”"><summary>Answer</summary><div class="”reveal-body”"><p>No one. An oscillator drives a long wire through a magnet; the wire resonates, the room responds, and everything you hear follows from that arrangement. The composer’s performance ended when the system started.</p></div></details>
       </li>
       <li>The pitch drifts. What is changing it?
-        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Physics - tension, temperature, the air in the room, the wire’s own modes feeding back on themselves. Changes that small are inaudible in ordinary music; here they are the entire foreground, because nothing louder competes.</p></div></details>
+        <details class="”reveal”"><summary>Answer</summary><div class="”reveal-body”"><p>Physics — tension, temperature, the air in the room, the wire’s own modes feeding back on themselves. Changes that small would be inaudible in most music. Here they are the entire foreground, because nothing louder competes.</p></div></details>
       </li>
       <li>Are there events — and if so, who wrote them?
-        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>There are: swells, harmonics blooming out of nowhere, sudden mode-jumps where the wire flips to a different resonance. Nobody wrote them - they are the system passing through its own thresholds.</p></div></details>
+        <details class="”reveal”"><summary>Answer</summary><div class="”reveal-body”"><p>Yes — swells, harmonics blooming out of nowhere, sudden jumps where the wire flips to a different resonance. Nobody wrote them. They are the system passing through its own thresholds.</p></div></details>
       </li>
       <li>Could the performer make the wire do any of that again?
-        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>No - and that is the deepest difference from everything else in this block. The composer controls conditions: wire length, drive frequency, room.</p></div></details>
+        <details class="”reveal”"><summary>Answer</summary><div class="”reveal-body”"><p>No — and that is the biggest difference from everything else in this block. The composer controls conditions: wire length, drive frequency, room. The events within those conditions are not repeatable.</p></div></details>
       </li>
       <li>What gives the piece its form, if no one is composing?
-        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Duration and the room. The piece is however long the system is allowed to run - the recording is a window cut from days of installation - and its “sections” are just the system’s slow wandering between stable states.</p></div></details>
+        <details class="”reveal”"><summary>Answer</summary><div class="”reveal-body”"><p>Duration and the room. The piece is however long the system runs — the recording is a window cut from days of installation — and its “sections” are the system’s slow wandering between stable states.</p></div></details>
       </li>
     </ol>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Now build the section you described. Do not build from memory.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Now build the section you described. Do not build from memory.</p>
   </div>
 
   <h2>Steps</h2>
@@ -111,14 +115,14 @@
 
   <div class="note-block">
     <ul>
-      <li><strong>Sound target:</strong> a solo-flip between <span class="code">REF</span> and your print lands on the same authorship — drifting pitch, blooming overtones, events with no fingerprints on them.</li>
-      <li>You may set the system, and then you may not touch it — the ten-minute print is recorded with hands visibly off the gear.</li>
-      <li>The only modulation is one slow LFO at minimum depth — a stand-in for temperature, not a performance.</li>
+      <li><strong>Sound target:</strong> a solo-flip between <span class="code">REF</span> and your print lands on the same quality — drifting pitch, blooming overtones, events with no fingerprints on them.</li>
+      <li>You may set the system, then you must leave it alone — the ten-minute print is recorded with hands off the gear.</li>
+      <li>The only modulation is one slow LFO (a slow automatic knob-mover) at minimum depth — a stand-in for temperature drift, not a performance.</li>
       <li>The limiter stays on the master from the first sound to the last; its ceiling is non-negotiable.</li>
     </ul>
   </div>
 
-  <p style="color: var(--text-muted); font-size: 14.5px; max-width: 640px; margin: 0 auto 14px; text-align: center;">The piece’s machinery in one row: a filter resonating on the edge of self-oscillation, almost nothing feeding it, one near-invisible LFO nudging the cutoff like weather, a limiter standing guard, and ten minutes printed with no one playing.</p>
+  <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); max-width: 640px; margin: 0 auto 14px; text-align: center;">The whole mechanism in one row: a filter on the edge of self-oscillation, almost nothing feeding it, one barely-moving LFO nudging the cutoff like changing temperature, a limiter standing guard, and ten minutes printed with no one playing.</p>
 
   <div class="signal-flow">
     <span class="signal-node">MicroFreak filter · resonance at the singing edge</span>
@@ -130,35 +134,34 @@
     <span class="signal-node">master · Limiter at −6 dB · always</span>
   </div>
 
-  <p style="color: var(--text-muted); font-size: 14.5px; max-width: 640px; margin: 18px auto 14px; text-align: center;">The lesson in three panels: you set three conditions and start the system; the system runs alone, feeding on itself; and what comes out is a drifting line with blooms and jumps you never asked for. Your authorship ends at the first panel’s edge.</p>
+  <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); max-width: 640px; margin: 18px auto 14px; text-align: center;">Three panels: you set three conditions and start the system; the system runs alone, feeding on itself; what comes out is a drifting line with blooms and jumps you never asked for. Your role ends at the first panel’s edge.</p>
 
 <div class="signal-flow" style="display:block; padding:26px 16px;">
   <svg viewBox="0 0 760 230" width="100%" role="img" aria-label="Three panels: conditions set by hand, the system running alone in a loop, and an unauthored drifting output with blooms">
-    <rect x="20" y="20" width="225" height="170" rx="10" fill="#1f2530" stroke="#6e7681" stroke-width="1"/>
-    <rect x="267" y="20" width="225" height="170" rx="10" fill="#1f2530" stroke="#6e7681" stroke-width="1"/>
-    <rect x="514" y="20" width="225" height="170" rx="10" fill="#1f2530" stroke="#7dd3c0" stroke-width="1.2"/>
+    <rect x="20" y="20" width="225" height="170" rx="10" fill="#1f2530" stroke="#6e7681" stroke-width="1"></rect>
+    <rect x="267" y="20" width="225" height="170" rx="10" fill="#1f2530" stroke="#6e7681" stroke-width="1"></rect>
+    <rect x="514" y="20" width="225" height="170" rx="10" fill="#1f2530" stroke="#7dd3c0" stroke-width="1.2"></rect>
     <text x="132" y="44" fill="#e6edf3" font-size="12" text-anchor="middle">you set conditions</text>
     <text x="379" y="44" fill="#e6edf3" font-size="12" text-anchor="middle">the system runs alone</text>
     <text x="626" y="44" fill="#7dd3c0" font-size="12" text-anchor="middle">what it decided</text>
-    <line x1="70" y1="80" x2="195" y2="80" stroke="#6e7681" stroke-width="2"/>
-    <circle cx="160" cy="80" r="6" fill="#8b949e"/>
+    <line x1="70" y1="80" x2="195" y2="80" stroke="#6e7681" stroke-width="2"></line>
+    <circle cx="160" cy="80" r="6" fill="#8b949e"></circle>
     <text x="70" y="70" fill="#6e7681" font-size="9.5">resonance — at the edge</text>
-    <line x1="70" y1="118" x2="195" y2="118" stroke="#6e7681" stroke-width="2"/>
-    <circle cx="105" cy="118" r="6" fill="#8b949e"/>
+    <line x1="70" y1="118" x2="195" y2="118" stroke="#6e7681" stroke-width="2"></line>
+    <circle cx="105" cy="118" r="6" fill="#8b949e"></circle>
     <text x="70" y="108" fill="#6e7681" font-size="9.5">LFO depth — barely there</text>
-    <line x1="70" y1="156" x2="195" y2="156" stroke="#6e7681" stroke-width="2"/>
-    <circle cx="88" cy="156" r="6" fill="#7dd3c0"/>
+    <line x1="70" y1="156" x2="195" y2="156" stroke="#6e7681" stroke-width="2"></line>
+    <circle cx="88" cy="156" r="6" fill="#7dd3c0"></circle>
     <text x="70" y="146" fill="#6e7681" font-size="9.5">level — under the limiter</text>
-    <rect x="312" y="78" width="134" height="58" rx="8" fill="none" stroke="#8b949e" stroke-width="1.5"/>
+    <rect x="312" y="78" width="134" height="58" rx="8" fill="none" stroke="#8b949e" stroke-width="1.5"></rect>
     <text x="379" y="103" fill="#e6edf3" font-size="10.5" text-anchor="middle">filter ⇄ its own</text>
     <text x="379" y="118" fill="#e6edf3" font-size="10.5" text-anchor="middle">resonance</text>
-    <path d="M334 78 C320 56 438 56 424 78" fill="none" stroke="#7dd3c0" stroke-width="1.5"/>
-    <path d="M424 78 l-7 -3 m7 3 l-2 -7" stroke="#7dd3c0" stroke-width="1.5" fill="none"/>
+    <path d="M334 78 C320 56 438 56 424 78" fill="none" stroke="#7dd3c0" stroke-width="1.5"></path>
+    <path d="M424 78 l-7 -3 m7 3 l-2 -7" stroke="#7dd3c0" stroke-width="1.5" fill="none"></path>
     <text x="379" y="166" fill="#6e7681" font-size="9.5" text-anchor="middle">hands off · one hand near the fader</text>
-    <path d="M540 120 C556 116 568 102 584 100 C600 98 606 124 622 122 C638 120 646 92 664 96 C682 100 694 112 712 106"
-          fill="none" stroke="#7dd3c0" stroke-width="2"/>
-    <circle cx="584" cy="100" r="8" fill="#7dd3c0" opacity="0.25"/>
-    <circle cx="664" cy="96" r="10" fill="#7dd3c0" opacity="0.25"/>
+    <path d="M540 120 C556 116 568 102 584 100 C600 98 606 124 622 122 C638 120 646 92 664 96 C682 100 694 112 712 106" fill="none" stroke="#7dd3c0" stroke-width="2"></path>
+    <circle cx="584" cy="100" r="8" fill="#7dd3c0" opacity="0.25"></circle>
+    <circle cx="664" cy="96" r="10" fill="#7dd3c0" opacity="0.25"></circle>
     <text x="584" y="82" fill="#6e7681" font-size="9.5" text-anchor="middle">bloom</text>
     <text x="664" y="76" fill="#6e7681" font-size="9.5" text-anchor="middle">jump</text>
     <text x="626" y="166" fill="#6e7681" font-size="9.5" text-anchor="middle">events with no fingerprints</text>
@@ -166,30 +169,30 @@
 </div>
 
   <!-- PHASE 1 -->
-  <div class="step">
+  <div class="gear-switch"><input type="radio" name="gear" id="gear-hw" class="gear-radio" checked><input type="radio" name="gear" id="gear-sw" class="gear-radio"><input type="radio" name="gear" id="gear-tg" class="gear-radio"><div class="gear-labels"><span class="gear-lead">Your rig</span><label for="gear-hw">MicroFreak + Live</label><label for="gear-sw">Ableton Live only</label><label for="gear-tg">Analog Four MKII · target</label></div><div class="gear-scope"><div class="step">
     <div class="step-head">
       <div class="step-num">Phase 1 · ≈ 10 min</div>
       <h3 class="step-title">The safety rig, then the reference</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: the safety rig, then the reference. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: the safety rig, then the reference. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Live</span> On the master: <span class="menu">Audio Effects → Limiter</span>, ceiling <span class="code">−6 dB</span>.</li>
-        <li><span class="system-tag">Live</span> This device is the first thing in the set and the last thing removed — confirm it is on before anything is armed.</li>
-        <li><span class="system-tag">Live</span> Phones at the lab-001 mark or lower.</li>
-        <li><span class="system-tag">Logbook</span> Write the mark in the logbook and the rule beside it: <em>the phones level does not move during this lesson, no matter how quiet the system gets.</em></li>
-        <li><span class="system-tag">Live</span> <kbd>⌘ T</kbd>, rename <span class="code">REF</span> (<kbd>⌘ R</kbd>), drag <em>Music on a Long Thin Wire</em> in, loop four minutes, and Utility-trim so it peaks ≈ <span class="code">−12 dBFS</span>.</li>
-        <li><span class="system-tag">Live</span> <kbd>⌘ T</kbd> once; rename: <span class="code">WIRE</span>, <span class="menu">Ext. In</span> <span class="code">1</span>, fader at <span class="code">0 dB</span>, armed, software monitoring on at a low level.</li>
-        <li><span class="system-tag">Live</span> Rehearse the one-hand rule once, dry: hand on the master fader, pull to silence in under a second.</li>
-        <li><span class="system-tag">Live</span> It will likely never be needed; rehearse it anyway.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>On the master: <span class="menu">Audio Effects → Limiter</span>, ceiling <span class="code">−6 dB</span>.</li>
+        <li>This device is the first thing in the set and the last thing removed — confirm it is on before anything is armed.</li>
+        <li>Phones at the lab-001 mark or lower.</li>
+        <li>Write the mark in the logbook with this rule beside it: <em>the phones level does not move during this lesson, no matter how quiet the system gets.</em></li>
+        <li><kbd>⌘ T</kbd>, rename <span class="code">REF</span> (<kbd>⌘ R</kbd>), drag <em>Music on a Long Thin Wire</em> in, loop four minutes, and Utility-trim so it peaks ≈ <span class="code">−12 dBFS</span>.</li>
+        <li><kbd>⌘ T</kbd> once; rename: <span class="code">WIRE</span>, <span class="menu">Ext. In</span> <span class="code">1</span>, fader at <span class="code">0 dB</span>, armed, software monitoring on at a low level.</li>
+        <li>Rehearse the one-hand rule once, dry: hand on the master fader, pull to silence in under a second.</li>
+        <li>It will likely never be needed; rehearse it anyway.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Alvin Lucier — Music on a Long Thin Wire (1977) and use MIDI effects, Random, LFO/Expression Control, and resampling.</li><li>Build the phase goal — <em>The safety rig, then the reference</em> — as the smallest Live set that proves <em>a system set near self-resonance and then left alone — tiny changes in tension, temperature, and air move the sound; the composer’s last act is starting it</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>an hour of drifting pitch and blooming harmonics with no performer — a wire, driven by an oscillator through a magnet, resonating in its own way in a room</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Four MKII for this phase: translate <em>The safety rig, then the reference</em> into one analog synth track, parameter locks, slides, performance macros, and Overbridge or main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>a system set near self-resonance and then left alone — tiny changes in tension, temperature, and air move the sound; the composer’s last act is starting it</em>, not just the surface of Alvin Lucier — Music on a Long Thin Wire (1977).</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">A limiter standing guard at −6 dB, phones pinned at the mark, the record looping at ≈ −12 dBFS, one armed track, and a rehearsed escape route.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A limiter standing guard at −6 dB, phones pinned at the mark, the record looping at ≈ −12 dBFS, one armed track, and a rehearsed escape route.</p>
     </div>
 
     <div class="sub-block">
@@ -204,34 +207,32 @@
     </div>
   </div>
 
-  <!-- PHASE 2 -->
   <div class="step">
     <div class="step-head">
       <div class="step-num">Phase 2 · ≈ 20 min</div>
       <h3 class="step-title">Find the edge — a filter that almost sings alone</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: find the edge — a filter that almost sings alone. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: find the edge — a filter that almost sings alone. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">MicroFreak</span> MicroFreak: <span class="code">Type</span> → <span class="code">V.Analog</span>, oscillator volume far down — the filter needs almost nothing to chew on, a whisper of input, not a tone.</li>
-        <li><span class="system-tag">MicroFreak</span> Raise filter <span class="code">Resonance</span> slowly, listening at the mark, hand near the master fader.</li>
-        <li><span class="system-tag">MicroFreak</span> Somewhere high on the dial the filter begins to sing at its cutoff pitch.</li>
-        <li><span class="system-tag">MicroFreak</span> Find that threshold, then back off a hair — to where the singing comes and goes on its own.</li>
-        <li><span class="system-tag">MicroFreak</span> Set <span class="code">Cutoff</span> to put the sung pitch somewhere mid-low — around <span class="code">A2</span>–<span class="code">A3</span> wears well for ten minutes.</li>
-        <li><span class="system-tag">MicroFreak</span> This is your wire length.</li>
-        <li><span class="system-tag">MicroFreak</span> Check the level of the singing at its loudest: peaks ≈ <span class="code">−12 dBFS</span> on the input meter.</li>
-        <li><span class="system-tag">MicroFreak</span> If it runs hotter, lower the M4 gain — never compensate at the phones.</li>
-        <li><span class="system-tag">MicroFreak</span> Sit with the bare edge for two minutes, hands off, before adding anything.</li>
-        <li><span class="system-tag">MicroFreak</span> If it already drifts and sputters on its own, you have found the right spot;</li>
-        <li><span class="system-tag">MicroFreak + Logbook</span> note the resonance position in the logbook.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>MicroFreak: <span class="code">Type</span> → <span class="code">V.Analog</span>, oscillator volume far down — the filter needs almost nothing to chew on, a whisper of input, not a tone.</li>
+        <li>Raise filter <span class="code">Resonance</span> slowly, listening at the mark, hand near the master fader.</li>
+        <li>Somewhere high on the dial the filter begins to sing at its cutoff pitch. Find that threshold, then ease back slightly — to where the singing comes and goes on its own.</li>
+        <li>Set <span class="code">Cutoff</span> so the sung pitch sits somewhere mid-low — around <span class="code">A2</span>–<span class="code">A3</span> is comfortable to listen to for ten minutes.</li>
+        <li>This is your equivalent of the wire length.</li>
+        <li>Check the level of the singing at its loudest: peaks ≈ <span class="code">−12 dBFS</span> on the input meter.</li>
+        <li>If it runs hotter, lower the M4 gain — never compensate at the phones.</li>
+        <li>Sit with the bare edge for two minutes, hands off, before adding anything.</li>
+        <li>If it already drifts and sputters on its own, you have found the right spot;</li>
+        <li>note the resonance position in the logbook.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Alvin Lucier — Music on a Long Thin Wire (1977) and use Operator or Wavetable into Auto Filter, with clip automation.</li><li>Build the phase goal — <em>Find the edge — a filter that almost sings alone</em> — as the smallest Live set that proves <em>a system set near self-resonance and then left alone — tiny changes in tension, temperature, and air move the sound; the composer’s last act is starting it</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>an hour of drifting pitch and blooming harmonics with no performer — a wire, driven by an oscillator through a magnet, resonating in its own way in a room</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Four MKII for this phase: translate <em>Find the edge — a filter that almost sings alone</em> into one analog synth track, parameter locks, slides, performance macros, and Overbridge or main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>a system set near self-resonance and then left alone — tiny changes in tension, temperature, and air move the sound; the composer’s last act is starting it</em>, not just the surface of Alvin Lucier — Music on a Long Thin Wire (1977).</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">A filter balanced where self-oscillation is intermittent rather than constant — a pitch that arrives, wavers, and withdraws with no one touching anything, peaking ≈ −12 dBFS.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A filter balanced where self-oscillation is intermittent rather than constant — a pitch that arrives, wavers, and withdraws with no one touching anything, peaking ≈ −12 dBFS.</p>
     </div>
 
     <div class="sub-block">
@@ -246,34 +247,28 @@
     </div>
   </div>
 
-  <!-- PHASE 3 -->
   <div class="step">
     <div class="step-head">
       <div class="step-num">Phase 3 · ≈ 20 min</div>
       <h3 class="step-title">Add the weather, then print ten minutes hands-off</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: add the weather, then print ten minutes hands-off. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: add the weather, then print ten minutes hands-off. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">MicroFreak</span> MicroFreak LFO: sine, sync off, rate at the slowest the dial offers.</li>
-        <li><span class="system-tag">MicroFreak</span> In the mod matrix, route LFO → cutoff at the <em>smallest</em> depth that audibly changes the system’s behavior over a minute — start at nearly nothing and creep up.</li>
-        <li><span class="system-tag">MicroFreak</span> The LFO must never sound like a sweep.</li>
-        <li><span class="system-tag">MicroFreak</span> Listen for five minutes, hands off, one hand resting on the master fader.</li>
-        <li><span class="system-tag">MicroFreak</span> The system should wander: singing, faltering, finding a different overtone.</li>
-        <li><span class="system-tag">MicroFreak</span> If it settles into one steady state, nudge the depth one step — then hands off again.</li>
-        <li><span class="system-tag">MicroFreak</span> Record-arm <span class="code">WIRE</span>, press record, and print <span class="code">10:00</span> by the clock.</li>
-        <li><span class="system-tag">MicroFreak + Live</span> Hands off the MicroFreak entirely; stay within reach, read the reference-pass notes, watch the limiter do nothing.</li>
-        <li><span class="system-tag">MicroFreak + Live</span> The rule, enforced without mercy: nothing is touched during the print.</li>
-        <li><span class="system-tag">MicroFreak + Live</span> A boring stretch is not a malfunction — it is the system thinking;</li>
-        <li><span class="system-tag">MicroFreak + Live</span> the wire had those too.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>MicroFreak LFO: sine, sync off, rate at the slowest the dial offers.</li>
+        <li>In the mod matrix, route LFO → cutoff at the <em>smallest</em> depth that noticeably changes the system’s behavior over a minute — start at nearly nothing and creep up. The LFO must never sound like an audible sweep.</li>
+        <li>Listen for five minutes, hands off, one hand resting on the master fader. The system should wander: singing, faltering, finding a different overtone. If it settles into one steady state, nudge the depth one step — then hands off again.</li>
+        <li>Record-arm <span class="code">WIRE</span>, press record, and print <span class="code">10:00</span> by the clock.</li>
+        <li>Hands off the MicroFreak entirely. Stay within reach, re-read the reference-pass notes, watch the limiter do nothing.</li>
+        <li>The rule: nothing is touched during the print. A boring stretch is not a malfunction — it is the system in a stable state. The wire had those too.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Alvin Lucier — Music on a Long Thin Wire (1977) and use MIDI effects, Random, LFO/Expression Control, and resampling.</li><li>Build the phase goal — <em>Add the weather, then print ten minutes hands-off</em> — as the smallest Live set that proves <em>a system set near self-resonance and then left alone — tiny changes in tension, temperature, and air move the sound; the composer’s last act is starting it</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>an hour of drifting pitch and blooming harmonics with no performer — a wire, driven by an oscillator through a magnet, resonating in its own way in a room</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Four MKII for this phase: translate <em>Add the weather, then print ten minutes hands-off</em> into one analog synth track, parameter locks, slides, performance macros, and Overbridge or main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>a system set near self-resonance and then left alone — tiny changes in tension, temperature, and air move the sound; the composer’s last act is starting it</em>, not just the surface of Alvin Lucier — Music on a Long Thin Wire (1977).</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Ten unbroken minutes of audio you did not perform — drift, blooms, hesitations, maybe one mode-jump — recorded while your hands were demonstrably elsewhere.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Ten unbroken minutes of audio you did not perform — drift, blooms, hesitations, maybe one mode-jump — recorded while your hands were demonstrably elsewhere.</p>
     </div>
 
     <div class="sub-block">
@@ -288,31 +283,28 @@
     </div>
   </div>
 
-  <!-- PHASE 4 -->
   <div class="step">
     <div class="step-head">
       <div class="step-num">Phase 4 · ≈ 20 min</div>
       <h3 class="step-title">Listen to what it decided</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: listen to what it decided. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: listen to what it decided. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
         <li>Play the full ten minutes end to end, no skipping, phones at the mark.</li>
         <li>Log every event with a timestamp — every bloom, drop, drift, and jump, in plain words.</li>
-        <li><span class="system-tag">Logbook</span> Against each event, write who made it.</li>
-        <li><span class="system-tag">Logbook</span> The honest answer, every line: not you.</li>
-        <li><span class="system-tag">MicroFreak</span> The LFO you set is too slow and too shallow to account for any single event’s timing.</li>
-        <li><span class="system-tag">Live</span> A/B three minutes of your print against <span class="code">REF</span> at matched loudness, judging one thing: do both feel <em>found</em> rather than made — incident without intention?</li>
-        <li><span class="system-tag">Live</span> Choose the best two minutes of the print and mark them with locators.</li>
-        <li><span class="system-tag">Live</span> That choice — a window cut from the system’s run — is the only composing in this lesson, and it is exactly the composing Lucier kept for himself.</li>
+        <li>Against each event, write who made it. The honest answer, every line: not you. The LFO you set is too slow and too shallow to account for any single event’s timing.</li>
+        <li>A/B three minutes of your print against <span class="code">REF</span> at matched loudness, judging one thing: do both feel <em>found</em> rather than made — incident without intention?</li>
+        <li>Choose the best two minutes of the print and mark them with locators.</li>
+        <li>That choice — a window cut from the system’s run — is the only composing in this lesson. It is exactly the composing Lucier kept for himself.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Alvin Lucier — Music on a Long Thin Wire (1977) and use Drum Rack, MIDI clips, Groove Pool, and clip automation.</li><li>Build the phase goal — <em>Listen to what it decided</em> — as the smallest Live set that proves <em>a system set near self-resonance and then left alone — tiny changes in tension, temperature, and air move the sound; the composer’s last act is starting it</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>an hour of drifting pitch and blooming harmonics with no performer — a wire, driven by an oscillator through a magnet, resonating in its own way in a room</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Four MKII for this phase: translate <em>Listen to what it decided</em> into one analog synth track, parameter locks, slides, performance macros, and Overbridge or main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>a system set near self-resonance and then left alone — tiny changes in tension, temperature, and air move the sound; the composer’s last act is starting it</em>, not just the surface of Alvin Lucier — Music on a Long Thin Wire (1977).</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">A timestamped event log with no events attributed to you, an A/B that comes down to the feel of unauthored incident, and a two-minute window chosen after the fact — listening as the last compositional act.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A timestamped event log with no events attributed to you, an A/B that comes down to the feel of unauthored incident, and a two-minute window chosen after the fact — listening as the last compositional act.</p>
     </div>
 
     <div class="sub-block">
@@ -327,15 +319,18 @@
     </div>
   </div>
 
+  </div></div><!-- PHASE 2 -->
+  <!-- PHASE 3 -->
+  <!-- PHASE 4 -->
   <div class="decision-check">
     <div class="decision-check-label">Verify against the record</div>
     <p>Solo-flip between <span class="code">REF</span> and your print at matched loudness — phones at the mark or lower, no level riding while you judge.</p>
     <ul>
       <li>Did you compose any event in the print?
-        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>No — and the session can prove it. Your inputs were three conditions set before recording began: a resonance position, an LFO barely moving, a level under a limiter. Every event in the log happened at a time you did not choose, in a shape you did not draw. What you composed was the situation; the music composed itself. Relisten to your chosen two minutes knowing you could not make them happen again, and notice that this is exactly what you wrote about the wire in the reference pass.</p></div></details>
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>No — and the session can prove it. Your inputs were three conditions set before recording began: a resonance position, a barely-moving LFO, a level under a limiter. Every event in the log happened at a time you did not choose, in a shape you did not draw. What you composed was the situation; the music composed itself. Listen to your chosen two minutes knowing you could not make them happen again. That is exactly what you wrote about the wire in the reference pass.</p></div></details>
       </li>
       <li>Describe two behaviors the system produced that you did not ask for.
-        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Your log has them — typically a slow pitch drift with no LFO to blame, and a sudden bloom or mode-jump where the filter found a different way to sing. Whatever your two were, the test is the same: no setting you touched specifies them, so they belong to the system. This is the lens to keep: a patch is not just a sound — set near its edges, it is a collaborator with opinions. Relisten to the record one last time and count its opinions; the wire had many.</p></div></details>
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Your log has them — typically a slow pitch drift with no LFO to blame, and a sudden bloom or jump where the filter found a different resonance. Whatever your two were, the test is the same: no setting you touched specifies them, so they belong to the system. Keep this in mind: a patch is not just a sound — set near its edges, it behaves like a collaborator with its own ideas. Listen to the record one last time and count those ideas. The wire had many.</p></div></details>
       </li>
     </ul>
   </div>
@@ -344,7 +339,7 @@
     <ul>
       <li><strong>Logbook — three-line miss list.</strong> <strong>Matched:</strong> where your version produces the record’s effect. <strong>Missed:</strong> where it doesn’t — and your best guess why. <strong>Change next:</strong> the one move you’d try first.</li>
       <li>These three lines feed the full miss list in <a href="lab-r2.html">replication lab R2</a>.</li>
-      <li><strong>Carries into the lab:</strong> Lab 005 says the human role is to mostly listen, moving a hand only when the tone stops breathing — this record takes that to its limit: a system set well needs no hand at all. When your drone is built, ask how much of it could run without you, and whether the parts that need you are the parts that deserve to.</li>
+      <li><strong>Carries into the lab:</strong> Lab 005 says your role is mostly to listen, moving a hand only when the tone stops breathing. This record takes that to its limit: a system set well needs no hand at all. When your drone is built, ask how much of it could run without you — and whether the parts that need you are the parts worth keeping.</li>
     </ul>
   </div>
 
@@ -363,5 +358,6 @@
 
 </div>
 
+  <script src="../nav.js"></script>
 </body>
 </html>

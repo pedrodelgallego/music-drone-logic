@@ -6,7 +6,7 @@
 <title>Replicate — Loop the Grain</title>
 <link rel="stylesheet" href="../styles.css">
 </head>
-<body>
+<body class="page-type-rep" id="top">
 
 <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
 <label for="nav-toggle" class="hamburger" aria-label="Menu">
@@ -16,6 +16,7 @@
 <nav class="nav" aria-label="Workshop contents">
   <p class="nav-label">Workshop</p>
   <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
   <a href="index.html" class="active"><span class="nav-num">01</span>The Bench</a>
   <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
   <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
@@ -28,12 +29,15 @@
 </nav>
 
 <div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 1 · The Bench</a><span class="breadcrumb-sep">/</span><span>Replicate: loop the grain</span></nav>
 
   <header class="page-header">
     <div class="eyebrow">Block 1 · Replication lesson</div>
     <h1>Replicate: loop the grain</h1>
     <p class="lede">Copy one clear section of The Field — “Over the Ice”. Build the main parts, record a short take, and compare it to the reference at the same loudness.</p>
   </header>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l1.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs">Labs</a><a href="lab-r1.html" data-section="rebuild">Rebuild</a><a href="capstone-c1.html" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep" class="current">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
   <div class="callout">
     <div class="callout-label">The point</div>
     <p>This drill teaches the record's core mechanism: A slice under one second, loop-crossfaded until the edit vanishes, tuned and layered into texture with a kick as the clock. Do only the steps that make that mechanism audible.</p>
@@ -50,7 +54,7 @@
 
   <div class="checklist">
     <div class="checklist-head">
-      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"></path></svg></div>
       <div class="checklist-label">Before you start</div>
     </div>
     <ul>
@@ -73,7 +77,7 @@
       <div class="step-num">Reference pass · 10 minutes</div>
       <h3 class="step-title">Listen before you build</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Listen to about one minute of The Field — “Over the Ice”. Choose the clearest short section. Write one short answer for each question before you touch the gear.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Listen to about one minute of The Field — “Over the Ice”. Choose the clearest short section. Write one short answer for each question before you touch the gear.</p>
     <ol class="rules-list">
       <li>Can you find the loop point — the place where the slice starts over?
         <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Almost certainly not, and that failure is the data: the edit has been smoothed until the repetition reads as a continuous surface. What you hear instead is a fast, even churn - the loop is present as rhythmic texture, absent as event.</p></div></details>
@@ -88,7 +92,7 @@
         <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>It turns weather into a track. The shimmer alone floats free of time; the kick gives it a clock, and suddenly the churn reads as rhythm instead of haze.</p></div></details>
       </li>
     </ol>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Now build the section you described. Do not build from memory.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Now build the section you described. Do not build from memory.</p>
   </div>
 
   <div class="note-block">
@@ -113,27 +117,27 @@
     </ul>
   </div>
 
-  <div class="step">
+  <div class="gear-switch"><input type="radio" name="gear" id="gear-hw" class="gear-radio" checked><input type="radio" name="gear" id="gear-sw" class="gear-radio"><input type="radio" name="gear" id="gear-tg" class="gear-radio"><div class="gear-labels"><span class="gear-lead">Your rig</span><label for="gear-hw">Digitakt II + Live</label><label for="gear-sw">Ableton Live only</label><label for="gear-tg">Octatrack MKII · target</label></div><div class="gear-scope"><div class="step">
     <div class="step-head">
       <div class="step-num">Phase 1 — ~25 minutes</div>
       <h3 class="step-title">Capture the slice</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: capture the slice. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: capture the slice. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol class="rules-list">
-        <li><span class="system-tag">Live</span> <strong>Import the record on a REF track.</strong> Drop “Over the Ice” onto a dedicated REF track in Live, loop the main section, and gain-match it with a Utility.</li>
-        <li><span class="system-tag">Live</span> Keep it one solo away for the whole session.</li>
-        <li><span class="system-tag">Live</span> <strong>Hunt for the sliver.</strong> Zoom far into the looped section’s waveform and audition short stretches — places where the shimmer is exposed and the kick is absent or quiet are the best quarries.</li>
-        <li><span class="system-tag">Live</span> <strong>Cut under one second.</strong> Crop a candidate to well under a second — start around <span class="code">300–700 ms</span> — and consolidate it to its own clip (<kbd>⌘ J</kbd>).</li>
-        <li><span class="system-tag">Live</span> Cut on or near zero crossings to keep the raw edit quiet.</li>
-        <li><span class="system-tag">Live</span> <strong>Audition three candidates</strong> by looping each clip raw.</li>
-        <li><span class="system-tag">Logbook</span> Keep the one whose colour matches the record’s churn; write the other two off without regret.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol class="rules-list">
+        <li><strong>Import the record on a REF track.</strong> Drop “Over the Ice” onto a dedicated REF track in Live, loop the main section, and gain-match it with a Utility.</li>
+        <li>Keep it one solo away for the whole session.</li>
+        <li><strong>Hunt for the sliver.</strong> Zoom far into the looped section’s waveform and audition short stretches — places where the shimmer is exposed and the kick is absent or quiet are the best quarries.</li>
+        <li><strong>Cut under one second.</strong> Crop a candidate to well under a second — start around <span class="code">300–700 ms</span> — and consolidate it to its own clip (<kbd>⌘ J</kbd>).</li>
+        <li>Cut on or near zero crossings to keep the raw edit quiet.</li>
+        <li><strong>Audition three candidates</strong> by looping each clip raw.</li>
+        <li>Keep the one whose colour matches the record’s churn; write the other two off without regret.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from The Field — “Over the Ice” and use audio clips, Simpler/Sampler, clip envelopes, and resampling.</li><li>Build the phase goal — <em>Capture the slice</em> — as the smallest Live set that proves <em>A slice under one second, loop-crossfaded until the edit vanishes, tuned and layered into texture with a kick as the clock</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>A shimmering pad that is not a pad at all — a tiny loop running so smoothly it reads as a surface</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Octatrack MKII for this phase: translate <em>Capture the slice</em> into Flex/Static machines, slices, recorder buffers, scenes, the crossfader, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>A slice under one second, loop-crossfaded until the edit vanishes, tuned and layered into texture with a kick as the clock</em>, not just the surface of The Field — “Over the Ice”.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">One consolidated clip under a second long whose looped colour already resembles the record’s shimmer — clicks and bumps at the edit allowed, for now.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">One consolidated clip under a second long whose looped colour already resembles the record’s shimmer — clicks and bumps at the edit allowed, for now.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">If it fails</div>
@@ -152,20 +156,20 @@
       <div class="step-num">Phase 2 — ~25 minutes</div>
       <h3 class="step-title">Erase the edit in Simpler</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: erase the edit in Simpler. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: erase the edit in Simpler. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol class="rules-list">
-        <li><span class="system-tag">Live</span> <strong>Load the slice into Simpler</strong> on a MIDI track and set the playback mode to <span class="code">Classic</span> with <span class="code">Loop</span> on — the note now sustains by cycling the slice for as long as a key is held.</li>
-        <li><span class="system-tag">Live</span> <strong>Crossfade the loop point.</strong> Raise Simpler’s loop <span class="code">Fade</span> until the click disappears, and no further — too much fade smears the churn that gives the texture its rate.</li>
-        <li><span class="system-tag">Live</span> Hold a note for thirty seconds and listen only for the seam.</li>
-        <li><span class="system-tag">Live</span> <strong>Tune it.</strong> Use Simpler’s transpose and detune against the REF until your loop’s pitch centre sits where theirs sits.</li>
-        <li><span class="system-tag">Logbook</span> Write the slice length in ms and the transpose value in the logbook.</li>
-        <li><span class="system-tag">Logbook</span> <strong>Stretch it into a pad.</strong> Open the amplitude envelope — attack around <span class="code">200–500 ms</span>, long release — and hold soft chords or single notes.</li>
-        <li><span class="system-tag">Logbook</span> The micro-loop is now an instrument: grain on the inside, pad on the outside.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol class="rules-list">
+        <li><strong>Load the slice into Simpler</strong> on a MIDI track and set the playback mode to <span class="code">Classic</span> with <span class="code">Loop</span> on — the note now sustains by cycling the slice for as long as a key is held.</li>
+        <li><strong>Crossfade the loop point.</strong> Raise Simpler’s loop <span class="code">Fade</span> until the click disappears, and no further — too much fade smears the churn that gives the texture its rate.</li>
+        <li>Hold a note for thirty seconds and listen only for the seam.</li>
+        <li><strong>Tune it.</strong> Use Simpler’s transpose and detune against the REF until your loop’s pitch centre sits where theirs sits.</li>
+        <li>Write the slice length in ms and the transpose value in the logbook.</li>
+        <li><strong>Stretch it into a pad.</strong> Open the amplitude envelope — attack around <span class="code">200–500 ms</span>, long release — and hold soft chords or single notes.</li>
+        <li>The micro-loop is now an instrument: grain on the inside, pad on the outside.</li>
       </ol>
-    </div>
-    <p style="max-width: 640px; margin: 18px auto 6px; color: var(--text-muted); font-size: 14.5px; text-align: center;">The whole machine, drawn — one sliver in, a surface out.</p>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from The Field — “Over the Ice” and use audio clips, Simpler/Sampler, clip envelopes, and resampling.</li><li>Build the phase goal — <em>Erase the edit in Simpler</em> — as the smallest Live set that proves <em>A slice under one second, loop-crossfaded until the edit vanishes, tuned and layered into texture with a kick as the clock</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>A shimmering pad that is not a pad at all — a tiny loop running so smoothly it reads as a surface</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Octatrack MKII for this phase: translate <em>Erase the edit in Simpler</em> into Flex/Static machines, slices, recorder buffers, scenes, the crossfader, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>A slice under one second, loop-crossfaded until the edit vanishes, tuned and layered into texture with a kick as the clock</em>, not just the surface of The Field — “Over the Ice”.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
+    <p style="max-width: 640px; margin: 18px auto 6px; color: var(--text-muted); font-size: var(--fs-lg-plus); text-align: center;">The whole machine, drawn — one sliver in, a surface out.</p>
     <div class="signal-flow">
       <span class="signal-node">sub-second slice</span>
       <span class="signal-arrow">→</span>
@@ -179,7 +183,7 @@
     </div>
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">A held note that sustains indefinitely with no audible loop point — a texture you could not identify as an edit if you had not built it.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A held note that sustains indefinitely with no audible loop point — a texture you could not identify as an edit if you had not built it.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">If it fails</div>
@@ -198,18 +202,18 @@
       <div class="step-num">Phase 3 — ~25 minutes</div>
       <h3 class="step-title">Give it a clock, match the wash, then look at the sliver</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: give it a clock, match the wash, then look at the sliver. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: give it a clock, match the wash, then look at the sliver. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol class="rules-list">
-        <li><span class="system-tag">Digitakt II</span> <strong>Kick under.</strong> Program a plain four-on-the-floor on the Digitakt II at the record’s tempo, tuned low and soft like theirs — the kick is a clock, not an event.</li>
-        <li><span class="system-tag">Digitakt II</span> <strong>Let the micro-loop run.</strong> Hold or sequence your pad notes over the kick for two to three minutes, matching the record’s register and density — most of the time this is one chord, sustained.</li>
-        <li><span class="system-tag">Live</span> <strong>Match the wash.</strong> A/B against the REF and balance level and brightness — a touch of EQ or a send is allowed — until 10 seconds of yours could pass for 10 of theirs in a blind switch.</li>
-        <li><span class="system-tag">Live</span> <strong>Observe — see it, not just hear it.</strong> Open Simpler and LOOK at the slice between the loop markers while the section plays.</li>
-        <li><span class="system-tag">Live + Logbook</span> Write its length in milliseconds in the logbook; that sliver is the whole track, and the number is the proof.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol class="rules-list">
+        <li><strong>Kick under.</strong> Program a plain four-on-the-floor on the Digitakt II at the record’s tempo, tuned low and soft like theirs — the kick is a clock, not an event.</li>
+        <li><strong>Let the micro-loop run.</strong> Hold or sequence your pad notes over the kick for two to three minutes, matching the record’s register and density — most of the time this is one chord, sustained.</li>
+        <li><strong>Match the wash.</strong> A/B against the REF and balance level and brightness — a touch of EQ or a send is allowed — until 10 seconds of yours could pass for 10 of theirs in a blind switch.</li>
+        <li><strong>Observe — see it, not just hear it.</strong> Open Simpler and LOOK at the slice between the loop markers while the section plays.</li>
+        <li>Write its length in milliseconds in the logbook; that sliver is the whole track, and the number is the proof.</li>
       </ol>
-    </div>
-    <p style="max-width: 640px; margin: 18px auto 6px; color: var(--text-muted); font-size: 14.5px; text-align: center;">The scale of the trick — what the listener hears versus what actually exists.</p>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from The Field — “Over the Ice” and use audio clips, Simpler/Sampler, clip envelopes, and resampling.</li><li>Build the phase goal — <em>Give it a clock, match the wash, then look at the sliver</em> — as the smallest Live set that proves <em>A slice under one second, loop-crossfaded until the edit vanishes, tuned and layered into texture with a kick as the clock</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>A shimmering pad that is not a pad at all — a tiny loop running so smoothly it reads as a surface</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Octatrack MKII for this phase: translate <em>Give it a clock, match the wash, then look at the sliver</em> into Flex/Static machines, slices, recorder buffers, scenes, the crossfader, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>A slice under one second, loop-crossfaded until the edit vanishes, tuned and layered into texture with a kick as the clock</em>, not just the surface of The Field — “Over the Ice”.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
+    <p style="max-width: 640px; margin: 18px auto 6px; color: var(--text-muted); font-size: var(--fs-lg-plus); text-align: center;">The scale of the trick — what the listener hears versus what actually exists.</p>
     <div class="timeline">
       <div class="timeline-row">
         <div class="timeline-time">~500 ms</div>
@@ -230,7 +234,7 @@
     </div>
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Two to three recorded minutes of kick plus micro-loop that sit convincingly next to the record’s section — and a logbook line with the slice length in ms.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Two to three recorded minutes of kick plus micro-loop that sit convincingly next to the record’s section — and a logbook line with the slice length in ms.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">If it fails</div>
@@ -244,7 +248,7 @@
     </div>
   </div>
 
-  <div class="decision-check">
+  </div></div><div class="decision-check">
     <div class="decision-check-label">Verify against the record</div>
     <p>A/B your section against “Over the Ice” — 10 seconds of yours, 10 of theirs — would a friend hesitate? Then answer two questions in writing.</p>
     <p><strong>Can a listener find your loop point?</strong></p>
@@ -276,5 +280,6 @@
 
 </div>
 
+  <script src="../nav.js"></script>
 </body>
 </html>

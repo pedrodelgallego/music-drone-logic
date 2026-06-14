@@ -6,7 +6,7 @@
 <title>Replicate: Capture at Syllable Scale — Akufen</title>
 <link rel="stylesheet" href="../styles.css">
 </head>
-<body>
+<body class="page-type-rep" id="top">
 
 <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
 <label for="nav-toggle" class="hamburger" aria-label="Menu">
@@ -16,6 +16,7 @@
 <nav class="nav" aria-label="Workshop contents">
   <p class="nav-label">Workshop</p>
   <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
   <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
   <a href="index.html" class="active"><span class="nav-num">02</span>Sources</a>
   <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
@@ -28,15 +29,18 @@
 </nav>
 
 <div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 2 · Sources</a><span class="breadcrumb-sep">/</span><span>Replicate: capture at syllable scale</span></nav>
 
   <header class="page-header">
     <div class="eyebrow">Block 2 · Replication lesson</div>
     <h1>Replicate: capture at syllable scale</h1>
     <p class="lede">Copy one clear section of Akufen — “Deck the House”. Build the main parts, record a short take, and compare it to the reference at the same loudness.</p>
   </header>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l2.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs">Labs</a><a href="lab-r2.html" data-section="rebuild">Rebuild</a><a href="index.html#capstone" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep" class="current">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
   <div class="callout">
     <div class="callout-label">The point</div>
-    <p>This drill teaches the record's core mechanism: hours of radio captured, chopped at syllable scale, mapped to pads, and quantized into a microhouse groove over a steady 4/4 kick. Do only the steps that make that mechanism audible.</p>
+    <p>This drill is about one technique: capture radio audio, chop it into sub-second fragments (shorter than a syllable), map those fragments to pads, and quantize them into a groove over a steady 4/4 kick. Do only the steps that make that technique audible.</p>
   </div>
 
   <table class="param-table">
@@ -50,7 +54,7 @@
 
   <div class="checklist">
     <div class="checklist-head">
-      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"></path></svg></div>
       <div class="checklist-label">Before you start</div>
     </div>
     <ul>
@@ -75,25 +79,25 @@
       <div class="step-num">Reference pass · 10 minutes</div>
       <h3 class="step-title">Listen before you build</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Listen to about one minute of Akufen — “Deck the House”. Choose the clearest short section. Write one short answer for each question before you touch the gear.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Listen to about one minute of Akufen — “Deck the House”. Choose the clearest short section. Write one short answer for each question before you touch the gear.</p>
     <ol class="rules-list">
       <li>How long is a typical slice?
-        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Sub-second - single words, half-syllables, horn stabs, a breath of a string section. Each is placed like a drum hit: it has an attack, a pitch, and a job, and it is gone before it can explain itself.</p></div></details>
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Under one second — single words, half-syllables, horn stabs, a brief snatch of strings. Each is placed like a drum hit: it has an attack, a pitch, and a rhythmic position, and it’s gone before your brain can parse what it was.</p></div></details>
       </li>
       <li>Where does the groove live — in the sources or in the cuts?
-        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>In the cuts. None of the source material was funky; the funk is the editing - where each fragment starts, how hard its attack lands on the grid, which sixteenth it occupies. The rhythm section is a pair of scissors.</p></div></details>
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>In the cuts. None of the source material was funky. The rhythm comes from editing — where each fragment starts, how hard its attack lands on the grid, which sixteenth note it occupies. The rhythm section is a pair of scissors.</p></div></details>
       </li>
       <li>How many distinct sources collide in one bar?
-        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Count and write a number - most people land between four and eight. Each arrives with its own capture history audible in miniature: its own room, hiss, level, and era. The bar is a crowd, not a band.</p></div></details>
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Count and write a number — most people land between four and eight. Each arrives with its own capture history audible in miniature: its own room sound, noise level, and era. The bar is a crowd, not a band.</p></div></details>
       </li>
       <li>Do the slices share a fidelity?
-        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>No - and that mismatch is the tell of micro-capture. A phone voice sits next to a studio horn next to FM compression, and nothing is smoothed to match.</p></div></details>
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>No — and that mismatch is part of the sound. A phone voice sits next to a studio horn next to FM radio compression, and nothing is smoothed to match.</p></div></details>
       </li>
       <li>What is the 4/4 kick doing under the confetti?
-        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Holding the floor still so the chaos can read as funk. With the kick steady on quarters, every fragment’s odd placement becomes syncopation against a known pulse; without it, the same confetti would be noise collage.</p></div></details>
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Holding the floor still so the chaos reads as rhythm. With a kick steady on every beat (every quarter note), each fragment’s odd placement becomes syncopation against a known pulse. Without the kick, the same fragments would be noise collage.</p></div></details>
       </li>
     </ol>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Now build the section you described. Do not build from memory.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Now build the section you described. Do not build from memory.</p>
   </div>
 
   <h2>Steps</h2>
@@ -111,14 +115,14 @@
 
   <div class="note-block">
     <ul>
-      <li><strong>Sound target:</strong> a solo-flip between <span class="code">REF</span> and your groove lands on the same confetti — sub-second fragments snapping on a sixteenth grid over a steady kick, each cut audibly from a different world — at matched loudness.</li>
-      <li>Every fragment under <span class="code">400 ms</span> — long enough to have a pitch, too short to have a meaning.</li>
-      <li>The fragment’s source meaning is irrelevant by design: choose cuts for attack and pitch only. If a slice still says a recognizable word, shorten it.</li>
-      <li>One steady 4/4 kick underneath, dead on the grid — the only citizen of the track with a fixed address.</li>
+      <li><strong>Sound target:</strong> a solo-flip between <span class="code">REF</span> and your groove lands on the same texture — sub-second fragments snapping on a sixteenth-note grid over a steady kick, each fragment clearly from a different source — at matched loudness.</li>
+      <li>Every fragment under <span class="code">400 ms</span> — long enough to carry a pitch, too short to carry meaning.</li>
+      <li>The fragment’s original meaning is irrelevant: choose cuts for attack quality and pitch, not content. If a slice still says a recognizable word, shorten it.</li>
+      <li>One steady 4/4 kick underneath, exactly on the grid — the only element with a fixed, predictable position.</li>
     </ul>
   </div>
 
-  <p style="color: var(--text-muted); font-size: 14.5px; max-width: 640px; margin: 0 auto 14px; text-align: center;">The piece’s machinery in one row: five minutes of radio captured once, thirty-plus sub-second cuts harvested from it, mapped across pads, and sequenced as rhythm-pitch confetti on a 16-step grid over a 4/4 kick at ≈ −12 dBFS.</p>
+  <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); max-width: 640px; margin: 0 auto 14px; text-align: center;">The whole system in one row: five minutes of radio captured once, thirty or more sub-second fragments cut from it, mapped to pads, and sequenced on a 16-step grid over a 4/4 kick at ≈ −12 dBFS.</p>
 
   <div class="signal-flow">
     <span class="signal-node">5 min of radio · one capture</span>
@@ -130,78 +134,78 @@
     <span class="signal-node">16-step groove + 4/4 kick · ≈ −12 dBFS</span>
   </div>
 
-  <p style="color: var(--text-muted); font-size: 14.5px; max-width: 640px; margin: 18px auto 14px; text-align: center;">One bar of the groove, drawn as a 16-step grid. The kick holds the quarters; the confetti lands between them, each slice a different shade because each comes from a different world. The right panel shows the same bar overfilled — the clutter you will build on purpose and then prune back.</p>
+  <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); max-width: 640px; margin: 18px auto 14px; text-align: center;">One bar of the groove as a 16-step grid. The kick holds the quarter notes; the fragments land between them, each a different shade because each comes from a different source. The right panel shows the same bar overfilled — the clutter you will deliberately build and then prune back.</p>
 
 <div class="signal-flow" style="display:block; padding:26px 16px;">
   <svg viewBox="0 0 760 230" width="100%" role="img" aria-label="A sixteen-step grid with kick on quarters and varied sub-second fragments between, next to an overfilled version showing clutter">
-    <rect x="20" y="20" width="345" height="170" rx="10" fill="#1f2530" stroke="#7dd3c0" stroke-width="1.2"/>
-    <rect x="395" y="20" width="345" height="170" rx="10" fill="#1f2530" stroke="#6e7681" stroke-width="1"/>
+    <rect x="20" y="20" width="345" height="170" rx="10" fill="#1f2530" stroke="#7dd3c0" stroke-width="1.2"></rect>
+    <rect x="395" y="20" width="345" height="170" rx="10" fill="#1f2530" stroke="#6e7681" stroke-width="1"></rect>
     <text x="192" y="44" fill="#7dd3c0" font-size="12" text-anchor="middle">the record’s density · it breathes</text>
     <text x="567" y="44" fill="#e6edf3" font-size="12" text-anchor="middle">two more slices · it clutters</text>
     <g>
-      <rect x="40" y="120" width="16" height="45" fill="#e6edf3"/>
-      <rect x="116" y="120" width="16" height="45" fill="#e6edf3"/>
-      <rect x="192" y="120" width="16" height="45" fill="#e6edf3"/>
-      <rect x="268" y="120" width="16" height="45" fill="#e6edf3"/>
-      <rect x="59" y="95" width="12" height="30" fill="#7dd3c0"/>
-      <rect x="97" y="80" width="12" height="22" fill="#8b949e"/>
-      <rect x="154" y="100" width="12" height="38" fill="#7dd3c0" opacity="0.7"/>
-      <rect x="211" y="85" width="12" height="26" fill="#6e7681"/>
-      <rect x="249" y="98" width="12" height="34" fill="#8b949e" opacity="0.7"/>
-      <rect x="306" y="78" width="12" height="24" fill="#7dd3c0" opacity="0.5"/>
-      <rect x="325" y="102" width="12" height="30" fill="#8b949e"/>
+      <rect x="40" y="120" width="16" height="45" fill="#e6edf3"></rect>
+      <rect x="116" y="120" width="16" height="45" fill="#e6edf3"></rect>
+      <rect x="192" y="120" width="16" height="45" fill="#e6edf3"></rect>
+      <rect x="268" y="120" width="16" height="45" fill="#e6edf3"></rect>
+      <rect x="59" y="95" width="12" height="30" fill="#7dd3c0"></rect>
+      <rect x="97" y="80" width="12" height="22" fill="#8b949e"></rect>
+      <rect x="154" y="100" width="12" height="38" fill="#7dd3c0" opacity="0.7"></rect>
+      <rect x="211" y="85" width="12" height="26" fill="#6e7681"></rect>
+      <rect x="249" y="98" width="12" height="34" fill="#8b949e" opacity="0.7"></rect>
+      <rect x="306" y="78" width="12" height="24" fill="#7dd3c0" opacity="0.5"></rect>
+      <rect x="325" y="102" width="12" height="30" fill="#8b949e"></rect>
     </g>
-    <line x1="40" y1="172" x2="345" y2="172" stroke="#6e7681" stroke-width="0.8"/>
+    <line x1="40" y1="172" x2="345" y2="172" stroke="#6e7681" stroke-width="0.8"></line>
     <text x="192" y="186" fill="#6e7681" font-size="9.5" text-anchor="middle">kick on quarters · 6–8 fragments · gaps audible</text>
     <g opacity="0.95">
-      <rect x="415" y="120" width="16" height="45" fill="#e6edf3"/>
-      <rect x="491" y="120" width="16" height="45" fill="#e6edf3"/>
-      <rect x="567" y="120" width="16" height="45" fill="#e6edf3"/>
-      <rect x="643" y="120" width="16" height="45" fill="#e6edf3"/>
-      <rect x="434" y="95" width="12" height="30" fill="#8b949e"/>
-      <rect x="453" y="88" width="12" height="24" fill="#6e7681"/>
-      <rect x="472" y="80" width="12" height="22" fill="#8b949e"/>
-      <rect x="510" y="100" width="12" height="38" fill="#6e7681"/>
-      <rect x="529" y="85" width="12" height="26" fill="#8b949e"/>
-      <rect x="548" y="92" width="12" height="30" fill="#6e7681"/>
-      <rect x="586" y="98" width="12" height="34" fill="#8b949e"/>
-      <rect x="605" y="78" width="12" height="24" fill="#6e7681"/>
-      <rect x="624" y="88" width="12" height="28" fill="#8b949e"/>
-      <rect x="662" y="102" width="12" height="30" fill="#6e7681"/>
-      <rect x="681" y="84" width="12" height="26" fill="#8b949e"/>
-      <rect x="700" y="95" width="12" height="32" fill="#6e7681"/>
+      <rect x="415" y="120" width="16" height="45" fill="#e6edf3"></rect>
+      <rect x="491" y="120" width="16" height="45" fill="#e6edf3"></rect>
+      <rect x="567" y="120" width="16" height="45" fill="#e6edf3"></rect>
+      <rect x="643" y="120" width="16" height="45" fill="#e6edf3"></rect>
+      <rect x="434" y="95" width="12" height="30" fill="#8b949e"></rect>
+      <rect x="453" y="88" width="12" height="24" fill="#6e7681"></rect>
+      <rect x="472" y="80" width="12" height="22" fill="#8b949e"></rect>
+      <rect x="510" y="100" width="12" height="38" fill="#6e7681"></rect>
+      <rect x="529" y="85" width="12" height="26" fill="#8b949e"></rect>
+      <rect x="548" y="92" width="12" height="30" fill="#6e7681"></rect>
+      <rect x="586" y="98" width="12" height="34" fill="#8b949e"></rect>
+      <rect x="605" y="78" width="12" height="24" fill="#6e7681"></rect>
+      <rect x="624" y="88" width="12" height="28" fill="#8b949e"></rect>
+      <rect x="662" y="102" width="12" height="30" fill="#6e7681"></rect>
+      <rect x="681" y="84" width="12" height="26" fill="#8b949e"></rect>
+      <rect x="700" y="95" width="12" height="32" fill="#6e7681"></rect>
     </g>
-    <line x1="415" y1="172" x2="720" y2="172" stroke="#6e7681" stroke-width="0.8"/>
+    <line x1="415" y1="172" x2="720" y2="172" stroke="#6e7681" stroke-width="0.8"></line>
     <text x="567" y="186" fill="#6e7681" font-size="9.5" text-anchor="middle">every gap filled · the funk drowns</text>
     <text x="380" y="216" fill="#6e7681" font-size="9.5" text-anchor="middle">the difference between the panels is two slices — density is a composed quantity</text>
   </svg>
 </div>
 
   <!-- PHASE 1 -->
-  <div class="step">
+  <div class="gear-switch"><input type="radio" name="gear" id="gear-hw" class="gear-radio" checked><input type="radio" name="gear" id="gear-sw" class="gear-radio"><input type="radio" name="gear" id="gear-tg" class="gear-radio"><div class="gear-labels"><span class="gear-lead">Your rig</span><label for="gear-hw">Digitakt II + Recorder</label><label for="gear-sw">Ableton Live only</label><label for="gear-tg">Octatrack MKII · target</label></div><div class="gear-scope"><div class="step">
     <div class="step-head">
       <div class="step-num">Phase 1 · ≈ 15 min</div>
       <h3 class="step-title">The reference and the net — capture five minutes of airwaves</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: the reference and the net — capture five minutes of airwaves. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: the reference and the net — capture five minutes of airwaves. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Live</span> <kbd>⌘ T</kbd>, rename <span class="code">REF</span>, drag “Deck the House” in, loop a representative minute, and trim with <span class="menu">Audio Effects → Utility</span> so it peaks ≈ <span class="code">−12 dBFS</span>.</li>
-        <li><span class="system-tag">Live</span> Pick a stream with variety — talk radio with ad breaks beats a music station;</li>
-        <li><span class="system-tag">Live</span> speech gives the best syllables.</li>
-        <li><span class="system-tag">Live + Recorder</span> Route it in: radio/phone into an M4 input, or resample the computer’s own output to a Live track.</li>
-        <li><span class="system-tag">Live + Recorder</span> Set capture gain on the loudest minute you can find while scanning, peaks ≈ <span class="code">−12 dBFS</span> — radio compression will hold most material near that ceiling.</li>
-        <li><span class="system-tag">Live</span> Record <strong>five unbroken minutes</strong> to a track named <span class="code">NET</span>.</li>
-        <li><span class="system-tag">Live</span> No pausing when something good or bad happens — the rule is everything gets caught.</li>
-        <li><span class="system-tag">Live</span> Listen back once at speed, dropping a marker (<kbd>⇧ ⌘ L</kbd> on a locator, or just notes on paper) wherever an attack jumps out — a plosive, a stab, a laugh, a ding.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li><kbd>⌘ T</kbd>, rename <span class="code">REF</span>, drag “Deck the House” in, loop a representative minute, and trim with <span class="menu">Audio Effects → Utility</span> so it peaks ≈ <span class="code">−12 dBFS</span>.</li>
+        <li>Pick a stream with variety — talk radio with ad breaks beats a music station;</li>
+        <li>speech gives the best syllables.</li>
+        <li>Route it in: radio/phone into an M4 input, or resample the computer’s own output to a Live track.</li>
+        <li>Set capture gain on the loudest minute you can find while scanning, peaks ≈ <span class="code">−12 dBFS</span> — radio compression will hold most material near that ceiling.</li>
+        <li>Record <strong>five unbroken minutes</strong> to a track named <span class="code">NET</span>.</li>
+        <li>No pausing when something good or bad happens — the rule is everything gets caught.</li>
+        <li>Listen back once at speed, dropping a marker (<kbd>⇧ ⌘ L</kbd> on a locator, or just notes on paper) wherever an attack jumps out — a plosive, a stab, a laugh, a ding.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Akufen — “Deck the House” (2002, My Way) and use audio clips, Simpler/Sampler, clip envelopes, and resampling.</li><li>Build the phase goal — <em>The reference and the net — capture five minutes of airwaves</em> — as the smallest Live set that proves <em>hours of radio captured, chopped at syllable scale, mapped to pads, and quantized into a microhouse groove over a steady 4/4 kick</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>melodic-percussive confetti — sub-second fragments of FM radio landing like drum hits, each carrying its own room and hiss, funky because of the cuts rather than the sources</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Octatrack MKII for this phase: translate <em>The reference and the net — capture five minutes of airwaves</em> into Flex/Static machines, slices, recorder buffers, scenes, the crossfader, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>hours of radio captured, chopped at syllable scale, mapped to pads, and quantized into a microhouse groove over a steady 4/4 kick</em>, not just the surface of Akufen — “Deck the House” (2002, My Way).</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">The record loops at ≈ −12 dBFS and five unbroken minutes of raw airwaves sit on <span class="code">NET</span>, peppered with markers where the attacks live.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">The record loops at ≈ −12 dBFS and five unbroken minutes of raw airwaves sit on <span class="code">NET</span>, peppered with markers where the attacks live.</p>
     </div>
 
     <div class="sub-block">
@@ -216,32 +220,31 @@
     </div>
   </div>
 
-  <!-- PHASE 2 -->
   <div class="step">
     <div class="step-head">
       <div class="step-num">Phase 2 · ≈ 30 min</div>
       <h3 class="step-title">The harvest — thirty cuts, none longer than a syllable</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: the harvest — thirty cuts, none longer than a syllable. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: the harvest — thirty cuts, none longer than a syllable. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
         <li>Work through your markers and cut <strong>30 or more fragments</strong> from <span class="code">NET</span>, each <span class="code">80–400 ms</span>: half-words, plosives, stabs, dings, one drum hit from a passing song.</li>
         <li>Cut tight to the attack — dead air in front of a slice is a timing error you will pay for at sequencing.</li>
         <li>Audition each cut twice as you make it: once asking “what is it saying?” — if you can answer, shorten it — and once asking “what note is it?” Log nothing;</li>
         <li>keep moving.</li>
         <li>Sort the survivors by job, not source: low thumps, mid barks, high ticks — the way you would sort a drum kit.</li>
-        <li><span class="system-tag">Digitakt II + Live</span> Map them: select all slices → right-click → <span class="menu">Slice to New MIDI Track</span> into a Drum Rack, or transfer your sixteen favorites to Digitakt II pads over USB.</li>
-        <li><span class="system-tag">Digitakt II + Live</span> Either bench works; pads under fingers audition faster.</li>
-        <li><span class="system-tag">Digitakt II + Live</span> Play the pads by hand for two minutes, no recording.</li>
-        <li><span class="system-tag">Digitakt II + Live</span> You are learning the kit you just built from the airwaves.</li>
+        <li>Map them: select all slices → right-click → <span class="menu">Slice to New MIDI Track</span> into a Drum Rack, or transfer your sixteen favorites to Digitakt II pads over USB.</li>
+        <li>Either bench works; pads under fingers audition faster.</li>
+        <li>Play the pads by hand for two minutes, no recording.</li>
+        <li>You are learning the kit you just built from the airwaves.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Akufen — “Deck the House” (2002, My Way) and use audio clips, Simpler/Sampler, clip envelopes, and resampling.</li><li>Build the phase goal — <em>The harvest — thirty cuts, none longer than a syllable</em> — as the smallest Live set that proves <em>hours of radio captured, chopped at syllable scale, mapped to pads, and quantized into a microhouse groove over a steady 4/4 kick</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>melodic-percussive confetti — sub-second fragments of FM radio landing like drum hits, each carrying its own room and hiss, funky because of the cuts rather than the sources</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Octatrack MKII for this phase: translate <em>The harvest — thirty cuts, none longer than a syllable</em> into Flex/Static machines, slices, recorder buffers, scenes, the crossfader, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>hours of radio captured, chopped at syllable scale, mapped to pads, and quantized into a microhouse groove over a steady 4/4 kick</em>, not just the surface of Akufen — “Deck the House” (2002, My Way).</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Thirty-plus sub-second fragments, none of which says anything anymore, sorted and mapped across pads — a drum kit whose every voice used to be a meaning.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Thirty-plus sub-second fragments, none of which says anything anymore, sorted and mapped across pads — a drum kit whose every voice used to be a meaning.</p>
     </div>
 
     <div class="sub-block">
@@ -256,34 +259,33 @@
     </div>
   </div>
 
-  <!-- PHASE 3 -->
   <div class="step">
     <div class="step-head">
       <div class="step-num">Phase 3 · ≈ 25 min</div>
       <h3 class="step-title">The groove — sixteen steps, kick on the floor, confetti between</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: the groove — sixteen steps, kick on the floor, confetti between. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: the groove — sixteen steps, kick on the floor, confetti between. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Digitakt II</span> Kick first: a plain house kick — from the Digitakt II’s pool or one low thump from your harvest — on steps <span class="code">1, 5, 9, 13</span> at <span class="code">126 BPM</span>.</li>
-        <li><span class="system-tag">Digitakt II</span> No variation, no fills.</li>
-        <li><span class="system-tag">Digitakt II</span> This citizen never moves.</li>
-        <li><span class="system-tag">Digitakt II + Live</span> Sequence a 16-step pattern with <strong>6–8 fragments per bar</strong>: program on the Digitakt II grid or draw in a Live MIDI clip, fully quantized — this groove’s snap comes from exactness, the opposite of the Burial lesson.</li>
-        <li><span class="system-tag">Digitakt II + Live</span> Place by ear-logic: a low bark answering the kick, ticks on offbeat sixteenths, one bright slice as the bar’s punchline.</li>
-        <li><span class="system-tag">Digitakt II + Live</span> Audition pitch neighbors — two slices a third apart start writing a melody by accident;</li>
-        <li><span class="system-tag">Digitakt II + Live</span> keep accidents that groove.</li>
-        <li><span class="system-tag">Digitakt II + Live</span> Leave gaps.</li>
-        <li><span class="system-tag">Digitakt II + Live</span> The record’s funk breathes through its empty sixteenths;</li>
-        <li><span class="system-tag">Digitakt II + Live</span> resist filling every step.</li>
-        <li><span class="system-tag">Digitakt II + Live</span> Loop it and adjust each fragment’s level until no slice dominates: the groove should read as one machine made of thirty worlds, peaks ≈ <span class="code">−12 dBFS</span>.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>Kick first: a plain house kick — from the Digitakt II’s pool or one low thump from your harvest — on steps <span class="code">1, 5, 9, 13</span> at <span class="code">126 BPM</span>.</li>
+        <li>No variation, no fills.</li>
+        <li>This citizen never moves.</li>
+        <li>Sequence a 16-step pattern with <strong>6–8 fragments per bar</strong>: program on the Digitakt II grid or draw in a Live MIDI clip, fully quantized — this groove’s snap comes from exactness, the opposite of the Burial lesson.</li>
+        <li>Place by ear-logic: a low bark answering the kick, ticks on offbeat sixteenths, one bright slice as the bar’s punchline.</li>
+        <li>Audition pitch neighbors — two slices a third apart start writing a melody by accident;</li>
+        <li>keep accidents that groove.</li>
+        <li>Leave gaps.</li>
+        <li>The record’s funk breathes through its empty sixteenths;</li>
+        <li>resist filling every step.</li>
+        <li>Loop it and adjust each fragment’s level until no slice dominates: the groove should read as one machine made of thirty worlds, peaks ≈ <span class="code">−12 dBFS</span>.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Akufen — “Deck the House” (2002, My Way) and use audio clips, Simpler/Sampler, clip envelopes, and resampling.</li><li>Build the phase goal — <em>The groove — sixteen steps, kick on the floor, confetti between</em> — as the smallest Live set that proves <em>hours of radio captured, chopped at syllable scale, mapped to pads, and quantized into a microhouse groove over a steady 4/4 kick</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>melodic-percussive confetti — sub-second fragments of FM radio landing like drum hits, each carrying its own room and hiss, funky because of the cuts rather than the sources</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Octatrack MKII for this phase: translate <em>The groove — sixteen steps, kick on the floor, confetti between</em> into Flex/Static machines, slices, recorder buffers, scenes, the crossfader, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>hours of radio captured, chopped at syllable scale, mapped to pads, and quantized into a microhouse groove over a steady 4/4 kick</em>, not just the surface of Akufen — “Deck the House” (2002, My Way).</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">A one-bar groove that moves like house and sparkles like static — kick steady, 6–8 fragments snapping on the grid, gaps audible, no slice explaining where it came from.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A one-bar groove that moves like house and sparkles like static — kick steady, 6–8 fragments snapping on the grid, gaps audible, no slice explaining where it came from.</p>
     </div>
 
     <div class="sub-block">
@@ -298,31 +300,30 @@
     </div>
   </div>
 
-  <!-- PHASE 4 -->
   <div class="step">
     <div class="step-head">
       <div class="step-num">Phase 4 · ≈ 20 min</div>
       <h3 class="step-title">The density experiment — overfill it, then prune to the record</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: the density experiment — overfill it, then prune to the record. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: the density experiment — overfill it, then prune to the record. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Digitakt II</span> Duplicate the pattern.</li>
-        <li><span class="system-tag">Digitakt II</span> On the copy, add fragments one at a time — after each addition, loop four bars and ask: still funky, or just busy?</li>
-        <li><span class="system-tag">Digitakt II</span> Log the count where it tips; most grooves clutter between 10 and 12 fragments per bar.</li>
-        <li><span class="system-tag">Digitakt II</span> Prune back down one slice at a time until the groove breathes again.</li>
-        <li><span class="system-tag">Digitakt II</span> Note which removals mattered — usually the slices that shared a register with a neighbor, not the loudest ones.</li>
-        <li><span class="system-tag">Live</span> Relisten to one bar of <span class="code">REF</span> and count its distinct fragments, twice on two different bars.</li>
-        <li><span class="system-tag">Logbook</span> Write the record’s number next to yours.</li>
-        <li><span class="system-tag">Digitakt II + Live</span> Settle your final pattern at the breathing count, extend to a 2-minute arrangement — drop the confetti for two bars, bring it back, mute the kick for one bar near the end — and play it end to end at ≈ <span class="code">−12 dBFS</span>.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>Duplicate the pattern.</li>
+        <li>On the copy, add fragments one at a time — after each addition, loop four bars and ask: still funky, or just busy?</li>
+        <li>Log the count where it tips; most grooves clutter between 10 and 12 fragments per bar.</li>
+        <li>Prune back down one slice at a time until the groove breathes again.</li>
+        <li>Note which removals mattered — usually the slices that shared a register with a neighbor, not the loudest ones.</li>
+        <li>Relisten to one bar of <span class="code">REF</span> and count its distinct fragments, twice on two different bars.</li>
+        <li>Write the record’s number next to yours.</li>
+        <li>Settle your final pattern at the breathing count, extend to a 2-minute arrangement — drop the confetti for two bars, bring it back, mute the kick for one bar near the end — and play it end to end at ≈ <span class="code">−12 dBFS</span>.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Akufen — “Deck the House” (2002, My Way) and use audio clips, Simpler/Sampler, clip envelopes, and resampling.</li><li>Build the phase goal — <em>The density experiment — overfill it, then prune to the record</em> — as the smallest Live set that proves <em>hours of radio captured, chopped at syllable scale, mapped to pads, and quantized into a microhouse groove over a steady 4/4 kick</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>melodic-percussive confetti — sub-second fragments of FM radio landing like drum hits, each carrying its own room and hiss, funky because of the cuts rather than the sources</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Octatrack MKII for this phase: translate <em>The density experiment — overfill it, then prune to the record</em> into Flex/Static machines, slices, recorder buffers, scenes, the crossfader, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>hours of radio captured, chopped at syllable scale, mapped to pads, and quantized into a microhouse groove over a steady 4/4 kick</em>, not just the surface of Akufen — “Deck the House” (2002, My Way).</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Two logged numbers — your clutter threshold and the record’s working density — and a two-minute groove sitting deliberately at the count where funk lives.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Two logged numbers — your clutter threshold and the record’s working density — and a two-minute groove sitting deliberately at the count where funk lives.</p>
     </div>
 
     <div class="sub-block">
@@ -337,15 +338,18 @@
     </div>
   </div>
 
+  </div></div><!-- PHASE 2 -->
+  <!-- PHASE 3 -->
+  <!-- PHASE 4 -->
   <div class="decision-check">
     <div class="decision-check-label">Verify against the record</div>
     <p>Solo-flip between <span class="code">REF</span> and your groove at matched loudness — phones at the mark, no level riding while you judge.</p>
     <ul>
       <li>Could a listener name any source fragment?
-        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>They should not have time. At 126 BPM a sixteenth lasts about 120 milliseconds, and recognition needs more runway than that — by the time the ear begins to parse “was that a word?”, three more fragments have landed. If any slice in your groove still gets recognized on a casual listen, it is too long or too alone: shorten it, or crowd it with a neighbor. Relisten to the record trying to transcribe any single word; the failure is the design working.</p></div></details>
+        <details class="”reveal”"><summary>Answer</summary><div class="”reveal-body”"><p>They shouldn’t have time. At 126 BPM a sixteenth note lasts about 120 milliseconds, and recognition needs more runway than that — by the time the ear starts asking “was that a word?”, three more fragments have already landed. If any slice in your groove gets recognized on a casual listen, it’s too long or too isolated. Shorten it, or put a neighbor close by. Try to transcribe a single word from the record; the fact that you can’t is the design working.</p></div></details>
       </li>
       <li>How many distinct fragments fit in one bar before it clutters?
-        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Your experiment gave you a number — typically the groove breathes at 6–8 and chokes past 10 — and your count of the record should land in the same neighborhood, bar after bar. That consistency is the finding: density on this record is a composed quantity, held like a tempo. The deeper point is that the limit is perceptual, not technical — the sampler would happily play sixteen slices; the ear files for divorce at eleven. Relisten and count one more bar; then check that your final pattern sits at the record’s number, not at your maximum.</p></div></details>
+        <details class="”reveal”"><summary>Answer</summary><div class="”reveal-body”"><p>Your experiment gave you a number — typically a groove breathes at 6–8 and chokes past 10. Your count of the record should land in the same range, bar after bar. That consistency is the finding: density on this record is a composed quantity, held steady like a tempo. The limit is perceptual, not technical — the sampler would happily play sixteen slices per bar; the ear stops following around eleven. Relisten and count one more bar; then check that your final pattern matches the record’s count, not your maximum.</p></div></details>
       </li>
     </ul>
   </div>
@@ -354,7 +358,7 @@
     <ul>
       <li><strong>Logbook — three-line miss list.</strong> <strong>Matched:</strong> where your version produces the record’s effect. <strong>Missed:</strong> where it doesn’t — and your best guess why. <strong>Change next:</strong> the one move you’d try first.</li>
       <li>These three lines feed the full miss list in <a href="lab-r2.html">replication lab R2</a>.</li>
-      <li><strong>Carries into the lab:</strong> back to Lab 007 — every slice in your groove kept its own capture history audible: its room, its hiss, its compression. A bar of micro-captures is thirty tiny generational fingerprints playing at once, which is the lab’s claim — the path is audible — multiplied by the number of fish in the net.</li>
+      <li><strong>Carries into the lab:</strong> back to Lab 007 — every slice in your groove kept its own capture history audible: its room sound, its noise, its compression. One bar of micro-captures is thirty tiny fingerprints playing at once, which multiplies the lab’s claim — the path a sound took is audible — by the number of fragments in the groove.</li>
     </ul>
   </div>
 
@@ -373,5 +377,6 @@
 
 </div>
 
+  <script src="../nav.js"></script>
 </body>
 </html>

@@ -6,7 +6,7 @@
 <title>Block 6 — Decision Systems</title>
 <link rel="stylesheet" href="../styles.css">
 </head>
-<body>
+<body class="page-type-block-index" id="top">
 
 <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
 <label for="nav-toggle" class="hamburger" aria-label="Menu">
@@ -16,6 +16,7 @@
 <nav class="nav" aria-label="Workshop contents">
   <p class="nav-label">Workshop</p>
   <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
   <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
   <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
   <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
@@ -28,20 +29,34 @@
 </nav>
 
 <div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><span>Block 6 · Decision Systems</span></nav>
 
   <header class="page-header">
     <div class="eyebrow">Block 6 — Decision Systems</div>
     <h1>What generates the choices</h1>
     <p class="lede">Generative rules, self-playing patches, chance operations, and tuning systems — designing behavior, then curating its output. Not &ldquo;random things happened.&rdquo; In every lab here you stop playing the notes and start authoring the thing that decides them — and you stay responsible for everything it decides.</p>
   </header>
-  <p class="block-meta">Year 2 · Domain E · Labs 023–026 · Replication R6 · Programme L6 · closes Year 2 at capstone C5</p>
+  <p class="block-meta">Year 2 · Domain E · Labs 023–026 · Replication R6 · Programme L6</p>
+
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview" class="current">Overview</a><a href="listening-l6.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs">Labs</a><a href="lab-r6.html" data-section="rebuild">Rebuild</a><a href="capstone-c5.html" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
 
   <div class="callout">
     <div class="callout-label">Engineering focus</div>
     <p>Audio path and control path, drawn as <strong>two separate diagrams</strong> — one shows where sound travels, the other shows where decisions travel, and confusing them is this block&rsquo;s signature fault. Every lab declares three things before sound is made: <strong>state</strong> (what does the system remember from one moment to the next?), <strong>seed</strong> (can the result be reproduced — and if not, what exactly is lost?), and <strong>boundary</strong> (what may the system decide, and what is forbidden to it?). Every self-running lab passes a <strong>10-minute unattended test</strong>: hands off, doors closed, and the system must still be making defensible music when you return.</p>
   </div>
 
-  <h2>Working order</h2>
+  <div class="callout">
+    <div class="callout-label">No hardware? Two escape hatches</div>
+    <p>Nothing in this block requires a studio rig — the decisions are what matter, and decisions are cheap to host. The <strong>software-modular path</strong> is <strong>VCV Rack</strong> (free): a complete modular synthesizer on screen, where sequencers, random sources, clock dividers, and cross-patched modulators carry every rule the labs ask for — lab 024&rsquo;s organism and lab 024b&rsquo;s west-coast voice live here natively. The <strong>code path</strong> is for authoring rules as language: <strong>Pure Data</strong> (free, visual patching), or <strong>SuperCollider</strong> / <strong>TidalCycles</strong> for those who want to <em>write</em> the generator — the natural home for algorithmic work and the engine behind the livecoding scene. Pick a path per lab; the state / seed / boundary discipline is identical across all of them.</p>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Which domain are decisions traveling in?</div>
+    <p>The modular work in this block lives in the <strong>CV domain</strong> — control voltage and gate, not audio and not MIDI notes. The four signal domains (CV, gate, MIDI, audio) and the audio-path-versus-control-path discipline this whole block depends on were laid down in <a href="../block-1/lab-001.html">Block 1 · Lab 001 — Signal Path &amp; Gain Staging</a>; revisit its two-map drawing before you patch an organism here. A modulator aimed at another modulator is a CV decision; the same idea drawn as MIDI is a different domain with different failure modes. Keep them straight on the control diagram.</p>
+  </div>
+
+  <h2 id="working-order">Working order</h2>
 
   <div class="checklist">
     <div class="checklist-head">
@@ -52,7 +67,9 @@
       <li><a href="listening-l6.html">Programme L6</a> — run the three listening sessions first and name one stolen principle</li>
       <li><a href="lab-023.html">Lab 023</a> — write sequencing rules that generate material; curate what they produce</li>
       <li><a href="lab-024.html">Lab 024</a> — patch a modulation organism that plays itself; record hours, keep minutes</li>
+      <li><a href="lab-024b.html">Lab 024b</a> — étude: build the west-coast (Buchla) voice — wavefolding and the low-pass gate, in VCV Rack</li>
       <li><a href="lab-025.html">Lab 025</a> — let chance decide structure, inside a boundary you wrote first</li>
+      <li><a href="lab-025b.html">Lab 025b</a> — write one indeterminate score, realize it twice, and read the gap between the runs</li>
       <li><a href="lab-026.html">Lab 026</a> — design a tuning system and let its interference do the moving</li>
       <li><a href="lab-r6.html">R6</a> — reimplement one L6 generative system and verify the analysis by behavior</li>
       <li><a href="capstone-c5.html">Capstone C5</a> — the Year 2 capstone: the autonomous installation, the reprise, the year synthesis</li>
@@ -66,14 +83,14 @@
     </ul>
   </div>
 
-  <h2>Listening programme L6 — systems &amp; chance</h2>
+  <h2 id="listening-programme">Listening programme L6 — systems &amp; chance</h2>
 
   <div class="step">
     <div class="step-head">
       <div class="step-num">Session 1 · Records</div>
       <h3 class="step-title">Four ways to delegate a decision</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Four answers to the same question — what happens when the composer stops choosing the notes? Analyze each with the six-question frame, then compare what each system was allowed to decide.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Four answers to the same question — what happens when the composer stops choosing the notes? Analyze each with the six-question frame, then compare what each system was allowed to decide.</p>
     <table class="param-table">
       <tr><td>John Cage — &ldquo;Music of Changes&rdquo;</td><td>chance as the composer&rsquo;s discipline</td></tr>
       <tr><td>Brian Eno — &ldquo;2/1&rdquo; (<em>Music for Airports</em>)</td><td>co-prime loops as a chance machine</td></tr>
@@ -91,7 +108,7 @@
       <div class="step-num">Session 2 · Samples</div>
       <h3 class="step-title">Deconstruction — extract the rules</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Pick one generative work and write down the rules that could have produced it: what each rule decides, what the system remembers, whether two runs could ever match. The worksheet becomes the blueprint for <a href="lab-r6.html">replication lab R6</a> — you will build these rules and run them.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Pick one generative work and write down the rules that could have produced it: what each rule decides, what the system remembers, whether two runs could ever match. The worksheet becomes the blueprint for <a href="lab-r6.html">replication lab R6</a> — you will build these rules and run them.</p>
   </div>
 
   <div class="step">
@@ -99,16 +116,16 @@
       <div class="step-num">Session 3 · Video</div>
       <h3 class="step-title">Cage lecturing, Eno explaining, the Dream House running</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Cage chance-operations lecture footage, Eno&rsquo;s generative-music talks, and footage from inside La Monte Young and Marian Zazeela&rsquo;s Dream House — watched for one distinction only: what the system decides versus what the human decided in advance.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Cage chance-operations lecture footage, Eno&rsquo;s generative-music talks, and footage from inside La Monte Young and Marian Zazeela&rsquo;s Dream House — watched for one distinction only: what the system decides versus what the human decided in advance.</p>
   </div>
 
   <div class="note-block">
     <ul>
-      <li><strong>Deliverable:</strong> written system analyses (six questions per reference) + <strong>one stolen principle</strong> — a structural idea, never material, named in advance and evaluated at C5. Full briefs and worksheets: <a href="listening-l6.html">programme L6</a> <span class="status">scaffold</span></li>
+      <li><strong>Deliverable:</strong> written system analyses (six questions per reference) + <strong>one stolen principle</strong> — a structural idea, never material, named in advance and evaluated at C5. Full briefs and worksheets: <a href="listening-l6.html">programme L6</a></li>
     </ul>
   </div>
 
-  <h2>Labs</h2>
+  <h2 id="labs">Labs</h2>
 
   <table>
     <tr><th>#</th><th>Lab</th><th>Type</th><th>Status</th></tr>
@@ -117,59 +134,89 @@
       <td><span class="lab-title"><a href="lab-023.html">Rule-Based Sequencing</a></span>
         <span class="lab-context">context: ambient — T · S3 · D4 E2 M1 F2 — generative logic: rules produce material, the student curates; state, seed, and boundary declared before the first note</span></td>
       <td>Track</td>
-      <td><span class="status">scaffold</span></td>
+      <td><span class="status">complete</span></td>
     </tr>
     <tr>
       <td class="num">024</td>
       <td><span class="lab-title"><a href="lab-024.html">The Modulation Organism</a></span>
         <span class="lab-context">self-playing patch — T · S3 · D5 E3 M1 F3 — cross-modulating sources left alone; record hours, curate minutes; the 10-minute unattended test taught here</span></td>
       <td>Track</td>
-      <td><span class="status">scaffold</span></td>
+      <td><span class="status">complete</span></td>
+    </tr>
+    <tr>
+      <td class="num">024b</td>
+      <td><span class="lab-title"><a href="lab-024b.html">West-Coast Voice</a></span>
+        <span class="lab-context">étude — É6 — west-coast (Buchla) synthesis in VCV Rack: wavefolding for complexity, the low-pass gate for articulation; the Folder/LPG Test</span></td>
+      <td>Étude</td>
+      <td><span class="status">complete</span></td>
     </tr>
     <tr>
       <td class="num">025</td>
       <td><span class="lab-title"><a href="lab-025.html">Chance Operations</a></span>
         <span class="lab-context">context: aleatoric — T · S3 · D4 E3 M2 F2 — chance decides structure inside a written boundary; the student as performer-curator; seed and reproducibility under test</span></td>
       <td>Track</td>
-      <td><span class="status">scaffold</span></td>
+      <td><span class="status">complete</span></td>
+    </tr>
+    <tr>
+      <td class="num">025b</td>
+      <td><span class="lab-title"><a href="lab-025b.html">The Score as System</a></span>
+        <span class="lab-context">context: indeterminate — T · S2 — one indeterminate score realized twice; the gap between runs reveals what the rules fixed and what they left free</span></td>
+      <td>Track</td>
+      <td><span class="status">complete</span></td>
     </tr>
     <tr>
       <td class="num">026</td>
       <td><span class="lab-title"><a href="lab-026.html">Tuning as System</a></span>
         <span class="lab-context">context: drone — T · S3 · D3 E2 M1 F3 — microtonality as designed constraint; the tuning table is the rule set; beating and interference as material</span></td>
       <td>Track</td>
-      <td><span class="status">scaffold</span></td>
+      <td><span class="status">complete</span></td>
     </tr>
     <tr>
       <td class="num">R6</td>
       <td><span class="lab-title"><a href="lab-r6.html">Rebuild the Rules</a></span>
         <span class="lab-context">R · S3 — a generative system from an L6 reference, reimplemented from your own rule-extraction worksheet and left to run — <strong>compare behavior, not output</strong>; replica filed as study + miss list</span></td>
       <td>Replication</td>
-      <td><span class="status">scaffold</span></td>
+      <td><span class="status">complete</span></td>
     </tr>
   </table>
 
-  <h2>Replication lessons — one per reference</h2>
+  <h2 id="replication-lessons">Replication lessons — one per reference</h2>
 
   <div class="note-block">
     <ul>
-      <li><strong>Forthcoming — roughly forty lessons, one per reference.</strong> Every listening reference across labs 023–026 and programme L6 will carry its own 60–120 minute step-by-step replication lesson, spread across each lab&rsquo;s cycle. Block 6 picks fresh works; where a reference builds on an earlier block&rsquo;s lesson, it cites it instead of repeating it — Spiegel here cites Block 1&rsquo;s <a href="../block-1/rep-patchwork.html"><em>Patchwork</em></a> lesson as a prerequisite. <span class="status">forthcoming</span></li>
+      <li><strong>Roughly forty lessons, one per reference.</strong> Every listening reference across labs 023–026 and programme L6 carries its own 60–120 minute step-by-step replication lesson, spread across each lab&rsquo;s cycle. This block picks fresh works; where a reference builds on an earlier block&rsquo;s lesson, it cites it instead of repeating it — Spiegel here cites Block 1&rsquo;s <a href="../block-1/rep-patchwork.html"><em>Patchwork</em></a> lesson as a prerequisite.</li>
     </ul>
   </div>
 
-  <h2>Capstone C5 — Year 2</h2>
+  <div class="callout">
+    <div class="callout-label">Voice — what are you refusing?</div>
+    <p>A decision system is defined as much by what it forbids as by what it permits — and so is an artistic voice. As you move through this block, keep one running answer in the logbook: <strong>what are you refusing?</strong> Not which sounds you like, but which you have decided your systems will never make — the grid you will not snap to, the resolution you will not grant, the prettiness you will not allow, the chance you will not take. The forbidden list <em>is</em> the composition, the labs keep saying; at the scale of a year, the forbidden list is the beginning of a voice. Name one refusal now, and watch whether the block changes it.</p>
+  </div>
+
+  <h2 id="capstone">Capstone C5 — Year 2</h2>
 
   <div class="step">
     <div class="step-head">
-      <div class="step-num">Capstone C5 · Year capstone</div>
+      <div class="step-num">Capstone C5</div>
       <h3 class="step-title">The autonomous installation</h3>
     </div>
-    <p style="color: var(--text-muted); text-align: center; margin: 0;">A system that runs <strong>30+ minutes unattended</strong> — the lab 024 test scaled up — with its full system spec documented: both diagrams, and the state / seed / boundary table. Plus a reprise of a Year 1 piece rebuilt with the Year 2 toolkit, and the year synthesis. Two cycles; requires Blocks 4–6 and L4–L6 complete. Brief: <a href="capstone-c5.html">capstone C5</a> <span class="status">scaffold</span></p>
+    <p style="color: var(--text-muted); text-align: center; margin: 0;">A system that runs <strong>30+ minutes unattended</strong> — the lab 024 test scaled up — with its full system spec documented: both diagrams, and the state / seed / boundary table. Plus a reprise of a Year 1 piece rebuilt with the Year 2 toolkit, and the year synthesis. Brief: <a href="capstone-c5.html">capstone C5</a> <span class="status">complete</span></p>
   </div>
 
   <div class="tag-row">
     <span class="tag">gear at this block: torso t-1</span>
     <span class="tag">make noise strega</span>
+  </div>
+
+  <h2>Deep references — Lab Notes</h2>
+  <div class="note-block">
+    <ul>
+      <li><strong><a href="../../guide-b6-001/index.html">Lab Note B6-001 — Rule-based Sequencing</a></strong> — patterns built from rules, not by hand.</li>
+      <li><strong><a href="../../guide-b6-002/index.html">Lab Note B6-002 — Self-playing Patches</a></strong> — patches that run themselves.</li>
+      <li><strong><a href="../../guide-b6-003/index.html">Lab Note B6-003 — Chance Operations</a></strong> — using randomness as a compositional tool.</li>
+      <li><strong><a href="../../guide-b6-004/index.html">Lab Note B6-004 — Tuning</a></strong> — choosing and using tuning systems.</li>
+      <li><strong><a href="../../guide-b6-005/index.html">Lab Note B6-005 — The Score</a></strong> — writing instructions that produce the music.</li>
+    </ul>
   </div>
 
   <div class="page-nav">
@@ -187,5 +234,6 @@
 
 </div>
 
+  <script src="../nav.js"></script>
 </body>
 </html>

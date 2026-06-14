@@ -6,7 +6,7 @@
 <title>Replicate: the note your speakers decide — LFO</title>
 <link rel="stylesheet" href="../styles.css">
 </head>
-<body>
+<body class="page-type-rep" id="top">
 
 <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
 <label for="nav-toggle" class="hamburger" aria-label="Menu">
@@ -16,6 +16,7 @@
 <nav class="nav" aria-label="Workshop contents">
   <p class="nav-label">Workshop</p>
   <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
   <a href="index.html" class="active"><span class="nav-num">01</span>The Bench</a>
   <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
   <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
@@ -28,12 +29,15 @@
 </nav>
 
 <div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 1 · The Bench</a><span class="breadcrumb-sep">/</span><span>Replicate: the note your speakers decide</span></nav>
 
   <header class="page-header">
     <div class="eyebrow">Block 1 · Replication lesson</div>
     <h1>Replicate: the note your speakers decide</h1>
     <p class="lede">Copy one clear section of LFO — “LFO”. Build the main parts, record a short take, and compare it to the reference at the same loudness.</p>
   </header>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l1.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs">Labs</a><a href="lab-r1.html" data-section="rebuild">Rebuild</a><a href="capstone-c1.html" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep" class="current">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
   <div class="callout">
     <div class="callout-label">The point</div>
     <p>This drill teaches the record's core mechanism: a sub-register bassline with a brief higher blip as its advertisement, placed tight on the grid against a dry beat. Do only the steps that make that mechanism audible.</p>
@@ -50,7 +54,7 @@
 
   <div class="checklist">
     <div class="checklist-head">
-      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"></path></svg></div>
       <div class="checklist-label">Before you start</div>
     </div>
     <ul>
@@ -75,7 +79,7 @@
       <div class="step-num">Reference pass · 10 minutes</div>
       <h3 class="step-title">Listen before you build</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Listen to about one minute of LFO — “LFO”. Choose the clearest short section. Write one short answer for each question before you touch the gear.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Listen to about one minute of LFO — “LFO”. Choose the clearest short section. Write one short answer for each question before you touch the gear.</p>
     <ol class="rules-list">
       <li>On the headphones — what is the loudest element of the track?
         <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>The bass, and it is not close. The sub carries the track from below - more weight than the kick, more presence than the bleeps - and some of what it does arrives as pressure rather than tone.</p></div></details>
@@ -93,7 +97,7 @@
         <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Because the record was aimed at big systems - club and sound-system playback, where 50 Hz is not a gap but the main event - and it hedged the bet with the blip for everything smaller.</p></div></details>
       </li>
     </ol>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Now build the section you described. Do not build from memory.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Now build the section you described. Do not build from memory.</p>
   </div>
 
   <h2>Steps</h2>
@@ -119,7 +123,7 @@
     </ul>
   </div>
 
-  <p style="color: var(--text-muted); font-size: 14.5px; max-width: 640px; margin: 0 auto 14px; text-align: center;">The record’s machinery in one row: a sine-heavy bassline whose fundamental sits around 40–60 Hz, a short brighter blip at each note’s start, a dry drum-machine beat holding the grid, and a balance struck in the knowledge that most speakers will never play the fundamental.</p>
+  <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); max-width: 640px; margin: 0 auto 14px; text-align: center;">The record’s machinery in one row: a sine-heavy bassline whose fundamental sits around 40–60 Hz, a short brighter blip at each note’s start, a dry drum-machine beat holding the grid, and a balance struck in the knowledge that most speakers will never play the fundamental.</p>
 
   <div class="signal-flow">
     <span class="signal-node">MicroFreak · sub patch · 40–60 Hz</span>
@@ -131,61 +135,61 @@
     <span class="signal-node">one print · three playback paths</span>
   </div>
 
-  <p style="color: var(--text-muted); font-size: 14.5px; max-width: 640px; margin: 18px auto 14px; text-align: center;">The same print on two playback paths, drawn as spectra. On the left, what is in the file: the sub fundamental towers over everything. On the right, what the laptop’s driver can move: everything below its roll-off vanishes, and the blip becomes the bassline’s only witness. The meter reads the left panel; the listener gets the right one.</p>
+  <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); max-width: 640px; margin: 18px auto 14px; text-align: center;">The same print on two playback paths, drawn as spectra. On the left, what is in the file: the sub fundamental towers over everything. On the right, what the laptop’s driver can move: everything below its roll-off vanishes, and the blip becomes the bassline’s only witness. The meter reads the left panel; the listener gets the right one.</p>
 
 <div class="signal-flow" style="display:block; padding:26px 16px;">
   <svg viewBox="0 0 760 230" width="100%" role="img" aria-label="Spectrum of the print versus what a laptop speaker reproduces — the sub fundamental vanishes, the blip survives">
-    <rect x="20" y="20" width="350" height="170" rx="10" fill="#1f2530" stroke="#6e7681" stroke-width="1"/>
-    <rect x="390" y="20" width="350" height="170" rx="10" fill="#1f2530" stroke="#7dd3c0" stroke-width="1.2"/>
+    <rect x="20" y="20" width="350" height="170" rx="10" fill="#1f2530" stroke="#6e7681" stroke-width="1"></rect>
+    <rect x="390" y="20" width="350" height="170" rx="10" fill="#1f2530" stroke="#7dd3c0" stroke-width="1.2"></rect>
     <text x="195" y="44" fill="#e6edf3" font-size="12" text-anchor="middle">what is printed</text>
     <text x="565" y="44" fill="#7dd3c0" font-size="12" text-anchor="middle">what the laptop plays</text>
-    <line x1="44" y1="166" x2="346" y2="166" stroke="#6e7681" stroke-width="1"/>
-    <line x1="414" y1="166" x2="716" y2="166" stroke="#6e7681" stroke-width="1"/>
-    <rect x="70" y="62" width="26" height="104" fill="#7dd3c0"/>
+    <line x1="44" y1="166" x2="346" y2="166" stroke="#6e7681" stroke-width="1"></line>
+    <line x1="414" y1="166" x2="716" y2="166" stroke="#6e7681" stroke-width="1"></line>
+    <rect x="70" y="62" width="26" height="104" fill="#7dd3c0"></rect>
     <text x="83" y="180" fill="#6e7681" font-size="9.5" text-anchor="middle">sub · 50 Hz</text>
-    <rect x="150" y="122" width="18" height="44" fill="#8b949e"/>
+    <rect x="150" y="122" width="18" height="44" fill="#8b949e"></rect>
     <text x="159" y="180" fill="#6e7681" font-size="9.5" text-anchor="middle">blip</text>
-    <rect x="220" y="134" width="18" height="32" fill="#8b949e"/>
-    <rect x="282" y="142" width="18" height="24" fill="#8b949e"/>
+    <rect x="220" y="134" width="18" height="32" fill="#8b949e"></rect>
+    <rect x="282" y="142" width="18" height="24" fill="#8b949e"></rect>
     <text x="260" y="180" fill="#6e7681" font-size="9.5" text-anchor="middle">beat · bleeps</text>
-    <rect x="440" y="62" width="26" height="104" fill="none" stroke="#6e7681" stroke-width="1" stroke-dasharray="4 3"/>
+    <rect x="440" y="62" width="26" height="104" fill="none" stroke="#6e7681" stroke-width="1" stroke-dasharray="4 3"></rect>
     <text x="453" y="180" fill="#6e7681" font-size="9.5" text-anchor="middle">sub · gone</text>
-    <rect x="520" y="122" width="18" height="44" fill="#7dd3c0"/>
+    <rect x="520" y="122" width="18" height="44" fill="#7dd3c0"></rect>
     <text x="529" y="180" fill="#6e7681" font-size="9.5" text-anchor="middle">blip</text>
-    <rect x="590" y="134" width="18" height="32" fill="#8b949e"/>
-    <rect x="652" y="142" width="18" height="24" fill="#8b949e"/>
+    <rect x="590" y="134" width="18" height="32" fill="#8b949e"></rect>
+    <rect x="652" y="142" width="18" height="24" fill="#8b949e"></rect>
     <text x="630" y="180" fill="#6e7681" font-size="9.5" text-anchor="middle">beat · bleeps</text>
-    <path d="M414 166 Q 470 160 500 96 L 716 70" fill="none" stroke="#6e7681" stroke-width="1" stroke-dasharray="3 3"/>
+    <path d="M414 166 Q 470 160 500 96 L 716 70" fill="none" stroke="#6e7681" stroke-width="1" stroke-dasharray="3 3"></path>
     <text x="195" y="210" fill="#6e7681" font-size="9.5" text-anchor="middle">the meter reads this panel</text>
     <text x="565" y="210" fill="#6e7681" font-size="9.5" text-anchor="middle">dashed curve: the driver’s roll-off — below it, nothing moves</text>
   </svg>
 </div>
 
   <!-- PHASE 1 -->
-  <div class="step">
+  <div class="gear-switch"><input type="radio" name="gear" id="gear-hw" class="gear-radio" checked><input type="radio" name="gear" id="gear-sw" class="gear-radio"><input type="radio" name="gear" id="gear-tg" class="gear-radio"><div class="gear-labels"><span class="gear-lead">Your rig</span><label for="gear-hw">MicroFreak + Digitakt II + Recorder</label><label for="gear-sw">Ableton Live only</label><label for="gear-tg">Analog Rytm MKII · target</label></div><div class="gear-scope"><div class="step">
     <div class="step-head">
       <div class="step-num">Phase 1 · ≈ 15 min</div>
       <h3 class="step-title">The reference, three ways</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: the reference, three ways. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: the reference, three ways. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">MicroFreak + Live</span> <kbd>⌘ T</kbd>, rename the track <span class="code">REF</span> (<kbd>⌘ R</kbd>), drag “LFO” in, loop the most bass-exposed 8–16 bars, and trim with a <span class="menu">Utility</span> to peaks ≈ <span class="code">−12 dBFS</span>.</li>
-        <li><span class="system-tag">Live</span> Tap Live’s tempo from the loop.</li>
-        <li><span class="system-tag">Live + Logbook</span> Drop <span class="menu">Audio Effects → Spectrum</span> on <span class="code">REF</span> and read where the bass fundamental sits — note the Hz number in the logbook.</li>
-        <li><span class="system-tag">Live + Logbook</span> Play one minute on the DT 990s at the mark.</li>
-        <li><span class="system-tag">Logbook</span> One logbook line: what the track is about on this path.</li>
-        <li><span class="system-tag">Recorder</span> Play the same minute on the laptop speaker, then the phone speaker, with Spectrum still in view.</li>
-        <li><span class="system-tag">Recorder</span> One line per path — and note that the meter and Spectrum keep showing the bass that the room no longer contains.</li>
-        <li><span class="system-tag">Live</span> Keep <span class="code">REF</span> one solo-press away for the whole lesson.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li><kbd>⌘ T</kbd>, rename the track <span class="code">REF</span> (<kbd>⌘ R</kbd>), drag “LFO” in, loop the most bass-exposed 8–16 bars, and trim with a <span class="menu">Utility</span> to peaks ≈ <span class="code">−12 dBFS</span>.</li>
+        <li>Tap Live’s tempo from the loop.</li>
+        <li>Drop <span class="menu">Audio Effects → Spectrum</span> on <span class="code">REF</span> and read where the bass fundamental sits — note the Hz number in the logbook.</li>
+        <li>Play one minute on the DT 990s at the mark.</li>
+        <li>One logbook line: what the track is about on this path.</li>
+        <li>Play the same minute on the laptop speaker, then the phone speaker, with Spectrum still in view.</li>
+        <li>One line per path — and note that the meter and Spectrum keep showing the bass that the room no longer contains.</li>
+        <li>Keep <span class="code">REF</span> one solo-press away for the whole lesson.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from LFO — “LFO” (1990) and use Drum Rack, MIDI clips, Groove Pool, and clip automation.</li><li>Build the phase goal — <em>The reference, three ways</em> — as the smallest Live set that proves <em>a sub-register bassline with a brief higher blip as its advertisement, placed tight on the grid against a dry beat</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>a bass hook whose fundamental does not exist on small speakers; the record changes identity with the playback path</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>The reference, three ways</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>a sub-register bassline with a brief higher blip as its advertisement, placed tight on the grid against a dry beat</em>, not just the surface of LFO — “LFO” (1990).</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Three logbook lines describing what sounds like three different records, a Hz number for the record’s fundamental, and the lesson’s central disagreement witnessed: the meter reads the print while each speaker decides the experience.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Three logbook lines describing what sounds like three different records, a Hz number for the record’s fundamental, and the lesson’s central disagreement witnessed: the meter reads the print while each speaker decides the experience.</p>
     </div>
 
     <div class="sub-block">
@@ -200,31 +204,30 @@
     </div>
   </div>
 
-  <!-- PHASE 2 -->
   <div class="step">
     <div class="step-head">
       <div class="step-num">Phase 2 · ≈ 20 min</div>
       <h3 class="step-title">The sub voice — one octave below comfort</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: the sub voice — one octave below comfort. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: the sub voice — one octave below comfort. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">MicroFreak</span> MicroFreak: <span class="code">Type</span> → <span class="code">V.Analog</span>, filter cutoff low so the wave is nearly pure — weight, no edge.</li>
-        <li><span class="system-tag">MicroFreak</span> (In the box: an <span class="menu">Operator</span> sine.) No LFO, no movement in the patch.</li>
-        <li><span class="system-tag">Logbook</span> Write a two-bar bassline in the record’s register — notes between <span class="code">E1</span> and <span class="code">B1</span> (≈ 41–62 Hz).</li>
-        <li><span class="system-tag">Live</span> Verify the real pitch with Spectrum or Live’s <span class="menu">Tuner</span>; octave mistakes are the rule down here, not the exception.</li>
-        <li><span class="system-tag">Live</span> Short notes, clean releases — the hook is rhythmic, and overlapping sub notes turn into a continuous rumble that no path survives.</li>
-        <li><span class="system-tag">Live</span> Set the M4 input-1 gain on a held note, peaks ≈ <span class="code">−12 dBFS</span> — the Lab 001 ledger practice;</li>
-        <li><span class="system-tag">Live</span> the ear is the wrong instrument for this register, so trust the meter for level.</li>
-        <li><span class="system-tag">Digitakt II + Live</span> Record the line into a track named <span class="code">SUB</span>, tight on the grid — quantize the take, no swing.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>MicroFreak: <span class="code">Type</span> → <span class="code">V.Analog</span>, filter cutoff low so the wave is nearly pure — weight, no edge.</li>
+        <li>(In the box: an <span class="menu">Operator</span> sine.) No LFO, no movement in the patch.</li>
+        <li>Write a two-bar bassline in the record’s register — notes between <span class="code">E1</span> and <span class="code">B1</span> (≈ 41–62 Hz).</li>
+        <li>Verify the real pitch with Spectrum or Live’s <span class="menu">Tuner</span>; octave mistakes are the rule down here, not the exception.</li>
+        <li>Short notes, clean releases — the hook is rhythmic, and overlapping sub notes turn into a continuous rumble that no path survives.</li>
+        <li>Set the M4 input-1 gain on a held note, peaks ≈ <span class="code">−12 dBFS</span> — the Lab 001 ledger practice;</li>
+        <li>the ear is the wrong instrument for this register, so trust the meter for level.</li>
+        <li>Record the line into a track named <span class="code">SUB</span>, tight on the grid — quantize the take, no swing.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from LFO — “LFO” (1990) and use Operator or Wavetable into Auto Filter, with clip automation.</li><li>Build the phase goal — <em>The sub voice — one octave below comfort</em> — as the smallest Live set that proves <em>a sub-register bassline with a brief higher blip as its advertisement, placed tight on the grid against a dry beat</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>a bass hook whose fundamental does not exist on small speakers; the record changes identity with the playback path</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>The sub voice — one octave below comfort</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>a sub-register bassline with a brief higher blip as its advertisement, placed tight on the grid against a dry beat</em>, not just the surface of LFO — “LFO” (1990).</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">A printed sub line at ≈ −12 dBFS whose Spectrum peak sits where the logbook says the record’s does — felt clearly on the DT 990s, and (check now) essentially absent from the laptop speaker. That absence is correct and is the problem phase 3 solves.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A printed sub line at ≈ −12 dBFS whose Spectrum peak sits where the logbook says the record’s does — felt clearly on the DT 990s, and (check now) essentially absent from the laptop speaker. That absence is correct and is the problem phase 3 solves.</p>
     </div>
 
     <div class="sub-block">
@@ -239,32 +242,31 @@
     </div>
   </div>
 
-  <!-- PHASE 3 -->
   <div class="step">
     <div class="step-head">
       <div class="step-num">Phase 3 · ≈ 20 min</div>
       <h3 class="step-title">The blip and the beat</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: the blip and the beat. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: the blip and the beat. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Live</span> Duplicate the <span class="code">SUB</span> MIDI to a new track named <span class="code">BLIP</span>, same notes one or two octaves up.</li>
-        <li><span class="system-tag">Live</span> Same patch family with the filter more open, or a second Operator with a brighter wave.</li>
-        <li><span class="system-tag">Live</span> Make it short: fast attack, decay well under the note length — a flick at each note’s front, not a doubled melody.</li>
-        <li><span class="system-tag">Live</span> If it sings, shorten it.</li>
-        <li><span class="system-tag">Digitakt II + Live</span> Build a dry, minimal beat — kick and a hat or clap, Digitakt II per the Lab 002 path or a Drum Rack — every hit on the grid, no sends.</li>
-        <li><span class="system-tag">Digitakt II + Live</span> The beat is the frame, not the subject.</li>
-        <li><span class="system-tag">Digitakt II + Live</span> Balance on the DT 990s first: blip well under the sub — present at note starts, never the lead.</li>
-        <li><span class="system-tag">Logbook</span> Set the blip’s fader by ear <em>on the good path</em>, then write the dB value down.</li>
-        <li><span class="system-tag">Live</span> Loop everything against <span class="code">REF</span> at matched loudness and adjust until the two systems — yours and theirs — read as the same kind of machine.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>Duplicate the <span class="code">SUB</span> MIDI to a new track named <span class="code">BLIP</span>, same notes one or two octaves up.</li>
+        <li>Same patch family with the filter more open, or a second Operator with a brighter wave.</li>
+        <li>Make it short: fast attack, decay well under the note length — a flick at each note’s front, not a doubled melody.</li>
+        <li>If it sings, shorten it.</li>
+        <li>Build a dry, minimal beat — kick and a hat or clap, Digitakt II per the Lab 002 path or a Drum Rack — every hit on the grid, no sends.</li>
+        <li>The beat is the frame, not the subject.</li>
+        <li>Balance on the DT 990s first: blip well under the sub — present at note starts, never the lead.</li>
+        <li>Set the blip’s fader by ear <em>on the good path</em>, then write the dB value down.</li>
+        <li>Loop everything against <span class="code">REF</span> at matched loudness and adjust until the two systems — yours and theirs — read as the same kind of machine.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from LFO — “LFO” (1990) and use Drum Rack, MIDI clips, Groove Pool, and clip automation.</li><li>Build the phase goal — <em>The blip and the beat</em> — as the smallest Live set that proves <em>a sub-register bassline with a brief higher blip as its advertisement, placed tight on the grid against a dry beat</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>a bass hook whose fundamental does not exist on small speakers; the record changes identity with the playback path</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>The blip and the beat</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>a sub-register bassline with a brief higher blip as its advertisement, placed tight on the grid against a dry beat</em>, not just the surface of LFO — “LFO” (1990).</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">On the headphones: a sub hook with a discreet bright edge, over a dry beat — close kin to the record’s section. The blip barely registers as a separate element on this path; its real audience is the speakers that are about to be consulted.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">On the headphones: a sub hook with a discreet bright edge, over a dry beat — close kin to the record’s section. The blip barely registers as a separate element on this path; its real audience is the speakers that are about to be consulted.</p>
     </div>
 
     <div class="sub-block">
@@ -279,32 +281,31 @@
     </div>
   </div>
 
-  <!-- PHASE 4 -->
   <div class="step">
     <div class="step-head">
       <div class="step-num">Phase 4 · ≈ 25 min</div>
       <h3 class="step-title">The three-path audition and the re-balance</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: the three-path audition and the re-balance. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: the three-path audition and the re-balance. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Recorder</span> Render 8 bars: select the loop, <span class="menu">File → Export Audio/Video</span>, and get the file somewhere the phone can play it.</li>
-        <li><span class="system-tag">Recorder</span> Audition at comparable, moderate loudness: DT 990s at the mark, then laptop, then phone speaker.</li>
-        <li><span class="system-tag">Logbook</span> Per path, one logbook line — <em>survives: ___ · gone: ___ · the hook reads: yes/no</em>.</li>
-        <li><span class="system-tag">Recorder</span> Re-balance for the misses: if the hook fails on the phone, raise the blip a dB or two or brighten it slightly — never raise the sub to fix a small speaker, it cannot help and it wrecks the good path.</li>
-        <li><span class="system-tag">Recorder</span> If the sub now overloads the headphone path — fatigue, bloat, the kick disappearing — pull the <span class="code">SUB</span> fader, not the input gain;</li>
-        <li><span class="system-tag">Recorder</span> the ledger’s print level stays correct.</li>
-        <li><span class="system-tag">Recorder</span> Re-render and re-audition.</li>
-        <li><span class="system-tag">Live + Logbook</span> Two or three rounds; the deliverable is one balance whose three logbook lines all end in <em>the hook reads: yes</em>.</li>
-        <li><span class="system-tag">Live + Logbook</span> Take the scheduled break — sustained sub fatigue arrives without announcing itself, and a tired ear will mis-balance the next round.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>Render 8 bars: select the loop, <span class="menu">File → Export Audio/Video</span>, and get the file somewhere the phone can play it.</li>
+        <li>Audition at comparable, moderate loudness: DT 990s at the mark, then laptop, then phone speaker.</li>
+        <li>Per path, one logbook line — <em>survives: ___ · gone: ___ · the hook reads: yes/no</em>.</li>
+        <li>Re-balance for the misses: if the hook fails on the phone, raise the blip a dB or two or brighten it slightly — never raise the sub to fix a small speaker, it cannot help and it wrecks the good path.</li>
+        <li>If the sub now overloads the headphone path — fatigue, bloat, the kick disappearing — pull the <span class="code">SUB</span> fader, not the input gain;</li>
+        <li>the ledger’s print level stays correct.</li>
+        <li>Re-render and re-audition.</li>
+        <li>Two or three rounds; the deliverable is one balance whose three logbook lines all end in <em>the hook reads: yes</em>.</li>
+        <li>Take the scheduled break — sustained sub fatigue arrives without announcing itself, and a tired ear will mis-balance the next round.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from LFO — “LFO” (1990) and use Drum Rack, MIDI clips, Groove Pool, and clip automation.</li><li>Build the phase goal — <em>The three-path audition and the re-balance</em> — as the smallest Live set that proves <em>a sub-register bassline with a brief higher blip as its advertisement, placed tight on the grid against a dry beat</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>a bass hook whose fundamental does not exist on small speakers; the record changes identity with the playback path</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>The three-path audition and the re-balance</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>a sub-register bassline with a brief higher blip as its advertisement, placed tight on the grid against a dry beat</em>, not just the surface of LFO — “LFO” (1990).</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">One print whose identity holds across three playback paths: full weight on the DT 990s, and on the laptop and phone the blip and the beat still spell out the same hook. The per-path table in the logbook is the artifact — a monitoring decision written down.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">One print whose identity holds across three playback paths: full weight on the DT 990s, and on the laptop and phone the blip and the beat still spell out the same hook. The per-path table in the logbook is the artifact — a monitoring decision written down.</p>
     </div>
 
     <div class="sub-block">
@@ -319,6 +320,9 @@
     </div>
   </div>
 
+  </div></div><!-- PHASE 2 -->
+  <!-- PHASE 3 -->
+  <!-- PHASE 4 -->
   <div class="decision-check">
     <div class="decision-check-label">Verify against the record</div>
     <p>Play your final print and the <span class="code">REF</span> section back to back on all three paths — matched, moderate loudness, judging one question per path.</p>
@@ -355,5 +359,6 @@
 
 </div>
 
+  <script src="../nav.js"></script>
 </body>
 </html>

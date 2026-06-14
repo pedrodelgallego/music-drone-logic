@@ -6,7 +6,7 @@
 <title>Replicate: the deliberate double</title>
 <link rel="stylesheet" href="../styles.css">
 </head>
-<body>
+<body class="page-type-rep" id="top">
 
 <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
 <label for="nav-toggle" class="hamburger" aria-label="Menu">
@@ -16,6 +16,7 @@
 <nav class="nav" aria-label="Workshop contents">
   <p class="nav-label">Workshop</p>
   <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
   <a href="index.html" class="active"><span class="nav-num">01</span>The Bench</a>
   <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
   <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
@@ -28,12 +29,15 @@
 </nav>
 
 <div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 1 · The Bench</a><span class="breadcrumb-sep">/</span><span>Replicate: the deliberate double</span></nav>
 
   <header class="page-header">
     <div class="eyebrow">Block 1 · Replication lesson</div>
     <h1>Replicate: the deliberate double</h1>
     <p class="lede">Copy one clear section of Lee “Scratch” Perry — Super Ape. Build the main parts, record a short take, and compare it to the reference at the same loudness.</p>
   </header>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l1.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs">Labs</a><a href="lab-r1.html" data-section="rebuild">Rebuild</a><a href="capstone-c1.html" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep" class="current">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
   <div class="callout">
     <div class="callout-label">The point</div>
     <p>This drill teaches the record's core mechanism: one sound + a delayed copy, gap chosen by ear. Do only the steps that make that mechanism audible.</p>
@@ -50,7 +54,7 @@
 
   <div class="checklist">
     <div class="checklist-head">
-      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"></path></svg></div>
       <div class="checklist-label">Before you start</div>
     </div>
     <ul>
@@ -74,7 +78,7 @@
       <div class="step-num">Reference pass · 10 minutes</div>
       <h3 class="step-title">Listen before you build</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Listen to about one minute of Lee “Scratch” Perry — Super Ape. Choose the clearest short section. Write one short answer for each question before you touch the gear.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Listen to about one minute of Lee “Scratch” Perry — Super Ape. Choose the clearest short section. Write one short answer for each question before you touch the gear.</p>
     <ol class="rules-list">
       <li>Pick one snare hit — how many times does it come back?
         <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>On most Super Ape sections a thrown snare comes back three to five times before it sinks under the band, each repeat clearly its own event.</p></div></details>
@@ -92,7 +96,7 @@
         <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Thrown. The echo is performed at the desk - a hand pushes a send up on chosen hits and pulls it back down, so some snares bloom and the next identical snare stays dry.</p></div></details>
       </li>
     </ol>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Now build the section you described. Do not build from memory.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Now build the section you described. Do not build from memory.</p>
   </div>
 
   <h2>Steps</h2>
@@ -117,7 +121,7 @@
     </ul>
   </div>
 
-  <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">The whole build is one routing, repeated with different numbers. Keep this picture in your head for the rest of the sitting:</p>
+  <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">The whole build is one routing, repeated with different numbers. Keep this picture in your head for the rest of the sitting:</p>
 
   <div class="signal-flow">
     <span class="signal-node">source track · dry</span>
@@ -130,27 +134,27 @@
   </div>
 
   <!-- PHASE 1 -->
-  <div class="step">
+  <div class="gear-switch"><input type="radio" name="gear" id="gear-hw" class="gear-radio" checked><input type="radio" name="gear" id="gear-sw" class="gear-radio"><input type="radio" name="gear" id="gear-tg" class="gear-radio"><div class="gear-labels"><span class="gear-lead">Your rig</span><label for="gear-hw">MicroFreak + Digitakt II</label><label for="gear-sw">Ableton Live only</label><label for="gear-tg">Syntakt · target</label></div><div class="gear-scope"><div class="step">
     <div class="step-head">
       <div class="step-num">Phase 1 · ~25 min</div>
       <h3 class="step-title">Reference in, phrase transcribed</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: reference in, phrase transcribed. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: reference in, phrase transcribed. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Live</span> Drop the <em>Super Ape</em> track into Live on a track named <span class="code">REF</span> and loop the 8–16 bars you chose in the reference pass.</li>
-        <li><span class="system-tag">Live</span> Gain-match <span class="code">REF</span> with a Utility so it sits at your working level, and keep it one solo away for the whole sitting.</li>
-        <li><span class="system-tag">Digitakt II + MicroFreak</span> Find the closest Digitakt II sounds to their kit — or the closest MicroFreak patch to their stab — and record the section’s pattern, hit for hit, dry, onto an audio track.</li>
-        <li><span class="system-tag">Live</span> Loop yours against <span class="code">REF</span> and correct: fix the notes first, then the hits, then the tones.</li>
-        <li><span class="system-tag">Live</span> Expect three or four passes — the second listen always finds something the first missed.</li>
-        <li><span class="system-tag">Live</span> Stop when the phrase is theirs, not approximately theirs.</li>
-        <li><span class="system-tag">Live</span> A dry bar of yours next to a dry bar of theirs should differ in tone, not in content.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>Drop the <em>Super Ape</em> track into Live on a track named <span class="code">REF</span> and loop the 8–16 bars you chose in the reference pass.</li>
+        <li>Gain-match <span class="code">REF</span> with a Utility so it sits at your working level, and keep it one solo away for the whole sitting.</li>
+        <li>Find the closest Digitakt II sounds to their kit — or the closest MicroFreak patch to their stab — and record the section’s pattern, hit for hit, dry, onto an audio track.</li>
+        <li>Loop yours against <span class="code">REF</span> and correct: fix the notes first, then the hits, then the tones.</li>
+        <li>Expect three or four passes — the second listen always finds something the first missed.</li>
+        <li>Stop when the phrase is theirs, not approximately theirs.</li>
+        <li>A dry bar of yours next to a dry bar of theirs should differ in tone, not in content.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Lee “Scratch” Perry — Super Ape and use Live audio/MIDI tracks, Utility, automation, and resampling.</li><li>Build the phase goal — <em>Reference in, phrase transcribed</em> — as the smallest Live set that proves <em>one sound + a delayed copy, gap chosen by ear</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>the room feels made of late copies</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Syntakt for this phase: translate <em>Reference in, phrase transcribed</em> into machine tracks, trig conditions, parameter locks, the FX block, macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>one sound + a delayed copy, gap chosen by ear</em>, not just the surface of Lee “Scratch” Perry — Super Ape.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">One dry audio track holding the record’s phrase in your sounds, looping in time against <span class="code">REF</span>, with neither louder than the other when you flip solos.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">One dry audio track holding the record’s phrase in your sounds, looping in time against <span class="code">REF</span>, with neither louder than the other when you flip solos.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">If it fails</div>
@@ -164,29 +168,28 @@
     </div>
   </div>
 
-  <!-- PHASE 2 -->
   <div class="step">
     <div class="step-head">
       <div class="step-num">Phase 2 · ~15 min</div>
       <h3 class="step-title">Build the double and see the comb</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: build the double and see the comb. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: build the double and see the comb. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Live</span> Duplicate the dry track with <kbd>⌘ D</kbd>.</li>
-        <li><span class="system-tag">Live</span> You now have two identical copies playing in unison — the dub double, ready to be placed where the record places it.</li>
-        <li><span class="system-tag">Live</span> Open the track delay field on the copy — it lives at the bottom of the mixer;</li>
-        <li><span class="system-tag">Live</span> enable it via the track delay display if it is hidden.</li>
-        <li><span class="system-tag">Live</span> Type <span class="code">1</span> ms into the copy’s track delay and play both tracks together.</li>
-        <li><span class="system-tag">Live</span> Listen for the hollowing.</li>
-        <li><span class="system-tag">Live</span> Drop a Spectrum on the Master and <em>look</em> at the comb — evenly spaced notches across the whole spectrum.</li>
-        <li><span class="system-tag">Live</span> Slide the track delay between 1 and 5 ms and watch the notches move closer together and further apart while the hollowness shifts color.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>Duplicate the dry track with <kbd>⌘ D</kbd>.</li>
+        <li>You now have two identical copies playing in unison — the dub double, ready to be placed where the record places it.</li>
+        <li>Open the track delay field on the copy — it lives at the bottom of the mixer;</li>
+        <li>enable it via the track delay display if it is hidden.</li>
+        <li>Type <span class="code">1</span> ms into the copy’s track delay and play both tracks together.</li>
+        <li>Listen for the hollowing.</li>
+        <li>Drop a Spectrum on the Master and <em>look</em> at the comb — evenly spaced notches across the whole spectrum.</li>
+        <li>Slide the track delay between 1 and 5 ms and watch the notches move closer together and further apart while the hollowness shifts color.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Lee “Scratch” Perry — Super Ape and use Live audio/MIDI tracks, Utility, automation, and resampling.</li><li>Build the phase goal — <em>Build the double and see the comb</em> — as the smallest Live set that proves <em>one sound + a delayed copy, gap chosen by ear</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>the room feels made of late copies</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Syntakt for this phase: translate <em>Build the double and see the comb</em> into machine tracks, trig conditions, parameter locks, the FX block, macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>one sound + a delayed copy, gap chosen by ear</em>, not just the surface of Lee “Scratch” Perry — Super Ape.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">An unmistakable hollow, phasey version of your phrase, and a Spectrum display showing regular notches that move as you change the delay. This is Lab 002’s fault, displayed as a picture you chose.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">An unmistakable hollow, phasey version of your phrase, and a Spectrum display showing regular notches that move as you change the delay. This is Lab 002’s fault, displayed as a picture you chose.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">If it fails</div>
@@ -200,31 +203,30 @@
     </div>
   </div>
 
-  <!-- PHASE 3 -->
   <div class="step">
     <div class="step-head">
       <div class="step-num">Phase 3 · ~15 min</div>
       <h3 class="step-title">Map the gap regimes</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: map the gap regimes. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: map the gap regimes. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
 
     <div class="signal-flow" style="display:block; padding:26px 16px;">
       <svg viewBox="0 0 760 190" width="100%" role="img" aria-label="Gap regimes — what a doubled sound becomes as the offset grows from 0 to 90 ms">
         <text x="380" y="26" fill="#e6edf3" font-size="11" text-anchor="middle">one sound + its delayed copy — what the gap turns into as it grows</text>
-        <rect x="60" y="50" width="209" height="50" rx="6" fill="#1f2530" stroke="#6e7681" stroke-width="1"/>
-        <rect x="273" y="50" width="209" height="50" rx="6" fill="#1f2530" stroke="#6e7681" stroke-width="1"/>
-        <rect x="486" y="50" width="214" height="50" rx="6" fill="#1f2530" stroke="#7dd3c0" stroke-width="1.2"/>
+        <rect x="60" y="50" width="209" height="50" rx="6" fill="#1f2530" stroke="#6e7681" stroke-width="1"></rect>
+        <rect x="273" y="50" width="209" height="50" rx="6" fill="#1f2530" stroke="#6e7681" stroke-width="1"></rect>
+        <rect x="486" y="50" width="214" height="50" rx="6" fill="#1f2530" stroke="#7dd3c0" stroke-width="1.2"></rect>
         <text x="164" y="72" fill="#e6edf3" font-size="11.5" text-anchor="middle">comb</text>
         <text x="164" y="89" fill="#8b949e" font-size="10" text-anchor="middle">hollow — one colored sound</text>
         <text x="377" y="72" fill="#e6edf3" font-size="11.5" text-anchor="middle">width</text>
         <text x="377" y="89" fill="#8b949e" font-size="10" text-anchor="middle">thicker / wider — still one event</text>
         <text x="593" y="72" fill="#e6edf3" font-size="11.5" text-anchor="middle">echo</text>
         <text x="593" y="89" fill="#8b949e" font-size="10" text-anchor="middle">a second event — dub lives here</text>
-        <line x1="60" y1="126" x2="700" y2="126" stroke="#6e7681" stroke-width="1"/>
-        <line x1="60" y1="118" x2="60" y2="134" stroke="#7dd3c0" stroke-width="1.5"/>
-        <line x1="273" y1="118" x2="273" y2="134" stroke="#7dd3c0" stroke-width="1.5"/>
-        <line x1="486" y1="118" x2="486" y2="134" stroke="#7dd3c0" stroke-width="1.5"/>
-        <line x1="700" y1="118" x2="700" y2="134" stroke="#7dd3c0" stroke-width="1.5"/>
+        <line x1="60" y1="126" x2="700" y2="126" stroke="#6e7681" stroke-width="1"></line>
+        <line x1="60" y1="118" x2="60" y2="134" stroke="#7dd3c0" stroke-width="1.5"></line>
+        <line x1="273" y1="118" x2="273" y2="134" stroke="#7dd3c0" stroke-width="1.5"></line>
+        <line x1="486" y1="118" x2="486" y2="134" stroke="#7dd3c0" stroke-width="1.5"></line>
+        <line x1="700" y1="118" x2="700" y2="134" stroke="#7dd3c0" stroke-width="1.5"></line>
         <text x="60" y="152" fill="#8b949e" font-size="10" text-anchor="middle">0 ms</text>
         <text x="273" y="152" fill="#8b949e" font-size="10" text-anchor="middle">≈10 ms</text>
         <text x="486" y="152" fill="#8b949e" font-size="10" text-anchor="middle">≈35 ms</text>
@@ -235,45 +237,44 @@
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
         <li>Step the copy’s track delay through the series <span class="code">1 ms → 5 ms → 15 ms → 40 ms → 90 ms</span>.</li>
-        <li><span class="system-tag">Logbook</span> At each value, play the full phrase — not one hit — and write one word for what you hear: hollow?</li>
-        <li><span class="system-tag">Logbook</span> thicker?</li>
-        <li><span class="system-tag">Logbook</span> wider?</li>
-        <li><span class="system-tag">Logbook</span> echo?</li>
-        <li><span class="system-tag">Live</span> Do not skip values; you need the whole map to find where their echoes live on it.</li>
-        <li><span class="system-tag">Live</span> Then walk back down the series and find your own two boundary values: the gap where “hollow” becomes “wide”, and the gap where “wide” becomes “a second hit”.</li>
-        <li><span class="system-tag">Logbook</span> Write both numbers down.</li>
+        <li>At each value, play the full phrase — not one hit — and write one word for what you hear: hollow?</li>
+        <li>thicker?</li>
+        <li>wider?</li>
+        <li>echo?</li>
+        <li>Do not skip values; you need the whole map to find where their echoes live on it.</li>
+        <li>Then walk back down the series and find your own two boundary values: the gap where “hollow” becomes “wide”, and the gap where “wide” becomes “a second hit”.</li>
+        <li>Write both numbers down.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Lee “Scratch” Perry — Super Ape and use Live audio/MIDI tracks, Utility, automation, and resampling.</li><li>Build the phase goal — <em>Map the gap regimes</em> — as the smallest Live set that proves <em>one sound + a delayed copy, gap chosen by ear</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>the room feels made of late copies</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Syntakt for this phase: translate <em>Map the gap regimes</em> into machine tracks, trig conditions, parameter locks, the FX block, macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>one sound + a delayed copy, gap chosen by ear</em>, not just the surface of Lee “Scratch” Perry — Super Ape.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">A five-word map plus two personal boundary numbers in the logbook. From the reference pass you already know which regime the record sits in — for the dub throws, the third — so you now know roughly where on this axis the next phase will land.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A five-word map plus two personal boundary numbers in the logbook. From the reference pass you already know which regime the record sits in — for the dub throws, the third — so you now know roughly where on this axis the next phase will land.</p>
     </div>
   </div>
 
-  <!-- PHASE 4 -->
   <div class="step">
     <div class="step-head">
       <div class="step-num">Phase 4 · ~25 min</div>
       <h3 class="step-title">Match their gap, fade, and placement</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: match their gap, fade, and placement. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: match their gap, fade, and placement. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Live</span> Solo <span class="code">REF</span>, pick one snare throw, and tap the delay time in ms against the record’s repeats — adjust until your echo lands where their echo lands.</li>
-        <li><span class="system-tag">Live</span> Match the fade: set the copy’s level so your repeats die away at their rate.</li>
-        <li><span class="system-tag">Live</span> Flip between yours and theirs every few seconds; long listens drift, short ones compare.</li>
-        <li><span class="system-tag">Live</span> Sit the copy under the original — about 6 dB down is the usual neighborhood on <em>Super Ape</em>, but the record is the ruler, not the number.</li>
-        <li><span class="system-tag">Live</span> Pan the copy where theirs sits — behind the dry sound or beside it, as you answered in the reference pass.</li>
-        <li><span class="system-tag">Live</span> Do at least three full A/B passes of the whole section before you accept the settings.</li>
-        <li><span class="system-tag">Live</span> Each pass, change at most one thing.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>Solo <span class="code">REF</span>, pick one snare throw, and tap the delay time in ms against the record’s repeats — adjust until your echo lands where their echo lands.</li>
+        <li>Match the fade: set the copy’s level so your repeats die away at their rate.</li>
+        <li>Flip between yours and theirs every few seconds; long listens drift, short ones compare.</li>
+        <li>Sit the copy under the original — about 6 dB down is the usual neighborhood on <em>Super Ape</em>, but the record is the ruler, not the number.</li>
+        <li>Pan the copy where theirs sits — behind the dry sound or beside it, as you answered in the reference pass.</li>
+        <li>Do at least three full A/B passes of the whole section before you accept the settings.</li>
+        <li>Each pass, change at most one thing.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Lee “Scratch” Perry — Super Ape and use Live audio/MIDI tracks, Utility, automation, and resampling.</li><li>Build the phase goal — <em>Match their gap, fade, and placement</em> — as the smallest Live set that proves <em>one sound + a delayed copy, gap chosen by ear</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>the room feels made of late copies</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Syntakt for this phase: translate <em>Match their gap, fade, and placement</em> into machine tracks, trig conditions, parameter locks, the FX block, macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>one sound + a delayed copy, gap chosen by ear</em>, not just the surface of Lee “Scratch” Perry — Super Ape.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Your doubled phrase sits in the same regime, at the same depth, fading at the same rate as the record’s. Write the gap in ms and the copy’s level in dB — those two numbers are the system, captured.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Your doubled phrase sits in the same regime, at the same depth, fading at the same rate as the record’s. Write the gap in ms and the copy’s level in dB — those two numbers are the system, captured.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">If it fails</div>
@@ -287,29 +288,32 @@
     </div>
   </div>
 
-  <!-- PHASE 5 -->
   <div class="step">
     <div class="step-head">
       <div class="step-num">Phase 5 · ~20 min</div>
       <h3 class="step-title">Throw the hits — the hand on the fader</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: throw the hits — the hand on the fader. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: throw the hits — the hand on the fader. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Live</span> Relisten to your section of <span class="code">REF</span> and mark, bar by bar, which hits get thrown and which stay dry — you already sketched this in the reference pass.</li>
-        <li><span class="system-tag">Live</span> Ride the copy’s fader against <span class="code">REF</span> for 2 minutes — fade the double in on the hits they throw and out on the hits they leave dry.</li>
-        <li><span class="system-tag">Live</span> Repeat the ride at least twice more.</li>
-        <li><span class="system-tag">Live</span> The first pass is aiming; the later passes are timing — getting the push to land <em>on</em> the hit, not after it.</li>
-        <li><span class="system-tag">Live</span> Record your best ride into Live so it exists as audio you can A/B.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>Relisten to your section of <span class="code">REF</span> and mark, bar by bar, which hits get thrown and which stay dry — you already sketched this in the reference pass.</li>
+        <li>Ride the copy’s fader against <span class="code">REF</span> for 2 minutes — fade the double in on the hits they throw and out on the hits they leave dry.</li>
+        <li>Repeat the ride at least twice more.</li>
+        <li>The first pass is aiming; the later passes are timing — getting the push to land <em>on</em> the hit, not after it.</li>
+        <li>Record your best ride into Live so it exists as audio you can A/B.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Lee “Scratch” Perry — Super Ape and use Live audio/MIDI tracks, Utility, automation, and resampling.</li><li>Build the phase goal — <em>Throw the hits — the hand on the fader</em> — as the smallest Live set that proves <em>one sound + a delayed copy, gap chosen by ear</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>the room feels made of late copies</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Syntakt for this phase: translate <em>Throw the hits — the hand on the fader</em> into machine tracks, trig conditions, parameter locks, the FX block, macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>one sound + a delayed copy, gap chosen by ear</em>, not just the surface of Lee “Scratch” Perry — Super Ape.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">A recorded pass where the smear comes and goes on the same hits as the record’s — a hand audible in the fader, not a preset. That hand is the rest of the Perry system, and the record tells you where it moves.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A recorded pass where the smear comes and goes on the same hits as the record’s — a hand audible in the fader, not a preset. That hand is the rest of the Perry system, and the record tells you where it moves.</p>
     </div>
   </div>
 
+  </div></div><!-- PHASE 2 -->
+  <!-- PHASE 3 -->
+  <!-- PHASE 4 -->
+  <!-- PHASE 5 -->
   <div class="decision-check">
     <div class="decision-check-label">Verify against the record</div>
     <p>Loop your section against <span class="code">REF</span> — 10 seconds of yours, 10 of theirs — then answer:</p>
@@ -346,5 +350,6 @@
 
 </div>
 
+  <script src="../nav.js"></script>
 </body>
 </html>

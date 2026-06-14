@@ -6,7 +6,7 @@
 <title>Block 5 — Space &amp; Mix</title>
 <link rel="stylesheet" href="../styles.css">
 </head>
-<body>
+<body class="page-type-block-index" id="top">
 
 <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
 <label for="nav-toggle" class="hamburger" aria-label="Menu">
@@ -16,6 +16,7 @@
 <nav class="nav" aria-label="Workshop contents">
   <p class="nav-label">Workshop</p>
   <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
   <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
   <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
   <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
@@ -28,20 +29,24 @@
 </nav>
 
 <div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><span>Block 5 · Space &amp; Mix</span></nav>
 
   <header class="page-header">
     <div class="eyebrow">Block 5 — Space &amp; Mix</div>
     <h1>Effects are routing architectures, not inserts</h1>
     <p class="lede">Delay, reverb, feedback, width, and subtraction — the block where you stop adding effects to tracks and start designing where sound travels. Every space a record puts you in is a path somebody wired; this block teaches you to draw that path, ride it, and prove it survives the trip to a phone speaker.</p>
   </header>
-  <p class="block-meta">Year 2 · Domain D · Labs 018–022 · Replication R5 · Programme L5 · closes at gate capstone C4</p>
+  <p class="block-meta">Year 2 · Domain D · Labs 018–022 · Replication R5 · Programme L5</p>
+
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview" class="current">Overview</a><a href="listening-l5.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs">Labs</a><a href="lab-r5.html" data-section="rebuild">Rebuild</a><a href="capstone-c4.html" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
 
   <div class="callout">
     <div class="callout-label">Engineering focus</div>
     <p>An effect is a routing architecture, not a device on a track. Required concepts: insert vs send · pre- vs post-fader · return level vs feedback amount · the wet/dry ambiguity (is the space in the sound, or beside it?) · phase and correlation · mono collapse · room vs headphones · translation across playback systems. Every lab in this block asks the same question first: where does the signal go, and where does it come back in?</p>
   </div>
 
-  <h2>Working order</h2>
+  <h2 id="working-order">Working order</h2>
 
   <div class="checklist">
     <div class="checklist-head">
@@ -55,6 +60,7 @@
       <li><a href="lab-020.html">Lab 020</a> — wire feedback paths; the safety checklist runs before any sound</li>
       <li><a href="lab-021.html">Lab 021</a> — bench: mono, width, phase, room — the translation deep dive</li>
       <li><a href="lab-022.html">Lab 022</a> — arrange by removal; mixing as subtraction</li>
+      <li><a href="lab-022b.html">Lab 022b</a> — bench: loudness and the master; the four-system translation test</li>
       <li><a href="lab-r5.html">R5</a> — rebuild one dub passage and verify the L5 analysis</li>
       <li><a href="capstone-c4.html">Capstone C4</a> — the gate: a dub-system piece, translation-tested</li>
     </ol>
@@ -67,14 +73,14 @@
     </ul>
   </div>
 
-  <h2>Listening programme L5 — space as instrument</h2>
+  <h2 id="listening-programme">Listening programme L5 — space as instrument</h2>
 
   <div class="step">
     <div class="step-head">
       <div class="step-num">Session 1 · Records</div>
       <h3 class="step-title">Four spaces, four architectures</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Four records where the space is the composition — from the Kingston desk that invented the method to the Detroit-Berlin lineage that abstracted it. Analyze each with the six-question frame, then compare the architectures.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Four records where the space is the composition — from the Kingston desk that invented the method to the Detroit-Berlin lineage that abstracted it. Analyze each with the six-question frame, then compare the architectures.</p>
     <table class="param-table">
       <tr><td>Augustus Pablo / King Tubby — “King Tubby Meets Rockers Uptown”</td><td>the desk as instrument</td></tr>
       <tr><td>Rhythm &amp; Sound w/ Cornell Campbell — “King in My Empire”</td><td>dub as stillness</td></tr>
@@ -92,7 +98,7 @@
       <div class="step-num">Session 2 · Samples</div>
       <h3 class="step-title">Deconstruction — the send/return choreography</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Pick one dub-system piece and map its send/return choreography: which elements are dry, which are sent, to what, when, and how much — throw by throw. The worksheet becomes the blueprint for <a href="lab-r5.html">replication lab R5</a>.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Pick one dub-system piece and map its send/return choreography: which elements are dry, which are sent, to what, when, and how much — throw by throw. The worksheet becomes the blueprint for <a href="lab-r5.html">replication lab R5</a>.</p>
   </div>
 
   <div class="step">
@@ -100,16 +106,16 @@
       <div class="step-num">Session 3 · Video</div>
       <h3 class="step-title">Dub-desk footage — Scientist at the console</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Watched for send/return choreography, not nostalgia: where the hands are, which sends move and when, what gets muted, and what could never be recovered once the dub passed the tape head.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Watched for send/return choreography, not nostalgia: where the hands are, which sends move and when, what gets muted, and what could never be recovered once the dub passed the tape head.</p>
   </div>
 
   <div class="note-block">
     <ul>
-      <li><strong>Deliverable:</strong> written system analyses (six questions per reference) + <strong>one stolen principle</strong> — a structural idea, never material, named in advance and evaluated at C4. Full briefs and worksheets: <a href="listening-l5.html">programme L5</a> <span class="status">scaffold</span></li>
+      <li><strong>Deliverable:</strong> written system analyses (six questions per reference) + <strong>one stolen principle</strong> — a structural idea, never material, named in advance and evaluated at C4. Full briefs and worksheets: <a href="listening-l5.html">programme L5</a></li>
     </ul>
   </div>
 
-  <h2>Labs</h2>
+  <h2 id="labs">Labs</h2>
 
   <table>
     <tr><th>#</th><th>Lab</th><th>Type</th><th>Status</th></tr>
@@ -118,66 +124,106 @@
       <td><span class="lab-title"><a href="lab-018.html">Delay as Composition</a></span>
         <span class="lab-context">context: dub techno — T · S3 · D3 E3 M1 F2 — the send is the writing surface; insert vs send, pre vs post-fader, the regenerating tail as a voice</span></td>
       <td>Track</td>
-      <td><span class="status">scaffold</span></td>
+      <td><span class="status">complete</span></td>
     </tr>
     <tr>
       <td class="num">019</td>
       <td><span class="lab-title"><a href="lab-019.html">Reverb as Instrument</a></span>
         <span class="lab-context">context: deep ambient — T · S3 · D3 E3 M4 F2 — playing a space rather than placing sounds in one; printing tails and resampling them as material</span></td>
       <td>Track</td>
-      <td><span class="status">scaffold</span></td>
+      <td><span class="status">complete</span></td>
     </tr>
     <tr>
       <td class="num">020</td>
       <td><span class="lab-title"><a href="lab-020.html">Feedback Paths</a></span>
         <span class="lab-context">context: dub — T · S3 · D4 E4 M5 F2 — drawn as both a musical system and a safety-critical system; <strong>in-lab safety checklist before any sound is made</strong>; return level vs feedback amount, the bloom, the runaway</span></td>
       <td>Track</td>
-      <td><span class="status">scaffold</span></td>
+      <td><span class="status">complete</span></td>
     </tr>
     <tr>
       <td class="num">021</td>
       <td><span class="lab-title"><a href="lab-021.html">Monitoring &amp; Translation</a></span>
         <span class="lab-context">B · S3 · E3 — mono, width, phase, room — the deep dive promised since labs 001–002; correlation, mono-flip discipline, the cross-system translation bench (monitors / headphones / mono / phone)</span></td>
       <td>Bench</td>
-      <td><span class="status">scaffold</span></td>
+      <td><span class="status">complete</span></td>
     </tr>
     <tr>
       <td class="num">022</td>
       <td><span class="lab-title"><a href="lab-022.html">Subtractive Arrangement</a></span>
         <span class="lab-context">context: minimal — T · S3 · D3 E3 M2 F2 — mixing by removal; the arrangement is the mix decision; what leaves makes room for the space</span></td>
       <td>Track</td>
-      <td><span class="status">scaffold</span></td>
+      <td><span class="status">complete</span></td>
+    </tr>
+    <tr>
+      <td class="num">022b</td>
+      <td><span class="lab-title"><a href="lab-022b.html">Loudness &amp; the Master</a></span>
+        <span class="lab-context">B · S3 · E3 — loudness, headroom, and master treatment as principle not preset; the four-system translation test (monitors / headphones / phone / mono); compression and EQ taught as parameters, bus routing as architecture</span></td>
+      <td>Bench</td>
+      <td><span class="status">complete</span></td>
     </tr>
     <tr>
       <td class="num">R5</td>
       <td><span class="lab-title"><a href="lab-r5.html">Rebuild the Dub</a></span>
         <span class="lab-context">R · S3 · E3 M2 F1 — a send/return choreography passage from an L5 reference, re-performed on your own mixer routing from your own worksheet — replica filed as study + miss list</span></td>
       <td>Replication</td>
-      <td><span class="status">scaffold</span></td>
+      <td><span class="status">complete</span></td>
     </tr>
   </table>
 
-  <h2>Replication lessons — one per reference</h2>
+  <h2>Mixing principles, not presets</h2>
+
+  <div class="callout">
+    <div class="callout-label">Compression &amp; EQ — learn the parameters, not one patch</div>
+    <p>Every compressor and EQ you will ever meet is the same handful of controls wearing different clothes. This block teaches the parameters so that any device — Live's stock, a plugin, an outboard unit — is legible on sight, and no single preset is ever load-bearing. A setting you cannot explain is a setting you cannot move.</p>
+    <ul>
+      <li><strong>Knee</strong> — how abruptly compression engages at the threshold: a hard knee clamps the instant the signal crosses it (audible, useful for control); a soft knee eases in over a range above and below (transparent, useful for glue).</li>
+      <li><strong>Lookahead</strong> — letting the detector see the signal a few milliseconds early so it can catch a transient before it passes, at the cost of latency that must be compensated like any other (see lab 020's round-trip work).</li>
+      <li><strong>Makeup gain</strong> — the level added back after compression lowers the peaks, so comparisons stay honest at matched loudness; without it, "the compressor sounds better" usually just means "louder" (lab 022b's whole subject).</li>
+      <li><strong>Q</strong> — an EQ band's width: narrow Q surgically notches one resonance, wide Q tilts a whole region; the same boost is a scalpel or a shelf depending only on this one number.</li>
+      <li><strong>Shelf vs bell</strong> — a bell lifts or cuts around a centre and returns to flat on both sides; a shelf raises or lowers everything past a corner frequency. Choosing the wrong shape is the most common reason an EQ move "does nothing" or "does too much."</li>
+      <li><strong>Parallel compression</strong> — blending a heavily compressed copy under the dry signal (a send/return architecture, exactly like this block's spaces) to add density and sustain without crushing the transients of the original — compression as an addition, not a replacement.</li>
+    </ul>
+    <p>The full hands-on treatment, with the four-system translation test, lives in <a href="lab-022b.html">lab 022b</a>.</p>
+  </div>
 
   <div class="note-block">
     <ul>
-      <li><strong>Roughly fifty lessons, one per reference.</strong> Every listening reference across labs 018–022 and programme L5 gets its own 60–120 minute step-by-step replication lesson — dub techno, deep ambient, dub, subtractive minimalism, shimmer ambient, feedback dub systems, and delay-as-composition loop systems — spread across each lab’s cycle. The lesson pages land with Block 5 lab authoring. <span class="status">forthcoming</span></li>
+      <li><strong>Bus / group / parallel routing — when to subgroup, when to stay flat.</strong> A subgroup (a bus that several tracks feed before the master) earns its place when a set of elements must be processed, levelled, or muted <em>as one</em> — the drum bus glued together, all the wet returns ducked at once, a stem printed for the desk pass. It costs you the per-track grip you had when everything ran flat to the master, so do not bus by reflex: subgroup only where a shared decision exists, and keep the path flat everywhere a shared decision does not. Parallel paths are buses too — a send to a compressed copy or a saturated duplicate is a subgroup that rejoins the mix rather than replacing it.</li>
+      <li><strong>Racks and Macros as routing and abstraction tools.</strong> Live's Instrument and Audio Effect Racks are where this routing becomes architecture you can name: chains split a signal into parallel bands or processing lanes inside one device, and Macros hoist the few controls that matter to the surface — the "one knob that moves the system" this block keeps asking you to find. A Rack is a subgroup, a parallel path, and a labelled abstraction in a single object; building one is how a tangle of routing becomes a reusable instrument.</li>
     </ul>
   </div>
 
-  <h2>Capstone C4 — gate</h2>
+  <h2 id="replication-lessons">Replication lessons — one per reference</h2>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Roughly fifty lessons, one per reference.</strong> Every listening reference across labs 018–022 and programme L5 gets its own 60–120 minute step-by-step replication lesson — dub techno, deep ambient, dub, subtractive minimalism, shimmer ambient, feedback dub systems, and delay-as-composition loop systems — spread across each lab’s cycle. The lesson pages are linked from the reference cards.</li>
+    </ul>
+  </div>
+
+  <h2 id="capstone">Capstone C4 — gate</h2>
 
   <div class="step">
     <div class="step-head">
       <div class="step-num">Capstone C4 · Gate</div>
       <h3 class="step-title">A dub-system piece, translation-tested</h3>
     </div>
-    <p style="color: var(--text-muted); text-align: center; margin: 0;">Constraints only, no recipe. The System Spec must draw the full send/return/feedback architecture before anything is patched; the finished mix is verified across monitors, mono, and a phone speaker, with a written translation report. The L5 stolen principle comes due, the fault is phase, feedback routing, or translation, and the seven defense prompts close the block. Full brief: <a href="capstone-c4.html">capstone C4</a> <span class="status">scaffold</span></p>
+    <p style="color: var(--text-muted); text-align: center; margin: 0;">Constraints only, no recipe. The System Spec must draw the full send/return/feedback architecture before anything is patched; the finished mix is verified across monitors, mono, and a phone speaker, with a written translation report. The L5 stolen principle comes due, and the fault is phase, feedback routing, or translation. Full brief: <a href="capstone-c4.html">capstone C4</a> <span class="status">complete</span></p>
   </div>
 
   <div class="tag-row">
     <span class="tag">gear at this block: compact mixer with aux send</span>
     <span class="tag">tape-style delay pedal</span>
+  </div>
+
+  <h2>Deep references — Lab Notes</h2>
+  <div class="note-block">
+    <ul>
+      <li><strong><a href="../../guide-b5-001/index.html">Lab Note B5-001 — Delay</a></strong> — echo and repeats as a spatial instrument.</li>
+      <li><strong><a href="../../guide-b5-002/index.html">Lab Note B5-002 — Reverb</a></strong> — building and placing rooms around a sound.</li>
+      <li><strong><a href="../../guide-b5-003/index.html">Lab Note B5-003 — Feedback</a></strong> — controlled feedback loops as a source.</li>
+      <li><strong><a href="../../guide-b5-004/index.html">Lab Note B5-004 — Translation &amp; Subtraction</a></strong> — mono, width, and what to take away.</li>
+    </ul>
   </div>
 
   <div class="page-nav">
@@ -195,5 +241,6 @@
 
 </div>
 
+  <script src="../nav.js"></script>
 </body>
 </html>

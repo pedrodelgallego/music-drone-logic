@@ -6,7 +6,7 @@
 <title>Replicate: Depth from Levels Alone</title>
 <link rel="stylesheet" href="../styles.css">
 </head>
-<body>
+<body class="page-type-rep" id="top">
 
 <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
 <label for="nav-toggle" class="hamburger" aria-label="Menu">
@@ -16,6 +16,7 @@
 <nav class="nav" aria-label="Workshop contents">
   <p class="nav-label">Workshop</p>
   <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
   <a href="index.html" class="active"><span class="nav-num">01</span>The Bench</a>
   <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
   <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
@@ -28,12 +29,15 @@
 </nav>
 
 <div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 1 · The Bench</a><span class="breadcrumb-sep">/</span><span>Replicate: depth from levels alone</span></nav>
 
   <header class="page-header">
     <div class="eyebrow">Block 1 · Replication lesson</div>
     <h1>Replicate: depth from levels alone</h1>
     <p class="lede">Copy one clear section of Rhythm &amp; Sound — “Mango Drive”. Build the main parts, record a short take, and compare it to the reference at the same loudness.</p>
   </header>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l1.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs">Labs</a><a href="lab-r1.html" data-section="rebuild">Rebuild</a><a href="capstone-c1.html" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep" class="current">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
   <div class="callout">
     <div class="callout-label">The point</div>
     <p>This drill teaches the record's core mechanism: large, deliberate gaps between element levels. Do only the steps that make that mechanism audible.</p>
@@ -50,7 +54,7 @@
 
   <div class="checklist">
     <div class="checklist-head">
-      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"></path></svg></div>
       <div class="checklist-label">Before you start</div>
     </div>
     <ul>
@@ -74,7 +78,7 @@
       <div class="step-num">Reference pass · 10 minutes</div>
       <h3 class="step-title">Listen before you build</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Listen to about one minute of Rhythm &amp; Sound — “Mango Drive”. Choose the clearest short section. Write one short answer for each question before you touch the gear.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Listen to about one minute of Rhythm &amp; Sound — “Mango Drive”. Choose the clearest short section. Write one short answer for each question before you touch the gear.</p>
     <ol class="rules-list">
       <li>Which element is loudest — and how sure are you?
         <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>The chord stabs are the loudest event - but barely; if you said “nothing is loudest”, that is the better answer. The record is built so that no element ever claims the front of the mix.</p></div></details>
@@ -92,7 +96,7 @@
         <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>There is dub delay and reverb in the production, but the depth survives without them: the hat would still sound far away bone-dry, because it is quiet. Level distance does the placing; the effects only decorate it.</p></div></details>
       </li>
     </ol>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Now build the section you described. Do not build from memory.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Now build the section you described. Do not build from memory.</p>
   </div>
 
   <h2>Steps</h2>
@@ -117,7 +121,7 @@
     </ul>
   </div>
 
-  <p style="color: var(--text-muted); font-size: 14.5px; max-width: 640px; margin: 0 auto 14px; text-align: center;">The whole chain for this lesson — two sources in, four tracks, and the faders as the only spatial tool.</p>
+  <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); max-width: 640px; margin: 0 auto 14px; text-align: center;">The whole chain for this lesson — two sources in, four tracks, and the faders as the only spatial tool.</p>
 
   <div class="signal-flow">
     <span class="signal-node">MicroFreak out</span>
@@ -140,32 +144,32 @@
   </div>
 
   <!-- PHASE 1 -->
-  <div class="step">
+  <div class="gear-switch"><input type="radio" name="gear" id="gear-hw" class="gear-radio" checked><input type="radio" name="gear" id="gear-sw" class="gear-radio"><input type="radio" name="gear" id="gear-tg" class="gear-radio"><div class="gear-labels"><span class="gear-lead">Your rig</span><label for="gear-hw">MicroFreak + Digitakt II</label><label for="gear-sw">Ableton Live only</label><label for="gear-tg">Analog Rytm MKII · target</label></div><div class="gear-scope"><div class="step">
     <div class="step-head">
       <div class="step-num">Phase 1 · ≈ 15 min</div>
       <h3 class="step-title">The reference and the empty tracks</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: the reference and the empty tracks. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: the reference and the empty tracks. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Live</span> <kbd>⌘ T</kbd>, rename the track <span class="code">REF</span> (<kbd>⌘ R</kbd>), and drag “Mango Drive” into it.</li>
-        <li><span class="system-tag">Live</span> Find the most characteristic 8–16 bars for depth-from-levels — chord, hat, and texture all present — and loop them.</li>
-        <li><span class="system-tag">Live</span> Spend a few minutes choosing; the wrong section makes every later pass harder.</li>
-        <li><span class="system-tag">Live</span> Drop <span class="menu">Audio Effects → Utility</span> on <span class="code">REF</span> and trim its gain so the section peaks ≈ <span class="code">−12 dBFS</span>, matched to the build you are about to make.</li>
-        <li><span class="system-tag">Live</span> <span class="code">REF</span> stays one solo-press away for the whole lesson.</li>
-        <li><span class="system-tag">Live</span> <kbd>⌘ T</kbd> four times; rename with <kbd>⌘ R</kbd>: <span class="code">KICK</span>, <span class="code">HAT</span>, <span class="code">CHORD</span>, <span class="code">TEXTURE</span>.</li>
-        <li><span class="system-tag">Live</span> <kbd>⌘ ⌥ I</kbd> to show In/Out.</li>
-        <li><span class="system-tag">Live</span> <span class="code">KICK</span> and <span class="code">HAT</span>: <span class="menu">Ext. In</span> <span class="code">3/4</span>.</li>
-        <li><span class="system-tag">Live</span> <span class="code">CHORD</span> and <span class="code">TEXTURE</span>: <span class="menu">Ext. In</span> <span class="code">1</span>.</li>
-        <li><span class="system-tag">Live</span> All faders at <span class="code">0 dB</span> — unity, the lab-001 rule.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li><kbd>⌘ T</kbd>, rename the track <span class="code">REF</span> (<kbd>⌘ R</kbd>), and drag “Mango Drive” into it.</li>
+        <li>Find the most characteristic 8–16 bars for depth-from-levels — chord, hat, and texture all present — and loop them.</li>
+        <li>Spend a few minutes choosing; the wrong section makes every later pass harder.</li>
+        <li>Drop <span class="menu">Audio Effects → Utility</span> on <span class="code">REF</span> and trim its gain so the section peaks ≈ <span class="code">−12 dBFS</span>, matched to the build you are about to make.</li>
+        <li><span class="code">REF</span> stays one solo-press away for the whole lesson.</li>
+        <li><kbd>⌘ T</kbd> four times; rename with <kbd>⌘ R</kbd>: <span class="code">KICK</span>, <span class="code">HAT</span>, <span class="code">CHORD</span>, <span class="code">TEXTURE</span>.</li>
+        <li><kbd>⌘ ⌥ I</kbd> to show In/Out.</li>
+        <li><span class="code">KICK</span> and <span class="code">HAT</span>: <span class="menu">Ext. In</span> <span class="code">3/4</span>.</li>
+        <li><span class="code">CHORD</span> and <span class="code">TEXTURE</span>: <span class="menu">Ext. In</span> <span class="code">1</span>.</li>
+        <li>All faders at <span class="code">0 dB</span> — unity, the lab-001 rule.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Rhythm &amp; Sound — “Mango Drive” and use Live audio/MIDI tracks, Utility, automation, and resampling.</li><li>Build the phase goal — <em>The reference and the empty tracks</em> — as the smallest Live set that proves <em>large, deliberate gaps between element levels</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>heavy and deep, though nothing is loud</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>The reference and the empty tracks</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>large, deliberate gaps between element levels</em>, not just the surface of Rhythm &amp; Sound — “Mango Drive”.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">The record loops at a polite ≈ −12 dBFS, and four named, correctly-routed, unity-gain tracks wait for audio. Soloing <span class="code">REF</span> plays the section; everything else is silent.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">The record loops at a polite ≈ −12 dBFS, and four named, correctly-routed, unity-gain tracks wait for audio. Soloing <span class="code">REF</span> plays the section; everything else is silent.</p>
     </div>
 
     <div class="sub-block">
@@ -180,35 +184,34 @@
     </div>
   </div>
 
-  <!-- PHASE 2 -->
   <div class="step">
     <div class="step-head">
       <div class="step-num">Phase 2 · ≈ 25 min</div>
       <h3 class="step-title">The drums, transcribed and captured</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: the drums, transcribed and captured. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: the drums, transcribed and captured. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Live</span> Solo <span class="code">REF</span> and transcribe the kick and hat placement by ear;</li>
-        <li><span class="system-tag">Live</span> the page cannot give you the steps — hearing them is the exercise.</li>
-        <li><span class="system-tag">Live</span> Take at least two passes per element: one for the kick alone, one for the hats alone.</li>
-        <li><span class="system-tag">Digitakt II</span> Press <span class="code">[RECORD]</span> to enter grid recording.</li>
-        <li><span class="system-tag">Digitakt II</span> The <span class="code">[RECORD]</span> key should light red.</li>
-        <li><span class="system-tag">Digitakt II</span> Track 1: audition kick samples — at least three candidates — and keep the one closest to the record’s kick.</li>
-        <li><span class="system-tag">Digitakt II</span> Track 2: the closed hat closest to the record’s.</li>
-        <li><span class="system-tag">Digitakt II</span> Place the trigs where the record places them — quarters on <span class="code">1, 5, 9, 13</span> with offbeat hats is the likely shape, but let the loop, not this page, confirm it.</li>
-        <li><span class="system-tag">Digitakt II + Live</span> Mute Digitakt II track 2, arm <span class="code">KICK</span>, set the Digitakt II <span class="code">Main Volume</span> until Live’s meter peaks ≈ <span class="code">−12 dBFS</span> — nominal, straight from the lab-001 ledger — and record 8 bars.</li>
-        <li><span class="system-tag">Digitakt II + Live</span> Swap the mutes, arm <span class="code">HAT</span>, record 8 bars at the same peak.</li>
-        <li><span class="system-tag">Digitakt II + Live</span> Solo each take against <span class="code">REF</span> and listen for a full loop each: same drum role, same envelope length, same weight.</li>
-        <li><span class="system-tag">Digitakt II</span> If a sound is clearly wrong, re-audition and re-record now — it is cheap here and expensive in phase 4. Stop the Digitakt II.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>Solo <span class="code">REF</span> and transcribe the kick and hat placement by ear;</li>
+        <li>the page cannot give you the steps — hearing them is the exercise.</li>
+        <li>Take at least two passes per element: one for the kick alone, one for the hats alone.</li>
+        <li>Press <span class="code">[RECORD]</span> to enter grid recording.</li>
+        <li>The <span class="code">[RECORD]</span> key should light red.</li>
+        <li>Track 1: audition kick samples — at least three candidates — and keep the one closest to the record’s kick.</li>
+        <li>Track 2: the closed hat closest to the record’s.</li>
+        <li>Place the trigs where the record places them — quarters on <span class="code">1, 5, 9, 13</span> with offbeat hats is the likely shape, but let the loop, not this page, confirm it.</li>
+        <li>Mute Digitakt II track 2, arm <span class="code">KICK</span>, set the Digitakt II <span class="code">Main Volume</span> until Live’s meter peaks ≈ <span class="code">−12 dBFS</span> — nominal, straight from the lab-001 ledger — and record 8 bars.</li>
+        <li>Swap the mutes, arm <span class="code">HAT</span>, record 8 bars at the same peak.</li>
+        <li>Solo each take against <span class="code">REF</span> and listen for a full loop each: same drum role, same envelope length, same weight.</li>
+        <li>If a sound is clearly wrong, re-audition and re-record now — it is cheap here and expensive in phase 4. Stop the Digitakt II.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Rhythm &amp; Sound — “Mango Drive” and use audio clips, Simpler/Sampler, clip envelopes, and resampling.</li><li>Build the phase goal — <em>The drums, transcribed and captured</em> — as the smallest Live set that proves <em>large, deliberate gaps between element levels</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>heavy and deep, though nothing is loud</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>The drums, transcribed and captured</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>large, deliberate gaps between element levels</em>, not just the surface of Rhythm &amp; Sound — “Mango Drive”.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Two 8-bar clips, <span class="code">KICK</span> and <span class="code">HAT</span>, both peaking ≈ −12 dBFS, both placed where the record places them. Soloed against <span class="code">REF</span>, each sounds like a sibling of the record’s drum, not a stranger.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Two 8-bar clips, <span class="code">KICK</span> and <span class="code">HAT</span>, both peaking ≈ −12 dBFS, both placed where the record places them. Soloed against <span class="code">REF</span>, each sounds like a sibling of the record’s drum, not a stranger.</p>
     </div>
 
     <div class="sub-block">
@@ -223,33 +226,32 @@
     </div>
   </div>
 
-  <!-- PHASE 3 -->
   <div class="step">
     <div class="step-head">
       <div class="step-num">Phase 3 · ≈ 25 min</div>
       <h3 class="step-title">The chord and the wash</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: the chord and the wash. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: the chord and the wash. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">MicroFreak</span> MicroFreak: <span class="code">Paraphonic</span> ON, a soft engine (Type → <span class="code">V.Analog</span>), attack slow, sustain high, cutoff ≈ 40 % as a starting point.</li>
-        <li><span class="system-tag">Live</span> Transcribe the chord’s notes from <span class="code">REF</span> by ear — the page cannot give the notes;</li>
-        <li><span class="system-tag">Live</span> hearing them is the exercise.</li>
-        <li><span class="system-tag">Live</span> Sing along with the chord first if it helps; the voice finds intervals the fingers miss.</li>
-        <li><span class="system-tag">MicroFreak + Live</span> Make at least three solo-flip passes against <span class="code">REF</span>, changing one parameter per pass — cutoff, then envelope, then voicing — until the flip has the same role and register.</li>
-        <li><span class="system-tag">MicroFreak + Live</span> One change per pass, or you will not know which move helped.</li>
-        <li><span class="system-tag">MicroFreak + Live</span> Set the M4 input-1 gain so peaks sit ≈ <span class="code">−12 dBFS</span>; arm <span class="code">CHORD</span> and record 8 bars.</li>
-        <li><span class="system-tag">MicroFreak</span> Turn <span class="code">Type</span> to the <span class="code">Noise</span> engine, close the cutoff toward ≈ 15 % so it becomes a dull wash, and hold a low note.</li>
-        <li><span class="system-tag">Live</span> Solo-flip against <span class="code">REF</span> until the wash sits in the same register as the record’s — darker is almost always closer.</li>
-        <li><span class="system-tag">Live</span> Record 8 bars into <span class="code">TEXTURE</span> — same gain, peaks ≈ <span class="code">−12 dBFS</span>.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>MicroFreak: <span class="code">Paraphonic</span> ON, a soft engine (Type → <span class="code">V.Analog</span>), attack slow, sustain high, cutoff ≈ 40 % as a starting point.</li>
+        <li>Transcribe the chord’s notes from <span class="code">REF</span> by ear — the page cannot give the notes;</li>
+        <li>hearing them is the exercise.</li>
+        <li>Sing along with the chord first if it helps; the voice finds intervals the fingers miss.</li>
+        <li>Make at least three solo-flip passes against <span class="code">REF</span>, changing one parameter per pass — cutoff, then envelope, then voicing — until the flip has the same role and register.</li>
+        <li>One change per pass, or you will not know which move helped.</li>
+        <li>Set the M4 input-1 gain so peaks sit ≈ <span class="code">−12 dBFS</span>; arm <span class="code">CHORD</span> and record 8 bars.</li>
+        <li>Turn <span class="code">Type</span> to the <span class="code">Noise</span> engine, close the cutoff toward ≈ 15 % so it becomes a dull wash, and hold a low note.</li>
+        <li>Solo-flip against <span class="code">REF</span> until the wash sits in the same register as the record’s — darker is almost always closer.</li>
+        <li>Record 8 bars into <span class="code">TEXTURE</span> — same gain, peaks ≈ <span class="code">−12 dBFS</span>.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Rhythm &amp; Sound — “Mango Drive” and use Operator or Wavetable into Auto Filter, with clip automation.</li><li>Build the phase goal — <em>The chord and the wash</em> — as the smallest Live set that proves <em>large, deliberate gaps between element levels</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>heavy and deep, though nothing is loud</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>The chord and the wash</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>large, deliberate gaps between element levels</em>, not just the surface of Rhythm &amp; Sound — “Mango Drive”.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Two more 8-bar clips at ≈ −12 dBFS: a chord that flips against the record without embarrassment, and a wash that could be mistaken for room tone. All four sounds now exist, all equally loud.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Two more 8-bar clips at ≈ −12 dBFS: a chord that flips against the record without embarrassment, and a wash that could be mistaken for room tone. All four sounds now exist, all equally loud.</p>
     </div>
 
     <div class="sub-block">
@@ -264,13 +266,12 @@
     </div>
   </div>
 
-  <!-- PHASE 4 -->
   <div class="step">
     <div class="step-head">
       <div class="step-num">Phase 4 · ≈ 30 min</div>
       <h3 class="step-title">Flat, then deep — faders only</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: flat, then deep — faders only. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: flat, then deep — faders only. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
 
     <table class="param-table">
       <caption>The spread — provided targets to verify by ear</caption>
@@ -282,21 +283,21 @@
 
     <div class="signal-flow" style="display:block; padding:26px 16px;">
       <svg viewBox="0 0 760 232" width="100%" role="img" aria-label="The spread — four element levels drawn as bars, chord loudest, texture quietest">
-        <line x1="160" y1="18" x2="160" y2="214" stroke="#6e7681" stroke-width="1.2"/>
-        <rect x="160" y="28" width="540" height="24" fill="#1f2530"/>
-        <rect x="160" y="28" width="480" height="24" fill="#7dd3c0"/>
+        <line x1="160" y1="18" x2="160" y2="214" stroke="#6e7681" stroke-width="1.2"></line>
+        <rect x="160" y="28" width="540" height="24" fill="#1f2530"></rect>
+        <rect x="160" y="28" width="480" height="24" fill="#7dd3c0"></rect>
         <text x="148" y="45" fill="#e6edf3" font-size="12" text-anchor="end">CHORD</text>
         <text x="712" y="45" fill="#8b949e" font-size="11" text-anchor="end">≈ −12 dBFS</text>
-        <rect x="160" y="78" width="540" height="24" fill="#1f2530"/>
-        <rect x="160" y="78" width="448" height="24" fill="#7dd3c0"/>
+        <rect x="160" y="78" width="540" height="24" fill="#1f2530"></rect>
+        <rect x="160" y="78" width="448" height="24" fill="#7dd3c0"></rect>
         <text x="148" y="95" fill="#e6edf3" font-size="12" text-anchor="end">KICK</text>
         <text x="712" y="95" fill="#8b949e" font-size="11" text-anchor="end">≈ −14 dBFS</text>
-        <rect x="160" y="128" width="540" height="24" fill="#1f2530"/>
-        <rect x="160" y="128" width="320" height="24" fill="#7dd3c0"/>
+        <rect x="160" y="128" width="540" height="24" fill="#1f2530"></rect>
+        <rect x="160" y="128" width="320" height="24" fill="#7dd3c0"></rect>
         <text x="148" y="145" fill="#e6edf3" font-size="12" text-anchor="end">HAT</text>
         <text x="712" y="145" fill="#8b949e" font-size="11" text-anchor="end">≈ −22 dBFS</text>
-        <rect x="160" y="178" width="540" height="24" fill="#1f2530"/>
-        <rect x="160" y="178" width="192" height="24" fill="#7dd3c0"/>
+        <rect x="160" y="178" width="540" height="24" fill="#1f2530"></rect>
+        <rect x="160" y="178" width="192" height="24" fill="#7dd3c0"></rect>
         <text x="148" y="195" fill="#e6edf3" font-size="12" text-anchor="end">TEXTURE</text>
         <text x="712" y="195" fill="#8b949e" font-size="11" text-anchor="end">≈ −30 dBFS</text>
         <text x="430" y="228" fill="#8b949e" font-size="10.5" text-anchor="middle">starting points — the record corrects them</text>
@@ -305,26 +306,26 @@
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Live</span> Loop all four clips with every fader at <span class="code">0 dB</span> — all four elements at equal level, all at nominal.</li>
-        <li><span class="system-tag">Live</span> Solo-flip against <span class="code">REF</span> for a full minute.</li>
-        <li><span class="system-tag">Live</span> Same sounds, no depth — it is flat and crowded, and it is not the record.</li>
-        <li><span class="system-tag">Logbook</span> Write one line saying so.</li>
-        <li><span class="system-tag">Logbook</span> <span class="code">CHORD</span> stays at <span class="code">0 dB</span> — the loudest element, peaking ≈ <span class="code">−12 dBFS</span>.</li>
-        <li><span class="system-tag">Live</span> Solo-flip against <span class="code">REF</span> after every move from here on.</li>
-        <li><span class="system-tag">Live</span> Pull <span class="code">HAT</span> down until it sits as far below the chord as the record’s hat does — ≈ <span class="code">−10 dB</span> is a starting point;</li>
-        <li><span class="system-tag">Live</span> the record is the answer.</li>
-        <li><span class="system-tag">Live</span> Pull <span class="code">TEXTURE</span> to the edge of attention exactly where the record holds it, ≈ <span class="code">−18</span> to <span class="code">−24 dB</span> on the fader.</li>
-        <li><span class="system-tag">Live</span> Set <span class="code">KICK</span> between chord and hat — a few dB down, toward the spread table’s ≈ <span class="code">−14 dBFS</span> — until the weight matches.</li>
-        <li><span class="system-tag">Live</span> Make at least two more full passes across all three moving faders, finer each time.</li>
-        <li><span class="system-tag">Live</span> The first pass gets the shape; the later passes get the record.</li>
-        <li><span class="system-tag">Live</span> Touch nothing else — no EQ, no reverb, no clip gain.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>Loop all four clips with every fader at <span class="code">0 dB</span> — all four elements at equal level, all at nominal.</li>
+        <li>Solo-flip against <span class="code">REF</span> for a full minute.</li>
+        <li>Same sounds, no depth — it is flat and crowded, and it is not the record.</li>
+        <li>Write one line saying so.</li>
+        <li><span class="code">CHORD</span> stays at <span class="code">0 dB</span> — the loudest element, peaking ≈ <span class="code">−12 dBFS</span>.</li>
+        <li>Solo-flip against <span class="code">REF</span> after every move from here on.</li>
+        <li>Pull <span class="code">HAT</span> down until it sits as far below the chord as the record’s hat does — ≈ <span class="code">−10 dB</span> is a starting point;</li>
+        <li>the record is the answer.</li>
+        <li>Pull <span class="code">TEXTURE</span> to the edge of attention exactly where the record holds it, ≈ <span class="code">−18</span> to <span class="code">−24 dB</span> on the fader.</li>
+        <li>Set <span class="code">KICK</span> between chord and hat — a few dB down, toward the spread table’s ≈ <span class="code">−14 dBFS</span> — until the weight matches.</li>
+        <li>Make at least two more full passes across all three moving faders, finer each time.</li>
+        <li>The first pass gets the shape; the later passes get the record.</li>
+        <li>Touch nothing else — no EQ, no reverb, no clip gain.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Rhythm &amp; Sound — “Mango Drive” and use Live audio/MIDI tracks, Utility, automation, and resampling.</li><li>Build the phase goal — <em>Flat, then deep — faders only</em> — as the smallest Live set that proves <em>large, deliberate gaps between element levels</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>heavy and deep, though nothing is loud</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>Flat, then deep — faders only</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>large, deliberate gaps between element levels</em>, not just the surface of Rhythm &amp; Sound — “Mango Drive”.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">The flip between <span class="code">REF</span> and your loop lands on the same four sounds at the same distances. Nothing in your version got louder than nominal — things only got quieter — and the mix is suddenly deep.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">The flip between <span class="code">REF</span> and your loop lands on the same four sounds at the same distances. Nothing in your version got louder than nominal — things only got quieter — and the mix is suddenly deep.</p>
     </div>
 
     <div class="sub-block">
@@ -339,31 +340,30 @@
     </div>
   </div>
 
-  <!-- PHASE 5 -->
   <div class="step">
     <div class="step-head">
       <div class="step-num">Phase 5 · ≈ 20 min</div>
       <h3 class="step-title">Measure, verify, file</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: measure, verify, file. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: measure, verify, file. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Live + Logbook</span> <strong>Observe — see it, not just hear it.</strong> With the matched version playing, read the Live channel meters and write the numbers: <span class="code">CHORD</span> peak, <span class="code">HAT</span> peak, <span class="code">TEXTURE</span> peak.</li>
-        <li><span class="system-tag">Live + Logbook</span> Read each on the same bar of the loop so the peaks are comparable.</li>
-        <li><span class="system-tag">Live + Logbook</span> Compute the gaps in dB.</li>
-        <li><span class="system-tag">Logbook</span> Those gaps are your transcription of the record’s level relationships — the logbook gets them.</li>
-        <li><span class="system-tag">Logbook</span> Compare your measured gaps with the spread table above.</li>
-        <li><span class="system-tag">Logbook</span> Where they differ, the record won — note by how much.</li>
-        <li><span class="system-tag">Live + Logbook</span> <strong>Write both ledgers.</strong> Note the flat fader set (all <span class="code">0</span>) and the matched set in the logbook, so you can flip between them by hand for the A/B below.</li>
-        <li><span class="system-tag">Logbook</span> Run the verification below, then write the three-line miss list.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li><strong>Observe — see it, not just hear it.</strong> With the matched version playing, read the Live channel meters and write the numbers: <span class="code">CHORD</span> peak, <span class="code">HAT</span> peak, <span class="code">TEXTURE</span> peak.</li>
+        <li>Read each on the same bar of the loop so the peaks are comparable.</li>
+        <li>Compute the gaps in dB.</li>
+        <li>Those gaps are your transcription of the record’s level relationships — the logbook gets them.</li>
+        <li>Compare your measured gaps with the spread table above.</li>
+        <li>Where they differ, the record won — note by how much.</li>
+        <li><strong>Write both ledgers.</strong> Note the flat fader set (all <span class="code">0</span>) and the matched set in the logbook, so you can flip between them by hand for the A/B below.</li>
+        <li>Run the verification below, then write the three-line miss list.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Rhythm &amp; Sound — “Mango Drive” and use Live audio/MIDI tracks, Utility, automation, and resampling.</li><li>Build the phase goal — <em>Measure, verify, file</em> — as the smallest Live set that proves <em>large, deliberate gaps between element levels</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>heavy and deep, though nothing is loud</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>Measure, verify, file</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>large, deliberate gaps between element levels</em>, not just the surface of Rhythm &amp; Sound — “Mango Drive”.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">The logbook holds three peak readings, the gaps between them, and both fader sets — a depth recipe measured off your own ears, checked against the record.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">The logbook holds three peak readings, the gaps between them, and both fader sets — a depth recipe measured off your own ears, checked against the record.</p>
     </div>
 
     <div class="sub-block">
@@ -378,6 +378,10 @@
     </div>
   </div>
 
+  </div></div><!-- PHASE 2 -->
+  <!-- PHASE 3 -->
+  <!-- PHASE 4 -->
+  <!-- PHASE 5 -->
   <div class="decision-check">
     <div class="decision-check-label">Verify against the record</div>
     <p>Solo-flip between <span class="code">REF</span> and your matched version at matched loudness — phones at the mark, and remember nothing in your version got <em>louder</em> than nominal, things only got quieter.</p>
@@ -414,5 +418,6 @@
 
 </div>
 
+  <script src="../nav.js"></script>
 </body>
 </html>

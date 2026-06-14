@@ -6,7 +6,7 @@
 <title>Lab 010 — Probability Grammar</title>
 <link rel="stylesheet" href="../styles.css">
 </head>
-<body>
+<body class="page-type-lab" id="top">
 
 <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
 <label for="nav-toggle" class="hamburger" aria-label="Menu">
@@ -16,6 +16,7 @@
 <nav class="nav" aria-label="Workshop contents">
   <p class="nav-label">Workshop</p>
   <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
   <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
   <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
   <a href="index.html" class="active"><span class="nav-num">03</span>Time</a>
@@ -28,6 +29,7 @@
 </nav>
 
 <div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 3 · Time</a><span class="breadcrumb-sep">/</span><span>Probability Grammar</span></nav>
 
   <header class="page-header">
     <div class="eyebrow">Block 3 · Lab 010 · Track lab</div>
@@ -35,6 +37,8 @@
     <p class="lede">Conditional trigs turn the Digitakt’s sequencer from a tape into a rulebook: this step fires every third pass, that one fires 30% of the time, this one only on the first cycle. You stop writing what happens and start writing how often it happens — broken techno composed as a system of odds.</p>
   </header>
   <p class="block-meta">Track lab · S2 · D3 E2 M2 F2 · broken techno · full cycle · new concepts: 5</p>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l3.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs" class="current">Labs</a><a href="lab-r3.html" data-section="rebuild">Rebuild</a><a href="capstone-c2.html" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
 
   <div class="signal-flow">
     <span class="signal-node">listen</span>
@@ -163,7 +167,7 @@
 
   <h2>2 · Bench preflight</h2>
 
-  <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:11px; letter-spacing:0.2em; text-transform:uppercase;">The path — one machine performing, one machine listening</h3>
+  <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:var(--fs-xs); letter-spacing:0.2em; text-transform:uppercase;">The path — one machine performing, one machine listening</h3>
   <div class="signal-flow">
     <span class="signal-node">Digitakt (rules run here)</span>
     <span class="signal-arrow">→ 2 × TRS →</span>
@@ -189,12 +193,46 @@
     </ul>
   </div>
 
-  <h2>3 · Build — forthcoming</h2>
+  <h2>3 · Build</h2>
 
-  <div class="note-block">
-    <ul>
-      <li><strong>The step-by-step build lands when Block 3 is authored;</strong> the listening, specs, preflight, timing ritual, and pass gate on this page are stable — the numbered recipe is the part still to come. <span class="status">forthcoming</span></li>
-    </ul>
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Build the lab in five passes. Each pass produces an artifact, not just a better-sounding session: a written rule, a printed comparison, a fault entry, and a corrected system sentence.</p>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Build recipe · Probability Grammar</div>
+      <h3 class="step-title">Make the timing rule audible</h3>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Do this in order</div>
+      <ol class="rules-list">
+        <li><strong>Write the time card.</strong> List every voice, its step length or rule, its reset behavior, and what should happen at bar 64 before programming.</li><li><strong>Program the neutral state.</strong> On Digitakt II choose an empty pattern. Use [TRK] + [TRIG 1] for the anchor voice, [TRK] + [TRIG 2] for the contrast voice, and [RECORD] to enter grid recording.</li><li><strong>Add the rule.</strong> Apply the lab rule only: p-lock variation, probability, per-track length, euclidean distribution, or rotation. Do not add fills until the rule is audible.</li><li><strong>Record the proof.</strong> Record a neutral pass and a rule pass into Live through the MOTU M4. Label them PRINT-0 and PRINT-RULE.</li><li><strong>Run the fault.</strong> Create the block fault: drift, flam, or reset failure. Predict the symptom, create it, diagnose it, fix it, and write the prevention rule.</li>
+      </ol>
+    </div>
+    <div class="signal-flow">
+      <span class="signal-node">Live 12</span>
+      <span class="signal-arrow">↔</span>
+      <span class="signal-node">Digitakt II</span>
+      <span class="signal-arrow">+</span>
+      <span class="signal-node">MicroFreak</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">MOTU M4</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">Print + logbook</span>
+    </div>
+  </div>
+
+  <table class="param-table">
+    <caption>Build artifacts</caption>
+    <tr><td>Rule or hypothesis</td><td>one sentence, written before sound</td></tr>
+    <tr><td>System drawing</td><td>audio path and, where relevant, control path</td></tr>
+    <tr><td>Calibration proof</td><td>64-bar prediction, reset strategy, and drift/flam measurement</td></tr>
+    <tr><td>Printed comparison</td><td>neutral / changed / keeper prints, named and gain matched</td></tr>
+    <tr><td>Fault entry</td><td>symptom → cause → fix → prevention rule</td></tr>
+  </table>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Build exit check</div>
+    <p>The lab can move to diagnosis only when the printed audio proves the written rule. If the rule sounds true only while you explain it, simplify the system and print again.</p>
   </div>
 
   <h2>4 · Diagnosis &amp; report</h2>
@@ -260,7 +298,7 @@
         <div class="sub-label">After — verify</div>
         <p>Is the pattern random? No — relisten and you’ll find the same lurches recur: it is a fixed broken pattern, not a rolling die, and its power is that a composed irregularity reads as chaos on first listen. Your lab can get this effect two ways — write the lurch, or write odds that produce lurches. If every bar sounded different to you, relisten to bars 1–8 twice in a row and count what actually changed.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Blawan+Why+They+Hide+Their+Bodies+Under+My+Garage" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Blawan%20Why%20They%20Hide%20Their%20Bodies">Spotify</a></p>
-        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-blawan-why-they-hide-their-bodies-under-my-garage.html">lesson</a></p>
       </div>
     </details>
     <details class="listen-item">
@@ -280,7 +318,7 @@
         <div class="sub-label">After — verify</div>
         <p>Did the swerves follow a schedule? Mostly yes — they arrive at structural points, which is A:B thinking: periodic disobedience, composed on a calendar. The lesson for your rule table: put the big breaks on cycle conditions and keep dice for small ones. If the swerves felt random, relisten counting bars between them.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Shed+The+Traveller+album" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Shed%20The%20Traveller">Spotify</a></p>
-        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-shed-the-traveller.html">lesson</a></p>
       </div>
     </details>
     <details class="listen-item">
@@ -300,7 +338,7 @@
         <div class="sub-label">After — verify</div>
         <p>Probability or composition? Composition — relistening reveals exact repeats, and exactness is the tell: dice never repeat a cluster perfectly. So the unpredictability you felt was authored, hit by hit. Your lab sits on the other side of the same coin: rules that generate what Jlin writes. If you found no repeats, relisten to one minute and hum the loudest figure until it comes back.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Jlin+Erotic+Heat" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Jlin%20Erotic%20Heat">Spotify</a></p>
-        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-jlin-erotic-heat.html">lesson</a></p>
       </div>
     </details>
     <details class="listen-item">
@@ -320,7 +358,7 @@
         <div class="sub-label">After — verify</div>
         <p>If no bar repeats, why does it hold together as a track? The invariants: one tempo, one kit, one harmonic bed — variation needs a fixed frame to register against. That is your skeleton-plus-conditions architecture stated as a manifesto. And yes, your ear did construct an average bar; relisten and try to find it once — its absence from the actual audio is the piece’s joke and its lesson.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Autechre+Flutter+Anti+EP" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Autechre%20Flutter">Spotify</a></p>
-        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-autechre-flutter-anti-ep.html">lesson</a></p>
       </div>
     </details>
     <details class="listen-item">
@@ -340,7 +378,7 @@
         <div class="sub-label">After — verify</div>
         <p>Where did the variety come from, with one sound source? From parameter motion under rules — the same trick as p-locks plus conditions, scaled up. And the punchlines worked because the grammar first taught you what “normal” was; surprise is a budget you must fund with regularity. If you heard many instruments, relisten and track the timbre morphing instead of switching.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Errorsmith+Lightspeed" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Errorsmith%20Lightspeed">Spotify</a></p>
-        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-errorsmith-lightspeed.html">lesson</a></p>
       </div>
     </details>
     <details class="listen-item">
@@ -360,7 +398,7 @@
         <div class="sub-label">After — verify</div>
         <p>What was the most powerful event you heard? Almost certainly a silence — the step that didn’t fire. A condition that mostly suppresses is as compositional as one that adds; consider writing at least one rule in your table whose job is removal. If the music felt static, relisten to one track and map which slots of the bar are <em>never</em> used — the negative space is the design.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=SND+Atavism" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:SND%20Atavism">Spotify</a></p>
-        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-snd-atavism.html">lesson</a></p>
       </div>
     </details>
     <details class="listen-item">
@@ -380,7 +418,7 @@
         <div class="sub-label">After — verify</div>
         <p>Could you predict <em>when</em> a flurry would come better than <em>what</em> it would contain? Yes — and that split is the design: macro-time scheduled, micro-content loose. That maps directly to your rig: cycle conditions decide when, probability decides what. If the track read as mush, relisten following only the steady layer and let the flurries pass over it.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=T%2B%2B+Allied" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:T%2B%2B%20Allied">Spotify</a></p>
-        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-t-allied.html">lesson</a></p>
       </div>
     </details>
     <details class="listen-item">
@@ -400,7 +438,7 @@
         <div class="sub-label">After — verify</div>
         <p>Was the unpredictability in the elements or between them? Between — each layer is simple and loyal to its own cycle; the collisions do the composing. That is a third grammar besides dice and calendars: fixed cycles of unequal length (lab 011 makes it the whole subject). If you lost the count, good — relisten and find which layer the dancers would trust; one layer is always trustworthy.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=RP+Boo+Bangin+on+King+Dr" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:RP%20Boo%20Bangin%20on%20King%20Dr">Spotify</a></p>
-        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-rp-boo-bangin-on-king-dr.html">lesson</a></p>
       </div>
     </details>
     <details class="listen-item">
@@ -420,7 +458,7 @@
         <div class="sub-label">After — verify</div>
         <p>What developed over a track: the material or the rules? The rules — the cells stay recognizable while their ordering logic mutates, which is composing one level up from notes. Your rule table is a small version of the same move. If the switches felt arbitrary, relisten to one track and mark them on a timeline; their spacing usually has its own pattern.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Rian+Treanor+ATAXIA" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Rian%20Treanor%20ATAXIA">Spotify</a></p>
-        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-rian-treanor-ataxia.html">lesson</a></p>
       </div>
     </details>
     <details class="listen-item">
@@ -440,12 +478,12 @@
         <div class="sub-label">After — verify</div>
         <p>How many irregular elements does the track need? One — given enough space, a single off-cycle figure sustains an entire piece, which is an argument for a small rule table over a busy one. Where did the tension live? In the unresolved cycle: your ear kept predicting a resolution that the loop length withholds. If it felt empty, relisten in headphones at low level and notice how hard you start listening — emptiness is doing the compression’s job.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Pearson+Sound+XLB" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Pearson%20Sound%20XLB">Spotify</a></p>
-        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-pearson-sound-xlb.html">lesson</a></p>
       </div>
     </details>
   </div>
 
-  <p style="color: var(--text-muted); font-size: 14.5px; margin: 18px 0 0;">Before touching gear, write a one-sentence hypothesis in the logbook naming what you stole from across these ten records — a composed lurch that reads as chaos, disobedience on a calendar, dice-feel that is actually authored, total variation over a fixed frame, surprise funded by regularity, rules that subtract, scheduled weather with loose contents, simple loyal cycles colliding, permutation as development, or one odd event in maximum space. The target is something like: <strong style="color: var(--text);">compose the odds, not the notes — and know which kind of irregularity you are buying.</strong> Your sentence, in your words; the 64-bar prediction take is what will test it.</p>
+  <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 18px 0 0;">Before touching gear, write a one-sentence hypothesis in the logbook naming what you stole from across these ten records — a composed lurch that reads as chaos, disobedience on a calendar, dice-feel that is actually authored, total variation over a fixed frame, surprise funded by regularity, rules that subtract, scheduled weather with loose contents, simple loyal cycles colliding, permutation as development, or one odd event in maximum space. The target is something like: <strong style="color: var(--text);">compose the odds, not the notes — and know which kind of irregularity you are buying.</strong> Your sentence, in your words; the 64-bar prediction take is what will test it.</p>
 
   <div class="final">
     <div class="final-label">Track-lab principle</div>
@@ -467,5 +505,6 @@
 
 </div>
 
+  <script src="../nav.js"></script>
 </body>
 </html>

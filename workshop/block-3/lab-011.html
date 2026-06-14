@@ -6,7 +6,7 @@
 <title>Lab 011 — Polymeter &amp; Phase</title>
 <link rel="stylesheet" href="../styles.css">
 </head>
-<body>
+<body class="page-type-lab" id="top">
 
 <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
 <label for="nav-toggle" class="hamburger" aria-label="Menu">
@@ -16,6 +16,7 @@
 <nav class="nav" aria-label="Workshop contents">
   <p class="nav-label">Workshop</p>
   <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
   <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
   <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
   <a href="index.html" class="active"><span class="nav-num">03</span>Time</a>
@@ -28,6 +29,7 @@
 </nav>
 
 <div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 3 · Time</a><span class="breadcrumb-sep">/</span><span>Polymeter &amp; Phase</span></nav>
 
   <header class="page-header">
     <div class="eyebrow">Block 3 · Lab 011 · Track lab</div>
@@ -35,6 +37,8 @@
     <p class="lede">Give two loops unequal lengths and press play: the arrangement writes itself, one bar at a time, as the loops slide against each other toward a distant reunion. Phasing techno on the MicroFreak and the Digitakt’s per-track lengths — the drift is not a flaw to fix; the drift is the entire piece.</p>
   </header>
   <p class="block-meta">Track lab · S2 · D3 E2 M1 F2 · phasing techno · full cycle · new concepts: 5</p>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l3.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs" class="current">Labs</a><a href="lab-r3.html" data-section="rebuild">Rebuild</a><a href="capstone-c2.html" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
 
   <div class="signal-flow">
     <span class="signal-node">listen</span>
@@ -163,7 +167,7 @@
 
   <h2>2 · Bench preflight</h2>
 
-  <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:11px; letter-spacing:0.2em; text-transform:uppercase;">The path — one clock, two voices, one tape</h3>
+  <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:var(--fs-xs); letter-spacing:0.2em; text-transform:uppercase;">The path — one clock, two voices, one tape</h3>
   <div class="signal-flow">
     <span class="signal-node">Digitakt (master clock)</span>
     <span class="signal-arrow">→ MIDI clock →</span>
@@ -193,12 +197,46 @@
     </ul>
   </div>
 
-  <h2>3 · Build — forthcoming</h2>
+  <h2>3 · Build</h2>
 
-  <div class="note-block">
-    <ul>
-      <li><strong>The step-by-step build lands when Block 3 is authored;</strong> the listening, specs, preflight, timing ritual, and pass gate on this page are stable — the numbered recipe is the part still to come. <span class="status">forthcoming</span></li>
-    </ul>
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Build the lab in five passes. Each pass produces an artifact, not just a better-sounding session: a written rule, a printed comparison, a fault entry, and a corrected system sentence.</p>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Build recipe · Polymeter &amp;amp; Phase</div>
+      <h3 class="step-title">Make the timing rule audible</h3>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Do this in order</div>
+      <ol class="rules-list">
+        <li><strong>Write the time card.</strong> List every voice, its step length or rule, its reset behavior, and what should happen at bar 64 before programming.</li><li><strong>Program the neutral state.</strong> On Digitakt II choose an empty pattern. Use [TRK] + [TRIG 1] for the anchor voice, [TRK] + [TRIG 2] for the contrast voice, and [RECORD] to enter grid recording.</li><li><strong>Add the rule.</strong> Apply the lab rule only: p-lock variation, probability, per-track length, euclidean distribution, or rotation. Do not add fills until the rule is audible.</li><li><strong>Record the proof.</strong> Record a neutral pass and a rule pass into Live through the MOTU M4. Label them PRINT-0 and PRINT-RULE.</li><li><strong>Run the fault.</strong> Create the block fault: drift, flam, or reset failure. Predict the symptom, create it, diagnose it, fix it, and write the prevention rule.</li>
+      </ol>
+    </div>
+    <div class="signal-flow">
+      <span class="signal-node">Live 12</span>
+      <span class="signal-arrow">↔</span>
+      <span class="signal-node">Digitakt II</span>
+      <span class="signal-arrow">+</span>
+      <span class="signal-node">MicroFreak</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">MOTU M4</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">Print + logbook</span>
+    </div>
+  </div>
+
+  <table class="param-table">
+    <caption>Build artifacts</caption>
+    <tr><td>Rule or hypothesis</td><td>one sentence, written before sound</td></tr>
+    <tr><td>System drawing</td><td>audio path and, where relevant, control path</td></tr>
+    <tr><td>Calibration proof</td><td>64-bar prediction, reset strategy, and drift/flam measurement</td></tr>
+    <tr><td>Printed comparison</td><td>neutral / changed / keeper prints, named and gain matched</td></tr>
+    <tr><td>Fault entry</td><td>symptom → cause → fix → prevention rule</td></tr>
+  </table>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Build exit check</div>
+    <p>The lab can move to diagnosis only when the printed audio proves the written rule. If the rule sounds true only while you explain it, simplify the system and print again.</p>
   </div>
 
   <h2>4 · Diagnosis &amp; report</h2>
@@ -264,7 +302,7 @@
         <div class="sub-label">After — verify</div>
         <p>Where did the new melodies come from? From the offset — at each lock point the two copies interleave into a pattern that exists only between them; the composer wrote one bar and the phase wrote the rest. If you only heard repetition, relisten to one transition and name the exact moment the blur snaps into the new pattern — that snap is the piece’s engine, and your lab’s.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Steve+Reich+Piano+Phase" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Steve%20Reich%20Piano%20Phase">Spotify</a></p>
-        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-steve-reich-piano-phase.html">lesson</a></p>
       </div>
     </details>
     <details class="listen-item">
@@ -284,7 +322,7 @@
         <div class="sub-label">After — verify</div>
         <p>What does removing the glide change? The piece becomes a catalogue of offsets instead of a journey between them — discrete phase steps, which is exactly what a sequencer does naturally. Your Digitakt cannot creep like a pianist, but it can jump like a clapper; this piece is the proof that jumping is enough. Relisten and rank your three favorite offsets — those rankings are length-design decisions waiting to happen.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Steve+Reich+Clapping+Music" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Steve%20Reich%20Clapping%20Music">Spotify</a></p>
-        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-steve-reich-clapping-music.html">lesson</a></p>
       </div>
     </details>
     <details class="listen-item">
@@ -304,7 +342,7 @@
         <div class="sub-label">After — verify</div>
         <p>Was it process or improvisation? Both — fixed cycles of unequal length underneath, with playing layered over; the lesson is that polymeter is a bed, not a cage. Which cycle did your ear elect as “home”? There is usually one mid-length loop doing that work. If everything washed together, relisten and follow only the lowest layer; the garden has paths.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Terry+Riley+A+Rainbow+in+Curved+Air" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Terry%20Riley%20A%20Rainbow%20in%20Curved%20Air">Spotify</a></p>
-        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-terry-riley-a-rainbow-in-curved-air.html">lesson</a></p>
       </div>
     </details>
     <details class="listen-item">
@@ -324,7 +362,7 @@
         <div class="sub-label">After — verify</div>
         <p>What is the variable here, if nothing slides? The lap length itself — additive process changes the loop’s size in real time, where your lab fixes sizes and lets position drift. Hearing both makes the design space legible: length-change vs phase-change are the two axes of loop time. If the lurches floored you, relisten counting the cell’s notes out loud until a count fails — that failure is the event.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Philip+Glass+Two+Pages" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Philip%20Glass%20Two%20Pages">Spotify</a></p>
-        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-philip-glass-two-pages.html">lesson</a></p>
       </div>
     </details>
     <details class="listen-item">
@@ -344,7 +382,7 @@
         <div class="sub-label">After — verify</div>
         <p>How does one hour stay listenable with two chords? Because the form is built on cycles lapping each other plus a strict ration of events — scarcity converts tiny changes into drama. The guitar entrance lands like it does because nothing else had entered for half an hour; your 6–8 minute piece gets the same physics at smaller scale. If you skipped ahead while listening, note where — those skip points are where your own piece will need its reunions.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Manuel+G%C3%B6ttsching+E2-E4" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Manuel%20Gottsching%20E2-E4">Spotify</a></p>
-        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-manuel-gottsching-e2-e4.html">lesson</a></p>
       </div>
     </details>
     <details class="listen-item">
@@ -364,7 +402,7 @@
         <div class="sub-label">After — verify</div>
         <p>What does the rhythm section do that your Digitakt won’t need to? It spends effort just staying aligned — and that audible effort is part of the music’s tension. A sequencer holds unequal laps for free, which means your version must source its tension elsewhere: from the lengths themselves. If you couldn’t separate the guitars, relisten with one ear panned — the interlock is mixed wide on purpose.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=King+Crimson+Discipline+song" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:King%20Crimson%20Discipline">Spotify</a></p>
-        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-king-crimson-discipline.html">lesson</a></p>
       </div>
     </details>
     <details class="listen-item">
@@ -384,7 +422,7 @@
         <div class="sub-label">After — verify</div>
         <p>Where is the arrangement? In the phase relationships — the track is a set of unequal cycles left to interact, with mixing as gardening. That is this lab’s exact brief. Did you find a layer whose lap you could time? If not, relisten to four minutes following one hat figure only; its slow journey against the kick is the form, hiding in plain sight.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Voices+from+the+Lake+Hoba" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Voices%20from%20the%20Lake%20Hoba">Spotify</a></p>
-        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-voices-from-the-lake-hoba.html">lesson</a></p>
       </div>
     </details>
     <details class="listen-item">
@@ -404,7 +442,7 @@
         <div class="sub-label">After — verify</div>
         <p>Why doesn’t a nine-minute track with one lead melody get old? Because the melody’s length and the bar’s length disagree — each lap re-harmonizes the same notes against the drums. One good length decision did the work of a dozen variations. If the lead felt repetitive, relisten and mark where its high note lands relative to the kick across four laps; it never lands the same place twice until the cycle closes.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Mathew+Jonson+Marionette" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Mathew%20Jonson%20Marionette">Spotify</a></p>
-        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-mathew-jonson-marionette.html">lesson</a></p>
       </div>
     </details>
     <details class="listen-item">
@@ -424,7 +462,7 @@
         <div class="sub-label">After — verify</div>
         <p>Why does it feel ritual rather than mathematical? Because the unequal cycles never display their arithmetic — no clean reunion is celebrated; alignment is approached and denied, and the denial reads as menace. Same machinery as Reich, opposite emotional sign. Your length choices set this dial: celebrate the reunion or withhold it. If you felt nothing, relisten louder in a dark room; this one is about the body.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Shackleton+Blood+on+My+Hands" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Shackleton%20Blood%20on%20My%20Hands">Spotify</a></p>
-        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-shackleton-blood-on-my-hands.html">lesson</a></p>
       </div>
     </details>
     <details class="listen-item">
@@ -444,12 +482,12 @@
         <div class="sub-label">After — verify</div>
         <p>What replaces hypnosis here? Legibility — the cycles are mixed so dry and sparse that you can audit each one, and the pleasure is in the audit. This is the modern restatement of the lab: unequal lengths plus radical clarity, no fog. Did you catch a layer leaving exactly when its cycle stopped contributing? Relisten for one exit; the curation is the human role your spec asks you to declare.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Beatrice+Dillon+Workaround+One" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Beatrice%20Dillon%20Workaround%20One">Spotify</a></p>
-        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-beatrice-dillon-workaround-one.html">lesson</a></p>
       </div>
     </details>
   </div>
 
-  <p style="color: var(--text-muted); font-size: 14.5px; margin: 18px 0 0;">Before touching gear, write a one-sentence hypothesis in the logbook naming what you stole from across these ten works — the snap into a new pattern at each lock, discrete jumps instead of glide, the ecology of many laps, length itself as the moving part, scarcity converting small changes into drama, tension sourced from human effort or from the lengths alone, relationships as the foreground, one lead lapping the bar, reunion withheld as menace, or polymeter made fully legible. The target is something like: <strong style="color: var(--text);">choose two numbers well and the arrangement composes itself — the drift is the piece.</strong> Your sentence, in your words; the 64-bar prediction table is what will test it.</p>
+  <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 18px 0 0;">Before touching gear, write a one-sentence hypothesis in the logbook naming what you stole from across these ten works — the snap into a new pattern at each lock, discrete jumps instead of glide, the ecology of many laps, length itself as the moving part, scarcity converting small changes into drama, tension sourced from human effort or from the lengths alone, relationships as the foreground, one lead lapping the bar, reunion withheld as menace, or polymeter made fully legible. The target is something like: <strong style="color: var(--text);">choose two numbers well and the arrangement composes itself — the drift is the piece.</strong> Your sentence, in your words; the 64-bar prediction table is what will test it.</p>
 
   <div class="final">
     <div class="final-label">Track-lab principle</div>
@@ -471,5 +509,6 @@
 
 </div>
 
+  <script src="../nav.js"></script>
 </body>
 </html>

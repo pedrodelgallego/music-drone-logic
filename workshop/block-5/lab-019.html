@@ -6,7 +6,7 @@
 <title>Lab 019 — Reverb as Instrument</title>
 <link rel="stylesheet" href="../styles.css">
 </head>
-<body>
+<body class="page-type-lab" id="top">
 
 <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
 <label for="nav-toggle" class="hamburger" aria-label="Menu">
@@ -16,6 +16,7 @@
 <nav class="nav" aria-label="Workshop contents">
   <p class="nav-label">Workshop</p>
   <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
   <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
   <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
   <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
@@ -28,6 +29,7 @@
 </nav>
 
 <div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 5 · Space &amp; Mix</a><span class="breadcrumb-sep">/</span><span>Reverb as Instrument</span></nav>
 
   <header class="page-header">
     <div class="eyebrow">Block 5 · Lab 019 · Track lab</div>
@@ -35,6 +37,8 @@
     <p class="lede">Reverb pretends to be a room. This lab refuses the pretense: the reverb runs as a sound source — fed single notes, printed, pitched, reversed, and resampled as material — and six to eight minutes of deep ambient are composed from the space itself.</p>
   </header>
   <p class="block-meta">Track lab · S3 · D3 E3 M4 F2 · deep ambient · full cycle · new concepts: 5</p>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l5.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs" class="current">Labs</a><a href="lab-r5.html" data-section="rebuild">Rebuild</a><a href="capstone-c4.html" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
 
   <div class="signal-flow">
     <span class="signal-node">listen</span>
@@ -151,7 +155,7 @@
         <div class="sub-label">After — verify</div>
         <p>Who sustained the long tones — the players or the room? Mostly the room: the performers strike and release, and the cistern does the holding. Notice they never play through their own tails carelessly; the decay time is composed into the phrasing, which is precisely what your spec's decay prompt asks you to decide on purpose. If the space read as "big reverb on horns," relisten to one phrase and time the tail on your phone — then ask what instrument you own that sustains that long. The answer is the return you are about to build.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Pauline+Oliveros+Deep+Listening+Lear" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Pauline%20Oliveros%20Deep%20Listening">Spotify</a></p>
-        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-pauline-oliveros-dempster-panaiotis-lear-deep-listening.html">lesson</a></p>
       </div>
     </details>
     <details class="listen-item">
@@ -171,7 +175,7 @@
         <div class="sub-label">After — verify</div>
         <p>Strip the reverb away in your imagination — what remains? A modest, almost plain melody. The piece <em>is</em> the treatment: harmony from overlap, radiance from the processed tail. That is the room-vs-source distinction settled in one track. If you heard it as a melody "with lots of reverb," relisten attending only to what sounds between the notes — that is where most of the music is.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Brian+Eno+An+Ending+Ascent" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Brian%20Eno%20An%20Ending%20Ascent">Spotify</a></p>
-        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-brian-eno-an-ending-ascent.html">lesson</a></p>
       </div>
     </details>
     <details class="listen-item">
@@ -191,7 +195,7 @@
         <div class="sub-label">After — verify</div>
         <p>Would Budd have played these notes on a dry piano? No — the touch, the tempo, and the gaps only make sense because he was hearing the treated sound while playing. That is the engineering decision hiding in this lab: monitor the wet world while you perform into it, and the performance changes. If the playing seemed merely slow, relisten and ask after each phrase what would have happened to a fast one — the treatment would have smeared it to fog, and the player knows.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Harold+Budd+Brian+Eno+First+Light" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Harold%20Budd%20Brian%20Eno%20First%20Light">Spotify</a></p>
-        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-harold-budd-and-brian-eno-first-light.html">lesson</a></p>
       </div>
     </details>
     <details class="listen-item">
@@ -211,7 +215,7 @@
         <div class="sub-label">After — verify</div>
         <p>What did the reverb do to the voice's meaning? It traded words for atmosphere — the voice stopped being a message and became a place. The room's EQ is the tell that the space is authored: real rooms are not that dark. When you build your return chain, the EQ after the reverb is where you do this kind of authorship. If the space felt "natural," relisten and compare its tone to any real hall you know — it is far darker, and on purpose.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Biosphere+Kobresia" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Biosphere%20Kobresia">Spotify</a></p>
-        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-biosphere-kobresia.html">lesson</a></p>
       </div>
     </details>
     <details class="listen-item">
@@ -231,7 +235,7 @@
         <div class="sub-label">After — verify</div>
         <p>Same tool as "An Ending (Ascent)" — why does this one read as dread? The spectrum and the attack: tails filtered dark, swells with no onsets, low energy left in the room instead of carved out. Emotion lives in the return chain's EQ and dynamics, not in the notes. If you could not name a single source instrument, good — that is the tail-eats-attack effect your printed tails will exploit. Relisten for one moment where something almost becomes identifiable, then sinks back.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Deathprod+Dead+People%27s+Things" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Deathprod%20Morals%20and%20Dogma">Spotify</a></p>
-        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-deathprod-dead-peoples-things.html">lesson</a></p>
       </div>
     </details>
     <details class="listen-item">
@@ -251,7 +255,7 @@
         <div class="sub-label">After — verify</div>
         <p>Could you point to a single event — one moment where a sound starts? No, and that absence is manufacturing: every strike was printed, its onset discarded, and its tail re-fed into the process. This is your print-and-resample loop run to its logical conclusion. If the music felt sourceless, relisten knowing it is gongs — you still will not hear them, and that distance between source and result is the measure of how far printing tails can carry material.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Thomas+K%C3%B6ner+Teimo" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Thomas%20K%C3%B6ner%20Teimo">Spotify</a></p>
-        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-thomas-koner-teimo.html">lesson</a></p>
       </div>
     </details>
     <details class="listen-item">
@@ -271,7 +275,7 @@
         <div class="sub-label">After — verify</div>
         <p>What keeps this from becoming shapeless? The pulse — and the discipline of keeping the wash out of the pulse's register. The tails breathe in time, which suggests sidechain or hand-ridden levels: space treated as a mix citizen, not a backdrop. If you did not hear the ducking, relisten to any track at low volume and watch for the wash dimming slightly on each beat. Your return's place in the gain plan is this record's quiet lesson.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Loscil+Endless+Falls" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Loscil%20Endless%20Falls">Spotify</a></p>
-        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-loscil-endless-falls.html">lesson</a></p>
       </div>
     </details>
     <details class="listen-item">
@@ -291,7 +295,7 @@
         <div class="sub-label">After — verify</div>
         <p>Which came first in the chain — the saturation or the reverb? The grain rides evenly through the tails, so much of it lands after or inside the space: a return chain with character devices in it, printed and re-layered. Processor order inside the return is a compositional decision (Block 4's lesson arriving in Block 5's architecture). If the wall read as one space, relisten and separate a close, small darkness from the huge one behind it — at least two geographies are stacked.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Rafael+Anton+Irisarri+A+Fragile+Geography" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Rafael%20Anton%20Irisarri%20A%20Fragile%20Geography">Spotify</a></p>
-        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-rafael-anton-irisarri-a-fragile-geography.html">lesson</a></p>
       </div>
     </details>
     <details class="listen-item">
@@ -311,7 +315,7 @@
         <div class="sub-label">After — verify</div>
         <p>Where does the harmony actually move? Substantially in the decays: which tail survives decides which chord you are in. That is orchestration applied to reverb — each tail assigned a register and a role. If the piece read as one slow blur, relisten following only the lowest tail and notice it is managed: it always ends before the next low entrance needs the space. Your printed tails deserve the same seating chart.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Stars+of+the+Lid+Don%27t+Bother+They%27re+Here" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Stars%20of%20the%20Lid%20Don%27t%20Bother%20They%27re%20Here">Spotify</a></p>
-        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-stars-of-the-lid-dont-bother-theyre-here.html">lesson</a></p>
       </div>
     </details>
     <details class="listen-item">
@@ -331,7 +335,7 @@
         <div class="sub-label">After — verify</div>
         <p>Is the high radiance being played? No — it is the reverb pitch-shifting its own feedback upward, a space that composes new register. This is the clearest case in the ten of reverb as synthesis: the output contains pitches the input never had. If you heard "strings way up high," relisten to a passage's end — the players stop, and the halo keeps singing. A printed shimmer tail is a melody-maker; treat it as one in your piece.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Jonsi+Alex+Happiness+Riceboy+Sleeps" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Jonsi%20Alex%20Happiness">Spotify</a></p>
-        <p class="listen-rep">Replication lesson — <span class="status">forthcoming</span></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-jonsi-and-alex-happiness.html">lesson</a></p>
       </div>
     </details>
   </div>
@@ -384,12 +388,46 @@
     </ul>
   </div>
 
-  <h2>3 · Build — forthcoming</h2>
+  <h2>3 · Build</h2>
 
-  <div class="note-block">
-    <ul>
-      <li><strong>The step-by-step build lands when Block 5 is authored;</strong> the Phase 0 exit gate governs the order. The listening, spec prompts, preflight, and pass gate on this page are stable — the numbered build recipe (the wet world · trigger auditions · printing sessions · second generations · assembly from prints · the fault ritual) is the part still to come. <span class="status">forthcoming</span></li>
-    </ul>
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Build the lab in five passes. Each pass produces an artifact, not just a better-sounding session: a written rule, a printed comparison, a fault entry, and a corrected system sentence.</p>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Build recipe · Reverb as Instrument</div>
+      <h3 class="step-title">Make the space and translation path audible</h3>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Do this in order</div>
+      <ol class="rules-list">
+        <li><strong>Separate dry and wet.</strong> Create DRY, SPACE, and PRINT tracks in Live. Keep the dry path audible and route the wet path separately.</li><li><strong>Set the safe level.</strong> Record Digitakt II from MOTU M4 inputs 3/4 and MicroFreak from input 1 around -12 dBFS before adding space.</li><li><strong>Build one space path.</strong> Use one delay, reverb, feedback, width, or subtractive move. Map one control only so the change can be repeated.</li><li><strong>Check collapse.</strong> Use Utility for mono and a second playback system. Write what survives, changes, or vanishes.</li><li><strong>Run the fault.</strong> Create a translation or feedback-path fault on purpose, then repair it with level, routing, or subtraction rather than adding material.</li>
+      </ol>
+    </div>
+    <div class="signal-flow">
+      <span class="signal-node">Live 12</span>
+      <span class="signal-arrow">↔</span>
+      <span class="signal-node">Digitakt II</span>
+      <span class="signal-arrow">+</span>
+      <span class="signal-node">MicroFreak</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">MOTU M4</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">Print + logbook</span>
+    </div>
+  </div>
+
+  <table class="param-table">
+    <caption>Build artifacts</caption>
+    <tr><td>Rule or hypothesis</td><td>one sentence, written before sound</td></tr>
+    <tr><td>System drawing</td><td>audio path and, where relevant, control path</td></tr>
+    <tr><td>Calibration proof</td><td>dry path, wet path, feedback amount, mono check, and translation report</td></tr>
+    <tr><td>Printed comparison</td><td>neutral / changed / keeper prints, named and gain matched</td></tr>
+    <tr><td>Fault entry</td><td>symptom → cause → fix → prevention rule</td></tr>
+  </table>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Build exit check</div>
+    <p>The lab can move to diagnosis only when the printed audio proves the written rule. If the rule sounds true only while you explain it, simplify the system and print again.</p>
   </div>
 
   <h2>4 · Diagnosis &amp; report</h2>
@@ -445,5 +483,6 @@
 
 </div>
 
+  <script src="../nav.js"></script>
 </body>
 </html>

@@ -6,7 +6,7 @@
 <title>Capstone C6 — Gate</title>
 <link rel="stylesheet" href="../styles.css">
 </head>
-<body>
+<body class="page-type-capstone" id="top">
 
 <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
 <label for="nav-toggle" class="hamburger" aria-label="Menu">
@@ -16,6 +16,7 @@
 <nav class="nav" aria-label="Workshop contents">
   <p class="nav-label">Workshop</p>
   <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
   <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
   <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
   <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
@@ -28,13 +29,14 @@
 </nav>
 
 <div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 7 · Performance</a><span class="breadcrumb-sep">/</span><span>The Live Set</span></nav>
 
   <header class="page-header">
     <div class="eyebrow">Block 7 · Capstone C6 · Gate</div>
     <h1>The Live Set</h1>
     <p class="lede">Thirty minutes, performed and recorded. Not thirty minutes of material played back — thirty minutes <strong>operated</strong>: a system you designed, certified on lab 031&rsquo;s rig, rehearsed to fail, and then ran in real time from the first sound to the last. The gate is not whether the set was good; it is whether, when the system became unstable, you understood it well enough to recover musically.</p>
   </header>
-  <p class="block-meta">Capstone · Gate tier · constraints-only brief · one cycle · closes Block 7 · requires labs 027–031, programme L7, and lab 031&rsquo;s rig certification · <span class="status">scaffold</span></p>
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l7.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs">Labs</a><a href="lab-r7.html" data-section="rebuild">Rebuild</a><a href="capstone-c6.html" data-section="capstone" class="current">Capstone</a><a href="index.html#replication-lessons" data-section="rep">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
 
   <div class="signal-flow">
     <span class="signal-node">listen</span>
@@ -71,7 +73,7 @@
 
   <div class="callout">
     <div class="callout-label">What a gate is</div>
-    <p>A block does not end when its labs are done; it ends when you can run the operating loop without scaffolding. C6 runs the loop at S4 and in real time: the brief is constraints only, the specs are authored blank, and the fault — for the first time in three years — is not injected into a session you can pause. The audience can be one person, a room, or a camera; what cannot be substituted is the clock running forward only.</p>
+    <p>A block does not end when its labs are done; it ends when you can run the operating loop without a recipe. C6 runs the loop at S4 and in real time: the brief is constraints only, the specs are authored blank, and the fault — for the first time in three years — is not injected into a session you can pause. The audience can be one person, a room, or a camera; what cannot be substituted is the clock running forward only.</p>
   </div>
 
   <h2>1 — Brief &amp; constraints</h2>
@@ -80,10 +82,10 @@
 
   <div class="note-block">
     <ul>
-      <li><strong>Scaffolding:</strong> C6 is S4 — both specs authored from the brief alone. The System Spec declares inputs, transforms, variation, constraints, and the human role minute by minute; the Engineering Spec is led by its live fields: signal path, gain plan, clock, monitoring, <strong>panic path</strong>, recording strategy, failure mode.</li>
+      <li><strong>Support level:</strong> C6 is S4 — both specs authored from the brief alone. The System Spec declares inputs, transforms, variation, constraints, and the human role minute by minute; the Engineering Spec is led by its live fields: signal path, gain plan, clock, monitoring, <strong>panic path</strong>, recording strategy, failure mode.</li>
       <li><strong>Material:</strong> fully original — your Year 3 pieces (027–030 output) are the natural repertoire, reworked for performance rather than played back. Steal systems, never material. Nothing from any replication session appears in the set.</li>
       <li><strong>The rig:</strong> the configuration certified in lab 031, on your own hardware — Live, Digitakt, MicroFreak, the mixer, and whatever the Block 7 gear (Octatrack-class sampler, ride controller) added. Any change to the rig after certification re-opens the certification.</li>
-      <li><strong>Constraint menu:</strong> the full menu — track ceilings, committed/performed ratios, no-laptop-screen clauses, single-fallback rules — lands with Block 7 authoring. <span class="status">forthcoming</span> Until then the four constraints below are the fixed core; they are not optional and they are sufficient to run the gate.</li>
+      <li><strong>Constraint menu:</strong> the full menu is included here: track ceilings, committed/performed ratios, no-laptop-screen clauses, and single-fallback rules. The four constraints below are the fixed core.</li>
     </ul>
   </div>
 
@@ -160,10 +162,18 @@
   </div>
 
   <table class="param-table">
-    <caption>Pass standard — rubric detail <span class="status">forthcoming</span></caption>
+    <caption>Pass standard — rubric detail</caption>
     <tr><td>Minimum pass</td><td>The minimum gate above is complete, the rig certification is renewed, the failure rehearsal is documented and dated before the set, and the defense is answered.</td></tr>
     <tr><td>Solid pass</td><td>The set audibly distinguishes committed from performed material, at least one real instability was recovered musically, and the stolen principle can be located in the set&rsquo;s structure.</td></tr>
     <tr><td>Advanced transfer</td><td>You can explain how the same set would be re-rigged for an unfamiliar venue — different monitoring, different power, no second take — without losing its structure or its escape routes.</td></tr>
+    <tr><td>Excellence</td><td>The set clears a higher bar than &ldquo;recovered safely&rdquo; on every front:
+      <ul style="margin: 6px 0 0; padding-left: 18px;">
+        <li>A recovery is <em>invisible</em> — an instability is turned into material a listener would read as intended, not survived.</li>
+        <li>The stolen principle is <strong>load-bearing</strong>, not decorative: remove it and the set&rsquo;s form collapses, and the defense can show why.</li>
+        <li>The thirty minutes hold as one statement — a developed arc with an earned climax and a changed return, not a paced loop.</li>
+        <li>The post-performance fault report teaches something the rig certification did not predict — a fault class worth adding to lab 031&rsquo;s checklist for next time.</li>
+      </ul>
+    </td></tr>
   </table>
 
   <h3 style="text-align: center;">The seven-layer worksheet</h3>
@@ -228,5 +238,6 @@
 
 </div>
 
+  <script src="../nav.js"></script>
 </body>
 </html>

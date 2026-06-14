@@ -6,7 +6,7 @@
 <title>Block 7 — Performance &amp; Curation</title>
 <link rel="stylesheet" href="../styles.css">
 </head>
-<body>
+<body class="page-type-block-index" id="top">
 
 <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
 <label for="nav-toggle" class="hamburger" aria-label="Menu">
@@ -16,6 +16,7 @@
 <nav class="nav" aria-label="Workshop contents">
   <p class="nav-label">Workshop</p>
   <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
   <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
   <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
   <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
@@ -28,6 +29,7 @@
 </nav>
 
 <div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><span>Block 7 · Performance</span></nav>
 
   <header class="page-header">
     <div class="eyebrow">Block 7 — Performance &amp; Curation</div>
@@ -36,12 +38,15 @@
   </header>
   <p class="block-meta">Year 3 · Domain F · Labs 027–031 · Replication R7 · Programme L7 · Capstone C6 (gate)</p>
 
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview" class="current">Overview</a><a href="listening-l7.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs">Labs</a><a href="lab-r7.html" data-section="rebuild">Rebuild</a><a href="capstone-c6.html" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
+
   <div class="callout">
     <div class="callout-label">Engineering focus — operational engineering</div>
     <p>Every performance lab requires a <strong>live signal-flow diagram</strong>, a <strong>panic path</strong> (mute, limiter, bypass, stop, fallback loop — in that order of preference), a <strong>failure rehearsal</strong>, a <strong>recording strategy</strong>, and a <strong>post-performance fault report</strong>. The question is never &ldquo;did the set go well?&rdquo; — it is &ldquo;when the system became unstable, did the performer understand it well enough to recover musically?&rdquo; Block 7&rsquo;s fault emphasis is <strong>performance failure and the panic path</strong>: faults are rehearsed before they happen, because on stage there is no second take.</p>
   </div>
 
-  <h2>Working order</h2>
+  <h2 id="working-order">Working order</h2>
 
   <div class="checklist">
     <div class="checklist-head">
@@ -63,18 +68,18 @@
   <div class="note-block">
     <ul>
       <li><strong>Prerequisites in this block:</strong> 027 before 028 and before C6 — riding is the grammar everything else here speaks. Lab 029 requires lab 020&rsquo;s feedback-paths work; its safety checklist is not optional. C6 additionally requires lab 031&rsquo;s rig certification and a complete L7.</li>
-      <li><strong>This is a gate block.</strong> Block 7 closes at <a href="capstone-c6.html">C6 — The Live Set</a>, before the final block opens. The gate is performed, not just filed.</li>
+      <li><a href="capstone-c6.html">C6 — The Live Set</a> is performed, not just filed.</li>
     </ul>
   </div>
 
-  <h2>Listening programme L7 — performance practice</h2>
+  <h2 id="listening-programme">Listening programme L7 — performance practice</h2>
 
   <div class="step">
     <div class="step-head">
       <div class="step-num">Session 1 · Records</div>
       <h3 class="step-title">Live recordings heard as systems</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Live recordings analyzed with the six-question system frame — Tudor&rsquo;s <em>Rainforest IV</em> and Nakamura&rsquo;s no-input mixing board among them. What was committed before the show, what stayed live, and what could the performer actually reach in time?</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Live recordings analyzed with the six-question system frame — Tudor&rsquo;s <em>Rainforest IV</em> and Nakamura&rsquo;s no-input mixing board among them. What was committed before the show, what stayed live, and what could the performer actually reach in time?</p>
   </div>
 
   <div class="step">
@@ -82,7 +87,7 @@
       <div class="step-num">Session 2 · Samples</div>
       <h3 class="step-title">Deconstruction — one live set&rsquo;s structure</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Take one live set apart minute by minute: what is a backing element, what is performed, where the transitions live, and where the escape routes are. The worksheet becomes the blueprint for <a href="lab-r7.html">replication lab R7</a>.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Take one live set apart minute by minute: what is a backing element, what is performed, where the transitions live, and where the escape routes are. The worksheet becomes the blueprint for <a href="lab-r7.html">replication lab R7</a>.</p>
   </div>
 
   <div class="step">
@@ -90,16 +95,16 @@
       <div class="step-num">Session 3 · Video</div>
       <h3 class="step-title">Watch the hands — the heart of L7</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Tudor archival footage, contemporary hardware live sets, rig-breakdown videos — watched for recovery from failure, not just flow. Where are the hands? What is monitored? What is pre-planned vs ridden? What is the failure risk, what is being recorded, and what cannot be recovered?</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Tudor archival footage, contemporary hardware live sets, rig-breakdown videos — watched for recovery from failure, not just flow. Where are the hands? What is monitored? What is pre-planned vs ridden? What is the failure risk, what is being recorded, and what cannot be recovered?</p>
   </div>
 
   <div class="note-block">
     <ul>
-      <li><strong>Deliverable:</strong> written system analyses + <strong>one stolen principle</strong> — a structural idea, never material, named in advance and evaluated at C6. Full briefs and worksheets: <a href="listening-l7.html">programme L7</a> <span class="status">scaffold</span></li>
+      <li><strong>Deliverable:</strong> written system analyses + <strong>one stolen principle</strong> — a structural idea, never material, named in advance and evaluated at C6. Full briefs and worksheets: <a href="listening-l7.html">programme L7</a></li>
     </ul>
   </div>
 
-  <h2>Labs</h2>
+  <h2 id="labs">Labs</h2>
 
   <table>
     <tr><th>#</th><th>Lab</th><th>Type</th><th>Status</th></tr>
@@ -108,67 +113,92 @@
       <td><span class="lab-title"><a href="lab-027.html">Printed Movement</a></span>
         <span class="lab-context">riding as performance — T · S4 · D3 E3 M2 F2 — knob rides recorded as the arrangement; commitment over editing; prerequisite for 028 and C6</span></td>
       <td>Track</td>
-      <td><span class="status">scaffold</span></td>
+      <td><span class="status">complete</span></td>
     </tr>
     <tr>
       <td class="num">028</td>
       <td><span class="lab-title"><a href="lab-028.html">Live Resampling</a></span>
         <span class="lab-context">sampler as instrument — T · S4 · D4 E4 M4 F4 — capture, mangle, and redeploy in real time; a performed form, recorded as performed; requires 027</span></td>
       <td>Track</td>
-      <td><span class="status">scaffold</span></td>
+      <td><span class="status">complete</span></td>
     </tr>
     <tr>
       <td class="num">029</td>
       <td><span class="lab-title"><a href="lab-029.html">Audio Feedback Systems</a></span>
         <span class="lab-context">context: tudor — T · S4 · D5 E4 M5 F3 — sound from nothing; the system generates the source; <strong>safety-critical:</strong> requires lab 020, in-lab safety checklist before any sound — limiter location, emergency mute, monitoring level</span></td>
       <td>Track</td>
-      <td><span class="status">scaffold</span></td>
+      <td><span class="status">complete</span></td>
     </tr>
     <tr>
       <td class="num">030</td>
       <td><span class="lab-title"><a href="lab-030.html">The Long Form</a></span>
         <span class="lab-context">curation at scale — T · S4 · D4 E3 M4 F3 — a 15+ minute piece; macro-form, listening fatigue, and deciding when nothing should happen</span></td>
       <td>Track</td>
-      <td><span class="status">scaffold</span></td>
+      <td><span class="status">complete</span></td>
     </tr>
     <tr>
       <td class="num">031</td>
       <td><span class="lab-title"><a href="lab-031.html">The Performance Rig</a></span>
         <span class="lab-context">B · S4 · E5 — full technical rehearsal lab: live routing diagram · failure-rehearsal checklist · emergency procedures · set recording plan · cable/power/clock/gain checklist · post-rehearsal fault log; certifies the rig C6 is performed on</span></td>
       <td>Bench</td>
-      <td><span class="status">scaffold</span></td>
+      <td><span class="status">complete</span></td>
     </tr>
     <tr>
       <td class="num">R7</td>
       <td><span class="lab-title"><a href="lab-r7.html">Rebuild the Set Moment</a></span>
         <span class="lab-context">R · S4 · E4 M2 F4 — two minutes of an L7 live set, re-performed on your own rig with matching panic paths, live in one take — replica filed as study + miss list</span></td>
       <td>Replication</td>
-      <td><span class="status">scaffold</span></td>
+      <td><span class="status">complete</span></td>
     </tr>
   </table>
 
-  <h2>Replication lessons — one per reference</h2>
+  <div class="callout">
+    <div class="callout-label">Gear honesty — the no-input practice</div>
+    <p>The no-input feedback work of <a href="lab-029.html">lab 029</a> (Nakamura&rsquo;s method) ideally wants a mixer that can patch its own outputs back into its own inputs — aux returns into channel inputs, sends folded onto the bus — so the desk can self-oscillate and be steered. The compact aux-send mixer on the bench here cannot fully self-patch; what you build is an <strong>approximation</strong> of the no-input instrument, not the real thing, and it is fair to say so in the spec. <strong>Safety caution:</strong> any self-patched feedback loop can jump to a destructive howl in one fader-millimeter — set the limiter and the emergency mute <em>before</em> closing the loop, start with monitoring low, and never close the loop on headphones at level.</p>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Performance-rig depth — beyond the EC4 minimum</div>
+    <p>The FaderFox EC4 is the <em>minimum</em> ride controller for this block — enough to map the six reachable controls and pass. A deeper performance rig earns more range: a small <strong>fader-per-channel mixer</strong> (a hand on every level at once, not paged) for true live balancing and dub-style mutes; <strong>expression pedals</strong> to free a hand by moving filter, send, or feedback depth with a foot; and <strong>outboard spring or tape</strong> as a dedicated effect to ride for dub and feedback work, with its own return on the desk. None of this is required to pass C6 — it is the next purchase order once the rig is certified.</p>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Voice — a prompt to carry forward</div>
+    <p>Performance forces the question Block 8 will answer: <strong>what are you refusing?</strong> Every rig you certify and every panic path you write is also a list of what you will not do on stage. Name one thing — a sound, a move, a crowd-pleasing reflex — that you are deliberately leaving out of your set, and why. That refusal is the first sketch of a voice.</p>
+  </div>
+
+  <h2 id="replication-lessons">Replication lessons — one per reference</h2>
 
   <div class="note-block">
     <ul>
-      <li><strong>Around fifty lessons, one per reference.</strong> Every listening reference across labs 027–030 and programme L7 gets its own 60–120 minute step-by-step replication lesson — Tudor&rsquo;s electroacoustic feedback, sampler-performance moves, long-form curation, live hardware techno, no-input mixing — each rebuilt on your own rig with the lesson&rsquo;s concept as the lens. Lessons land with Block 7 authoring. <span class="status">forthcoming</span></li>
+      <li><strong>Around fifty lessons, one per reference.</strong> Every listening reference across labs 027–030 and programme L7 gets its own 60–120 minute step-by-step replication lesson — Tudor&rsquo;s electroacoustic feedback, sampler-performance moves, long-form curation, live hardware techno, no-input mixing — each rebuilt on your own rig with the lesson&rsquo;s concept as the lens. Lessons are included here.</li>
     </ul>
   </div>
 
-  <h2>Capstone C6 — gate</h2>
+  <h2 id="capstone">Capstone C6 — gate</h2>
 
   <div class="step">
     <div class="step-head">
       <div class="step-num">Capstone C6 · Gate</div>
       <h3 class="step-title"><a href="capstone-c6.html">The Live Set</a></h3>
     </div>
-    <p style="color: var(--text-muted); text-align: center; margin: 0;">Thirty minutes, performed and recorded in one continuous take. Full live routing diagram and panic path drawn before the set; failure rehearsal documented before it; post-performance fault report filed after it. Requires labs 027–031, programme L7, and lab 031&rsquo;s rig certification. The block&rsquo;s stolen principle must appear structurally in the set. <a href="capstone-c6.html">Brief &amp; defense →</a> <span class="status">scaffold</span></p>
+    <p style="color: var(--text-muted); text-align: center; margin: 0;">Thirty minutes, performed and recorded in one continuous take. Full live routing diagram and panic path drawn before the set; failure rehearsal documented before it; post-performance fault report filed after it. Requires labs 027–031, programme L7, and lab 031&rsquo;s rig certification. The block&rsquo;s stolen principle must appear structurally in the set. <a href="capstone-c6.html">Brief &amp; defense →</a> <span class="status">complete</span></p>
   </div>
 
   <div class="tag-row">
     <span class="tag">gear at this block: octatrack mkii</span>
     <span class="tag">faderfox ec4</span>
     <span class="tag">block 5 mixer already on the bench</span>
+  </div>
+
+  <h2>Deep references — Lab Notes</h2>
+  <div class="note-block">
+    <ul>
+      <li><strong><a href="../../guide-b7-001/index.html">Lab Note B7-001 — Parameter Riding</a></strong> — performing by moving controls in real time.</li>
+      <li><strong><a href="../../guide-b7-002/index.html">Lab Note B7-002 — Live Resampling</a></strong> — capturing and reusing sound on the fly.</li>
+      <li><strong><a href="../../guide-b7-003/index.html">Lab Note B7-003 — Feedback Safety</a></strong> — keeping feedback under control on stage.</li>
+      <li><strong><a href="../../guide-b7-004/index.html">Lab Note B7-004 — Set Structure &amp; Rehearsal</a></strong> — shaping a long set and practising it.</li>
+    </ul>
   </div>
 
   <div class="page-nav">
@@ -186,5 +216,6 @@
 
 </div>
 
+  <script src="../nav.js"></script>
 </body>
 </html>

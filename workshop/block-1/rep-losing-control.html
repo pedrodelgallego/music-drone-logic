@@ -6,7 +6,7 @@
 <title>Replicate: One Bassline, Six Minutes — DBX</title>
 <link rel="stylesheet" href="../styles.css">
 </head>
-<body>
+<body class="page-type-rep" id="top">
 
 <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
 <label for="nav-toggle" class="hamburger" aria-label="Menu">
@@ -16,6 +16,7 @@
 <nav class="nav" aria-label="Workshop contents">
   <p class="nav-label">Workshop</p>
   <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
   <a href="index.html" class="active"><span class="nav-num">01</span>The Bench</a>
   <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
   <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
@@ -28,12 +29,15 @@
 </nav>
 
 <div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 1 · The Bench</a><span class="breadcrumb-sep">/</span><span>Replicate: One Bassline, Six Minutes</span></nav>
 
   <header class="page-header">
     <div class="eyebrow">Block 1 · Replication lesson · Required drill 2 of 3 for Lab 003</div>
     <h1>Replicate: One Bassline, Six Minutes</h1>
     <p class="lede">Copy one clear section of DBX (Daniel Bell) — “Losing Control”. Build the main parts, record a short take, and compare it to the reference at the same loudness.</p>
   </header>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l1.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs">Labs</a><a href="lab-r1.html" data-section="rebuild">Rebuild</a><a href="capstone-c1.html" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep" class="current">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
   <div class="callout">
     <div class="callout-label">The point</div>
     <p>This drill teaches the record's core mechanism: per-step accents, filter emphasis, mutes and dropouts - the notes never change. Do only the steps that make that mechanism audible.</p>
@@ -48,7 +52,7 @@
     <tr><td>Mute-mode performance</td><td>build step 10 — arrange by subtraction</td></tr>
   </table>
 
-  <p style="max-width: 640px; margin: 0 auto 18px; color: var(--text-muted); font-size: 14.5px; text-align: center;">Do this drill before <a href="lab-003.html">Lab 003</a> — it is the second of the lab’s three required drills, and every gesture practised below is spent directly in the lab’s build steps.</p>
+  <p style="max-width: 640px; margin: 0 auto 18px; color: var(--text-muted); font-size: var(--fs-lg-plus); text-align: center;">Do this drill before <a href="lab-003.html">Lab 003</a> — it is the second of the lab’s three required drills, and every gesture practised below is spent directly in the lab’s build steps.</p>
 
   <table class="param-table">
     <caption>The system you are replicating</caption>
@@ -61,7 +65,7 @@
 
   <div class="checklist">
     <div class="checklist-head">
-      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"></path></svg></div>
       <div class="checklist-label">Before you start</div>
     </div>
     <ul>
@@ -87,7 +91,7 @@
       <div class="step-num">Reference pass · 10 minutes</div>
       <h3 class="step-title">Listen before you build</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Listen to about one minute of DBX (Daniel Bell) — “Losing Control”. Choose the clearest short section. Write one short answer for each question before you touch the gear.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Listen to about one minute of DBX (Daniel Bell) — “Losing Control”. Choose the clearest short section. Write one short answer for each question before you touch the gear.</p>
     <ol class="rules-list">
       <li>How many basslines does the track use?
         <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>One - a single one-bar line, looped for the entire record. Everything that feels like a second bassline is the same line with different steps accented or different steps missing.</p></div></details>
@@ -108,7 +112,7 @@
         <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>They are there - ghost hits that flicker in and out across passes, too regular to be mistakes and too irregular to be every bar.</p></div></details>
       </li>
     </ol>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Now build the section you described. Do not build from memory.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Now build the section you described. Do not build from memory.</p>
   </div>
 
   <div class="note-block">
@@ -150,24 +154,24 @@
     <span class="signal-node">Live: DT PRINT (record)</span>
   </div>
 
-  <div class="step">
+  <div class="gear-switch"><input type="radio" name="gear" id="gear-hw" class="gear-radio" checked><input type="radio" name="gear" id="gear-sw" class="gear-radio"><input type="radio" name="gear" id="gear-tg" class="gear-radio"><div class="gear-labels"><span class="gear-lead">Your rig</span><label for="gear-hw">MicroFreak + Digitakt II</label><label for="gear-sw">Ableton Live only</label><label for="gear-tg">Analog Four MKII · target</label></div><div class="gear-scope"><div class="step">
     <div class="step-head">
       <div class="step-num">Phase 1</div>
       <h3 class="step-title">Set the reference</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: set the reference. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: set the reference. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Live</span> Drop “Losing Control” onto an audio track named <span class="code">REF</span>.</li>
-        <li><span class="system-tag">Live</span> Find 8–16 bars that contain one dropout and its return, and loop them.</li>
-        <li><span class="system-tag">Live</span> Gain-match with a <span class="menu">Utility</span> on REF.</li>
-        <li><span class="system-tag">Live</span> Keep REF one solo away for the whole session.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>Drop “Losing Control” onto an audio track named <span class="code">REF</span>.</li>
+        <li>Find 8–16 bars that contain one dropout and its return, and loop them.</li>
+        <li>Gain-match with a <span class="menu">Utility</span> on REF.</li>
+        <li>Keep REF one solo away for the whole session.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from DBX (Daniel Bell) — “Losing Control” and use Operator or Wavetable into Auto Filter, with clip automation.</li><li>Build the phase goal — <em>Set the reference</em> — as the smallest Live set that proves <em>per-step accents, filter emphasis, mutes and dropouts — the notes never change</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>one one-bar bassline heard as six minutes of development</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Four MKII for this phase: translate <em>Set the reference</em> into one analog synth track, parameter locks, slides, performance macros, and Overbridge or main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>per-step accents, filter emphasis, mutes and dropouts — the notes never change</em>, not just the surface of DBX (Daniel Bell) — “Losing Control”.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">A clean loop of the section whose emphasis moves you will be matching, at an honest level.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A clean loop of the section whose emphasis moves you will be matching, at an honest level.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">If it fails</div>
@@ -187,21 +191,21 @@
       <div class="step-num">Phase 2</div>
       <h3 class="step-title">Sample one bass note — the only sound you get</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: sample one bass note — the only sound you get. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: sample one bass note — the only sound you get. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">MicroFreak</span> Dial a round bass note on the MicroFreak: <span class="code">V.Analog</span>, low octave, LP filter mostly closed, fast attack, short decay, <span class="code">Paraphonic</span> OFF.</li>
-        <li><span class="system-tag">Digitakt II + MicroFreak</span> Connect the MicroFreak’s ¼″ out to the Digitakt II’s audio inputs and sample one clean, sustained note — a few semitones <em>above</em> the line’s register, so downward tuning stays clean.</li>
-        <li><span class="system-tag">MicroFreak</span> (No MicroFreak handy? Load any clean single bass note from the +Drive instead.)</li>
-        <li><span class="system-tag">MicroFreak</span> Trim the sample tight: start point right at the attack, no silence in front, length just past the decay.</li>
-        <li><span class="system-tag">Digitakt II</span> Assign it to one Digitakt II track — this is the bass track for the rest of the drill.</li>
-        <li><span class="system-tag">Digitakt II</span> Play the track’s trig key chromatically up and down a few steps of tune to confirm the sample retunes without artefacts in the range you need.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>Dial a round bass note on the MicroFreak: <span class="code">V.Analog</span>, low octave, LP filter mostly closed, fast attack, short decay, <span class="code">Paraphonic</span> OFF.</li>
+        <li>Connect the MicroFreak’s ¼″ out to the Digitakt II’s audio inputs and sample one clean, sustained note — a few semitones <em>above</em> the line’s register, so downward tuning stays clean.</li>
+        <li>(No MicroFreak handy? Load any clean single bass note from the +Drive instead.)</li>
+        <li>Trim the sample tight: start point right at the attack, no silence in front, length just past the decay.</li>
+        <li>Assign it to one Digitakt II track — this is the bass track for the rest of the drill.</li>
+        <li>Play the track’s trig key chromatically up and down a few steps of tune to confirm the sample retunes without artefacts in the range you need.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from DBX (Daniel Bell) — “Losing Control” and use audio clips, Simpler/Sampler, clip envelopes, and resampling.</li><li>Build the phase goal — <em>Sample one bass note — the only sound you get</em> — as the smallest Live set that proves <em>per-step accents, filter emphasis, mutes and dropouts — the notes never change</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>one one-bar bassline heard as six minutes of development</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Four MKII for this phase: translate <em>Sample one bass note — the only sound you get</em> into one analog synth track, parameter locks, slides, performance macros, and Overbridge or main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>per-step accents, filter emphasis, mutes and dropouts — the notes never change</em>, not just the surface of DBX (Daniel Bell) — “Losing Control”.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">One bass note on one track that sounds round and rubbery at several tunings — a one-sample instrument, ready to carry the whole transcription.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">One bass note on one track that sounds round and rubbery at several tunings — a one-sample instrument, ready to carry the whole transcription.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">If it fails</div>
@@ -221,7 +225,7 @@
       <div class="step-num">Phase 3</div>
       <h3 class="step-title">Transcribe the line, play it as tune locks</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: transcribe the line, play it as tune locks. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: transcribe the line, play it as tune locks. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
     <div class="pattern-wrap">
       <div class="pattern">
         <div class="pattern-label">Bassline · 1 bar</div>
@@ -243,22 +247,22 @@
         <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step ghost">15</div><div class="pattern-step"></div>
       </div>
     </div>
-    <p style="color: var(--text-muted); font-size: 13.5px; text-align: center; margin: 0 0 14px;">Row 1: the notes. Row 2: where the weight leans (phase 4). Row 3: steps that only sometimes play (phase 6). Your transcription will differ — the rows are the method.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-md-plus); text-align: center; margin: 0 0 14px;">Row 1: the notes. Row 2: where the weight leans (phase 4). Row 3: steps that only sometimes play (phase 6). Your transcription will differ — the rows are the method.</p>
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Digitakt II</span> Press <span class="code">[RECORD]</span> to enter grid recording on the bass track.</li>
-        <li><span class="system-tag">Live</span> Place the line’s rhythm as trigs on the 16-step grid, by ear against REF.</li>
-        <li><span class="system-tag">Digitakt II</span> For each trig: <strong>hold the trig key</strong> and turn <span class="code">TUNE</span> on the <span class="code">SRC</span> page to that step’s pitch — the value blinks to show it belongs to this step only.</li>
-        <li><span class="system-tag">Digitakt II</span> Release, next trig.</li>
-        <li><span class="system-tag">Live</span> Solo REF, hum it, place it, compare; revise until the lines chase each other.</li>
-        <li><span class="system-tag">Live</span> Shape the rubber on the track — filter and amp decay — until it has the record’s snap, bend, and short decay.</li>
-        <li><span class="system-tag">Live</span> These track-level settings are the baseline that the per-step locks will deviate from.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>Press <span class="code">[RECORD]</span> to enter grid recording on the bass track.</li>
+        <li>Place the line’s rhythm as trigs on the 16-step grid, by ear against REF.</li>
+        <li>For each trig: <strong>hold the trig key</strong> and turn <span class="code">TUNE</span> on the <span class="code">SRC</span> page to that step’s pitch — the value blinks to show it belongs to this step only.</li>
+        <li>Release, next trig.</li>
+        <li>Solo REF, hum it, place it, compare; revise until the lines chase each other.</li>
+        <li>Shape the rubber on the track — filter and amp decay — until it has the record’s snap, bend, and short decay.</li>
+        <li>These track-level settings are the baseline that the per-step locks will deviate from.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from DBX (Daniel Bell) — “Losing Control” and use Operator or Wavetable into Auto Filter, with clip automation.</li><li>Build the phase goal — <em>Transcribe the line, play it as tune locks</em> — as the smallest Live set that proves <em>per-step accents, filter emphasis, mutes and dropouts — the notes never change</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>one one-bar bassline heard as six minutes of development</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Four MKII for this phase: translate <em>Transcribe the line, play it as tune locks</em> into one analog synth track, parameter locks, slides, performance macros, and Overbridge or main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>per-step accents, filter emphasis, mutes and dropouts — the notes never change</em>, not just the surface of DBX (Daniel Bell) — “Losing Control”.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Your bar and theirs looping together — same notes, same bounce, recognisably the same family of rubber. Every pitch is a tune lock; the track’s own tune setting never moved.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Your bar and theirs looping together — same notes, same bounce, recognisably the same family of rubber. Every pitch is a tune lock; the track’s own tune setting never moved.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">If it fails</div>
@@ -274,35 +278,24 @@
     </div>
   </div>
 
-  <p style="max-width: 640px; margin: 26px auto 14px; color: var(--text-muted); text-align: center;">From here on you are building a vocabulary, not a song. Four moves, one gesture each — this table is the whole of it, and Lab 003 spends every row.</p>
-
-  <table class="param-table">
-    <caption>The variation vocabulary — four moves, one gesture each</caption>
-    <tr><td>Move</td><td>Digitakt II gesture · what it changes · where Lab 003 uses it</td></tr>
-    <tr><td>Accent</td><td>hold trig + velocity · emphasis on one step · the groove of the grid</td></tr>
-    <tr><td>Filter lock</td><td>hold trig + cutoff · one note opens · build step 07 variations</td></tr>
-    <tr><td>Condition</td><td>hold trig + COND on TRIG page · a step that sometimes plays · the loop stays alive</td></tr>
-    <tr><td>Mute</td><td>mute mode · whole elements in/out · build step 10, arrange by subtraction</td></tr>
-  </table>
-
   <div class="step">
     <div class="step-head">
       <div class="step-num">Phase 4</div>
       <h3 class="step-title">Accents — find which notes the record leans on</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: accents — find which notes the record leans on. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: accents — find which notes the record leans on. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Live + Logbook</span> Loop REF and tap along; mark in the logbook which steps of the bar carry the push — usually two or three, often the downbeat and one late step.</li>
-        <li><span class="system-tag">Live</span> On the bass track, <strong>hold each pushed step’s trig</strong> and raise its velocity above the others — start with a clearly audible difference, then refine.</li>
-        <li><span class="system-tag">Live</span> Optionally pull the un-pushed steps slightly <em>down</em> instead — emphasis can be made by lowering the surroundings, exactly as the record’s dropouts do at full scale.</li>
-        <li><span class="system-tag">Live</span> A/B against REF: the two bars should lean in the same places.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>Loop REF and tap along; mark in the logbook which steps of the bar carry the push — usually two or three, often the downbeat and one late step.</li>
+        <li>On the bass track, <strong>hold each pushed step’s trig</strong> and raise its velocity above the others — start with a clearly audible difference, then refine.</li>
+        <li>Optionally pull the un-pushed steps slightly <em>down</em> instead — emphasis can be made by lowering the surroundings, exactly as the record’s dropouts do at full scale.</li>
+        <li>A/B against REF: the two bars should lean in the same places.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from DBX (Daniel Bell) — “Losing Control” and use audio clips, Simpler/Sampler, clip envelopes, and resampling.</li><li>Build the phase goal — <em>Accents — find which notes the record leans on</em> — as the smallest Live set that proves <em>per-step accents, filter emphasis, mutes and dropouts — the notes never change</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>one one-bar bassline heard as six minutes of development</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Four MKII for this phase: translate <em>Accents — find which notes the record leans on</em> into one analog synth track, parameter locks, slides, performance macros, and Overbridge or main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>per-step accents, filter emphasis, mutes and dropouts — the notes never change</em>, not just the surface of DBX (Daniel Bell) — “Losing Control”.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">The bar grooves instead of marching — the same notes, but the weight falls where the record’s weight falls.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">The bar grooves instead of marching — the same notes, but the weight falls where the record’s weight falls.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">If it fails</div>
@@ -322,7 +315,7 @@
       <div class="step-num">Phase 5</div>
       <h3 class="step-title">Filter locks — the squelchy notes that open</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: filter locks — the squelchy notes that open. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: filter locks — the squelchy notes that open. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
     <div class="note-block">
       <ul>
         <li><strong>Safety — before the filter p-locks:</strong> an accented trig with the filter p-locked open can jump well past the level you mixed at, and resonance sharpens the jump. Headphones at the mark or lower — never turn up to inspect. Audition each new p-lock once at the set level before looping it.</li>
@@ -330,17 +323,17 @@
     </div>
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Live</span> Loop REF and find the opened notes — the hits with audible squelch on top of the rubber.</li>
-        <li><span class="system-tag">MicroFreak</span> <strong>Hold each of those trigs</strong> and raise filter cutoff on the filter page for that step only;</li>
-        <li><span class="system-tag">MicroFreak</span> a touch of resonance sharpens the squelch.</li>
-        <li><span class="system-tag">Live</span> Audition once at the set level, then loop and compare placement against REF.</li>
-        <li><span class="system-tag">Live</span> Check that the opened steps still sit inside the bar — if one dominates every pass, close it part-way.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>Loop REF and find the opened notes — the hits with audible squelch on top of the rubber.</li>
+        <li><strong>Hold each of those trigs</strong> and raise filter cutoff on the filter page for that step only;</li>
+        <li>a touch of resonance sharpens the squelch.</li>
+        <li>Audition once at the set level, then loop and compare placement against REF.</li>
+        <li>Check that the opened steps still sit inside the bar — if one dominates every pass, close it part-way.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from DBX (Daniel Bell) — “Losing Control” and use Operator or Wavetable into Auto Filter, with clip automation.</li><li>Build the phase goal — <em>Filter locks — the squelchy notes that open</em> — as the smallest Live set that proves <em>per-step accents, filter emphasis, mutes and dropouts — the notes never change</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>one one-bar bassline heard as six minutes of development</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Four MKII for this phase: translate <em>Filter locks — the squelchy notes that open</em> into one analog synth track, parameter locks, slides, performance macros, and Overbridge or main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>per-step accents, filter emphasis, mutes and dropouts — the notes never change</em>, not just the surface of DBX (Daniel Bell) — “Losing Control”.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">A bar where two or three notes glint and the rest stay matte — emphasis by brightness, on the record’s steps, with the pitches untouched.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A bar where two or three notes glint and the rest stay matte — emphasis by brightness, on the record’s steps, with the pitches untouched.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">If it fails</div>
@@ -360,19 +353,19 @@
       <div class="step-num">Phase 6</div>
       <h3 class="step-title">Conditional trigs — steps that sometimes play</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: conditional trigs — steps that sometimes play. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: conditional trigs — steps that sometimes play. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
         <li>Add one or two quiet extra trigs in the bar’s gaps — ghost candidates, velocity locked low.</li>
         <li><strong>Hold each ghost trig</strong> and set its condition on the <span class="code">TRIG</span> page: start with <span class="code">1:4</span> for one, <span class="code">25%</span> for the other.</li>
-        <li><span class="system-tag">Digitakt II</span> Let the pattern loop at least eight times without touching anything, and listen for the ghosts arriving and missing.</li>
-        <li><span class="system-tag">Live</span> Compare with your reference-pass tally of the record’s flickering hits — match the feel of “sometimes”, not an exact schedule.</li>
+        <li>Let the pattern loop at least eight times without touching anything, and listen for the ghosts arriving and missing.</li>
+        <li>Compare with your reference-pass tally of the record’s flickering hits — match the feel of “sometimes”, not an exact schedule.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from DBX (Daniel Bell) — “Losing Control” and use Operator or Wavetable into Auto Filter, with clip automation.</li><li>Build the phase goal — <em>Conditional trigs — steps that sometimes play</em> — as the smallest Live set that proves <em>per-step accents, filter emphasis, mutes and dropouts — the notes never change</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>one one-bar bassline heard as six minutes of development</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Four MKII for this phase: translate <em>Conditional trigs — steps that sometimes play</em> into one analog synth track, parameter locks, slides, performance macros, and Overbridge or main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>per-step accents, filter emphasis, mutes and dropouts — the notes never change</em>, not just the surface of DBX (Daniel Bell) — “Losing Control”.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">A bar that breathes across passes — most loops identical, then a ghost lands and the ear wakes up. The pattern is alive with zero new material.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A bar that breathes across passes — most loops identical, then a ghost lands and the ear wakes up. The pattern is alive with zero new material.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">If it fails</div>
@@ -392,17 +385,17 @@
       <div class="step-num">Phase 7</div>
       <h3 class="step-title">Micro-variation — six variants, one change each</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: micro-variation — six variants, one change each. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: micro-variation — six variants, one change each. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Digitakt II</span> Copy the bassline pattern to a new pattern slot — same trigs, same pitches, same locks.</li>
-        <li><span class="system-tag">Digitakt II</span> In the copy, change exactly one lock.</li>
-        <li><span class="system-tag">Logbook</span> Write what it was <em>before</em> you turn the knob — the blank table below is the logbook shape.</li>
-        <li><span class="system-tag">Logbook</span> Repeat until six-plus variants exist; the worked set below is a starting map, not a prescription.</li>
-        <li><span class="system-tag">Live</span> Audition the variants in a row against REF; the differences should be felt before they are noticed.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>Copy the bassline pattern to a new pattern slot — same trigs, same pitches, same locks.</li>
+        <li>In the copy, change exactly one lock.</li>
+        <li>Write what it was <em>before</em> you turn the knob — the blank table below is the logbook shape.</li>
+        <li>Repeat until six-plus variants exist; the worked set below is a starting map, not a prescription.</li>
+        <li>Audition the variants in a row against REF; the differences should be felt before they are noticed.</li>
       </ol>
-      <table class="param-table">
+      </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from DBX (Daniel Bell) — “Losing Control” and use Operator or Wavetable into Auto Filter, with clip automation.</li><li>Build the phase goal — <em>Micro-variation — six variants, one change each</em> — as the smallest Live set that proves <em>per-step accents, filter emphasis, mutes and dropouts — the notes never change</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>one one-bar bassline heard as six minutes of development</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Four MKII for this phase: translate <em>Micro-variation — six variants, one change each</em> into one analog synth track, parameter locks, slides, performance macros, and Overbridge or main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>per-step accents, filter emphasis, mutes and dropouts — the notes never change</em>, not just the surface of DBX (Daniel Bell) — “Losing Control”.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div><table class="param-table">
         <caption>Starting variant set — one pattern, six weights</caption>
         <tr><td><span class="code">V1 — base</span></td><td>the transcribed bar, accents from phase 4, filter locks from phase 5</td></tr>
         <tr><td><span class="code">V2 — downbeat lean</span></td><td>accents moved onto steps 1 and 12; everything else unchanged</td></tr>
@@ -425,7 +418,7 @@
     </div>
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Six-plus one-bar variants that are audibly the same line wearing different weights — a vocabulary, not a songbook — and a written line for each naming its one difference.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Six-plus one-bar variants that are audibly the same line wearing different weights — a vocabulary, not a songbook — and a written line for each naming its one difference.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">If it fails</div>
@@ -445,22 +438,22 @@
       <div class="step-num">Phase 8</div>
       <h3 class="step-title">The mute performance — arrange three minutes by subtraction</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: the mute performance — arrange three minutes by subtraction. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: the mute performance — arrange three minutes by subtraction. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Digitakt II</span> Program a plain kick pattern and a closed hat on their own Digitakt II tracks — no fills the record doesn’t make.</li>
-        <li><span class="system-tag">Live</span> Arm <span class="code">DT PRINT</span> in Live — <span class="menu">Audio From → Ext. In → 3/4</span>, Monitor <strong>Off</strong>, listening through one declared path only.</li>
-        <li><span class="system-tag">Digitakt II</span> Enter the Digitakt II’s mute mode, so the track keys mute and unmute instead of triggering — this is your performance surface for the whole take.</li>
-        <li><span class="system-tag">Live</span> All mutes happen here, none in Live.</li>
-        <li><span class="system-tag">Digitakt II</span> Record a continuous three-minute take: chain or switch the variants, and perform entries and exits of bass, hat, and the variant patterns where the record performs its own.</li>
-        <li><span class="system-tag">Digitakt II</span> Hold the hat back for minutes, then let it enter as the event it is on the record.</li>
-        <li><span class="system-tag">Live</span> Place at least two dropouts where REF places its own — mute the bass entirely, count the bars, and let the unchanged line return.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>Program a plain kick pattern and a closed hat on their own Digitakt II tracks — no fills the record doesn’t make.</li>
+        <li>Arm <span class="code">DT PRINT</span> in Live — <span class="menu">Audio From → Ext. In → 3/4</span>, Monitor <strong>Off</strong>, listening through one declared path only.</li>
+        <li>Enter the Digitakt II’s mute mode, so the track keys mute and unmute instead of triggering — this is your performance surface for the whole take.</li>
+        <li>All mutes happen here, none in Live.</li>
+        <li>Record a continuous three-minute take: chain or switch the variants, and perform entries and exits of bass, hat, and the variant patterns where the record performs its own.</li>
+        <li>Hold the hat back for minutes, then let it enter as the event it is on the record.</li>
+        <li>Place at least two dropouts where REF places its own — mute the bass entirely, count the bars, and let the unchanged line return.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from DBX (Daniel Bell) — “Losing Control” and use Operator or Wavetable into Auto Filter, with clip automation.</li><li>Build the phase goal — <em>The mute performance — arrange three minutes by subtraction</em> — as the smallest Live set that proves <em>per-step accents, filter emphasis, mutes and dropouts — the notes never change</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>one one-bar bassline heard as six minutes of development</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Four MKII for this phase: translate <em>The mute performance — arrange three minutes by subtraction</em> into one analog synth track, parameter locks, slides, performance macros, and Overbridge or main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>per-step accents, filter emphasis, mutes and dropouts — the notes never change</em>, not just the surface of DBX (Daniel Bell) — “Losing Control”.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">One continuous take in which the same bar of notes reads as a developing track, with the hat entry and the dropouts landing at the record’s moments — and every arrangement decision made from the mute buttons.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">One continuous take in which the same bar of notes reads as a developing track, with the hat entry and the dropouts landing at the record’s moments — and every arrangement decision made from the mute buttons.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">If it fails</div>
@@ -481,22 +474,22 @@
       <div class="step-num">Phase 9</div>
       <h3 class="step-title">Observe the vocabulary, compare, export</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: observe the vocabulary, compare, export. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: observe the vocabulary, compare, export. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Logbook</span> Complete the blank variants table from phase 7 in the logbook — one line per variant on what differs: accent, filter lock, gap, condition.</li>
-        <li><span class="system-tag">Logbook</span> Aim for 6+; confirm none of them changes a note.</li>
-        <li><span class="system-tag">Logbook</span> Count the conditional ghosts: how many steps in the final take never play twice the same way?</li>
-        <li><span class="system-tag">Logbook</span> Two or more is the target.</li>
-        <li><span class="system-tag">Live</span> Mark with locators where your dropouts and hat entry land and where REF’s land;</li>
-        <li><span class="system-tag">Live</span> measure the gaps.</li>
-        <li><span class="system-tag">Live</span> Export the section — <span class="menu">File → Export Audio/Video</span>, WAV, named <span class="code">REP-losing-control</span>.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>Complete the blank variants table from phase 7 in the logbook — one line per variant on what differs: accent, filter lock, gap, condition.</li>
+        <li>Aim for 6+; confirm none of them changes a note.</li>
+        <li>Count the conditional ghosts: how many steps in the final take never play twice the same way?</li>
+        <li>Two or more is the target.</li>
+        <li>Mark with locators where your dropouts and hat entry land and where REF’s land;</li>
+        <li>measure the gaps.</li>
+        <li>Export the section — <span class="menu">File → Export Audio/Video</span>, WAV, named <span class="code">REP-losing-control</span>.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from DBX (Daniel Bell) — “Losing Control” and use Operator or Wavetable into Auto Filter, with clip automation.</li><li>Build the phase goal — <em>Observe the vocabulary, compare, export</em> — as the smallest Live set that proves <em>per-step accents, filter emphasis, mutes and dropouts — the notes never change</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>one one-bar bassline heard as six minutes of development</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Four MKII for this phase: translate <em>Observe the vocabulary, compare, export</em> into one analog synth track, parameter locks, slides, performance macros, and Overbridge or main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>per-step accents, filter emphasis, mutes and dropouts — the notes never change</em>, not just the surface of DBX (Daniel Bell) — “Losing Control”.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">A written vocabulary of 6+ variants, at least two living conditions, paired locators a few seconds apart at worst, and a finished WAV.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A written vocabulary of 6+ variants, at least two living conditions, paired locators a few seconds apart at worst, and a finished WAV.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">If it fails</div>
@@ -510,6 +503,17 @@
       </table>
     </div>
   </div>
+
+  </div></div><p style="max-width: 640px; margin: 26px auto 14px; color: var(--text-muted); text-align: center;">From here on you are building a vocabulary, not a song. Four moves, one gesture each — this table is the whole of it, and Lab 003 spends every row.</p>
+
+  <table class="param-table">
+    <caption>The variation vocabulary — four moves, one gesture each</caption>
+    <tr><td>Move</td><td>Digitakt II gesture · what it changes · where Lab 003 uses it</td></tr>
+    <tr><td>Accent</td><td>hold trig + velocity · emphasis on one step · the groove of the grid</td></tr>
+    <tr><td>Filter lock</td><td>hold trig + cutoff · one note opens · build step 07 variations</td></tr>
+    <tr><td>Condition</td><td>hold trig + COND on TRIG page · a step that sometimes plays · the loop stays alive</td></tr>
+    <tr><td>Mute</td><td>mute mode · whole elements in/out · build step 10, arrange by subtraction</td></tr>
+  </table>
 
   <div class="decision-check">
     <div class="decision-check-label">Verify against the record</div>
@@ -555,5 +559,6 @@
 
 </div>
 
+  <script src="../nav.js"></script>
 </body>
 </html>

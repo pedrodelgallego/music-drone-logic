@@ -6,7 +6,7 @@
 <title>Replicate: Patterns from One Voice — Laurie Spiegel</title>
 <link rel="stylesheet" href="../styles.css">
 </head>
-<body>
+<body class="page-type-rep" id="top">
 
 <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
 <label for="nav-toggle" class="hamburger" aria-label="Menu">
@@ -16,6 +16,7 @@
 <nav class="nav" aria-label="Workshop contents">
   <p class="nav-label">Workshop</p>
   <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
   <a href="index.html" class="active"><span class="nav-num">01</span>The Bench</a>
   <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
   <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
@@ -28,12 +29,15 @@
 </nav>
 
 <div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 1 · The Bench</a><span class="breadcrumb-sep">/</span><span>Replicate: Patterns from One Voice</span></nav>
 
   <header class="page-header">
     <div class="eyebrow">Block 1 · Replication lesson</div>
     <h1>Replicate: Patterns from One Voice</h1>
     <p class="lede">Copy one clear section of Laurie Spiegel — “Patchwork”. Build the main parts, record a short take, and compare it to the reference at the same loudness.</p>
   </header>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l1.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs">Labs</a><a href="lab-r1.html" data-section="rebuild">Rebuild</a><a href="capstone-c1.html" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep" class="current">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
   <div class="callout">
     <div class="callout-label">The point</div>
     <p>This drill teaches the record's core mechanism: one cell permuted by rule - reversed, shifted, doubled, gapped - on one voice. Do only the steps that make that mechanism audible.</p>
@@ -50,7 +54,7 @@
 
   <div class="checklist">
     <div class="checklist-head">
-      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"></path></svg></div>
       <div class="checklist-label">Before you start</div>
     </div>
     <ul>
@@ -74,7 +78,7 @@
       <div class="step-num">Reference pass · 10 minutes</div>
       <h3 class="step-title">Listen before you build</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Listen to about one minute of Laurie Spiegel — “Patchwork”. Choose the clearest short section. Write one short answer for each question before you touch the gear.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Listen to about one minute of Laurie Spiegel — “Patchwork”. Choose the clearest short section. Write one short answer for each question before you touch the gear.</p>
     <ol class="rules-list">
       <li>Find the cell. How many notes is it?
         <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>A handful - a short figure of roughly three to five notes that everything else in the piece is built from. Write down your count and sing it once.</p></div></details>
@@ -92,7 +96,7 @@
         <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Yes - the piece states its material plainly, especially early, the way a fugue states its subject. That naked statement is your transcription source and the listener’s key to everything after.</p></div></details>
       </li>
     </ol>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Now build the section you described. Do not build from memory.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Now build the section you described. Do not build from memory.</p>
   </div>
 
   <div class="note-block">
@@ -131,24 +135,24 @@
     <span class="signal-node">Live: MF PRINT (record)</span>
   </div>
 
-  <div class="step">
+  <div class="gear-switch"><input type="radio" name="gear" id="gear-hw" class="gear-radio" checked><input type="radio" name="gear" id="gear-sw" class="gear-radio"><input type="radio" name="gear" id="gear-tg" class="gear-radio"><div class="gear-labels"><span class="gear-lead">Your rig</span><label for="gear-hw">MicroFreak + Live</label><label for="gear-sw">Ableton Live only</label><label for="gear-tg">Digitone II · target</label></div><div class="gear-scope"><div class="step">
     <div class="step-head">
       <div class="step-num">Phase 1</div>
       <h3 class="step-title">Set the reference</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: set the reference. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: set the reference. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Live</span> Drop “Patchwork” onto an audio track named <span class="code">REF</span>.</li>
-        <li><span class="system-tag">Live</span> Loop a one-to-two-minute stretch that opens with the cleanest statement of the cell you marked in the reference pass.</li>
-        <li><span class="system-tag">Live</span> Gain-match with a <span class="menu">Utility</span> on REF.</li>
-        <li><span class="system-tag">Live</span> Keep REF one solo away for the whole session.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>Drop “Patchwork” onto an audio track named <span class="code">REF</span>.</li>
+        <li>Loop a one-to-two-minute stretch that opens with the cleanest statement of the cell you marked in the reference pass.</li>
+        <li>Gain-match with a <span class="menu">Utility</span> on REF.</li>
+        <li>Keep REF one solo away for the whole session.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Laurie Spiegel — “Patchwork” and use Operator or Wavetable into Auto Filter, with clip automation.</li><li>Build the phase goal — <em>Set the reference</em> — as the smallest Live set that proves <em>one cell permuted by rule — reversed, shifted, doubled, gapped — on one voice</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>a few notes heard as a whole composition</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Digitone II for this phase: translate <em>Set the reference</em> into FM tracks, sound locks, trig conditions, LFOs, macros, and Overbridge or main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>one cell permuted by rule — reversed, shifted, doubled, gapped — on one voice</em>, not just the surface of Laurie Spiegel — “Patchwork”.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">A clean loop of the section whose permutation order you will be matching, at an honest level.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A clean loop of the section whose permutation order you will be matching, at an honest level.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">If it fails</div>
@@ -167,21 +171,21 @@
       <div class="step-num">Phase 2</div>
       <h3 class="step-title">Transcribe the cell, keep the voice clean</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: transcribe the cell, keep the voice clean. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: transcribe the cell, keep the voice clean. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">MicroFreak + Live</span> Transcribe the cell by ear into a one-bar Session clip on a MIDI track, <span class="menu">MIDI To → MicroFreak</span>;</li>
-        <li><span class="system-tag">Live</span> name the clip <span class="code">CELL</span>.</li>
-        <li><span class="system-tag">Live</span> Solo REF at the naked statement, hum it, place it, compare;</li>
-        <li><span class="system-tag">Live</span> revise until the cells match.</li>
-        <li><span class="system-tag">MicroFreak</span> Dress the voice plain: one engine (<span class="code">Waveshaper</span> or <span class="code">V.Analog</span>), LP filter mostly open, low resonance, soft attack, medium decay, <span class="code">Paraphonic</span> OFF.</li>
-        <li><span class="system-tag">Live</span> No mod-matrix routings, no effects — confirm the chain is voice → M4 → Live, dry.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>Transcribe the cell by ear into a one-bar Session clip on a MIDI track, <span class="menu">MIDI To → MicroFreak</span>;</li>
+        <li>name the clip <span class="code">CELL</span>.</li>
+        <li>Solo REF at the naked statement, hum it, place it, compare;</li>
+        <li>revise until the cells match.</li>
+        <li>Dress the voice plain: one engine (<span class="code">Waveshaper</span> or <span class="code">V.Analog</span>), LP filter mostly open, low resonance, soft attack, medium decay, <span class="code">Paraphonic</span> OFF.</li>
+        <li>No mod-matrix routings, no effects — confirm the chain is voice → M4 → Live, dry.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Laurie Spiegel — “Patchwork” and use Operator or Wavetable into Auto Filter, with clip automation.</li><li>Build the phase goal — <em>Transcribe the cell, keep the voice clean</em> — as the smallest Live set that proves <em>one cell permuted by rule — reversed, shifted, doubled, gapped — on one voice</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>a few notes heard as a whole composition</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Digitone II for this phase: translate <em>Transcribe the cell, keep the voice clean</em> into FM tracks, sound locks, trig conditions, LFOs, macros, and Overbridge or main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>one cell permuted by rule — reversed, shifted, doubled, gapped — on one voice</em>, not just the surface of Laurie Spiegel — “Patchwork”.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">One clip and one plain voice — the cell, recognisably hers, stated as simply as the record states it.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">One clip and one plain voice — the cell, recognisably hers, stated as simply as the record states it.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">If it fails</div>
@@ -200,7 +204,7 @@
       <div class="step-num">Phase 3</div>
       <h3 class="step-title">Build the permutations as Session clips</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: build the permutations as Session clips. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: build the permutations as Session clips. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
     <div class="note-block">
       <ul>
         <li><strong>Safety — before the octave-up clip:</strong> shifting the cell up an octave on a clean open-filter patch lands in the ear’s most sensitive range and reads much louder than the original. Headphones at the mark or lower — launch <span class="code">OCT+</span> once at the set level before looping it, and never turn up to inspect.</li>
@@ -208,14 +212,14 @@
     </div>
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Live</span> Duplicate <span class="code">CELL</span> down the track with <kbd>⌘ D</kbd>, once per rule in the table below.</li>
-        <li><span class="system-tag">Live</span> Edit each copy by its rule only — reverse the note order by hand, drag octaves, double, delete.</li>
-        <li><span class="system-tag">Live</span> No new pitches anywhere.</li>
-        <li><span class="system-tag">Live</span> Name every clip by its rule; the names are the score.</li>
-        <li><span class="system-tag">Live</span> Launch each clip against REF and keep only the permutations the record actually uses.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>Duplicate <span class="code">CELL</span> down the track with <kbd>⌘ D</kbd>, once per rule in the table below.</li>
+        <li>Edit each copy by its rule only — reverse the note order by hand, drag octaves, double, delete.</li>
+        <li>No new pitches anywhere.</li>
+        <li>Name every clip by its rule; the names are the score.</li>
+        <li>Launch each clip against REF and keep only the permutations the record actually uses.</li>
       </ol>
-      <table class="param-table">
+      </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Laurie Spiegel — “Patchwork” and use Operator or Wavetable into Auto Filter, with clip automation.</li><li>Build the phase goal — <em>Build the permutations as Session clips</em> — as the smallest Live set that proves <em>one cell permuted by rule — reversed, shifted, doubled, gapped — on one voice</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>a few notes heard as a whole composition</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Digitone II for this phase: translate <em>Build the permutations as Session clips</em> into FM tracks, sound locks, trig conditions, LFOs, macros, and Overbridge or main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>one cell permuted by rule — reversed, shifted, doubled, gapped — on one voice</em>, not just the surface of Laurie Spiegel — “Patchwork”.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div><table class="param-table">
         <caption>Permutation table — clip / rule</caption>
         <tr><td><span class="code">CELL</span></td><td>the transcribed cell, untouched — the subject</td></tr>
         <tr><td><span class="code">REV</span></td><td>the cell with its note order reversed</td></tr>
@@ -226,7 +230,7 @@
     </div>
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">A named column of clips, every one derived from <span class="code">CELL</span> by a single rule — the piece’s entire material in one screen.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A named column of clips, every one derived from <span class="code">CELL</span> by a single rule — the piece’s entire material in one screen.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">If it fails</div>
@@ -245,20 +249,20 @@
       <div class="step-num">Phase 4</div>
       <h3 class="step-title">Chain the permutations, record the form</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: chain the permutations, record the form. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: chain the permutations, record the form. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Live + Logbook</span> Listen through the REF loop and write the form as a rule sequence — e.g.</li>
-        <li><span class="system-tag">Live + Logbook</span> <span class="code">CELL → REV → CELL → DBL → GAP…</span> — one entry per change you hear.</li>
-        <li><span class="system-tag">Live + Logbook</span> Arm <span class="code">MF PRINT</span> — <span class="menu">Audio From → Ext. In → 1</span> — and record while you launch the clips in that order, holding each as long as the record holds it.</li>
-        <li><span class="system-tag">Live</span> Stay quantized — launches snap to the bar, and the rigidity is period-correct.</li>
-        <li><span class="system-tag">Live</span> A/B the recorded chain against REF and re-take until the changes land where hers land.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>Listen through the REF loop and write the form as a rule sequence — e.g.</li>
+        <li><span class="code">CELL → REV → CELL → DBL → GAP…</span> — one entry per change you hear.</li>
+        <li>Arm <span class="code">MF PRINT</span> — <span class="menu">Audio From → Ext. In → 1</span> — and record while you launch the clips in that order, holding each as long as the record holds it.</li>
+        <li>Stay quantized — launches snap to the bar, and the rigidity is period-correct.</li>
+        <li>A/B the recorded chain against REF and re-take until the changes land where hers land.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Laurie Spiegel — “Patchwork” and use audio clips, Simpler/Sampler, clip envelopes, and resampling.</li><li>Build the phase goal — <em>Chain the permutations, record the form</em> — as the smallest Live set that proves <em>one cell permuted by rule — reversed, shifted, doubled, gapped — on one voice</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>a few notes heard as a whole composition</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Digitone II for this phase: translate <em>Chain the permutations, record the form</em> into FM tracks, sound locks, trig conditions, LFOs, macros, and Overbridge or main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>one cell permuted by rule — reversed, shifted, doubled, gapped — on one voice</em>, not just the surface of Laurie Spiegel — “Patchwork”.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">A recorded pass through the section’s form — the same cell, the record’s order of operations, no material that isn’t a permutation.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A recorded pass through the section’s form — the same cell, the record’s order of operations, no material that isn’t a permutation.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">If it fails</div>
@@ -277,19 +281,19 @@
       <div class="step-num">Phase 5</div>
       <h3 class="step-title">Observe the grid, compare, export</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: observe the grid, compare, export. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: observe the grid, compare, export. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Live + Logbook</span> Write one logbook line describing the grid: how many clips, how many rules, and the fact that the whole piece is visible without playing a note.</li>
-        <li><span class="system-tag">Live</span> Mark with locators where your permutation changes land in the recorded chain and where REF’s land;</li>
-        <li><span class="system-tag">Live</span> measure the gaps.</li>
-        <li><span class="system-tag">Live</span> Export the chain — <span class="menu">File → Export Audio/Video</span>, WAV, named <span class="code">REP-patchwork</span>.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>Write one logbook line describing the grid: how many clips, how many rules, and the fact that the whole piece is visible without playing a note.</li>
+        <li>Mark with locators where your permutation changes land in the recorded chain and where REF’s land;</li>
+        <li>measure the gaps.</li>
+        <li>Export the chain — <span class="menu">File → Export Audio/Video</span>, WAV, named <span class="code">REP-patchwork</span>.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Laurie Spiegel — “Patchwork” and use Operator or Wavetable into Auto Filter, with clip automation.</li><li>Build the phase goal — <em>Observe the grid, compare, export</em> — as the smallest Live set that proves <em>one cell permuted by rule — reversed, shifted, doubled, gapped — on one voice</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>a few notes heard as a whole composition</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Digitone II for this phase: translate <em>Observe the grid, compare, export</em> into FM tracks, sound locks, trig conditions, LFOs, macros, and Overbridge or main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>one cell permuted by rule — reversed, shifted, doubled, gapped — on one voice</em>, not just the surface of Laurie Spiegel — “Patchwork”.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">One written line about music-as-combinatorics, paired locators a few seconds apart at worst, and a finished WAV.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">One written line about music-as-combinatorics, paired locators a few seconds apart at worst, and a finished WAV.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">If it fails</div>
@@ -303,7 +307,7 @@
     </div>
   </div>
 
-  <div class="decision-check">
+  </div></div><div class="decision-check">
     <div class="decision-check-label">Verify against the record</div>
     <p>A/B your recording against the looped section at matched volume, then answer:</p>
     <ul>
@@ -341,5 +345,6 @@
 
 </div>
 
+  <script src="../nav.js"></script>
 </body>
 </html>

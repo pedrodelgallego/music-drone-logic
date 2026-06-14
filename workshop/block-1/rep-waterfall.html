@@ -6,7 +6,7 @@
 <title>Replicate: Drift Below the Event — Rrose</title>
 <link rel="stylesheet" href="../styles.css">
 </head>
-<body>
+<body class="page-type-rep" id="top">
 
 <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
 <label for="nav-toggle" class="hamburger" aria-label="Menu">
@@ -16,6 +16,7 @@
 <nav class="nav" aria-label="Workshop contents">
   <p class="nav-label">Workshop</p>
   <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
   <a href="index.html" class="active"><span class="nav-num">01</span>The Bench</a>
   <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
   <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
@@ -28,12 +29,15 @@
 </nav>
 
 <div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 1 · The Bench</a><span class="breadcrumb-sep">/</span><span>Replicate: drift below the event</span></nav>
 
   <header class="page-header">
     <div class="eyebrow">Block 1 · Replication lesson</div>
     <h1>Replicate: drift below the event</h1>
     <p class="lede">Copy one clear section of Rrose — “Waterfall”. Build the main parts, record a short take, and compare it to the reference at the same loudness.</p>
   </header>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l1.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs">Labs</a><a href="lab-r1.html" data-section="rebuild">Rebuild</a><a href="capstone-c1.html" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep" class="current">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
   <div class="callout">
     <div class="callout-label">The point</div>
     <p>This drill teaches the record's core mechanism: continuous micro-modulation - filter, pitch, sample start, level all drifting at different sub-perceptual rates; their sum reads as life, not motion. Do only the steps that make that mechanism audible.</p>
@@ -50,7 +54,7 @@
 
   <div class="checklist">
     <div class="checklist-head">
-      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"></path></svg></div>
       <div class="checklist-label">Before you start</div>
     </div>
     <ul>
@@ -74,7 +78,7 @@
       <div class="step-num">Reference pass · 10 minutes</div>
       <h3 class="step-title">Listen before you build</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Listen to about one minute of Rrose — “Waterfall”. Choose the clearest short section. Write one short answer for each question before you touch the gear.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Listen to about one minute of Rrose — “Waterfall”. Choose the clearest short section. Write one short answer for each question before you touch the gear.</p>
     <ol class="rules-list">
       <li>Is any bar identical to another?
         <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>No - though you cannot catch two bars differing while they pass. The notes land in the same places every time; the sound they land in never does. Relisten by skipping: play twenty seconds at minute one, then twenty at minute three.</p></div></details>
@@ -92,7 +96,7 @@
         <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>No. If the movers shared a cycle, the loop would have a longer super-pattern and the ear would find it within a minute. The rates are unrelated, so their combination never recurs - the bar has no larger bar above it.</p></div></details>
       </li>
     </ol>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Now build the section you described. Do not build from memory.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Now build the section you described. Do not build from memory.</p>
   </div>
 
   <h2>Steps</h2>
@@ -118,7 +122,7 @@
     </ul>
   </div>
 
-  <p style="color: var(--text-muted); font-size: 14.5px; max-width: 640px; margin: 0 auto 14px; text-align: center;">The piece’s machinery in one row: a one-bar loop left exactly alone, three LFOs at unrelated sub-perceptual rates and tiny depths aimed at cutoff, sample start, and pitch, and a four-minute print in which no bar matches any other and no move is audible.</p>
+  <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); max-width: 640px; margin: 0 auto 14px; text-align: center;">The piece’s machinery in one row: a one-bar loop left exactly alone, three LFOs at unrelated sub-perceptual rates and tiny depths aimed at cutoff, sample start, and pitch, and a four-minute print in which no bar matches any other and no move is audible.</p>
 
   <div class="signal-flow">
     <span class="signal-node">one-bar loop · Digitakt II · frozen</span>
@@ -130,21 +134,21 @@
     <span class="signal-node">4-minute print · no audible moves</span>
   </div>
 
-  <p style="color: var(--text-muted); font-size: 14.5px; max-width: 640px; margin: 18px auto 14px; text-align: center;">Three movers drawn against four minutes of identical bars. Each curve alone is too slow and too shallow to register; because their periods share no common cycle, their sum — the shaded band — never repeats. The bars underneath are the same bar every time. The sound is not.</p>
+  <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); max-width: 640px; margin: 18px auto 14px; text-align: center;">Three movers drawn against four minutes of identical bars. Each curve alone is too slow and too shallow to register; because their periods share no common cycle, their sum — the shaded band — never repeats. The bars underneath are the same bar every time. The sound is not.</p>
 
 <div class="signal-flow" style="display:block; padding:26px 16px;">
   <svg viewBox="0 0 760 230" width="100%" role="img" aria-label="Three slow modulation curves with unrelated periods over a row of identical bars — their sum never repeats">
-    <rect x="20" y="20" width="720" height="150" rx="10" fill="#1f2530" stroke="#6e7681" stroke-width="1"/>
-    <path d="M40 70 C 110 50, 180 50, 250 70 C 320 90, 390 90, 460 70 C 530 50, 600 50, 670 70 L 720 78" fill="none" stroke="#8b949e" stroke-width="1.4"/>
-    <path d="M40 95 C 90 115, 150 115, 210 95 C 270 75, 330 75, 390 95 C 450 115, 510 115, 570 95 C 630 75, 690 75, 720 88" fill="none" stroke="#6e7681" stroke-width="1.4"/>
-    <path d="M40 120 C 140 100, 260 140, 380 120 C 500 100, 620 140, 720 118" fill="none" stroke="#7dd3c0" stroke-width="1.4"/>
+    <rect x="20" y="20" width="720" height="150" rx="10" fill="#1f2530" stroke="#6e7681" stroke-width="1"></rect>
+    <path d="M40 70 C 110 50, 180 50, 250 70 C 320 90, 390 90, 460 70 C 530 50, 600 50, 670 70 L 720 78" fill="none" stroke="#8b949e" stroke-width="1.4"></path>
+    <path d="M40 95 C 90 115, 150 115, 210 95 C 270 75, 330 75, 390 95 C 450 115, 510 115, 570 95 C 630 75, 690 75, 720 88" fill="none" stroke="#6e7681" stroke-width="1.4"></path>
+    <path d="M40 120 C 140 100, 260 140, 380 120 C 500 100, 620 140, 720 118" fill="none" stroke="#7dd3c0" stroke-width="1.4"></path>
     <text x="48" y="58" fill="#8b949e" font-size="9.5">cutoff · one breath ≈ 50 s</text>
     <text x="48" y="135" fill="#7dd3c0" font-size="9.5">pitch · a few cents · ≈ 90 s</text>
     <text x="480" y="135" fill="#6e7681" font-size="9.5">sample start · ≈ 70 s</text>
-    <rect x="40" y="148" width="680" height="12" rx="3" fill="#2a313d"/>
+    <rect x="40" y="148" width="680" height="12" rx="3" fill="#2a313d"></rect>
     <text x="380" y="157" fill="#8b949e" font-size="9" text-anchor="middle">the sum — never in the same place twice</text>
     <g fill="#6e7681">
-      <rect x="40" y="178" width="60" height="14" rx="2"/><rect x="108" y="178" width="60" height="14" rx="2"/><rect x="176" y="178" width="60" height="14" rx="2"/><rect x="244" y="178" width="60" height="14" rx="2"/><rect x="312" y="178" width="60" height="14" rx="2"/><rect x="380" y="178" width="60" height="14" rx="2"/><rect x="448" y="178" width="60" height="14" rx="2"/><rect x="516" y="178" width="60" height="14" rx="2"/><rect x="584" y="178" width="60" height="14" rx="2"/><rect x="652" y="178" width="60" height="14" rx="2"/>
+      <rect x="40" y="178" width="60" height="14" rx="2"></rect><rect x="108" y="178" width="60" height="14" rx="2"></rect><rect x="176" y="178" width="60" height="14" rx="2"></rect><rect x="244" y="178" width="60" height="14" rx="2"></rect><rect x="312" y="178" width="60" height="14" rx="2"></rect><rect x="380" y="178" width="60" height="14" rx="2"></rect><rect x="448" y="178" width="60" height="14" rx="2"></rect><rect x="516" y="178" width="60" height="14" rx="2"></rect><rect x="584" y="178" width="60" height="14" rx="2"></rect><rect x="652" y="178" width="60" height="14" rx="2"></rect>
     </g>
     <text x="70" y="208" fill="#6e7681" font-size="9.5" text-anchor="middle">bar 1</text>
     <text x="380" y="208" fill="#6e7681" font-size="9.5" text-anchor="middle">the same bar, every time</text>
@@ -153,32 +157,32 @@
 </div>
 
   <!-- PHASE 1 -->
-  <div class="step">
+  <div class="gear-switch"><input type="radio" name="gear" id="gear-hw" class="gear-radio" checked><input type="radio" name="gear" id="gear-sw" class="gear-radio"><input type="radio" name="gear" id="gear-tg" class="gear-radio"><div class="gear-labels"><span class="gear-lead">Your rig</span><label for="gear-hw">MicroFreak + Digitakt II</label><label for="gear-sw">Ableton Live only</label><label for="gear-tg">Octatrack MKII · target</label></div><div class="gear-scope"><div class="step">
     <div class="step-head">
       <div class="step-num">Phase 1 · ≈ 15 min</div>
       <h3 class="step-title">The reference and the frozen bar</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: the reference and the frozen bar. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: the reference and the frozen bar. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Live</span> <kbd>⌘ T</kbd>, rename the track <span class="code">REF</span> (<kbd>⌘ R</kbd>), drag “Waterfall” in, and loop three to four characteristic minutes.</li>
-        <li><span class="system-tag">Live</span> <span class="menu">Audio Effects → Utility</span>, trim to peaks ≈ <span class="code">−12 dBFS</span>.</li>
-        <li><span class="system-tag">Live</span> <span class="code">REF</span> stays one solo-press away all lesson.</li>
-        <li><span class="system-tag">Digitakt II</span> Press <span class="code">[RECORD]</span> for grid recording and build a one-bar loop in the record’s register: kick on the quarters, a closed hat, and one short tonal stab — a chord hit or metallic tone with enough harmonics for a filter to have something to take away.</li>
-        <li><span class="system-tag">Digitakt II + Live</span> Set levels by the ledger; the Digitakt II bus peaks ≈ <span class="code">−12 dBFS</span> into Live.</li>
-        <li><span class="system-tag">Digitakt II + Live</span> Loop it static for two full minutes and confirm it is dead — every bar identical.</li>
-        <li><span class="system-tag">Logbook</span> Write one logbook line naming the moment your attention left.</li>
-        <li><span class="system-tag">Logbook</span> This number is the “before” measurement.</li>
-        <li><span class="system-tag">Digitakt II</span> Save the pattern.</li>
-        <li><span class="system-tag">Digitakt II</span> From here, pattern edits are forbidden — the trigs you have are the trigs you keep.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li><kbd>⌘ T</kbd>, rename the track <span class="code">REF</span> (<kbd>⌘ R</kbd>), drag “Waterfall” in, and loop three to four characteristic minutes.</li>
+        <li><span class="menu">Audio Effects → Utility</span>, trim to peaks ≈ <span class="code">−12 dBFS</span>.</li>
+        <li><span class="code">REF</span> stays one solo-press away all lesson.</li>
+        <li>Press <span class="code">[RECORD]</span> for grid recording and build a one-bar loop in the record’s register: kick on the quarters, a closed hat, and one short tonal stab — a chord hit or metallic tone with enough harmonics for a filter to have something to take away.</li>
+        <li>Set levels by the ledger; the Digitakt II bus peaks ≈ <span class="code">−12 dBFS</span> into Live.</li>
+        <li>Loop it static for two full minutes and confirm it is dead — every bar identical.</li>
+        <li>Write one logbook line naming the moment your attention left.</li>
+        <li>This number is the “before” measurement.</li>
+        <li>Save the pattern.</li>
+        <li>From here, pattern edits are forbidden — the trigs you have are the trigs you keep.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Rrose — “Waterfall” (Sandwell District, 2011) and use audio clips, Simpler/Sampler, clip envelopes, and resampling.</li><li>Build the phase goal — <em>The reference and the frozen bar</em> — as the smallest Live set that proves <em>continuous micro-modulation — filter, pitch, sample start, level all drifting at different sub-perceptual rates; their sum reads as life, not motion</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>minutes of “the same bar” that never fatigues — and you cannot point at a single change</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Octatrack MKII for this phase: translate <em>The reference and the frozen bar</em> into Flex/Static machines, slices, recorder buffers, scenes, the crossfader, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>continuous micro-modulation — filter, pitch, sample start, level all drifting at different sub-perceptual rates; their sum reads as life, not motion</em>, not just the surface of Rrose — “Waterfall” (Sandwell District, 2011).</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">The record loops at ≈ −12 dBFS, a one-bar loop runs perfectly still beside it, and a logbook line records how quickly the still version dies.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">The record loops at ≈ −12 dBFS, a one-bar loop runs perfectly still beside it, and a logbook line records how quickly the still version dies.</p>
     </div>
 
     <div class="sub-block">
@@ -193,33 +197,32 @@
     </div>
   </div>
 
-  <!-- PHASE 2 -->
   <div class="step">
     <div class="step-head">
       <div class="step-num">Phase 2 · ≈ 25 min</div>
       <h3 class="step-title">Wire three movers at unrelated rates</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: wire three movers at unrelated rates. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: wire three movers at unrelated rates. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">MicroFreak</span> Stab track, LFO 1: destination <span class="code">Filter Cutoff</span>, waveform triangle, <em>unsynced and very slow</em> — one full breath around 50 seconds.</li>
-        <li><span class="system-tag">MicroFreak</span> Depth: start where you barely hear it, then halve it.</li>
-        <li><span class="system-tag">MicroFreak</span> Stab track, LFO 2: destination <span class="code">Sample Start</span>, a different slow rate — around 70 seconds — and a depth of a few samples, enough to vary the attack’s grain, never enough to read as a different hit.</li>
-        <li><span class="system-tag">MicroFreak</span> Hat track, LFO 1: destination <span class="code">Pitch</span>, slower still — around 90 seconds — depth a few <em>cents</em>, not semitones.</li>
-        <li><span class="system-tag">MicroFreak</span> The three periods must share no common cycle: 50 / 70 / 90 never line up inside the take.</li>
-        <li><span class="system-tag">MicroFreak + Live</span> In Live instead: three <span class="menu">LFO</span> devices on the clip’s track, mapped to filter cutoff, clip start offset (via a Simpler holding the bar), and detune — same rates, same depths.</li>
-        <li><span class="system-tag">MicroFreak + Live</span> Audition each mover <em>solo</em> by zeroing the other two.</li>
-        <li><span class="system-tag">MicroFreak + Live</span> The pass test per mover: on any single bar you hear nothing;</li>
-        <li><span class="system-tag">MicroFreak + Live</span> across a minute the quality has changed.</li>
-        <li><span class="system-tag">MicroFreak + Live</span> If a bar-to-bar difference is audible, halve the depth again.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>Stab track, LFO 1: destination <span class="code">Filter Cutoff</span>, waveform triangle, <em>unsynced and very slow</em> — one full breath around 50 seconds.</li>
+        <li>Depth: start where you barely hear it, then halve it.</li>
+        <li>Stab track, LFO 2: destination <span class="code">Sample Start</span>, a different slow rate — around 70 seconds — and a depth of a few samples, enough to vary the attack’s grain, never enough to read as a different hit.</li>
+        <li>Hat track, LFO 1: destination <span class="code">Pitch</span>, slower still — around 90 seconds — depth a few <em>cents</em>, not semitones.</li>
+        <li>The three periods must share no common cycle: 50 / 70 / 90 never line up inside the take.</li>
+        <li>In Live instead: three <span class="menu">LFO</span> devices on the clip’s track, mapped to filter cutoff, clip start offset (via a Simpler holding the bar), and detune — same rates, same depths.</li>
+        <li>Audition each mover <em>solo</em> by zeroing the other two.</li>
+        <li>The pass test per mover: on any single bar you hear nothing;</li>
+        <li>across a minute the quality has changed.</li>
+        <li>If a bar-to-bar difference is audible, halve the depth again.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Rrose — “Waterfall” (Sandwell District, 2011) and use audio clips, Simpler/Sampler, clip envelopes, and resampling.</li><li>Build the phase goal — <em>Wire three movers at unrelated rates</em> — as the smallest Live set that proves <em>continuous micro-modulation — filter, pitch, sample start, level all drifting at different sub-perceptual rates; their sum reads as life, not motion</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>minutes of “the same bar” that never fatigues — and you cannot point at a single change</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Octatrack MKII for this phase: translate <em>Wire three movers at unrelated rates</em> into Flex/Static machines, slices, recorder buffers, scenes, the crossfader, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>continuous micro-modulation — filter, pitch, sample start, level all drifting at different sub-perceptual rates; their sum reads as life, not motion</em>, not just the surface of Rrose — “Waterfall” (Sandwell District, 2011).</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Three movers wired and individually inaudible at bar scale, each provably active at minute scale — and a loop that already refuses to be the same bar twice with all three running.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Three movers wired and individually inaudible at bar scale, each provably active at minute scale — and a loop that already refuses to be the same bar twice with all three running.</p>
     </div>
 
     <div class="sub-block">
@@ -235,31 +238,30 @@
     </div>
   </div>
 
-  <!-- PHASE 3 -->
   <div class="step">
     <div class="step-head">
       <div class="step-num">Phase 3 · ≈ 20 min</div>
       <h3 class="step-title">Record four minutes with your hands in your lap</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: record four minutes with your hands in your lap. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: record four minutes with your hands in your lap. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Live</span> Calibrate once more against <span class="code">REF</span>: a minute of theirs, a minute of yours, judging only drift rate and drift depth.</li>
-        <li><span class="system-tag">Live</span> Adjust, then declare the patch finished.</li>
-        <li><span class="system-tag">Digitakt II + Live</span> Arm the Digitakt II’s track in Live and record <strong>four minutes</strong>.</li>
-        <li><span class="system-tag">Digitakt II + Live</span> Hands off — not on the encoders, not on the faders.</li>
-        <li><span class="system-tag">Live</span> While it records, listen the way the reference pass taught you: one dimension per minute — brightness, then grain, then pitch.</li>
-        <li><span class="system-tag">Logbook</span> Write down anything you wanted to fix instead of fixing it.</li>
-        <li><span class="system-tag">Logbook</span> The rule applies to the take retroactively: if, listening back, any modulation reads as a move you can timestamp, that mover is too deep — fix the depth and reprint.</li>
-        <li><span class="system-tag">Logbook</span> The take is cheap; the discipline is the lesson.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>Calibrate once more against <span class="code">REF</span>: a minute of theirs, a minute of yours, judging only drift rate and drift depth.</li>
+        <li>Adjust, then declare the patch finished.</li>
+        <li>Arm the Digitakt II’s track in Live and record <strong>four minutes</strong>.</li>
+        <li>Hands off — not on the encoders, not on the faders.</li>
+        <li>While it records, listen the way the reference pass taught you: one dimension per minute — brightness, then grain, then pitch.</li>
+        <li>Write down anything you wanted to fix instead of fixing it.</li>
+        <li>The rule applies to the take retroactively: if, listening back, any modulation reads as a move you can timestamp, that mover is too deep — fix the depth and reprint.</li>
+        <li>The take is cheap; the discipline is the lesson.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Rrose — “Waterfall” (Sandwell District, 2011) and use audio clips, Simpler/Sampler, clip envelopes, and resampling.</li><li>Build the phase goal — <em>Record four minutes with your hands in your lap</em> — as the smallest Live set that proves <em>continuous micro-modulation — filter, pitch, sample start, level all drifting at different sub-perceptual rates; their sum reads as life, not motion</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>minutes of “the same bar” that never fatigues — and you cannot point at a single change</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Octatrack MKII for this phase: translate <em>Record four minutes with your hands in your lap</em> into Flex/Static machines, slices, recorder buffers, scenes, the crossfader, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>continuous micro-modulation — filter, pitch, sample start, level all drifting at different sub-perceptual rates; their sum reads as life, not motion</em>, not just the surface of Rrose — “Waterfall” (Sandwell District, 2011).</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Four recorded minutes with zero performed events and zero timestampable changes — a bar that is never the same twice by construction, not by performance.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Four recorded minutes with zero performed events and zero timestampable changes — a bar that is never the same twice by construction, not by performance.</p>
     </div>
 
     <div class="sub-block">
@@ -274,31 +276,30 @@
     </div>
   </div>
 
-  <!-- PHASE 4 -->
   <div class="step">
     <div class="step-head">
       <div class="step-num">Phase 4 · ≈ 15 min</div>
       <h3 class="step-title">A/B the record, then prove the drift on screen</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: a/B the record, then prove the drift on screen. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: a/B the record, then prove the drift on screen. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Live</span> Solo-flip 30 seconds of yours against 30 seconds of <span class="code">REF</span> at matched loudness.</li>
-        <li><span class="system-tag">Live</span> Judge two things only: is your drift as slow, and is it as shallow?</li>
-        <li><span class="system-tag">Live</span> Bounce one bar from minute 1 of your take and one bar from minute 3. Drop them on two adjacent tracks, aligned to the same downbeat.</li>
-        <li><span class="system-tag">Live</span> Look first: zoomed in, the waveforms visibly disagree — same notes, different shapes.</li>
-        <li><span class="system-tag">Live</span> Then invert the phase of one (<span class="menu">Utility → Phz-Invert</span>) and play both: no null, just a ghostly residue.</li>
-        <li><span class="system-tag">Live</span> That residue is the sum of three movers nobody could hear moving.</li>
-        <li><span class="system-tag">Logbook</span> Write the logbook line: how big the residue sounds versus how invisible the modulation felt.</li>
-        <li><span class="system-tag">Logbook</span> That gap is the whole record.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>Solo-flip 30 seconds of yours against 30 seconds of <span class="code">REF</span> at matched loudness.</li>
+        <li>Judge two things only: is your drift as slow, and is it as shallow?</li>
+        <li>Bounce one bar from minute 1 of your take and one bar from minute 3. Drop them on two adjacent tracks, aligned to the same downbeat.</li>
+        <li>Look first: zoomed in, the waveforms visibly disagree — same notes, different shapes.</li>
+        <li>Then invert the phase of one (<span class="menu">Utility → Phz-Invert</span>) and play both: no null, just a ghostly residue.</li>
+        <li>That residue is the sum of three movers nobody could hear moving.</li>
+        <li>Write the logbook line: how big the residue sounds versus how invisible the modulation felt.</li>
+        <li>That gap is the whole record.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Rrose — “Waterfall” (Sandwell District, 2011) and use audio clips, Simpler/Sampler, clip envelopes, and resampling.</li><li>Build the phase goal — <em>A/B the record, then prove the drift on screen</em> — as the smallest Live set that proves <em>continuous micro-modulation — filter, pitch, sample start, level all drifting at different sub-perceptual rates; their sum reads as life, not motion</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>minutes of “the same bar” that never fatigues — and you cannot point at a single change</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Octatrack MKII for this phase: translate <em>A/B the record, then prove the drift on screen</em> into Flex/Static machines, slices, recorder buffers, scenes, the crossfader, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>continuous micro-modulation — filter, pitch, sample start, level all drifting at different sub-perceptual rates; their sum reads as life, not motion</em>, not just the surface of Rrose — “Waterfall” (Sandwell District, 2011).</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">An A/B that comes down to rate and depth, two bounced bars that visibly and audibly refuse to match, and a logbook line about variation you could prove but never point at.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">An A/B that comes down to rate and depth, two bounced bars that visibly and audibly refuse to match, and a logbook line about variation you could prove but never point at.</p>
     </div>
 
     <div class="sub-block">
@@ -313,6 +314,9 @@
     </div>
   </div>
 
+  </div></div><!-- PHASE 2 -->
+  <!-- PHASE 3 -->
+  <!-- PHASE 4 -->
   <div class="decision-check">
     <div class="decision-check-label">Verify against the record</div>
     <p>Solo-flip between <span class="code">REF</span> and your take at matched loudness — phones at the mark, no touching while you judge.</p>
@@ -349,5 +353,6 @@
 
 </div>
 
+  <script src="../nav.js"></script>
 </body>
 </html>

@@ -6,7 +6,7 @@
 <title>Capstone C4 — Gate</title>
 <link rel="stylesheet" href="../styles.css">
 </head>
-<body>
+<body class="page-type-capstone" id="top">
 
 <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
 <label for="nav-toggle" class="hamburger" aria-label="Menu">
@@ -16,6 +16,7 @@
 <nav class="nav" aria-label="Workshop contents">
   <p class="nav-label">Workshop</p>
   <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
   <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
   <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
   <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
@@ -28,13 +29,14 @@
 </nav>
 
 <div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 5 · Space &amp; Mix</a><span class="breadcrumb-sep">/</span><span>A Dub-System Piece, Translation-Tested</span></nav>
 
   <header class="page-header">
     <div class="eyebrow">Block 5 · Capstone C4 · Gate</div>
     <h1>A Dub-System Piece, Translation-Tested</h1>
     <p class="lede">Constraints only, no recipe. You have labs 018–022, R5, and programme L5 behind you; this brief asks for one original piece whose space is a drawn architecture, then makes the mix prove itself on three playback systems. The gate is not the piece — it is whether the system you drew survives contact with a phone speaker.</p>
   </header>
-  <p class="block-meta">Capstone · Gate tier · constraints-only brief · full cycle · requires Block 5 labs + programme L5 complete · closes Block 5 · <span class="status">scaffold</span></p>
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l5.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs">Labs</a><a href="lab-r5.html" data-section="rebuild">Rebuild</a><a href="capstone-c4.html" data-section="capstone" class="current">Capstone</a><a href="index.html#replication-lessons" data-section="rep">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
 
   <div class="signal-flow">
     <span class="signal-node">listen</span>
@@ -71,7 +73,7 @@
 
   <div class="callout">
     <div class="callout-label">What a gate is</div>
-    <p>A block does not end when its labs are done; it ends when you can run the operating loop without scaffolding. C4 is deliberately the genre the block has been circling — a dub system — and the only new variables are the absence of instructions and the presence of witnesses: three playback systems that do not care how it sounded on your monitors.</p>
+    <p>A block does not end when its labs are done; it ends when you can run the operating loop without a recipe. C4 is deliberately the genre the block has been circling — a dub system — and the only new variables are the absence of instructions and the presence of witnesses: three playback systems that do not care how it sounded on your monitors.</p>
   </div>
 
   <h2>1 — Brief &amp; constraints</h2>
@@ -80,13 +82,13 @@
 
   <div class="note-block">
     <ul>
-      <li><strong>Scaffolding:</strong> C4 runs at S3 — both specs are authored from prompts, nothing arrives pre-filled. Write them <em>before</em> patching, using lab 003&rsquo;s filled specs only as a model of granularity. A spec written after the piece is a description, not a spec.</li>
+      <li><strong>Support level:</strong> C4 runs at S3 — both specs are authored from prompts, nothing arrives pre-filled. Write them <em>before</em> patching, using lab 003&rsquo;s filled specs only as a model of granularity. A spec written after the piece is a description, not a spec.</li>
       <li><strong>The drawing is mandatory.</strong> The System Spec must include the <strong>full send/return/feedback architecture, drawn</strong>: every source, every send (pre or post marked), every return, every feedback path with its safe maximum, and where each level is set. Nothing is patched until the drawing exists; the corrected drawing after the build is part of the bundle, and the diff is the lesson.</li>
       <li><strong>The translation test is part of the brief,</strong> not a quality bonus: the finished mix is verified across monitors, mono, and a phone speaker, and the written translation report files with the bundle. A mix that only exists on one system does not pass the gate.</li>
     </ul>
   </div>
 
-  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">As at every gate, the brief is a constraint menu — pick four, write them at the top of the spec before anything else, and check them for contradictions before patching. The full C4 constraint menu is <span class="status">forthcoming</span>; the seeds below show its direction and are valid picks now.</p>
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">As at every gate, the brief is a constraint menu — pick four, write them at the top of the spec before anything else, and check them for contradictions before patching. The full C4 constraint menu is below; pick from it before patching.</p>
 
   <ol class="rules-list">
     <li><strong>One space only.</strong> A single return carries every wet sound in the piece — one delay or one reverb, load-bearing, shared by everything.</li>
@@ -161,11 +163,22 @@
   </div>
 
   <table class="param-table">
-    <caption>Pass standard — full rubric <span class="status">forthcoming</span></caption>
+    <caption>Pass standard — full rubric</caption>
     <tr><td>Minimum pass</td><td>The minimum gate above is complete, the bench certification is renewed, the mix survives monitors, mono, and phone, and the defense questions are answered.</td></tr>
     <tr><td>Solid pass</td><td>The four constraints audibly shape the piece, the stolen principle can be located in the routing or choreography, and the translation report shows findings that were diagnosed at the architecture, not patched at the render.</td></tr>
     <tr><td>Advanced transfer</td><td>You can explain how the same dub system would be rewired on an unfamiliar desk — which paths are essential, which are conveniences — without losing the core principle.</td></tr>
   </table>
+
+  <div class="callout">
+    <div class="callout-label">Excellence — beyond the gate</div>
+    <p>The gate only asks the piece to survive. Excellence asks it to <em>arrive</em> on every system. A piece that clears this tier is one you would publish under your own name, not merely file in the logbook.</p>
+    <ul>
+      <li><strong>Nothing was patched at the render.</strong> Every translation finding traces to a routing or arrangement decision, fixed at the architecture, and the report shows the round count dropping as the build matured — the mix got easier to translate because the system got cleaner, not because the limiter got busier.</li>
+      <li><strong>The mid/side picture is deliberate.</strong> You can name what lives in the side channel and why it is allowed there, and the side could be muted without the piece losing its spine — width is decoration over a mono-proof core, audited, not assumed (lab 021).</li>
+      <li><strong>The full translation test is run against the lab-022b reference standard.</strong> The piece passes the four-system pass — monitors, headphones, phone, and mono — with the loudness and master treatment auditioned as principle, not preset (<a href="lab-022b.html">lab 022b — Loudness &amp; the Master</a>), and the report says why each choice serves the music rather than the meter.</li>
+      <li><strong>The stolen principle disappears into the music.</strong> A listener hears a coherent piece, not a demonstration of a technique; you can point to the principle in the routing, but it is not wearing a sign.</li>
+    </ul>
+  </div>
 
   <h3 style="text-align: center;">The seven-layer worksheet</h3>
 
@@ -230,5 +243,6 @@
 
 </div>
 
+  <script src="../nav.js"></script>
 </body>
 </html>

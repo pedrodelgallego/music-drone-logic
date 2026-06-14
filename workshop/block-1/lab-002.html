@@ -6,7 +6,7 @@
 <title>Lab 002 — Clock, Latency &amp; Monitoring</title>
 <link rel="stylesheet" href="../styles.css">
 </head>
-<body>
+<body class="page-type-lab" id="top">
 
 <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
 <label for="nav-toggle" class="hamburger" aria-label="Menu">
@@ -16,6 +16,7 @@
 <nav class="nav" aria-label="Workshop contents">
   <p class="nav-label">Workshop</p>
   <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
   <a href="index.html" class="active"><span class="nav-num">01</span>The Bench</a>
   <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
   <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
@@ -28,6 +29,7 @@
 </nav>
 
 <div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 1 · The Bench</a><span class="breadcrumb-sep">/</span><span>Clock, Latency &amp; Monitoring</span></nav>
 
   <header class="page-header">
     <div class="eyebrow">Block 1 · Lab 002 · Bench</div>
@@ -35,6 +37,8 @@
     <p class="lede">When you play a note through the computer, you hear it a little later than you played it. This lab measures exactly how much later, teaches you the three different ways to listen while recording, and shows you the two timing problems that quietly ruin takes.</p>
   </header>
   <p class="block-meta">Bench lab · S1 · E2 · full cycle · new concepts: 5</p>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l1.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs" class="current">Labs</a><a href="lab-r1.html" data-section="rebuild">Rebuild</a><a href="capstone-c1.html" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
 
   <div class="signal-flow">
     <span class="signal-node">listen</span>
@@ -71,7 +75,7 @@
 
   <div class="callout">
     <div class="callout-label">The point</div>
-    <p>You can never remove the computer’s delay — but if you measure it once and choose how you listen on purpose, it stops mattering. Players who don’t choose are playing along to a delay they don’t know.</p>
+    <p>You can never remove the computer’s delay. But if you measure it once and choose how you listen on purpose, it stops causing problems. Players who skip this step are playing against a delay they don’t know about.</p>
   </div>
 
   <h2>How this lab works</h2>
@@ -109,7 +113,7 @@
 
   <h2>New concepts — in plain words</h2>
 
-  <p>Every technical word in this lab is defined here first. Come back to this table whenever a term feels slippery.</p>
+  <p>Every technical term in this lab is defined below. Come back here any time a word is unclear.</p>
 
   <table>
     <thead>
@@ -118,11 +122,11 @@
     <tbody>
       <tr>
         <td><span class="lab-title">Latency</span></td>
-        <td>The delay between doing something — hitting a key — and hearing the result through the computer. It is always there; the only question is how big it is, and whether you know.</td>
+        <td>The gap between doing something — hitting a key — and hearing it through the computer. It is always there. The only question is how big it is and whether you know the number.</td>
       </tr>
       <tr>
         <td><span class="lab-title">Buffer size</span></td>
-        <td>How big a chunk of audio the computer processes at once. Big chunks are safe but late, like a courier who waits for a full van before driving. Small chunks arrive faster, but the courier can drop packages — you hear that as crackles.</td>
+        <td>How many audio samples the computer collects before processing them. A bigger buffer (more samples) is stable but adds more delay. A smaller buffer is faster but can cause crackles if the computer can't keep up.</td>
       </tr>
       <tr>
         <td><span class="lab-title">Round trip</span></td>
@@ -130,19 +134,19 @@
       </tr>
       <tr>
         <td><span class="lab-title">Direct vs software monitoring</span></td>
-        <td>Two ways to hear yourself while recording. Direct: the interface sends your input straight to the headphones — immediate, but without any computer effects. Software: you hear the signal after it has been through the computer — with effects, but late. Choosing one is choosing which “now” you listen to.</td>
+        <td>Two ways to hear yourself while recording. Direct monitoring: the interface sends your input straight to your headphones — no delay, but no computer effects either. Software monitoring: you hear the signal after it passes through the computer — with effects, but late by the full round-trip delay. You must pick one before you record.</td>
       </tr>
       <tr>
         <td><span class="lab-title">Comb filtering</span></td>
-        <td>What happens when you hear the same sound twice, a few milliseconds apart: certain frequencies cancel out, and the sound turns hollow and phasey, like talking into a fan. It is the signature sound of two listening paths being on at once.</td>
+        <td>What you hear when the same sound reaches your ears twice, a few milliseconds apart. Certain frequencies cancel out, making the sound hollow and phasey — like talking into a spinning fan. This is what happens when two monitoring paths are both switched on at the same time.</td>
       </tr>
       <tr>
         <td><span class="lab-title">MIDI clock</span></td>
-        <td>The metronome signal Live sends over USB so that hardware plays at the same tempo. It keeps the Digitakt at the right speed, but it is coarse: it does not place individual hits precisely.</td>
+        <td>A timing signal Live sends over USB to keep hardware like the Digitakt playing at the right tempo. It is coarse — good enough for tempo, but not precise enough to place individual hits exactly on the beat.</td>
       </tr>
       <tr>
         <td><span class="lab-title">MIDI notes vs CC</span></td>
-        <td>Two different sentences down the same cable: a note says “play this pitch now”; a CC says “this knob is now at value X”. Mapping is deciding which knob a CC sentence steers.</td>
+        <td>Two different message types sent over the same USB cable. A MIDI note says “play this pitch now.” A CC (short for Control Change) says “this knob is at value X.” Mapping is how you decide which CC controls which knob inside Live.</td>
       </tr>
     </tbody>
   </table>
@@ -157,7 +161,7 @@
 
   <h2>Listening — the hypothesis source</h2>
 
-  <p>Before touching the gear, hear ten records that each made a different decision about timing. For each one: read what to listen for first, listen, then answer the verify questions — and relisten if you can’t.</p>
+  <p>Before touching any gear, listen to ten records. Each one made a different decision about timing. For each record: read what to listen for, then listen, then answer the verify questions. If you can’t answer, listen again.</p>
 
   <table class="param-table">
     <caption>Ten references — ten timing decisions</caption>
@@ -181,7 +185,7 @@
         <span class="listen-tag">the deliberate double</span>
       </summary>
       <div class="listen-body">
-        <p><strong>Why this record:</strong> dub is built on timing smear — copies of sounds are layered slightly apart, on purpose, until the smear becomes the space of the record. Any track works.</p>
+        <p><strong>Why this record:</strong> dub music is built on deliberate timing overlap — copies of sounds are layered slightly apart until the overlap fills the space of the record. Any track works.</p>
         <div class="sub-label">Listen for</div>
         <ul>
           <li>Echoes of the snare drum that come back slightly late and slowly fade away</li>
@@ -220,7 +224,7 @@
         <span class="listen-tag">late on purpose</span>
       </summary>
       <div class="listen-body">
-        <p><strong>Why this record:</strong> proof that “late” can be a choice — drums placed off the grid on purpose, consistently, so the looseness becomes the groove. Try “Workinonit”.</p>
+        <p><strong>Why this record:</strong> proof that “late” can be a deliberate choice. The drums are placed behind the beat on purpose, and they do it consistently — so the looseness becomes the groove, not a mistake. Try “Workinonit”.</p>
         <div class="sub-label">Listen for</div>
         <ul>
           <li>The snare landing a touch behind where you expect it — every single time</li>
@@ -239,7 +243,7 @@
         <span class="listen-tag">swing you can set</span>
       </summary>
       <div class="listen-body">
-        <p><strong>Why this record:</strong> between Spastik’s grid and Dilla’s drag lives a third decision — dialed swing. Every offbeat is late by a chosen amount, set on a machine. Larry Heard picked a number, and the number is the feel.</p>
+        <p><strong>Why this record:</strong> between Spastik’s machine-tight grid and Dilla’s drag is a third option — dialed swing. Every offbeat is late by a chosen amount, set on a machine. Larry Heard picked a number, and that number is the feel of the track.</p>
         <div class="sub-label">Listen for</div>
         <ul>
           <li>The offbeat hats leaning late — every single one, by the same amount</li>
@@ -259,7 +263,7 @@
         <span class="listen-tag">the human clock</span>
       </summary>
       <div class="listen-body">
-        <p><strong>Why this record:</strong> a drummer being a clock for ten minutes — tight enough to drive, alive enough to breathe. No machine involved: the steadiness is a performance, and the few milliseconds it breathes are what a grid cannot give you.</p>
+        <p><strong>Why this record:</strong> a drummer holding a steady tempo for ten minutes — tight enough to lock the track, but not so rigid it sounds mechanical. No machine is involved. The small variations of a few milliseconds are what a quantized grid cannot produce.</p>
         <div class="sub-label">Listen for</div>
         <ul>
           <li>Steady eighth notes that never stiffen — the same stroke, on and on, without turning mechanical</li>
@@ -267,7 +271,7 @@
           <li>The tiny breathing inside the steadiness — alive, but never loose</li>
         </ul>
         <div class="sub-label">After — verify</div>
-        <p>Can you hear it breathe without ever hearing it wander? Breathing is milliseconds around a fixed pulse; wandering is the pulse itself moving. If you can’t split the two, relisten with your foot tapping quarters.</p>
+        <p>Can you hear it feel human without losing the pulse? Small variations around a fixed center point are fine. The pulse itself shifting is not. If you can’t tell the difference, relisten with your foot tapping quarter notes.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Neu+Hallogallo" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Neu%20Hallogallo">Spotify</a></p>
         <p class="listen-rep"><a href="rep-hallogallo.html">Replicate it — step-by-step lesson →</a></p>
       </div>
@@ -279,7 +283,7 @@
         <span class="listen-tag">ahead of the beat</span>
       </summary>
       <div class="listen-body">
-        <p><strong>Why this record:</strong> urgency made of events leaning <em>early</em>, tumbling in triplets against a fast grid — the exact mirror of Dilla’s drag. Lateness relaxes; earliness falls forward.</p>
+        <p><strong>Why this record:</strong> the opposite of Dilla’s drag — hits that lean <em>early</em>, tumbling in triplets over a fast grid. Playing late makes music feel relaxed. Playing early makes it feel urgent and forward-moving.</p>
         <div class="sub-label">Listen for</div>
         <ul>
           <li>Claps and toms arriving a touch before you expect them</li>
@@ -299,7 +303,7 @@
         <span class="listen-tag">micro-swing</span>
       </summary>
       <div class="listen-body">
-        <p><strong>Why this record:</strong> each percussion voice carries its own tiny timing offset — one a touch early, one a touch late, one dead on. Many small clocks, one rolling feel: groove built per voice, not per pattern.</p>
+        <p><strong>Why this record:</strong> each percussion sound has its own small timing offset — one lands slightly early, one slightly late, one dead on. Together they create a rolling groove. The feel is built voice by voice, not by applying one setting to the whole pattern.</p>
         <div class="sub-label">Listen for</div>
         <ul>
           <li>The rotation in the percussion — voices seeming to circle each other while the track stands still</li>
@@ -319,7 +323,7 @@
         <span class="listen-tag">the grid as a choice</span>
       </summary>
       <div class="listen-body">
-        <p><strong>Why this record:</strong> funk at zero timing offset — everything lands exactly on the clock, and the exactness <em>is</em> the groove. What moves is which sounds occupy which sixteenth, never when.</p>
+        <p><strong>Why this record:</strong> everything lands exactly on the clock — and that exactness is the groove. The energy comes from which sixteenth-note slots are filled and how hard, not from anything landing early or late.</p>
         <div class="sub-label">Listen for</div>
         <ul>
           <li>Every hit landing dead on the clock — clap along and nothing ever leans against your clap</li>
@@ -339,7 +343,7 @@
         <span class="listen-tag">behind the beat, together apart</span>
       </summary>
       <div class="listen-body">
-        <p><strong>Why this record:</strong> the whole band leans back behind the kick without falling over — each layer late by its own fixed few-to-tens of milliseconds, and each keeping its offset for the entire song. Sloppy-sounding, perfectly consistent.</p>
+        <p><strong>Why this record:</strong> every layer sits behind the kick by its own fixed amount — a few to tens of milliseconds — and holds that offset for the whole song. It sounds loose, but it is perfectly consistent. Loose and sloppy are not the same thing.</p>
         <div class="sub-label">Listen for</div>
         <ul>
           <li>The snare hanging behind the kick by the same amount every single bar</li>
@@ -359,7 +363,7 @@
         <span class="listen-tag">the note your speakers decide</span>
       </summary>
       <div class="listen-body">
-        <p><strong>Why this record:</strong> a bass hook whose fundamental simply does not exist on small speakers — the record changes identity with the playback path, and it knows it: a brief brighter blip rides the bass as the advertisement small systems get instead of the note.</p>
+        <p><strong>Why this record:</strong> the bass note is so low that small speakers cannot reproduce it at all. The track actually changes what it sounds like depending on your playback system. A short bright blip at each bass note is the only part every speaker can play.</p>
         <div class="sub-label">Listen for</div>
         <ul>
           <li>On headphones: the bass carrying the whole track from below — more weight than the kick</li>
@@ -367,7 +371,7 @@
           <li>Then 30 seconds on your laptop speaker: the hook vanishes, the blip and the beat remain — a different record</li>
         </ul>
         <div class="sub-label">After — verify</div>
-        <p>On the laptop, what told you a bass note happened? It should be the blip plus the rhythm-shaped hole where the weight belongs. If you didn’t notice the identity change, relisten on two playback paths back to back and write one line per path on what the track is about.</p>
+        <p>On the laptop speaker, what tells you a bass note happened? It should be the blip and the rhythmic gap where the low weight belongs. If you didn’t notice the change, listen on two different playback systems back to back and write one sentence per system describing what the track sounds like.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=LFO+LFO+1990+Warp" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:LFO%20LFO">Spotify</a></p>
         <p class="listen-rep"><a href="rep-lfo.html">Replicate it — step-by-step lesson →</a></p>
       </div>
@@ -381,15 +385,15 @@
     </div>
     <div class="sub-block">
       <div class="sub-label">One sentence in the logbook</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Aim it at: <strong>tightness is a choice with a path behind it</strong>. Perry chose the smear, Plastikman chose the grid, Dilla chose late, Heard chose a swing number, Neu! chose a human clock, Rashad chose early, Villalobos chose a different tiny offset per voice, Kraftwerk chose exactness itself, D’Angelo chose a different lateness per layer, LFO chose a note only some systems can hear — ten records, ten timing decisions, and all ten knew exactly where every copy and every hit sat. This lab gives you that knowledge for your own rig.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Aim for: <strong>tightness is a decision, not an accident</strong>. Perry chose the smear. Plastikman chose the grid. Dilla chose late. Heard chose a swing number. Neu! chose a human clock. Rashad chose early. Villalobos chose a different small offset per voice. Kraftwerk chose exactness. D’Angelo chose a different amount of lateness per layer. LFO chose a note only some systems can play. Ten records, ten decisions — and all ten knew exactly where their sounds sat. This lab gives you that same knowledge for your own rig.</p>
     </div>
   </div>
 
   <h2>Overview — three clocks in the room</h2>
 
-  <p>Sound through a computer is always a little late. The interface collects a chunk of audio, the computer works on it, and the result comes back out — every stage adds delay, and the delay never reaches zero. So the question is never <em>whether</em> your audio is late. It is <em>by how much</em> — and whether you know the number or are only hoping.</p>
+  <p>Sound through a computer is always a little late. The interface collects a chunk of audio, the computer processes it, and the result comes back out. Every stage adds delay. The delay never reaches zero. So the question is never <em>whether</em> your audio is late — it is <em>how late</em>, and whether you know the number.</p>
 
-  <p>It matters because there are three clocks running in your room, and they do not agree. The <strong>audio clock</strong> is the interface’s heartbeat: it ticks 48,000 times a second, and everything recorded through it is placed with extreme precision. <strong>MIDI clock</strong> is a coarse metronome message sent over USB: good enough to hold the Digitakt at the right tempo, not good enough to place a single hit. The third clock is <strong>your hands</strong>: they adapt to whatever they hear — so if they hear late, they play late, and the take keeps that drag forever.</p>
+  <p>There are three clocks running in your room, and they do not agree. The <strong>audio clock</strong> is the interface’s internal timer. It ticks 48,000 times a second, placing every recorded sample precisely. <strong>MIDI clock</strong> is a coarser timing signal sent over USB — good enough to keep the Digitakt at the right tempo, but not precise enough to place a single hit exactly on the beat. The third clock is <strong>your hands</strong>: they adapt to whatever they hear. If they hear late, they play late, and the take keeps that drag.</p>
 
   <div class="note-block">
     <ul>
@@ -421,7 +425,7 @@
       <div class="step-num">Step 01</div>
       <h3 class="step-title">The buffer experiment — feel the number first</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Before measuring anything, learn what the delay feels like from the playing side. Numbers mean more once your hands have met them.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Before measuring anything, feel the delay from the playing side. The numbers will make more sense once your hands know what they mean.</p>
     <div class="sub-block">
       <div class="sub-label">Do this</div>
       <ol>
@@ -435,7 +439,7 @@
     </div>
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">At 1024 the delay is unmistakable — the note arrives after the key. Somewhere between 256 and 64 there is a threshold where your hands stop noticing. That threshold is personal and real: it is the largest buffer at which you can honestly perform through software monitoring. If 64 samples produces crackles or dropouts, that is your machine telling you its floor — write that down too.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">At 1024 samples the delay is obvious — you can hear the note arrive after you press the key. Somewhere between 256 and 64 there is a point where your hands stop noticing. That point is personal: it is the largest buffer at which you can comfortably perform through software monitoring. If 64 samples causes crackles or dropouts, your computer has hit its limit at that setting — write that down too.</p>
     </div>
     <table class="param-table">
       <caption>Felt response — your own words</caption>
@@ -446,7 +450,7 @@
     </table>
     <div class="sub-block">
       <div class="sub-label">Logbook</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Copy the felt-response table in, plus one sentence: <em>my playable threshold is ___ samples.</em></p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Copy the felt-response table in, plus one sentence: <em>my playable threshold is ___ samples.</em></p>
     </div>
   </div>
 
@@ -456,7 +460,7 @@
       <div class="step-num">Step 02</div>
       <h3 class="step-title">Loopback — measure the real round trip</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">The interface tells Live how long its delay is — but that report is usually a little short of the truth, because parts of the journey are invisible to it. This test measures the real delay with one cable: send a click out of the interface, straight back into it, record it, and see how late it lands. Live has a field for exactly that correction.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">The interface reports its own delay to Live, but that number is usually a little low because parts of the signal path are invisible to it. This test measures the true delay by sending a click out of the interface and straight back in through a cable, recording it, and checking how late it landed. Live has a field where you enter the correction.</p>
 
     <div class="signal-flow" style="display:block; padding:26px 16px;">
       <svg viewBox="0 0 760 270" width="100%" role="img" aria-label="Loopback wiring and what it measures">
@@ -506,7 +510,7 @@
     </div>
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">At 256 samples / 48 kHz, expect a round trip in the low-to-mid teens of milliseconds. The arithmetic floor is <span class="code">2 × 256 ÷ 48 ≈ 10.7 ms</span>; converter and driver overhead sits on top of that. The exact number is yours to measure — if your result is far outside that neighbourhood, suspect the configuration, not the M4. After compensation, the recorded click should sit on the grid line within a few samples.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">At 256 samples / 48 kHz, expect a round trip in the low-to-mid teens of milliseconds. The minimum possible is <span class="code">2 × 256 ÷ 48 ≈ 10.7 ms</span>. Converter and driver overhead add a little more on top. If your result is far from that range, check the configuration first before suspecting the M4. After entering the compensation value, the recorded click should land on the grid line within a few samples.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">If it fails</div>
@@ -527,11 +531,11 @@
     </table>
     <div class="decision-check">
       <div class="decision-check-label">Why this works</div>
-      <p>The delay’s floor is simple arithmetic: round trip ≈ 2 × buffer ÷ sample rate — the chunk has to be filled once on the way in and once on the way out. The converters and the driver add a little more on top, and that extra is what the loopback exposes. Re-measure whenever the buffer size, sample rate, or driver changes — the compensation value is only valid for the configuration it was measured on.</p>
+      <p>The minimum delay is simple to calculate: round trip ≈ 2 × buffer ÷ sample rate. One buffer fills on the way in and one on the way out. The converters and driver add a bit more on top — and that extra is exactly what the loopback test reveals. Re-measure whenever you change the buffer size, sample rate, or driver. The compensation value only applies to the configuration it was measured on.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">Logbook</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">The loopback table, plus the configuration it belongs to: <em>measured at ___ samples, 48 kHz, Reduced Latency When Monitoring off.</em> A compensation number without its configuration is a future bug.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">The loopback table, plus the configuration it belongs to: <em>measured at ___ samples, 48 kHz, Reduced Latency When Monitoring off.</em> A compensation value without its configuration is a future problem.</p>
     </div>
   </div>
 
@@ -541,7 +545,7 @@
       <div class="step-num">Step 03</div>
       <h3 class="step-title">Monitoring modes — the three paths</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">While you record a source, your rig offers exactly three ways to hear it. Each one trades speed against effects against truth. One signal, three nows:</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">While recording, your rig gives you exactly three ways to hear the source. Each makes a different trade-off: speed, effects, or accuracy. The signal is the same — but what reaches your ears is not.</p>
 
     <div class="signal-flow">
       <span class="signal-node">MicroFreak</span>
@@ -601,11 +605,11 @@
     </table>
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Path (a) and path (b) are unmistakably different under the fingers — (b) is the Step 01 feeling with a number now attached to it. Path (c) is the trap: it feels perfect because you are listening to the box itself, while the thing being recorded is a copy you have not heard yet.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Paths (a) and (b) feel clearly different under the fingers. Path (b) is the same delay you felt in Step 01 — now you have the number that goes with it. Path (c) is the trap: it feels immediate because you are listening to the hardware directly, but what gets recorded is a separate copy you haven't heard yet.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">Logbook</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Three lines, one per path: <em>heard ___, printed ___, late by ___.</em></p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Three lines, one per path: <em>heard ___, printed ___, late by ___.</em></p>
     </div>
   </div>
 
@@ -615,7 +619,7 @@
       <div class="step-num">Step 04</div>
       <h3 class="step-title">The required artifact — what I hear vs what is printed</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">This table is the lab’s core deliverable. The answers are filled in for you — your job is to prove each one true on your own rig.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">This table is the lab’s core deliverable. The answers are filled in for you — your job is to prove each one true on your own rig.</p>
     <div class="sub-block">
       <div class="sub-label">Do this</div>
       <ol>
@@ -647,11 +651,11 @@
     </table>
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Every row survives contact with the rig, and you can now say each scenario’s “heard vs printed” sentence without looking at the table. That sentence is the decision checkpoint in Step 05.</p>
+      <p style=”color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;”>Every row should hold up when you test it on your rig. After this step, you should be able to say each scenario’s “heard vs printed” difference from memory. That is the decision you make at the start of Step 05.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">Logbook</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">The verified table, plus any row where your rig disagreed with the printed answer.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">The verified table, plus any row where your rig disagreed with the printed answer.</p>
     </div>
   </div>
 
@@ -661,7 +665,7 @@
       <div class="step-num">Step 05</div>
       <h3 class="step-title">MIDI clock test — 64 bars of truth</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">MIDI clock keeps the Digitakt at the right tempo; it does not place individual hits. This test measures how loose it is — and, more importantly, whether the looseness stays constant or grows over time.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">MIDI clock keeps the Digitakt at the right tempo but does not place individual hits precisely. This test measures how much offset there is — and whether it stays fixed or grows over time.</p>
     <div class="sub-block">
       <div class="sub-label">Do this</div>
       <ol>
@@ -675,7 +679,7 @@
     </div>
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">A constant small offset between click and kick — that is latency: knowable, correctable, livable. If the offset at bar 64 is meaningfully larger than at bar 1, that is drift — the gap growing over time — and no compensation field fixes drift. Drift means the clock chain itself is wrong: two devices both trying to be the master, a flaky USB hub, a stale driver.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A fixed small offset between click and kick is latency — you can measure it, compensate for it, and work with it. If the offset at bar 64 is larger than at bar 1, that is drift: the gap is growing over time. No compensation setting fixes drift. Drift means the clock setup is wrong — two devices both trying to be the master, a bad USB hub, or an outdated driver.</p>
     </div>
     <table class="param-table">
       <caption>Drift measurement</caption>
@@ -688,11 +692,11 @@
     </ul>
     <div class="decision-check">
       <div class="decision-check-label">Decision checkpoint</div>
-      <p>Before any future recording, can you name the monitoring mode out loud — direct, software, or the box’s own outputs — and say exactly what will be recorded? If the sentence does not come instantly, you are not ready to press record.</p>
+      <p>Before any recording, can you name the monitoring mode — direct, software, or the hardware’s own outputs — and say exactly what will be recorded? If you have to think about it, you are not ready to press record.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">Logbook</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">The drift table, the verdict (latency or drift), and the reset rule, written as a rule.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">The drift table, the verdict (latency or drift), and the reset rule, written as a rule.</p>
     </div>
   </div>
 
@@ -702,7 +706,7 @@
       <div class="step-num">Step 06 · Control path</div>
       <h3 class="step-title">The other cable — notes, CC, and clock</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">The USB cable carries three different sentences — a note (“play this pitch now”), a CC (“this knob is now at value X”), and clock (“tick”). This lab has covered clock; this step proves the other two, because Lab 003’s performance riding depends on them.</p>
+    <p style=”color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;”>The USB cable carries three types of MIDI message: a note (“play this pitch now”), a CC (“this knob is at value X”), and clock (“tick”). This lab has covered clock. This step proves the other two, because Lab 003’s performance work depends on them.</p>
     <div class="sub-block">
       <div class="sub-label">Do this</div>
       <ol>
@@ -714,7 +718,7 @@
     </div>
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Notes from the pads sound the synth through Live’s path; the mapped dial follows the hardware with the range you chose; and you can say out loud which of the three message types is doing what.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">The pads trigger the synth through Live’s note path. The mapped dial follows the hardware control within the range you set. You should now be able to say which of the three message types is doing what.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">If it fails</div>
@@ -727,7 +731,7 @@
     </div>
     <div class="sub-block">
       <div class="sub-label">Logbook</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">One line: <em>note path proven · one control mapped, range set · map mode exited.</em></p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">One line: <em>note path proven · one control mapped, range set · map mode exited.</em></p>
     </div>
   </div>
 
@@ -739,19 +743,19 @@
     </div>
     <div class="sub-block">
       <div class="sub-label">Predict</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Write the expected symptom before creating the fault: two copies of one signal, milliseconds apart, added together at your headphones. What should that sound like? (Hint: the concepts table already told you.)</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Before creating the fault, write down what you expect to hear: two copies of the same signal arriving milliseconds apart, both reaching your headphones at once. What should that sound like? (The concepts table already told you.)</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">Create</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">On the MicroFreak input, enable <strong>both</strong> listening paths at once: turn the M4’s blend knob toward direct input <em>and</em> set the Live track’s Monitor to <strong>In</strong>.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">On the MicroFreak input, enable <strong>both</strong> listening paths at once: turn the M4’s blend knob toward direct input <em>and</em> set the Live track’s Monitor to <strong>In</strong>.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">Observe</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Play a long held note and describe what you hear in the logbook: hollow, phasey, comb-filtered — like the sound is arriving through a tube. Sweep the filter cutoff and notice that the hollow notches stay in the same places while the tone moves through them.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Hold a long note and write down what you hear: hollow, phasey, like the sound is coming through a tube. Sweep the filter cutoff slowly and notice that the hollow notches stay fixed in frequency while the tone moves through them.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">Diagnose</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Two copies of the same signal, offset by the software path’s round-trip delay, added together at your headphones. At every frequency where the delayed copy arrives upside-down relative to the first, the two cancel — leaving a comb of notches across the whole spectrum. Nothing is broken; two healthy paths are simply both on.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Two copies of the same signal are reaching your headphones — one via direct monitoring, one delayed by the full round trip through software. At frequencies where the delayed copy arrives with reversed polarity, the two copies cancel out. This creates a row of notches spread across the spectrum (called <strong>comb filtering</strong>). Nothing is broken. Both paths are working — they just should not both be on at once.</p>
     </div>
     <div class="signal-flow" style="display:block; padding:22px 16px;">
       <svg viewBox="0 0 760 150" width="100%" role="img" aria-label="Comb filtering — evenly spaced notches across the spectrum">
@@ -764,11 +768,11 @@
     </div>
     <div class="sub-block">
       <div class="sub-label">Fix</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Choose one mode. Blend knob to playback for software monitoring, or Monitor Off for direct. The hollowness vanishes the instant only one copy survives.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Pick one mode: blend knob to playback for software monitoring, or Monitor Off for direct. The hollow sound disappears the moment only one copy of the signal reaches your headphones.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">Write the rule</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;"><strong>One monitoring path per source, declared before recording.</strong> File the full entry: symptom, cause, fix, prevention rule.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;"><strong>One monitoring path per source, declared before recording.</strong> File the full entry: symptom, cause, fix, prevention rule.</p>
     </div>
   </div>
 
@@ -781,7 +785,7 @@
     <tr><td>256 samples</td><td>measured: ___ ms</td></tr>
     <tr><td>1024 samples</td><td>measured: ___ ms</td></tr>
   </table>
-  <p style="color: var(--text-muted); font-size: 13.5px; text-align: center; max-width: 640px; margin: 0 auto 24px;">The arithmetic floor is 2 × buffer ÷ sample rate; the real number adds converter and driver overhead on top — which is exactly what the loopback test exposes. Fill these blanks from your own measurements, never from a spec sheet.</p>
+  <p style="color: var(--text-muted); font-size: var(--fs-md-plus); text-align: center; max-width: 640px; margin: 0 auto 24px;">The arithmetic floor is 2 × buffer ÷ sample rate; the real number adds converter and driver overhead on top — which is exactly what the loopback test exposes. Fill these blanks from your own measurements, never from a spec sheet.</p>
 
   <table>
     <tr><th>Situation</th><th>Monitoring mode</th></tr>
@@ -798,6 +802,36 @@
     <tr><td><span class="code">Ext. Out 3</span> / <span class="code">Ext. In 3</span> missing from routing choosers</td><td>Mono channels 3 &amp; 4 not enabled</td><td><kbd>⌘ ,</kbd> → Audio → Output Config / Input Config → enable mono 3 &amp; 4</td></tr>
     <tr><td>Drums drift over minutes</td><td>MIDI clock jitter, or transport never restarted</td><td>The 64-bar test; restart transport before the take; confirm only one clock master</td></tr>
   </table>
+
+  <h2>Going deeper — clock depth</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 18px; color: var(--text-muted); text-align: center;">The 64-bar test tells you whether your offset is fixed (latency) or growing (drift). Here are a few more timing concepts you will encounter as your rig grows.</p>
+
+  <table class="param-table">
+    <caption>The clock vocabulary you will keep using</caption>
+    <tr><td><strong>Jitter</strong></td><td>Tiny, random variation in exactly when each clock tick lands. Drift is the average offset growing in one direction over time. Jitter is random wobble around a fixed average. To spot it: instead of measuring bar 1 vs bar 64, measure the click-to-kick gap on many individual bars. If the offsets vary randomly without trending, that is jitter. If they march steadily in one direction, that is drift.</td></tr>
+    <tr><td><strong>PDC — plugin delay compensation</strong></td><td>Some plugins need a moment to look ahead before they can process audio (for example, a look-ahead limiter). Live automatically delays every other track to keep everything in time. This keeps your mix aligned, but it adds to the total round-trip delay you feel when monitoring through software — which is why a heavy plugin chain can make the rig feel slower under your hands.</td></tr>
+    <tr><td><strong>Word clock</strong></td><td>A dedicated sync signal that keeps the audio clock — the 48,000-times-a-second internal timer — exactly matched between digital devices, sample for sample. Not needed on this single-interface setup (the M4 is the only audio clock), but the first thing to check if you add a second digital device and hear clicks or pops at the transitions.</td></tr>
+    <tr><td><strong>Ableton Link</strong></td><td>A tempo-sync method that works over a local network instead of a cable. It keeps tempo and bar position in sync across multiple apps and devices without requiring one to be the master. Like MIDI clock, it syncs musical time, not individual sample placement. Use it to lock a phone app or a second laptop to your session, not to tighten a single recorded take.</td></tr>
+  </table>
+
+  <h2>The four signal domains</h2>
+
+  <p style=”max-width: 640px; margin: 0 auto 18px; color: var(--text-muted); text-align: center;”>This lab’s cables carry two kinds of thing: audio you can hear, and messages that control machines. There are four signal domains in total. Confusing them causes half of all “why is nothing working” problems. Know which domain a cable carries before you plug it in.</p>
+
+  <table class="param-table">
+    <caption>Audio, MIDI, CV, gate — what each one is</caption>
+    <tr><td><strong>Audio</strong></td><td>The sound itself — a varying voltage (analog) or a stream of samples (digital). This is what travels through the ¼″ jacks into the M4 and gets recorded. If you can hear it, it is audio.</td></tr>
+    <tr><td><strong>MIDI</strong></td><td>Digital messages, not sound: “play this pitch now” (note), “this knob is at value X” (CC), “tick” (clock). On this rig, MIDI travels over USB. Plugging a MIDI cable into an audio input produces silence — wrong domain.</td></tr>
+    <tr><td><strong>CV — control voltage</strong></td><td>A continuous voltage used to <em>control</em> something — pitch, filter cutoff, an LFO shape — rather than to be heard. It is the analog predecessor of MIDI CC. Instead of a number on a wire, the control value is the actual voltage level. Patching it to an audio input produces a thump or buzz, not music.</td></tr>
+    <tr><td><strong>Gate / trigger</strong></td><td>A simple on/off voltage: a gate stays high for the length of a note; a trigger is an instant pulse. These are the modular world’s equivalents of a MIDI note-on message — they signal timing, not pitch.</td></tr>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Where this goes:</strong> Block 1 work is almost entirely in the <strong>audio</strong> and <strong>MIDI</strong> domains. <strong>CV and gate</strong> are the language of modular synthesis — Block 6 uses voltages directly, where pitch, gate, and modulation travel as physical signals on cables rather than messages over USB. The rule to carry forward: match the signal domain to the jack, every time.</li>
+    </ul>
+  </div>
 
   <div class="checklist">
     <div class="checklist-head">
@@ -820,7 +854,7 @@
       <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="16"/><line x1="22" y1="12" x2="22" y2="22"/><line x1="22" y1="22" x2="29" y2="26"/></svg>
     </div>
     <div class="final-label">Bench principle</div>
-    <p>You cannot remove latency — only decide where it lives. Tightness is not a feel you summon at the take; it is a routing decision made before it.</p>
+    <p>You cannot remove latency — you can only decide where it lives. Tightness is not something you summon at the moment of recording. It is a routing decision you make before pressing record.</p>
   </div>
 
   <div class="page-nav">
@@ -838,5 +872,6 @@
 
 </div>
 
+  <script src="../nav.js"></script>
 </body>
 </html>

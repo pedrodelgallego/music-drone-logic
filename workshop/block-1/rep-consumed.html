@@ -6,7 +6,7 @@
 <title>Replicate — Arrangement by Removal</title>
 <link rel="stylesheet" href="../styles.css">
 </head>
-<body>
+<body class="page-type-rep" id="top">
 
 <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
 <label for="nav-toggle" class="hamburger" aria-label="Menu">
@@ -16,6 +16,7 @@
 <nav class="nav" aria-label="Workshop contents">
   <p class="nav-label">Workshop</p>
   <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
   <a href="index.html" class="active"><span class="nav-num">01</span>The Bench</a>
   <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
   <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
@@ -28,12 +29,15 @@
 </nav>
 
 <div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 1 · The Bench</a><span class="breadcrumb-sep">/</span><span>Replicate: arrangement by removal</span></nav>
 
   <header class="page-header">
     <div class="eyebrow">Block 1 · Replication lesson</div>
     <h1>Replicate: arrangement by removal</h1>
     <p class="lede">Copy one clear section of Plastikman — Consumed. Build the main parts, record a short take, and compare it to the reference at the same loudness.</p>
   </header>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l1.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs">Labs</a><a href="lab-r1.html" data-section="rebuild">Rebuild</a><a href="capstone-c1.html" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep" class="current">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
   <div class="callout">
     <div class="callout-label">The point</div>
     <p>This drill teaches the record's core mechanism: The full loop is the ceiling; arrangement is removal and re-entry, planned and executed by mutes. Do only the steps that make that mechanism audible.</p>
@@ -50,7 +54,7 @@
 
   <div class="checklist">
     <div class="checklist-head">
-      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"></path></svg></div>
       <div class="checklist-label">Before you start</div>
     </div>
     <ul>
@@ -73,7 +77,7 @@
       <div class="step-num">Reference pass · 10 minutes</div>
       <h3 class="step-title">Listen before you build</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Listen to about one minute of Plastikman — Consumed. Choose the clearest short section. Write one short answer for each question before you touch the gear.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Listen to about one minute of Plastikman — Consumed. Choose the clearest short section. Write one short answer for each question before you touch the gear.</p>
     <ol class="rules-list">
       <li>What is absent RIGHT NOW (pick any moment)?
         <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>At almost any moment, something that played earlier is gone - the hats, a percussion layer, the 303’s upper movement, sometimes the kick itself.</p></div></details>
@@ -88,7 +92,7 @@
         <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Far more is emptied than full. The complete wall is a point the record visits, not a state it rests in - most of the minute, at least one element is missing.</p></div></details>
       </li>
     </ol>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Now build the section you described. Do not build from memory.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Now build the section you described. Do not build from memory.</p>
   </div>
 
   <div class="note-block">
@@ -114,30 +118,30 @@
     </ul>
   </div>
 
-  <div class="step">
+  <div class="gear-switch"><input type="radio" name="gear" id="gear-hw" class="gear-radio" checked><input type="radio" name="gear" id="gear-sw" class="gear-radio"><input type="radio" name="gear" id="gear-tg" class="gear-radio"><div class="gear-labels"><span class="gear-lead">Your rig</span><label for="gear-hw">MicroFreak + Digitakt II</label><label for="gear-sw">Ableton Live only</label><label for="gear-tg">Octatrack MKII · target</label></div><div class="gear-scope"><div class="step">
     <div class="step-head">
       <div class="step-num">Phase 1 — ~35 minutes</div>
       <h3 class="step-title">Transcribe the wall</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: transcribe the wall. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: transcribe the wall. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol class="rules-list">
-        <li><span class="system-tag">Live</span> <strong>Import the record on a REF track.</strong> Drop <em>Consumed</em> onto a dedicated REF track in Live.</li>
-        <li><span class="system-tag">Live</span> Find the stretch where the most elements play at once and loop 8–16 bars of it — that is your transcription source.</li>
-        <li><span class="system-tag">Live</span> Gain-match it with a Utility so comparisons are honest, and keep it one solo away for the whole session.</li>
-        <li><span class="system-tag">MicroFreak</span> <strong>Transcribe the 303 figure on the MicroFreak.</strong> Note for note — pitches, lengths, where it slides and bites.</li>
-        <li><span class="system-tag">MicroFreak</span> Chase the sound after the notes: engine, filter, decay.</li>
-        <li><span class="system-tag">Live</span> A/B it solo against the REF before moving on.</li>
-        <li><span class="system-tag">Digitakt II</span> <strong>Transcribe the drum parts on the Digitakt II.</strong> Kick, hat, percussion — whatever is actually in the section, with their weight, decay, and placement checked against <span class="code">REF</span>.</li>
-        <li><span class="system-tag">Live</span> A/B each element solo against the REF before adding the next.</li>
-        <li><span class="system-tag">Live</span> <strong>Confirm the wall matches.</strong> Loop your full set next to the REF — 10 seconds of yours, 10 of theirs.</li>
-        <li><span class="system-tag">Live</span> It should feel like the same full, stable maximum.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol class="rules-list">
+        <li><strong>Import the record on a REF track.</strong> Drop <em>Consumed</em> onto a dedicated REF track in Live.</li>
+        <li>Find the stretch where the most elements play at once and loop 8–16 bars of it — that is your transcription source.</li>
+        <li>Gain-match it with a Utility so comparisons are honest, and keep it one solo away for the whole session.</li>
+        <li><strong>Transcribe the 303 figure on the MicroFreak.</strong> Note for note — pitches, lengths, where it slides and bites.</li>
+        <li>Chase the sound after the notes: engine, filter, decay.</li>
+        <li>A/B it solo against the REF before moving on.</li>
+        <li><strong>Transcribe the drum parts on the Digitakt II.</strong> Kick, hat, percussion — whatever is actually in the section, with their weight, decay, and placement checked against <span class="code">REF</span>.</li>
+        <li>A/B each element solo against the REF before adding the next.</li>
+        <li><strong>Confirm the wall matches.</strong> Loop your full set next to the REF — 10 seconds of yours, 10 of theirs.</li>
+        <li>It should feel like the same full, stable maximum.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Plastikman — Consumed (title track) and use audio clips, Simpler/Sampler, clip envelopes, and resampling.</li><li>Build the phase goal — <em>Transcribe the wall</em> — as the smallest Live set that proves <em>The full loop is the ceiling; arrangement is removal and re-entry, planned and executed by mutes</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>A piece that breathes for minutes at a time, where every change feels enormous</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Octatrack MKII for this phase: translate <em>Transcribe the wall</em> into Flex/Static machines, slices, recorder buffers, scenes, the crossfader, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>The full loop is the ceiling; arrangement is removal and re-entry, planned and executed by mutes</em>, not just the surface of Plastikman — Consumed (title track).</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">A full loop that A/Bs against the record’s densest stretch as the same wall — same elements, same weight — before a single thing has been removed.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A full loop that A/Bs against the record’s densest stretch as the same wall — same elements, same weight — before a single thing has been removed.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">If it fails</div>
@@ -156,18 +160,18 @@
       <div class="step-num">Phase 2 — ~20 minutes</div>
       <h3 class="step-title">Chart the record’s exits and returns on paper</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: chart the record’s exits and returns on paper. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: chart the record’s exits and returns on paper. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol class="rules-list">
-        <li><span class="system-tag">Live</span> <strong>Scrub the REF</strong> across the minutes around your looped section, listening only for exits and returns — ignore everything else.</li>
-        <li><span class="system-tag">Live + Logbook</span> <strong>Write the chart FROM the record:</strong> one row per span of bars, naming what leaves or returns in that span.</li>
-        <li><span class="system-tag">Live + Logbook</span> Use the worksheet below as the template.</li>
-        <li><span class="system-tag">Live + Logbook</span> <strong>Mark the emptiest span</strong> — the barest point of the section — and count how long the record holds it.</li>
-        <li><span class="system-tag">Live + Logbook</span> That number goes on the chart.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol class="rules-list">
+        <li><strong>Scrub the REF</strong> across the minutes around your looped section, listening only for exits and returns — ignore everything else.</li>
+        <li><strong>Write the chart FROM the record:</strong> one row per span of bars, naming what leaves or returns in that span.</li>
+        <li>Use the worksheet below as the template.</li>
+        <li><strong>Mark the emptiest span</strong> — the barest point of the section — and count how long the record holds it.</li>
+        <li>That number goes on the chart.</li>
       </ol>
-    </div>
-    <p style="max-width: 640px; margin: 18px auto 6px; color: var(--text-muted); font-size: 14.5px; text-align: center;">Fill from the section’s actual exits — this column is the worksheet.</p>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Plastikman — Consumed (title track) and use audio clips, Simpler/Sampler, clip envelopes, and resampling.</li><li>Build the phase goal — <em>Chart the record’s exits and returns on paper</em> — as the smallest Live set that proves <em>The full loop is the ceiling; arrangement is removal and re-entry, planned and executed by mutes</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>A piece that breathes for minutes at a time, where every change feels enormous</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Octatrack MKII for this phase: translate <em>Chart the record’s exits and returns on paper</em> into Flex/Static machines, slices, recorder buffers, scenes, the crossfader, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>The full loop is the ceiling; arrangement is removal and re-entry, planned and executed by mutes</em>, not just the surface of Plastikman — Consumed (title track).</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
+    <p style="max-width: 640px; margin: 18px auto 6px; color: var(--text-muted); font-size: var(--fs-lg-plus); text-align: center;">Fill from the section’s actual exits — this column is the worksheet.</p>
     <div class="timeline">
       <div class="timeline-row">
         <div class="timeline-time">bars 1–16</div>
@@ -196,7 +200,7 @@
     </div>
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">A chart specific enough that someone else could perform the section from it — every exit, every return, every hold, with bar numbers.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A chart specific enough that someone else could perform the section from it — every exit, every return, every hold, with bar numbers.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">If it fails</div>
@@ -215,7 +219,7 @@
       <div class="step-num">Phase 3 — ~30 minutes</div>
       <h3 class="step-title">Rehearse, then perform the mutes</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: rehearse, then perform the mutes. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: rehearse, then perform the mutes. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
     <div class="signal-flow">
       <span class="signal-node">all elements (MicroFreak + Digitakt II)</span>
       <span class="signal-arrow">→</span>
@@ -225,20 +229,20 @@
     </div>
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol class="rules-list">
-        <li><span class="system-tag">Digitakt II + Live</span> <strong>Set up the mutes.</strong> Digitakt II track mute mode (or <span class="code">FUNC</span> + trig), or Launchpad track mutes for the Live side.</li>
-        <li><span class="system-tag">Digitakt II + Live</span> Every element on the chart needs one reachable button.</li>
-        <li><span class="system-tag">Digitakt II + Live</span> <strong>Rehearse the chart once without recording</strong> — just to get your hands used to which button is which element.</li>
-        <li><span class="system-tag">Digitakt II + Live</span> <strong>Record the performance.</strong> Arm recording and execute the record’s chart with mutes only, start to finish.</li>
-        <li><span class="system-tag">Digitakt II + Live</span> No fades, no new sounds, no edits — if you miss one of their cues, the miss stays.</li>
-        <li><span class="system-tag">Digitakt II + Live</span> <strong>Hold the emptiest bar as long as they do.</strong> Resist the urge to bring things back early — the record holds it longer than feels comfortable, and that discomfort is the material.</li>
-        <li><span class="system-tag">Digitakt II + Live</span> <strong>Rebuild by re-entry, in their order.</strong> Bring the elements back exactly where and in the order the record does.</li>
-        <li><span class="system-tag">Live</span> Notice what each return does — that is data for the verify step.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol class="rules-list">
+        <li><strong>Set up the mutes.</strong> Digitakt II track mute mode (or <span class="code">FUNC</span> + trig), or Launchpad track mutes for the Live side.</li>
+        <li>Every element on the chart needs one reachable button.</li>
+        <li><strong>Rehearse the chart once without recording</strong> — just to get your hands used to which button is which element.</li>
+        <li><strong>Record the performance.</strong> Arm recording and execute the record’s chart with mutes only, start to finish.</li>
+        <li>No fades, no new sounds, no edits — if you miss one of their cues, the miss stays.</li>
+        <li><strong>Hold the emptiest bar as long as they do.</strong> Resist the urge to bring things back early — the record holds it longer than feels comfortable, and that discomfort is the material.</li>
+        <li><strong>Rebuild by re-entry, in their order.</strong> Bring the elements back exactly where and in the order the record does.</li>
+        <li>Notice what each return does — that is data for the verify step.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Plastikman — Consumed (title track) and use audio clips, Simpler/Sampler, clip envelopes, and resampling.</li><li>Build the phase goal — <em>Rehearse, then perform the mutes</em> — as the smallest Live set that proves <em>The full loop is the ceiling; arrangement is removal and re-entry, planned and executed by mutes</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>A piece that breathes for minutes at a time, where every change feels enormous</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Octatrack MKII for this phase: translate <em>Rehearse, then perform the mutes</em> into Flex/Static machines, slices, recorder buffers, scenes, the crossfader, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>The full loop is the ceiling; arrangement is removal and re-entry, planned and executed by mutes</em>, not just the surface of Plastikman — Consumed (title track).</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Three minutes whose every change is a mute or unmute landing on the record’s own cue — including an emptiest stretch held as long as theirs.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Three minutes whose every change is a mute or unmute landing on the record’s own cue — including an emptiest stretch held as long as theirs.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">If it fails</div>
@@ -257,21 +261,21 @@
       <div class="step-num">Phase 4 — ~15 minutes</div>
       <h3 class="step-title">Listen back and write the diff</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: listen back and write the diff. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: listen back and write the diff. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol class="rules-list">
-        <li><span class="system-tag">Live</span> <strong>Listen back once, hands off.</strong> Follow the chart with your eyes while you listen and mark where your recording deviates from the record’s sequence of exits and returns.</li>
-        <li><span class="system-tag">Logbook</span> <strong>Observe — see it, not just hear it.</strong> Put the removal chart you transcribed next to what you actually performed and write the diff: which of the record’s mutes you missed, which unplanned ones you made.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol class="rules-list">
+        <li><strong>Listen back once, hands off.</strong> Follow the chart with your eyes while you listen and mark where your recording deviates from the record’s sequence of exits and returns.</li>
+        <li><strong>Observe — see it, not just hear it.</strong> Put the removal chart you transcribed next to what you actually performed and write the diff: which of the record’s mutes you missed, which unplanned ones you made.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Plastikman — Consumed (title track) and use audio clips, Simpler/Sampler, clip envelopes, and resampling.</li><li>Build the phase goal — <em>Listen back and write the diff</em> — as the smallest Live set that proves <em>The full loop is the ceiling; arrangement is removal and re-entry, planned and executed by mutes</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>A piece that breathes for minutes at a time, where every change feels enormous</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Octatrack MKII for this phase: translate <em>Listen back and write the diff</em> into Flex/Static machines, slices, recorder buffers, scenes, the crossfader, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>The full loop is the ceiling; arrangement is removal and re-entry, planned and executed by mutes</em>, not just the surface of Plastikman — Consumed (title track).</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">A written diff — missed mutes, unplanned mutes, early returns — short enough to fit under the chart and honest enough to feed the miss list.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A written diff — missed mutes, unplanned mutes, early returns — short enough to fit under the chart and honest enough to feed the miss list.</p>
     </div>
   </div>
 
-  <div class="decision-check">
+  </div></div><div class="decision-check">
     <div class="decision-check-label">Verify against the record</div>
     <p>A/B your three minutes against the same stretch of <em>Consumed</em> — 10 seconds of yours, 10 of theirs — would a friend hesitate? Then answer two questions in writing.</p>
     <p><strong>Did your exits and returns land where the record’s do?</strong></p>
@@ -303,5 +307,6 @@
 
 </div>
 
+  <script src="../nav.js"></script>
 </body>
 </html>

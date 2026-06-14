@@ -6,7 +6,7 @@
 <title>Lab 007 — The Sampler Eats Itself</title>
 <link rel="stylesheet" href="../styles.css">
 </head>
-<body>
+<body class="page-type-lab" id="top">
 
 <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
 <label for="nav-toggle" class="hamburger" aria-label="Menu">
@@ -16,6 +16,7 @@
 <nav class="nav" aria-label="Workshop contents">
   <p class="nav-label">Workshop</p>
   <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
   <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
   <a href="index.html" class="active"><span class="nav-num">02</span>Sources</a>
   <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
@@ -28,13 +29,16 @@
 </nav>
 
 <div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 2 · Sources</a><span class="breadcrumb-sep">/</span><span>The Sampler Eats Itself</span></nav>
 
   <header class="page-header">
     <div class="eyebrow">Block 2 · Lab 007 · Track lab</div>
     <h1>The Sampler Eats Itself</h1>
-    <p class="lede">Your rig can record its own output three different ways: inside the Digitakt, through the computer over USB, and out through real cables and back in again. This lab runs the same sound through all three — once, and then three times over — and teaches you to hear what each pass costs and what each pass gives.</p>
+    <p class="lede">Your rig can record its own output three different ways: inside the Digitakt, through the computer over USB, and out through real cables and back in again. This lab sends the same sound through all three paths — once, and then three times — so you can hear what each pass takes away and what it adds.</p>
   </header>
   <p class="block-meta">Track lab · S2 · D2 E3 M4 F2 · texture · full cycle · new concepts: 5</p>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l2.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs" class="current">Labs</a><a href="lab-r2.html" data-section="rebuild">Rebuild</a><a href="index.html#capstone" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
 
   <div class="signal-flow">
     <span class="signal-node">listen</span>
@@ -71,7 +75,7 @@
 
   <div class="callout">
     <div class="callout-label">The point</div>
-    <p>A sound can become source material for its own next generation — and the path you resample through is audible in generation three even when generation one sounds identical. Choose the path like you choose an instrument.</p>
+    <p>You can feed a sound back through your own rig to create new material — this is called <strong>resampling</strong>. The path you use leaves its own mark on the sound, and by the third pass that mark is clearly audible. So choose your path on purpose, the way you choose an instrument.</p>
   </div>
 
   <h2>How this lab works</h2>
@@ -114,11 +118,11 @@
 
   <table>
     <tr><th>Concept</th><th>In plain words</th></tr>
-    <tr><td><span class="lab-title">Resampling</span></td><td>Recording the output of your own system back into it as new material. The sampler stops being a playback box and becomes a loop: what comes out goes back in, ready to be played, chopped, and recorded again.</td></tr>
-    <tr><td><span class="lab-title">Generation</span></td><td>Each pass through a path. The original capture is generation zero; record it once and you hold generation one; record that and you hold generation two. Like photocopying a photocopy — and every path ages the copy differently.</td></tr>
-    <tr><td><span class="lab-title">The three architectures</span></td><td>Internal: the Digitakt records itself, digital end to end, near-lossless. USB: digital too, but the sound crosses into the computer and back, picking up conversion and driver quirks. Analog loop: out through the M4’s output, down a real cable, back through the M4’s input — converters and gain knobs both touch it, twice per pass.</td></tr>
-    <tr><td><span class="lab-title">Generational character</span></td><td>The accumulated fingerprint of a path after several passes. One pass through any path can sound like nothing happened; three passes and the path’s habits — its noise, its softening, its image shift — pile up into a sound of their own.</td></tr>
-    <tr><td><span class="lab-title">The diagram as deliverable</span></td><td>The three-path resampling map you draw and keep, with level notes on every leg. It is this lab’s bench artifact: the page you will consult every time the workshop resamples again — and it does, in Blocks 4 and 7.</td></tr>
+    <tr><td><span class="lab-title">Resampling</span></td><td>Recording your own system’s output back into it as new material. The sampler stops being a playback device and becomes a loop: what comes out goes back in, ready to be played, chopped, and recorded again.</td></tr>
+    <tr><td><span class="lab-title">Generation</span></td><td>Each pass through a path produces a new generation. The original capture is generation zero. Record it once and you have generation one. Record that and you have generation two. Think of it like photocopying a photocopy — and every path ages the copy differently.</td></tr>
+    <tr><td><span class="lab-title">The three architectures</span></td><td>Internal: the Digitakt records itself, entirely digital, near-lossless. USB: also digital, but the sound crosses into the computer and back, picking up conversion and driver quirks. Analog loop: the signal leaves the Digitakt through real cables, passes through the M4’s converters and gain controls, and returns — twice per pass.</td></tr>
+    <tr><td><span class="lab-title">Generational character</span></td><td>The mark a path leaves after several passes. One pass through any path may sound like nothing changed. Three passes and the path’s habits — its noise floor, its softening, its stereo image shift — stack up into a sound of their own.</td></tr>
+    <tr><td><span class="lab-title">The diagram as deliverable</span></td><td>The three-path resampling map you draw and keep, with a level note on every leg. It is this lab’s main artifact: the reference you will use every time you resample in this workshop — in Blocks 4 and 7.</td></tr>
   </table>
 
   <div class="tag-row">
@@ -131,7 +135,7 @@
 
   <h2>Listening — the hypothesis source</h2>
 
-  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Ten records in which a sampler ate its own material — or someone else’s — and the generations became the music. Each gets a brief: what to listen for before you press play, and how to check yourself after.</p>
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Ten records where the copying and re-recording became the music. Each entry tells you what to listen for before you press play, and how to check yourself after.</p>
 
   <div class="listen-acc">
     <details class="listen-item">
@@ -141,7 +145,7 @@
         <span class="listen-tag">the orphaned voice</span>
       </summary>
       <div class="listen-body">
-        <p>Vocals resampled and pitched until they belong to no one — the generations strip away the singer and leave only the song.</p>
+        <p>Burial resampled and pitch-shifted vocals until you can barely tell they came from a human voice. The processing strips away the person and leaves only the melody.</p>
         <div class="sub-label">Listen for</div>
         <ul>
           <li>What survives the processing: melody and ache, not fidelity — the voice is blurred but the feeling is sharp.</li>
@@ -149,7 +153,7 @@
           <li>How the crackle and hiss sit around the voice like weather, not like a fault.</li>
         </ul>
         <div class="sub-label">After — verify</div>
-        <p>Could you say whether the singer is a man or a woman? You probably hesitated — the pitching and regeneration have orphaned the voice from its body, and that ambiguity is the design. What did survive every generation? Hum the line back: the melody made it through intact while the identity did not. If you missed that, relisten following only the vocal’s tune, ignoring its texture.</p>
+        <p>Could you tell whether the singer is a man or a woman? You probably hesitated. The pitching and resampling stripped the voice of its identity — that ambiguity is intentional. What did survive? Hum the melody back: the tune made it through even when the timbre did not. If you missed that, listen again following only the melodic line.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Burial+Archangel" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Burial%20Archangel">Spotify</a></p>
         <p class="listen-rep"><a href="rep-archangel.html">Replicate it — step-by-step lesson →</a></p>
       </div>
@@ -161,7 +165,7 @@
         <span class="listen-tag">loops as elegy</span>
       </summary>
       <div class="listen-body">
-        <p>Fragments of old television ads, resampled into something the source never contained — the copies carry a grief the originals were too busy selling to notice.</p>
+        <p>Oneohtrix Point Never took tiny pieces of old TV ads and resampled them into something the source never contained. The copies feel emotional in a way the originals never did.</p>
         <div class="sub-label">Listen for</div>
         <ul>
           <li>The seams: where a fragment loops, and how the loop point becomes a rhythm.</li>
@@ -169,7 +173,7 @@
           <li>How short the actual source moments are versus how long the piece dwells on them.</li>
         </ul>
         <div class="sub-label">After — verify</div>
-        <p>Could the source material have sounded like this in its original context? No — and that is the test passed: resampling here is not preservation, it is authorship. Name one fragment you could imagine in its original ad. If you cannot find a single one, that measures how far the generations carried the material from home; relisten to the piano figure and try to hear it as a jingle.</p>
+        <p>Could the source material have sounded like this in its original context? No — resampling here is not preservation, it is composition. Try to name one fragment you could imagine back in a TV ad. If you cannot find one, relisten to the piano figure and try to hear it as a jingle — it won't fit, and that distance is the point.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Oneohtrix+Point+Never+Replica" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Oneohtrix%20Point%20Never%20Replica">Spotify</a></p>
         <p class="listen-rep"><a href="rep-replica.html">Replicate it — step-by-step lesson →</a></p>
       </div>
@@ -181,7 +185,7 @@
         <span class="listen-tag">resampling as memory</span>
       </summary>
       <div class="listen-body">
-        <p>Ballroom 78s looped and worn until the wear itself is the subject — the album is about what repetition and copying do to a remembered thing.</p>
+        <p>The Caretaker looped old ballroom recordings until the crackle and decay became the point. The album is about what happens to a memory when you replay it over and over.</p>
         <div class="sub-label">Listen for</div>
         <ul>
           <li>The surface noise: it is louder than some of the music, and it is kept on purpose.</li>
@@ -189,7 +193,7 @@
           <li>Loops that end mid-phrase, like a memory that cuts off at the same spot every time.</li>
         </ul>
         <div class="sub-label">After — verify</div>
-        <p>Is the crackle a flaw or an instrument here? Instrument — remove it and the piece loses its meaning, not just its texture. That is the strongest version of this lab’s claim: the path’s damage <em>is</em> the content. Where did you stop hearing the original dance band and start hearing the wear? If you never made that flip, relisten to one track and attend only to the noise, treating the music as background.</p>
+        <p>Is the crackle a flaw or a deliberate choice? It is deliberate — remove it and the piece loses its meaning, not just its texture. The path’s damage is the content. At what point did you stop hearing the original dance band and start hearing the wear? If you never made that shift, relisten to one track and focus only on the noise, treating the music as background.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=The+Caretaker+An+Empty+Bliss+Beyond+This+World" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:The%20Caretaker%20An%20Empty%20Bliss%20Beyond%20This%20World">Spotify</a></p>
         <p class="listen-rep"><a href="rep-empty-bliss.html">Replicate it — step-by-step lesson →</a></p>
       </div>
@@ -201,7 +205,7 @@
         <span class="listen-tag">micro-capture</span>
       </summary>
       <div class="listen-body">
-        <p>Seconds of FM radio chopped into a groove — capture and resample at the smallest scale, where a sample is a syllable, not a phrase.</p>
+        <p>Akufen recorded seconds of FM radio and chopped them into individual syllables and sound bursts, then arranged those tiny pieces into a groove. Each slice is a sample; the editing is the rhythm.</p>
         <div class="sub-label">Listen for</div>
         <ul>
           <li>How short the slices are — single words, horn stabs, half-syllables, each placed like a drum hit.</li>
@@ -209,7 +213,7 @@
           <li>How many different recording qualities collide per bar — every slice carries its own room, hiss, and level.</li>
         </ul>
         <div class="sub-label">After — verify</div>
-        <p>Pick one bar: how many distinct sources did you count? Most people land between four and eight — and each arrived with its own capture history audible in miniature. Could you hear that the slices come from different worlds? That patchwork of mismatched fidelities is the tell of micro-capture; if every slice sounded equally clean to you, relisten on headphones and compare the hiss behind any two adjacent slices.</p>
+        <p>Pick one bar and count the distinct sources. Most people count between four and eight. Could you hear that the slices came from different recordings? Each arrives with its own background noise, room sound, and quality level. If every slice sounded equally clean to you, relisten on headphones and compare the hiss behind two adjacent slices.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Akufen+Deck+the+House" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Akufen%20Deck%20the%20House">Spotify</a></p>
         <p class="listen-rep"><a href="rep-deck-the-house.html">Replicate it — step-by-step lesson →</a></p>
       </div>
@@ -221,7 +225,7 @@
         <span class="listen-tag">the haze of generations</span>
       </summary>
       <div class="listen-body">
-        <p>Texture that sounds three copies deep on purpose — the blur is not an accident of cheap gear but a chosen depth of field.</p>
+        <p>Actress made a texture that sounds deliberately blurry — like a sound copied several times over. The haziness is not a mistake; it is the intended result of running material through multiple generations.</p>
         <div class="sub-label">Listen for</div>
         <ul>
           <li>The smeared edges: nothing attacks cleanly; every element sounds slightly out of focus.</li>
@@ -229,7 +233,7 @@
           <li>Whether the haze is constant or breathes — listen for moments where the focus briefly sharpens.</li>
         </ul>
         <div class="sub-label">After — verify</div>
-        <p>Does this sound like a bad recording or like a decision? Decision — the proof is consistency: an accident would be uneven, but this haze coats everything at the same depth, start to finish. That uniform coat is what several generations through one path produce. Could you hear the pulse staying precise inside the blur? If not, relisten and tap along: the timing is clean even where the timbre is fog.</p>
+        <p>Does this sound like a bad recording or a deliberate choice? It is a choice — the proof is consistency. An accident would be uneven, but this haze coats everything equally from start to finish. That is what several generations through one path do. Could you hear the pulse staying precise inside the blur? If not, relisten and tap along: the timing is tight even where the sound is foggy.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Actress+Hubble" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Actress%20Hubble">Spotify</a></p>
         <p class="listen-rep"><a href="rep-hubble.html">Replicate it — step-by-step lesson →</a></p>
       </div>
@@ -241,7 +245,7 @@
         <span class="listen-tag">the sampler as studio</span>
       </summary>
       <div class="listen-body">
-        <p>A whole world assembled from records — the sampler is not an effect in this music, it is the entire studio, and every sound passed through its converters at least once.</p>
+        <p>DJ Shadow built this entire track from vinyl records fed through a sampler. The sampler is not an effect here — it is the whole studio. Every sound you hear was recorded and re-recorded through the same machine.</p>
         <div class="sub-label">Listen for</div>
         <ul>
           <li>The shared grain: drums, piano, and voices from different decades wearing one common texture.</li>
@@ -249,7 +253,7 @@
           <li>The low end: how vinyl bass survives sampling, summing, and re-recording.</li>
         </ul>
         <div class="sub-label">After — verify</div>
-        <p>Why do sources from different rooms and decades sound like one band? Because they all share a final parent: everything was resampled through the same machine, and that last common pass glues them. Could you find a layer that escapes the house grain? You should not — and noticing the glue is the lesson: a shared resample path is a mix bus made of generations. If unsure, relisten comparing the drum texture to the piano texture: same dust.</p>
+        <p>Why do sounds from different rooms and decades end up sounding like one band? Because they all passed through the same machine at the end — that shared final pass unifies them. Try to find a layer that escapes the shared texture. You should not be able to. If unsure, relisten and compare the drum texture to the piano texture: same grain, same dust.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=DJ+Shadow+Building+Steam+with+a+Grain+of+Salt" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:DJ%20Shadow%20Building%20Steam%20with%20a%20Grain%20of%20Salt">Spotify</a></p>
         <p class="listen-rep"><a href="rep-building-steam.html">Replicate it — step-by-step lesson →</a></p>
       </div>
@@ -261,7 +265,7 @@
         <span class="listen-tag">acoustic material re-chopped</span>
       </summary>
       <div class="listen-body">
-        <p>Folk sources — harp, drums, voice — cut until they sequence like a machine, while keeping the wood and breath of the originals.</p>
+        <p>Four Tet took acoustic recordings — harp, drums, voice — and chopped them until they play with machine-like precision. The human warmth survives, but the human timing does not.</p>
         <div class="sub-label">Listen for</div>
         <ul>
           <li>Acoustic timbre running with machine timing — the player’s touch survives, the player’s tempo does not.</li>
@@ -269,7 +273,7 @@
           <li>Where new phrases are built from re-chopped old ones — material answering itself.</li>
         </ul>
         <div class="sub-label">After — verify</div>
-        <p>How did you know the drums are sampled rather than played? The repeats: a drummer never plays two hits identically, a sampler never plays them differently — exact repetition is the fingerprint of capture. What kept the track warm despite the grid? The acoustic generations underneath: room, wood, fingers. If you could not hear the exact repeats, relisten to eight bars of the drums and compare hit number one to hit number five.</p>
+        <p>How did you know the drums are sampled rather than played live? The exact repeats give it away. A live drummer never hits twice identically; a sampler never plays them differently. What kept the track warm despite that mechanical grid? The original acoustic recordings underneath — the room, the wood, the breath. If you could not hear the exact repeats, relisten to eight bars and compare hit one to hit five.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Four+Tet+Unspoken" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Four%20Tet%20Unspoken">Spotify</a></p>
         <p class="listen-rep"><a href="rep-unspoken.html">Replicate it — step-by-step lesson →</a></p>
       </div>
@@ -281,7 +285,7 @@
         <span class="listen-tag">the song under the static</span>
       </summary>
       <div class="listen-body">
-        <p>Guitar and pop harmony dissolved into granular shimmer — the processing destroys nearly everything about the source and somehow leaves the warmth standing.</p>
+        <p>Fennesz fed guitar and pop chord progressions through heavy digital processing until they dissolved into shimmering noise. The processing destroys almost everything about the source — yet somehow the warmth survives.</p>
         <div class="sub-label">Listen for</div>
         <ul>
           <li>The melody surviving inside the static — chord changes you can follow even when no clean note ever sounds.</li>
@@ -289,7 +293,7 @@
           <li>The temperature: for all the digital damage, nothing here is cold; the harmony keeps the wreckage warm.</li>
         </ul>
         <div class="sub-label">After — verify</div>
-        <p>Could you hum a tune from this record? Probably yes — which is remarkable, because almost no moment of it contains an unprocessed note. The song survives the destruction of every surface that carried it; that is the strongest evidence yet that shape outlives fidelity. What told you it was a guitar underneath? If you never caught one surfacing, relisten to the title track and wait for the strums that break through the grain.</p>
+        <p>Could you hum a tune from this record? Probably yes — which is remarkable, because almost no moment contains an unprocessed note. The melody outlasts the destruction of every surface that carried it. What told you there was a guitar underneath? If you never caught one breaking through, relisten to the title track and wait for the strums that surface briefly before dissolving again.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Fennesz+Endless+Summer" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Fennesz%20Endless%20Summer">Spotify</a></p>
         <p class="listen-rep"><a href="rep-endless-summer.html">Replicate it — step-by-step lesson →</a></p>
       </div>
@@ -301,15 +305,15 @@
         <span class="listen-tag">loops from the in-between</span>
       </summary>
       <div class="listen-body">
-        <p>Microscopic slivers of vinyl jazz — the breaths between notes, the surface of the record itself — looped into soft machine-funk; the sample is the texture, never the lick.</p>
+        <p>Jan Jelinek cut tiny pieces of vinyl jazz records — not the notes, but the space between them: room tone, cymbal air, the surface noise of the record itself. He looped these into a soft machine groove. The sample is texture, not melody.</p>
         <div class="sub-label">Listen for</div>
         <ul>
           <li>The absence of any quotable jazz: no riff, no solo, no recognizable phrase — yet the whole thing audibly comes from jazz records.</li>
           <li>Loops built from what falls between the notes: room tone, brushed-cymbal air, vinyl surface, the tail of a chord.</li>
           <li>How the grooves stay soft-edged and warm at machine regularity — funk made from material that was never rhythmic.</li>
         </ul>
-        <div class="sub-label">After — verify</div>
-        <p>Could you name a single song, player, or even instrument being sampled? You should not be able to — the loops are cut from the in-between, where music stores its atmosphere instead of its statements. Yet you knew it was vinyl jazz; what told you? The surface and the warmth: the medium’s character survived even when every musical event was discarded. If you missed that, relisten to one track and ask what the loop would have been doing on the original record — the answer is usually “waiting.”</p>
+        <div class=”sub-label”>After — verify</div>
+        <p>Could you name a single song, player, or instrument being sampled? You should not be able to. The loops come from the silent spaces where no musical event happened. Yet you probably knew it was a jazz record underneath — the surface noise and warmth of vinyl give it away even when every note is gone. If you missed that, relisten to one track and ask what the loop was doing on the original record — the answer is usually “waiting between phrases.”</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Jan+Jelinek+Loop-Finding-Jazz-Records" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Jan%20Jelinek%20Loop%20Finding%20Jazz%20Records">Spotify</a></p>
         <p class="listen-rep"><a href="rep-loop-finding.html">Replicate it — step-by-step lesson →</a></p>
       </div>
@@ -321,26 +325,26 @@
         <span class="listen-tag">dub smeared past the bar line</span>
       </summary>
       <div class="listen-body">
-        <p>Clicks and chords resampled through long, irregular delays until the loop’s edges dissolve — time kept by feel rather than bar, the grid audibly abandoned mid-thought.</p>
+        <p>Vladislav Delay ran clicks and chords through long, irregular delays until the loop’s edges disappeared. There is no clear bar line here — time is kept by feel, not by the grid.</p>
         <div class="sub-label">Listen for</div>
         <ul>
           <li>Where the loop’s edges should be — and are not: phrases that overrun the bar line and land somewhere later, intact but displaced.</li>
           <li>The dub machinery at unusual lengths: delays too long and too uneven to read as echo, smearing each event into the next one’s territory.</li>
           <li>What actually keeps the time — not a bar line but a recurring weight, a pulse you feel arriving without being able to count toward it.</li>
         </ul>
-        <div class="sub-label">After — verify</div>
-        <p>Try to count a bar of four anywhere on this record. You lost the count — and yet the music never feels lost, which is the finding: the resampled delays have smeared the loop past its own edges until time is kept by feel, not by grid. Did you notice the moment you stopped counting and started floating? That handover is the design. If you never floated, relisten to one track with your foot deliberately still and let the recurring weight tell you when “one” comes — notice it tells you late, every time, and you stop minding.</p>
+        <div class=”sub-label”>After — verify</div>
+        <p>Try to count a bar of four anywhere on this record. You will probably lose the count — yet the music never feels lost. The delays have pushed each phrase past where the bar line should be. Did you notice the moment you stopped counting and just floated with it? That shift is the intended effect. If you never floated, relisten with your foot deliberately still and let the recurring weight tell you when “one” arrives — notice it comes late every time, and you stop minding.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Vladislav+Delay+Multila" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Vladislav%20Delay%20Multila">Spotify</a></p>
         <p class="listen-rep"><a href="rep-multila.html">Replicate it — step-by-step lesson →</a></p>
       </div>
     </details>
   </div>
 
-  <p style="color: var(--text-muted); font-size: 14.5px; margin: 18px 0 0;">Before touching gear, write a one-sentence hypothesis in the logbook naming what you stole from across these ten records — a voice orphaned by generations, copies that out-mean their source, wear as the subject, capture at syllable scale, haze as a chosen depth, one machine gluing many worlds, exact repeats as the sampler’s fingerprint, the song surviving inside the static, loops cut from the in-between, time smeared past the bar line. The target is something like: <strong style="color: var(--text);">the path is audible — choose your generation’s parents.</strong> Your sentence, in your words; the three-path comparison below is what will test it.</p>
+  <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 18px 0 0;">Before touching any gear, write a one-sentence hypothesis in the logbook. Draw from what you heard across these ten records: voices erased by resampling, copies that mean more than their source, degradation as the subject, tiny captured fragments assembled into rhythm, blur as a deliberate choice, one machine unifying many sources, exact repetition as the sampler’s tell, melody surviving heavy processing, texture pulled from silence, time dissolved past the bar line. Aim for something like: <strong style="color: var(--text);">the path is audible — choose your generation’s parents.</strong> Write it in your own words. The three-path comparison below is what tests it.</p>
 
   <h2>The two specs — provided, complete the gaps</h2>
 
-  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">This is an S2 lab: most fields are filled, the <span class="code">___</span> blanks are yours, and every row gets corrected against reality after the build.</p>
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">This is an S2 lab: most fields are filled in for you. The <span class="code">___</span> blanks are yours to complete. After you build, go back and correct any row that reality proved wrong.</p>
 
   <table class="param-table">
     <caption>System Spec — complete the blanks, then verify</caption>
@@ -366,14 +370,14 @@
 
   <div class="decision-check">
     <div class="decision-check-label">Measurement</div>
-    <p>The lab’s test is fixed: <strong>compare first- and third-generation renders</strong>, per path, at matched loudness. Generation one is allowed to fool you; generation three is not allowed to fool anyone.</p>
+    <p>The lab’s test is fixed: <strong>compare first- and third-generation renders</strong>, one path at a time, with both clips matched to the same loudness. Generation one may sound nearly identical to the original. Generation three should not fool anyone.</p>
   </div>
 
   <h2>Bench — the three paths, drawn</h2>
 
-  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Draw all three before any cable moves. The corrected drawing — with a level note on every leg — is the <strong>three-path resampling diagram</strong>, this lab’s bench artifact. It outlives the piece.</p>
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Draw all three paths before you move any cables. After building, add a level note to every leg of the drawing. That corrected drawing is the <strong>three-path resampling diagram</strong> — this lab’s main deliverable. You will refer back to it in later blocks.</p>
 
-  <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:11px; letter-spacing:0.2em; text-transform:uppercase;">Path A — internal · digital, near-lossless</h3>
+  <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:var(--fs-xs); letter-spacing:0.2em; text-transform:uppercase;">Path A — internal · digital, near-lossless</h3>
   <div class="signal-flow">
     <span class="signal-node">Digitakt tracks</span>
     <span class="signal-arrow">→</span>
@@ -384,7 +388,7 @@
     <span class="signal-node">next generation’s track</span>
   </div>
 
-  <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:11px; letter-spacing:0.2em; text-transform:uppercase;">Path B — USB · digital, with conversion and driver quirks</h3>
+  <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:var(--fs-xs); letter-spacing:0.2em; text-transform:uppercase;">Path B — USB · digital, with conversion and driver quirks</h3>
   <div class="signal-flow">
     <span class="signal-node">Digitakt</span>
     <span class="signal-arrow">→ USB →</span>
@@ -395,7 +399,7 @@
     <span class="signal-node">Digitakt sample slot</span>
   </div>
 
-  <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:11px; letter-spacing:0.2em; text-transform:uppercase;">Path C — analog loop · converters and gain touch it, twice per pass</h3>
+  <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:var(--fs-xs); letter-spacing:0.2em; text-transform:uppercase;">Path C — analog loop · converters and gain touch it, twice per pass</h3>
   <div class="signal-flow">
     <span class="signal-node">Digitakt main out L/R</span>
     <span class="signal-arrow">→ 2 × TRS →</span>
@@ -414,8 +418,8 @@
 
   <div class="note-block">
     <ul>
-      <li><strong>Honest rig note:</strong> the Digitakt II’s stereo input pair is what closes the analog loop — the return lands there as a normal sampling source. If your sampler lacks inputs, the loop closes at the M4 instead: record the return in Live and transfer it back over USB; the converters and cable are the path, and they are what this lab studies.</li>
-      <li><strong>Level note on every leg:</strong> the diagram is not finished until each arrow carries the level you measured at that point — that is what turns a sketch into the bench artifact.</li>
+      <li><strong>Rig note:</strong> the Digitakt II’s stereo input pair closes the analog loop — the return signal arrives there as a normal sampling source. If your sampler has no inputs, close the loop at the M4 instead: record the return in Live and transfer it back over USB. The converters and the cable are the path, and that is what this lab studies.</li>
+      <li><strong>Level note on every leg:</strong> the diagram is not finished until each arrow shows the level you measured at that point. That is what turns a sketch into a usable bench reference.</li>
     </ul>
   </div>
 
@@ -423,7 +427,7 @@
 
   <div class="note-block">
     <ul>
-      <li><strong>This section is scaffolded, not written.</strong> The full build — calibrating the three paths, running the one-pass and three-pass generations, the routing fault ritual (predicted symptom: doubling or howl the moment monitoring and return overlap), and composing from the third generations — lands when Block 2 is authored. The specs, diagrams, and deliverables above are stable; build against them.</li>
+      <li><strong>This section is scaffolded, not yet written.</strong> The full build — calibrating the three paths, running the one-pass and three-pass generations, the routing fault exercise (expected symptom: doubling or a howl when monitoring and return overlap), and composing from the third generations — will be added when Block 2 is authored. The specs, diagrams, and deliverables above are final; build against them now.</li>
     </ul>
   </div>
 
@@ -450,13 +454,13 @@
 
   <div class="note-block">
     <ul>
-      <li><strong>Minimum pass gate:</strong> audible output · routing diagram · fault entry · print map · system diff. Without these five, the lab is incomplete regardless of audio quality — a musically strong piece cannot bypass the engineering spine.</li>
+      <li><strong>Minimum pass gate:</strong> audible output · routing diagram · fault entry · print map · system diff. Without these five items, the lab is incomplete no matter how good the audio sounds. A strong piece does not substitute for the engineering record.</li>
     </ul>
   </div>
 
   <div class="final">
     <div class="final-label">Track-lab principle</div>
-    <p>Every pass through a path leaves the path’s signature. By generation three, the signature is the sound — so choose your generation’s parents on purpose.</p>
+    <p>Every pass through a path leaves the path’s mark on the sound. By generation three, that mark is the sound. So choose your path on purpose.</p>
   </div>
 
   <div class="page-nav">
@@ -474,5 +478,6 @@
 
 </div>
 
+  <script src="../nav.js"></script>
 </body>
 </html>

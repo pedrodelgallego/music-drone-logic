@@ -6,7 +6,7 @@
 <title>Replicate: Music Your Monitoring Decides — Thomas Köner</title>
 <link rel="stylesheet" href="../styles.css">
 </head>
-<body>
+<body class="page-type-rep" id="top">
 
 <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
 <label for="nav-toggle" class="hamburger" aria-label="Menu">
@@ -16,6 +16,7 @@
 <nav class="nav" aria-label="Workshop contents">
   <p class="nav-label">Workshop</p>
   <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
   <a href="index.html" class="active"><span class="nav-num">01</span>The Bench</a>
   <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
   <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
@@ -28,12 +29,15 @@
 </nav>
 
 <div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 1 · The Bench</a><span class="breadcrumb-sep">/</span><span>Replicate: music your monitoring decides</span></nav>
 
   <header class="page-header">
     <div class="eyebrow">Block 1 · Replication lesson</div>
     <h1>Replicate: music your monitoring decides</h1>
     <p class="lede">Copy one clear section of Thomas Köner — Permafrost. Build the main parts, record a short take, and compare it to the reference at the same loudness.</p>
   </header>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l1.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs">Labs</a><a href="lab-r1.html" data-section="rebuild">Rebuild</a><a href="capstone-c1.html" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep" class="current">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
   <div class="callout">
     <div class="callout-label">The point</div>
     <p>This drill teaches the record's core mechanism: filtered low rumble beds, glacially layered, with no events - depth read entirely through level relationships and playback capability. Do only the steps that make that mechanism audible.</p>
@@ -50,7 +54,7 @@
 
   <div class="checklist">
     <div class="checklist-head">
-      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"></path></svg></div>
       <div class="checklist-label">Before you start</div>
     </div>
     <ul>
@@ -75,7 +79,7 @@
       <div class="step-num">Reference pass · 10 minutes</div>
       <h3 class="step-title">Listen before you build</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Listen to about one minute of Thomas Köner — Permafrost. Choose the clearest short section. Write one short answer for each question before you touch the gear.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Listen to about one minute of Thomas Köner — Permafrost. Choose the clearest short section. Write one short answer for each question before you touch the gear.</p>
     <ol class="rules-list">
       <li>What is the highest-pitched sound you can hear?
         <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Almost nothing above the low mids - some distant air and hiss at most. Nearly all of the energy sits below ≈ 200 Hz, where most music puts only its foundation; here the foundation is the building.</p></div></details>
@@ -93,7 +97,7 @@
         <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>The playback system. The record commits everything to a register that only a capable monitoring chain can deliver, so whether the piece exists at all is decided after the file ends - in the speaker, not in the studio.</p></div></details>
       </li>
     </ol>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Now build the section you described. Do not build from memory.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Now build the section you described. Do not build from memory.</p>
   </div>
 
   <h2>Steps</h2>
@@ -119,7 +123,7 @@
     </ul>
   </div>
 
-  <p style="color: var(--text-muted); font-size: 14.5px; max-width: 640px; margin: 0 auto 14px; text-align: center;">The piece’s machinery in one row: two beds of low rumble made by nearly closing a low-pass on a simple source, drifted by a very slow LFO, printed, and layered at careful levels — then judged on three playback systems that disagree about whether it exists.</p>
+  <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); max-width: 640px; margin: 0 auto 14px; text-align: center;">The piece’s machinery in one row: two beds of low rumble made by nearly closing a low-pass on a simple source, drifted by a very slow LFO, printed, and layered at careful levels — then judged on three playback systems that disagree about whether it exists.</p>
 
   <div class="signal-flow">
     <span class="signal-node">MicroFreak · low-pass nearly closed · very slow LFO</span>
@@ -131,31 +135,31 @@
     <span class="signal-node">three playback paths · phones / laptop / phone speaker</span>
   </div>
 
-  <p style="color: var(--text-muted); font-size: 14.5px; max-width: 640px; margin: 18px auto 14px; text-align: center;">The same file on three playback paths, drawn as what each one can physically reproduce. The bars are the piece’s energy, piled up at the low end; the hollow bars are the part of the music each speaker silently discards. The file never changes — only the third panel calls it silence.</p>
+  <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); max-width: 640px; margin: 18px auto 14px; text-align: center;">The same file on three playback paths, drawn as what each one can physically reproduce. The bars are the piece’s energy, piled up at the low end; the hollow bars are the part of the music each speaker silently discards. The file never changes — only the third panel calls it silence.</p>
 
 <div class="signal-flow" style="display:block; padding:26px 16px;">
   <svg viewBox="0 0 760 230" width="100%" role="img" aria-label="The same low-frequency energy reproduced fully on headphones, partially on a laptop, and almost not at all on a phone speaker">
-    <rect x="20" y="20" width="225" height="170" rx="10" fill="#1f2530" stroke="#7dd3c0" stroke-width="1.2"/>
-    <rect x="267" y="20" width="225" height="170" rx="10" fill="#1f2530" stroke="#6e7681" stroke-width="1"/>
-    <rect x="514" y="20" width="225" height="170" rx="10" fill="#1f2530" stroke="#6e7681" stroke-width="1"/>
+    <rect x="20" y="20" width="225" height="170" rx="10" fill="#1f2530" stroke="#7dd3c0" stroke-width="1.2"></rect>
+    <rect x="267" y="20" width="225" height="170" rx="10" fill="#1f2530" stroke="#6e7681" stroke-width="1"></rect>
+    <rect x="514" y="20" width="225" height="170" rx="10" fill="#1f2530" stroke="#6e7681" stroke-width="1"></rect>
     <text x="132" y="44" fill="#7dd3c0" font-size="12" text-anchor="middle">DT 990 Pro</text>
     <text x="379" y="44" fill="#e6edf3" font-size="12" text-anchor="middle">laptop speakers</text>
     <text x="626" y="44" fill="#e6edf3" font-size="12" text-anchor="middle">phone speaker</text>
-    <rect x="48" y="65" width="30" height="110" fill="#7dd3c0"/>
-    <rect x="86" y="85" width="30" height="90" fill="#7dd3c0"/>
-    <rect x="124" y="115" width="30" height="60" fill="#8b949e"/>
-    <rect x="162" y="145" width="30" height="30" fill="#8b949e"/>
-    <rect x="200" y="163" width="22" height="12" fill="#6e7681"/>
-    <rect x="295" y="65" width="30" height="110" fill="none" stroke="#6e7681" stroke-width="1" stroke-dasharray="4 3"/>
-    <rect x="333" y="85" width="30" height="90" fill="none" stroke="#6e7681" stroke-width="1" stroke-dasharray="4 3"/>
-    <rect x="371" y="115" width="30" height="60" fill="#8b949e"/>
-    <rect x="409" y="145" width="30" height="30" fill="#8b949e"/>
-    <rect x="447" y="163" width="22" height="12" fill="#6e7681"/>
-    <rect x="542" y="65" width="30" height="110" fill="none" stroke="#6e7681" stroke-width="1" stroke-dasharray="4 3"/>
-    <rect x="580" y="85" width="30" height="90" fill="none" stroke="#6e7681" stroke-width="1" stroke-dasharray="4 3"/>
-    <rect x="618" y="115" width="30" height="60" fill="none" stroke="#6e7681" stroke-width="1" stroke-dasharray="4 3"/>
-    <rect x="656" y="145" width="30" height="30" fill="none" stroke="#6e7681" stroke-width="1" stroke-dasharray="4 3"/>
-    <rect x="694" y="163" width="22" height="12" fill="#6e7681"/>
+    <rect x="48" y="65" width="30" height="110" fill="#7dd3c0"></rect>
+    <rect x="86" y="85" width="30" height="90" fill="#7dd3c0"></rect>
+    <rect x="124" y="115" width="30" height="60" fill="#8b949e"></rect>
+    <rect x="162" y="145" width="30" height="30" fill="#8b949e"></rect>
+    <rect x="200" y="163" width="22" height="12" fill="#6e7681"></rect>
+    <rect x="295" y="65" width="30" height="110" fill="none" stroke="#6e7681" stroke-width="1" stroke-dasharray="4 3"></rect>
+    <rect x="333" y="85" width="30" height="90" fill="none" stroke="#6e7681" stroke-width="1" stroke-dasharray="4 3"></rect>
+    <rect x="371" y="115" width="30" height="60" fill="#8b949e"></rect>
+    <rect x="409" y="145" width="30" height="30" fill="#8b949e"></rect>
+    <rect x="447" y="163" width="22" height="12" fill="#6e7681"></rect>
+    <rect x="542" y="65" width="30" height="110" fill="none" stroke="#6e7681" stroke-width="1" stroke-dasharray="4 3"></rect>
+    <rect x="580" y="85" width="30" height="90" fill="none" stroke="#6e7681" stroke-width="1" stroke-dasharray="4 3"></rect>
+    <rect x="618" y="115" width="30" height="60" fill="none" stroke="#6e7681" stroke-width="1" stroke-dasharray="4 3"></rect>
+    <rect x="656" y="145" width="30" height="30" fill="none" stroke="#6e7681" stroke-width="1" stroke-dasharray="4 3"></rect>
+    <rect x="694" y="163" width="22" height="12" fill="#6e7681"></rect>
     <text x="60" y="186" fill="#6e7681" font-size="9.5">low</text>
     <text x="222" y="186" fill="#6e7681" font-size="9.5" text-anchor="end">high</text>
     <text x="132" y="208" fill="#6e7681" font-size="9.5" text-anchor="middle">the whole piece · felt and heard</text>
@@ -165,30 +169,30 @@
 </div>
 
   <!-- PHASE 1 -->
-  <div class="step">
+  <div class="gear-switch"><input type="radio" name="gear" id="gear-hw" class="gear-radio" checked><input type="radio" name="gear" id="gear-sw" class="gear-radio"><input type="radio" name="gear" id="gear-tg" class="gear-radio"><div class="gear-labels"><span class="gear-lead">Your rig</span><label for="gear-hw">MicroFreak + Recorder</label><label for="gear-sw">Ableton Live only</label><label for="gear-tg">Analog Four MKII · target</label></div><div class="gear-scope"><div class="step">
     <div class="step-head">
       <div class="step-num">Phase 1 · ≈ 10 min</div>
       <h3 class="step-title">The reference and the track</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: the reference and the track. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: the reference and the track. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Live</span> <kbd>⌘ T</kbd>, rename the track <span class="code">REF</span> (<kbd>⌘ R</kbd>), and drag a track from <em>Permafrost</em> into it.</li>
-        <li><span class="system-tag">Live</span> Find a characteristic three to four minutes — at least two layers of rumble audibly present — and loop them.</li>
-        <li><span class="system-tag">Live</span> Drop <span class="menu">Audio Effects → Utility</span> on <span class="code">REF</span> and trim so the section peaks ≈ <span class="code">−12 dBFS</span>.</li>
-        <li><span class="system-tag">Live</span> <span class="code">REF</span> stays one solo-press away for the whole lesson.</li>
-        <li><span class="system-tag">Live</span> <kbd>⌘ T</kbd> once; rename: <span class="code">DRONE</span>, <span class="menu">Ext. In</span> <span class="code">1</span>, fader at <span class="code">0 dB</span>, armed.</li>
-        <li><span class="system-tag">Live</span> One source track for now — it becomes two in phase 2.</li>
-        <li><span class="system-tag">Logbook</span> Write in the logbook how many layers you believe you hear in the loop, and what the lowest one is doing.</li>
-        <li><span class="system-tag">Logbook</span> Keep the lines; phase 4 will ask the same questions on a different speaker.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li><kbd>⌘ T</kbd>, rename the track <span class="code">REF</span> (<kbd>⌘ R</kbd>), and drag a track from <em>Permafrost</em> into it.</li>
+        <li>Find a characteristic three to four minutes — at least two layers of rumble audibly present — and loop them.</li>
+        <li>Drop <span class="menu">Audio Effects → Utility</span> on <span class="code">REF</span> and trim so the section peaks ≈ <span class="code">−12 dBFS</span>.</li>
+        <li><span class="code">REF</span> stays one solo-press away for the whole lesson.</li>
+        <li><kbd>⌘ T</kbd> once; rename: <span class="code">DRONE</span>, <span class="menu">Ext. In</span> <span class="code">1</span>, fader at <span class="code">0 dB</span>, armed.</li>
+        <li>One source track for now — it becomes two in phase 2.</li>
+        <li>Write in the logbook how many layers you believe you hear in the loop, and what the lowest one is doing.</li>
+        <li>Keep the lines; phase 4 will ask the same questions on a different speaker.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Thomas Köner — Permafrost (1993) and use Operator or Wavetable into Auto Filter, with clip automation.</li><li>Build the phase goal — <em>The reference and the track</em> — as the smallest Live set that proves <em>filtered low rumble beds, glacially layered, with no events — depth read entirely through level relationships and playback capability</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>vast, physical low-frequency weather on a capable playback path; near-silence on a laptop — the same file, two different pieces of music</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Four MKII for this phase: translate <em>The reference and the track</em> into one analog synth track, parameter locks, slides, performance macros, and Overbridge or main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>filtered low rumble beds, glacially layered, with no events — depth read entirely through level relationships and playback capability</em>, not just the surface of Thomas Köner — Permafrost (1993).</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">The record loops at ≈ −12 dBFS, one named, routed, unity-gain track waits for the first bed, and a layer count is on paper.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">The record loops at ≈ −12 dBFS, one named, routed, unity-gain track waits for the first bed, and a layer count is on paper.</p>
     </div>
 
     <div class="sub-block">
@@ -203,35 +207,34 @@
     </div>
   </div>
 
-  <!-- PHASE 2 -->
   <div class="step">
     <div class="step-head">
       <div class="step-num">Phase 2 · ≈ 20 min</div>
       <h3 class="step-title">The beds — low rumble, printed twice</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: the beds — low rumble, printed twice. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: the beds — low rumble, printed twice. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">MicroFreak</span> MicroFreak: <span class="code">Type</span> → <span class="code">V.Analog</span> on a very low note, or the <span class="code">Noise</span> oscillator type — either source works;</li>
-        <li><span class="system-tag">MicroFreak</span> the filter does the real shaping.</li>
-        <li><span class="system-tag">MicroFreak</span> Close the low-pass cutoff until almost nothing is left — no pitch edge, no brightness, only weight and slow grain.</li>
-        <li><span class="system-tag">MicroFreak</span> If you can whistle along to it, it is still too open.</li>
-        <li><span class="system-tag">MicroFreak</span> Route the LFO to cutoff: slowest rate available, small amount — the rumble should swell and recede over tens of seconds, never wobble.</li>
-        <li><span class="system-tag">MicroFreak</span> Envelope: slow attack, full sustain.</li>
-        <li><span class="system-tag">MicroFreak</span> Set the M4 input-1 gain on the <em>held</em> rumble, peaks ≈ <span class="code">−12 dBFS</span> — check after a full minute of holding;</li>
-        <li><span class="system-tag">MicroFreak</span> sustained material has no strike to fool you, but LFO swells move the peak.</li>
-        <li><span class="system-tag">MicroFreak</span> Print 4–5 minutes into <span class="code">DRONE</span>; rename the track <span class="code">BED A</span>.</li>
-        <li><span class="system-tag">MicroFreak</span> Use <span class="code">Hold</span> so your hands can leave.</li>
-        <li><span class="system-tag">MicroFreak + Live</span> <kbd>⌘ T</kbd>, rename <span class="code">BED B</span>, <span class="menu">Ext. In</span> <span class="code">1</span>, and print a second 4–5 minute take — a different low note or a different LFO rate, same gain.</li>
-        <li><span class="system-tag">MicroFreak + Live</span> Two weathers, not one weather twice.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>MicroFreak: <span class="code">Type</span> → <span class="code">V.Analog</span> on a very low note, or the <span class="code">Noise</span> oscillator type — either source works;</li>
+        <li>the filter does the real shaping.</li>
+        <li>Close the low-pass cutoff until almost nothing is left — no pitch edge, no brightness, only weight and slow grain.</li>
+        <li>If you can whistle along to it, it is still too open.</li>
+        <li>Route the LFO to cutoff: slowest rate available, small amount — the rumble should swell and recede over tens of seconds, never wobble.</li>
+        <li>Envelope: slow attack, full sustain.</li>
+        <li>Set the M4 input-1 gain on the <em>held</em> rumble, peaks ≈ <span class="code">−12 dBFS</span> — check after a full minute of holding;</li>
+        <li>sustained material has no strike to fool you, but LFO swells move the peak.</li>
+        <li>Print 4–5 minutes into <span class="code">DRONE</span>; rename the track <span class="code">BED A</span>.</li>
+        <li>Use <span class="code">Hold</span> so your hands can leave.</li>
+        <li><kbd>⌘ T</kbd>, rename <span class="code">BED B</span>, <span class="menu">Ext. In</span> <span class="code">1</span>, and print a second 4–5 minute take — a different low note or a different LFO rate, same gain.</li>
+        <li>Two weathers, not one weather twice.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Thomas Köner — Permafrost (1993) and use Operator or Wavetable into Auto Filter, with clip automation.</li><li>Build the phase goal — <em>The beds — low rumble, printed twice</em> — as the smallest Live set that proves <em>filtered low rumble beds, glacially layered, with no events — depth read entirely through level relationships and playback capability</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>vast, physical low-frequency weather on a capable playback path; near-silence on a laptop — the same file, two different pieces of music</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Four MKII for this phase: translate <em>The beds — low rumble, printed twice</em> into one analog synth track, parameter locks, slides, performance macros, and Overbridge or main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>filtered low rumble beds, glacially layered, with no events — depth read entirely through level relationships and playback capability</em>, not just the surface of Thomas Köner — Permafrost (1993).</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Two printed beds on two tracks — minutes of slow low rumble each, audibly different in movement, both at ≈ −12 dBFS. Neither is a piece yet; their layering is about to become the piece.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Two printed beds on two tracks — minutes of slow low rumble each, audibly different in movement, both at ≈ −12 dBFS. Neither is a piece yet; their layering is about to become the piece.</p>
     </div>
 
     <div class="sub-block">
@@ -246,29 +249,28 @@
     </div>
   </div>
 
-  <!-- PHASE 3 -->
   <div class="step">
     <div class="step-head">
       <div class="step-num">Phase 3 · ≈ 15 min</div>
       <h3 class="step-title">Layer the beds at careful levels</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: layer the beds at careful levels. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: layer the beds at careful levels. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
         <li>Play both beds together.</li>
         <li>On the phones at the mark, set <span class="code">BED B</span> a few dB under <span class="code">BED A</span> — near, under, not beside: the lower bed should be felt as floor, not heard as a second voice.</li>
         <li>Plan two or three relationship drifts on paper, in plain words: “A carries, B is floor” → “they merge” → “B has quietly become the carrier.” That sentence chain is the score.</li>
-        <li><span class="system-tag">Live</span> Ride the two faders across 4–5 minutes of Arrangement, each move spread over <em>at least</em> a minute, automation recorded.</li>
-        <li><span class="system-tag">Live</span> If you can hear a move happen, it was too fast — redo that passage slower.</li>
-        <li><span class="system-tag">Live</span> Keep the sum peaking ≈ <span class="code">−12 dBFS</span> — two low beds stack more weight than the meter admits, and the headroom belongs to phase 4’s comparisons.</li>
+        <li>Ride the two faders across 4–5 minutes of Arrangement, each move spread over <em>at least</em> a minute, automation recorded.</li>
+        <li>If you can hear a move happen, it was too fast — redo that passage slower.</li>
+        <li>Keep the sum peaking ≈ <span class="code">−12 dBFS</span> — two low beds stack more weight than the meter admits, and the headroom belongs to phase 4’s comparisons.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Thomas Köner — Permafrost (1993) and use Operator or Wavetable into Auto Filter, with clip automation.</li><li>Build the phase goal — <em>Layer the beds at careful levels</em> — as the smallest Live set that proves <em>filtered low rumble beds, glacially layered, with no events — depth read entirely through level relationships and playback capability</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>vast, physical low-frequency weather on a capable playback path; near-silence on a laptop — the same file, two different pieces of music</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Four MKII for this phase: translate <em>Layer the beds at careful levels</em> into one analog synth track, parameter locks, slides, performance macros, and Overbridge or main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>filtered low rumble beds, glacially layered, with no events — depth read entirely through level relationships and playback capability</em>, not just the surface of Thomas Köner — Permafrost (1993).</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">A 4–5 minute arrangement of slow low weather — two beds drifting past each other with no nameable events, peaking ≈ −12 dBFS, judged entirely on the phones at the mark.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A 4–5 minute arrangement of slow low weather — two beds drifting past each other with no nameable events, peaking ≈ −12 dBFS, judged entirely on the phones at the mark.</p>
     </div>
 
     <div class="sub-block">
@@ -283,33 +285,32 @@
     </div>
   </div>
 
-  <!-- PHASE 4 -->
   <div class="step">
     <div class="step-head">
       <div class="step-num">Phase 4 · ≈ 20 min</div>
       <h3 class="step-title">The monitoring audition — three systems, one file</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: the monitoring audition — three systems, one file. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: the monitoring audition — three systems, one file. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
         <li>Export or simply play your 4–5 minutes on the DT 990s at the mark, end to end.</li>
-        <li><span class="system-tag">Logbook</span> Logbook, two lines: what carries the piece, and where you feel it.</li>
-        <li><span class="system-tag">Logbook</span> Play the same audio on the laptop’s built-in speakers at a comfortable level.</li>
-        <li><span class="system-tag">Logbook</span> Two more lines: what survived, what vanished.</li>
-        <li><span class="system-tag">Live + Logbook</span> Watch Live’s meter while it plays — write down what it claims.</li>
-        <li><span class="system-tag">Recorder</span> Play it once more on the phone’s speaker.</li>
-        <li><span class="system-tag">Recorder</span> Two final lines.</li>
-        <li><span class="system-tag">Recorder</span> Expect to be describing near-silence; describe it anyway.</li>
-        <li><span class="system-tag">Live</span> Repeat the three-system pass with one minute of <span class="code">REF</span> — the record fails on the small speakers in exactly the same way, which is your evidence the failure is physics, not your mix.</li>
-        <li><span class="system-tag">Logbook</span> The rule, written into the logbook: levels are <em>set</em> on the phones at the mark, and every piece is <em>verified</em> once on the weakest path you own — so the day a piece must survive a small speaker, the loss is known instead of discovered.</li>
+        <li>Logbook, two lines: what carries the piece, and where you feel it.</li>
+        <li>Play the same audio on the laptop’s built-in speakers at a comfortable level.</li>
+        <li>Two more lines: what survived, what vanished.</li>
+        <li>Watch Live’s meter while it plays — write down what it claims.</li>
+        <li>Play it once more on the phone’s speaker.</li>
+        <li>Two final lines.</li>
+        <li>Expect to be describing near-silence; describe it anyway.</li>
+        <li>Repeat the three-system pass with one minute of <span class="code">REF</span> — the record fails on the small speakers in exactly the same way, which is your evidence the failure is physics, not your mix.</li>
+        <li>The rule, written into the logbook: levels are <em>set</em> on the phones at the mark, and every piece is <em>verified</em> once on the weakest path you own — so the day a piece must survive a small speaker, the loss is known instead of discovered.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Thomas Köner — Permafrost (1993) and use Operator or Wavetable into Auto Filter, with clip automation.</li><li>Build the phase goal — <em>The monitoring audition — three systems, one file</em> — as the smallest Live set that proves <em>filtered low rumble beds, glacially layered, with no events — depth read entirely through level relationships and playback capability</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>vast, physical low-frequency weather on a capable playback path; near-silence on a laptop — the same file, two different pieces of music</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Four MKII for this phase: translate <em>The monitoring audition — three systems, one file</em> into one analog synth track, parameter locks, slides, performance macros, and Overbridge or main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>filtered low rumble beds, glacially layered, with no events — depth read entirely through level relationships and playback capability</em>, not just the surface of Thomas Köner — Permafrost (1993).</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Three honest descriptions of the same file — vast on the phones, a shadow on the laptop, near-silence on the phone — plus a meter that said ≈ −12 dBFS through all three. The monitoring column of the gain ledger stops being a row and becomes a verdict.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Three honest descriptions of the same file — vast on the phones, a shadow on the laptop, near-silence on the phone — plus a meter that said ≈ −12 dBFS through all three. The monitoring column of the gain ledger stops being a row and becomes a verdict.</p>
     </div>
 
     <div class="sub-block">
@@ -324,6 +325,9 @@
     </div>
   </div>
 
+  </div></div><!-- PHASE 2 -->
+  <!-- PHASE 3 -->
+  <!-- PHASE 4 -->
   <div class="decision-check">
     <div class="decision-check-label">Verify against the record</div>
     <p>Solo-flip between <span class="code">REF</span> and your piece at matched loudness — phones at the mark, no level riding while you judge. Then answer for the small-speaker passes.</p>
@@ -360,5 +364,6 @@
 
 </div>
 
+  <script src="../nav.js"></script>
 </body>
 </html>

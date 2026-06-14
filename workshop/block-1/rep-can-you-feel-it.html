@@ -6,7 +6,7 @@
 <title>Replicate: swing you can set</title>
 <link rel="stylesheet" href="../styles.css">
 </head>
-<body>
+<body class="page-type-rep" id="top">
 
 <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
 <label for="nav-toggle" class="hamburger" aria-label="Menu">
@@ -16,6 +16,7 @@
 <nav class="nav" aria-label="Workshop contents">
   <p class="nav-label">Workshop</p>
   <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
   <a href="index.html" class="active"><span class="nav-num">01</span>The Bench</a>
   <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
   <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
@@ -28,12 +29,15 @@
 </nav>
 
 <div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 1 · The Bench</a><span class="breadcrumb-sep">/</span><span>Replicate: swing you can set</span></nav>
 
   <header class="page-header">
     <div class="eyebrow">Block 1 · Replication lesson</div>
     <h1>Replicate: swing you can set</h1>
     <p class="lede">Copy one clear section of Mr. Fingers — “Can You Feel It”. Build the main parts, record a short take, and compare it to the reference at the same loudness.</p>
   </header>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l1.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs">Labs</a><a href="lab-r1.html" data-section="rebuild">Rebuild</a><a href="capstone-c1.html" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep" class="current">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
   <div class="callout">
     <div class="callout-label">The point</div>
     <p>This drill teaches the record's core mechanism: a machine swing setting - one rule applied to every offbeat. Do only the steps that make that mechanism audible.</p>
@@ -50,7 +54,7 @@
 
   <div class="checklist">
     <div class="checklist-head">
-      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"></path></svg></div>
       <div class="checklist-label">Before you start</div>
     </div>
     <ul>
@@ -75,7 +79,7 @@
       <div class="step-num">Reference pass · 10 minutes</div>
       <h3 class="step-title">Listen before you build</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Listen to about one minute of Mr. Fingers — “Can You Feel It”. Choose the clearest short section. Write one short answer for each question before you touch the gear.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Listen to about one minute of Mr. Fingers — “Can You Feel It”. Choose the clearest short section. Write one short answer for each question before you touch the gear.</p>
     <ol class="rules-list">
       <li>Which hits lean — and which hold the frame?
         <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>The offbeat hats lean; the kick and the bass hold the frame. Every hit on a downbeat sits on the grid, and every hit between downbeats arrives a chosen amount late - that split is the whole definition of swing.</p></div></details>
@@ -90,7 +94,7 @@
         <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Listen to where its notes start: the bass moves mostly on and around the downbeats, so it reads as part of the straight frame, while the hats do the leaning above it. That contrast matters - if everything swung, nothing would.</p></div></details>
       </li>
     </ol>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Now build the section you described. Do not build from memory.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Now build the section you described. Do not build from memory.</p>
   </div>
 
   <h2>Steps</h2>
@@ -116,28 +120,28 @@
   </div>
 
   <!-- PHASE 1 -->
-  <div class="step">
+  <div class="gear-switch"><input type="radio" name="gear" id="gear-hw" class="gear-radio" checked><input type="radio" name="gear" id="gear-sw" class="gear-radio"><input type="radio" name="gear" id="gear-tg" class="gear-radio"><div class="gear-labels"><span class="gear-lead">Your rig</span><label for="gear-hw">MicroFreak + Digitakt II</label><label for="gear-sw">Ableton Live only</label><label for="gear-tg">Analog Rytm MKII · target</label></div><div class="gear-scope"><div class="step">
     <div class="step-head">
       <div class="step-num">Phase 1 · ~30 min</div>
       <h3 class="step-title">Transcribe and program the section — dead straight</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: transcribe and program the section — dead straight. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: transcribe and program the section — dead straight. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Live</span> Drop “Can You Feel It” into Live on a track named <span class="code">REF</span> and loop the 8–16 bars you chose in the reference pass.</li>
-        <li><span class="system-tag">Live</span> Gain-match it with a Utility and keep it one solo away all sitting.</li>
-        <li><span class="system-tag">Live</span> Set Live’s tempo to the record’s by ear — tap <kbd>Tap</kbd> along with <span class="code">REF</span> until the metronome agrees.</li>
-        <li><span class="system-tag">Digitakt II</span> Transcribe their drum pattern by ear on the Digitakt II — kick, hats, clap — picking the closest sounds to their kit.</li>
-        <li><span class="system-tag">Digitakt II</span> Press <span class="code">[TEMPO]</span> and turn DATA ENTRY knob D until SWING reads <span class="code">50%</span>.</li>
-        <li><span class="system-tag">Digitakt II</span> Confirm SWING still reads <span class="code">50%</span> before you leave the tempo page. On the Digitakt II, <span class="code">50%</span> means no swing.</li>
-        <li><span class="system-tag">MicroFreak</span> Transcribe the bassline on the MicroFreak — a few notes, looping;</li>
-        <li><span class="system-tag">Live</span> sequence it from a Live MIDI clip so it locks to the grid.</li>
-        <li><span class="system-tag">Live</span> Match their patch roughly: soft attack, round and warm.</li>
-        <li><span class="system-tag">Digitakt II + Live</span> Loop yours against <span class="code">REF</span> and correct voice by voice until the pattern is the record’s.</li>
-        <li><span class="system-tag">Digitakt II + Live</span> Keep everything straight — the lean comes in Phase 2, as one setting.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>Drop “Can You Feel It” into Live on a track named <span class="code">REF</span> and loop the 8–16 bars you chose in the reference pass.</li>
+        <li>Gain-match it with a Utility and keep it one solo away all sitting.</li>
+        <li>Set Live’s tempo to the record’s by ear — tap <kbd>Tap</kbd> along with <span class="code">REF</span> until the metronome agrees.</li>
+        <li>Transcribe their drum pattern by ear on the Digitakt II — kick, hats, clap — picking the closest sounds to their kit.</li>
+        <li>Press <span class="code">[TEMPO]</span> and turn DATA ENTRY knob D until SWING reads <span class="code">50%</span>.</li>
+        <li>Confirm SWING still reads <span class="code">50%</span> before you leave the tempo page. On the Digitakt II, <span class="code">50%</span> means no swing.</li>
+        <li>Transcribe the bassline on the MicroFreak — a few notes, looping;</li>
+        <li>sequence it from a Live MIDI clip so it locks to the grid.</li>
+        <li>Match their patch roughly: soft attack, round and warm.</li>
+        <li>Loop yours against <span class="code">REF</span> and correct voice by voice until the pattern is the record’s.</li>
+        <li>Keep everything straight — the lean comes in Phase 2, as one setting.</li>
       </ol>
-      <div class="pattern-wrap">
+      </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Mr. Fingers — “Can You Feel It” and use Drum Rack, MIDI clips, Groove Pool, and clip automation.</li><li>Build the phase goal — <em>Transcribe and program the section — dead straight</em> — as the smallest Live set that proves <em>a machine swing setting — one rule applied to every offbeat</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>every offbeat hat leans late by the same chosen amount</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>Transcribe and program the section — dead straight</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>a machine swing setting — one rule applied to every offbeat</em>, not just the surface of Mr. Fingers — “Can You Feel It”.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div><div class="pattern-wrap">
         <div class="pattern">
           <div class="pattern-label">Kick</div>
           <div class="pattern-step on">1</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
@@ -158,11 +162,11 @@
           <div class="pattern-step on">13</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
         </div>
       </div>
-      <p style="color: var(--text-muted); font-size: 13.5px; margin: 8px 0 0;">One plausible transcription shape — yours may differ; the grid is the method, not the answer. The hats are marked dim on purpose: they sit on those offbeat cells now, but at the record’s setting they live a rule-sized distance after them. The grid cannot draw that — the swing setting will.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-md-plus); margin: 8px 0 0;">One plausible transcription shape — yours may differ; the grid is the method, not the answer. The hats are marked dim on purpose: they sit on those offbeat cells now, but at the record’s setting they live a rule-sized distance after them. The grid cannot draw that — the swing setting will.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">A dry, straight version of the record’s section in your sounds. Against <span class="code">REF</span> it should already be recognizably the same music — and noticeably stiffer, because their offbeats lean and yours do not yet. That stiffness is the number you are about to find.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A dry, straight version of the record’s section in your sounds. Against <span class="code">REF</span> it should already be recognizably the same music — and noticeably stiffer, because their offbeats lean and yours do not yet. That stiffness is the number you are about to find.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">If it fails</div>
@@ -176,28 +180,27 @@
     </div>
   </div>
 
-  <!-- PHASE 2 -->
   <div class="step">
     <div class="step-head">
       <div class="step-num">Phase 2 · ~25 min</div>
       <h3 class="step-title">Step the swing amount and feel each number</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: step the swing amount and feel each number. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: step the swing amount and feel each number. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Digitakt II</span> Pick one swing method and stick to it.</li>
-        <li><span class="system-tag">Digitakt II</span> Digitakt II: per-track swing on the hat track (and any other offbeat voice).</li>
-        <li><span class="system-tag">Live</span> Live: a groove from the Groove Pool applied to your clips, Timing at full.</li>
-        <li><span class="system-tag">Live</span> One method, not both.</li>
-        <li><span class="system-tag">Live</span> Mute <span class="code">REF</span>.</li>
-        <li><span class="system-tag">Digitakt II</span> Press <span class="code">[TEMPO]</span> and set SWING to <span class="code">50%</span>. Play a few bars. Then set SWING to <span class="code">54%</span>, <span class="code">58%</span>, and <span class="code">62%</span> in separate listening passes.</li>
-        <li><span class="system-tag">Logbook</span> At each stop, listen for at least eight bars and write one word for the feel — your word, not the manual’s.</li>
-        <li><span class="system-tag">Logbook</span> Do not skip a stop and do not rush one; the differences are small until they are suddenly not.</li>
-        <li><span class="system-tag">Logbook</span> Note the setting where the loop stops feeling stiff — and the setting where it starts feeling drunk.</li>
-        <li><span class="system-tag">Live</span> The record lives between those two.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>Pick one swing method and stick to it.</li>
+        <li>Digitakt II: per-track swing on the hat track (and any other offbeat voice).</li>
+        <li>Live: a groove from the Groove Pool applied to your clips, Timing at full.</li>
+        <li>One method, not both.</li>
+        <li>Mute <span class="code">REF</span>.</li>
+        <li>Press <span class="code">[TEMPO]</span> and set SWING to <span class="code">50%</span>. Play a few bars. Then set SWING to <span class="code">54%</span>, <span class="code">58%</span>, and <span class="code">62%</span> in separate listening passes.</li>
+        <li>At each stop, listen for at least eight bars and write one word for the feel — your word, not the manual’s.</li>
+        <li>Do not skip a stop and do not rush one; the differences are small until they are suddenly not.</li>
+        <li>Note the setting where the loop stops feeling stiff — and the setting where it starts feeling drunk.</li>
+        <li>The record lives between those two.</li>
       </ol>
-      <table class="param-table">
+      </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Mr. Fingers — “Can You Feel It” and use Drum Rack, MIDI clips, Groove Pool, and clip automation.</li><li>Build the phase goal — <em>Step the swing amount and feel each number</em> — as the smallest Live set that proves <em>a machine swing setting — one rule applied to every offbeat</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>every offbeat hat leans late by the same chosen amount</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>Step the swing amount and feel each number</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>a machine swing setting — one rule applied to every offbeat</em>, not just the surface of Mr. Fingers — “Can You Feel It”.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div><table class="param-table">
         <caption>Swing settings — your own words</caption>
         <tr><td>50%</td><td>felt: ___</td></tr>
         <tr><td>54%</td><td>felt: ___</td></tr>
@@ -207,7 +210,7 @@
     </div>
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Four distinct feels from one pattern and one knob: flat, warming, rolling, staggering — in your own words. The realization to write down: nothing about the pattern changed. The feel is the number.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Four distinct feels from one pattern and one knob: flat, warming, rolling, staggering — in your own words. The realization to write down: nothing about the pattern changed. The feel is the number.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">If it fails</div>
@@ -221,38 +224,36 @@
     </div>
   </div>
 
-  <!-- PHASE 3 -->
   <div class="step">
     <div class="step-head">
       <div class="step-num">Phase 3 · ~20 min</div>
       <h3 class="step-title">Find the record’s setting by ear</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: find the record’s setting by ear. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: find the record’s setting by ear. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Digitakt II + Live</span> Unmute <span class="code">REF</span> and loop it against your pattern.</li>
-        <li><span class="system-tag">Digitakt II + Live</span> Start from the Phase 2 setting that felt closest.</li>
-        <li><span class="system-tag">Live</span> A/B a few bars at a time: are your offbeats leaning less than theirs, the same, or more?</li>
-        <li><span class="system-tag">Digitakt II</span> Press <span class="code">[TEMPO]</span>, turn DATA ENTRY knob D by one or two percent, and listen again.</li>
-        <li><span class="system-tag">Digitakt II</span> When you think you have it, overshoot by one step on purpose, hear the difference, and come back.</li>
-        <li><span class="system-tag">Digitakt II</span> A match you cannot overshoot was found by luck.</li>
-        <li><span class="system-tag">Logbook</span> Write the final number in the logbook before Phase 4 touches anything.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>Unmute <span class="code">REF</span> and loop it against your pattern.</li>
+        <li>Start from the Phase 2 setting that felt closest.</li>
+        <li>A/B a few bars at a time: are your offbeats leaning less than theirs, the same, or more?</li>
+        <li>Press <span class="code">[TEMPO]</span>, turn DATA ENTRY knob D by one or two percent, and listen again.</li>
+        <li>When you think you have it, overshoot by one step on purpose, hear the difference, and come back.</li>
+        <li>A match you cannot overshoot was found by luck.</li>
+        <li>Write the final number in the logbook before Phase 4 touches anything.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Mr. Fingers — “Can You Feel It” and use audio clips, Simpler/Sampler, clip envelopes, and resampling.</li><li>Build the phase goal — <em>Find the record’s setting by ear</em> — as the smallest Live set that proves <em>a machine swing setting — one rule applied to every offbeat</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>every offbeat hat leans late by the same chosen amount</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>Find the record’s setting by ear</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>a machine swing setting — one rule applied to every offbeat</em>, not just the surface of Mr. Fingers — “Can You Feel It”.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">One setting where your loop and the record lean together — the stiffness gone, the stagger never arrived. You can name the number, and you know what one step either side of it sounds like.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">One setting where your loop and the record lean together — the stiffness gone, the stagger never arrived. You can name the number, and you know what one step either side of it sounds like.</p>
     </div>
   </div>
 
-  <!-- PHASE 4 -->
   <div class="step">
     <div class="step-head">
       <div class="step-num">Phase 4 · ~20 min</div>
       <h3 class="step-title">Record it and measure the rule in ms</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: record it and measure the rule in ms. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: record it and measure the rule in ms. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
 
     <div class="signal-flow">
       <span class="signal-node">Digitakt II · swing ___%</span>
@@ -264,17 +265,17 @@
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Digitakt II + Live</span> Restart the transport — the Lab 002 reset rule — then record 8 bars at swing <span class="code">50%</span> into Live (<span class="code">Ext. In 3/4</span>, Monitor <strong>Off</strong>).</li>
-        <li><span class="system-tag">Digitakt II + Live</span> Press <span class="code">[TEMPO]</span> and turn DATA ENTRY knob D to the matched swing value. Record the same 8 bars again onto a second Live track after another transport restart.</li>
-        <li><span class="system-tag">Live</span> <strong>Observe — see it, not just hear it.</strong> Set the ruler to minutes:seconds:milliseconds, as in Lab 002, and zoom both takes to the same offbeat hat.</li>
-        <li><span class="system-tag">Live</span> Measure each hat’s distance from the grid line and subtract: the 50% hat sits on the line, the swung hat sits ___ ms after it.</li>
-        <li><span class="system-tag">Live</span> Check a second offbeat in another bar — the difference must be identical, because a rule put it there.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>Restart the transport — the Lab 002 reset rule — then record 8 bars at swing <span class="code">50%</span> into Live (<span class="code">Ext. In 3/4</span>, Monitor <strong>Off</strong>).</li>
+        <li>Press <span class="code">[TEMPO]</span> and turn DATA ENTRY knob D to the matched swing value. Record the same 8 bars again onto a second Live track after another transport restart.</li>
+        <li><strong>Observe — see it, not just hear it.</strong> Set the ruler to minutes:seconds:milliseconds, as in Lab 002, and zoom both takes to the same offbeat hat.</li>
+        <li>Measure each hat’s distance from the grid line and subtract: the 50% hat sits on the line, the swung hat sits ___ ms after it.</li>
+        <li>Check a second offbeat in another bar — the difference must be identical, because a rule put it there.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Mr. Fingers — “Can You Feel It” and use audio clips, Simpler/Sampler, clip envelopes, and resampling.</li><li>Build the phase goal — <em>Record it and measure the rule in ms</em> — as the smallest Live set that proves <em>a machine swing setting — one rule applied to every offbeat</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>every offbeat hat leans late by the same chosen amount</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>Record it and measure the rule in ms</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>a machine swing setting — one rule applied to every offbeat</em>, not just the surface of Mr. Fingers — “Can You Feel It”.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">One number in milliseconds, the same at every offbeat you check. Swing demystified: the warmth you matched by ear is that number, applied by rule — found with your ears, stated as engineering.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">One number in milliseconds, the same at every offbeat you check. Swing demystified: the warmth you matched by ear is that number, applied by rule — found with your ears, stated as engineering.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">If it fails</div>
@@ -288,6 +289,9 @@
     </div>
   </div>
 
+  </div></div><!-- PHASE 2 -->
+  <!-- PHASE 3 -->
+  <!-- PHASE 4 -->
   <div class="decision-check">
     <div class="decision-check-label">Verify against the record</div>
     <p>A/B your matched recording against the <span class="code">REF</span> section, then answer:</p>
@@ -324,5 +328,6 @@
 
 </div>
 
+  <script src="../nav.js"></script>
 </body>
 </html>

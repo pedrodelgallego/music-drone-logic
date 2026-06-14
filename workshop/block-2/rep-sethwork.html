@@ -6,7 +6,7 @@
 <title>Replicate: Thickness from Detune — Phill Niblock</title>
 <link rel="stylesheet" href="../styles.css">
 </head>
-<body>
+<body class="page-type-rep" id="top">
 
 <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
 <label for="nav-toggle" class="hamburger" aria-label="Menu">
@@ -16,6 +16,7 @@
 <nav class="nav" aria-label="Workshop contents">
   <p class="nav-label">Workshop</p>
   <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
   <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
   <a href="index.html" class="active"><span class="nav-num">02</span>Sources</a>
   <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
@@ -28,15 +29,18 @@
 </nav>
 
 <div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 2 · Sources</a><span class="breadcrumb-sep">/</span><span>Replicate: thickness from detune</span></nav>
 
   <header class="page-header">
     <div class="eyebrow">Block 2 · Replication lesson</div>
     <h1>Replicate: thickness from detune</h1>
     <p class="lede">Copy one clear section of Phill Niblock — “Sethwork” (Touch Three, 2006); Seth Josel, e-bowed acoustic guitar. Build the main parts, record a short take, and compare it to the reference at the same loudness.</p>
   </header>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l2.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs">Labs</a><a href="lab-r2.html" data-section="rebuild">Rebuild</a><a href="index.html#capstone" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep" class="current">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
   <div class="callout">
     <div class="callout-label">The point</div>
-    <p>This drill teaches the record's core mechanism: the same sustained pitch stacked many times, each copy cents apart - every pair of near-unisons beats at its own rate, and the sum of unsynced beatings is the churn. Do only the steps that make that mechanism audible.</p>
+    <p>This drill teaches how the record works: the same sustained pitch stacked many times, with each copy tuned slightly apart (measured in cents — hundredths of a semitone). Every pair of near-identical pitches beats (pulses) at its own rate, and the sum of all those unsynchronized beatings is the churn you hear. Do only the steps that make that mechanism audible.</p>
   </div>
 
   <table class="param-table">
@@ -50,7 +54,7 @@
 
   <div class="checklist">
     <div class="checklist-head">
-      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"></path></svg></div>
       <div class="checklist-label">Before you start</div>
     </div>
     <ul>
@@ -74,25 +78,25 @@
       <div class="step-num">Reference pass · 10 minutes</div>
       <h3 class="step-title">Listen before you build</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Listen to about one minute of Phill Niblock — “Sethwork” (Touch Three, 2006); Seth Josel, e-bowed acoustic guitar. Choose the clearest short section. Write one short answer for each question before you touch the gear.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Listen to about one minute of Phill Niblock — “Sethwork” (Touch Three, 2006); Seth Josel, e-bowed acoustic guitar. Choose the clearest short section. Write one short answer for each question before you touch the gear.</p>
     <ol class="rules-list">
       <li>How many layers are sounding?
-        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>More than you can count, by design - and your count will change as the beatings bring different layers forward.</p></div></details>
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>More than you can count, by design. Your count will keep changing as the beatings bring different layers to the front.</p></div></details>
       </li>
       <li>Is anyone playing vibrato?
-        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>No - and this is the question the piece exists to ask. The waver you hear belongs to no single layer; it is interference between layers, pulsing at rates set by their pitch differences. Each guitar tone, alone, would be still.</p></div></details>
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>No — and that is the question the piece is built around. The wavering you hear belongs to no single layer. It is interference between layers, pulsing at rates set by their pitch differences. Each guitar tone, heard alone, would be completely still.</p></div></details>
       </li>
       <li>Does the pitch of the whole cluster move?
-        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Barely, and slowly - the center holds while the inside churns. What reads as harmonic event is usually a beating speeding up or slowing down as layers drift relative to each other. The form is thickness changing, not notes changing.</p></div></details>
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Barely, and slowly. The center holds while the inside churns. What sounds like a harmonic change is usually the beating speeding up or slowing down as layers drift slightly relative to each other. The form is texture changing, not notes changing.</p></div></details>
       </li>
       <li>What did the e-bow remove from the guitar?
-        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>The attack. An e-bow sustains the string magnetically, so the guitar loses its pluck and becomes a pure held tone - which is why the instrument stops sounding like a guitar at all.</p></div></details>
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>The attack. An e-bow (a small electromagnetic device) sustains the string continuously, so the guitar loses its pluck and becomes a pure held tone. That is why it stops sounding like a guitar at all.</p></div></details>
       </li>
       <li>Why does it sound like an organ when it is one guitar?
-        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Because identity lives in attacks and in singularity, and both are gone. Strip the pluck, stack the copies, and what remains is a mass with the steadiness of pipes - instrument identity dissolves into spectrum.</p></div></details>
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Because an instrument's identity lives in its attack and in being one single voice — and both are gone here. Strip the pluck, stack many copies, and what remains is a mass of sustained tone with the steadiness of organ pipes. The instrument dissolves into spectrum.</p></div></details>
       </li>
     </ol>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Now build the section you described. Do not build from memory.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Now build the section you described. Do not build from memory.</p>
   </div>
 
   <h2>Steps</h2>
@@ -111,14 +115,14 @@
 
   <div class="note-block">
     <ul>
-      <li><strong>Sound target:</strong> a solo-flip between <span class="code">REF</span> and your stack lands on the same paradox — a mass that churns continuously though every layer in it is dead still.</li>
-      <li>One pitch only — every layer is the same note, offset in cents. A second note is a chord lesson, not this one.</li>
-      <li>No modulation anywhere — no LFO, no vibrato, no automation. If you add motion by hand, the experiment is void.</li>
-      <li>Equal levels across all layers — favoring one collapses the cluster back toward a single tone with company.</li>
+      <li><strong>Sound target:</strong> solo-flipped against <span class="code">REF</span> at matched loudness, both should land on the same quality — a mass that churns continuously even though every layer in it is perfectly still.</li>
+      <li>One pitch only. Every layer is the same note, tuned slightly apart in cents. A second note turns this into a chord lesson, not this one.</li>
+      <li>No modulation anywhere — no LFO (automatic knob-mover), no vibrato, no automation. If you add motion by hand, the experiment is void.</li>
+      <li>Equal levels across all layers. Raising one layer makes the cluster collapse back toward a single loud tone with quieter companions.</li>
     </ul>
   </div>
 
-  <p style="color: var(--text-muted); font-size: 14.5px; max-width: 640px; margin: 0 auto 14px; text-align: center;">The piece’s machinery in one row: one steady tone printed once, duplicated to seven or eight tracks, each clip offset by a different handful of cents, all faders equal — and the beating between near-unisons doing every bit of the moving.</p>
+  <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); max-width: 640px; margin: 0 auto 14px; text-align: center;">How the piece works: one steady tone recorded once, duplicated to seven or eight tracks, each copy tuned a different number of cents apart, all faders equal. The beating between these near-identical pitches does all the moving.</p>
 
   <div class="signal-flow">
     <span class="signal-node">MicroFreak · one held tone · no modulation</span>
@@ -130,25 +134,22 @@
     <span class="signal-node">equal faders · the churn · ≈ −12 dBFS</span>
   </div>
 
-  <p style="color: var(--text-muted); font-size: 14.5px; max-width: 640px; margin: 18px auto 14px; text-align: center;">The same tone three ways. One copy is a flat line — nothing moves. Two copies a few cents apart beat at one steady rate. Eight copies beat at every rate their pairs make, and the sum is a band that churns without any layer moving. The motion enters with the count.</p>
+  <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); max-width: 640px; margin: 18px auto 14px; text-align: center;">The same tone shown three ways. One copy is a flat line — nothing moves. Two copies a few cents apart beat at one steady rate. Eight copies beat at every rate their pairs produce, and the sum is a texture that churns without any single layer moving. The motion is created by the number of copies.</p>
 
 <div class="signal-flow" style="display:block; padding:26px 16px;">
   <svg viewBox="0 0 760 230" width="100%" role="img" aria-label="One still layer, then two layers beating, then eight layers churning, across three panels">
-    <rect x="20" y="20" width="225" height="170" rx="10" fill="#1f2530" stroke="#6e7681" stroke-width="1"/>
-    <rect x="267" y="20" width="225" height="170" rx="10" fill="#1f2530" stroke="#6e7681" stroke-width="1"/>
-    <rect x="514" y="20" width="225" height="170" rx="10" fill="#1f2530" stroke="#7dd3c0" stroke-width="1.2"/>
+    <rect x="20" y="20" width="225" height="170" rx="10" fill="#1f2530" stroke="#6e7681" stroke-width="1"></rect>
+    <rect x="267" y="20" width="225" height="170" rx="10" fill="#1f2530" stroke="#6e7681" stroke-width="1"></rect>
+    <rect x="514" y="20" width="225" height="170" rx="10" fill="#1f2530" stroke="#7dd3c0" stroke-width="1.2"></rect>
     <text x="132" y="44" fill="#e6edf3" font-size="12" text-anchor="middle">one layer</text>
     <text x="379" y="44" fill="#e6edf3" font-size="12" text-anchor="middle">two layers</text>
     <text x="626" y="44" fill="#7dd3c0" font-size="12" text-anchor="middle">eight layers</text>
-    <line x1="45" y1="115" x2="220" y2="115" stroke="#8b949e" stroke-width="2.5"/>
-    <path d="M292 110 C306 100 320 100 334 110 C348 120 362 120 376 110 C390 100 404 100 418 110 C432 120 446 120 460 110"
-          fill="none" stroke="#8b949e" stroke-width="2.5"/>
-    <line x1="292" y1="124" x2="460" y2="124" stroke="#6e7681" stroke-width="1.5"/>
+    <line x1="45" y1="115" x2="220" y2="115" stroke="#8b949e" stroke-width="2.5"></line>
+    <path d="M292 110 C306 100 320 100 334 110 C348 120 362 120 376 110 C390 100 404 100 418 110 C432 120 446 120 460 110" fill="none" stroke="#8b949e" stroke-width="2.5"></path>
+    <line x1="292" y1="124" x2="460" y2="124" stroke="#6e7681" stroke-width="1.5"></line>
     <path d="M539 96 C556 84 572 110 590 100 C608 90 622 116 642 106 C660 96 676 120 694 108 C702 103 707 100 712 102
-             L712 138 C696 148 680 126 662 134 C644 142 630 118 612 128 C594 138 578 114 560 124 C550 129 544 132 539 130 Z"
-          fill="#8b949e" opacity="0.85"/>
-    <path d="M539 96 C556 84 572 110 590 100 C608 90 622 116 642 106 C660 96 676 120 694 108"
-          fill="none" stroke="#7dd3c0" stroke-width="1.5"/>
+             L712 138 C696 148 680 126 662 134 C644 142 630 118 612 128 C594 138 578 114 560 124 C550 129 544 132 539 130 Z" fill="#8b949e" opacity="0.85"></path>
+    <path d="M539 96 C556 84 572 110 590 100 C608 90 622 116 642 106 C660 96 676 120 694 108" fill="none" stroke="#7dd3c0" stroke-width="1.5"></path>
     <text x="132" y="208" fill="#6e7681" font-size="9.5" text-anchor="middle">dead still — nothing to hear move</text>
     <text x="379" y="208" fill="#6e7681" font-size="9.5" text-anchor="middle">one steady beat rate — a pulse</text>
     <text x="626" y="208" fill="#6e7681" font-size="9.5" text-anchor="middle">every pair beats — the churn</text>
@@ -156,29 +157,29 @@
 </div>
 
   <!-- PHASE 1 -->
-  <div class="step">
+  <div class="gear-switch"><input type="radio" name="gear" id="gear-hw" class="gear-radio" checked><input type="radio" name="gear" id="gear-sw" class="gear-radio"><input type="radio" name="gear" id="gear-tg" class="gear-radio"><div class="gear-labels"><span class="gear-lead">Your rig</span><label for="gear-hw">MicroFreak + Live</label><label for="gear-sw">Ableton Live only</label><label for="gear-tg">Analog Rytm MKII · target</label></div><div class="gear-scope"><div class="step">
     <div class="step-head">
       <div class="step-num">Phase 1 · ≈ 10 min</div>
       <h3 class="step-title">The reference and the track</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: the reference and the track. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: the reference and the track. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Live</span> <kbd>⌘ T</kbd>, rename the track <span class="code">REF</span> (<kbd>⌘ R</kbd>), and drag “Sethwork” into it.</li>
-        <li><span class="system-tag">Live</span> Loop two minutes from the middle of the piece, where the cluster is fully assembled.</li>
-        <li><span class="system-tag">Live</span> Drop <span class="menu">Audio Effects → Utility</span> on <span class="code">REF</span> and trim so the loop peaks ≈ <span class="code">−12 dBFS</span>.</li>
-        <li><span class="system-tag">Live</span> <span class="code">REF</span> stays one solo-press away for the whole lesson.</li>
-        <li><span class="system-tag">Live</span> <kbd>⌘ T</kbd> once; rename: <span class="code">LAYER</span>, <span class="menu">Ext. In</span> <span class="code">1</span>, fader at <span class="code">0 dB</span>, armed.</li>
-        <li><span class="system-tag">Logbook</span> Write in the logbook: how many distinct beat rates — slow wobbles of different speeds — you can pick out in the loop.</li>
-        <li><span class="system-tag">Logbook</span> Two minutes of honest counting; the number will be revised.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li><kbd>⌘ T</kbd>, rename the track <span class="code">REF</span> (<kbd>⌘ R</kbd>), and drag “Sethwork” into it.</li>
+        <li>Loop two minutes from the middle of the piece, where the cluster is fully assembled.</li>
+        <li>Drop <span class="menu">Audio Effects → Utility</span> on <span class="code">REF</span> and trim so the loop peaks ≈ <span class="code">−12 dBFS</span>.</li>
+        <li><span class="code">REF</span> stays one solo-press away for the whole lesson.</li>
+        <li><kbd>⌘ T</kbd> once; rename: <span class="code">LAYER</span>, <span class="menu">Ext. In</span> <span class="code">1</span>, fader at <span class="code">0 dB</span>, armed.</li>
+        <li>Write in the logbook: how many distinct beat rates — slow wobbles of different speeds — you can pick out in the loop.</li>
+        <li>Two minutes of honest counting; the number will be revised.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Phill Niblock — “Sethwork” (Touch Three, 2006); Seth Josel, e-bowed acoustic guitar and use Live audio/MIDI tracks, Utility, automation, and resampling.</li><li>Build the phase goal — <em>The reference and the track</em> — as the smallest Live set that proves <em>the same sustained pitch stacked many times, each copy cents apart — every pair of near-unisons beats at its own rate, and the sum of unsynced beatings is the churn</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>many close-pitched sustained guitar tones fuse into one massive cluster that churns from the inside, though no player adds vibrato or movement</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>The reference and the track</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>the same sustained pitch stacked many times, each copy cents apart — every pair of near-unisons beats at its own rate, and the sum of unsynced beatings is the churn</em>, not just the surface of Phill Niblock — “Sethwork” (Touch Three, 2006); Seth Josel, e-bowed acoustic guitar.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">The record loops at ≈ −12 dBFS, one named, routed, armed track waits for the master tone, and a beat-rate count is on paper.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">The record loops at ≈ −12 dBFS, one named, routed, armed track waits for the master tone, and a beat-rate count is on paper.</p>
     </div>
 
     <div class="sub-block">
@@ -193,32 +194,31 @@
     </div>
   </div>
 
-  <!-- PHASE 2 -->
   <div class="step">
     <div class="step-head">
       <div class="step-num">Phase 2 · ≈ 15 min</div>
       <h3 class="step-title">The master tone — one take, completely still</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: the master tone — one take, completely still. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: the master tone — one take, completely still. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">MicroFreak</span> MicroFreak: <span class="code">Type</span> → <span class="code">V.Analog</span>, one note in the cello register — around <span class="code">A2</span> wears well.</li>
-        <li><span class="system-tag">MicroFreak</span> No paraphony, no chord.</li>
-        <li><span class="system-tag">MicroFreak</span> Filter halfway open — audible harmonics, no buzz.</li>
-        <li><span class="system-tag">MicroFreak</span> Zero LFO, zero filter movement, envelope all sustain: slow attack, full hold, nothing moving anywhere in the patch.</li>
-        <li><span class="system-tag">MicroFreak</span> Set the M4 input-1 gain on the held tone so peaks sit ≈ <span class="code">−20 dBFS</span> — deliberately low, because eight summed copies will raise the stack toward the usual ≈ −12 dBFS.</li>
-        <li><span class="system-tag">MicroFreak</span> Print 4–5 minutes of the steady tone into <span class="code">LAYER</span> using <span class="code">Hold</span>.</li>
-        <li><span class="system-tag">MicroFreak</span> One take; this single recording is the entire raw material of the piece.</li>
-        <li><span class="system-tag">Logbook</span> Listen back to one minute of it, alone, and write the confirmation line in the logbook: <em>nothing moves</em>.</li>
-        <li><span class="system-tag">Logbook</span> If anything moves, find it and re-print now — phase 3 multiplies whatever this take contains.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>MicroFreak: <span class="code">Type</span> → <span class="code">V.Analog</span>, one note in the cello register — around <span class="code">A2</span> wears well.</li>
+        <li>No paraphony, no chord.</li>
+        <li>Filter halfway open — audible harmonics, no buzz.</li>
+        <li>Zero LFO, zero filter movement, envelope all sustain: slow attack, full hold, nothing moving anywhere in the patch.</li>
+        <li>Set the M4 input-1 gain on the held tone so peaks sit ≈ <span class="code">−20 dBFS</span> — deliberately low, because eight summed copies will raise the stack toward the usual ≈ −12 dBFS.</li>
+        <li>Print 4–5 minutes of the steady tone into <span class="code">LAYER</span> using <span class="code">Hold</span>.</li>
+        <li>One take; this single recording is the entire raw material of the piece.</li>
+        <li>Listen back to one minute of it, alone, and write the confirmation line in the logbook: <em>nothing moves</em>.</li>
+        <li>If anything moves, find it and re-print now — phase 3 multiplies whatever this take contains.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Phill Niblock — “Sethwork” (Touch Three, 2006); Seth Josel, e-bowed acoustic guitar and use Operator or Wavetable into Auto Filter, with clip automation.</li><li>Build the phase goal — <em>The master tone — one take, completely still</em> — as the smallest Live set that proves <em>the same sustained pitch stacked many times, each copy cents apart — every pair of near-unisons beats at its own rate, and the sum of unsynced beatings is the churn</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>many close-pitched sustained guitar tones fuse into one massive cluster that churns from the inside, though no player adds vibrato or movement</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>The master tone — one take, completely still</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>the same sustained pitch stacked many times, each copy cents apart — every pair of near-unisons beats at its own rate, and the sum of unsynced beatings is the churn</em>, not just the surface of Phill Niblock — “Sethwork” (Touch Three, 2006); Seth Josel, e-bowed acoustic guitar.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">One 4–5 minute take of a harmonically present, provably motionless tone at ≈ −20 dBFS — boring alone, and correct precisely because of it.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">One 4–5 minute take of a harmonically present, provably motionless tone at ≈ −20 dBFS — boring alone, and correct precisely because of it.</p>
     </div>
 
     <div class="sub-block">
@@ -233,32 +233,31 @@
     </div>
   </div>
 
-  <!-- PHASE 3 -->
   <div class="step">
     <div class="step-head">
       <div class="step-num">Phase 3 · ≈ 20 min</div>
       <h3 class="step-title">The stack — seven copies, a cents plan, equal faders</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: the stack — seven copies, a cents plan, equal faders. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: the stack — seven copies, a cents plan, equal faders. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Logbook</span> Write the cents plan in the logbook first.</li>
-        <li><span class="system-tag">Logbook</span> A working spread: <span class="code">−11, −7, −3, 0, +4, +8, +13</span> — uneven gaps on purpose, so no two pairs beat at the same rate.</li>
-        <li><span class="system-tag">Live</span> Duplicate <span class="code">LAYER</span> (<kbd>⌘ D</kbd>) until you have 7–8 tracks, each holding a copy of the same clip, all starting together at <span class="code">1.1.1</span>.</li>
-        <li><span class="system-tag">Live</span> On each clip, set <span class="menu">Detune</span> in the clip’s Audio tab to its planned cents value.</li>
-        <li><span class="system-tag">MicroFreak + Live</span> (Printing 7–8 separate MicroFreak takes nudged by the fine-tune works too and is closer to Niblock’s practice — but the clip route keeps every layer provably identical except in pitch, which is the cleaner experiment.)</li>
-        <li><span class="system-tag">MicroFreak + Live</span> All faders equal, all at the same level; pan the layers gently across the field — a few notches left and right — so the cluster has width without any layer dominating.</li>
-        <li><span class="system-tag">MicroFreak + Live</span> Play the stack and check the sum: peaks ≈ <span class="code">−12 dBFS</span> on the master.</li>
-        <li><span class="system-tag">MicroFreak + Live</span> Trim all faders together if it runs hot — together, always;</li>
-        <li><span class="system-tag">MicroFreak + Live</span> equality is a rule of the piece.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>Write the cents plan in the logbook first.</li>
+        <li>A working spread: <span class="code">−11, −7, −3, 0, +4, +8, +13</span> — uneven gaps on purpose, so no two pairs beat at the same rate.</li>
+        <li>Duplicate <span class="code">LAYER</span> (<kbd>⌘ D</kbd>) until you have 7–8 tracks, each holding a copy of the same clip, all starting together at <span class="code">1.1.1</span>.</li>
+        <li>On each clip, set <span class="menu">Detune</span> in the clip’s Audio tab to its planned cents value.</li>
+        <li>(Printing 7–8 separate MicroFreak takes nudged by the fine-tune works too and is closer to Niblock’s practice — but the clip route keeps every layer provably identical except in pitch, which is the cleaner experiment.)</li>
+        <li>All faders equal, all at the same level; pan the layers gently across the field — a few notches left and right — so the cluster has width without any layer dominating.</li>
+        <li>Play the stack and check the sum: peaks ≈ <span class="code">−12 dBFS</span> on the master.</li>
+        <li>Trim all faders together if it runs hot — together, always;</li>
+        <li>equality is a rule of the piece.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Phill Niblock — “Sethwork” (Touch Three, 2006); Seth Josel, e-bowed acoustic guitar and use Live audio/MIDI tracks, Utility, automation, and resampling.</li><li>Build the phase goal — <em>The stack — seven copies, a cents plan, equal faders</em> — as the smallest Live set that proves <em>the same sustained pitch stacked many times, each copy cents apart — every pair of near-unisons beats at its own rate, and the sum of unsynced beatings is the churn</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>many close-pitched sustained guitar tones fuse into one massive cluster that churns from the inside, though no player adds vibrato or movement</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>The stack — seven copies, a cents plan, equal faders</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>the same sustained pitch stacked many times, each copy cents apart — every pair of near-unisons beats at its own rate, and the sum of unsynced beatings is the churn</em>, not just the surface of Phill Niblock — “Sethwork” (Touch Three, 2006); Seth Josel, e-bowed acoustic guitar.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Seven or eight identical clips at different cents offsets, equal faders, summing to ≈ −12 dBFS — and a sound that visibly came from nowhere: the churn is already there, uninvited, the moment you press play.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Seven or eight identical clips at different cents offsets, equal faders, summing to ≈ −12 dBFS — and a sound that visibly came from nowhere: the churn is already there, uninvited, the moment you press play.</p>
     </div>
 
     <div class="sub-block">
@@ -273,33 +272,32 @@
     </div>
   </div>
 
-  <!-- PHASE 4 -->
   <div class="step">
     <div class="step-head">
       <div class="step-num">Phase 4 · ≈ 15 min</div>
       <h3 class="step-title">The solo test — prove where the motion lives</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: the solo test — prove where the motion lives. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: the solo test — prove where the motion lives. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
         <li>Play the full stack for one minute.</li>
         <li>Then solo any single layer and hold it for thirty seconds: dead still.</li>
-        <li><span class="system-tag">Live</span> Unsolo: the churn returns instantly.</li>
-        <li><span class="system-tag">Logbook</span> Do this three times with different layers; write what the switch is switching.</li>
-        <li><span class="system-tag">Logbook</span> Mute layers one at a time, listening to the churn thin out — each removal deletes that layer’s pairs.</li>
-        <li><span class="system-tag">Logbook</span> Note the count at which the texture stops feeling massive;</li>
-        <li><span class="system-tag">Logbook</span> that number is your version of the record’s density decision.</li>
-        <li><span class="system-tag">Live</span> A/B the full stack against <span class="code">REF</span> at matched loudness, judging only the internal motion: are your beat rates as varied, as layered, as theirs?</li>
-        <li><span class="system-tag">Live</span> Revise your phase-1 beat-rate count for the record now that you know what to listen for.</li>
-        <li><span class="system-tag">Live</span> Print the full stack, 4–5 minutes, as one stereo file — the piece exists in the sum, and the sum deserves a take.</li>
+        <li>Unsolo: the churn returns instantly.</li>
+        <li>Do this three times with different layers; write what the switch is switching.</li>
+        <li>Mute layers one at a time, listening to the churn thin out — each removal deletes that layer’s pairs.</li>
+        <li>Note the count at which the texture stops feeling massive;</li>
+        <li>that number is your version of the record’s density decision.</li>
+        <li>A/B the full stack against <span class="code">REF</span> at matched loudness, judging only the internal motion: are your beat rates as varied, as layered, as theirs?</li>
+        <li>Revise your phase-1 beat-rate count for the record now that you know what to listen for.</li>
+        <li>Print the full stack, 4–5 minutes, as one stereo file — the piece exists in the sum, and the sum deserves a take.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Phill Niblock — “Sethwork” (Touch Three, 2006); Seth Josel, e-bowed acoustic guitar and use Live audio/MIDI tracks, Utility, automation, and resampling.</li><li>Build the phase goal — <em>The solo test — prove where the motion lives</em> — as the smallest Live set that proves <em>the same sustained pitch stacked many times, each copy cents apart — every pair of near-unisons beats at its own rate, and the sum of unsynced beatings is the churn</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>many close-pitched sustained guitar tones fuse into one massive cluster that churns from the inside, though no player adds vibrato or movement</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>The solo test — prove where the motion lives</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>the same sustained pitch stacked many times, each copy cents apart — every pair of near-unisons beats at its own rate, and the sum of unsynced beatings is the churn</em>, not just the surface of Phill Niblock — “Sethwork” (Touch Three, 2006); Seth Josel, e-bowed acoustic guitar.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">A demonstrated on/off proof that the churn lives between layers, a written density threshold, a sharpened hearing of the record’s beat rates, and one printed cluster.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A demonstrated on/off proof that the churn lives between layers, a written density threshold, a sharpened hearing of the record’s beat rates, and one printed cluster.</p>
     </div>
 
     <div class="sub-block">
@@ -314,15 +312,18 @@
     </div>
   </div>
 
+  </div></div><!-- PHASE 2 -->
+  <!-- PHASE 3 -->
+  <!-- PHASE 4 -->
   <div class="decision-check">
     <div class="decision-check-label">Verify against the record</div>
     <p>Solo-flip between <span class="code">REF</span> and your stack at matched loudness — phones at the mark or lower, no level riding while you judge.</p>
     <ul>
       <li>Solo one layer, then unmute all. Where did the motion come from?
-        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Interference, not modulation. Each layer is provably still — you listened to the master take alone and wrote <em>nothing moves</em> — yet the stack churns, because every pair of detuned copies beats at the rate of its frequency gap. Nothing in the session generates motion; the motion is what addition does to near-identical waves. Relisten to the record’s cluster knowing this: every wobble you hear is two specific layers disagreeing, even when you cannot name which two.</p></div></details>
+        <details class="”reveal”"><summary>Answer</summary><div class="”reveal-body”"><p>From interference between layers, not from modulation. Each layer is provably still — you listened to the master take alone and wrote <em>nothing moves</em> — yet the stack churns, because every pair of detuned copies beats at a rate set by their pitch gap. Nothing in the session creates motion directly. The motion is what happens when near-identical waves are added together. Relisten to the record’s cluster knowing this: every wobble is two specific layers disagreeing, even when you cannot name which two.</p></div></details>
       </li>
       <li>Could you have made this churn with an LFO instead?
-        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Not this churn. An LFO imposes one rate from outside; the stack produces dozens of rates from inside, none synced, drifting in and out of step — which is why the texture never loops and never settles. That inexhaustibility is the audible difference between modulated and interfering sound, and it is the reason the record stays alive for twenty minutes with no events. Relisten to one minute of your stack hunting for a repeat; then try the same hunt on “Sethwork” and fail at both.</p></div></details>
+        <details class="”reveal”"><summary>Answer</summary><div class="”reveal-body”"><p>Not this churn. An LFO (automatic knob-mover) imposes one rate from outside. The stack produces dozens of rates from inside, none synchronized, drifting in and out of step. That is why the texture never repeats and never settles. It is the audible difference between modulated and interfering sound, and it is why the record stays alive for twenty minutes with no events. Relisten to one minute of your stack and try to find a moment that repeats exactly. Then try the same on “Sethwork.” You will fail at both.</p></div></details>
       </li>
     </ul>
   </div>
@@ -331,7 +332,7 @@
     <ul>
       <li><strong>Logbook — three-line miss list.</strong> <strong>Matched:</strong> where your version produces the record’s effect. <strong>Missed:</strong> where it doesn’t — and your best guess why. <strong>Change next:</strong> the one move you’d try first.</li>
       <li>These three lines feed the full miss list in <a href="lab-r2.html">replication lab R2</a>.</li>
-      <li><strong>Carries into the lab:</strong> Lab 005 builds its pulse from two pitches beating at one interval — this record is the same physics at industrial scale: thickness from detune is what the lab’s tuning interval becomes when you multiply it.</li>
+      <li><strong>Carries into the lab:</strong> Lab 005 builds its pulse from two pitches beating at one interval. This record is the same physics at a larger scale: the thickness from detune is what the lab’s single tuning interval becomes when you multiply it across many copies.</li>
     </ul>
   </div>
 
@@ -350,5 +351,6 @@
 
 </div>
 
+  <script src="../nav.js"></script>
 </body>
 </html>

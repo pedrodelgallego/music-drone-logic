@@ -6,7 +6,7 @@
 <title>Replicate — Drift You Can’t Point To</title>
 <link rel="stylesheet" href="../styles.css">
 </head>
-<body>
+<body class="page-type-rep" id="top">
 
 <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
 <label for="nav-toggle" class="hamburger" aria-label="Menu">
@@ -16,6 +16,7 @@
 <nav class="nav" aria-label="Workshop contents">
   <p class="nav-label">Workshop</p>
   <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
   <a href="index.html" class="active"><span class="nav-num">01</span>The Bench</a>
   <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
   <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
@@ -28,12 +29,15 @@
 </nav>
 
 <div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 1 · The Bench</a><span class="breadcrumb-sep">/</span><span>Replicate: drift you can’t point to</span></nav>
 
   <header class="page-header">
     <div class="eyebrow">Block 1 · Replication lesson</div>
     <h1>Replicate: drift you can’t point to</h1>
     <p class="lede">Copy one clear section of Donato Dozzy &amp; Nuel — The Aquaplano Sessions. Build the main parts, record a short take, and compare it to the reference at the same loudness.</p>
   </header>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l1.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs">Labs</a><a href="lab-r1.html" data-section="rebuild">Rebuild</a><a href="capstone-c1.html" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep" class="current">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
   <div class="callout">
     <div class="callout-label">The point</div>
     <p>This drill teaches the record's core mechanism: Slow, unsynced modulators inside the voice: they never line up with the bars, so the timbre never lands in the same place twice. Do only the steps that make that mechanism audible.</p>
@@ -50,7 +54,7 @@
 
   <div class="checklist">
     <div class="checklist-head">
-      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"></path></svg></div>
       <div class="checklist-label">Before you start</div>
     </div>
     <ul>
@@ -73,7 +77,7 @@
       <div class="step-num">Reference pass · 10 minutes</div>
       <h3 class="step-title">Listen before you build</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Listen to about one minute of Donato Dozzy &amp; Nuel — The Aquaplano Sessions. Choose the clearest short section. Write one short answer for each question before you touch the gear.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Listen to about one minute of Donato Dozzy &amp; Nuel — The Aquaplano Sessions. Choose the clearest short section. Write one short answer for each question before you touch the gear.</p>
     <ol class="rules-list">
       <li>Pick one sound and follow it for the minute — what about it changed (brightness? distance? roughness?)?
         <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Brightness, mostly - the tone breathes between dull and slightly open - and with it a sense of distance, as if the sound drifts nearer and farther without moving.</p></div></details>
@@ -88,7 +92,7 @@
         <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Weather. There is no gesture, no intention, no moment of decision anywhere in the minute - the variation was built into the patch and then left alone.</p></div></details>
       </li>
     </ol>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Now build the section you described. Do not build from memory.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Now build the section you described. Do not build from memory.</p>
   </div>
 
   <div class="note-block">
@@ -114,24 +118,24 @@
     </ul>
   </div>
 
-  <div class="step">
+  <div class="gear-switch"><input type="radio" name="gear" id="gear-hw" class="gear-radio" checked><input type="radio" name="gear" id="gear-sw" class="gear-radio"><input type="radio" name="gear" id="gear-tg" class="gear-radio"><div class="gear-labels"><span class="gear-lead">Your rig</span><label for="gear-hw">MicroFreak + Digitakt II</label><label for="gear-sw">Ableton Live only</label><label for="gear-tg">Analog Rytm MKII · target</label></div><div class="gear-scope"><div class="step">
     <div class="step-head">
       <div class="step-num">Phase 1 — ~25 minutes</div>
       <h3 class="step-title">Match the tone before anything moves</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: match the tone before anything moves. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: match the tone before anything moves. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol class="rules-list">
-        <li><span class="system-tag">Live</span> <strong>Import the record on a REF track.</strong> Drop your chosen track from <em>The Aquaplano Sessions</em> onto a dedicated REF track in Live and loop its most characteristic stretch — a 2–3 minute stretch is fine here, the drift is slow.</li>
-        <li><span class="system-tag">Live</span> Gain-match it with a Utility so comparisons are honest, and keep it one solo away for the whole session.</li>
-        <li><span class="system-tag">MicroFreak</span> <strong>Match the patch’s tone.</strong> On the MicroFreak, build the section’s central sound: pick the engine that gets nearest, match the pitch and register by ear, set the filter where theirs sits.</li>
-        <li><span class="system-tag">Live</span> <strong>A/B against the REF</strong> — yours, theirs, yours — until the gap is the hardware’s, not your ears’.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol class="rules-list">
+        <li><strong>Import the record on a REF track.</strong> Drop your chosen track from <em>The Aquaplano Sessions</em> onto a dedicated REF track in Live and loop its most characteristic stretch — a 2–3 minute stretch is fine here, the drift is slow.</li>
+        <li>Gain-match it with a Utility so comparisons are honest, and keep it one solo away for the whole session.</li>
+        <li><strong>Match the patch’s tone.</strong> On the MicroFreak, build the section’s central sound: pick the engine that gets nearest, match the pitch and register by ear, set the filter where theirs sits.</li>
+        <li><strong>A/B against the REF</strong> — yours, theirs, yours — until the gap is the hardware’s, not your ears’.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Donato Dozzy &amp; Nuel — The Aquaplano Sessions and use Operator or Wavetable into Auto Filter, with clip automation.</li><li>Build the phase goal — <em>Match the tone before anything moves</em> — as the smallest Live set that proves <em>Slow, unsynced modulators inside the voice: they never line up with the bars, so the timbre never lands in the same place twice</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>A loop that breathes for minutes with no audible hand on it — no two passes identical</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>Match the tone before anything moves</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>Slow, unsynced modulators inside the voice: they never line up with the bars, so the timbre never lands in the same place twice</em>, not just the surface of Donato Dozzy &amp; Nuel — The Aquaplano Sessions.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">A static tone that sits next to the record’s central sound as a plausible sibling — same register, same weight, same filter colour — and does not move at all yet.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A static tone that sits next to the record’s central sound as a plausible sibling — same register, same weight, same filter colour — and does not move at all yet.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">If it fails</div>
@@ -150,45 +154,45 @@
       <div class="step-num">Phase 2 — ~25 minutes</div>
       <h3 class="step-title">Wire the two movers</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: wire the two movers. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
-    <p style="max-width: 640px; margin: 18px auto 6px; color: var(--text-muted); font-size: 14.5px; text-align: center;">Two movers slower than attention.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: wire the two movers. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="max-width: 640px; margin: 18px auto 6px; color: var(--text-muted); font-size: var(--fs-lg-plus); text-align: center;">Two movers slower than attention.</p>
     <div class="signal-flow" style="display:block; padding:26px 16px;">
       <svg viewBox="0 0 760 230" width="100%" role="img" aria-label="Two slow unsynced modulators — LFO and cycling envelope — routed into filter and wave">
         <defs>
-          <marker id="arrD" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-            <path d="M0 0 L10 5 L0 10 z" fill="#6e7681"/>
+          <marker id="arrD" viewBox="0 0 10 10" refx="9" refy="5" markerwidth="7" markerheight="7" orient="auto-start-reverse">
+            <path d="M0 0 L10 5 L0 10 z" fill="#6e7681"></path>
           </marker>
         </defs>
-        <rect x="300" y="36" width="160" height="58" rx="10" fill="#1f2530" stroke="#7dd3c0" stroke-width="1.2"/>
+        <rect x="300" y="36" width="160" height="58" rx="10" fill="#1f2530" stroke="#7dd3c0" stroke-width="1.2"></rect>
         <text x="380" y="60" fill="#e6edf3" font-size="13" text-anchor="middle">Filter / Wave</text>
         <text x="380" y="78" fill="#8b949e" font-size="10" text-anchor="middle">where the drift lands</text>
-        <rect x="100" y="150" width="150" height="58" rx="10" fill="#1f2530" stroke="#6e7681" stroke-width="1.2"/>
+        <rect x="100" y="150" width="150" height="58" rx="10" fill="#1f2530" stroke="#6e7681" stroke-width="1.2"></rect>
         <text x="175" y="174" fill="#e6edf3" font-size="13" text-anchor="middle">LFO</text>
         <text x="175" y="192" fill="#8b949e" font-size="10" text-anchor="middle">very slow · unsynced · small amount</text>
-        <rect x="510" y="150" width="150" height="58" rx="10" fill="#1f2530" stroke="#6e7681" stroke-width="1.2"/>
+        <rect x="510" y="150" width="150" height="58" rx="10" fill="#1f2530" stroke="#6e7681" stroke-width="1.2"></rect>
         <text x="585" y="174" fill="#e6edf3" font-size="13" text-anchor="middle">Cycling envelope</text>
         <text x="585" y="192" fill="#8b949e" font-size="10" text-anchor="middle">very slow · unsynced · small amount</text>
-        <line x1="200" y1="146" x2="330" y2="98" stroke="#6e7681" stroke-width="1.2" stroke-dasharray="5 5" marker-end="url(#arrD)"/>
-        <line x1="560" y1="146" x2="430" y2="98" stroke="#6e7681" stroke-width="1.2" stroke-dasharray="5 5" marker-end="url(#arrD)"/>
+        <line x1="200" y1="146" x2="330" y2="98" stroke="#6e7681" stroke-width="1.2" stroke-dasharray="5 5" marker-end="url(#arrD)"></line>
+        <line x1="560" y1="146" x2="430" y2="98" stroke="#6e7681" stroke-width="1.2" stroke-dasharray="5 5" marker-end="url(#arrD)"></line>
         <text x="380" y="135" fill="#8b949e" font-size="10.5" text-anchor="middle">two different periods — they never line up</text>
       </svg>
     </div>
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol class="rules-list">
-        <li><span class="system-tag">MicroFreak</span> <strong>Route the first mover.</strong> In the mod matrix, route LFO → Cutoff at a SMALL amount.</li>
-        <li><span class="system-tag">MicroFreak</span> Small means you barely hear it on one pass — listen to how faint the record’s movement is and start there.</li>
-        <li><span class="system-tag">MicroFreak</span> <strong>Slow the LFO to the record’s rate.</strong> Set the LFO very slow and UNSYNCED — free-running.</li>
-        <li><span class="system-tag">Live</span> Solo the REF and time their drift: how long does one breath of brightness take?</li>
-        <li><span class="system-tag">Live</span> Match it.</li>
-        <li><span class="system-tag">MicroFreak</span> A synced LFO repeats with the loop and the spell collapses — theirs never lines up with the bars, so neither should yours.</li>
-        <li><span class="system-tag">MicroFreak</span> <strong>Add the second mover at a different speed.</strong> Route the cycling envelope → Wave or Timbre, again at a small amount, with rise and fall times that give it a clearly different period from the LFO.</li>
-        <li><span class="system-tag">MicroFreak</span> Set its depth so the secondary movement is as faint as the record’s.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol class="rules-list">
+        <li><strong>Route the first mover.</strong> In the mod matrix, route LFO → Cutoff at a SMALL amount.</li>
+        <li>Small means you barely hear it on one pass — listen to how faint the record’s movement is and start there.</li>
+        <li><strong>Slow the LFO to the record’s rate.</strong> Set the LFO very slow and UNSYNCED — free-running.</li>
+        <li>Solo the REF and time their drift: how long does one breath of brightness take?</li>
+        <li>Match it.</li>
+        <li>A synced LFO repeats with the loop and the spell collapses — theirs never lines up with the bars, so neither should yours.</li>
+        <li><strong>Add the second mover at a different speed.</strong> Route the cycling envelope → Wave or Timbre, again at a small amount, with rise and fall times that give it a clearly different period from the LFO.</li>
+        <li>Set its depth so the secondary movement is as faint as the record’s.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Donato Dozzy &amp; Nuel — The Aquaplano Sessions and use Operator or Wavetable into Auto Filter, with clip automation.</li><li>Build the phase goal — <em>Wire the two movers</em> — as the smallest Live set that proves <em>Slow, unsynced modulators inside the voice: they never line up with the bars, so the timbre never lands in the same place twice</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>A loop that breathes for minutes with no audible hand on it — no two passes identical</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>Wire the two movers</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>Slow, unsynced modulators inside the voice: they never line up with the bars, so the timbre never lands in the same place twice</em>, not just the surface of Donato Dozzy &amp; Nuel — The Aquaplano Sessions.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">On a single pass of the loop, almost nothing audible. Over a minute, an unmistakable slow breathing that never lands in the same place against the bar twice.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">On a single pass of the loop, almost nothing audible. Over a minute, an unmistakable slow breathing that never lands in the same place against the bar twice.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">If it fails</div>
@@ -207,7 +211,7 @@
       <div class="step-num">Phase 3 — ~30 minutes</div>
       <h3 class="step-title">Set it running, then record with your hands off</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: set it running, then record with your hands off. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: set it running, then record with your hands off. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
     <div class="signal-flow">
       <span class="signal-node">MicroFreak (patch running)</span>
       <span class="signal-arrow">→ TS →</span>
@@ -219,17 +223,17 @@
     </div>
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol class="rules-list">
-        <li><span class="system-tag">Digitakt II + Live</span> <strong>Set it running and A/B the drift.</strong> Sequence a pattern matching the section’s figure — or hold the tone the way they do — and let it run next to the REF.</li>
-        <li><span class="system-tag">Live</span> A/B a minute of each: does yours breathe at their rate, and as deep?</li>
-        <li><span class="system-tag">Live</span> Adjust speed and amount until it does, then hands off.</li>
-        <li><span class="system-tag">Live</span> <strong>Record 3 minutes into Live without touching anything.</strong> Hands off is the discipline.</li>
-        <li><span class="system-tag">Logbook</span> If you hear something drifting away from the record, write it down instead of reaching for it.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol class="rules-list">
+        <li><strong>Set it running and A/B the drift.</strong> Sequence a pattern matching the section’s figure — or hold the tone the way they do — and let it run next to the REF.</li>
+        <li>A/B a minute of each: does yours breathe at their rate, and as deep?</li>
+        <li>Adjust speed and amount until it does, then hands off.</li>
+        <li><strong>Record 3 minutes into Live without touching anything.</strong> Hands off is the discipline.</li>
+        <li>If you hear something drifting away from the record, write it down instead of reaching for it.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Donato Dozzy &amp; Nuel — The Aquaplano Sessions and use audio clips, Simpler/Sampler, clip envelopes, and resampling.</li><li>Build the phase goal — <em>Set it running, then record with your hands off</em> — as the smallest Live set that proves <em>Slow, unsynced modulators inside the voice: they never line up with the bars, so the timbre never lands in the same place twice</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>A loop that breathes for minutes with no audible hand on it — no two passes identical</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>Set it running, then record with your hands off</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>Slow, unsynced modulators inside the voice: they never line up with the bars, so the timbre never lands in the same place twice</em>, not just the surface of Donato Dozzy &amp; Nuel — The Aquaplano Sessions.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Three recorded minutes with zero performed events — and a tone that, A/B’d in any 10-second window, drifts at the record’s rate and depth.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Three recorded minutes with zero performed events — and a tone that, A/B’d in any 10-second window, drifts at the record’s rate and depth.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">If it fails</div>
@@ -248,23 +252,23 @@
       <div class="step-num">Phase 4 — ~15 minutes</div>
       <h3 class="step-title">Listen back, then look at the waveform</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: listen back, then look at the waveform. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: listen back, then look at the waveform. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol class="rules-list">
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol class="rules-list">
         <li><strong>Listen back twice.</strong> Once as an audience member, start to finish.</li>
-        <li><span class="system-tag">Live</span> Then once more A/Bing against the REF, following only the timbre — where is yours bright while theirs is dull, and does either ever announce the moment it changed?</li>
-        <li><span class="system-tag">Live</span> <strong>Observe — see it, not just hear it.</strong> Zoom the waveform at minute 0 and minute 2½ and LOOK at two cycles of the loop side by side — visibly different shapes from the same notes.</li>
-        <li><span class="system-tag">Live</span> The patch did that, not you — the same engine the record left running.</li>
+        <li>Then once more A/Bing against the REF, following only the timbre — where is yours bright while theirs is dull, and does either ever announce the moment it changed?</li>
+        <li><strong>Observe — see it, not just hear it.</strong> Zoom the waveform at minute 0 and minute 2½ and LOOK at two cycles of the loop side by side — visibly different shapes from the same notes.</li>
+        <li>The patch did that, not you — the same engine the record left running.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Donato Dozzy &amp; Nuel — The Aquaplano Sessions and use Operator or Wavetable into Auto Filter, with clip automation.</li><li>Build the phase goal — <em>Listen back, then look at the waveform</em> — as the smallest Live set that proves <em>Slow, unsynced modulators inside the voice: they never line up with the bars, so the timbre never lands in the same place twice</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>A loop that breathes for minutes with no audible hand on it — no two passes identical</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>Listen back, then look at the waveform</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>Slow, unsynced modulators inside the voice: they never line up with the bars, so the timbre never lands in the same place twice</em>, not just the surface of Donato Dozzy &amp; Nuel — The Aquaplano Sessions.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Two waveform snapshots of the same bar that do not match — and no moment in either listening pass where you could say “there, it changed.”</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Two waveform snapshots of the same bar that do not match — and no moment in either listening pass where you could say “there, it changed.”</p>
     </div>
   </div>
 
-  <div class="decision-check">
+  </div></div><div class="decision-check">
     <div class="decision-check-label">Verify against the record</div>
     <p>A/B your recording against the looped section — 10 seconds of yours, 10 of theirs — would a friend hesitate? Then answer two questions in writing.</p>
     <p><strong>Over a full minute of each, does yours breathe at their rate and depth, or does one of you drift faster?</strong></p>
@@ -296,5 +300,6 @@
 
 </div>
 
+  <script src="../nav.js"></script>
 </body>
 </html>

@@ -6,7 +6,7 @@
 <title>Replicate: One Voice, Every Role — Phuture</title>
 <link rel="stylesheet" href="../styles.css">
 </head>
-<body>
+<body class="page-type-rep" id="top">
 
 <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
 <label for="nav-toggle" class="hamburger" aria-label="Menu">
@@ -16,6 +16,7 @@
 <nav class="nav" aria-label="Workshop contents">
   <p class="nav-label">Workshop</p>
   <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
   <a href="index.html" class="active"><span class="nav-num">01</span>The Bench</a>
   <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
   <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
@@ -28,12 +29,15 @@
 </nav>
 
 <div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 1 · The Bench</a><span class="breadcrumb-sep">/</span><span>Replicate: One Voice, Every Role</span></nav>
 
   <header class="page-header">
     <div class="eyebrow">Block 1 · Replication lesson</div>
     <h1>Replicate: One Voice, Every Role</h1>
     <p class="lede">Copy one clear section of Phuture — “Acid Tracks”. Build the main parts, record a short take, and compare it to the reference at the same loudness.</p>
   </header>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l1.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs">Labs</a><a href="lab-r1.html" data-section="rebuild">Rebuild</a><a href="capstone-c1.html" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep" class="current">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
   <div class="callout">
     <div class="callout-label">The point</div>
     <p>This drill teaches the record's core mechanism: cutoff + resonance ridden through distinct states. Do only the steps that make that mechanism audible.</p>
@@ -74,7 +78,7 @@
       <div class="step-num">Reference pass · 10 minutes</div>
       <h3 class="step-title">Listen before you build</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Listen to about one minute of Phuture — “Acid Tracks”. Choose the clearest short section. Write one short answer for each question before you touch the gear.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Listen to about one minute of Phuture — “Acid Tracks”. Choose the clearest short section. Write one short answer for each question before you touch the gear.</p>
     <ol class="rules-list">
       <li>How many “different sounds” would a casual listener count?
         <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Most casual listeners count five or six “sounds” plus drums - a dull bass, a squelchy lead, a screaming noise, something rubbery. Write your number down before reading the next answer; the gap between the two numbers is the record’s trick.</p></div></details>
@@ -92,7 +96,7 @@
         <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>The filter pulls back down between peaks - never fully shut, but dull enough to reset your ear. Those choked stretches are the breathing; without them the screaming-open state would be exhausting instead of thrilling.</p></div></details>
       </li>
     </ol>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Now build the section you described. Do not build from memory.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Now build the section you described. Do not build from memory.</p>
   </div>
 
   <div class="note-block">
@@ -133,24 +137,60 @@
     <span class="signal-node">Digitakt II kick → own track</span>
   </div>
 
+  <div class="gear-switch">
+    <input type="radio" name="gear" id="gear-hw" class="gear-radio" checked>
+    <input type="radio" name="gear" id="gear-sw" class="gear-radio">
+    <input type="radio" name="gear" id="gear-tg" class="gear-radio">
+    <div class="gear-labels">
+      <span class="gear-lead">Your rig</span>
+      <label for="gear-hw">MicroFreak + Digitakt II</label>
+      <label for="gear-sw">Ableton Live only</label>
+      <label for="gear-tg">Analog Four · target</label>
+    </div>
+    <div class="gear-scope">
+
   <div class="step">
     <div class="step-head">
       <div class="step-num">Phase 1</div>
       <h3 class="step-title">Set the reference</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: set the reference. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: set the reference. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Live</span> Drop “Acid Tracks” onto an audio track named <span class="code">REF</span>.</li>
-        <li><span class="system-tag">Live</span> Find the most characteristic 8–16 bars and loop them.</li>
-        <li><span class="system-tag">Live</span> Gain-match with a <span class="menu">Utility</span> on REF.</li>
-        <li><span class="system-tag">Live</span> Keep REF one solo away for the whole session.</li>
-      </ol>
+      <div class="phase-tabs">
+        <div class="phase-tab-panels">
+          <div class="phase-tab-panel">
+            <ol>
+              <li>Your voices are the MicroFreak and Digitakt II, but REF still needs a host — use <span class="system-tag">Live</span> as a plain tape machine here.</li>
+              <li>Drop “Acid Tracks” onto an audio track named <span class="code">REF</span>.</li>
+              <li>Find the most characteristic 8–16 bars and loop them.</li>
+              <li>Gain-match with a <span class="menu">Utility</span> on REF.</li>
+              <li>Keep REF one solo away — you will A/B the hardware against it all session.</li>
+            </ol>
+          </div>
+          <div class="phase-tab-panel">
+            <ol>
+              <li>Drop “Acid Tracks” onto an audio track named <span class="code">REF</span>.</li>
+              <li>Find the most characteristic 8–16 bars and loop them.</li>
+              <li>Gain-match with a <span class="menu">Utility</span> on REF.</li>
+              <li>Add an empty MIDI track named <span class="code">ACID</span> now — your in-the-box voice lands here next phase.</li>
+              <li>Keep REF one solo away for the whole session.</li>
+            </ol>
+          </div>
+          <div class="phase-tab-panel">
+            <ol>
+              <li>Drop “Acid Tracks” onto a Live audio track named <span class="code">REF</span> (or play it from your phone if you are working standalone).</li>
+              <li>Loop the most characteristic 8–16 bars and gain-match with a <span class="menu">Utility</span>.</li>
+              <li>Clock the Analog Four from Live: <span class="menu">MIDI To → Analog Four</span>, A4 set to receive Transport + Clock, tempo <span class="code">122</span>.</li>
+              <li>Load an init sound on A4 track 1 so its sequencer locks to REF from the first bar.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">A clean loop of the section whose squelch states you will be matching, at an honest level.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A clean loop of the section whose squelch states you will be matching, at an honest level.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">If it fails</div>
@@ -169,21 +209,47 @@
       <div class="step-num">Phase 2</div>
       <h3 class="step-title">Transcribe the line, match the sound</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: transcribe the line, match the sound. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: transcribe the line, match the sound. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">MicroFreak + Live</span> Transcribe the 303 line by ear — their notes, your best hearing of them — into a 16-step Live MIDI clip, <span class="menu">MIDI To → MicroFreak</span>.</li>
-        <li><span class="system-tag">Live</span> Solo REF, hum it, place it, compare; revise until the lines chase each other.</li>
-        <li><span class="system-tag">MicroFreak</span> Match the sound: low-pass, cutoff low, resonance around <span class="code">60–70 %</span>.</li>
-        <li><span class="system-tag">MicroFreak</span> Envelope: fast attack, medium decay.</li>
-        <li><span class="system-tag">MicroFreak</span> <span class="code">Paraphonic</span> OFF.</li>
-        <li><span class="system-tag">MicroFreak + Live</span> Tweak against REF until it has the record’s 303 contour, squelch, and decay.</li>
-      </ol>
+      <div class="phase-tabs">
+        <div class="phase-tab-panels">
+          <div class="phase-tab-panel">
+            <ol>
+              <li>Transcribe the 303 line by ear — their notes, your best hearing of them — into a 16-step Live MIDI clip, <span class="menu">MIDI To → MicroFreak</span>.</li>
+              <li>Solo REF, hum it, place it, compare; revise until the lines chase each other.</li>
+              <li>On MicroFreak: low-pass, cutoff low, resonance around <span class="code">60–70 %</span>.</li>
+              <li>Envelope: fast attack, medium decay.</li>
+              <li><span class="code">Paraphonic</span> OFF.</li>
+              <li>Tweak against REF until it has the record’s 303 contour, squelch, and decay.</li>
+            </ol>
+          </div>
+          <div class="phase-tab-panel">
+            <ol>
+              <li>Live has no 303 — build the acid voice in the box. On the <span class="code">ACID</span> track add <span class="menu">Operator</span>: one oscillator, sawtooth, the rest off.</li>
+              <li>Transcribe the line by ear into a 16-step clip; A/B against soloed REF until the lines chase each other.</li>
+              <li>Add <span class="menu">Auto Filter</span> after Operator: Low-pass, resonance high (<span class="code">~70 %</span>), a little Drive.</li>
+              <li>Volume envelope in Operator: fast attack, medium decay.</li>
+              <li>Set the track to Mono with Glide on for slides between accented steps.</li>
+              <li>Tweak Auto Filter cutoff + Operator decay against REF until it squelches like the record.</li>
+            </ol>
+          </div>
+          <div class="phase-tab-panel">
+            <ol>
+              <li>On A4 track 1: one oscillator set to sawtooth, sub off.</li>
+              <li>Program the line into the A4 sequencer (or play it from a Live MIDI clip); A/B against soloed REF.</li>
+              <li>Filter: 2-pole/4-pole low-pass, cutoff low, resonance up toward bite.</li>
+              <li>Amp envelope: fast attack, medium decay; add a touch of <span class="code">Overdrive</span>.</li>
+              <li>Use <span class="code">SLIDE</span> trigs on the accented steps for the 303’s legato gait.</li>
+              <li>Tweak filter + decay against REF until the contour and squelch match.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Your line and theirs looping together — same notes, same gait, recognisably the same family of squelch.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Your line and theirs looping together — same notes, same gait, recognisably the same family of squelch.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">If it fails</div>
@@ -202,7 +268,7 @@
       <div class="step-num">Phase 3</div>
       <h3 class="step-title">Arm the print, ride the filter</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: arm the print, ride the filter. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: arm the print, ride the filter. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
     <div class="note-block">
       <ul>
         <li><strong>Safety — before the “screaming open” state:</strong> resonance near self-oscillation gets loud and piercing fast. Headphones at the mark or lower — never turn up to inspect. Sweep slowly, hold the loud states for seconds only, and if it bites, pull resonance down first and reset immediately.</li>
@@ -210,12 +276,34 @@
     </div>
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li>Arm the print track — <span class="code">MF PRINT</span>, <span class="menu">Audio From → Ext. In → 1</span> — and start recording before you touch anything.</li>
-        <li><span class="system-tag">MicroFreak + Live</span> Loop the clip and ride cutoff + resonance by hand, matching the record’s squelch states where they happen in the section: dull rubber → mid squelch → screaming open → choked back down, each arriving where theirs arrives.</li>
-        <li><span class="system-tag">MicroFreak + Live</span> Record audio the whole time — no stopping to fix; a flawed full take beats a perfect fragment.</li>
-        <li><span class="system-tag">MicroFreak + Live</span> Mind the safety note above before the “screaming open” state.</li>
-      </ol>
+      <div class="phase-tabs">
+        <div class="phase-tab-panels">
+          <div class="phase-tab-panel">
+            <ol>
+              <li>Arm the print track — <span class="code">MF PRINT</span>, <span class="menu">Audio From → Ext. In → 1</span> — and start recording before you touch anything.</li>
+              <li>Loop the clip and ride MicroFreak cutoff + resonance by hand, matching the record’s squelch states where they happen: dull rubber → mid squelch → screaming open → choked back down, each arriving where theirs arrives.</li>
+              <li>Record audio the whole time — no stopping to fix; a flawed full take beats a perfect fragment.</li>
+              <li>Mind the safety note above before the “screaming open” state.</li>
+            </ol>
+          </div>
+          <div class="phase-tab-panel">
+            <ol>
+              <li>Map a hardware knob to <span class="menu">Auto Filter → Frequency</span> and a second to <span class="menu">Resonance</span> (<kbd>⌘ M</kbd> to MIDI-map).</li>
+              <li>Arm a fresh audio track set to <span class="menu">Audio From → Resampling</span> and start recording before you touch anything.</li>
+              <li>Ride cutoff + resonance through the same four states; with no controller, draw the automation in gestures — flat holds and sharp leans, never even curves.</li>
+              <li>Bounce the full pass — no stopping to fix. Mind the safety note before the “screaming open” state.</li>
+            </ol>
+          </div>
+          <div class="phase-tab-panel">
+            <ol>
+              <li>Capture A4 into Live via Overbridge (or its main out into an armed audio track); arm before you touch anything.</li>
+              <li>Ride the filter live with the A4’s <span class="code">PERFORMANCE</span> knobs or a <span class="code">SCENE</span> morph through the four states.</li>
+              <li>For a repeatable ride you can p-lock cutoff/resonance per step — but a live hand still beats a static lock here.</li>
+              <li>Record the full pass. Mind the safety note before the “screaming open” state.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
       <div class="timeline">
         <div class="timeline-row">
           <div class="timeline-time">0:00–1:00</div>
@@ -234,11 +322,11 @@
           <div class="timeline-desc">Choked back down — pull toward dull, never fully shut; the breath before the end.</div>
         </div>
       </div>
-      <p style="color: var(--text-muted); font-size: 13.5px; text-align: center; margin: 10px 0 0;">Place the changes where the record places them — the minutes here are a scaffold; the record supplies the timing.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-md-plus); text-align: center; margin: 10px 0 0;">Place the changes where the record places them — the minutes here are a scaffold; the record supplies the timing.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">One continuous take in which the same sixteen notes pass through four distinct characters, at the record’s moments.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">One continuous take in which the same sixteen notes pass through four distinct characters, at the record’s moments.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">If it fails</div>
@@ -257,19 +345,41 @@
       <div class="step-num">Phase 4</div>
       <h3 class="step-title">See it, then anchor it with the kick</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: see it, then anchor it with the kick. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: see it, then anchor it with the kick. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">MicroFreak</span> Drop a Spectrum on the synth track and watch the resonant peak — a bright spike that <em>moves</em> as you sweep cutoff.</li>
-        <li><span class="system-tag">MicroFreak</span> See it once and you’ll hear it forever.</li>
-        <li><span class="system-tag">Digitakt II</span> Add only a Digitakt II kick where theirs sits — plain hits on the 16-step grid, placed where the record places them.</li>
-        <li><span class="system-tag">Digitakt II</span> No other elements, no effects — the dryness keeps the illusion honest.</li>
-      </ol>
+      <div class="phase-tabs">
+        <div class="phase-tab-panels">
+          <div class="phase-tab-panel">
+            <ol>
+              <li>Drop a <span class="menu">Spectrum</span> on the synth track and watch the resonant peak — a bright spike that <em>moves</em> as you sweep cutoff.</li>
+              <li>See it once and you’ll hear it forever.</li>
+              <li>Add only a Digitakt II kick where theirs sits — plain hits on the 16-step grid, placed where the record places them.</li>
+              <li>No other elements, no effects — the dryness keeps the illusion honest.</li>
+            </ol>
+          </div>
+          <div class="phase-tab-panel">
+            <ol>
+              <li>Drop a <span class="menu">Spectrum</span> on the <span class="code">ACID</span> track and watch the resonant peak move as cutoff sweeps.</li>
+              <li>See it once and you’ll hear it forever.</li>
+              <li>Add a kick from a <span class="menu">Drum Rack</span> (or Live’s <span class="menu">Kick</span>) where theirs sits — plain hits on the 16-step grid.</li>
+              <li>No other elements, no effects — the dryness keeps the illusion honest.</li>
+            </ol>
+          </div>
+          <div class="phase-tab-panel">
+            <ol>
+              <li>Drop a <span class="menu">Spectrum</span> on the captured A4 track and watch the resonant peak move.</li>
+              <li>See it once and you’ll hear it forever.</li>
+              <li>Program a plain kick on a second A4 track (analog kick) where theirs sits.</li>
+              <li>No other elements, no effects — the dryness keeps the illusion honest.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">You can point at the spike that your ear was calling “a new instrument”, and the kick carries the pulse without stealing the show.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">You can point at the spike that your ear was calling “a new instrument”, and the kick carries the pulse without stealing the show.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">If it fails</div>
@@ -288,18 +398,38 @@
       <div class="step-num">Phase 5</div>
       <h3 class="step-title">Mark, compare, export</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: mark, compare, export. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: mark, compare, export. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Live</span> Listen back and mark with locators where each “new sound” appears in yours and where it appears in REF.</li>
-        <li><span class="system-tag">Live</span> Name the knob position that made each one — and how far it landed from the record’s moment.</li>
-        <li><span class="system-tag">Live</span> Export the four minutes — <span class="menu">File → Export Audio/Video</span>, WAV, named <span class="code">REP-acid-tracks</span>.</li>
-      </ol>
+      <div class="phase-tabs">
+        <div class="phase-tab-panels">
+          <div class="phase-tab-panel">
+            <ol>
+              <li>Listen back and mark with locators where each “new sound” appears in yours and where it appears in REF.</li>
+              <li>Name the MicroFreak knob position that made each one — and how far it landed from the record’s moment.</li>
+              <li>Export the four minutes — <span class="menu">File → Export Audio/Video</span>, WAV, named <span class="code">REP-acid-tracks</span>.</li>
+            </ol>
+          </div>
+          <div class="phase-tab-panel">
+            <ol>
+              <li>Listen back and mark with locators where each “new sound” appears in yours and where it appears in REF.</li>
+              <li>Name the Auto Filter cutoff/resonance value that made each one — and how far it landed from the record’s moment.</li>
+              <li>Export — <span class="menu">File → Export Audio/Video</span>, WAV, named <span class="code">REP-acid-tracks</span>.</li>
+            </ol>
+          </div>
+          <div class="phase-tab-panel">
+            <ol>
+              <li>Listen back and mark with locators where each “new sound” appears in yours and where it appears in REF.</li>
+              <li>Name the A4 filter setting (or scene position) that made each one — and how far it landed from the record’s moment.</li>
+              <li>Export — <span class="menu">File → Export Audio/Video</span>, WAV, named <span class="code">REP-acid-tracks</span>.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Paired locators a few seconds apart at worst, each labelled with a knob position — and a finished WAV.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Paired locators a few seconds apart at worst, each labelled with a knob position — and a finished WAV.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">If it fails</div>
@@ -310,6 +440,9 @@
           <tr><td>The export contains REF</td><td>Reference track not muted at render</td><td>Mute REF, re-export, and listen to the file before filing it</td></tr>
         </tbody>
       </table>
+    </div>
+  </div>
+
     </div>
   </div>
 
@@ -351,5 +484,6 @@
 
 </div>
 
+  <script src="../nav.js"></script>
 </body>
 </html>

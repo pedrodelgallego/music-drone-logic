@@ -6,7 +6,7 @@
 <title>Block 1 — The Bench</title>
 <link rel="stylesheet" href="../styles.css">
 </head>
-<body>
+<body class="page-type-block-index" id="top">
 
 <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
 <label for="nav-toggle" class="hamburger" aria-label="Menu">
@@ -16,6 +16,7 @@
 <nav class="nav" aria-label="Workshop contents">
   <p class="nav-label">Workshop</p>
   <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
   <a href="../block-1/index.html" class="active"><span class="nav-num">01</span>The Bench</a>
   <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
   <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
@@ -28,18 +29,29 @@
 </nav>
 
 <div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><span>Block 1 · The Bench</span></nav>
 
   <header class="page-header">
     <div class="eyebrow">Block 1 — The Bench</div>
     <h1>Listen, calibrate the studio, then prove it with a piece</h1>
   </header>
 
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview" class="current">Overview</a><a href="listening-l1.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs">Labs</a><a href="lab-r1.html" data-section="rebuild">Rebuild</a><a href="capstone-c1.html" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
+
   <div class="callout">
     <div class="callout-label">Engineering focus</div>
-    <p>By C1 you can draw the full studio path, identify every gain stage, distinguish input, track, bus, and master clipping, say exactly what you are monitoring — and record the same source cleanly at three levels and defend one.</p>
+    <p>By the end (project C1) you can draw your whole studio's signal path and point to every place the volume can change. You can tell apart clipping at the input, the track, the bus, and the master, and say exactly what you're listening through. And you can record the same sound cleanly at three volumes, then explain which one you'd keep.</p>
   </div>
 
-  <h2>Required path</h2>
+  <div class="note-block">
+    <ul>
+      <li><strong>New to synthesis?</strong> Do <a href="../block-00/index.html">Block 00 — Foundations</a> first. It teaches the atoms — oscillators, filters, envelopes, LFOs — one control at a time on your own gear, and ends in a sound-recipe cookbook. This block assumes you can already make and shape a sound.</li>
+      <li><strong>Optional setup first:</strong> <a href="../block-0/index.html">Block 0 — The Rig</a> is a deep, opinionated guide to wiring and configuring your exact gear, with diagrams, side-by-side setup comparisons, and a Day&nbsp;1 → Year&nbsp;1 plan. You don't need it — the labs below walk you through the minimum wiring — but it's there when you want the <em>why</em>.</li>
+    </ul>
+  </div>
+
+  <h2 id="working-order">Required path</h2>
 
   <div class="checklist">
     <div class="checklist-head">
@@ -47,32 +59,32 @@
       <div class="checklist-label">Do these in this order</div>
     </div>
     <ol>
-      <li><a href="listening-l1.html">Programme L1</a> — run the three listening sessions and name one stolen principle</li>
-      <li><a href="lab-001.html">Lab 001</a> — certify the signal path and gain stages</li>
-      <li><a href="lab-002.html">Lab 002</a> — certify latency, clock, and monitoring</li>
-      <li><a href="lab-r1.html">R1</a> — rebuild the eight bars from L1 Session 2 and correct the worksheet</li>
-      <li>Required drills — <a href="rep-spastik.html">grid + clock</a>, <a href="rep-losing-control.html">p-locks + mutes</a>, <a href="rep-quadrant-dub.html">sends + riding</a> — the three moves Lab 003 assumes</li>
-      <li><a href="lab-003.html">Lab 003</a> — build the worked hypnotic piece</li>
-      <li><a href="lab-004.html">Lab 004</a> — build the one-voice étude</li>
-      <li><a href="lab-004b.html">Lab 004b</a> — build its beatless twin on the same patch, and amend the gain ledger for sustained material</li>
-      <li><a href="capstone-c1.html">Capstone C1</a> — make a second piece from constraints and renew bench certification</li>
+      <li><a href="listening-l1.html">Programme L1</a> — do the three listening sessions and name one idea you'll borrow</li>
+      <li><a href="lab-001.html">Lab 001</a> — map and test your signal path and every volume control</li>
+      <li><a href="lab-002.html">Lab 002</a> — test your timing, clock, and monitoring</li>
+      <li><a href="lab-r1.html">R1</a> — rebuild the eight bars from L1 Session 2 and fix your worksheet</li>
+      <li>Required drills — <a href="rep-spastik.html">grid + clock</a>, <a href="rep-losing-control.html">per-step settings + mutes</a>, <a href="rep-quadrant-dub.html">sends + live mixing</a> — the three skills Lab 003 expects you to have</li>
+      <li><a href="lab-003.html">Lab 003</a> — build the worked-through hypnotic techno piece</li>
+      <li><a href="lab-004.html">Lab 004</a> — build a short piece from a single sound</li>
+      <li><a href="lab-004b.html">Lab 004b</a> — build a beatless version from the same sound, and update your volume notes for long, held sounds</li>
+      <li><a href="capstone-c1.html">Capstone C1</a> — make a second piece from a set of rules, and re-test your studio setup</li>
     </ol>
   </div>
 
   <div class="note-block">
     <ul>
-      <li><strong>Replication lessons are optional drills.</strong> Use them when a reference exposes a specific weakness in your listening or bench technique — except the three that <a href="lab-003.html">Lab 003</a> names as prerequisites, and <a href="lab-r1.html">R1</a>: those are required.</li>
+      <li><strong>Rebuild lessons are optional practice.</strong> Use one when a track shows up a specific weak spot in your listening or studio skills. The exceptions are the three drills <a href="lab-003.html">Lab 003</a> lists as prerequisites, plus <a href="lab-r1.html">R1</a> — those are required.</li>
     </ul>
   </div>
 
-  <h2>Listening programme L1 — repetition &amp; hypnosis</h2>
+  <h2 id="listening-programme">Listening programme L1 — repetition &amp; hypnosis</h2>
 
   <div class="step">
     <div class="step-head">
       <div class="step-num">Session 1 · Records</div>
       <h3 class="step-title">Four engines of repetition</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">The same idea — a loop that never bores — built four different ways. The fourth is the limit case: repetition with the rate at zero. Analyze each with the six-question frame, then name what distinguishes the engines.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">The same idea — a loop that never gets boring — done four different ways. The fourth is the extreme case: repetition slowed all the way to a standstill. Analyse each one with the six questions, then say what makes the four approaches different.</p>
     <table class="param-table">
       <tr><td>Basic Channel — “Quadrant Dub I”</td><td>dub-filtered loop</td></tr>
       <tr><td>Plastikman — <em>Consumed</em> (title track)</td><td>subtractive automation</td></tr>
@@ -90,7 +102,7 @@
       <div class="step-num">Session 2 · Samples</div>
       <h3 class="step-title">Deconstruction — one track to its sources</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Pick one hypnotic track and trace it backwards: kick, hats, chord stab — what raw material, what processing chain, in what order? The sixth question does the heavy lifting: what path had to exist for this record to exist?</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Pick one hypnotic track and work backwards through it: kick, hats, chord stab. For each one, ask what the raw sound was, what was done to it, and in what order. The sixth question matters most: what setup had to exist for this record to be made?</p>
   </div>
 
   <div class="step">
@@ -98,7 +110,7 @@
       <div class="step-num">Session 3 · Video</div>
       <h3 class="step-title">A hardware-techno live set, watched for restraint</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin: 0 0 14px;">Watch the hands, not the lights: where are they? What is being ridden live and what is pre-planned? What is being monitored? What is the failure risk, and what is impossible to recover later?</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0 0 14px;">Watch the hands, not the lights. Where are they? What is being adjusted live, and what was set up in advance? What is the performer listening to? What could go wrong, and what couldn't be fixed afterwards?</p>
     <table class="param-table">
       <tr><td><a href="https://www.youtube.com/watch?v=5BtUlkYXS3o" target="_blank" rel="noopener">Surgeon — Boiler Room London LIVE Set</a></td><td>watch for one-person control, restraint, and recovery risk</td></tr>
       <tr><td><a href="https://www.youtube.com/watch?v=WU0k08fGBdk" target="_blank" rel="noopener">Karenn — Boiler Room London Live Set</a></td><td>watch for shared hardware roles and planned instability</td></tr>
@@ -108,59 +120,66 @@
 
   <div class="note-block">
     <ul>
-      <li><strong>Deliverable:</strong> written system analyses (six questions per reference) + <strong>one stolen principle</strong> — a structural idea, never material, named in advance and evaluated at C1. Full briefs and worksheets: <a href="listening-l1.html">programme L1</a> <span class="status available">available</span></li>
+      <li><strong>Deliverable:</strong> a written analysis of each track (the six questions) plus <strong>one borrowed idea</strong> — a structure or method, never the actual sounds — chosen up front and checked at C1. Full briefs and worksheets: <a href="listening-l1.html">programme L1</a> <span class="status available">available</span></li>
     </ul>
   </div>
 
-  <h2>Labs</h2>
+  <h2 id="labs">Labs</h2>
 
   <table>
     <tr><th>#</th><th>Lab</th><th>Type</th><th>Status</th></tr>
     <tr>
       <td class="num">001</td>
       <td><span class="lab-title"><a href="lab-001.html">Signal Path &amp; Gain Staging</a></span>
-        <span class="lab-context">outputs: studio signal map v1 · gain ledger · three-level recording · clipping diagnosis table — fault: clip at the wrong stage, locate it</span></td>
+        <span class="lab-context">you'll make: a studio signal map · a volume-settings sheet · a three-level recording · a clipping chart — fault to find: clipping at the wrong stage, locate it</span></td>
       <td>Bench</td>
       <td><span class="status available">available</span></td>
     </tr>
     <tr>
       <td class="num">002</td>
       <td><span class="lab-title"><a href="lab-002.html">Clock, Latency &amp; Monitoring</a></span>
-        <span class="lab-context">outputs: loopback latency measurement · monitoring-mode comparison · “what I hear vs what is printed” table — fault: doubled-monitoring comb filter</span></td>
+        <span class="lab-context">you'll make: a delay measurement · a comparison of monitoring modes · a "what I hear vs what gets recorded" table — fault to find: the hollow sound from hearing a signal twice</span></td>
       <td>Bench</td>
       <td><span class="status available">available</span></td>
     </tr>
     <tr>
       <td class="num">R1</td>
       <td><span class="lab-title"><a href="lab-r1.html">Rebuild the Loop</a></span>
-        <span class="lab-context">≈8 bars of one L1 record, rebuilt from your Samples-session worksheet — the analysis, verified; output: replica (study only) + miss list</span></td>
+        <span class="lab-context">about 8 bars of one L1 track, rebuilt from your listening notes to check the analysis; you'll make: a copy (for study only) + a list of what you missed</span></td>
       <td>Replication</td>
       <td><span class="status available">available</span></td>
     </tr>
     <tr>
       <td class="num">003</td>
       <td><span class="lab-title"><a href="lab-003.html">Repetition as Engine</a></span>
-        <span class="lab-context">context: hypnotic techno — the worked exemplar with both specs filled; condenses <a href="../../guide/index.html">Lab Note 001</a>, which remains the deep reference</span></td>
+        <span class="lab-context">style: hypnotic techno — the fully worked example with every spec filled in; a short version of <a href="../../guide-b1-001/index.html">Lab Note B1-001</a>, which stays the in-depth reference</span></td>
       <td>Track</td>
+      <td><span class="status available">available</span></td>
+    </tr>
+    <tr>
+      <td class="num">003b</td>
+      <td><span class="lab-title"><a href="lab-003b.html">Measurement Tools</a></span>
+        <span class="lab-context">you'll make: spectrum-analyser and correlation-meter drills — the tools that show problems you can't quite hear, turning "sounds bad somewhere" into a reading you can act on</span></td>
+      <td>Bench</td>
       <td><span class="status available">available</span></td>
     </tr>
     <tr>
       <td class="num">004</td>
       <td><span class="lab-title"><a href="lab-004.html">One Oscillator, One Filter</a></span>
-        <span class="lab-context">context: deep techno — étude: a 3-minute piece from a single subtractive voice</span></td>
+        <span class="lab-context">style: deep techno — a short study: a 3-minute piece built from one synth voice</span></td>
       <td>Étude</td>
       <td><span class="status available">available</span></td>
     </tr>
     <tr>
       <td class="num">004b</td>
       <td><span class="lab-title"><a href="lab-004b.html">One Voice, No Clock</a></span>
-        <span class="lab-context">context: sustained tone — the beatless twin of 004 on the same patch; includes the required kick-vs-held-tone bench comparison (crest factor) that amends the lab 001 gain ledger</span></td>
+        <span class="lab-context">style: a held tone — the beatless version of 004 from the same sound; includes the required comparison of a kick vs a held tone (how peaky each one is) that updates your Lab 001 volume sheet</span></td>
       <td>Étude</td>
       <td><span class="status available">available</span></td>
     </tr>
   </table>
 
-  <h2>Optional replication lessons — one per reference</h2>
+  <h2 id="replication-lessons">Optional replication lessons — one per reference</h2>
 
   <table>
     <tr><th>Paired with</th><th>Lesson</th><th>The system replicated</th></tr>
@@ -202,22 +221,22 @@
     <tr>
       <td class="num">Lab 001</td>
       <td><span class="lab-title"><a href="rep-eleh.html">Replicate: level as composition</a></span><span class="lab-context">Eleh — <em>Floating Frequencies / Intuitive Synthesis</em></span></td>
-      <td>The fader as the score — loudness relationships do all the composing</td>
+      <td>Volume balance is the whole composition — no other tools needed</td>
     </tr>
     <tr>
       <td class="num">Lab 001</td>
       <td><span class="lab-title"><a href="rep-permafrost.html">Replicate: music your monitoring decides</a></span><span class="lab-context">Thomas Köner — “Permafrost”</span></td>
-      <td>Depth that lives below 200 Hz — the playback path decides whether the piece exists at all</td>
+      <td>The piece is built from very low bass — speakers or headphones that can't reach it will miss most of the music</td>
     </tr>
     <tr>
       <td class="num">Lab 001</td>
       <td><span class="lab-title"><a href="rep-demiurge.html">Replicate: the path is the instrument</a></span><span class="lab-context">Emptyset — “Demiurge”</span></td>
-      <td>A near-empty skeleton driven into saturation and limiting — the gain stages are the orchestration</td>
+      <td>Almost nothing is here, but each volume stage is pushed hard — the character of the sound comes entirely from that pressure</td>
     </tr>
     <tr>
       <td class="num">Lab 002</td>
       <td><span class="lab-title"><a href="rep-super-ape.html">Replicate: the deliberate double</a></span><span class="lab-context">Lee “Scratch” Perry — <em>Super Ape</em></span></td>
-      <td>Two copies, ms apart: comb → width → echo, chosen by the gap</td>
+      <td>Two copies of the same signal a few milliseconds apart — the gap between them controls whether you hear a comb effect, stereo width, or echo</td>
     </tr>
     <tr>
       <td class="num">Lab 002</td>
@@ -252,17 +271,17 @@
     <tr>
       <td class="num">Lab 002</td>
       <td><span class="lab-title"><a href="rep-numbers.html">Replicate: the grid as a choice</a></span><span class="lab-context">Kraftwerk — “Numbers”</span></td>
-      <td>Exactness is the groove — funk from placement, accent, and subtraction at zero timing offset</td>
+      <td>Every note lands exactly on the grid, yet it still grooves — the feel comes from which notes are accented or left out, not from timing shifts</td>
     </tr>
     <tr>
       <td class="num">Lab 002</td>
       <td><span class="lab-title"><a href="rep-playa-playa.html">Replicate: the dragged pocket</a></span><span class="lab-context">D’Angelo — “Playa Playa”</span></td>
-      <td>Each layer late behind the kick by its own constant milliseconds — together apart</td>
+      <td>Each instrument sits a fixed number of milliseconds behind the kick — every part has its own delay, so the band is always slightly behind but always together</td>
     </tr>
     <tr>
       <td class="num">Lab 002</td>
       <td><span class="lab-title"><a href="rep-lfo.html">Replicate: the note your speakers decide</a></span><span class="lab-context">LFO — “LFO”</span></td>
-      <td>A sub hook whose fundamental only some playback paths can play — monitoring as part of the instrument</td>
+      <td>The main riff sits in the deep bass — small speakers can't reproduce it at all, so what you hear depends entirely on what you're listening through</td>
     </tr>
     <tr>
       <td class="num">L1 · 003</td>
@@ -282,7 +301,7 @@
     <tr>
       <td class="num">L1 · 004b</td>
       <td><span class="lab-title"><a href="rep-time-machines.html">Replicate: one tone, slow phase</a></span><span class="lab-context">Coil — <em>Time Machines</em></span></td>
-      <td>Two detuned oscillators, held — beating as the only motion, duration as the instrument</td>
+      <td>Two tones pitched very slightly apart, held for a long time — the slow pulsing between them is the only movement, and how long you hold the note is the whole point</td>
     </tr>
     <tr>
       <td class="num">Lab 003</td>
@@ -307,17 +326,17 @@
     <tr>
       <td class="num">Lab 003</td>
       <td><span class="lab-title"><a href="rep-waterfall.html">Replicate: drift below the event</a></span><span class="lab-context">Rrose — “Waterfall”</span></td>
-      <td>Parameters drifting at unrelated sub-perceptual rates — variation below the event threshold reads as life</td>
+      <td>Multiple settings drift independently at speeds too slow to notice moment to moment — together they make the loop feel alive rather than frozen</td>
     </tr>
     <tr>
       <td class="num">Lab 003</td>
       <td><span class="lab-title"><a href="rep-voiceprint.html">Replicate: the mantra loop</a></span><span class="lab-context">Function — “Voiceprint”</span></td>
-      <td>A fixed vocal grain repeated until the word dissolves; the form is what leaves and returns around it</td>
+      <td>A short vocal fragment looped until the word loses its meaning — the track's structure is built from what drops away and what comes back around that loop</td>
     </tr>
     <tr>
       <td class="num">Lab 003</td>
       <td><span class="lab-title"><a href="rep-black-propaganda.html">Replicate: same loop, different light</a></span><span class="lab-context">Oscar Mulero — “Black Propaganda”</span></td>
-      <td>A frozen pattern under slow global treatments — tilt, room, noise — carries a whole arrangement</td>
+      <td>The loop itself never changes — slow shifts in EQ, reverb, and noise applied to the whole mix do all the arranging</td>
     </tr>
     <tr>
       <td class="num">Lab 004</td>
@@ -357,17 +376,17 @@
     <tr>
       <td class="num">Lab 004</td>
       <td><span class="lab-title"><a href="rep-no-way-back.html">Replicate: one bassline, whole record</a></span><span class="lab-context">Adonis — “No Way Back”</span></td>
-      <td>One riff as melody, groove, and hook — the filter and accents carry the foreground, the mutes carry the form</td>
+      <td>One riff does everything — melody, rhythm, and hook — with filter sweeps and accents carrying the energy, and mutes shaping the song's structure</td>
     </tr>
     <tr>
       <td class="num">Lab 004</td>
       <td><span class="lab-title"><a href="rep-elephant-island.html">Replicate: pattern logic as variation</a></span><span class="lab-context">Sleeparchive — “Elephant Island”</span></td>
-      <td>When the voice is fixed, the sequencer is the synthesis — development is which steps fire</td>
+      <td>The sound itself never changes — all the variation comes from which steps in the sequencer are turned on or off</td>
     </tr>
     <tr>
       <td class="num">Lab 004</td>
       <td><span class="lab-title"><a href="rep-magneze.html">Replicate: economy with teeth</a></span><span class="lab-context">Surgeon — “Magneze”</span></td>
-      <td>One voice grows fiercer every bar without anything added — the aggression curve is the arrangement</td>
+      <td>One sound gets more intense every bar — nothing is added, just pushed harder through filter and level until the track feels aggressive</td>
     </tr>
   </table>
 
@@ -379,27 +398,38 @@
       <div class="checklist-label">Track labs &amp; capstones — before any quality judgment</div>
     </div>
     <ul>
-      <li>Audible output exists</li>
-      <li>Routing diagram exists — drawn before patching, corrected after</li>
-      <li>One fault was diagnosed: symptom, cause, fix, prevention rule</li>
-      <li>Print map exists — what is audio, what is state, what is gone</li>
-      <li>System diff sentence: “I thought it worked like X; it worked like Y”</li>
+      <li>There is sound you can hear</li>
+      <li>A wiring diagram exists — drawn before you patch, fixed afterwards</li>
+      <li>You found and fixed one fault: what went wrong, why, the fix, and how to avoid it next time</li>
+      <li>A record of what you saved — which parts are audio, which are settings, and what's gone for good</li>
+      <li>One sentence on what surprised you: “I thought it worked like X; it actually worked like Y”</li>
     </ul>
   </div>
 
-  <h2>Capstone C1 — gate</h2>
+  <h2 id="capstone">Capstone C1 — gate</h2>
 
   <div class="step">
     <div class="step-head">
       <div class="step-num">Capstone C1 · Gate</div>
       <h3 class="step-title"><a href="capstone-c1.html">A second hypnotic piece, from a constraint menu</a></h3>
     </div>
-    <p style="color: var(--text-muted); text-align: center; margin: 0;">Constraints-only brief: no recipe. Bench certification renewed, stolen principle from L1 applied and documented. <span class="status available">available</span></p>
+    <p style="color: var(--text-muted); text-align: center; margin: 0;">You get rules, not a recipe. Re-test your studio setup, then use the idea you borrowed in L1 — and write down how. <span class="status available">available</span></p>
   </div>
 
   <div class="tag-row">
     <span class="tag">gear at this block: nearfield monitors + room treatment</span>
     <span class="tag">keystep 37</span>
+  </div>
+
+  <h2>Deep references — Lab Notes</h2>
+  <div class="note-block">
+    <ul>
+      <li><strong><a href="../../guide-b1-001/index.html">Lab Note B1-001 — Repetition as Engine</a></strong> — the fully worked hypnotic techno build, end to end (the original course).</li>
+      <li><strong><a href="../../guide-b1-002/index.html">Lab Note B1-002 — Unity</a></strong> — gain structure &amp; the signal path from zero.</li>
+      <li><strong><a href="../../guide-b1-003/index.html">Lab Note B1-003 — Lock</a></strong> — clock, latency &amp; the monitoring path.</li>
+      <li><strong><a href="../../guide-b1-004/index.html">Lab Note B1-004 — Metering</a></strong> — reading meters, measuring what you hear.</li>
+      <li><strong><a href="../../guide-b1-005/index.html">Lab Note B1-005 — Subtractive</a></strong> — one oscillator, one filter, one voice from init.</li>
+    </ul>
   </div>
 
   <div class="page-nav">
@@ -417,5 +447,6 @@
 
 </div>
 
+  <script src="../nav.js"></script>
 </body>
 </html>

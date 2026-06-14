@@ -6,7 +6,7 @@
 <title>Lab 001 — Signal Path &amp; Gain Staging</title>
 <link rel="stylesheet" href="../styles.css">
 </head>
-<body>
+<body class="page-type-lab" id="top">
 
 <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
 <label for="nav-toggle" class="hamburger" aria-label="Menu">
@@ -16,6 +16,7 @@
 <nav class="nav" aria-label="Workshop contents">
   <p class="nav-label">Workshop</p>
   <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
   <a href="index.html" class="active"><span class="nav-num">01</span>The Bench</a>
   <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
   <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
@@ -28,6 +29,7 @@
 </nav>
 
 <div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 1 · The Bench</a><span class="breadcrumb-sep">/</span><span>Signal Path &amp; Gain Staging</span></nav>
 
   <header class="page-header">
     <div class="eyebrow">Block 1 · Lab 001 · Bench</div>
@@ -35,6 +37,8 @@
     <p class="lede">Between your synth and your headphones, the volume of a sound gets changed in about ten different places. This lab shows you where every one of them is, what to set it to, and how to tell — by ear and by meter — when one of them is wrong.</p>
   </header>
   <p class="block-meta">Bench lab · S1 · E2 · full cycle · new concepts: 5</p>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l1.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs" class="current">Labs</a><a href="lab-r1.html" data-section="rebuild">Rebuild</a><a href="capstone-c1.html" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
 
   <div class="signal-flow">
     <span class="signal-node">patch cables</span>
@@ -236,7 +240,7 @@
         <span class="listen-tag">depth from levels alone</span>
       </summary>
       <div class="listen-body">
-        <p>Nothing in it is loud, yet it feels heavy and deep — and all of that comes from how quiet everything is relative to everything else.</p>
+        <p>Nothing in it is loud, but it feels heavy and deep. All of that weight comes from how quiet everything is compared to everything else.</p>
         <div class="sub-label">Listen for</div>
         <ul>
           <li>How far <em>below</em> the chord the hi-hat sits — it is barely there, on purpose.</li>
@@ -244,7 +248,7 @@
           <li>That nothing ever jumps out at you, start to finish.</li>
         </ul>
         <div class="sub-label">After — verify</div>
-        <p>Name the loudest element — you will struggle, because there barely is one, and that is the answer. Did you ever want to turn it up? That urge is the point: the depth comes from restraint, and turning it up would erase it. Couldn’t answer? Relisten and focus only on the gap between the chord stabs — what fills it, and how quietly.</p>
+        <p>Name the loudest element. You will struggle, because there barely is one — and that is the point. Did you want to turn it up? Good: the depth comes from restraint, and turning it up would erase it. If you couldn’t name anything, listen again and focus only on the gaps between the chord stabs — what fills them, and how quietly.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Rhythm+%26+Sound+Mango+Drive" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Rhythm%20%26%20Sound%20Mango%20Drive">Spotify</a></p>
         <p class="listen-rep"><a href="rep-mango-drive.html">Replicate it — step-by-step lesson →</a></p>
       </div>
@@ -256,15 +260,15 @@
         <span class="listen-tag">overdrive on purpose</span>
       </summary>
       <div class="listen-body">
-        <p>It makes the opposite decision — distortion is the actual sound, driven hard on purpose.</p>
-        <div class="sub-label">Listen for</div>
+        <p>This track makes the opposite choice from “Mango Drive” — the distortion is the actual sound. Everything is driven hard on purpose.</p>
+        <div class=”sub-label”>Listen for</div>
         <ul>
           <li>Which elements are distorted — the lead, the bass — and which are left clean.</li>
-          <li>Anything undistorted quietly holding the track together underneath the aggression.</li>
+          <li>Anything undistorted quietly holding the track together underneath the heavy sound.</li>
           <li>Whether the distortion is constant, or changes as the track moves.</li>
         </ul>
-        <div class="sub-label">After — verify</div>
-        <p>Could you separate “driven on purpose” from “accidentally too loud”? Hint: purposeful drive stays musically consistent; an accident would wander. Then name one clean element you heard — if you can’t, relisten to the first minute and track a single undistorted element all the way through.</p>
+        <div class=”sub-label”>After — verify</div>
+        <p>Could you tell “driven on purpose” from “accidentally too loud”? Purposeful drive stays consistent; an accident wanders. Then name one clean element you heard. If you can’t, relisten to the first minute and follow a single undistorted sound all the way through.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Gesaffelstein+Pursuit" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Gesaffelstein%20Pursuit">Spotify</a></p>
         <p class="listen-rep"><a href="rep-pursuit.html">Replicate it — step-by-step lesson →</a></p>
       </div>
@@ -276,14 +280,14 @@
         <span class="listen-tag">noise floor as lead</span>
       </summary>
       <div class="listen-body">
-        <p>Stefan Betke built it on what most people would call a mistake — the crackle of a broken filter — and kept everything else quiet enough that the background noise becomes the lead instrument.</p>
+        <p>Stefan Betke built it around what most people would call a mistake — the crackle of a broken filter. He kept everything else quiet enough that this background noise becomes the lead instrument.</p>
         <div class="sub-label">Listen for</div>
         <ul>
           <li>The crackle as a <em>rhythm</em>, not a flaw — it keeps time.</li>
-          <li>How quiet and how few the other elements are, so the crackle survives on top.</li>
+          <li>How quiet and sparse everything else is, so the crackle stays on top.</li>
         </ul>
         <div class="sub-label">After — verify</div>
-        <p>Can you tell Pole’s intended crackle from any hiss your own playback system adds? If unsure, pause the track: what disappears was the music; what remains is your system’s own noise. That exact distinction is what step 06’s quiet take teaches.</p>
+        <p>Can you tell Pole’s intended crackle from any hiss your own speakers or headphones add? If unsure, pause the track. What disappears was the music; what stays is your system’s own noise. That difference is exactly what step 06’s quiet take teaches.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Pole+Tanzen+2" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Pole%20Tanzen%202">Spotify</a></p>
         <p class="listen-rep"><a href="rep-pole.html">Replicate it — step-by-step lesson →</a></p>
       </div>
@@ -295,15 +299,15 @@
         <span class="listen-tag">clipping as sound design</span>
       </summary>
       <div class="listen-body">
-        <p>The clipping tour teaches you to avoid the red light; SOPHIE drives straight through it. Here clipping is pushed so far past “damage” that it becomes a designed timbre — metallic, plastic, percussive sounds whose entire identity is the distortion itself.</p>
-        <div class="sub-label">Listen for</div>
+        <p>The clipping tour in this lab teaches you to avoid the red light. SOPHIE drives straight through it. Here, clipping (when a sound is too loud and the top gets cut off, adding a harsh edge) is pushed so far that it becomes a deliberate texture — metallic, plastic, percussive sounds whose whole character is the distortion.</p>
+        <div class=”sub-label”>Listen for</div>
         <ul>
           <li>Which sounds <em>are</em> the distortion — not distorted versions of something else, but sounds with no clean original underneath.</li>
           <li>The textures the clipping produces: metal sheet, plastic snap, rubber — sound design, not damage.</li>
           <li>How precisely each clipped hit starts and stops — nothing here is an accident drifting through the mix.</li>
         </ul>
-        <div class="sub-label">After — verify</div>
-        <p>Pick one harsh sound and try to imagine its clean version. If you can’t — if removing the distortion would remove the sound — you have found clipping as sound design rather than clipping as a fault. Couldn’t do it? Relisten to the chorus and follow a single metallic hit each time it returns: same edge, same placement, every time. That repeatability is the signature of a decision.</p>
+        <div class=”sub-label”>After — verify</div>
+        <p>Pick one harsh sound and try to imagine its clean version. If you can’t — if removing the distortion would remove the sound — you have found clipping used as sound design rather than as a fault. Can’t hear it? Relisten to the chorus and follow a single metallic hit each time it returns. Same edge, same placement, every time. That repeatability is the sign of a deliberate choice.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=SOPHIE+Faceshopping" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:SOPHIE%20Faceshopping">Spotify</a></p>
         <p class="listen-rep"><a href="rep-faceshopping.html">Replicate it — step-by-step lesson →</a></p>
       </div>
@@ -315,15 +319,15 @@
         <span class="listen-tag">the pushed mix</span>
       </summary>
       <div class="listen-body">
-        <p>Instead of driving one chosen element, Parrish pushes the whole mix — gently, everywhere at once — so every sound grits together as one room. Nothing is clean, and that is the decision.</p>
-        <div class="sub-label">Listen for</div>
+        <p>Instead of pushing one element hard, Parrish pushes the whole mix — gently, everywhere at once. Every sound grits together as if they all came from the same room. Nothing is clean, and that is the decision.</p>
+        <div class=”sub-label”>Listen for</div>
         <ul>
-          <li>The glue: kick, chords, and hats sharing one texture instead of sitting in separate clean spaces.</li>
-          <li>The thickened groove — how the gentle overload makes the rhythm feel heavier without anything getting louder.</li>
-          <li>Any element that escapes clean. You will not find one; the drive is on the sum, not on a target.</li>
+          <li>The shared texture: kick, chords, and hats all coated the same way, instead of sitting in separate clean spaces.</li>
+          <li>How the gentle overload makes the rhythm feel heavier without anything getting louder.</li>
+          <li>Any element that sounds clean. You will not find one — the drive is on the full mix, not on one target.</li>
         </ul>
-        <div class="sub-label">After — verify</div>
-        <p>Compare this in your head to “Pursuit”: there, one element snarls over a clean floor; here, everything wears the same grit. Can you name where the drive lives — on a sound, or on the whole mix? If unsure, relisten to the chords alone, then the hats alone: the same warm fuzz coats both, which tells you the distortion sits after they were summed.</p>
+        <div class=”sub-label”>After — verify</div>
+        <p>Compare this to “Pursuit” in your head. There, one element snarls over a clean floor. Here, everything wears the same grit. Can you name where the drive lives — on a single sound, or on the whole mix? If unsure, listen to the chords alone, then the hats alone. The same warm fuzz coats both, which tells you the distortion is placed after all the sounds were combined.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Theo+Parrish+Falling+Up" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Theo%20Parrish%20Falling%20Up">Spotify</a></p>
         <p class="listen-rep"><a href="rep-falling-up.html">Replicate it — step-by-step lesson →</a></p>
       </div>
@@ -335,15 +339,15 @@
         <span class="listen-tag">quiet as depth</span>
       </summary>
       <div class="listen-body">
-        <p>The opposite extreme of “Mango Drive”, taken even further: the loudest element is conversational, and the depth of the track comes from enormous restraint — gaps of level where most records would pile sound.</p>
-        <div class="sub-label">Listen for</div>
+        <p>This takes “Mango Drive” even further: the loudest element is soft, almost conversational. The depth of the track comes from leaving space where most records pile in more sound.</p>
+        <div class=”sub-label”>Listen for</div>
         <ul>
           <li>How complete the track feels while peaking low — nothing is missing, yet nothing is pushed.</li>
           <li>The space between elements: each one surrounded by air, none competing for the top of the meter.</li>
-          <li>How intimate the loudest moment is — conversational, not climactic.</li>
+          <li>How quiet the loudest moment is — soft, not climactic.</li>
         </ul>
-        <div class="sub-label">After — verify</div>
-        <p>Play it quiet — actually quiet, phones below the mark. It should bloom: detail and depth come forward instead of vanishing, because the balances were built for that headroom. If it thinned out instead, your listening level was doing the mix’s work; relisten at the lower volume and notice which elements step toward you.</p>
+        <div class=”sub-label”>After — verify</div>
+        <p>Play it quietly — actually quiet, phones below the mark. The detail and depth should come forward instead of vanishing, because the balances were built for that kind of headroom. If it thinned out instead, your listening level was doing the mix’s work. Relisten at the lower volume and notice which elements seem to step toward you.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=DJ+Sprinkles+Grand+Central+Pt+I" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:DJ%20Sprinkles%20Grand%20Central">Spotify</a></p>
         <p class="listen-rep"><a href="rep-grand-central.html">Replicate it — step-by-step lesson →</a></p>
       </div>
@@ -355,15 +359,15 @@
         <span class="listen-tag">saturation as mass</span>
       </summary>
       <div class="listen-body">
-        <p>Mass without loudness: a held chord through heavy amplifier saturation fills the entire spectrum with sustained harmonics. The wall is made of drive and time, not level.</p>
-        <div class="sub-label">Listen for</div>
+        <p>This feels massive, but not because it is loud. A held chord is pushed through heavy amplifier <strong>saturation</strong> (gentle overload that adds warmth and grit, and piles up extra frequencies called harmonics). Those harmonics fill the whole sound range. The size comes from drive and time, not from turning up the volume.</p>
+        <div class=”sub-label”>Listen for</div>
         <ul>
-          <li>One chord occupying the whole frequency range, bottom to top — harmonics doing the work a full arrangement usually does.</li>
+          <li>One chord filling the whole frequency range, top to bottom — the harmonics are doing the work a full arrangement usually does.</li>
           <li>How slowly anything changes — the sustain itself is the event.</li>
-          <li>Where the sense of “huge” comes from: density of harmonics, not meter level.</li>
+          <li>Where the sense of “huge” comes from: the density of those harmonics, not the meter level.</li>
         </ul>
-        <div class="sub-label">After — verify</div>
-        <p>Count: how many notes are actually being played? The honest answer is shockingly few — one chord, maybe one note, held. Everything else you hear is saturation multiplying it across the spectrum. If the wall still sounds like “many instruments” to you, relisten to a single minute and track the moment a note changes — the gaps between changes reveal how little is being played.</p>
+        <div class=”sub-label”>After — verify</div>
+        <p>Count how many notes are actually being played. The honest answer is very few — one chord, maybe one note, held. Everything else you hear is saturation multiplying it across the spectrum. If the wall still sounds like “many instruments,” relisten to one minute and track the moment a note changes. The long gaps between changes show how little is actually being played.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Sunn+O%29%29%29+It+Took+the+Night+to+Believe" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Sunn%20O%29%29%29%20It%20Took%20the%20Night%20to%20Believe">Spotify</a></p>
         <p class="listen-rep"><a href="rep-sunn-o.html">Replicate it — step-by-step lesson →</a></p>
       </div>
@@ -375,15 +379,15 @@
         <span class="listen-tag">level as composition</span>
       </summary>
       <div class="listen-body">
-        <p>Two or three pure low tones, and the only thing that ever happens is their loudness relationship shifting — over minutes, on material too bare to hide anything. The fader is the score.</p>
-        <div class="sub-label">Listen for</div>
+        <p>Two or three pure low tones — and the only thing that ever happens is their volume relationship slowly shifting. The volume balance is the whole composition. There are no other events.</p>
+        <div class=”sub-label”>Listen for</div>
         <ul>
-          <li>How many tones are sounding — you will overcount, because pure tones fuse into one sound when their balance is even and split apart again as it shifts.</li>
-          <li>How long one change takes to complete: a rise begins below the threshold of noticing and finishes after you have stopped waiting for it.</li>
-          <li>That nothing ever changes pitch or color — every “event” is one tone moving in front of another, and nothing else.</li>
+          <li>How many tones are sounding — you will overcount. Pure tones blend into one sound when their balance is even, then seem to separate again as it shifts.</li>
+          <li>How long one change takes: a rise begins before you notice it and finishes after you stopped waiting for it.</li>
+          <li>That nothing ever changes pitch or timbre — every “event” is just one tone moving in front of another.</li>
         </ul>
-        <div class="sub-label">After — verify</div>
-        <p>Try to name a single event that is not a level change. You will fail, and the failure is the answer: which tone is in front is the entire content, so the mixing and the writing are one act. Couldn’t hear it as events at all? Relisten to three minutes and write a tone count at three different moments — the counts will disagree with each other, and that disagreement is the balance moving.</p>
+        <div class=”sub-label”>After — verify</div>
+        <p>Try to name a single event that is not a volume change. You will fail, and that is the answer: which tone is in front is the entire content. Can’t hear it as events at all? Relisten to three minutes and write a tone count at three different moments. The counts will disagree with each other — and that disagreement is the balance moving.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Eleh+Floating+Frequencies+Intuitive+Synthesis" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Eleh%20Floating%20Frequencies">Spotify</a></p>
         <p class="listen-rep"><a href="rep-eleh.html">Replicate it — step-by-step lesson →</a></p>
       </div>
@@ -395,15 +399,15 @@
         <span class="listen-tag">music your monitoring decides</span>
       </summary>
       <div class="listen-body">
-        <p>A piece that lives almost entirely below ≈ 200 Hz — vast and physical on a playback path that can reproduce it, near-silence on a laptop. The monitoring chain, not the file, decides whether the music exists.</p>
+        <p>Almost everything in this piece sits below ≈ 200 Hz — the lowest part of the hearing range, felt as much as heard. On a playback system that can reproduce it, it feels vast and physical. On a laptop speaker, it is near-silence. The monitoring chain (your interface, headphones, or speakers) decides whether the music exists — not the file.</p>
         <div class="sub-label">Listen for</div>
         <ul>
-          <li>The highest-pitched sound you can find — almost nothing above the low mids; the foundation register is the whole building.</li>
-          <li>How many nameable events happen in three minutes: none — only slow weather, one layer of rumble leaning into another.</li>
-          <li>Where the music registers first — in the chest and the skull as pressure, before the ear files it as sound.</li>
+          <li>The highest-pitched sound you can find — almost nothing above the low mids; the bass register is the whole track.</li>
+          <li>How many distinct events happen in three minutes: almost none — only slow shifts, one layer of rumble leaning into another.</li>
+          <li>Where the music registers first — in your chest and skull as pressure, before the ear files it as a sound.</li>
         </ul>
         <div class="sub-label">After — verify</div>
-        <p>Play one minute on the DT 990s at the mark, then the same minute on your laptop’s speakers. What survived? A thin hiss, maybe nothing — yet the meter would still claim a healthy signal, because it reads the file, not the air. If both passes sounded similar, your phones path is wrong or far below the mark; relisten on the phones first and check the lab wiring. That gap between the two listenings is the monitoring row of the gain ledger, heard.</p>
+        <p>Play one minute on the DT 990s at the mark, then the same minute on your laptop speakers. What survived? Maybe a thin hiss, maybe nothing — yet the meter would still show a healthy signal, because it reads the file, not the air coming out of the speakers. If both listenings sounded similar, your headphone path is wrong or far below the mark. Relisten on the headphones first and check the lab wiring. That gap between the two listenings is the monitoring row of the gain ledger, made audible.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Thomas+K%C3%B6ner+Permafrost" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Thomas%20K%C3%B6ner%20Permafrost">Spotify</a></p>
         <p class="listen-rep"><a href="rep-permafrost.html">Replicate it — step-by-step lesson →</a></p>
       </div>
@@ -415,22 +419,22 @@
         <span class="listen-tag">the path is the instrument</span>
       </summary>
       <div class="listen-body">
-        <p>A near-skeleton of low pulse and sine, and almost nothing else — all the body, dirt, and articulation come from how hard the signal hits each stage. Saturation and limiting are the orchestration.</p>
+        <p>There's almost nothing here: a low pulse and a plain sine tone. All the weight and grit come from how hard that signal is pushed through each stage of the chain. Saturation and limiting are doing the work an arrangement usually does.</p>
         <div class="sub-label">Listen for</div>
         <ul>
-          <li>How little source material sits under all that weight — subtract the dirt in your head and almost nothing remains.</li>
-          <li>Sections changing as amounts of drive, not as new parts: the pattern barely moves, the pressure on the chain does.</li>
-          <li>That the biggest-feeling moments barely get louder — the output is pinned, and what grows is density, not level.</li>
+          <li>How little source material sits under all that weight — imagine stripping out the distortion in your head and almost nothing remains.</li>
+          <li>Sections changing by adding more drive, not new parts: the pattern barely moves, but the pressure on the chain increases.</li>
+          <li>That the biggest-feeling moments barely get louder — the output level is pinned, and what grows is density, not volume.</li>
         </ul>
         <div class="sub-label">After — verify</div>
-        <p>Pick the densest passage and ask what was added since the barest one. The honest answer is nothing — the same skeleton, pushed harder into the same stages. If it still sounds like new instruments arriving, relisten across one section boundary and track the pulse pattern through it: same hits, thicker coat. That coat is the signal path being played.</p>
+        <p>Pick the densest passage and ask what was added since the barest one. The honest answer is nothing — the same skeleton, pushed harder into the same stages. If it still sounds like new instruments arriving, relisten across one section change and track the pulse pattern through it. Same hits, thicker coat. That coat is the signal path being pushed harder.</p>
         <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Emptyset+Demiurge" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Emptyset%20Demiurge">Spotify</a></p>
         <p class="listen-rep"><a href="rep-demiurge.html">Replicate it — step-by-step lesson →</a></p>
       </div>
     </details>
   </div>
 
-  <p style="color: var(--text-muted); font-size: 14.5px; margin: 18px 0 0;">Before touching gear, write a one-sentence hypothesis in the logbook naming what you stole from across these ten records — quiet, overload, noise itself, clipping as a timbre, drive on the whole mix, restraint as depth, saturation as mass, level as the score itself, monitoring as the gatekeeper, the path played as an instrument — ten different gain decisions, and every one of them chosen <em>deliberately</em>. The target is something like: <strong style="color: var(--text);">gain is a decision at every stage — including the decision to abuse it.</strong> Your sentence, in your words; this hypothesis is what the bench will test.</p>
+  <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 18px 0 0;">Before touching gear, write one sentence in the logbook. Name what you took from these ten records — ten different ways to use volume: quiet as depth, distortion on purpose, noise as melody, clipping as texture, drive on the whole mix, restraint, saturation for size, level as the composition, monitoring as the gatekeeper, the signal path as an instrument. Every one of those was a deliberate choice. Your sentence should point at the one that surprised you most. Aim for something like: <strong style="color: var(--text);">gain is a decision at every stage — including the decision to abuse it.</strong> Use your own words. This hypothesis is what the bench will test.</p>
 
   <h2>Before you start</h2>
 
@@ -450,14 +454,14 @@
 
   <div class="note-block">
     <ul>
-      <li><strong>Session A stop point:</strong> stop after step 05 when the bench passes signal, the phones knob is marked, and the gain ledger exists. Do not continue if the signal path still feels mysterious.</li>
-      <li><strong>Session B stop point:</strong> finish steps 06–08 and the fault ritual. This session is about judgment: hearing level choices, locating clipping, and correcting the map.</li>
+      <li><strong>Session A stop point:</strong> stop after step 05, once the bench passes signal, the phones knob is marked, and the gain ledger is filled. Don't continue if the signal path still feels unclear.</li>
+      <li><strong>Session B stop point:</strong> finish steps 06–08 and the fault ritual. This session is about judgment — hearing the difference between level choices, finding where clipping lives, and correcting the map.</li>
     </ul>
   </div>
 
   <h2>The bench, drawn</h2>
 
-  <p style="text-align:center; max-width:640px; margin:0 auto 18px; color:var(--text-muted);">This is the whole audio bench — every cable you are about to plug in steps 01–03. Two flows run in parallel: audio (the sound you can hear) and control (messages that tell machines what to do). Keep them separate in your head and in your drawings.</p>
+  <p style="text-align:center; max-width:640px; margin:0 auto 18px; color:var(--text-muted);">This is the whole audio bench — every cable you will plug in steps 01–03. Two separate flows run at the same time: audio (the actual sound) and control (messages that tell machines what to do). Keep them separate in your head and in your drawings.</p>
 
 <div class="signal-flow" style="display:block; padding:26px 16px;">
   <svg viewBox="0 0 760 300" width="100%" role="img" aria-label="Audio bench wiring — every cable on the bench">
@@ -515,14 +519,14 @@
 
   <div class="note-block">
     <ul>
-      <li><strong>TS vs TRS:</strong> the MicroFreak output is unbalanced, so a plain TS guitar-style cable is correct there. The Digitakt II main outs are impedance-balanced — TRS cables on those two runs reject hum. TS also works; you just lose the noise rejection.</li>
-      <li><strong>Why input 1 and not 1/2:</strong> the MicroFreak is mono. One jack, one mono input — width, when you want it, will be created deliberately with effects, not accidentally with a second cable.</li>
+      <li><strong>TS vs TRS:</strong> the MicroFreak output is unbalanced, so a plain TS (guitar-style) cable is correct there. The Digitakt II main outs are impedance-balanced — TRS cables on those two runs cancel out hum picked up along the wire. TS also works; you just lose the noise rejection.</li>
+      <li><strong>Why input 1 and not 1/2:</strong> the MicroFreak is mono — one signal, not two. Plug it into one mono input. If you want a wide stereo sound later, create it deliberately with effects, not by accident with a second cable.</li>
       <li><strong>Keep audio and power cables apart.</strong> If you hear a faint whine later, the usual suspect is an audio cable lying across a power supply or a USB hub.</li>
       <li><strong>If your gear differs:</strong> keep the roles, not the model names. One mono source, one stereo source, one interface, one headphone path, one DAW. Replace MicroFreak, Digitakt II, M4, and Live with equivalent boxes in your own map.</li>
     </ul>
   </div>
 
-  <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:11px; letter-spacing:0.2em; text-transform:uppercase;">Control path — MIDI only, no audio</h3>
+  <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:var(--fs-xs); letter-spacing:0.2em; text-transform:uppercase;">Control path — MIDI only, no audio</h3>
   <div class="signal-flow">
     <span class="signal-node">computer USB-MIDI</span>
     <span class="signal-arrow">→</span>
@@ -544,7 +548,7 @@
       <div class="step-num">Step 01</div>
       <h3 class="step-title">Patch the bench</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Goal: every cable in its named jack, exactly as the drawing above shows — so everything that happens later happens on a path you know.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Goal: every cable in its named jack, exactly as the drawing above shows. Everything that happens later depends on you knowing where each cable goes.</p>
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
@@ -559,12 +563,12 @@
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Nothing. No sound, no meters — nothing is configured yet, so silence is correct. A bench that made noise at this point would be the surprise worth investigating.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Nothing — no sound, no meters. Nothing is configured yet, so silence is correct. If the bench is already making noise at this point, that is worth investigating.</p>
     </div>
 
     <div class="sub-block">
       <div class="sub-label">Logbook</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Start <strong style="color: var(--text);">Studio Signal Map v1</strong> now, by hand, from what you just plugged: the audio path and the control path as <em>two separate drawings</em>. Label every box and arrow, and mark every point where level can change with a small <span class="code">g</span> — those marks become the rows of the gain ledger in step 05. Date the drawings.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Start <strong style="color: var(--text);">Studio Signal Map v1</strong> now, by hand, based on what you just plugged. Draw the audio path and the control path as <em>two separate drawings</em>. Label every box and arrow. Mark every point where volume can change with a small <span class="code">g</span> — those marks become the rows of the gain ledger in step 05. Date the drawings.</p>
     </div>
   </div>
 
@@ -574,7 +578,7 @@
       <div class="step-num">Step 02</div>
       <h3 class="step-title">Configure Live</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Goal: tell Live that the M4 carries all sound coming in and going out — one box in charge of audio, with the right inputs and outputs switched on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Goal: tell Live that the M4 handles all sound coming in and going out. One box in charge of audio, with the right inputs and outputs turned on.</p>
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
@@ -589,7 +593,7 @@
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">MOTU M4 listed in <em>both</em> device menus, and the Input Config dialog showing 1, 2 and 3/4 lit. The Latency section now reports a round-trip figure — read it once; lab 002 will measure whether it tells the truth.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">MOTU M4 listed in <em>both</em> device menus, and the Input Config dialog showing 1, 2, and 3/4 lit. The Latency section now shows a round-trip figure — note it once; lab 002 will check whether it is accurate.</p>
     </div>
 
     <div class="sub-block">
@@ -605,7 +609,7 @@
 
     <div class="sub-block">
       <div class="sub-label">Logbook</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">One row: <span class="code">48 kHz · 256 samples · in 1, 2, 3/4 · out 1/2, 3, 4</span> — the bench’s standing configuration.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">One row: <span class="code">48 kHz · 256 samples · in 1, 2, 3/4 · out 1/2, 3, 4</span> — the bench’s standing configuration.</p>
     </div>
   </div>
 
@@ -615,7 +619,7 @@
       <div class="step-num">Step 03</div>
       <h3 class="step-title">Create the test tracks and confirm signal</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Goal: first sound — both instruments moving Live’s meters and audible in the headphones, through one listening path only.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Goal: first sound. Both instruments should move Live’s meters and be audible in the headphones, through one listening path only.</p>
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
@@ -641,7 +645,7 @@
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">The <span class="code">MF TEST</span> meter moves while the note is held; the <span class="code">DT TEST</span> meter moves on the pads; you hear both in the headphones. The M4’s front display shows the same activity on its input meters — two meters agreeing is your first proof the path works.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">The <span class="code">MF TEST</span> meter moves while the note is held. The <span class="code">DT TEST</span> meter moves on the pads. You hear both in the headphones. The M4’s front display shows the same activity on its input meters — both meters agreeing is your first proof the path works.</p>
     </div>
 
     <div class="sub-block">
@@ -659,7 +663,7 @@
 
     <div class="sub-block">
       <div class="sub-label">Logbook</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">One dated line: “Both sources metering and audible — the bench passes signal.”</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">One dated line: “Both sources metering and audible — the bench passes signal.”</p>
     </div>
   </div>
 
@@ -669,20 +673,20 @@
       <div class="step-num">Step 04</div>
       <h3 class="step-title">Define nominal and mark the phones knob</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Goal: pick the target volume — the nominal level from the concepts table — and write it down, so “too quiet” and “too hot” mean something for the rest of the workshop. One unit first: Live’s meters read in <strong style="color: var(--text);">dBFS</strong>, where <span class="code">0</span> is the absolute top of what the system can record, so <span class="code">−12 dBFS</span> means twelve below the top.</p>
+    <p style=”color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;”>Goal: pick a target volume — the <strong>nominal level</strong> (the agreed volume you aim for and write down) — so “too quiet” and “too hot” mean something for the rest of the workshop. One unit first: Live’s meters read in <strong style=”color: var(--text);”>dBFS</strong> (decibels full scale), where <span class=”code”>0</span> is the absolute maximum the system can record. So <span class=”code”>−12 dBFS</span> means twelve steps below the top.</p>
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
       <ol>
-        <li>Write the nominal definition into the logbook: <strong>tracking peaks ≈ <span class="code">−12 dBFS</span> on Live’s input meter, never above <span class="code">−6 dBFS</span></strong>. The space left above is not waste — it is room for saturation, reverb build-up, and the master bus later.</li>
-        <li>Set unity everywhere downstream: all track faders <span class="code">0 dB</span>, all clip gain <span class="code">0 dB</span>, master fader <span class="code">0 dB</span>. If a recording is quiet at unity, the fix lives upstream — at the source or at the preamp (the small amplifier behind the interface’s input jack, controlled by its gain knob) — never at the fader.</li>
+        <li>Write the nominal definition into the logbook: <strong>tracking peaks ≈ <span class="code">−12 dBFS</span> on Live’s input meter, never above <span class="code">−6 dBFS</span></strong>. The space left above is not wasted — it is headroom for saturation, reverb build-up, and the master bus later.</li>
+        <li>Set unity gain (the "change nothing" setting, 0 dB) everywhere downstream: all track faders <span class="code">0 dB</span>, all clip gain <span class="code">0 dB</span>, master fader <span class="code">0 dB</span>. If a recording is quiet at these settings, the fix is upstream — at the source or at the preamp (the small amplifier inside the interface, controlled by its input gain knob) — never at the fader.</li>
         <li>Play nominal-level material, set the M4 phones knob to a comfortable level, then mark the knob position physically — tape, paint pen, a scratch.</li>
       </ol>
     </div>
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">A visible mark on the phones knob and a nominal sentence in the logbook. The DT 990 Pro is a 250 Ω open-back headphone; it invites turning up “just a little” all session, and louder always sounds better. The mark is your defense: every session starts at the mark. This is monitoring discipline, made physical.</p>
+      <p style=”color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;”>A visible mark on the phones knob and a nominal sentence in the logbook. The DT 990 Pro is a 250 Ω open-back headphone that makes it tempting to turn up “just a little” throughout a session — because louder always sounds better. The mark is your defense. Every session starts at the mark. This is <strong>monitoring discipline</strong> (keeping your listening volume fixed at one position), made physical.</p>
     </div>
 
     <div class="decision-check">
@@ -692,7 +696,7 @@
 
     <div class="sub-block">
       <div class="sub-label">Logbook</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">“Nominal: peaks ≈ −12 dBFS, ceiling −6. Phones knob marked, dated.”</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">“Nominal: peaks ≈ −12 dBFS, ceiling −6. Phones knob marked, dated.”</p>
     </div>
   </div>
 
@@ -702,7 +706,7 @@
       <div class="step-num">Step 05</div>
       <h3 class="step-title">Fill the gain ledger</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Goal: one row per volume control — the stage, the physical or on-screen knob that owns it, and what it should be set to. The values below are provided answers: check each one against your own studio instead of copying it blindly.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Goal: one row per volume control — the stage, the physical or on-screen knob that controls it, and what it should be set to. The values below are suggested targets. Check each one against your own studio rather than copying it blindly.</p>
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
@@ -729,13 +733,13 @@
 
     <div class="note-block">
       <ul>
-        <li><strong>The Digitakt’s special case:</strong> M4 inputs 3–4 are fixed line inputs with no gain knobs, so the Digitakt’s own <span class="code">Main Volume</span> <em>is</em> the record level for the drums. It can also out-shout them: Elektron outs peak hotter than the 3/4 inputs accept, so near-full main volume will clip the converter with no knob to save you. One more ledger row — owned by the instrument instead of the interface.</li>
+        <li><strong>The Digitakt’s special case:</strong> M4 inputs 3–4 are fixed line inputs with no gain knobs. That means the Digitakt’s own <span class="code">Main Volume</span> <em>is</em> the record level for the drums. Be careful: Elektron outputs can peak hotter than the 3/4 inputs can handle, so turning the main volume near full will overload the converter with no interface knob to save you. Add it as its own row in the ledger — this gain stage is owned by the instrument, not the interface.</li>
       </ul>
     </div>
 
     <div class="sub-block">
       <div class="sub-label">Logbook</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">The completed ledger, every row filled with a value you set yourself.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">The completed ledger, every row filled with a value you set yourself.</p>
     </div>
   </div>
 
@@ -745,7 +749,7 @@
       <div class="step-num">Step 06</div>
       <h3 class="step-title">Record the three levels</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Goal: hear what level decisions cost. Record the same 8-bar MicroFreak phrase — anything repeatable — three times: too quiet, on target, too hot. Only the volume settings change; the music does not.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Goal: hear what level decisions cost. Record the same 8-bar MicroFreak phrase three times — too quiet, on target, too hot. Only the volume settings change; the music stays the same. Choose something repeatable.</p>
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
@@ -763,17 +767,17 @@
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">The quiet take comes back with the phrase — and the background hiss turned up with it. That hiss was always there; your gain decided whether you recorded the music far above it or right next to it. The hot take has a crackle and hardness on peaks that no fader, plugin, or normalization removes: converter clipping, baked into the file.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">The quiet take plays back with the phrase — and the background hiss has turned up with it. That hiss was always there. Your gain setting decided whether you recorded the music far above it or right next to it. The hot take has a crackle and harshness on peaks that no fader, plugin, or normalization can remove. That is converter clipping — it is baked into the file permanently.</p>
     </div>
 
     <div class="sub-block">
       <div class="sub-label">Logbook</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Keep all three takes. Defend exactly one in writing — and notice that after the listening assignment, “too hot, on purpose, for this sound” is a defensible answer. “I didn’t check” never is.</p>
+      <p style=”color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;”>Keep all three takes. Defend exactly one in writing. After the listening section, “too hot, on purpose, for this sound” is a valid answer. “I didn’t check” never is.</p>
     </div>
 
     <div class="sub-block">
       <div class="sub-label">One more take — the held tone</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0 0 8px;">Record a fourth take: thirty seconds of one <em>sustained</em> MicroFreak note (slow attack, full sustain, gain set while the note holds), to the same −12 dBFS peak target as <span class="code">MF -12</span>. Play both at the marked phones level. The held tone feels much louder and tires the ear much faster at an identical peak reading — a kick is almost all gap between peaks; a drone is almost none. The name for that gap is <strong>crest factor</strong>, and the ledger's peak numbers silently assume spiky material. Note the difference in the logbook now; étude <a href="lab-004b.html">004b</a> turns it into a formal ledger amendment for sustained sources.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0 0 8px;">Record a fourth take: thirty seconds of one <em>sustained</em> MicroFreak note (slow attack, full sustain, gain set while the note holds), to the same −12 dBFS peak target as <span class="code">MF -12</span>. Play both at the marked phones level. The held tone will feel much louder and will tire your ear much faster — even at the same peak reading. A kick drum is mostly silence between peaks; a drone is almost none. The ratio of peak level to average level is called <strong>crest factor</strong>. The ledger's peak numbers assume spiky material, like drums. A sustained drone behaves differently. Note the difference in the logbook now; étude <a href="lab-004b.html">004b</a> turns it into a formal ledger amendment for sustained sources.</p>
     </div>
   </div>
 
@@ -783,7 +787,7 @@
       <div class="step-num">Step 07</div>
       <h3 class="step-title">The clipping tour</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Goal: overload the sound on purpose in four different places, one at a time, and learn two things about each place — what it sounds like, and which meter catches it. (“Locus” below just means “place in the chain.”) This builds the diagnosis table in the reference section from experience instead of trust.</p>
+    <p style=”color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;”>Goal: overload the sound on purpose in four different places, one at a time. For each place, learn two things — what it sounds like, and which meter catches it. (“Locus” just means “place in the chain.”) This builds the diagnosis table in the reference section from your own experience, not from reading.</p>
 
     <div class="sub-block">
       <div class="sub-label">Locus 1 — interface input</div>
@@ -817,11 +821,11 @@
       </ul>
     </div>
 
-    <p style="color: var(--text-muted); font-size: 14.5px; margin: 18px 0 0;">The key distinction: input clipping happens <strong style="color: var(--text);">before the converter</strong> — the chip that turns electricity into numbers — and is permanent: the wave arrived already flattened, like paper already cut. Inside Live, sound is just numbers with an enormous range (the technical name is 32-bit float), so an “over” on a track meter is harmless arithmetic — pull a fader down and the sound is perfectly restored. But devices designed around the target level still misbehave when fed +12 dB, and that misbehavior records into your export. Same word, “clipping”; four different physical events.</p>
+    <p style=”color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 18px 0 0;”>The key difference: input clipping happens <strong style=”color: var(--text);”>before the converter</strong> (the chip that turns the electrical signal into numbers). The wave arrived already flattened — like paper already cut. That damage is permanent. Inside Live, sound is just numbers with a very large range (technically called 32-bit float), so an “over” on a track meter is just big arithmetic — pull the fader down and the sound is perfectly restored. But effects and plugins designed around a target level will still misbehave when you feed them +12 dB, and that misbehavior gets printed into your export. Same word, “clipping” — four different events in four different places.</p>
 
     <div class="sub-block">
       <div class="sub-label">Logbook</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Fill the clipping diagnosis table in the reference section — symptom and meter tell per locus, in your own words.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Fill the clipping diagnosis table in the reference section — symptom and meter tell per locus, in your own words.</p>
     </div>
   </div>
 
@@ -831,7 +835,7 @@
       <div class="step-num">Step 08</div>
       <h3 class="step-title">Correct the map</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Goal: make the drawing agree with the cables, and put the difference between what you believed and what you found on paper.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Goal: make the drawing agree with the actual cables. Put the gap between what you expected and what you found on paper.</p>
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
@@ -843,7 +847,7 @@
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">At least one correction. A map that needed none means either an unusually careful step 01 — or a walk that was not careful enough. Walk it again.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">At least one correction. A map that needed none means either an unusually careful step 01, or a walk that was not careful enough. Walk it again.</p>
     </div>
 
     <div class="decision-check">
@@ -853,7 +857,7 @@
 
     <div class="sub-block">
       <div class="sub-label">Logbook</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">The system diff sentence, written under the map: “I thought the path worked like X; it worked like Y.”</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">The system diff sentence, written under the map: “I thought the path worked like X; it worked like Y.”</p>
     </div>
   </div>
 
@@ -883,12 +887,12 @@
       <li><strong>Fix:</strong> repair it at the stage where it lives, not by turning something else down to hide it.</li>
       <li><strong>Write the rule:</strong> file the fault entry in the fault log — symptom, cause, fix, and one prevention rule you will actually follow (e.g. “glance at the gain ledger before every print”).</li>
     </ul>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin: 14px 0 0;">This is a ritual, not a punishment. You are buying, cheaply and on purpose, the diagnostic hour that an accidental clip would otherwise cost you in the middle of a piece.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 14px 0 0;">This is a ritual, not a punishment. You are practicing the skill cheaply now, so an accidental clip later doesn't cost you an hour of confusion in the middle of a piece.</p>
   </div>
 
   <h2>Reference &amp; diagnosis</h2>
 
-  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Fill this table in your own words from the clipping tour. The completed table and the gain ledger <em>are</em> this lab’s product — they become the pages you consult mid-piece for the next three years.</p>
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Fill this table in your own words from the clipping tour. The completed table and the gain ledger are this lab’s real product — they become the reference you check mid-session for the rest of the workshop.</p>
 
   <table>
     <tr><th>Locus</th><th>Symptom</th><th>Meter tell</th><th>Fix</th></tr>
@@ -918,7 +922,7 @@
     </tr>
   </table>
 
-  <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:11px; letter-spacing:0.2em; text-transform:uppercase;">Silence &amp; noise — first aid</h3>
+  <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:var(--fs-xs); letter-spacing:0.2em; text-transform:uppercase;">Silence &amp; noise — first aid</h3>
   <table>
     <thead><tr><th>Symptom</th><th>Likely cause</th><th>Fix</th></tr></thead>
     <tbody>
@@ -932,9 +936,68 @@
 
   <div class="note-block">
     <ul>
-      <li><strong>Monitoring note:</strong> every session starts at the headphone mark from step 04, and the level stays there while you judge gain. If you must turn up to hear a detail, turn back down before deciding anything — louder always sounds better, and the 250 Ω DT 990s make creep easy. If monitors are present, give their level the same treatment: one marked position, set once.</li>
+      <li><strong>Monitoring note:</strong> every session starts at the headphone mark from step 04, and the level stays there while you judge volume. If you turn up to hear a detail, turn back down before making any decision — louder always sounds better, and the 250 Ω DT 990s make it easy to drift upward without noticing. If you have studio monitors, give their level the same treatment: one marked position, set once.</li>
     </ul>
   </div>
+
+  <h2>Background — three things the bench assumes</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 18px; color: var(--text-muted); text-align: center;">The procedure above assumes three things: that you can trust what you hear, that the recording format has enough range to be accurate, and that the cables themselves are behaving. Read these once; come back when a symptom points here.</p>
+
+  <h3>Monitoring &amp; room — can you trust what you hear?</h3>
+
+  <p>Every volume decision in this lab is only as good as the listening path that judges it. Before you can worry about the room, the level and the playback system have to be right.</p>
+
+  <div class="cards two">
+    <div class="card">
+      <h3 class="card-title">Calibrate the listening, not just the knob</h3>
+      <ul class="card-points">
+        <li><strong>Reference level:</strong> pick one listening loudness and mark it (step 04). On studio monitors, the common practice is to calibrate so a −20 dBFS pink-noise test tone reads around 79–83 dB SPL at the listening position. On headphones, your physical mark is the substitute.</li>
+        <li><strong>One level for judging.</strong> Check things loud and quiet on purpose, but make every keep/cut decision at the mark — louder always sounds better, which means louder always lies.</li>
+        <li><strong>Same path, every session.</strong> A monitoring setup that keeps changing is a ruler that keeps changing length. You can't measure your mixes against it.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">The room is part of the instrument</h3>
+      <ul class="card-points">
+        <li><strong>First reflections</strong> — sound bouncing off the desk, side walls, and ceiling — arrive milliseconds after the direct sound and color it with a hollow, comb-like tone. You'll meet this effect acoustically in lab 002.</li>
+        <li><strong>Bass modes:</strong> small rooms have loud spots and dead spots below ≈ 300 Hz that shift depending on where you sit. Basic treatment: absorption at the first-reflection points, bass trapping in the corners, and keeping the setup symmetrical left-to-right.</li>
+        <li><strong>Headphones bypass the room</strong> but not ear fatigue — which is why this block uses the DT 990s and treats room treatment as a later upgrade.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Hearing health is a gain stage too.</strong> Listening fatigue sets in long before pain. After an hour at the mark, your judgment of brightness and level drifts, and you start compensating for tired ears without noticing. Take a real break — several minutes of silence — every 30–45 minutes. Keep the mark conservative. Your ears are the one piece of gear you can't replace. Sustained material (lab 004b) tires them fastest; take breaks more often there.</li>
+    </ul>
+  </div>
+
+  <h3>Recording fundamentals — why 48 kHz / 24-bit</h3>
+
+  <p>Step 02 set the bench to 48 kHz, and the ledger aims for −12 dBFS peaks. Here is why those two numbers, and what the converter is actually doing.</p>
+
+  <table class="param-table">
+    <caption>The recording format, in plain words</caption>
+    <tr><td><strong>Sample rate — 48 kHz</strong></td><td>How many times per second the converter measures the audio wave. To capture a frequency accurately, you must sample at least twice as fast, so 48 kHz cleanly covers the full ≈ 20 kHz range of human hearing with room to spare. 48 kHz (not 44.1) is the standard for anything that may be used with video, and it keeps the whole bench running on one clock.</td></tr>
+    <tr><td><strong>Bit depth — 24-bit</strong></td><td>How finely each measurement is graded — the number of steps between silence and full scale. 24-bit gives ≈ 144 dB of range, which is why you can record at a conservative −12 dBFS and still keep the noise floor far below anything audible. 16-bit (the CD format) is fine for a finished file but leaves less headroom while you are working.</td></tr>
+    <tr><td><strong>A/D and D/A</strong></td><td>The converter is two chips. <em>A/D</em> (analog-to-digital) turns the incoming electrical signal into numbers that Live records. <em>D/A</em> (digital-to-analog) turns those numbers back into an electrical signal for your headphones. Every measurement in lab 002 passes through both. Converter clipping happens at the A/D stage, before any number exists to pull back.</td></tr>
+    <tr><td><strong>Noise floor</strong></td><td>The quiet hiss always present under the signal — from the preamp, the converter, and the cable. Recording too quietly (the <span class="code">MF -40</span> take) does not lower the noise; it just records your music closer to it. The point of the nominal level is to keep the signal far above the noise floor without hitting the ceiling.</td></tr>
+  </table>
+
+  <h3>Physical layer — the wires are not neutral</h3>
+
+  <p>The cable table above lists TS and TRS without explaining why the difference matters. Each choice is a small electrical decision that can add hum, lose level, or quietly degrade a signal.</p>
+
+  <table class="param-table">
+    <caption>What the cabling is actually doing</caption>
+    <tr><td><strong>Balanced vs unbalanced</strong></td><td>A balanced (TRS) cable carries the signal twice — one copy is inverted. The receiving end flips one copy back and adds them together. Any hum picked up along the way is identical on both wires, so it cancels out. Unbalanced (TS) has no such trick, so it works fine over short runs but picks up noise on long ones.</td></tr>
+    <tr><td><strong>Impedance-balanced outputs</strong></td><td>The Digitakt II main outs are <em>impedance-balanced</em> — not a true two-copy balanced signal, but wired so a TRS cable still gets the hum-cancelling benefit. That is why TRS is used on those two runs and plain TS on the mono MicroFreak.</td></tr>
+    <tr><td><strong>Line vs instrument level</strong></td><td>Two very different signal strengths. <em>Line level</em> is what synths and the Digitakt II put out — strong, ready for the M4’s line inputs. <em>Instrument level</em> (from a guitar pickup, for example) is far weaker and needs a preamp or DI box to bring it up. Feed line level into an instrument input and you overload it. Feed instrument level into a line input and it disappears into the noise floor.</td></tr>
+    <tr><td><strong>DI box</strong></td><td>A direct-injection box converts a weak, high-impedance instrument signal into a stronger balanced line signal. It bridges a guitar to a balanced line input. You don’t need one for this bench’s synths, but it’s why a guitar can’t be plugged straight into input 3.</td></tr>
+    <tr><td><strong>Cable length</strong></td><td>Longer unbalanced runs lose high-frequency detail and collect hum. Keep TS cables short, and use balanced TRS when a run must be long.</td></tr>
+    <tr><td><strong>Ground loops</strong></td><td>A faint hum that appears when two pieces of gear share more than one electrical ground path. Symptom: a steady 50/60 Hz buzz that changes when you touch a chassis. First fixes: use a single power strip for the whole bench, keep audio cables away from power supplies, and prefer balanced connections — the same hum-cancelling property also helps with ground-loop noise.</td></tr>
+  </table>
 
   <div class="checklist">
     <div class="checklist-head">
@@ -951,7 +1014,7 @@
     </ul>
   </div>
 
-  <p style="color: var(--text-muted); font-size: 13.5px; text-align: center; max-width: 560px; margin: 0 auto;">The signal map is a living document: it is re-versioned at every gear arrival and audited at every capstone. v1 is never finished — it is only first.</p>
+  <p style="color: var(--text-muted); font-size: var(--fs-md-plus); text-align: center; max-width: 560px; margin: 0 auto;">The signal map is a living document. Update it every time new gear arrives, and check it at every capstone. v1 is never finished — it is only first.</p>
 
   <div class="final">
     <div class="final-icon"><svg viewBox="0 0 44 44"><line x1="6" y1="22" x2="14" y2="22"/><circle cx="19" cy="22" r="5"/><line x1="24" y1="22" x2="38" y2="22"/><line x1="31" y1="16" x2="31" y2="28"/></svg></div>
@@ -974,5 +1037,6 @@
 
 </div>
 
+  <script src="../nav.js"></script>
 </body>
 </html>

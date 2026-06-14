@@ -6,7 +6,7 @@
 <title>Replicate: The Noise Floor as Lead</title>
 <link rel="stylesheet" href="../styles.css">
 </head>
-<body>
+<body class="page-type-rep" id="top">
 
 <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
 <label for="nav-toggle" class="hamburger" aria-label="Menu">
@@ -16,6 +16,7 @@
 <nav class="nav" aria-label="Workshop contents">
   <p class="nav-label">Workshop</p>
   <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
   <a href="index.html" class="active"><span class="nav-num">01</span>The Bench</a>
   <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
   <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
@@ -28,12 +29,15 @@
 </nav>
 
 <div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 1 · The Bench</a><span class="breadcrumb-sep">/</span><span>Replicate: the noise floor as lead</span></nav>
 
   <header class="page-header">
     <div class="eyebrow">Block 1 · Replication lesson</div>
     <h1>Replicate: the noise floor as lead</h1>
     <p class="lede">Copy one clear section of Pole — “Tanzen 2”. Build the main parts, record a short take, and compare it to the reference at the same loudness.</p>
   </header>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l1.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs">Labs</a><a href="lab-r1.html" data-section="rebuild">Rebuild</a><a href="capstone-c1.html" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep" class="current">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
   <div class="callout">
     <div class="callout-label">The point</div>
     <p>This drill teaches the record's core mechanism: noise placed rhythmically, everything else quiet and sparse beneath it. Do only the steps that make that mechanism audible.</p>
@@ -50,7 +54,7 @@
 
   <div class="checklist">
     <div class="checklist-head">
-      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"></path></svg></div>
       <div class="checklist-label">Before you start</div>
     </div>
     <ul>
@@ -74,7 +78,7 @@
       <div class="step-num">Reference pass · 10 minutes</div>
       <h3 class="step-title">Listen before you build</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Listen to about one minute of Pole — “Tanzen 2”. Choose the clearest short section. Write one short answer for each question before you touch the gear.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Listen to about one minute of Pole — “Tanzen 2”. Choose the clearest short section. Write one short answer for each question before you touch the gear.</p>
     <ol class="rules-list">
       <li>Is the crackle rhythmic or random?
         <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Rhythmic - the same crackle figure returns bar after bar, locked to the pulse. Random noise never repeats; this loops.</p></div></details>
@@ -89,7 +93,7 @@
         <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>A lot - real silence, not filler. Each event sits alone with audible nothing around it, and that emptiness is what lets sounds this quiet read as a lead.</p></div></details>
       </li>
     </ol>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Now build the section you described. Do not build from memory.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Now build the section you described. Do not build from memory.</p>
   </div>
 
   <h2>Steps</h2>
@@ -114,7 +118,7 @@
     </ul>
   </div>
 
-  <p style="color: var(--text-muted); font-size: 14.5px; max-width: 640px; margin: 0 auto 14px; text-align: center;">The harvest path — the same chain lab 001 taught you to keep quiet, run loud on purpose, then turned into an instrument and placed at the top of a quiet mix.</p>
+  <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); max-width: 640px; margin: 0 auto 14px; text-align: center;">The harvest path — the same chain lab 001 taught you to keep quiet, run loud on purpose, then turned into an instrument and placed at the top of a quiet mix.</p>
 
   <div class="signal-flow">
     <span class="signal-node">M4 in 1 · open, gain high</span>
@@ -129,31 +133,31 @@
   </div>
 
   <!-- PHASE 1 -->
-  <div class="step">
+  <div class="gear-switch"><input type="radio" name="gear" id="gear-hw" class="gear-radio" checked><input type="radio" name="gear" id="gear-sw" class="gear-radio"><input type="radio" name="gear" id="gear-tg" class="gear-radio"><div class="gear-labels"><span class="gear-lead">Your rig</span><label for="gear-hw">MicroFreak + Digitakt II</label><label for="gear-sw">Ableton Live only</label><label for="gear-tg">Analog Rytm MKII · target</label></div><div class="gear-scope"><div class="step">
     <div class="step-head">
       <div class="step-num">Phase 1 · ≈ 15 min</div>
       <h3 class="step-title">The reference and the tracks</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: the reference and the tracks. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: the reference and the tracks. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Live</span> <kbd>⌘ T</kbd>, rename the track <span class="code">REF</span> (<kbd>⌘ R</kbd>), and drag “Tanzen 2” into it.</li>
-        <li><span class="system-tag">Live</span> Find the most characteristic 8–16 bars for noise-as-lead — the stretch where the crackle most clearly keeps time over everything else — and loop them.</li>
-        <li><span class="system-tag">Live</span> Drop <span class="menu">Audio Effects → Utility</span> on <span class="code">REF</span> and trim its gain so the section peaks ≈ <span class="code">−12 dBFS</span>, matched to the build you are about to make.</li>
-        <li><span class="system-tag">Live</span> <span class="code">REF</span> stays one solo-press away for the whole lesson.</li>
-        <li><span class="system-tag">Live</span> <kbd>⌘ T</kbd> three times; rename with <kbd>⌘ R</kbd>: <span class="code">NOISE</span>, <span class="code">CHORD</span>, <span class="code">KICK</span>.</li>
-        <li><span class="system-tag">Live</span> <kbd>⌘ ⌥ I</kbd> to show In/Out.</li>
-        <li><span class="system-tag">Live</span> <span class="code">NOISE</span> and <span class="code">CHORD</span>: <span class="menu">Ext. In</span> <span class="code">1</span>.</li>
-        <li><span class="system-tag">Live</span> <span class="code">KICK</span>: <span class="menu">Ext. In</span> <span class="code">3/4</span>.</li>
-        <li><span class="system-tag">Live</span> Faders at <span class="code">0 dB</span>.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li><kbd>⌘ T</kbd>, rename the track <span class="code">REF</span> (<kbd>⌘ R</kbd>), and drag “Tanzen 2” into it.</li>
+        <li>Find the most characteristic 8–16 bars for noise-as-lead — the stretch where the crackle most clearly keeps time over everything else — and loop them.</li>
+        <li>Drop <span class="menu">Audio Effects → Utility</span> on <span class="code">REF</span> and trim its gain so the section peaks ≈ <span class="code">−12 dBFS</span>, matched to the build you are about to make.</li>
+        <li><span class="code">REF</span> stays one solo-press away for the whole lesson.</li>
+        <li><kbd>⌘ T</kbd> three times; rename with <kbd>⌘ R</kbd>: <span class="code">NOISE</span>, <span class="code">CHORD</span>, <span class="code">KICK</span>.</li>
+        <li><kbd>⌘ ⌥ I</kbd> to show In/Out.</li>
+        <li><span class="code">NOISE</span> and <span class="code">CHORD</span>: <span class="menu">Ext. In</span> <span class="code">1</span>.</li>
+        <li><span class="code">KICK</span>: <span class="menu">Ext. In</span> <span class="code">3/4</span>.</li>
+        <li>Faders at <span class="code">0 dB</span>.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Pole — “Tanzen 2” (from 1) and use Drum Rack, MIDI clips, Groove Pool, and clip automation.</li><li>Build the phase goal — <em>The reference and the tracks</em> — as the smallest Live set that proves <em>noise placed rhythmically, everything else quiet and sparse beneath it</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>background noise keeping time as the lead instrument</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>The reference and the tracks</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>noise placed rhythmically, everything else quiet and sparse beneath it</em>, not just the surface of Pole — “Tanzen 2” (from 1).</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">The record loops at ≈ −12 dBFS and three named, routed, unity-gain tracks wait for material. Nothing has been harvested yet; the gain ledger still reads nominal everywhere.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">The record loops at ≈ −12 dBFS and three named, routed, unity-gain tracks wait for material. Nothing has been harvested yet; the gain ledger still reads nominal everywhere.</p>
     </div>
 
     <div class="sub-block">
@@ -168,13 +172,12 @@
     </div>
   </div>
 
-  <!-- PHASE 2 -->
   <div class="step">
     <div class="step-head">
       <div class="step-num">Phase 2 · ≈ 25 min</div>
       <h3 class="step-title">Harvest the floor</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: harvest the floor. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: harvest the floor. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
 
     <div class="note-block">
       <ul>
@@ -184,24 +187,24 @@
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">MicroFreak</span> <strong>Harvest hiss.</strong> Leave M4 input 1 with nothing playing into it — cable unplugged, or the MicroFreak connected but silent.</li>
-        <li><span class="system-tag">MicroFreak</span> Turn the input-1 gain knob most of the way up: the meter now shows the preamp’s own noise floor.</li>
-        <li><span class="system-tag">MicroFreak</span> Arm <span class="code">NOISE</span> and record 30 seconds of pure hiss.</li>
-        <li><span class="system-tag">Live</span> Rename the clip <span class="code">HISS</span>.</li>
-        <li><span class="system-tag">MicroFreak + Live</span> <strong>Harvest crackle — two sources.</strong> Solo <span class="code">REF</span> first and decide which grain is closer to the record’s crackle: gently jiggle the ¼″ TS jack in input 1 while recording 30 seconds (gently — half-seat it, do not force it), or play the MicroFreak’s <span class="code">Noise</span> engine (<span class="code">Type</span> → Noise) through a nearly-closed filter, cutoff ≈ 10 %, in short staccato stabs.</li>
-        <li><span class="system-tag">Live</span> If time allows, record both candidates and pick by ear afterwards — a solo-flip against <span class="code">REF</span> chooses faster than theory does.</li>
-        <li><span class="system-tag">Live</span> Rename the keeper <span class="code">CRACKLE</span>.</li>
-        <li><span class="system-tag">Live + Logbook</span> <strong>Observe — see it, not just hear it.</strong> While harvesting, watch the Live input meter and write the noise-floor level in dBFS with the gain high, then again back at nominal.</li>
-        <li><span class="system-tag">Logbook</span> The difference between those two numbers <em>is</em> lab 001’s quiet-take lesson, read off a meter — the logbook gets both readings.</li>
-        <li><span class="system-tag">Logbook</span> Reset the input-1 gain to the ledger value.</li>
-        <li><span class="system-tag">Logbook</span> Confirm it physically, not from memory.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li><strong>Harvest hiss.</strong> Leave M4 input 1 with nothing playing into it — cable unplugged, or the MicroFreak connected but silent.</li>
+        <li>Turn the input-1 gain knob most of the way up: the meter now shows the preamp’s own noise floor.</li>
+        <li>Arm <span class="code">NOISE</span> and record 30 seconds of pure hiss.</li>
+        <li>Rename the clip <span class="code">HISS</span>.</li>
+        <li><strong>Harvest crackle — two sources.</strong> Solo <span class="code">REF</span> first and decide which grain is closer to the record’s crackle: gently jiggle the ¼″ TS jack in input 1 while recording 30 seconds (gently — half-seat it, do not force it), or play the MicroFreak’s <span class="code">Noise</span> engine (<span class="code">Type</span> → Noise) through a nearly-closed filter, cutoff ≈ 10 %, in short staccato stabs.</li>
+        <li>If time allows, record both candidates and pick by ear afterwards — a solo-flip against <span class="code">REF</span> chooses faster than theory does.</li>
+        <li>Rename the keeper <span class="code">CRACKLE</span>.</li>
+        <li><strong>Observe — see it, not just hear it.</strong> While harvesting, watch the Live input meter and write the noise-floor level in dBFS with the gain high, then again back at nominal.</li>
+        <li>The difference between those two numbers <em>is</em> lab 001’s quiet-take lesson, read off a meter — the logbook gets both readings.</li>
+        <li>Reset the input-1 gain to the ledger value.</li>
+        <li>Confirm it physically, not from memory.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Pole — “Tanzen 2” (from 1) and use Drum Rack, MIDI clips, Groove Pool, and clip automation.</li><li>Build the phase goal — <em>Harvest the floor</em> — as the smallest Live set that proves <em>noise placed rhythmically, everything else quiet and sparse beneath it</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>background noise keeping time as the lead instrument</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>Harvest the floor</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>noise placed rhythmically, everything else quiet and sparse beneath it</em>, not just the surface of Pole — “Tanzen 2” (from 1).</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Two raw clips, <span class="code">HISS</span> and <span class="code">CRACKLE</span>, plus two meter readings in the logbook. The gain knob is back at nominal and the bench is safe again — the hazard existed for under two minutes, on purpose.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Two raw clips, <span class="code">HISS</span> and <span class="code">CRACKLE</span>, plus two meter readings in the logbook. The gain knob is back at nominal and the bench is safe again — the hazard existed for under two minutes, on purpose.</p>
     </div>
 
     <div class="sub-block">
@@ -216,28 +219,27 @@
     </div>
   </div>
 
-  <!-- PHASE 3 -->
   <div class="step">
     <div class="step-head">
       <div class="step-num">Phase 3 · ≈ 20 min</div>
       <h3 class="step-title">Turn crackle into an instrument</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: turn crackle into an instrument. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: turn crackle into an instrument. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
         <li>Either path works.</li>
-        <li><span class="system-tag">Digitakt II</span> Digitakt II: transfer the recording into a sample slot, assign it to track 1, trim to a short crackle hit.</li>
-        <li><span class="system-tag">Live</span> Live: drag the <span class="code">CRACKLE</span> clip onto a new MIDI track — it lands in Simpler — set it to <span class="menu">Slice</span> mode so each pad plays one short crackle burst.</li>
-        <li><span class="system-tag">Digitakt II</span> Audition the slices and keep the three or four most distinct bursts — too-similar slices make the pattern read as static noise instead of rhythm.</li>
-        <li><span class="system-tag">Live</span> Play the pads freely for a minute against the soloed <span class="code">REF</span>, just to learn which slice resembles which of the record’s crackle events.</li>
+        <li>Digitakt II: transfer the recording into a sample slot, assign it to track 1, trim to a short crackle hit.</li>
+        <li>Live: drag the <span class="code">CRACKLE</span> clip onto a new MIDI track — it lands in Simpler — set it to <span class="menu">Slice</span> mode so each pad plays one short crackle burst.</li>
+        <li>Audition the slices and keep the three or four most distinct bursts — too-similar slices make the pattern read as static noise instead of rhythm.</li>
+        <li>Play the pads freely for a minute against the soloed <span class="code">REF</span>, just to learn which slice resembles which of the record’s crackle events.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Pole — “Tanzen 2” (from 1) and use Drum Rack, MIDI clips, Groove Pool, and clip automation.</li><li>Build the phase goal — <em>Turn crackle into an instrument</em> — as the smallest Live set that proves <em>noise placed rhythmically, everything else quiet and sparse beneath it</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>background noise keeping time as the lead instrument</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>Turn crackle into an instrument</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>noise placed rhythmically, everything else quiet and sparse beneath it</em>, not just the surface of Pole — “Tanzen 2” (from 1).</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Pads that play short, distinct crackle bursts on demand. What entered the session as a hazard now answers to a clock.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Pads that play short, distinct crackle bursts on demand. What entered the session as a hazard now answers to a clock.</p>
     </div>
 
     <div class="sub-block">
@@ -252,29 +254,28 @@
     </div>
   </div>
 
-  <!-- PHASE 4 -->
   <div class="step">
     <div class="step-head">
       <div class="step-num">Phase 4 · ≈ 20 min</div>
       <h3 class="step-title">Place the crackle — the lead voice</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: place the crackle — the lead voice. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: place the crackle — the lead voice. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Digitakt II + Live</span> Solo <span class="code">REF</span> and transcribe the crackle pattern by ear; the page cannot give you the steps — hearing them is the exercise.</li>
-        <li><span class="system-tag">Digitakt II + Live</span> Two passes minimum before you program anything.</li>
-        <li><span class="system-tag">Digitakt II</span> Program a one-bar, 16-step pattern of short crackle hits on the grid you hear — irregular but repeating;</li>
-        <li><span class="system-tag">Digitakt II</span> <span class="code">1, 4, 7, 11, 14</span> is only a starting shape.</li>
-        <li><span class="system-tag">Digitakt II</span> Loop and solo-flip until your pattern and the record’s keep the same time — rhythm, not fault.</li>
-        <li><span class="system-tag">Digitakt II</span> Make a final flip pass listening only to what happens <em>between</em> the hits — the record’s silences are part of the pattern, and a stray extra hit fills a silence the record protects.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>Solo <span class="code">REF</span> and transcribe the crackle pattern by ear; the page cannot give you the steps — hearing them is the exercise.</li>
+        <li>Two passes minimum before you program anything.</li>
+        <li>Program a one-bar, 16-step pattern of short crackle hits on the grid you hear — irregular but repeating;</li>
+        <li><span class="code">1, 4, 7, 11, 14</span> is only a starting shape.</li>
+        <li>Loop and solo-flip until your pattern and the record’s keep the same time — rhythm, not fault.</li>
+        <li>Make a final flip pass listening only to what happens <em>between</em> the hits — the record’s silences are part of the pattern, and a stray extra hit fills a silence the record protects.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Pole — “Tanzen 2” (from 1) and use Operator or Wavetable into Auto Filter, with clip automation.</li><li>Build the phase goal — <em>Place the crackle — the lead voice</em> — as the smallest Live set that proves <em>noise placed rhythmically, everything else quiet and sparse beneath it</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>background noise keeping time as the lead instrument</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>Place the crackle — the lead voice</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>noise placed rhythmically, everything else quiet and sparse beneath it</em>, not just the surface of Pole — “Tanzen 2” (from 1).</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">A looping one-bar crackle pattern that keeps the record’s time. Heard alone, it already sounds like music — before any other element exists.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A looping one-bar crackle pattern that keeps the record’s time. Heard alone, it already sounds like music — before any other element exists.</p>
     </div>
 
     <div class="sub-block">
@@ -289,13 +290,12 @@
     </div>
   </div>
 
-  <!-- PHASE 5 -->
   <div class="step">
     <div class="step-head">
       <div class="step-num">Phase 5 · ≈ 30 min</div>
       <h3 class="step-title">Everything underneath — and the pause test</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: everything underneath — and the pause test. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: everything underneath — and the pause test. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
 
     <table class="param-table">
       <caption>Everything sits below the crackle — starting points, corrected by the record</caption>
@@ -306,25 +306,25 @@
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">MicroFreak</span> MicroFreak: <span class="code">Paraphonic</span> ON, <span class="code">Type</span> → <span class="code">V.Analog</span>, slow attack, cutoff ≈ 30 %.</li>
-        <li><span class="system-tag">Live</span> Transcribe the record’s deep, sparse chord from <span class="code">REF</span> by ear — the page cannot give the notes — and change it only where the record changes it.</li>
-        <li><span class="system-tag">Live</span> Record 8 bars into <span class="code">CHORD</span> at nominal, then pull its fader until it sits as far below the crackle as the record’s chord does, ≈ <span class="code">−12 dB</span> down as a starting point.</li>
-        <li><span class="system-tag">Digitakt II</span> Digitakt II: <span class="code">REC</span>, kick where the record puts it, <span class="code">Main Volume</span> low.</li>
-        <li><span class="system-tag">Digitakt II</span> Record 8 bars into <span class="code">KICK</span>, then sit its fader exactly as deep as the record buries its low end — felt more than heard.</li>
-        <li><span class="system-tag">Digitakt II</span> <strong>Keep everything quiet.</strong> The crackle must be the loudest event in the mix — peaks ≈ <span class="code">−12</span> to <span class="code">−14 dBFS</span> and nothing above it.</li>
-        <li><span class="system-tag">Digitakt II</span> If the kick or chord competes, pull <em>them</em> down; never push the crackle up — the record’s distances, not louder ones.</li>
-        <li><span class="system-tag">Live</span> Loop the whole thing for two minutes at the mark, solo-flipping against <span class="code">REF</span>.</li>
-        <li><span class="system-tag">Live</span> Then make one more pass over both lower faders, finer.</li>
-        <li><span class="system-tag">Live</span> <strong>Run the pause test.</strong> Stop playback mid-loop and listen to the silence.</li>
-        <li><span class="system-tag">Live</span> What disappeared was your music; whatever remains is your playback system’s own floor.</li>
-        <li><span class="system-tag">Logbook</span> Write down which was which.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>MicroFreak: <span class="code">Paraphonic</span> ON, <span class="code">Type</span> → <span class="code">V.Analog</span>, slow attack, cutoff ≈ 30 %.</li>
+        <li>Transcribe the record’s deep, sparse chord from <span class="code">REF</span> by ear — the page cannot give the notes — and change it only where the record changes it.</li>
+        <li>Record 8 bars into <span class="code">CHORD</span> at nominal, then pull its fader until it sits as far below the crackle as the record’s chord does, ≈ <span class="code">−12 dB</span> down as a starting point.</li>
+        <li>Digitakt II: <span class="code">REC</span>, kick where the record puts it, <span class="code">Main Volume</span> low.</li>
+        <li>Record 8 bars into <span class="code">KICK</span>, then sit its fader exactly as deep as the record buries its low end — felt more than heard.</li>
+        <li><strong>Keep everything quiet.</strong> The crackle must be the loudest event in the mix — peaks ≈ <span class="code">−12</span> to <span class="code">−14 dBFS</span> and nothing above it.</li>
+        <li>If the kick or chord competes, pull <em>them</em> down; never push the crackle up — the record’s distances, not louder ones.</li>
+        <li>Loop the whole thing for two minutes at the mark, solo-flipping against <span class="code">REF</span>.</li>
+        <li>Then make one more pass over both lower faders, finer.</li>
+        <li><strong>Run the pause test.</strong> Stop playback mid-loop and listen to the silence.</li>
+        <li>What disappeared was your music; whatever remains is your playback system’s own floor.</li>
+        <li>Write down which was which.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Pole — “Tanzen 2” (from 1) and use Drum Rack, MIDI clips, Groove Pool, and clip automation.</li><li>Build the phase goal — <em>Everything underneath — and the pause test</em> — as the smallest Live set that proves <em>noise placed rhythmically, everything else quiet and sparse beneath it</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>background noise keeping time as the lead instrument</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>Everything underneath — and the pause test</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>noise placed rhythmically, everything else quiet and sparse beneath it</em>, not just the surface of Pole — “Tanzen 2” (from 1).</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
 
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">A quiet, sparse loop where the crackle leads, the chord glows underneath, and the kick is a pressure rather than a sound — and stopping playback stops <em>music</em>, not just hiss.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A quiet, sparse loop where the crackle leads, the chord glows underneath, and the kick is a pressure rather than a sound — and stopping playback stops <em>music</em>, not just hiss.</p>
     </div>
 
     <div class="sub-block">
@@ -339,6 +339,10 @@
     </div>
   </div>
 
+  </div></div><!-- PHASE 2 -->
+  <!-- PHASE 3 -->
+  <!-- PHASE 4 -->
+  <!-- PHASE 5 -->
   <div class="decision-check">
     <div class="decision-check-label">Verify against the record</div>
     <p>Solo-flip between <span class="code">REF</span> and your loop at matched loudness — phones at the mark, both quiet, neither turned up to impress.</p>
@@ -375,5 +379,6 @@
 
 </div>
 
+  <script src="../nav.js"></script>
 </body>
 </html>

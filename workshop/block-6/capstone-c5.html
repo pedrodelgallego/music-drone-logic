@@ -6,7 +6,7 @@
 <title>Capstone C5 — Year 2</title>
 <link rel="stylesheet" href="../styles.css">
 </head>
-<body>
+<body class="page-type-capstone" id="top">
 
 <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
 <label for="nav-toggle" class="hamburger" aria-label="Menu">
@@ -16,6 +16,7 @@
 <nav class="nav" aria-label="Workshop contents">
   <p class="nav-label">Workshop</p>
   <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
   <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
   <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
   <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
@@ -28,13 +29,14 @@
 </nav>
 
 <div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 6 · Decision Systems</a><span class="breadcrumb-sep">/</span><span>The Autonomous Installation</span></nav>
 
   <header class="page-header">
     <div class="eyebrow">Block 6 · Capstone C5 · Year 2</div>
     <h1>The Autonomous Installation</h1>
     <p class="lede">A system that runs for thirty minutes or more with nobody touching it — designed, documented, and defended. This is the lab 024 unattended test scaled up to a piece, and it is where Year 2&rsquo;s claim is tested: that you can transform and diagnose, and that every transformation is path-dependent. The year does not close with a track; it closes with a machine you can stand behind in absentia.</p>
   </header>
-  <p class="block-meta">Capstone · Year tier · two cycles · requires Blocks 4–6 and programmes L4–L6 complete · closes Year 2</p>
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l6.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs">Labs</a><a href="lab-r6.html" data-section="rebuild">Rebuild</a><a href="capstone-c5.html" data-section="capstone" class="current">Capstone</a><a href="index.html#replication-lessons" data-section="rep">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
 
   <div class="signal-flow">
     <span class="signal-node">listen</span>
@@ -86,9 +88,9 @@
 
   <div class="note-block">
     <ul>
-      <li><strong>Scaffolding:</strong> C5 sits at S3 — you author both specs from prompts, and by now the prompts are the seven questions you would ask anyone else&rsquo;s system: what does it remember, can it be reproduced, what may it decide, what is forbidden, where does audio travel, where do decisions travel, what gets printed.</li>
+      <li><strong>Support level:</strong> C5 sits at S3 — you author both specs from prompts, and by now the prompts are the seven questions you would ask anyone else&rsquo;s system: what does it remember, can it be reproduced, what may it decide, what is forbidden, where does audio travel, where do decisions travel, what gets printed.</li>
       <li><strong>The whole year is admissible.</strong> The system&rsquo;s voices may pass through Block 4&rsquo;s transformations and must sit in a space built with Block 5&rsquo;s routing discipline — sends, returns, translation checked. A Block 6 rule set driving an untreated, unmixed signal path is half a year, not a capstone.</li>
-      <li><strong>Constraint menu:</strong> a menu of formal restrictions for the installation — voice budgets, intervention bans, state ceilings — is <span class="status">forthcoming</span>. The requirements on this page are final and sufficient to run C5 now.</li>
+      <li><strong>Constraint menu:</strong> use the formal restrictions on this page: voice budgets, intervention bans, state ceilings, and documented emergency exits.</li>
     </ul>
   </div>
 
@@ -136,7 +138,7 @@
 
   <h2>2 — Bench delta</h2>
 
-  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Year capstones re-version the bench at year scale. Two years of gear arrivals — tape deck, mixer, hardware delay, generative sequencer, semi-modular — have rewritten the studio since the map was last redrawn from memory.</p>
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">C5 re-versions the bench at year scale. Two years of gear arrivals — tape deck, mixer, hardware delay, generative sequencer, semi-modular — have rewritten the studio since the map was last redrawn from memory.</p>
 
   <ol class="rules-list">
     <li><strong>Redraw the Studio Signal Map from memory</strong> — every source, gain stage, send, return, and monitoring path, including everything that arrived in Year 2. No peeking at prior versions.</li>
@@ -156,7 +158,7 @@
       <li>Identify every gain stage, including every send/return and resampling loop</li>
       <li>State what you are monitoring at any moment — and what is being printed meanwhile</li>
       <li>Demonstrate one transformation chain at three input levels and defend one</li>
-      <li>Renew the Held Tone Test at the C5 duration — the C2 test, extended; exact duration with Block 6 authoring <span class="status">forthcoming</span></li>
+      <li>Renew the Held Tone Test at twelve minutes — the C2 test, extended until unattended form and boundary control are both audible</li>
     </ul>
   </div>
 
@@ -190,11 +192,22 @@
   </div>
 
   <table class="param-table">
-    <caption>Pass standard — full rubric <span class="status">forthcoming</span></caption>
+    <caption>Pass standard — full rubric</caption>
     <tr><td>Minimum pass</td><td>The minimum gate above is complete, the 30-minute unattended run is certified in one take, the reprise is filed with its delta paragraph, the bench is re-versioned, and the defense is answered.</td></tr>
     <tr><td>Solid pass</td><td>The system stayed inside its declared boundary for the full run, the stolen principle is locatable in its rules or routing, and the documentation would let a stranger start and stop the installation safely.</td></tr>
     <tr><td>Advanced transfer</td><td>A second run from a new seed is a recognizable sibling of the certified run — and you can explain, layer by layer, why the behavior holds while the output differs.</td></tr>
   </table>
+
+  <div class="callout">
+    <div class="callout-label">Excellence — the year-capstone ceiling</div>
+    <p>The tiers above certify competence. Excellence is what a year capstone can reach for when the system is not just defensible but genuinely yours. A piece does not need this to pass — but a year of work can aim here:</p>
+    <ul>
+      <li><strong>The boundary disappears into the music.</strong> A listener who does not know it is generative hears intention, not rules — the fence is so well-built that everything it permits is musical, and nothing it forbids is missed.</li>
+      <li><strong>The thirty minutes earn their length.</strong> The form has a felt arc across the full duration — minute 23 is not merely <em>still music</em> but is somewhere the piece needed to go; the system develops rather than merely persists.</li>
+      <li><strong>The documentation is publishable.</strong> The two diagrams, the state/seed/boundary table, and the operator card are clear enough that a stranger could install, run, and write about the piece without you — the system is fully understood by its own builder.</li>
+      <li><strong>The reprise and the synthesis say something true.</strong> The delta paragraph names a specific capacity the current you has and the Year-1 you did not, and the year synthesis closes with a Year-3 question you actually want to chase — not a summary, a direction.</li>
+    </ul>
+  </div>
 
   <h3 style="text-align: center;">The seven-layer worksheet</h3>
 
@@ -258,5 +271,6 @@
 
 </div>
 
+  <script src="../nav.js"></script>
 </body>
 </html>

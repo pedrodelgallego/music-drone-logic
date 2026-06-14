@@ -6,7 +6,7 @@
 <title>Replicate: Every Element Load-Bearing — Robert Hood</title>
 <link rel="stylesheet" href="../styles.css">
 </head>
-<body>
+<body class="page-type-rep" id="top">
 
 <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
 <label for="nav-toggle" class="hamburger" aria-label="Menu">
@@ -16,6 +16,7 @@
 <nav class="nav" aria-label="Workshop contents">
   <p class="nav-label">Workshop</p>
   <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
   <a href="index.html" class="active"><span class="nav-num">01</span>The Bench</a>
   <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
   <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
@@ -28,12 +29,15 @@
 </nav>
 
 <div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 1 · The Bench</a><span class="breadcrumb-sep">/</span><span>Replicate: Every Element Load-Bearing</span></nav>
 
   <header class="page-header">
     <div class="eyebrow">Block 1 · Replication lesson</div>
     <h1>Replicate: Every Element Load-Bearing</h1>
     <p class="lede">Copy one clear section of Robert Hood — Minimal Nation. Build the main parts, record a short take, and compare it to the reference at the same loudness.</p>
   </header>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l1.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs">Labs</a><a href="lab-r1.html" data-section="rebuild">Rebuild</a><a href="capstone-c1.html" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep" class="current">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
   <div class="callout">
     <div class="callout-label">The point</div>
     <p>This drill teaches the record's core mechanism: each element does one job nothing else does. Do only the steps that make that mechanism audible.</p>
@@ -50,7 +54,7 @@
 
   <div class="checklist">
     <div class="checklist-head">
-      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"></path></svg></div>
       <div class="checklist-label">Before you start</div>
     </div>
     <ul>
@@ -74,7 +78,7 @@
       <div class="step-num">Reference pass · 10 minutes</div>
       <h3 class="step-title">Listen before you build</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Listen to about one minute of Robert Hood — Minimal Nation. Choose the clearest short section. Write one short answer for each question before you touch the gear.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Listen to about one minute of Robert Hood — Minimal Nation. Choose the clearest short section. Write one short answer for each question before you touch the gear.</p>
     <ol class="rules-list">
       <li>How many elements are there — count, don’t estimate?
         <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>On most Minimal Nation tracks an honest count lands at three to five: kick, hat, a clap or percussion hit, and one synth figure - sometimes a separate bass.</p></div></details>
@@ -92,7 +96,7 @@
         <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Placement and micro-variation, not new material. The elements lock into one groove and your ear rides the tiny shifts - a velocity here, a nudge there - plus the tension of waiting for changes that arrive rarely.</p></div></details>
       </li>
     </ol>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Now build the section you described. Do not build from memory.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Now build the section you described. Do not build from memory.</p>
   </div>
 
   <div class="note-block">
@@ -130,24 +134,24 @@
     <span class="signal-node">A/B against REF</span>
   </div>
 
-  <div class="step">
+  <div class="gear-switch"><input type="radio" name="gear" id="gear-hw" class="gear-radio" checked><input type="radio" name="gear" id="gear-sw" class="gear-radio"><input type="radio" name="gear" id="gear-tg" class="gear-radio"><div class="gear-labels"><span class="gear-lead">Your rig</span><label for="gear-hw">MicroFreak + Digitakt II</label><label for="gear-sw">Ableton Live only</label><label for="gear-tg">Syntakt · target</label></div><div class="gear-scope"><div class="step">
     <div class="step-head">
       <div class="step-num">Phase 1</div>
       <h3 class="step-title">Set the reference</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: set the reference. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: set the reference. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Live</span> Pick one track from <em>Minimal Nation</em> and drop it onto an audio track named <span class="code">REF</span>.</li>
-        <li><span class="system-tag">Live</span> Find the most characteristic 8–16 bars and set the loop brace around them.</li>
-        <li><span class="system-tag">Live</span> Gain-match with a <span class="menu">Utility</span> on REF so every comparison is honest — a louder reference always sounds “better”.</li>
-        <li><span class="system-tag">Live</span> Keep REF one solo away for the whole session; you will return to it dozens of times.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>Pick one track from <em>Minimal Nation</em> and drop it onto an audio track named <span class="code">REF</span>.</li>
+        <li>Find the most characteristic 8–16 bars and set the loop brace around them.</li>
+        <li>Gain-match with a <span class="menu">Utility</span> on REF so every comparison is honest — a louder reference always sounds “better”.</li>
+        <li>Keep REF one solo away for the whole session; you will return to it dozens of times.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Robert Hood — Minimal Nation and use Live audio/MIDI tracks, Utility, automation, and resampling.</li><li>Build the phase goal — <em>Set the reference</em> — as the smallest Live set that proves <em>each element does one job nothing else does</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>3–5 elements feel like a full track</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Syntakt for this phase: translate <em>Set the reference</em> into machine tracks, trig conditions, parameter locks, the FX block, macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>each element does one job nothing else does</em>, not just the surface of Robert Hood — Minimal Nation.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">A clean loop that cycles without a stumble, at roughly the level your own tracks will play at.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A clean loop that cycles without a stumble, at roughly the level your own tracks will play at.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">If it fails</div>
@@ -166,18 +170,18 @@
       <div class="step-num">Phase 2</div>
       <h3 class="step-title">Count the elements, match each sound</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: count the elements, match each sound. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: count the elements, match each sound. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
         <li>Count the section’s elements — count, don’t estimate; that count is your build list.</li>
         <li>Build that many, no more.</li>
-        <li><span class="system-tag">Logbook</span> Write each element into the table below with its one-word job before you shape any sound.</li>
-        <li><span class="system-tag">Digitakt II</span> Use <span class="code">[TRK]</span> + that sound’s <span class="code">[TRIG]</span> key to select each drum track before tuning. Match the record’s weight and envelope — sample choice first, then tuning and decay.</li>
-        <li><span class="system-tag">MicroFreak + Live</span> On the MicroFreak, match the synth figure’s tone, then transcribe its actual notes by ear into a Live MIDI clip — sing the line, place the notes, compare against REF, revise.</li>
-        <li><span class="system-tag">MicroFreak</span> Record the MicroFreak to audio via <span class="menu">Audio From → Ext. In → 1</span>.</li>
+        <li>Write each element into the table below with its one-word job before you shape any sound.</li>
+        <li>Use <span class="code">[TRK]</span> + that sound’s <span class="code">[TRIG]</span> key to select each drum track before tuning. Match the record’s weight and envelope — sample choice first, then tuning and decay.</li>
+        <li>On the MicroFreak, match the synth figure’s tone, then transcribe its actual notes by ear into a Live MIDI clip — sing the line, place the notes, compare against REF, revise.</li>
+        <li>Record the MicroFreak to audio via <span class="menu">Audio From → Ext. In → 1</span>.</li>
       </ol>
-      <table>
+      </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Robert Hood — Minimal Nation and use Live audio/MIDI tracks, Utility, automation, and resampling.</li><li>Build the phase goal — <em>Count the elements, match each sound</em> — as the smallest Live set that proves <em>each element does one job nothing else does</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>3–5 elements feel like a full track</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Syntakt for this phase: translate <em>Count the elements, match each sound</em> into machine tracks, trig conditions, parameter locks, the FX block, macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>each element does one job nothing else does</em>, not just the surface of Robert Hood — Minimal Nation.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div><table>
         <thead><tr><th>Element</th><th>Job in one word</th><th>Load-bearing?</th></tr></thead>
         <tbody>
           <tr><td>kick</td><td>…</td><td>…</td></tr>
@@ -190,7 +194,7 @@
     </div>
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">A filled table, and one sound per row that — solo’d against REF — is recognisably aiming at the same target.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A filled table, and one sound per row that — solo’d against REF — is recognisably aiming at the same target.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">If it fails</div>
@@ -209,16 +213,16 @@
       <div class="step-num">Phase 3</div>
       <h3 class="step-title">Transcribe the patterns</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: transcribe the patterns. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: transcribe the patterns. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Live</span> Solo REF and follow one element at a time — kick first, then hat, then perc.</li>
-        <li><span class="system-tag">Digitakt II + Live</span> Mark each hit on the grid below, then program what you marked — Digitakt II grid recording for the drums, the MIDI clip for the figure.</li>
-        <li><span class="system-tag">Live</span> Place every hit where the record places it — solo REF, listen, place, compare.</li>
-        <li><span class="system-tag">Live</span> Loop your replica against the section until the two move as one groove.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>Solo REF and follow one element at a time — kick first, then hat, then perc.</li>
+        <li>Mark each hit on the grid below, then program what you marked — Digitakt II grid recording for the drums, the MIDI clip for the figure.</li>
+        <li>Place every hit where the record places it — solo REF, listen, place, compare.</li>
+        <li>Loop your replica against the section until the two move as one groove.</li>
       </ol>
-      <div class="pattern-wrap">
+      </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Robert Hood — Minimal Nation and use Live audio/MIDI tracks, Utility, automation, and resampling.</li><li>Build the phase goal — <em>Transcribe the patterns</em> — as the smallest Live set that proves <em>each element does one job nothing else does</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>3–5 elements feel like a full track</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Syntakt for this phase: translate <em>Transcribe the patterns</em> into machine tracks, trig conditions, parameter locks, the FX block, macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>each element does one job nothing else does</em>, not just the surface of Robert Hood — Minimal Nation.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div><div class="pattern-wrap">
         <div class="pattern">
           <div class="pattern-label">Kick</div>
           <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
@@ -239,11 +243,11 @@
           <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
         </div>
       </div>
-      <p style="color: var(--text-muted); font-size: 13.5px; text-align: center; margin: 10px 0 0;">Fill from YOUR transcription — the grid is the method, the record supplies the pattern.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-md-plus); text-align: center; margin: 10px 0 0;">Fill from YOUR transcription — the grid is the method, the record supplies the pattern.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Replica and record looping together without fighting — one groove, two sources.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Replica and record looping together without fighting — one groove, two sources.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">If it fails</div>
@@ -262,20 +266,20 @@
       <div class="step-num">Phase 4</div>
       <h3 class="step-title">Run the mute test</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: run the mute test. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: run the mute test. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Digitakt II + MicroFreak</span> Mute each element alone — Digitakt II track mutes for the drums, Live track mute for the MicroFreak — for 8 full bars, in turn, while the others keep playing.</li>
-        <li><span class="system-tag">Logbook</span> Write one line per element: what broke when it left?</li>
-        <li><span class="system-tag">Logbook</span> Rhythm?</li>
-        <li><span class="system-tag">Logbook</span> Weight?</li>
-        <li><span class="system-tag">Logbook</span> Answer?</li>
-        <li><span class="system-tag">Logbook</span> Tension?</li>
-        <li><span class="system-tag">Logbook</span> If you can’t name what broke, listen to the record’s section again — Hood put it there for a reason.</li>
-        <li><span class="system-tag">Logbook</span> Fill the table below as you go, then run the whole test a second time, cold, the next day.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>Mute each element alone — Digitakt II track mutes for the drums, Live track mute for the MicroFreak — for 8 full bars, in turn, while the others keep playing.</li>
+        <li>Write one line per element: what broke when it left?</li>
+        <li>Rhythm?</li>
+        <li>Weight?</li>
+        <li>Answer?</li>
+        <li>Tension?</li>
+        <li>If you can’t name what broke, listen to the record’s section again — Hood put it there for a reason.</li>
+        <li>Fill the table below as you go, then run the whole test a second time, cold, the next day.</li>
       </ol>
-      <table>
+      </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Robert Hood — Minimal Nation and use Live audio/MIDI tracks, Utility, automation, and resampling.</li><li>Build the phase goal — <em>Run the mute test</em> — as the smallest Live set that proves <em>each element does one job nothing else does</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>3–5 elements feel like a full track</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Syntakt for this phase: translate <em>Run the mute test</em> into machine tracks, trig conditions, parameter locks, the FX block, macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>each element does one job nothing else does</em>, not just the surface of Robert Hood — Minimal Nation.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div><table>
         <tr><th>Element</th><th>What broke when it left</th><th>Why the record needs it</th></tr>
         <tr><td>kick</td><td>…</td><td>…</td></tr>
         <tr><td>hat</td><td>…</td><td>…</td></tr>
@@ -285,7 +289,7 @@
     </div>
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Every mute hurts in a nameable way — four filled rows, no blanks.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Every mute hurts in a nameable way — four filled rows, no blanks.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">If it fails</div>
@@ -304,20 +308,20 @@
       <div class="step-num">Phase 5</div>
       <h3 class="step-title">Close the gaps and print</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: close the gaps and print. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: close the gaps and print. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Live</span> Solo REF against your replica element by element — level, tuning, placement.</li>
-        <li><span class="system-tag">Live</span> Whatever a friend would catch in ten seconds, fix.</li>
-        <li><span class="system-tag">Live</span> Repeat the round until the catches run out.</li>
-        <li><span class="system-tag">Live</span> Record 2 minutes of the final replica to an audio track.</li>
-        <li><span class="system-tag">Live</span> <span class="menu">File → Export Audio/Video</span>, WAV, named <span class="code">REP-minimal-nation</span>.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>Solo REF against your replica element by element — level, tuning, placement.</li>
+        <li>Whatever a friend would catch in ten seconds, fix.</li>
+        <li>Repeat the round until the catches run out.</li>
+        <li>Record 2 minutes of the final replica to an audio track.</li>
+        <li><span class="menu">File → Export Audio/Video</span>, WAV, named <span class="code">REP-minimal-nation</span>.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Robert Hood — Minimal Nation and use Live audio/MIDI tracks, Utility, automation, and resampling.</li><li>Build the phase goal — <em>Close the gaps and print</em> — as the smallest Live set that proves <em>each element does one job nothing else does</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>3–5 elements feel like a full track</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Syntakt for this phase: translate <em>Close the gaps and print</em> into machine tracks, trig conditions, parameter locks, the FX block, macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>each element does one job nothing else does</em>, not just the surface of Robert Hood — Minimal Nation.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">A 2-minute WAV that survives the verify questions below.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A 2-minute WAV that survives the verify questions below.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">If it fails</div>
@@ -331,7 +335,7 @@
     </div>
   </div>
 
-  <div class="decision-check">
+  </div></div><div class="decision-check">
     <div class="decision-check-label">Verify against the record</div>
     <p>A/B your 2 minutes against the looped section at matched volume, then answer cold the next day:</p>
     <ul>
@@ -369,5 +373,6 @@
 
 </div>
 
+  <script src="../nav.js"></script>
 </body>
 </html>

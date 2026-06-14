@@ -6,7 +6,7 @@
 <title>Replicate: micro-swing</title>
 <link rel="stylesheet" href="../styles.css">
 </head>
-<body>
+<body class="page-type-rep" id="top">
 
 <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
 <label for="nav-toggle" class="hamburger" aria-label="Menu">
@@ -16,6 +16,7 @@
 <nav class="nav" aria-label="Workshop contents">
   <p class="nav-label">Workshop</p>
   <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
   <a href="index.html" class="active"><span class="nav-num">01</span>The Bench</a>
   <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
   <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
@@ -28,12 +29,15 @@
 </nav>
 
 <div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 1 · The Bench</a><span class="breadcrumb-sep">/</span><span>Replicate: micro-swing</span></nav>
 
   <header class="page-header">
     <div class="eyebrow">Block 1 · Replication lesson</div>
     <h1>Replicate: micro-swing</h1>
     <p class="lede">Copy one clear section of Ricardo Villalobos — “Easy Lee”. Build the main parts, record a short take, and compare it to the reference at the same loudness.</p>
   </header>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l1.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs">Labs</a><a href="lab-r1.html" data-section="rebuild">Rebuild</a><a href="capstone-c1.html" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep" class="current">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
   <div class="callout">
     <div class="callout-label">The point</div>
     <p>This drill teaches the record's core mechanism: a different fixed micro-timing offset per voice, over a steady frame. Do only the steps that make that mechanism audible.</p>
@@ -50,7 +54,7 @@
 
   <div class="checklist">
     <div class="checklist-head">
-      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"></path></svg></div>
       <div class="checklist-label">Before you start</div>
     </div>
     <ul>
@@ -74,7 +78,7 @@
       <div class="step-num">Reference pass · 10 minutes</div>
       <h3 class="step-title">Listen before you build</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Listen to about one minute of Ricardo Villalobos — “Easy Lee”. Choose the clearest short section. Write one short answer for each question before you touch the gear.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Listen to about one minute of Ricardo Villalobos — “Easy Lee”. Choose the clearest short section. Write one short answer for each question before you touch the gear.</p>
     <ol class="rules-list">
       <li>The rolling feeling — where does it live? In one sound, or between sounds?
         <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Between sounds. Solo any single voice in your head and it is just a steady part; the rotation only appears when the voices play together, because it is made of the fixed timing gaps between them.</p></div></details>
@@ -89,7 +93,7 @@
         <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Because every offset is tiny, fixed, and repeated - the ear learns the pattern of gaps within a few bars and starts riding it, the way it rides swing. A mess is offsets that change; a roll is offsets that hold.</p></div></details>
       </li>
     </ol>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">Now build the section you described. Do not build from memory.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Now build the section you described. Do not build from memory.</p>
   </div>
 
   <h2>Steps</h2>
@@ -114,23 +118,23 @@
   </div>
 
   <!-- PHASE 1 -->
-  <div class="step">
+  <div class="gear-switch"><input type="radio" name="gear" id="gear-hw" class="gear-radio" checked><input type="radio" name="gear" id="gear-sw" class="gear-radio"><input type="radio" name="gear" id="gear-tg" class="gear-radio"><div class="gear-labels"><span class="gear-lead">Your rig</span><label for="gear-hw">Digitakt II + Live</label><label for="gear-sw">Ableton Live only</label><label for="gear-tg">Analog Rytm MKII · target</label></div><div class="gear-scope"><div class="step">
     <div class="step-head">
       <div class="step-num">Phase 1 · ~25 min</div>
       <h3 class="step-title">Transcribe and program the voices — dead straight</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: transcribe and program the voices — dead straight. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: transcribe and program the voices — dead straight. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Live</span> Drop “Easy Lee” into Live on a track named <span class="code">REF</span> and loop the 8–16 bars you chose.</li>
-        <li><span class="system-tag">Live</span> Gain-match it with a Utility, set Live’s tempo to the record’s by tapping, and keep <span class="code">REF</span> one solo away all sitting.</li>
-        <li><span class="system-tag">Digitakt II</span> Transcribe the frame first: their kick pattern on the Digitakt II, dead on the grid.</li>
-        <li><span class="system-tag">Digitakt II</span> Transcribe 3–4 percussion voices — shaker, rim, conga, or whatever your section carries — onto their own tracks, closest sounds you have, every trig on the grid.</li>
-        <li><span class="system-tag">Digitakt II + Live</span> Loop against <span class="code">REF</span> and correct voice by voice until the patterns are theirs.</li>
-        <li><span class="system-tag">Digitakt II</span> No swing, no micro-timing, anywhere — confirm every track reads 50% swing and every trig sits at zero.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>Drop “Easy Lee” into Live on a track named <span class="code">REF</span> and loop the 8–16 bars you chose.</li>
+        <li>Gain-match it with a Utility, set Live’s tempo to the record’s by tapping, and keep <span class="code">REF</span> one solo away all sitting.</li>
+        <li>Transcribe the frame first: their kick pattern on the Digitakt II, dead on the grid.</li>
+        <li>Transcribe 3–4 percussion voices — shaker, rim, conga, or whatever your section carries — onto their own tracks, closest sounds you have, every trig on the grid.</li>
+        <li>Loop against <span class="code">REF</span> and correct voice by voice until the patterns are theirs.</li>
+        <li>No swing, no micro-timing, anywhere — confirm every track reads 50% swing and every trig sits at zero.</li>
       </ol>
-      <div class="pattern-wrap">
+      </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Ricardo Villalobos — “Easy Lee” and use Operator or Wavetable into Auto Filter, with clip automation.</li><li>Build the phase goal — <em>Transcribe and program the voices — dead straight</em> — as the smallest Live set that proves <em>a different fixed micro-timing offset per voice, over a steady frame</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>the percussion seems to rotate — many small clocks, one rolling feel</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>Transcribe and program the voices — dead straight</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>a different fixed micro-timing offset per voice, over a steady frame</em>, not just the surface of Ricardo Villalobos — “Easy Lee”.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div><div class="pattern-wrap">
         <div class="pattern">
           <div class="pattern-label">Kick</div>
           <div class="pattern-step on">1</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
@@ -157,11 +161,11 @@
           <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step ghost">15</div><div class="pattern-step"></div>
         </div>
       </div>
-      <p style="color: var(--text-muted); font-size: 13.5px; margin: 8px 0 0;">One plausible shape — your transcription may differ; the grid is the method, not the answer. Only the kick row is drawn honestly: every other voice is marked dim because on the record it lives a few fixed milliseconds off its cell — a different few for each voice. The grid cannot draw that — the offsets table will.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-md-plus); margin: 8px 0 0;">One plausible shape — your transcription may differ; the grid is the method, not the answer. Only the kick row is drawn honestly: every other voice is marked dim because on the record it lives a few fixed milliseconds off its cell — a different few for each voice. The grid cannot draw that — the offsets table will.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">The record’s percussion, machine-straight in your sounds. Against <span class="code">REF</span> it is recognizably the same parts — but flat where theirs rotates. The rotation is missing because the offsets are missing; that is the gap the next phase closes.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">The record’s percussion, machine-straight in your sounds. Against <span class="code">REF</span> it is recognizably the same parts — but flat where theirs rotates. The rotation is missing because the offsets are missing; that is the gap the next phase closes.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">If it fails</div>
@@ -175,13 +179,12 @@
     </div>
   </div>
 
-  <!-- PHASE 2 -->
   <div class="step">
     <div class="step-head">
       <div class="step-num">Phase 2 · ~30 min</div>
       <h3 class="step-title">Give each voice its own clock</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: give each voice its own clock. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: give each voice its own clock. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
 
     <div class="signal-flow">
       <span class="signal-node">Kick · 0</span>
@@ -197,18 +200,18 @@
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Digitakt II</span> In grid recording, hold each shaker <span class="code">[TRIG]</span> key and press <span class="code">[LEFT]</span> the same number of clicks — two or three to start.</li>
-        <li><span class="system-tag">Digitakt II</span> Every shaker trig, the same number.</li>
-        <li><span class="system-tag">Digitakt II</span> Hold each rim trig and tap the <strong>right</strong> arrow the same number of clicks — late, by its own amount, every rim trig identical.</li>
-        <li><span class="system-tag">Digitakt II</span> Leave the conga (or your third voice) at zero for now — one voice on the line keeps the ensemble anchored.</li>
-        <li><span class="system-tag">Digitakt II</span> Loop and listen for a couple of minutes before judging.</li>
-        <li><span class="system-tag">Digitakt II</span> Micro-offsets need a few bars to register as a feel rather than a flaw.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>In grid recording, hold each shaker <span class="code">[TRIG]</span> key and press <span class="code">[LEFT]</span> the same number of clicks — two or three to start.</li>
+        <li>Every shaker trig, the same number.</li>
+        <li>Hold each rim trig and tap the <strong>right</strong> arrow the same number of clicks — late, by its own amount, every rim trig identical.</li>
+        <li>Leave the conga (or your third voice) at zero for now — one voice on the line keeps the ensemble anchored.</li>
+        <li>Loop and listen for a couple of minutes before judging.</li>
+        <li>Micro-offsets need a few bars to register as a feel rather than a flaw.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Ricardo Villalobos — “Easy Lee” and use Operator or Wavetable into Auto Filter, with clip automation.</li><li>Build the phase goal — <em>Give each voice its own clock</em> — as the smallest Live set that proves <em>a different fixed micro-timing offset per voice, over a steady frame</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>the percussion seems to rotate — many small clocks, one rolling feel</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>Give each voice its own clock</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>a different fixed micro-timing offset per voice, over a steady frame</em>, not just the surface of Ricardo Villalobos — “Easy Lee”.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">The flatness breaks: the percussion field starts to circulate, even at this first guess. It will not yet roll like the record — the directions are probably right, the amounts probably wrong. That is what Phase 3 tunes.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">The flatness breaks: the percussion field starts to circulate, even at this first guess. It will not yet roll like the record — the directions are probably right, the amounts probably wrong. That is what Phase 3 tunes.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">If it fails</div>
@@ -222,29 +225,28 @@
     </div>
   </div>
 
-  <!-- PHASE 3 -->
   <div class="step">
     <div class="step-head">
       <div class="step-num">Phase 3 · ~25 min</div>
       <h3 class="step-title">Tune the combination against the record</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: tune the combination against the record. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: tune the combination against the record. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Live</span> Loop yours against <span class="code">REF</span>, a few bars each, back and forth.</li>
-        <li><span class="system-tag">Live</span> Ask one question per pass: is the rotation too wide (offsets too big), too subtle (too small), or circling the wrong way (a direction wrong)?</li>
-        <li><span class="system-tag">Live</span> Adjust a single voice by one click and listen again.</li>
-        <li><span class="system-tag">Live</span> Resist touching two voices between listens, however sure you feel.</li>
-        <li><span class="system-tag">Live</span> Try moving your third voice off zero and back — hear what anchoring costs and what it buys.</li>
-        <li><span class="system-tag">Live</span> Keep whichever the record agrees with.</li>
-        <li><span class="system-tag">Live</span> Stop when the A/B stops settling — when yours and theirs roll at the same width and the same way.</li>
-        <li><span class="system-tag">Live</span> Then play yours alone for a minute and confirm the roll survives without the reference.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>Loop yours against <span class="code">REF</span>, a few bars each, back and forth.</li>
+        <li>Ask one question per pass: is the rotation too wide (offsets too big), too subtle (too small), or circling the wrong way (a direction wrong)?</li>
+        <li>Adjust a single voice by one click and listen again.</li>
+        <li>Resist touching two voices between listens, however sure you feel.</li>
+        <li>Try moving your third voice off zero and back — hear what anchoring costs and what it buys.</li>
+        <li>Keep whichever the record agrees with.</li>
+        <li>Stop when the A/B stops settling — when yours and theirs roll at the same width and the same way.</li>
+        <li>Then play yours alone for a minute and confirm the roll survives without the reference.</li>
       </ol>
-    </div>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Ricardo Villalobos — “Easy Lee” and use audio clips, Simpler/Sampler, clip envelopes, and resampling.</li><li>Build the phase goal — <em>Tune the combination against the record</em> — as the smallest Live set that proves <em>a different fixed micro-timing offset per voice, over a steady frame</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>the percussion seems to rotate — many small clocks, one rolling feel</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>Tune the combination against the record</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>a different fixed micro-timing offset per voice, over a steady frame</em>, not just the surface of Ricardo Villalobos — “Easy Lee”.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">A combination of three or four small numbers at which the loop rolls like the section — and a felt sense of how sensitive the system is: one click on one voice audibly changes the whole field’s rotation.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A combination of three or four small numbers at which the loop rolls like the section — and a felt sense of how sensitive the system is: one click on one voice audibly changes the whole field’s rotation.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">If it fails</div>
@@ -258,13 +260,12 @@
     </div>
   </div>
 
-  <!-- PHASE 4 -->
   <div class="step">
     <div class="step-head">
       <div class="step-num">Phase 4 · ~15 min</div>
       <h3 class="step-title">Observe — write the groove as a table</h3>
     </div>
-    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Phase focus: observe — write the groove as a table. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: observe — write the groove as a table. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
 
     <div class="signal-flow">
       <span class="signal-node">Digitakt II · per-voice offsets</span>
@@ -276,15 +277,15 @@
 
     <div class="sub-block">
       <div class="sub-label">Do this</div>
-      <ol>
-        <li><span class="system-tag">Live</span> Restart the transport — the Lab 002 reset rule — then record 2 minutes of the tuned loop into Live (<span class="code">Ext. In 3/4</span>, Monitor <strong>Off</strong>).</li>
-        <li><span class="system-tag">Live</span> <strong>Observe — see it, not just hear it.</strong> Set the ruler to minutes:seconds:milliseconds, as in Lab 002, and zoom to one hit of each voice.</li>
-        <li><span class="system-tag">Live</span> Measure its distance from the grid line — early as minus, late as plus.</li>
-        <li><span class="system-tag">Live</span> Check the same voice in a distant bar: the number must repeat.</li>
-        <li><span class="system-tag">Live</span> Consistent part, rolling whole — now visible.</li>
-        <li><span class="system-tag">Logbook</span> Fill in the offsets table below and copy it into the logbook, clicks and measured ms both.</li>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>Restart the transport — the Lab 002 reset rule — then record 2 minutes of the tuned loop into Live (<span class="code">Ext. In 3/4</span>, Monitor <strong>Off</strong>).</li>
+        <li><strong>Observe — see it, not just hear it.</strong> Set the ruler to minutes:seconds:milliseconds, as in Lab 002, and zoom to one hit of each voice.</li>
+        <li>Measure its distance from the grid line — early as minus, late as plus.</li>
+        <li>Check the same voice in a distant bar: the number must repeat.</li>
+        <li>Consistent part, rolling whole — now visible.</li>
+        <li>Fill in the offsets table below and copy it into the logbook, clicks and measured ms both.</li>
       </ol>
-      <table class="param-table">
+      </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Ricardo Villalobos — “Easy Lee” and use Operator or Wavetable into Auto Filter, with clip automation.</li><li>Build the phase goal — <em>Observe — write the groove as a table</em> — as the smallest Live set that proves <em>a different fixed micro-timing offset per voice, over a steady frame</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>the percussion seems to rotate — many small clocks, one rolling feel</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>Observe — write the groove as a table</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>a different fixed micro-timing offset per voice, over a steady frame</em>, not just the surface of Ricardo Villalobos — “Easy Lee”.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div><table class="param-table">
         <caption>The offsets table — the groove, stated as engineering</caption>
         <tr><td>Kick</td><td>0 — the reference clock</td></tr>
         <tr><td>Shaker</td><td>early · ___ clicks = ___ ms</td></tr>
@@ -294,7 +295,7 @@
     </div>
     <div class="sub-block">
       <div class="sub-label">Expected result</div>
-      <p style="color: var(--text-muted); font-size: 14.5px; margin: 0;">A filled table of tiny signed numbers that fully describes the feel you spent an hour finding. Read it once more and let the point land: this is what “groove” means on this record — three or four milliseconds-scale constants, held without exception.</p>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A filled table of tiny signed numbers that fully describes the feel you spent an hour finding. Read it once more and let the point land: this is what “groove” means on this record — three or four milliseconds-scale constants, held without exception.</p>
     </div>
     <div class="sub-block">
       <div class="sub-label">If it fails</div>
@@ -308,6 +309,9 @@
     </div>
   </div>
 
+  </div></div><!-- PHASE 2 -->
+  <!-- PHASE 3 -->
+  <!-- PHASE 4 -->
   <div class="decision-check">
     <div class="decision-check-label">Verify against the record</div>
     <p>A/B your recording against the <span class="code">REF</span> section, then answer:</p>
@@ -344,5 +348,6 @@
 
 </div>
 
+  <script src="../nav.js"></script>
 </body>
 </html>
