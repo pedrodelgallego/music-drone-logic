@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Block 0 — Live, Max &amp; Sample Packs</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page-type-block" id="top">
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
+  <a href="index.html" class="active"><span class="nav-num">B0</span>The Rig</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 0</a><span class="breadcrumb-sep">/</span><span>Live, Max &amp; packs</span></nav>
+
+  <header class="page-header">
+    <div class="eyebrow">Block 0 — The Rig · optional · page 3 of 3</div>
+    <h1>Live, Max &amp; sample packs — your software rig</h1>
+    <p class="lede">This page is about the part of your studio with no cables: Ableton Live 12 Suite, the Max for Live devices inside it, and the sample packs you keep on your drive. You will set Live up once, save a template, and learn the few tools worth knowing now. The goal is simple. Every lab in this course should start from the same clean, known room.</p>
+  </header>
+  <p class="block-meta">Optional · Software setup · Ableton Live 12 Suite · Max for Live · MOTU M4 · sample packs</p>
+
+  <div class="callout">
+    <div class="callout-label">The opinion up front</div>
+    <p>Live is both your tape machine and your laboratory — set it up once so every lab starts from the same clean room. You record into it like tape, and you build new instruments inside it like a lab. Get the audio settings and one template right today, and you never think about them again.</p>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>What "Suite" gives you:</strong> Live comes in three editions. You have <strong>Suite</strong>, the largest. It includes every built-in instrument and effect, plus <strong>Max for Live</strong> — a toolkit for building and running custom devices. So you already own everything this course needs. Buy no plug-ins for a year.</li>
+      <li><strong>Your interface:</strong> the box that gets sound in and out of the computer is the <strong>MOTU M4</strong>. Live talks to it through a driver. Setting that up is the first thing below.</li>
+    </ul>
+  </div>
+
+  <h2>First-run audio settings</h2>
+
+  <p style="text-align:center; color:var(--text-muted); max-width:680px; margin:0 auto 18px;">Do this once, the first time you open Live. Open <span class="menu">Settings → Audio</span> (older menus call it <span class="menu">Preferences → Audio</span>) and walk down this list. These exact values are what every lab assumes.</p>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <span class="checklist-icon"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span>
+      <span class="checklist-label">Audio settings — do once</span>
+    </div>
+    <ul>
+      <li><strong>Audio Input Device → MOTU M4.</strong> This is where recorded sound comes in.</li>
+      <li><strong>Audio Output Device → MOTU M4.</strong> The same box plays sound back out. Set both to the M4 so input and output share one clock.</li>
+      <li><strong>Sample Rate → <span class="code">48000</span>.</strong> That is how many times per second the sound is measured (48&nbsp;kHz). Match it everywhere so nothing has to be converted.</li>
+      <li><strong>Buffer Size → <span class="code">128</span>–<span class="code">256</span> samples.</strong> The buffer is a small holding bay for audio. Smaller means less delay but more strain on the computer. Larger is safer but slower to respond. Start at <span class="code">256</span>; drop to <span class="code">128</span> when you play live and the computer can take it.</li>
+      <li><strong>Input Config / Output Config → enable the channels you use.</strong> Click <span class="menu">Input Config</span> and <span class="menu">Output Config</span> and switch on the M4 inputs and outputs your gear is plugged into. Live leaves most off by default to save CPU.</li>
+      <li><strong>Note the <span class="menu">Driver Error Compensation</span> field.</strong> This is a tiny offset, in milliseconds, that nudges recorded audio back into perfect time. Leave it at <span class="code">0</span> for now. You measure the real number in Block 1.</li>
+    </ul>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>You measure the offset later.</strong> Don't guess the <span class="menu">Driver Error Compensation</span> value. Block 1, Lab 002 walks you through recording a click back into Live, measuring how late it lands, and typing that exact number in. Until then, <span class="code">0</span> is fine.</li>
+    </ul>
+  </div>
+
+  <h2>Signal flow inside Live</h2>
+
+  <p style="text-align:center; color:var(--text-muted); max-width:680px; margin:0 auto 18px;">Before you build anything, picture how sound moves through one track. It is always the same path. An instrument or audio clip makes the sound, insert effects shape it, the fader sets its level, then it joins everything else at the master and leaves through the M4. Sends are a side-trip.</p>
+
+  <div class="signal-flow" style="display:block; padding:26px 16px;">
+    <svg viewBox="0 0 760 300" width="100%" role="img" aria-label="Signal flow in a Live track: instrument or clip into insert effects, to the track fader, with a send to a reverb return, then to the master and out to the M4">
+      <defs>
+        <marker id="flowArr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#7dd3c0"/>
+        </marker>
+      </defs>
+      <!-- main left-to-right chain -->
+      <rect x="14" y="40" width="128" height="60" rx="10" fill="#1f2530" stroke="#7dd3c0" stroke-width="1.2"/>
+      <text x="78" y="64" fill="#e6edf3" font-size="11.5" text-anchor="middle">Instrument</text>
+      <text x="78" y="82" fill="#8b949e" font-size="9.5" text-anchor="middle">or audio clip</text>
+
+      <rect x="178" y="40" width="128" height="60" rx="10" fill="#1f2530" stroke="#7dd3c0" stroke-width="1.2"/>
+      <text x="242" y="64" fill="#e6edf3" font-size="11.5" text-anchor="middle">Insert FX</text>
+      <text x="242" y="82" fill="#8b949e" font-size="9.5" text-anchor="middle">EQ · drive · etc</text>
+
+      <rect x="342" y="40" width="128" height="60" rx="10" fill="#1f2530" stroke="#7dd3c0" stroke-width="1.2"/>
+      <text x="406" y="64" fill="#e6edf3" font-size="11.5" text-anchor="middle">Track fader</text>
+      <text x="406" y="82" fill="#8b949e" font-size="9.5" text-anchor="middle">level &amp; pan</text>
+
+      <rect x="506" y="40" width="120" height="60" rx="10" fill="#1f2530" stroke="#7dd3c0" stroke-width="1.4"/>
+      <text x="566" y="64" fill="#e6edf3" font-size="11.5" text-anchor="middle">Master</text>
+      <text x="566" y="82" fill="#8b949e" font-size="9.5" text-anchor="middle">everything sums</text>
+
+      <rect x="662" y="40" width="84" height="60" rx="10" fill="#1f2530" stroke="#7dd3c0" stroke-width="1.2"/>
+      <text x="704" y="64" fill="#e6edf3" font-size="11.5" text-anchor="middle">M4</text>
+      <text x="704" y="82" fill="#8b949e" font-size="9.5" text-anchor="middle">out</text>
+
+      <line x1="142" y1="70" x2="178" y2="70" stroke="#7dd3c0" stroke-width="1.5" marker-end="url(#flowArr)"/>
+      <line x1="306" y1="70" x2="342" y2="70" stroke="#7dd3c0" stroke-width="1.5" marker-end="url(#flowArr)"/>
+      <line x1="470" y1="70" x2="506" y2="70" stroke="#7dd3c0" stroke-width="1.5" marker-end="url(#flowArr)"/>
+      <line x1="626" y1="70" x2="662" y2="70" stroke="#7dd3c0" stroke-width="1.5" marker-end="url(#flowArr)"/>
+
+      <!-- send branch from fader down to returns -->
+      <line x1="406" y1="100" x2="406" y2="180" stroke="#7dd3c0" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#flowArr)"/>
+      <text x="416" y="142" fill="#7dd3c0" font-size="10" text-anchor="start">send</text>
+
+      <rect x="278" y="186" width="150" height="56" rx="10" fill="#161b22" stroke="#7dd3c0" stroke-width="1.2"/>
+      <text x="353" y="210" fill="#e6edf3" font-size="11.5" text-anchor="middle">Return: Reverb</text>
+      <text x="353" y="228" fill="#8b949e" font-size="9.5" text-anchor="middle">shared effect</text>
+
+      <rect x="446" y="186" width="150" height="56" rx="10" fill="#161b22" stroke="#7dd3c0" stroke-width="1.2"/>
+      <text x="521" y="210" fill="#e6edf3" font-size="11.5" text-anchor="middle">Return: Delay</text>
+      <text x="521" y="228" fill="#8b949e" font-size="9.5" text-anchor="middle">shared effect</text>
+
+      <!-- returns back to master -->
+      <line x1="428" y1="214" x2="446" y2="214" stroke="#6e7681" stroke-width="1.2"/>
+      <line x1="566" y1="186" x2="566" y2="100" stroke="#7dd3c0" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#flowArr)"/>
+      <text x="576" y="148" fill="#8b949e" font-size="9.5" text-anchor="start">returns → master</text>
+    </svg>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Insert vs send, in plain words.</strong> An <strong>insert</strong> effect sits in the track and changes the whole sound as it passes through — like a pedal in a guitar lead. A <strong>send</strong> taps off a copy and pours it into a shared effect on a <strong>return track</strong>. One reverb can then be shared by every track, so the whole mix sounds like one room. Sends save CPU and glue a mix together.</li>
+    </ul>
+  </div>
+
+  <h2>A starter template</h2>
+
+  <p style="text-align:center; color:var(--text-muted); max-width:680px; margin:0 auto 18px;">A template is a saved Set with your studio already wired up. Build a sensible one, then make it the <strong>Default Set</strong> so every new project opens ready to play. To do that: build the Set you want, then in <span class="menu">Settings → File/Folder</span> use <span class="menu">Save Current Set as Default</span> (or save it into the User Library's Templates folder). Here is a default worth starting from.</p>
+
+  <table>
+    <thead><tr><th>Track</th><th>What it is</th><th>What it is for</th></tr></thead>
+    <tbody>
+      <tr><td><strong>MIDI 1 — Operator</strong></td><td>A built-in synth track</td><td>Your main built sound. Bass or lead, made from scratch — not a sample.</td></tr>
+      <tr><td><strong>MIDI 2 — Wavetable</strong></td><td>A second synth track</td><td>Pads and moving textures. Ready so a second idea has a home instantly.</td></tr>
+      <tr><td><strong>Audio/MIDI — Drum Rack</strong></td><td>A grid of drum slots</td><td>Your kit. Hits live in pads; each pad is its own little channel.</td></tr>
+      <tr><td><strong>Return A — Reverb</strong></td><td>Shared space effect</td><td>One room for the whole Set. Send any track to it for depth.</td></tr>
+      <tr><td><strong>Return B — Delay</strong></td><td>Shared echo effect</td><td>One echo for everyone. Tempo-synced, ready for dub throws.</td></tr>
+      <tr><td><strong>Resample track</strong></td><td>An audio track set to record "Resampling"</td><td>Captures whatever Live is playing back into a new clip. The engine of half this course.</td></tr>
+    </tbody>
+  </table>
+
+  <p style="text-align:center; color:var(--text-muted); max-width:680px; margin:22px auto 18px;">A template is not fixed. It should grow as you do. This is a healthy progression — start lean, add only what you actually reach for.</p>
+
+  <table>
+    <thead>
+      <tr><th>&nbsp;</th><th>Day 1</th><th>Month 3</th><th>Year 1</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Tracks</strong></td><td>One synth, a Drum Rack, two returns, a Resample track</td><td>Two synths, Drum Rack, returns, Resample, a recording input track</td><td>Your saved Racks pre-loaded; tracks colour-coded by role</td></tr>
+      <tr><td><strong>Effects</strong></td><td>Stock Reverb + Delay on returns</td><td>An Audio Effect Rack on the master; a saved drive chain</td><td>Your own mix-bus Rack and go-to chains, all saved presets</td></tr>
+      <tr><td><strong>Devices</strong></td><td>None extra</td><td>One or two Max for Live picks (LFO, Envelope Follower)</td><td>A small, curated device set you trust</td></tr>
+      <tr><td><strong>Opens with</strong></td><td>A clean room to learn in</td><td>A working studio in one click</td><td>Your sound, ready before you think</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Racks &amp; Macros</h2>
+
+  <p style="text-align:center; color:var(--text-muted); max-width:680px; margin:0 auto 18px;">A <strong>Rack</strong> wraps several devices into one. Live has three: an <strong>Instrument Rack</strong>, an <strong>Audio Effect Rack</strong>, and a <strong>Drum Rack</strong>. Inside a Rack you can run parallel <strong>chains</strong> — copies of the signal processed differently, then blended. On top sit <strong>Macro knobs</strong>: a few big knobs that each move several hidden parameters at once.</p>
+
+  <div class="signal-flow" style="display:block; padding:26px 16px;">
+    <svg viewBox="0 0 760 280" width="100%" role="img" aria-label="A Rack: one input splits into parallel chains, then eight Macro knobs control many parameters at once">
+      <defs>
+        <marker id="rackArr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#7dd3c0"/>
+        </marker>
+      </defs>
+      <rect x="14" y="92" width="120" height="56" rx="10" fill="#1f2530" stroke="#7dd3c0" stroke-width="1.2"/>
+      <text x="74" y="116" fill="#e6edf3" font-size="11.5" text-anchor="middle">Input</text>
+      <text x="74" y="134" fill="#8b949e" font-size="9.5" text-anchor="middle">note or audio</text>
+
+      <!-- chains -->
+      <rect x="206" y="34" width="160" height="48" rx="10" fill="#161b22" stroke="#7dd3c0" stroke-width="1.1"/>
+      <text x="286" y="63" fill="#e6edf3" font-size="11" text-anchor="middle">Chain 1 · clean</text>
+      <rect x="206" y="96" width="160" height="48" rx="10" fill="#161b22" stroke="#7dd3c0" stroke-width="1.1"/>
+      <text x="286" y="125" fill="#e6edf3" font-size="11" text-anchor="middle">Chain 2 · gritty</text>
+      <rect x="206" y="158" width="160" height="48" rx="10" fill="#161b22" stroke="#7dd3c0" stroke-width="1.1"/>
+      <text x="286" y="187" fill="#e6edf3" font-size="11" text-anchor="middle">Chain 3 · sub</text>
+
+      <line x1="134" y1="120" x2="206" y2="58" stroke="#7dd3c0" stroke-width="1.4" marker-end="url(#rackArr)"/>
+      <line x1="134" y1="120" x2="206" y2="120" stroke="#7dd3c0" stroke-width="1.4" marker-end="url(#rackArr)"/>
+      <line x1="134" y1="120" x2="206" y2="182" stroke="#7dd3c0" stroke-width="1.4" marker-end="url(#rackArr)"/>
+
+      <!-- mix to output -->
+      <rect x="430" y="92" width="110" height="56" rx="10" fill="#1f2530" stroke="#7dd3c0" stroke-width="1.4"/>
+      <text x="485" y="116" fill="#e6edf3" font-size="11.5" text-anchor="middle">Blend</text>
+      <text x="485" y="134" fill="#8b949e" font-size="9.5" text-anchor="middle">one output</text>
+      <line x1="366" y1="58" x2="430" y2="116" stroke="#7dd3c0" stroke-width="1.4" marker-end="url(#rackArr)"/>
+      <line x1="366" y1="120" x2="430" y2="120" stroke="#7dd3c0" stroke-width="1.4" marker-end="url(#rackArr)"/>
+      <line x1="366" y1="182" x2="430" y2="124" stroke="#7dd3c0" stroke-width="1.4" marker-end="url(#rackArr)"/>
+
+      <!-- macros -->
+      <rect x="588" y="28" width="158" height="224" rx="12" fill="#161b22" stroke="#7dd3c0" stroke-width="1.2" stroke-dasharray="4 4"/>
+      <text x="667" y="50" fill="#7dd3c0" font-size="10.5" text-anchor="middle">8 MACRO KNOBS</text>
+      <circle cx="618" cy="82" r="13" fill="#1f2530" stroke="#7dd3c0" stroke-width="1.2"/>
+      <circle cx="667" cy="82" r="13" fill="#1f2530" stroke="#7dd3c0" stroke-width="1.2"/>
+      <circle cx="716" cy="82" r="13" fill="#1f2530" stroke="#7dd3c0" stroke-width="1.2"/>
+      <circle cx="618" cy="130" r="13" fill="#1f2530" stroke="#7dd3c0" stroke-width="1.2"/>
+      <circle cx="667" cy="130" r="13" fill="#1f2530" stroke="#7dd3c0" stroke-width="1.2"/>
+      <circle cx="716" cy="130" r="13" fill="#1f2530" stroke="#7dd3c0" stroke-width="1.2"/>
+      <circle cx="618" cy="178" r="13" fill="#1f2530" stroke="#7dd3c0" stroke-width="1.2"/>
+      <circle cx="667" cy="178" r="13" fill="#1f2530" stroke="#7dd3c0" stroke-width="1.2"/>
+      <text x="667" y="226" fill="#8b949e" font-size="9.5" text-anchor="middle">each moves many</text>
+      <text x="667" y="240" fill="#8b949e" font-size="9.5" text-anchor="middle">hidden parameters</text>
+      <line x1="540" y1="120" x2="588" y2="120" stroke="#6e7681" stroke-width="1.2" stroke-dasharray="4 4"/>
+      <text x="564" y="112" fill="#8b949e" font-size="9" text-anchor="middle">controls</text>
+    </svg>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Macro Variations.</strong> Live 12 lets you save the position of all the Macro knobs as a snapshot, then recall it instantly — a "Macro Variation." So one Rack can hold several whole settings: a soft version, a loud version, a broken version. Click to morph between them. Live 12 also lets you grow past the usual 8 Macros up to 16 when a sound needs more hands.</li>
+    </ul>
+  </div>
+
+  <div class="cards two">
+    <div class="card">
+      <h3 class="card-title">One Macro = one musical job</h3>
+      <ul class="card-points">
+        <li>Map a knob to a feeling, not a parameter. "Brightness," "grit," "size" — name it for what you hear.</li>
+        <li>Eight clear jobs beat thirty raw controls. You should be able to play the sound with your eyes shut.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Save the Racks you reuse</h3>
+      <ul class="card-points">
+        <li>When you build a sound you love, drag the Rack to the browser. It becomes a preset you own forever.</li>
+        <li>This turns each finished sound into a reusable tool. You meet this hands-on in Block 2, lab 007b.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Build it, or borrow it?</h2>
+
+  <p style="text-align:center; color:var(--text-muted); max-width:680px; margin:0 auto 18px;">Every sound is a choice: make it from a synth, or load a sample pack. Both are fine. But they trade off, and this course leans hard one way. Here they are side by side.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>&nbsp;</th>
+        <th>Build with a synth<br><span style="font-weight:400;color:var(--text-muted);">Operator / Wavetable</span></th>
+        <th>Use a sample pack<br><span style="font-weight:400;color:var(--text-muted);">a ready recording</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Control</strong></td><td>Total — every part of the sound bends to a knob or Macro</td><td>Limited — you reshape a finished recording from the outside</td></tr>
+      <tr><td><strong>Originality</strong></td><td>Yours alone — nobody else has this exact patch</td><td>Shared — thousands own the same loop unless you deconstruct it</td></tr>
+      <tr><td><strong>CPU &amp; space</strong></td><td>A little live CPU; almost no disk</td><td>Light CPU; can eat a lot of disk space</td></tr>
+      <tr><td><strong>Speed</strong></td><td>Slower — you have to make it</td><td>Instant — drag and drop</td></tr>
+      <tr><td><strong>Best for</strong></td><td>Bass, leads, the core voice of the track</td><td>Raw textures, found sounds, a starting spark to chop</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">Build, don't buy</div>
+    <p>Reach for Operator and Wavetable before any pack. Make the kick, then sample one only if you must. When you do open a pack, treat it as <strong>concrète</strong> raw material — recordings of real sounds to chop, stretch, and resample into something new. Never drop a finished loop and call it done. Packs are ingredients, not meals. You practise this deconstruction in Block 2.</p>
+  </div>
+
+  <h2>Max for Live, without drowning</h2>
+
+  <p style="text-align:center; color:var(--text-muted); max-width:680px; margin:0 auto 18px;">Max for Live lets you run custom devices inside Live — little machines that do one clever thing. There are thousands. Resist them. Install a few that earn their place and learn those well. Here are the picks for this course.</p>
+
+  <table>
+    <thead><tr><th>Device</th><th>What it does, in plain words</th><th>Where it helps</th></tr></thead>
+    <tbody>
+      <tr><td><strong>LFO</strong></td><td>A slow automatic knob-mover. Point it at any parameter and it wobbles it back and forth on its own — adds living movement with no recording.</td><td>Block 4 transformation, Block 5 space</td></tr>
+      <tr><td><strong>Envelope Follower</strong></td><td>Listens to how loud one sound is and uses that loudness to drive another control. A kick can duck a pad just by being loud.</td><td>Block 5 mix &amp; space</td></tr>
+      <tr><td><strong>Granulator III</strong></td><td>A granular instrument (it shatters a sample into tiny grains and replays them as a cloud). Turns any short recording into vast evolving textures. Bundled with Suite.</td><td>Block 2 sources, Block 8 synthesis</td></tr>
+      <tr><td><strong>A generative MIDI tool</strong></td><td>A device that makes note patterns for you from rules or chance, instead of you drawing every note.</td><td>Block 6 decision systems</td></tr>
+    </tbody>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>The one caution:</strong> a folder of 200 Max devices you never open is clutter, not power. Install only the few you will actually use, and know them cold.</li>
+    </ul>
+  </div>
+
+  <h2>Live 12's own toolbox</h2>
+
+  <p style="text-align:center; color:var(--text-muted); max-width:680px; margin:0 auto 18px;">Before you go hunting for devices, know that Live 12 ships with creative tools most people never find. Three are worth flagging now.</p>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>MIDI Generators</strong> make note patterns from scratch — tools like the <strong>Euclidean</strong> generator (spreads hits evenly), Rhythm, Stacks, and Seed. Great for building beats and parts in the Time block (Block 3).</li>
+      <li><strong>MIDI Transformations</strong> reshape notes you already have — Connect, Ornament, Quantize, Recombine, Strum, Time Warp, and Span. They are the heart of generative and time-warping work (Blocks 3 and 6).</li>
+      <li><strong>Microtuning</strong> lets Live play scales outside the usual twelve notes. It loads scale (tuning) files, so you can tune the whole project to a different system. You use this in Block 6's tuning lab.</li>
+    </ul>
+  </div>
+
+  <h2>Managing sample packs</h2>
+
+  <p style="text-align:center; color:var(--text-muted); max-width:680px; margin:0 auto 18px;">You have the <strong>Core Library</strong> (built in) plus downloadable <strong>Packs</strong> you manage through your Ableton account and the Live browser. A messy library is sounds you will never find. Set it up once like this.</p>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <span class="checklist-icon"><svg viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M3 17h18"/></svg></span>
+      <span class="checklist-label">Library setup — do once</span>
+    </div>
+    <ul>
+      <li><strong>Install Packs from the browser.</strong> Open the Live browser, find the <span class="menu">Packs</span> section, and download the ones you want through your Ableton account. The Core Library is already there.</li>
+      <li><strong>Make one personal folder.</strong> In the browser's <span class="menu">Places</span>, add a single folder — your own library. Everything you keep goes here, not scattered across your drive.</li>
+      <li><strong>Use colours and collections.</strong> Live lets you give browser items coloured labels (collections). Pick a colour scheme — say, drums one colour, textures another — so you find sounds by eye.</li>
+      <li><strong>Tag what you keep.</strong> Add tags (words like "kick," "metallic," "warm") so search pulls up sounds by feel, not just file name.</li>
+      <li><strong>Throw out the rest.</strong> If a pack has 500 sounds and you love 6, keep the 6 in your folder and forget the pack. A small, loved library beats a huge one.</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The one rule</div>
+    <p>Sample packs are ingredients, not meals. Keep raw material you will reshape — never finished loops you would drop in untouched.</p>
+  </div>
+
+  <h2>Keeping it smooth</h2>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>CPU running hot?</strong> <strong>Freeze</strong> a track to make Live render it to a temporary audio file so it stops computing live; <strong>Flatten</strong> turns that into a permanent audio clip. <strong>Resampling</strong> a built sound to plain audio frees the synth's CPU the same way. And remember the <strong>buffer</strong> trade-off: a bigger buffer is more stable but slower to respond, a smaller one snappier but heavier. Print to audio when in doubt — a committed sound is one less thing the computer has to think about.</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Where this leaves you</div>
+    <p>Your software rig is now a clean room: the M4 set as in and out at 48&nbsp;kHz, a template that opens a working studio in one click, a handful of trusted devices, and a tidy library of raw material. Build sounds before you borrow them, commit early, and resample often. The software, like the cables, should disappear — leaving only the music. Next, meet the three instruments you will play.</p>
+  </div>
+
+  <div class="tag-row">
+    <span class="tag">optional block</span>
+    <span class="tag">set it up once</span>
+    <span class="tag">build, don't buy</span>
+  </div>
+
+  <div class="page-nav">
+    <a href="signal-and-clock.html">
+      <span class="page-nav-direction">Previous</span>
+      ← Signal &amp; clock
+    </a>
+    <a href="instruments.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      The three instruments →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Block 0 · The Rig</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Block 0 — Digitone FM, in depth</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page-type-block" id="top">
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
+  <a href="index.html" class="active"><span class="nav-num">B0</span>The Rig</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 0</a><span class="breadcrumb-sep">/</span><span>Digitone FM</span></nav>
+
+  <header class="page-header">
+    <div class="eyebrow">Block 0 — The Rig · optional</div>
+    <h1>Digitone FM, in depth</h1>
+    <p class="lede">FM synthesis sounds complicated until you learn its one core idea: every timbre comes from the relationship between two frequencies. Once you can predict what a ratio will sound like before you hear it, the Digitone II becomes a precision tool instead of a lucky-knob machine. This page teaches you that idea on the actual hardware, extending the FM concepts from <a href="../block-4/lab-013b.html">Lab 013b</a>.</p>
+  </header>
+  <p class="block-meta">Optional · FM synthesis · Elektron Digitone II · FM TONE machine · carrier · modulator · ratio</p>
+
+  <div class="callout">
+    <div class="callout-label">Before you start</div>
+    <p>This page extends <a href="../block-4/lab-013b.html">Lab 013b — FM &amp; Inharmonic Spectra</a>, which teaches the same ideas inside Ableton Operator. You can read this page first as a hardware primer, or read it after Lab 013b to transfer what you learned in software to a physical instrument. Either order works.</p>
+  </div>
+
+  <h2>The four machines — choose your engine first</h2>
+
+  <p style="text-align:center; color:var(--text-muted); max-width:680px; margin:0 auto 14px;">Every track on the Digitone II runs one of four synthesis machines. The machine determines how the sound is built before any filter or effects are applied.</p>
+
+  <table>
+    <thead><tr><th>Machine</th><th>What it does</th><th>Good for</th></tr></thead>
+    <tbody>
+      <tr><td><span class="lab-title">FM TONE</span></td><td>4-operator FM synthesis with multiple algorithms. The core machine — builds tones from ratios between operators.</td><td>Bells, pianos, bass, pads, metallic textures, anything you can describe spectrally</td></tr>
+      <tr><td><span class="lab-title">FM DRUM</span></td><td>FM TONE configured and optimised for percussive sounds — fast envelopes, pitch decay built in.</td><td>Kicks, toms, metallic hits, FM-style percussion</td></tr>
+      <tr><td><span class="lab-title">WAVETONE</span></td><td>Wavetable oscillator with an analog-style filter architecture — smoother and less brittle than FM TONE at high modulation depths.</td><td>Pads, drones, evolving textures that morph between waveforms</td></tr>
+      <tr><td><span class="lab-title">SWARMER</span></td><td>A "supersaw" style engine — multiple slightly detuned oscillators layered for a huge, wide sound with minimal programming.</td><td>Lush leads, wide pads, dense chords, trance-influenced textures</td></tr>
+    </tbody>
+  </table>
+
+  <p style="text-align:center; color:var(--text-muted); max-width:680px; margin:14px auto 14px;">The rest of this page focuses on <strong>FM TONE</strong> — the most powerful and most teachable machine, and the one that connects directly to Lab 013b.</p>
+
+  <h2>The FM TONE machine — the atoms</h2>
+
+  <p style="text-align:center; color:var(--text-muted); max-width:680px; margin:0 auto 18px;">FM synthesis has four atoms. Learn these four and you can build almost any sound, and more importantly, you can predict what it will sound like before you turn a knob.</p>
+
+  <div class="cards two">
+    <div class="card">
+      <h3 class="card-title">Carrier — the tone you hear</h3>
+      <ul class="card-points">
+        <li>A carrier is an operator whose output goes to the audio output. It is the tone you hear.</li>
+        <li>Its frequency sets the pitch of the note.</li>
+        <li>By itself, a carrier produces a pure sine wave — no harmonics, just a smooth tone.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Modulator — the tone you don't hear (directly)</h3>
+      <ul class="card-points">
+        <li>A modulator is an operator whose output goes into a carrier instead of the audio output.</li>
+        <li>It wiggles the carrier's frequency — rapidly, at audio rates. That wiggling adds new frequencies to the sound.</li>
+        <li>You do not hear the modulator itself; you hear what it does to the carrier.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Ratio — what the spectrum sounds like</h3>
+      <ul class="card-points">
+        <li>The ratio is the modulator's frequency divided by the carrier's frequency. It is the single most important parameter in FM.</li>
+        <li><strong>Whole-number ratios (1, 2, 3, 4…)</strong> add harmonics that line up with the natural harmonic series. The result sounds <em>harmonic</em> — musical, pitched, clear. A ratio of 2 adds the octave. A ratio of 3 adds the fifth above that.</li>
+        <li><strong>Non-whole-number ratios (1.41, 2.37, 3.5…)</strong> add frequencies that do not line up with the harmonic series. The result sounds <em>inharmonic</em> — metallic, bell-like, gong-like, or outright noise. A ratio of 1.414 is the classic FM bell-metal sound.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Modulation index — how much brightness</h3>
+      <ul class="card-points">
+        <li>The index (set by the modulator's level, sometimes called "depth") controls how hard the modulator pushes the carrier.</li>
+        <li>A low index adds a few gentle side frequencies — subtle brightness or a slight edge.</li>
+        <li>A high index adds many strong side frequencies — a complex, bright, even harsh sound.</li>
+        <li>Sweeping the index with an envelope or LFO is how FM sounds evolve over time.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The core idea, stated once</div>
+    <p>Pick a ratio. Whole number → harmonic, musical sound. Non-whole number → inharmonic, metallic or noisy sound. Then control how obvious those added frequencies are with the modulation index. That is FM synthesis. Everything else — algorithms, feedback, multiple modulators — builds on this two-sentence foundation.</p>
+  </div>
+
+  <h2>Predicting the spectrum from the ratio</h2>
+
+  <p style="text-align:center; color:var(--text-muted); max-width:680px; margin:0 auto 14px;">This is the skill Lab 013b teaches in Operator. Here is how it applies to the Digitone II's FM TONE machine. Before you turn a knob, you predict what you will hear. Then you verify.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Ratio</th>
+        <th>What the spectrum contains</th>
+        <th>What it sounds like</th>
+        <th>Classic use</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><span class="code">1 : 1</span></td><td>Fundamental + octave partials. Clean harmonic series.</td><td>Warm, slightly organ-like. Clear pitch.</td><td>Organ tones, round bass</td></tr>
+      <tr><td><span class="code">1 : 2</span></td><td>Fundamental + even harmonics. Brighter, still harmonic.</td><td>Bell-like but musical. Like a slightly bright piano.</td><td>Electric piano, mallet tones</td></tr>
+      <tr><td><span class="code">1 : 3</span></td><td>Fundamental + odd harmonics. Hollow, clarinet-like quality.</td><td>Reedy, nasal — a hint of a woodwind.</td><td>Reeds, clarinet approximations</td></tr>
+      <tr><td><span class="code">1 : 7</span></td><td>High harmonic content, wide spacing. Still harmonic series.</td><td>Bright, cutting, almost brass-like.</td><td>Brass stabs, cutting leads</td></tr>
+      <tr><td><span class="code">1 : 1.414</span></td><td>Inharmonic partials — not aligned to the overtone series.</td><td>Bell, metal, gong. Pitch present but floating.</td><td>Bell textures, metallic pads</td></tr>
+      <tr><td><span class="code">1 : 2.756</span></td><td>Strongly inharmonic. Multiple displaced partials.</td><td>Clangorous. More noise than tone.</td><td>Industrial percussion, cymbal texture</td></tr>
+      <tr><td><span class="code">1 : 0.5</span></td><td>Sub-harmonic modulation. Adds very low frequencies below the fundamental.</td><td>Thick, low, sinewave-bass quality.</td><td>Sub bass, very low drones</td></tr>
+    </tbody>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>How to read ratios on the Digitone II:</strong> on the FM TONE machine, the ratio parameters are labeled <span class="code">RATIO C</span> (carrier) and <span class="code">RATIO M</span> (modulator) on the synthesis page. Set carrier to 1 and vary the modulator ratio to hear the effect. The table above assumes carrier = 1 throughout.</li>
+      <li><strong>The index matters too.</strong> At index 0 (modulator level all the way down), you hear only the carrier — a pure sine, regardless of ratio. As you raise the index, the side frequencies at the ratio-predicted positions become louder. The ratio predicts <em>which</em> frequencies appear; the index predicts <em>how loud</em> they get.</li>
+      <li><strong>Feedback.</strong> On the FM TONE machine, you can route an operator back into itself. Low feedback values add a gentle edge or buzz. High feedback values produce noise and harsh distortion. Feedback is the fast way to add grit without changing the harmonic structure.</li>
+    </ul>
+  </div>
+
+  <h2>Algorithms — wiring the operators</h2>
+
+  <p style="text-align:center; color:var(--text-muted); max-width:680px; margin:0 auto 14px;">The Digitone II's FM TONE machine has four operators (A, B, C, D). An <strong>algorithm</strong> is a diagram of how they are connected — which are carriers, which are modulators, and who modulates whom. The Digitone II offers eight algorithms.</p>
+
+  <div class="signal-flow" style="display:block; padding:26px 16px;">
+    <svg viewBox="0 0 760 260" width="100%" role="img" aria-label="Three representative FM algorithms shown as operator stacks. Algorithm 1: all four operators stack as modulator chains feeding one carrier. Algorithm 4: two independent carrier-modulator pairs. Algorithm 8: all four are carriers, no modulation.">
+      <defs>
+        <marker id="arrC" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#7dd3c0"/>
+        </marker>
+      </defs>
+
+      <!-- Algorithm 1 label -->
+      <text x="100" y="28" fill="#8b949e" font-size="11" text-anchor="middle" font-family="monospace" letter-spacing="0.1em">ALGORITHM 1</text>
+      <text x="100" y="44" fill="#6e7681" font-size="9.5" text-anchor="middle">D → C → B → A (out)</text>
+      <text x="100" y="58" fill="#6e7681" font-size="9.5" text-anchor="middle">deepest modulation chain</text>
+      <!-- Alg 1 boxes -->
+      <rect x="40" y="68" width="56" height="32" rx="6" fill="#1f2530" stroke="#8b949e" stroke-width="1"/>
+      <text x="68" y="89" fill="#8b949e" font-size="11" text-anchor="middle">D</text>
+      <line x1="68" y1="100" x2="68" y2="110" stroke="#7dd3c0" stroke-width="1.5" marker-end="url(#arrC)"/>
+      <rect x="40" y="112" width="56" height="32" rx="6" fill="#1f2530" stroke="#8b949e" stroke-width="1"/>
+      <text x="68" y="133" fill="#8b949e" font-size="11" text-anchor="middle">C</text>
+      <line x1="68" y1="144" x2="68" y2="154" stroke="#7dd3c0" stroke-width="1.5" marker-end="url(#arrC)"/>
+      <rect x="40" y="156" width="56" height="32" rx="6" fill="#1f2530" stroke="#8b949e" stroke-width="1"/>
+      <text x="68" y="177" fill="#8b949e" font-size="11" text-anchor="middle">B</text>
+      <line x1="68" y1="188" x2="68" y2="198" stroke="#7dd3c0" stroke-width="1.5" marker-end="url(#arrC)"/>
+      <rect x="40" y="200" width="56" height="32" rx="6" fill="#1f2530" stroke="#7dd3c0" stroke-width="1.4"/>
+      <text x="68" y="221" fill="#7dd3c0" font-size="11" text-anchor="middle">A out</text>
+      <text x="100" y="248" fill="#7dd3c0" font-size="9" text-anchor="middle">1 carrier · complex</text>
+
+      <!-- Algorithm 4 label -->
+      <text x="380" y="28" fill="#8b949e" font-size="11" text-anchor="middle" font-family="monospace" letter-spacing="0.1em">ALGORITHM 4</text>
+      <text x="380" y="44" fill="#6e7681" font-size="9.5" text-anchor="middle">B→A (out) + D→C (out)</text>
+      <text x="380" y="58" fill="#6e7681" font-size="9.5" text-anchor="middle">two independent voices</text>
+      <!-- Alg 4 left pair -->
+      <rect x="290" y="90" width="56" height="32" rx="6" fill="#1f2530" stroke="#8b949e" stroke-width="1"/>
+      <text x="318" y="111" fill="#8b949e" font-size="11" text-anchor="middle">B</text>
+      <line x1="318" y1="122" x2="318" y2="132" stroke="#7dd3c0" stroke-width="1.5" marker-end="url(#arrC)"/>
+      <rect x="290" y="134" width="56" height="32" rx="6" fill="#1f2530" stroke="#7dd3c0" stroke-width="1.4"/>
+      <text x="318" y="155" fill="#7dd3c0" font-size="11" text-anchor="middle">A out</text>
+      <!-- Alg 4 right pair -->
+      <rect x="414" y="90" width="56" height="32" rx="6" fill="#1f2530" stroke="#8b949e" stroke-width="1"/>
+      <text x="442" y="111" fill="#8b949e" font-size="11" text-anchor="middle">D</text>
+      <line x1="442" y1="122" x2="442" y2="132" stroke="#7dd3c0" stroke-width="1.5" marker-end="url(#arrC)"/>
+      <rect x="414" y="134" width="56" height="32" rx="6" fill="#1f2530" stroke="#7dd3c0" stroke-width="1.4"/>
+      <text x="442" y="155" fill="#7dd3c0" font-size="11" text-anchor="middle">C out</text>
+      <text x="380" y="200" fill="#7dd3c0" font-size="9" text-anchor="middle">2 carriers · two timbres layered</text>
+
+      <!-- Algorithm 8 label -->
+      <text x="660" y="28" fill="#8b949e" font-size="11" text-anchor="middle" font-family="monospace" letter-spacing="0.1em">ALGORITHM 8</text>
+      <text x="660" y="44" fill="#6e7681" font-size="9.5" text-anchor="middle">A + B + C + D all carriers</text>
+      <text x="660" y="58" fill="#6e7681" font-size="9.5" text-anchor="middle">no modulation · four pure sines</text>
+      <!-- Alg 8 boxes -->
+      <rect x="610" y="78" width="44" height="28" rx="6" fill="#1f2530" stroke="#7dd3c0" stroke-width="1.4"/>
+      <text x="632" y="97" fill="#7dd3c0" font-size="10" text-anchor="middle">A</text>
+      <rect x="660" y="78" width="44" height="28" rx="6" fill="#1f2530" stroke="#7dd3c0" stroke-width="1.4"/>
+      <text x="682" y="97" fill="#7dd3c0" font-size="10" text-anchor="middle">B</text>
+      <rect x="610" y="116" width="44" height="28" rx="6" fill="#1f2530" stroke="#7dd3c0" stroke-width="1.4"/>
+      <text x="632" y="135" fill="#7dd3c0" font-size="10" text-anchor="middle">C</text>
+      <rect x="660" y="116" width="44" height="28" rx="6" fill="#1f2530" stroke="#7dd3c0" stroke-width="1.4"/>
+      <text x="682" y="135" fill="#7dd3c0" font-size="10" text-anchor="middle">D</text>
+      <line x1="634" y1="106" x2="654" y2="116" stroke="#6e7681" stroke-width="0.8" stroke-dasharray="3 2"/>
+      <text x="660" y="200" fill="#7dd3c0" font-size="9" text-anchor="middle">4 carriers · additive, no FM</text>
+
+      <!-- key -->
+      <rect x="24" y="232" width="14" height="14" rx="3" fill="#1f2530" stroke="#7dd3c0" stroke-width="1.4"/>
+      <text x="44" y="244" fill="#7dd3c0" font-size="9.5">= carrier (audio output)</text>
+      <rect x="200" y="232" width="14" height="14" rx="3" fill="#1f2530" stroke="#8b949e" stroke-width="1"/>
+      <text x="220" y="244" fill="#8b949e" font-size="9.5">= modulator (affects carrier)</text>
+    </svg>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Start with Algorithm 5 or 6</strong> — they give you one or two carriers with one modulator each. Simple enough to understand immediately. Algorithm 1 (all operators in a chain) gives the most complex, evolving FM tone. Algorithm 8 (all carriers, no modulation) is pure additive synthesis — useful for understanding what FM adds before you switch it on.</li>
+      <li><strong>Operator levels = individual voices.</strong> Each operator has its own level. Turning down a modulator reduces the modulation index. Turning down a carrier reduces that carrier's contribution to the output. You can blend multiple carrier timbres by mixing carrier levels.</li>
+    </ul>
+  </div>
+
+  <h2>From init — a patch walkthrough</h2>
+
+  <p style="text-align:center; color:var(--text-muted); max-width:680px; margin:0 auto 14px;">An init patch is the starting point — every parameter at its default. On the Digitone II, you create an init patch by holding <span class="menu">FUNC</span> and pressing <span class="menu">SOUND</span> to clear the current sound, or by selecting "Init Sound" from the sound menu. From init, FM TONE gives you a pure sine tone: one carrier (A), no modulators active.</p>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-body">
+      <strong>Hear the init state.</strong> Play a note. You hear a pure sine wave — smooth, no harmonics. The carrier alone, with no modulation. This is FM at index zero.
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-body">
+      <strong>Activate one modulator.</strong> Go to the synthesis page (press the SYN button). Find the modulator level for operator B. Raise it slowly. You hear the sound change — new frequencies appear. This is modulation index increasing. The ratio B/A is 1:1 by default, so the added frequencies are harmonic — the sound gets brighter and more organ-like.
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-body">
+      <strong>Change the ratio.</strong> Find the <span class="code">RATIO M</span> parameter for operator B. Change it from 1 to 2. Play the note again. The added frequencies are now the even harmonics — you hear a slightly bell-like, brighter quality. Change it to 1.414. The sound immediately shifts to a metallic, bell-with-gong quality. You have changed the timbre by changing one number.
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">4</div>
+    <div class="step-body">
+      <strong>Add an envelope to the modulator.</strong> The modulation index stays constant until you change it. To make the sound evolve, assign a fast envelope to the modulator's level — high attack time, fast decay to zero. Now the FM index sweeps from high to zero on each note: the sound starts bright and complex, then settles to a pure sine. This is the shape of a piano or bell note.
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">5</div>
+    <div class="step-body">
+      <strong>Add feedback.</strong> Find the feedback parameter for operator A. Raise it slightly. A small amount adds a buzzy, reedy edge. A large amount adds noise and unpredictability. Feedback is the fastest way to add grit to an FM tone without touching the ratio.
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">6</div>
+    <div class="step-body">
+      <strong>Pass through the filter.</strong> The Digitone II has a multimode filter after the FM engine. You can use a low-pass filter to roll off the top end of a complex FM sound, making it warmer. A high-pass filter removes the fundamental and leaves only the upper FM sidebands — useful for airy, air-like textures.
+    </div>
+  </div>
+
+  <h2>Proof gate — three tones from init</h2>
+
+  <p style="text-align:center; color:var(--text-muted); max-width:680px; margin:0 auto 14px;">Before you turn a knob, write down your ratio prediction. Then build the patch and check it. If what you hear matches what you predicted, you understand FM. Do this three times and you will not need this page again.</p>
+
+  <div class="checklist">
+    <div class="checklist-label">Build these three sounds from an init FM TONE patch</div>
+    <ul>
+      <li>
+        <strong>Bell tone</strong><br>
+        <em>Predict first:</em> ratio 1 : 1.414 will add inharmonic partials. A fast decaying index envelope will make them bloom and fade. The sound should have a clear but metallic pitch — like striking metal.<br>
+        <em>Build it:</em> set modulator ratio to 1.414. Set modulator envelope to fast attack, fast decay, sustain at 0. Raise modulator level to about 70. Play. Does it match?
+      </li>
+      <li>
+        <strong>Electric piano</strong><br>
+        <em>Predict first:</em> ratio 1 : 2 adds harmonic overtones. A medium-speed decaying index makes the brightness fade like a struck string or tine. Should sound warm, clearly pitched, slightly bell-like but musical.<br>
+        <em>Build it:</em> set modulator ratio to 2. Set modulator envelope to fast attack, medium decay, sustain at 0. Set modulator level to about 50. Play. Does it match?
+      </li>
+      <li>
+        <strong>Metallic / inharmonic tone</strong><br>
+        <em>Predict first:</em> ratio 1 : 2.756 is strongly inharmonic. A high, sustained modulation index will keep many non-aligned partials present throughout the note. Should sound clangorous, almost more noise than tone, with no clear harmonic pitch identity.<br>
+        <em>Build it:</em> set modulator ratio to 2.756. Set modulator level to about 80, sustained. No or very slow envelope decay. Play a chord. Notice the partials clash — that is inharmonicity across voices. Does it match?
+      </li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">If the sound does not match your prediction</div>
+    <p>That is information. It means one of three things: the index is too low (raise the modulator level until the partials are audible), the envelope is decaying before you hear the complex part (lengthen the attack), or you need to check which operators are active in the current algorithm. Start by switching to Algorithm 5 (one carrier, one modulator) to remove ambiguity.</p>
+  </div>
+
+  <h2>Using p-locks on FM parameters</h2>
+
+  <p style="text-align:center; color:var(--text-muted); max-width:680px; margin:0 auto 14px;">A <strong>p-lock</strong> (parameter lock) is a setting saved to one single step in the sequencer — it overrides the global parameter value only for that step. On the Digitone II, you can p-lock any synthesis parameter, including the ratio. This is how you make each note in a sequence have a different timbre.</p>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Example:</strong> step 1 has ratio 1:1 (harmonic, organ-like); step 5 has ratio 1:1.414 (inharmonic, bell-like); step 9 has ratio 1:3 (reedy). The sequence plays the same pitch, but each hit sounds like a different instrument — because the timbre changes step by step.</li>
+      <li><strong>How to p-lock on the Digitone II:</strong> hold the step you want to change and turn any parameter knob. A dot appears on the step to show it carries a p-lock. This is identical to how p-locks work on the Digitakt II — same muscle memory, different sound engine.</li>
+      <li><strong>P-locking the modulation index</strong> (modulator level) is particularly powerful — each step gets a different brightness. A pattern where the index rises and falls step by step produces a tremolo-like effect that is in the timbre, not the amplitude.</li>
+    </ul>
+  </div>
+
+  <h2>Connection to Lab 013b</h2>
+
+  <p style="text-align:center; color:var(--text-muted); max-width:680px; margin:0 auto 14px;"><a href="../block-4/lab-013b.html">Lab 013b — FM &amp; Inharmonic Spectra</a> covers the same carrier/modulator/ratio/index ideas inside Ableton Operator. The Digitone II and Operator use the same mathematical model, so the skills transfer directly. The main difference is workflow: Operator gives you a visual display of operator routing; the Digitone II gives you physical knobs and a sequencer built in.</p>
+
+  <table class="param-table">
+    <caption>Ableton Operator vs Digitone II FM TONE — where things live</caption>
+    <tr><td>Carrier frequency ratio</td><td>Operator: <span class="menu">RATIO</span> field on each operator block</td><td>Digitone II: <span class="code">RATIO C</span> on the SYN page</td></tr>
+    <tr><td>Modulator frequency ratio</td><td>Operator: <span class="menu">RATIO</span> field on modulator block</td><td>Digitone II: <span class="code">RATIO M</span> on the SYN page</td></tr>
+    <tr><td>Modulation index</td><td>Operator: modulator output level</td><td>Digitone II: operator level for the modulator</td></tr>
+    <tr><td>Operator envelope</td><td>Operator: A/D/S/R per operator</td><td>Digitone II: envelope page, per-operator levels and the shared ADSR</td></tr>
+    <tr><td>Feedback</td><td>Operator: feedback knob on operator block</td><td>Digitone II: <span class="code">FDBK</span> on the SYN page</td></tr>
+    <tr><td>Algorithm</td><td>Operator: routing diagram in the top section</td><td>Digitone II: <span class="code">ALG</span> parameter — choose 1–8</td></tr>
+  </table>
+
+  <div class="tag-row">
+    <span class="tag">FM synthesis</span>
+    <span class="tag">carrier / modulator</span>
+    <span class="tag">ratio → spectrum</span>
+    <span class="tag">p-locks</span>
+    <span class="tag">Lab 013b</span>
+  </div>
+
+  <div class="page-nav">
+    <a href="digitone.html">
+      <span class="page-nav-direction">Previous</span>
+      ← Adding the Digitone II
+    </a>
+    <a href="../block-4/lab-013b.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      Lab 013b / FM &amp; Inharmonic Spectra →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Block 0 · Digitone FM, in depth</div>
+
+</div>
+
+</body>
+</html>

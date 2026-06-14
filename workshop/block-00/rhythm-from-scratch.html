@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Block 00 — Rhythm from Scratch</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page-type-block" id="top">
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
+  <a href="index.html" class="active"><span class="nav-num">F0</span>Foundations</a>
+  <a href="../block-0/index.html"><span class="nav-num">B0</span>The Rig</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 00</a><span class="breadcrumb-sep">/</span><span>Rhythm from Scratch</span></nav>
+
+  <header class="page-header">
+    <div class="eyebrow">Block 00 · Foundations · Primer 2</div>
+    <h1>Rhythm from Scratch</h1>
+    <p class="lede">Rhythm is organised time. Before you can design polyrhythm or Euclidean patterns — which Block 3 does — you need to hear the atoms: <strong>pulse</strong>, <strong>note values</strong>, <strong>subdivision</strong>, <strong>time signature</strong>, <strong>swing</strong>, and <strong>accent</strong>. This primer drills each one on its own, then asks you to program eight grooves you can explain out loud.</p>
+  </header>
+  <p class="block-meta">Primer · the atoms one control at a time · ends in eight grooves + a count-out-loud gate</p>
+
+  <div class="callout">
+    <div class="callout-label">Your anchor instrument</div>
+    <p>Build every atom on the <strong>Digitakt II</strong>. Its 16-step grid makes note values and subdivisions visible — you can see the rhythm before you hear it. Use <strong>Live's metronome</strong> alongside it so you always have a reference pulse to count against.</p>
+  </div>
+
+  <h2>How the atoms stack</h2>
+
+  <div class="signal-flow">
+    <span class="signal-node">Pulse<br><span style="font-size:11px;color:var(--text-dim);">steady beat</span></span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">Note values<br><span style="font-size:11px;color:var(--text-dim);">how long each step lasts</span></span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">Subdivision<br><span style="font-size:11px;color:var(--text-dim);">where notes fall</span></span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">Groove<br><span style="font-size:11px;color:var(--text-dim);">swing + accent</span></span>
+  </div>
+  <p style="text-align:center; color:var(--text-muted); max-width:600px; margin:0 auto 8px; font-size:14px;">Each layer adds expressive control. Master all four and you can build any groove — and explain why it feels the way it does.</p>
+
+  <!-- ATOM 1 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Atom 1</div>
+      <h3 class="step-title">Beat and bar — the steady pulse</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">A <strong>beat</strong> is one click of the metronome. A <strong>bar</strong> (also called a measure) is a group of beats — typically four. You count the beats inside a bar out loud: "1 2 3 4, 1 2 3 4". The "1" is always the strongest beat.</p>
+    <div class="sub-block">
+      <div class="sub-label">Do this on the Digitakt II</div>
+      <ol>
+        <li>Start Live's metronome at 120 BPM. Count along out loud: "1 2 3 4".</li>
+        <li>On the Digitakt, place a kick drum on steps 1, 5, 9, and 13 of the 16-step grid. Those four steps are the four beats of one bar.</li>
+        <li>Play the pattern. The metronome click and your kick should land together. If they don't, your grid is misaligned — check the tempo and playback settings.</li>
+        <li>Keep counting "1 2 3 4" out loud while it plays. The "1" is always step 1.</li>
+      </ol>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Prove it</div>
+      <p>Can you count "1 2 3 4" in sync with a kick on every beat, with no metronome? If you lose the count, slow the tempo and try again until it's easy.</p>
+    </div>
+  </div>
+
+  <!-- ATOM 2 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Atom 2</div>
+      <h3 class="step-title">Note values — whole, half, quarter, 8th, 16th</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">A <strong>note value</strong> tells you how long a note lasts relative to the bar. On the Digitakt's 16-step grid, one bar = 16 steps, so every note value maps to a step count.</p>
+    <table class="param-table">
+      <caption>Note values on the Digitakt's 16-step grid (one bar = 16 steps)</caption>
+      <tr><td><strong>Whole note</strong></td><td>Lasts the whole bar — 16 steps. One note, fills everything.</td></tr>
+      <tr><td><strong>Half note</strong></td><td>Half the bar — 8 steps. Two per bar. Steps 1 and 9.</td></tr>
+      <tr><td><strong>Quarter note</strong></td><td>One beat — 4 steps. Four per bar. Steps 1, 5, 9, 13.</td></tr>
+      <tr><td><strong>8th note</strong></td><td>Half a beat — 2 steps. Eight per bar. Steps 1, 3, 5, 7, 9, 11, 13, 15.</td></tr>
+      <tr><td><strong>16th note</strong></td><td>Quarter of a beat — 1 step. Sixteen per bar. Every step.</td></tr>
+    </table>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <ol>
+        <li>Program a single hi-hat on every step. That is sixteenth notes — the fastest common subdivision on the grid.</li>
+        <li>Delete every other step. Now you have eighth notes — it sounds half as busy.</li>
+        <li>Delete to only steps 1, 5, 9, and 13. That is quarter notes — one click per beat.</li>
+        <li>Count out loud with each pattern. Notice how the count "1 2 3 4" always fits the same space even as the notes inside it change.</li>
+      </ol>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Prove it</div>
+      <p>Without looking at these notes, can you place quarter notes and then eighth notes on an empty grid and name the step numbers before you press play?</p>
+    </div>
+  </div>
+
+  <!-- ATOM 3 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Atom 3</div>
+      <h3 class="step-title">Subdivision — downbeat vs offbeat</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">A <strong>downbeat</strong> is a beat you count out loud: 1, 2, 3, 4. An <strong>offbeat</strong> falls between the counts — exactly halfway between two downbeats. Offbeats are sometimes called "the and" (counted "1 and 2 and 3 and 4 and"). Hi-hats sitting on offbeats are what make a groove feel like it's pushing forward.</p>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <ol>
+        <li>Keep a kick on steps 1, 5, 9, and 13 (the downbeats).</li>
+        <li>Add a snare or clap on steps 5 and 13 — that is beats 2 and 4. This is the "backbeat" — the most common snare placement in dance music.</li>
+        <li>Now add a closed hi-hat on steps 3, 7, 11, and 15. Those are the offbeats — the "and" between each beat.</li>
+        <li>Count out loud: "1 and 2 and 3 and 4 and". The hat falls on every "and". This three-layer pattern is the skeleton of most dance music.</li>
+      </ol>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Prove it</div>
+      <p>Point to the offbeats on the Digitakt grid and say their step numbers before you press play. Then count out loud while the pattern runs without losing the "and".</p>
+    </div>
+  </div>
+
+  <!-- ATOM 4 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Atom 4</div>
+      <h3 class="step-title">Time signatures — 4/4, 3/4, and 6/8</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">A <strong>time signature</strong> tells you two things. The top number says how many beats are in a bar. The bottom number says what kind of note gets one beat. So 4/4 means "four quarter-note beats per bar". That is the most common time signature in electronic music.</p>
+    <div class="sub-block">
+      <div class="sub-label">Hear the difference</div>
+      <ol>
+        <li><strong>4/4:</strong> Count "1 2 3 4, 1 2 3 4". Four beats per bar. This is what you have been building. Most techno, house, and pop lives here.</li>
+        <li><strong>3/4:</strong> Count "1 2 3, 1 2 3". Three beats per bar. On the Digitakt, set the pattern length to 12 steps and put a kick on steps 1, 5, and 9. It sounds like a waltz — a slight lilt that 4/4 does not have.</li>
+        <li><strong>6/8:</strong> Count "1 2 3 4 5 6, 1 2 3 4 5 6" but feel it in two big groups: "ONE two three TWO two three". Six eighth-note beats, felt as two. Set pattern length to 12 steps but count in sixes. This is the signature of many Afrobeat and Irish folk patterns.</li>
+        <li>The key difference between 3/4 and 6/8 is where the accent falls and how you feel the groupings — not just the note count.</li>
+      </ol>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Prove it</div>
+      <p>Program a simple kick pattern in 3/4 and count it out loud. Then switch to 4/4 and count again. Can you feel the different weight on beat 1 without looking at the grid?</p>
+    </div>
+  </div>
+
+  <!-- ATOM 5 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Atom 5</div>
+      <h3 class="step-title">Swing — a measurable percentage</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;"><strong>Swing</strong> shifts the offbeats slightly later. Instead of landing exactly halfway between two beats, an offbeat lands a little closer to the next beat. This makes the rhythm feel more relaxed or "bouncy". On the Digitakt, swing is a percentage: <strong>50% = no swing</strong> (perfectly straight). Push to 54–58% and the offbeats start to drag just enough to feel human.</p>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <ol>
+        <li>Program a hi-hat on every step (16th notes). Set swing to 50%. Play and listen — perfectly even, every step the same distance apart.</li>
+        <li>Raise swing to 54%. The even-numbered steps shift slightly later. The pattern starts to "lilt".</li>
+        <li>Push to 58–62%. The groove now has a clear shuffle — it feels like a triplet (three equal parts per beat instead of two).</li>
+        <li>Push to 66–67%. You are now in <strong>triplet feel</strong>: the offbeat lands exactly two-thirds of the way between beats. This is the shuffle used in jazz and blues.</li>
+        <li>Return to 50% and notice how stiff it sounds by comparison.</li>
+      </ol>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Prove it</div>
+      <p>Set swing to 50%, play the pattern, and memorise the feel. Then have someone else push the swing somewhere between 52% and 65% without telling you the value. Can you say whether it went up or down — and guess roughly where it landed?</p>
+    </div>
+  </div>
+
+  <!-- ATOM 6 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Atom 6</div>
+      <h3 class="step-title">Accents — velocity makes the groove</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;"><strong>Velocity</strong> is how hard a note hits. On the Digitakt, each step has a velocity value from 0 to 127. When two steps play the same sound but one hits louder, your ear hears a rhythm inside the rhythm — that contrast is what makes a groove feel alive rather than mechanical.</p>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <ol>
+        <li>Program a hi-hat on all 16 steps. Set every velocity to 100. Play — it sounds like a machine.</li>
+        <li>Lower the velocity on steps 2, 4, 6, 8, 10, 12, 14, and 16 to around 60. The downbeats now "hit" and the offbeats "tap". That accent pattern is the most common hi-hat groove in house music.</li>
+        <li>Now try a different accent map: full velocity on steps 1, 3, 9, and 11; lower on everything else. The accented steps form a pattern that fights against the kick — a syncopated feel.</li>
+        <li>On the Digitakt, hold a step and use the <span class="code">Level</span> encoder to set per-step velocity directly.</li>
+      </ol>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Prove it</div>
+      <p>Take a 16-step hi-hat with all velocities at 100 and add an accent pattern that makes it groove without changing which steps are active. Can you explain which steps you accented and why?</p>
+    </div>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Free practice tools.</strong> <strong>Live's metronome</strong> (always on, always accurate — use it every session). Any drum grid or DAW clip for note-value practice. For counting and feel: tap tempo with your foot or hand against a metronome before touching the grid. The physical count builds the internal clock that all the rest sits on.</li>
+    </ul>
+  </div>
+
+  <h2>Proof gate</h2>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">You pass this primer when you can program and count out loud all eight of these grooves</div>
+    </div>
+    <ul>
+      <li><strong>Four-on-the-floor:</strong> kick on every beat (steps 1, 5, 9, 13). Count "1 2 3 4" while it plays. Explain: this is quarter notes on the kick, the backbone of techno and house.</li>
+      <li><strong>Offbeat hats:</strong> add a closed hi-hat only on the offbeats (steps 3, 7, 11, 15). Count "1 and 2 and 3 and 4 and". Explain: the hat is on every "and" — that push forward is what separates dance music from a march.</li>
+      <li><strong>Backbeat:</strong> snare or clap on steps 5 and 13 (beats 2 and 4). Explain: beats 2 and 4 are the weak beats. Accenting them creates tension against the kick on beats 1 and 3.</li>
+      <li><strong>3/4 pattern:</strong> set pattern length to 12 steps, kick on steps 1, 5, 9. Count "1 2 3" per bar. Explain: three beats per bar feels lighter and circular compared to four.</li>
+      <li><strong>Swung 16th notes:</strong> hi-hat on all 16 steps, swing at 56–58%. Explain: the offbeats arrive slightly late, giving the grid a laid-back push that straight 16ths do not have.</li>
+      <li><strong>Triplet shuffle:</strong> push swing to 66–67%. Explain: the offbeat now lands two-thirds of the way between beats — true triplet feel, the foundation of blues shuffle and jazz swing.</li>
+      <li><strong>Velocity groove:</strong> 16-step hi-hat with a deliberate accent map (your choice). Count while it plays and explain which steps you hit hard and why they create the feel they do.</li>
+      <li><strong>Your own groove:</strong> combine at least three atoms (e.g. offbeat hat + swing + accent) into one pattern and explain each decision out loud before pressing play.</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">What you carry into the workshop</div>
+    <p>You can now place any note value, feel a downbeat vs an offbeat, and hear swing as a quantity. <a href="../block-3/index.html">Block 3</a> builds directly on this — it assumes you can count subdivisions and hear a time-signature shift. The polymeter and Euclidean patterns there are just these atoms stacked in less obvious ways.</p>
+  </div>
+
+  <div class="tag-row">
+    <span class="tag">beat</span><span class="tag">bar</span><span class="tag">note-values</span><span class="tag">subdivision</span><span class="tag">time-signature</span><span class="tag">swing</span><span class="tag">velocity</span><span class="tag">groove</span>
+  </div>
+
+  <div class="page-nav">
+    <a href="synth-from-scratch.html">
+      <span class="page-nav-direction">Previous</span>
+      ← Synthesis from Scratch
+    </a>
+    <a href="harmony-from-scratch.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      Harmony from Scratch →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Block 00 · Rhythm from Scratch</div>
+
+</div>
+
+</body>
+</html>

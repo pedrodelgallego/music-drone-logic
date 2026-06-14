@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Block 00 — Mixing: EQ</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page-type-block" id="top">
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
+  <a href="index.html" class="active"><span class="nav-num">F0</span>Foundations</a>
+  <a href="../block-0/index.html"><span class="nav-num">B0</span>The Rig</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 00</a><span class="breadcrumb-sep">/</span><span>Mixing: EQ</span></nav>
+
+  <header class="page-header">
+    <div class="eyebrow">Block 00 · Foundations · Primer</div>
+    <h1>Mixing: EQ</h1>
+    <p class="lede">An <strong>equaliser (EQ)</strong> lets you turn up or turn down specific frequency ranges inside a sound — not the whole volume, just a slice of it. You use it to fix problems (cutting mud, cutting harshness) and to make room for other sounds (so two things don't fight for the same frequency space). This primer drills each control on its own, then walks through the practical carving moves you'll use in every mix.</p>
+  </header>
+  <p class="block-meta">Primer · the atoms one control at a time · ends in a named-moves fix + a carve-and-confirm gate</p>
+
+  <div class="callout">
+    <div class="callout-label">Your anchor instrument</div>
+    <p>Build every atom with <strong>Live's EQ Eight</strong> — it has eight independent bands, each showing frequency, gain, and Q on a visual display. Run it alongside <strong>Live's Spectrum</strong> analyzer (Lab 003b uses it already) so you can see what you're hearing. Both are stock devices: no downloads needed. The visual display in EQ Eight is one of the best teaching tools available — watch the curve change as you move the knobs.</p>
+  </div>
+
+  <!-- ATOM 1 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Atom 1</div>
+      <h3 class="step-title">A parametric band — frequency, gain, and Q</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Every band in a parametric EQ has three controls. <strong>Frequency</strong> sets <em>where</em> you're working (e.g. 200 Hz, 3 kHz). <strong>Gain</strong> sets how much you're boosting (turning up) or cutting (turning down) at that frequency — measured in dB, positive for boost, negative for cut. <strong>Q</strong> (also called <em>bandwidth</em> or <em>width</em>) sets how wide or narrow the affected area is: a high Q is a narrow, surgical point; a low Q is a wide, gentle slope.</p>
+    <div class="sub-block">
+      <div class="sub-label">Do this (EQ Eight on any sustained sound)</div>
+      <ol>
+        <li>Enable one band in EQ Eight. Set it to a bell shape (the default rounded bump).</li>
+        <li>Set gain to +9 dB. Sweep the <span class="code">Freq</span> knob slowly from 100 Hz up to 10 kHz while you listen. You're boosting a moving slice — hear how different parts of the sound come forward.</li>
+        <li>Set gain to −9 dB and repeat the sweep. Now you're hollowing out different parts of the sound. Notice how it changes the character without changing the overall pitch.</li>
+        <li>Now set the frequency to 1 kHz and a +9 dB gain. Sweep the <span class="code">Q</span> knob from wide to narrow. Wide: a smooth, large-area change. Narrow: a pinpoint spike — only a tiny slice is affected.</li>
+      </ol>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Prove it</div>
+      <p>Boost a narrow band at 1 kHz by 12 dB. Now move the frequency knob until you find the most harsh, unpleasant part of the sound. That's the frequency to cut later. You've just learned to use boost-to-find, cut-to-fix.</p>
+    </div>
+  </div>
+
+  <!-- ATOM 2 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Atom 2</div>
+      <h3 class="step-title">Filter shapes — high-pass, low-pass, shelf, bell, notch</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">EQ Eight's bands can switch between different shapes. Each shape does a different job.</p>
+    <table class="param-table">
+      <caption>Filter shapes and when to use them</caption>
+      <tr><td><strong>High-pass (HPF)</strong></td><td>Cuts everything <em>below</em> a set frequency. Use it to remove low-end rumble, sub noise, and mud from sounds that don't need bass (pads, hi-hats, vocals, guitars).</td></tr>
+      <tr><td><strong>Low-pass (LPF)</strong></td><td>Cuts everything <em>above</em> a set frequency. Use it to remove harsh high-end fizz, or to make a sound feel darker and further away in a mix.</td></tr>
+      <tr><td><strong>High shelf</strong></td><td>Boosts or cuts everything <em>above</em> a set frequency by the same amount — a broad, gradual lift or dip of the high end. Good for adding air or taming brightness across the whole top.</td></tr>
+      <tr><td><strong>Low shelf</strong></td><td>Boosts or cuts everything <em>below</em> a set frequency. Good for adding weight to a sound or reducing mud across the whole bottom.</td></tr>
+      <tr><td><strong>Bell</strong></td><td>A bump or dip centered on one frequency, fading out on either side. This is the most surgical shape — for boosting or cutting a specific problem point.</td></tr>
+      <tr><td><strong>Notch</strong></td><td>An extreme narrow cut — almost a spike going downward. Used to remove a specific unwanted tone (hum, resonance, ringing) cleanly.</td></tr>
+    </table>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <ol>
+        <li>Enable a band and click through the shapes in EQ Eight while watching the visual curve. Just observe — no listening needed yet.</li>
+        <li>Now put a high-pass on a pad track. Start at 20 Hz and sweep upward until the pad starts to sound thin. Back off a little. That sweep point is the right HPF frequency for this sound.</li>
+        <li>Put a low-pass on the same pad and pull it down from 20 kHz until you hear the top start to disappear. Restore it. Now you've seen both ends of the spectrum from the inside.</li>
+      </ol>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Prove it</div>
+      <p>Without looking at the screen, can you hear the difference between a high-pass sweep and a low-pass sweep on the same sound? Switch the shape back and forth and describe out loud what changes.</p>
+    </div>
+  </div>
+
+  <!-- ATOM 3 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Atom 3</div>
+      <h3 class="step-title">Subtractive first — cut problems before boosting</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">The default instinct is to boost — to add what's missing. The better habit is to cut first — to remove what's causing the problem. Boosting adds energy and can make a mix louder and more cluttered. Cutting removes a problem and often makes the rest of the sound clearer without touching anything else.</p>
+    <div class="sub-block">
+      <div class="sub-label">Do this (on a sound that feels muddy or harsh)</div>
+      <ol>
+        <li>Before you touch the EQ, listen carefully and name the problem: "it's muddy" (too much low-mid, usually 200–400 Hz) or "it's harsh" (too much in the 2–5 kHz range) or "it's thin" (missing warmth in the 100–300 Hz range).</li>
+        <li>For mud: use a bell band, set to 200–350 Hz, cut by −3 to −6 dB, medium Q. Listen. The sound should feel cleaner without losing its weight.</li>
+        <li>For harshness: use a bell band, set to 2–4 kHz, cut by −3 to −6 dB. Listen. The edge should soften.</li>
+        <li>Only add a boost if cutting didn't solve it. A boost adds. A cut clarifies.</li>
+      </ol>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Prove it</div>
+      <p>Fix one muddy or harsh sound using only cuts — no boosts. State the frequency, gain, and Q you used. Bypass the EQ to confirm the problem is actually solved.</p>
+    </div>
+  </div>
+
+  <!-- ATOM 4 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Atom 4</div>
+      <h3 class="step-title">Surgical vs. broad strokes — when to use narrow Q</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">There are two modes of EQ work. <strong>Surgical</strong> means a high Q (narrow band), used for removing a specific problem — a 60 Hz hum, a 3.2 kHz resonant ring, a rogue frequency that pokes out on certain notes. You boost sharply to find it, then cut it. <strong>Broad strokes</strong> means a low Q (wide band), used for shaping the character of a sound — adding warmth, adding air, making the whole top end brighter. These are tone-shaping moves, not fixes.</p>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <ol>
+        <li><strong>Surgical:</strong> on a pad or drum, boost +12 dB with a very high Q (Q = 8–15). Sweep slowly until you hear a ringing, nasal, or harsh spot pop out. Now flip to a cut (−6 dB, same frequency, same Q). That spot is gone cleanly — nothing around it is affected.</li>
+        <li><strong>Broad:</strong> use a low shelf at 200 Hz with Q = 0.5, cut by −3 dB. Notice how the whole bottom end rolls off gently. That's a broad stroke — a character change, not a surgical fix.</li>
+      </ol>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Prove it</div>
+      <p>Name one situation where you'd use surgical EQ and one where you'd use broad strokes. They're different tools for different jobs.</p>
+    </div>
+  </div>
+
+  <!-- ATOM 5 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Atom 5</div>
+      <h3 class="step-title">High-pass everything that doesn't need lows</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Most sounds in a mix don't need to reproduce sub and bass frequencies. Pads, hi-hats, synth leads, claps, and vocals all have energy below 100–150 Hz that just adds mud and fights the kick and bass. The fix is simple: put a <strong>high-pass filter</strong> on everything that isn't the kick or bass, and sweep it up until the sound stays clear. This is one of the highest-leverage moves in mixing — it cleans up the whole picture without touching the sounds that need to stay heavy.</p>
+    <div class="sub-block">
+      <div class="sub-label">Do this (on your whole project)</div>
+      <ol>
+        <li>On every track except your kick and bass: add EQ Eight, enable the high-pass band (band 1, click the HP shape).</li>
+        <li>Set the cutoff frequency to 80 Hz to start. Play the mix. Does anything sound thin or broken? If yes, the cutoff is too high — back it off.</li>
+        <li>Push the cutoff higher until you hear the sound change in a bad way, then back off by 20–30 Hz. That's the right setting for this sound.</li>
+        <li>Listen to the mix as a whole. The low end should feel cleaner and the kick and bass should come forward without touching their levels.</li>
+      </ol>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Prove it</div>
+      <p>High-pass three sounds in your mix. Bypass all three EQs and listen to the full mix. Re-engage them. The low end should feel noticeably tighter with the HPFs on.</p>
+    </div>
+  </div>
+
+  <!-- ATOM 6 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Atom 6</div>
+      <h3 class="step-title">Carving space — making room by dipping one sound for another</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;"><strong>Frequency masking</strong> is when two sounds occupy the same frequency range and fight each other — one makes the other harder to hear, even if neither is too loud on its own. The solution is to carve: find the frequency range where they clash, and cut a dip in one of them to make room for the other. Block 5 covers the full theory of masking — this atom is the practical move.</p>
+    <div class="sub-block">
+      <div class="sub-label">Do this (on two clashing sounds)</div>
+      <ol>
+        <li>Find two sounds that feel like they're fighting — e.g. a bass synth and a kick drum, or a pad and a lead melody. Play them together and listen for where they blur into each other.</li>
+        <li>Open the <strong>Spectrum</strong> analyzer (or the visual display in EQ Eight) on one of the tracks. Identify the frequency range where both sounds have energy.</li>
+        <li>On the sound that should be quieter in that range, add a bell cut: same frequency as the clash, cut by −3 to −6 dB, medium Q. This makes space for the other sound without completely removing the dipping sound from that area.</li>
+        <li>Alternative approach (complementary carve): boost the sound you want to cut through at the clash frequency, then cut the competing sound at the same point. Now they occupy different slices.</li>
+      </ol>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Prove it</div>
+      <p>Name the two sounds you carved, the frequency of the clash, and which one you cut into. Confirm on the Spectrum analyzer that the cut is visible. Both sounds should now be distinguishable when played together.</p>
+    </div>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Free tools.</strong> <strong>Live's EQ Eight</strong> and <strong>Spectrum</strong> are both stock devices. For visual learning: enable the Spectrum in the background of EQ Eight (click the small display icon) and watch the real-time frequency content as you EQ. This is how professionals use analyzers — not to mix with their eyes, but to confirm what their ears suspect. If you want a third-party analyzer, <strong>SPAN by Voxengo</strong> is free and excellent.</li>
+    </ul>
+  </div>
+
+  <h2>Proof gate</h2>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">You pass this primer when you can…</div>
+    </div>
+    <ul>
+      <li><strong>Fix a muddy sound:</strong> name the band you cut, the frequency, the Q, and the gain value. Confirm the fix on the Spectrum analyzer — the mud bump should be visibly reduced.</li>
+      <li><strong>Fix a harsh sound:</strong> same as above — named moves, confirmed on the analyzer. Bypass the EQ to prove the problem was real and is now gone.</li>
+      <li><strong>Carve two clashing sounds apart:</strong> state which two sounds, the frequency of the clash, which one you cut into, and what you set the Q to. Both sounds must be clearly distinguishable when played together — confirmed on the Spectrum analyzer.</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">What you carry into the workshop</div>
+    <p>You can now shape the frequency content of a sound deliberately. Block 5 covers why masking happens and how spectral tilt shapes a whole mix — it assumes you already know how to operate EQ Eight and read the Spectrum analyzer. The carve-to-make-room move you practiced here is the core technique of mix separation in dense electronic music.</p>
+  </div>
+
+  <div class="tag-row">
+    <span class="tag">eq</span><span class="tag">high-pass</span><span class="tag">low-pass</span><span class="tag">frequency</span><span class="tag">q</span><span class="tag">carving</span><span class="tag">masking</span><span class="tag">spectrum</span>
+  </div>
+
+  <div class="page-nav">
+    <a href="mixing-dynamics.html">
+      <span class="page-nav-direction">Previous</span>
+      ← Mixing — Dynamics
+    </a>
+    <a href="effects-from-scratch.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      Effects from Scratch →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Block 00 · Mixing: EQ</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Block 0 — The Three Instruments</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page-type-block" id="top">
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
+  <a href="index.html" class="active"><span class="nav-num">B0</span>The Rig</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 0</a><span class="breadcrumb-sep">/</span><span>The three instruments</span></nav>
+
+  <header class="page-header">
+    <div class="eyebrow">Block 0 — The Rig · optional</div>
+    <h1>The three instruments, in depth</h1>
+    <p class="lede">Three boxes do the music-making in this rig: the Elektron Digitakt II, the Arturia MicroFreak, and the Novation Launchpad Pro MK3. This page is a slow, opinionated tour of each one. Not a manual — those exist. This is what each instrument is <em>for</em>, the few controls that matter most, and the habits that make it sing. Read it once, then keep it open while you play.</p>
+  </header>
+  <p class="block-meta">Optional · Setup &amp; systems · Digitakt II · MicroFreak · Launchpad Pro MK3</p>
+
+  <div class="callout">
+    <div class="callout-label">The opinion up front</div>
+    <p>You have three very different brains here: one for rhythm, one for a single voice, and one for your hands. Learn what each one is <em>for</em> before you learn what each button does. The Digitakt keeps time and shapes beats. The MicroFreak makes one expressive sound. The Launchpad turns your fingers into a controller. Mix those jobs up and the rig fights you. Keep them clear and the rig disappears.</p>
+  </div>
+
+  <h2>The three, side by side</h2>
+
+  <p style="text-align: center; color: var(--text-muted); max-width: 680px; margin: 0 auto 18px;">Before any detail, hold the whole picture in your head. Each instrument has one job. When two of them could do the same thing, the last section on this page tells you which to pick.</p>
+
+  <table class="param-table">
+    <caption>Three instruments, three jobs</caption>
+    <tr><td>Its one job</td><td>Digitakt II — rhythm &amp; sampling. MicroFreak — one melodic voice. Launchpad — playing &amp; launching by hand.</td></tr>
+    <tr><td>Best at</td><td>Digitakt — beats, chopped samples, tight grooves. MicroFreak — leads, basses, evolving drones. Launchpad — clip launching, scales, screen-free sequencing.</td></tr>
+    <tr><td>How it sequences</td><td>Digitakt — deep step sequencer with per-step locks. MicroFreak — small built-in sequencer + arpeggiator. Launchpad — a standalone 4-track step sequencer.</td></tr>
+    <tr><td>Role in the rig</td><td>Digitakt — the timekeeper and beat heart. MicroFreak — the single voice you sample and ride. Launchpad — your hands on top of everything.</td></tr>
+  </table>
+
+  <!-- ============================ DIGITAKT II ============================ -->
+  <h2>Digitakt II — the rhythm brain</h2>
+
+  <p style="color: var(--text-muted); max-width: 700px; margin: 0 auto 18px;">The Digitakt II is a drum machine, a sampler, and a sequencer in one box. A <strong>sampler</strong> just means it plays back recordings of sound. It gives you <strong>16 audio tracks</strong> (each one plays a sample) plus <strong>16 MIDI tracks</strong> (each one can play other gear). Every audio track has its own sample slot, an amp envelope (it shapes how the sound fades in and out), a multimode filter (it removes high or low frequencies), an LFO (a slow automatic knob-mover that adds movement), overdrive, and sends to the on-board delay, reverb, and chorus. It samples in stereo and stores everything on its <span class="code">+Drive</span>.</p>
+
+  <div class="signal-flow">
+    <span class="signal-node">Sample slot</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">Amp envelope</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">Filter</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">Overdrive</span>
+    <span class="signal-arrow">→ FX sends →</span>
+    <span class="signal-node">Delay · Reverb · Chorus</span>
+  </div>
+
+  <p style="text-align:center; color:var(--text-muted); font-size:14px; max-width:640px; margin:0 auto 18px;">That chain runs on every one of the 16 audio tracks. On the back are two audio inputs (A and B) for sampling outside gear like the MicroFreak, a main output (L/R), and a headphone output.</p>
+
+  <div class="note-block control-map">
+    <ul>
+      <li><strong><span class="code">[TRK]</span> + <span class="code">[TRIG 1-16]</span></strong> — hold <span class="code">[TRK]</span> and tap a step pad to pick which track you are editing.</li>
+      <li><strong><span class="code">[SRC]</span></strong> — the sample / source page. Choose which sample the track plays and tune it.</li>
+      <li><strong><span class="code">[FLTR]</span></strong> — the filter page. Cutoff, resonance, and the filter envelope live here.</li>
+      <li><strong><span class="code">[AMP]</span></strong> — the amp page. Volume, pan, and the fade-in / fade-out shape.</li>
+      <li><strong><span class="code">[FX]</span></strong> — the send page. How much of this track goes to delay, reverb, and chorus.</li>
+      <li><strong><span class="code">[RECORD]</span></strong> — grid recording. Turns the 16 step pads into a place to draw a pattern.</li>
+      <li><strong><span class="code">[FUNC]</span> + <span class="code">[YES]</span></strong> — saves your work. Do this often.</li>
+      <li><strong><span class="code">[SETTINGS]</span></strong> — opens system menus. You need <span class="menu">MIDI Config → Sync</span> to set who keeps time.</li>
+      <li><strong>Hold a trig + turn a knob</strong> — this is the magic move. It saves that knob's value to that one single step. That saved value is a <strong>parameter lock</strong> (p-lock).</li>
+    </ul>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">First setup</div>
+    </div>
+    <ul>
+      <li>Load a project — turn on, pick a project from the <span class="code">+Drive</span> (or start a fresh one).</li>
+      <li>Set Sync — open <span class="code">[SETTINGS]</span>, go to <span class="menu">MIDI Config → Sync</span>, and decide whether the Digitakt leads (sends clock) or follows (receives clock). For the labs it follows Live.</li>
+      <li>Set a sample — press <span class="code">[SRC]</span> and load a kick onto track 1, a closed hat onto track 2.</li>
+      <li>Mark your inputs — note that inputs A and B on the back are where the MicroFreak goes when you want to sample it.</li>
+      <li>Save it — <span class="code">[FUNC]</span> + <span class="code">[YES]</span>. You now have a project to build on.</li>
+    </ul>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Hands on · 10 minutes</div>
+      <h3 class="step-title">Your first pattern, with one p-lock</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">A four-on-the-floor kick with off-beat hats, then one step that breaks the rule. This is the whole Digitakt workflow in miniature.</p>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <ol>
+        <li><span class="system-tag">Digitakt II</span> Press <span class="code">[RECORD]</span> so the step pads light up as a 16-step grid.</li>
+        <li><span class="system-tag">Digitakt II</span> Hold <span class="code">[TRK]</span> and tap pad 1 to select the kick track. Tap steps <strong>1, 5, 9, 13</strong> to place a kick on every beat.</li>
+        <li><span class="system-tag">Digitakt II</span> Hold <span class="code">[TRK]</span> and tap pad 2 for the hat. Tap the off-beats — steps <strong>3, 7, 11, 15</strong>.</li>
+        <li><span class="system-tag">Digitakt II</span> Press play. You have a groove. Now the trick.</li>
+        <li><span class="system-tag">Digitakt II</span> <strong>Hold</strong> hat step 15 down and, while holding, turn the <span class="code">[FLTR]</span> cutoff knob. You just made a p-lock — that one step now opens the filter, and only that step. Let go and listen.</li>
+      </ol>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">What just happened</div>
+      <p>You changed a single step without changing the rest of the pattern. That is the Digitakt's superpower. A whole evolving beat can be built out of dozens of these per-step changes, with no automation lanes and no mouse.</p>
+    </div>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Let the sequencer do the sound design.</strong> p-locks and conditional trigs (rules like "play this step only 50% of the time", or "only on fills", or "first loop vs. not-first") are where a flat loop becomes alive. Reach for them before you reach for new samples.</li>
+      <li><strong>Use per-track lengths for polymeter.</strong> Each track can have its own length. Make the kick 16 steps and the hat 15. They drift against each other and never line up the same way twice. That is polymeter — different loop lengths running together — and it is free movement.</li>
+      <li><strong>Sample the MicroFreak through inputs A/B.</strong> Run the synth into the back, grab a few seconds, and now that sound is a Digitakt voice you can chop, p-lock, and play across the pads. This is the fastest sound-design loop in the rig.</li>
+    </ul>
+  </div>
+
+  <!-- ============================ MICROFREAK ============================ -->
+  <h2>MicroFreak — the single voice</h2>
+
+  <p style="color: var(--text-muted); max-width: 700px; margin: 0 auto 18px;">The MicroFreak makes <strong>one melodic sound at a time</strong>. It can stack up to four notes (that's called paraphonic), but they all share a single filter, so think of it as one expressive voice rather than a full chord machine. Its design is unusual and that is the point: a <strong>digital oscillator</strong> (the part that makes the raw tone) with many swappable engines, feeding into a <strong>single analog filter</strong> (the part that sculpts the tone). Digital flexibility into analog character.</p>
+
+  <div class="signal-flow">
+    <span class="signal-node">Digital oscillator · pick an engine</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">Analog filter · 12 dB/oct SEM-style</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">Amp / envelope</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">Mono out</span>
+  </div>
+
+  <p style="text-align:center; color:var(--text-muted); font-size:14px; max-width:660px; margin:0 auto 18px;">The engines include Basic waves, Superwave, Wavetable, Harmonic, Karplus-Strong (plucked / physical), Virtual Analog, Waveshaper, two-operator FM, Formant / Speech, Modal, and Noise-Engineering bass/lead. The one analog filter switches between low-pass, band-pass, and high-pass. The keyboard is a flat touch surface (capacitive) with poly-aftertouch and a pressure strip, so how hard you press becomes a control.</p>
+
+  <div class="note-block control-map">
+    <ul>
+      <li><strong>Oscillator + <span class="code">Type</span> / <span class="code">Wave</span></strong> — pick the engine with <span class="code">Type</span>, then shape its raw tone with <span class="code">Wave</span> and the timbre knobs. This is the source of the sound.</li>
+      <li><strong>Filter <span class="code">Cutoff</span> / <span class="code">Resonance</span></strong> — the single analog filter. <span class="code">Cutoff</span> opens and closes the tone; <span class="code">Resonance</span> adds a vocal peak right at the cutoff point. Switch low-pass / band-pass / high-pass here too.</li>
+      <li><strong>Envelope</strong> — shapes how the sound rises and falls over one note (attack, decay, sustain, release). Long attack and release make pads and drones.</li>
+      <li><strong>Cycling Envelope</strong> — a second, loopable envelope you can run as an extra movement source on its own.</li>
+      <li><strong>LFO</strong> — the slow automatic knob-mover. Its real power shows up in the matrix below.</li>
+      <li><strong>The 5×7 mod matrix</strong> — a grid that wires your movement sources (envelope, Cycling Envelope, LFO, pressure, keyboard) to destinations (cutoff, pitch, wave, and more). This is where the synth comes alive.</li>
+    </ul>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">First patch</div>
+    </div>
+    <ul>
+      <li>Pick an engine — turn <span class="code">Type</span> to <span class="code">Basic</span> waves or <span class="code">Virtual Analog</span>. Hold a note and explore <span class="code">Wave</span> until you like the raw tone.</li>
+      <li>Set the filter — choose low-pass, bring <span class="code">Cutoff</span> down until the tone goes dark, then back up to taste. Add a touch of <span class="code">Resonance</span> for character.</li>
+      <li>Set a long-ish envelope — raise attack and release so notes swell in and fade out instead of clicking on and off. You now have a pad you can hold.</li>
+    </ul>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Hands on · 8 minutes</div>
+      <h3 class="step-title">Make it move</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">A held note is static. Two small moves give it life: an LFO sweeping the filter, and a second voice slightly out of tune.</p>
+    <div class="sub-block">
+      <div class="sub-label">Route the LFO to the filter</div>
+      <ol>
+        <li><span class="system-tag">MicroFreak</span> Open the <strong>5×7 mod matrix</strong>. Find the row for the <span class="code">LFO</span> and the column for filter <span class="code">Cutoff</span>.</li>
+        <li><span class="system-tag">MicroFreak</span> Turn the matrix encoder to set an amount at that crossing point. Now the LFO opens and closes the filter on its own.</li>
+        <li><span class="system-tag">MicroFreak</span> Slow the LFO right down and hold a note. The tone breathes. That slow filter sweep is the heart of a drone.</li>
+      </ol>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Two detuned voices for beating</div>
+      <ol>
+        <li><span class="system-tag">MicroFreak</span> Set the voice mode so two voices sound at once and detune them slightly.</li>
+        <li><span class="system-tag">MicroFreak</span> Hold one note. The two close-but-not-equal pitches fight, and you hear a slow throb. That throb is called <strong>beating</strong>, and it is the warmest, cheapest movement a synth can make.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Keep it mono on purpose.</strong> One voice, one cable, one channel. A single sound you fully control beats a chord you half-control. Width comes later, from effects, on purpose.</li>
+      <li><strong>One engine mastered beats ten skimmed.</strong> There are many engines and the temptation is to scroll. Don't. Pick one, learn exactly what every knob does to it, and you will get more music out of it than from a tour of all of them.</li>
+      <li><strong>The filter is the most expressive control.</strong> If you only ever automate or play one thing by hand on this synth, make it the <span class="code">Cutoff</span>. It is the MicroFreak's voice box.</li>
+    </ul>
+  </div>
+
+  <!-- ============================ LAUNCHPAD ============================ -->
+  <h2>Launchpad Pro MK3 — your hands</h2>
+
+  <p style="color: var(--text-muted); max-width: 700px; margin: 0 auto 18px;">The Launchpad Pro MK3 is an <strong>8×8 grid of 64 RGB pads</strong>. The pads are velocity-sensitive (how hard you hit matters) and have poly-aftertouch (pressing harder after the hit matters too). It does several different jobs depending on which mode it is in. Learn the modes and it becomes the most direct, screen-free way to touch your music.</p>
+
+  <table class="param-table">
+    <caption>The modes, plainly</caption>
+    <tr><td>Session — launch Live clips and scenes by tapping pads</td><td>When you are playing your Live set by hand</td></tr>
+    <tr><td>Note — a playable instrument with scale and chord helpers</td><td>When you want to play melodies and stay in key</td></tr>
+    <tr><td>Chord — build and trigger chords from single pads</td><td>When you want full chords without a real keyboard</td></tr>
+    <tr><td>Custom — four user-defined MIDI layouts you design</td><td>When you want your own controls under your fingers</td></tr>
+    <tr><td>Sequencer — a built-in 4-track step sequencer that runs standalone</td><td>When you want to drive hardware with no computer</td></tr>
+  </table>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Using it in Live</div>
+    </div>
+    <ul>
+      <li>Connect over USB-C — Live recognises the Launchpad and lights it up. It runs on USB power, so no extra adapter.</li>
+      <li>Session mode — the grid mirrors your Live clips. Tap a pad to launch a clip, tap the side to fire a whole scene. The dynamic track controls let you mute, solo, and arm tracks from the grid.</li>
+      <li>Note mode — switch to it and play. Turn on a scale so every pad is in key, and use the chord helpers to play fuller parts with one finger.</li>
+      <li>Capture MIDI — if you play something good without recording, Capture MIDI grabs what you just played and turns it into a clip.</li>
+    </ul>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">The Config-D superpower · 12 minutes</div>
+      <h3 class="step-title">The standalone sequencer — no computer at all</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Most people never find this. The Launchpad has a 4-track step sequencer built in, and it runs with no computer. It sends MIDI out of its own port straight into the Digitakt and MicroFreak. This is the heart of the screen-free rig (Config D in the block).</p>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <ol>
+        <li><span class="system-tag">Launchpad</span> Run a MIDI cable from the Launchpad's <strong>MIDI Out</strong> (3.5mm TRS, Type A, via the included adapter) to the gear you want to sequence. Power the Launchpad from any USB charger — no computer needed.</li>
+        <li><span class="system-tag">Launchpad</span> Enter Sequencer mode. Program a step pattern on one of the four tracks and set it to send to the channel your Digitakt or MicroFreak listens on.</li>
+        <li><span class="system-tag">Launchpad + Digitakt II</span> Press play. The Launchpad now drives the hardware directly. No screen, no DAW, no latency.</li>
+        <li><span class="system-tag">Live</span> Later, if you like what you built, <strong>Print to Clip</strong> captures that standalone sequence straight into a Live clip so you can keep it.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>The standalone sequencer is underused.</strong> People buy this for Live clip launching and never touch the most interesting thing it does. A Launchpad plus a USB charger plus the Digitakt is a whole studio with no computer in it. Try it once and it changes how you work.</li>
+      <li><strong>Build Custom Modes for your most-used controls.</strong> You get four. Put the knobs and pads you reach for constantly onto a Custom layout so your hands stop hunting. This is the move that makes the Launchpad feel like yours.</li>
+    </ul>
+  </div>
+
+  <!-- ============================ WHO SEQUENCES WHAT ============================ -->
+  <h2>Who should sequence what?</h2>
+
+  <p style="text-align: center; color: var(--text-muted); max-width: 680px; margin: 0 auto 18px;">Three instruments and Live can all sequence. That freedom causes paralysis, so here is a plain answer. For each kind of part, this is the tool to reach for first and why.</p>
+
+  <table>
+    <thead>
+      <tr><th>The part</th><th>Best sequenced by</th><th>Why</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Drums</strong></td><td>Digitakt II</td><td>Its step sequencer is built for rhythm — p-locks, conditional trigs, and per-track lengths give grooves that breathe.</td></tr>
+      <tr><td><strong>Bass / lead melody</strong></td><td>MicroFreak sequencer</td><td>Keep the melody on the synth that plays it. Its sequencer records knob moves too, so the part and its sound design travel together.</td></tr>
+      <tr><td><strong>Long evolving textures</strong></td><td>Live</td><td>Slow, minutes-long change is easiest to draw and recall with Live's automation lanes and long clips. The hardware sequencers are too short for it.</td></tr>
+      <tr><td><strong>Live performance</strong></td><td>Launchpad</td><td>Your hands launching clips, playing scales, or running the standalone sequencer — built for playing in the moment, with or without a computer.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">Now put it to work</div>
+    <p>You know what each instrument is for, the few controls that matter, and who should sequence what. That is enough. A fourth box — the <a href="digitone.html">Digitone II</a> — is on its way; see how it joins the rig next. Then head into <a href="../block-1/index.html">Block 1 — The Bench</a>, where you wire these up for real and make your first sound end to end.</p>
+  </div>
+
+  <div class="tag-row">
+    <span class="tag">optional block</span>
+    <span class="tag">three brains, three jobs</span>
+    <span class="tag">learn the why first</span>
+  </div>
+
+  <div class="page-nav">
+    <a href="live-and-max.html">
+      <span class="page-nav-direction">Previous</span>
+      ← Live, Max &amp; packs
+    </a>
+    <a href="digitone.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      Adding the Digitone II →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Block 0 · The Rig</div>
+
+</div>
+
+</body>
+</html>

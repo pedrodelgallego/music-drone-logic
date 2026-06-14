@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Block 00 — Synthesis from Scratch</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page-type-block" id="top">
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
+  <a href="index.html" class="active"><span class="nav-num">F0</span>Foundations</a>
+  <a href="../block-0/index.html"><span class="nav-num">B0</span>The Rig</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 00</a><span class="breadcrumb-sep">/</span><span>Synthesis from Scratch</span></nav>
+
+  <header class="page-header">
+    <div class="eyebrow">Block 00 · Foundations · Primer 1</div>
+    <h1>Synthesis from Scratch</h1>
+    <p class="lede">A synth makes sound in three steps: an <strong>oscillator</strong> makes a raw tone, a <strong>filter</strong> carves it, and an <strong>amplifier</strong> (shaped by an envelope) decides when it's loud. Add an <strong>LFO</strong> for movement and that's the whole machine. This primer drills each control on its own, then hands you a cookbook of sounds to build from a blank patch.</p>
+  </header>
+  <p class="block-meta">Primer · the atoms one control at a time · ends in a recipe cookbook + a recreate-by-ear gate</p>
+
+  <div class="callout">
+    <div class="callout-label">Your anchor instrument</div>
+    <p>Build every atom on the <strong>MicroFreak</strong> — it has all of them on the panel: an oscillator with many engines, a real analog filter, an envelope, an LFO, and a mod matrix. One control needs a second tool: <strong>pulse width</strong> is clearest in <strong>Live's Analog</strong> (or Operator), so you'll hop there for that single atom.</p>
+  </div>
+
+  <h2>The whole machine, in one line</h2>
+
+  <div class="signal-flow">
+    <span class="signal-node">Oscillator<br><span style="font-size:11px;color:var(--text-dim);">raw tone</span></span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">Filter<br><span style="font-size:11px;color:var(--text-dim);">carve it</span></span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">Amplifier<br><span style="font-size:11px;color:var(--text-dim);">when it's loud</span></span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">out</span>
+  </div>
+  <p style="text-align:center; color:var(--text-muted); max-width:600px; margin:0 auto 8px; font-size:14px;">The <strong>envelope</strong> drives the amplifier (and often the filter). The <strong>LFO</strong> wobbles any of them automatically. Master those four boxes and you can build anything.</p>
+
+  <!-- ATOM 1 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Atom 1</div>
+      <h3 class="step-title">Oscillators — the raw tone (and pulse width)</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">The oscillator makes a repeating wave. Its shape sets the raw character before anything else touches it.</p>
+    <div class="sub-block">
+      <div class="sub-label">Hear each waveform (MicroFreak)</div>
+      <ol>
+        <li>Pick the <span class="menu">Basic waves</span> oscillator type. Hold one note.</li>
+        <li>Turn the <span class="code">Wave</span> knob through the shapes and listen: <strong>sine</strong> (pure, hollow), <strong>triangle</strong> (soft), <strong>sawtooth</strong> (bright, buzzy — every harmonic), <strong>square</strong> (hollow, woody).</li>
+        <li>Rule of thumb: more edges in the wave = more harmonics = more for the filter to carve later.</li>
+      </ol>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Pulse width / PWM (hop to Live's Analog)</div>
+      <ol>
+        <li>A <strong>square</strong> is a pulse that's on half the time. <strong>Pulse width</strong> changes that ratio — from a fat square to a thin, nasal buzz.</li>
+        <li>In Live's <span class="menu">Analog</span>, set OSC 1 to <span class="code">Pulse</span>. Move the <span class="code">PW</span> (pulse width) knob from 50% toward the extremes and listen to it thin out.</li>
+        <li><strong>PWM</strong> = pulse-width <em>modulation</em>: route an LFO to PW (small amount, slow). The shifting width makes one oscillator sound like two slightly detuned ones — the classic "string" shimmer. This is the atom most synth courses build a whole patch around.</li>
+      </ol>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Prove it</div>
+      <p>Without looking, can you tell a sawtooth from a square by ear? And can you make a static pulse <em>move</em> with PWM? If yes, this atom is done.</p>
+    </div>
+  </div>
+
+  <!-- ATOM 2 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Atom 2</div>
+      <h3 class="step-title">The filter — carving the sound</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">A filter removes part of the sound's frequency range. It is the single most expressive control on a synth.</p>
+    <div class="sub-block">
+      <div class="sub-label">On the MicroFreak's analog filter</div>
+      <ol>
+        <li>Play a sustained sawtooth. Sweep <span class="code">Cutoff</span> down: the brightness disappears top-first. This is a <strong>low-pass</strong> filter — it keeps the lows, removes the highs.</li>
+        <li>Now turn up <span class="code">Resonance</span>. A whistle appears right at the cutoff point — the filter emphasising itself. Sweep the cutoff with resonance up: that vocal "wah" is the sound of a thousand records.</li>
+        <li>Push resonance near maximum: on many synths the filter starts to <strong>sing its own tone</strong> (self-oscillation). The MicroFreak's filter goes vocal and ready to scream.</li>
+      </ol>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Prove it</div>
+      <p>Make one held sawtooth sound like three different instruments using only the cutoff and resonance — no notes changed.</p>
+    </div>
+  </div>
+
+  <!-- ATOM 3 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Atom 3</div>
+      <h3 class="step-title">The envelope — one stage at a time (A · D · S · R)</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">The envelope is the shape of a sound over the life of one note. Learn the four stages separately, then together. Route the MicroFreak's envelope to the filter cutoff so you can <em>hear</em> each one.</p>
+    <table class="param-table">
+      <caption>The four stages — set the others to zero, then move just one</caption>
+      <tr><td><strong>Attack</strong></td><td>how fast it starts. Zero = instant click. Long = a slow swell with no clear beginning.</td></tr>
+      <tr><td><strong>Decay</strong></td><td>how fast it falls from the peak <em>after</em> the attack — toward the sustain level.</td></tr>
+      <tr><td><strong>Sustain</strong></td><td>the level it holds at while the key is down. This is a <em>level</em>, not a time.</td></tr>
+      <tr><td><strong>Release</strong></td><td>how fast it fades <em>after</em> you let go. Zero = abrupt stop. Long = a tail.</td></tr>
+    </table>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <ol>
+        <li>Set attack 0, decay 0, sustain full, release 0 — a plain on/off gate. Play.</li>
+        <li>Raise <strong>attack</strong> only: the note now fades in. Return it to 0.</li>
+        <li>Drop <strong>sustain</strong> to zero and raise <strong>decay</strong>: now you get a <em>pluck</em> — it stabs and dies even while held. This decay-to-zero shape is the heart of basses, plucks, and stabs.</li>
+        <li>Return sustain up, then raise <strong>release</strong>: the note now rings on after you let go.</li>
+      </ol>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Prove it</div>
+      <p>By ear, point to which stage makes a pad a pad (long attack + release) and which makes a pluck a pluck (zero sustain, short decay).</p>
+    </div>
+  </div>
+
+  <!-- ATOM 4 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Atom 4</div>
+      <h3 class="step-title">LFOs — automatic movement (rate · depth · shape)</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">An <strong>LFO</strong> is a slow, automatic knob-mover. It makes no sound itself — it wobbles another control on a repeating cycle. Three knobs control it.</p>
+    <div class="sub-block">
+      <div class="sub-label">On the MicroFreak (route it in the mod matrix)</div>
+      <ol>
+        <li>In the mod matrix, route <span class="code">LFO → Cutoff</span>. You set this connection's strength with the <strong>depth</strong> (amount): start tiny.</li>
+        <li><strong>Rate</strong> = speed. Slow = a breathing filter (good for drones). Fast = a wobble. Very fast (audio rate) = it changes the timbre itself.</li>
+        <li><strong>Depth</strong> = how far it moves the cutoff. Small = subtle life; large = a full sweep.</li>
+        <li><strong>Shape</strong> = the path it takes: a smooth <em>sine/triangle</em> (gentle), a <em>ramp/saw</em> (rise then snap), a <em>square</em> (jump between two values), or <em>random</em> (sample &amp; hold — a new value each cycle).</li>
+        <li>Try LFO → pitch at a tiny depth and slow rate: that's vibrato. Bigger depth: a siren.</li>
+      </ol>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Prove it</div>
+      <p>Make a held tone feel "alive" with one slow LFO — then make it "wobble" — then make it "jump" — changing only rate and shape.</p>
+    </div>
+  </div>
+
+  <h2>The cookbook — build these from a blank patch</h2>
+
+  <p style="text-align: center; color: var(--text-muted); max-width: 680px; margin: 0 auto 18px;">Now combine the atoms. Start each from an init/blank patch (one oscillator, filter open, plain on/off envelope) and make only the moves listed. Build them in order — each adds one idea.</p>
+
+  <table>
+    <thead><tr><th>Recipe</th><th>Start from</th><th>The moves</th><th>The trick</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Plucked bass</strong></td><td>sawtooth, low note</td><td>Envelope: sustain 0, short decay → filter cutoff. Filter low, a little resonance.</td><td>The pluck <em>is</em> the decay-to-zero on the filter.</td></tr>
+      <tr><td><strong>Sub bass</strong></td><td>sine, very low note</td><td>Filter wide open, envelope a touch of attack so it doesn't click.</td><td>A pure sine has no harmonics — nothing to filter, all weight.</td></tr>
+      <tr><td><strong>Kick drum</strong></td><td>sine</td><td>Very short amp decay; a fast <em>pitch</em> envelope dropping from high to low.</td><td>The "thump" is a pitch drop in the first few milliseconds.</td></tr>
+      <tr><td><strong>Hi-hat</strong></td><td>noise engine</td><td>High-pass the noise; amp envelope: zero sustain, tiny decay.</td><td>A hat is just shaped noise — closed = shorter decay.</td></tr>
+      <tr><td><strong>Siren</strong></td><td>square or saw</td><td>LFO → pitch, slow rate, large depth, triangle shape.</td><td>Slow + deep pitch LFO = the rise and fall.</td></tr>
+      <tr><td><strong>Strings / pad</strong></td><td>two saws (or PWM pulse)</td><td>Long attack + long release; gentle PWM or detune; filter half-open.</td><td>Slow envelope + PWM shimmer = warmth and width.</td></tr>
+      <tr><td><strong>West-coast lead</strong></td><td>sine/triangle</td><td>Wavefolder/Timbre up for harmonics; envelope → amplitude tied to brightness.</td><td>West-coast adds harmonics by folding, not by filtering away.</td></tr>
+      <tr><td><strong>"Two sounds in one"</strong></td><td>any patch</td><td>Set the filter envelope and amp envelope to <em>different</em> shapes.</td><td>A bright stab that fades to a soft hum = two envelopes disagreeing.</td></tr>
+      <tr><td><strong>Set up your own controls</strong></td><td>your favourite patch</td><td>Assign cutoff, an LFO depth, and decay to performance controls (MicroFreak mod matrix / Live Macros).</td><td>The patch becomes playable — one knob, many moods.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Free practice tools.</strong> <a href="https://learningsynths.ableton.com" target="_blank" rel="noopener">Ableton Learning Synths</a> (interactive, the same atoms in a browser), <strong>VCV Rack</strong> (each block separate and patchable), <strong>Vital</strong> (watch PWM and LFO shapes on screen). For the recreate-by-ear gate below, <strong>Syntorial</strong> (paid) is the gold standard.</li>
+    </ul>
+  </div>
+
+  <h2>Proof gate</h2>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">You pass this primer when you can…</div>
+    </div>
+    <ul>
+      <li><strong>Build the cookbook:</strong> make all nine recipes from a blank patch, each in under two minutes.</li>
+      <li><strong>Name the atoms by ear:</strong> identify the waveform, hear the filter move, and call which envelope stage is doing the work.</li>
+      <li><strong>Recreate two by ear:</strong> have someone (or a preset) play a pluck and a pad; rebuild each from scratch without looking at the source.</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">What you carry into the workshop</div>
+    <p>You can now make and shape a sound deliberately. <a href="../block-1/index.html">Block 1</a> assumes exactly this. The one-voice étude in <a href="../block-1/lab-004.html">Lab 004</a> is this primer, used compositionally.</p>
+  </div>
+
+  <div class="tag-row">
+    <span class="tag">oscillator</span><span class="tag">pwm</span><span class="tag">filter</span><span class="tag">adsr</span><span class="tag">lfo</span><span class="tag">recipes</span>
+  </div>
+
+  <div class="page-nav">
+    <a href="index.html">
+      <span class="page-nav-direction">Previous</span>
+      ← F0 / Foundations
+    </a>
+    <a href="rhythm-from-scratch.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      Rhythm from Scratch →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Block 00 · Synthesis from Scratch</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Block 00 — Mixing: Dynamics &amp; Compression</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page-type-block" id="top">
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
+  <a href="index.html" class="active"><span class="nav-num">F0</span>Foundations</a>
+  <a href="../block-0/index.html"><span class="nav-num">B0</span>The Rig</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 00</a><span class="breadcrumb-sep">/</span><span>Mixing: Dynamics &amp; Compression</span></nav>
+
+  <header class="page-header">
+    <div class="eyebrow">Block 00 · Foundations · Primer</div>
+    <h1>Mixing: Dynamics &amp; Compression</h1>
+    <p class="lede">A <strong>compressor</strong> turns down the loudest moments of a sound automatically — so you can then raise the whole thing louder without it clipping. That's it. This primer drills each control on its own so you can hear exactly what it does, then shows you the sidechain pump that defines the feel of techno.</p>
+  </header>
+  <p class="block-meta">Primer · the atoms one control at a time · ends in a before/after bus check + an audible sidechain pump</p>
+
+  <div class="callout">
+    <div class="callout-label">Your anchor instrument</div>
+    <p>Build every atom with <strong>Live's Compressor</strong> — drop it on any audio or instrument track. For gluing a group of sounds together, use <strong>Live's Glue Compressor</strong> on a return or group track. Both are stock devices: no downloads needed. The <strong>GR meter</strong> (gain reduction meter) inside each device shows you exactly how many dB the compressor is turning down at any moment — watch it while you listen.</p>
+  </div>
+
+  <!-- ATOM 1 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Atom 1</div>
+      <h3 class="step-title">What a compressor does — gain reduction</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">A compressor watches the level of a signal. When it gets louder than a point you set, the compressor turns it down automatically. The amount it turns down is called <strong>gain reduction (GR)</strong>. Afterwards, you raise the whole thing back up with makeup gain — so the loud bits are controlled and the quiet bits are louder than before.</p>
+    <div class="sub-block">
+      <div class="sub-label">Watch the GR meter (Live's Compressor)</div>
+      <ol>
+        <li>Drop <span class="menu">Compressor</span> on a drum loop or pad. Play the loop.</li>
+        <li>Watch the <strong>GR meter</strong> — the needle or bar that swings left when the compressor is working. If it never moves, the compressor is doing nothing. If it swings 6–12 dB on every hit, it's grabbing hard.</li>
+        <li>For now, just stare at the meter and listen. Notice the moments where it pulls back. That pull-back is gain reduction happening in real time.</li>
+      </ol>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Prove it</div>
+      <p>Can you point to a moment in the loop where the GR meter moves, and describe what you hear changing at that exact moment? If yes, this atom is done.</p>
+    </div>
+  </div>
+
+  <!-- ATOM 2 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Atom 2</div>
+      <h3 class="step-title">Threshold — where the compressor starts working</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">The <strong>threshold</strong> is the level at which the compressor kicks in. Signal below the threshold passes through untouched. Signal above it gets turned down.</p>
+    <div class="sub-block">
+      <div class="sub-label">Hear the threshold (Live's Compressor)</div>
+      <ol>
+        <li>Set ratio to 4:1 so the effect is clear. Set attack and release to their defaults for now.</li>
+        <li>Pull the <span class="code">Threshold</span> all the way up (e.g. 0 dB). The GR meter barely moves — almost nothing in your loop is loud enough to trigger it.</li>
+        <li>Slowly lower the threshold. Watch the GR meter start moving more as the threshold drops below the peaks of the signal.</li>
+        <li>Rule: <strong>lower threshold = more of the signal gets compressed.</strong></li>
+      </ol>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Prove it</div>
+      <p>Set the threshold so the GR meter moves only on the kick hits, not between them. You've found the sweet spot where it catches the peaks but leaves the gaps alone.</p>
+    </div>
+  </div>
+
+  <!-- ATOM 3 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Atom 3</div>
+      <h3 class="step-title">Ratio — how hard it clamps</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">The <strong>ratio</strong> decides how much the compressor turns down signals that cross the threshold. A ratio of 2:1 means: for every 2 dB that goes over the threshold, only 1 dB comes out. A ratio of 8:1 is much more aggressive — that signal gets crushed. A ratio of ∞:1 is a <strong>limiter</strong>: nothing gets through above the threshold.</p>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <ol>
+        <li>Set the threshold so you can see GR moving. Set ratio to 2:1 — gentle, natural.</li>
+        <li>Raise the ratio to 8:1. The GR meter swings more for the same peaks. The sound feels more "squashed."</li>
+        <li>Push to 20:1 or the maximum. Now you're close to limiting — the peaks are almost brick-walled. Compare with the 2:1 version.</li>
+        <li>Rule: <strong>low ratio = gentle, transparent; high ratio = heavy-handed, squashed.</strong></li>
+      </ol>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Prove it</div>
+      <p>By ear, can you tell 2:1 from 8:1 on a drum loop? Switch between them a few times without looking at the screen — the squashed version should be obvious.</p>
+    </div>
+  </div>
+
+  <!-- ATOM 4 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Atom 4</div>
+      <h3 class="step-title">Attack — how fast it grabs</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">The <strong>attack</strong> controls how quickly the compressor responds once the signal crosses the threshold. A fast attack (1 ms) catches transients — the sharp click at the start of a hit. A slow attack (50–100 ms) lets that click through before it starts compressing, which keeps the punch and bite of drums.</p>
+    <div class="sub-block">
+      <div class="sub-label">Do this (on a drum loop)</div>
+      <ol>
+        <li>Set ratio to 6:1, threshold so GR is moving noticeably. Release at a medium setting.</li>
+        <li>Set attack to 1 ms (as fast as possible). Listen: the transient snap of the kick gets dulled — the compressor is grabbing it before you can hear it.</li>
+        <li>Slow the attack to 50 ms. Now the snap comes through before the compressor kicks in. The drums feel punchier and more alive.</li>
+        <li>Rule: <strong>fast attack tames transients; slow attack lets the punch through.</strong></li>
+      </ol>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Prove it</div>
+      <p>Set attack to 1 ms and 80 ms on the same loop. Can you hear the kick snap disappear and reappear? That's attack doing its job.</p>
+    </div>
+  </div>
+
+  <!-- ATOM 5 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Atom 5</div>
+      <h3 class="step-title">Release — how fast it lets go (and the pump)</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">The <strong>release</strong> controls how quickly the compressor stops compressing after the signal drops back below the threshold. A fast release (20–50 ms) is good for fast material and sounds natural on drums. A slow release (300–600 ms) means the compressor holds on, which can create an audible <strong>pumping</strong> effect — the track seems to breathe in and out with the rhythm. That pump is used intentionally in dance music.</p>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <ol>
+        <li>High ratio, low threshold, moderate attack. Set release to 30 ms and listen to a drum loop.</li>
+        <li>Slow release to 400 ms. The compressor now takes longer to let go between hits. You should hear the volume rising and falling in waves — that's the pump.</li>
+        <li>Try release at 600 ms on a pad or bass. The whole thing seems to swell rhythmically as the compressor breathes.</li>
+        <li>Rule: <strong>release sets the rhythm of the breathing — slow release creates pump; fast release sounds tight and natural.</strong></li>
+      </ol>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Prove it</div>
+      <p>Make a pad pump in time with a kick by adjusting the release alone. You should be able to hear the pad get quieter on the kick hit, then swell back up before the next one.</p>
+    </div>
+  </div>
+
+  <!-- ATOM 6 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Atom 6</div>
+      <h3 class="step-title">Knee &amp; makeup gain — rounding the edge, recovering the level</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">The <strong>knee</strong> controls how abruptly the compressor kicks in at the threshold. A <strong>hard knee</strong> snaps on immediately — you cross the threshold and compression starts at full ratio right away. A <strong>soft knee</strong> eases in gradually over a range around the threshold, sounding more transparent and musical. <strong>Makeup gain</strong> brings the overall level back up after compression has turned things down.</p>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <ol>
+        <li>Set a moderate ratio and threshold. Switch the knee between hard and soft while holding a sustained pad. The soft knee sounds smoother — compression creeps in rather than snapping.</li>
+        <li>Add 4–6 dB of <span class="code">Makeup Gain</span>. The compressed signal should now be roughly as loud as the uncompressed original — but more even and controlled.</li>
+        <li>Tip: flip the bypass switch (on/off) to compare compressed vs. uncompressed at matched levels. If the compressed version sounds better at the same loudness, the compressor is doing something useful.</li>
+      </ol>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Prove it</div>
+      <p>Bypass the compressor, match the level with makeup gain, then A/B back and forth. Can you hear what the compressor is doing beyond just changing loudness?</p>
+    </div>
+  </div>
+
+  <!-- ATOM 7 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Atom 7</div>
+      <h3 class="step-title">Glue vs. control — and serial vs. parallel in one line</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Use <strong>Live's Compressor</strong> for controlling a single sound (a vocal, a snare, a bass). Use <strong>Live's Glue Compressor</strong> on a group or bus to make multiple sounds feel like they belong together — it adds cohesion, not just reduction. <strong>Serial</strong> means compressors in a chain (output of one feeds the next); <strong>parallel</strong> means blending the compressed signal with the original dry signal (Live's Compressor has a <span class="code">Dry/Wet</span> knob for this — keeping some of the uncompressed signal preserves transient energy while still controlling the peaks).</p>
+    <div class="decision-check">
+      <div class="decision-check-label">Prove it</div>
+      <p>Drop the Glue Compressor on a group of sounds (e.g. kick + bass). Set it to about 2:1, a medium threshold, and listen. Does the group feel more unified? That's glue.</p>
+    </div>
+  </div>
+
+  <!-- ATOM 8 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Atom 8</div>
+      <h3 class="step-title">Sidechain / ducking — the techno pump</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;"><strong>Sidechain compression</strong> means the compressor on one sound is triggered by a different sound. The classic techno move: the kick drum triggers a compressor on a pad or bass. Every time the kick hits, the pad ducks down. In the gap between kicks, the pad swells back up. That rhythmic push and pull is the pump that defines house and techno.</p>
+    <div class="sub-block">
+      <div class="sub-label">Set up sidechain ducking in Live</div>
+      <ol>
+        <li>Put a Compressor on your pad track.</li>
+        <li>In the compressor, click the <span class="code">Sidechain</span> button to expand the sidechain section.</li>
+        <li>Set <span class="code">Audio From</span> to your kick track (or a kick channel). The compressor on the pad now listens to the kick for its trigger signal.</li>
+        <li>Set ratio high (6:1–10:1), threshold low enough that every kick hit triggers gain reduction.</li>
+        <li>Set <strong>attack</strong> fast (5–10 ms) so the duck happens immediately on the kick. Set <strong>release</strong> to 150–300 ms so the pad swells back before the next kick.</li>
+        <li>Watch the GR meter bounce with every kick hit. Listen: the pad breathes with the rhythm.</li>
+      </ol>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Prove it</div>
+      <p>Mute the kick and the pad should stay constant. Unmute the kick and the pad should duck rhythmically. That contrast — static vs. pumping — is the test.</p>
+    </div>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Free tools.</strong> <strong>Live's Compressor</strong> and <strong>Glue Compressor</strong> are both stock devices — no downloads needed. For practice by ear: set a compressor, bypass it, and try to match the before/after by adjusting threshold and ratio alone. <strong>Attack/release by ear drill:</strong> start with a drum loop, set ratio to 8:1 and threshold low, then sweep attack from 1 ms to 100 ms — your ear learns the difference fast. Repeat with release.</li>
+    </ul>
+  </div>
+
+  <h2>Proof gate</h2>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">You pass this primer when you can…</div>
+    </div>
+    <ul>
+      <li><strong>Before/after on one bus:</strong> compress a drum bus or pad group, bypass and re-engage, and explain in one sentence what changed — use the words threshold, ratio, attack, release, and state the values you chose and why.</li>
+      <li><strong>Audible sidechain pump:</strong> route a kick to duck a pad via sidechain compression. The pump must be clearly audible. State your threshold, ratio, attack, and release values and defend each choice (e.g. "I used a 200 ms release so the pad swells back just before the next kick").</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">What you carry into the workshop</div>
+    <p>You can now control the loudness of a sound in time, not just in volume. Block 5 covers limiting and spectral balance at the mix bus level — it assumes you already know what a compressor does. The sidechain pump you built here is the move that holds rhythmic techno together.</p>
+  </div>
+
+  <div class="tag-row">
+    <span class="tag">compression</span><span class="tag">threshold</span><span class="tag">ratio</span><span class="tag">attack</span><span class="tag">release</span><span class="tag">sidechain</span><span class="tag">pump</span><span class="tag">glue</span>
+  </div>
+
+  <div class="page-nav">
+    <a href="harmony-from-scratch.html">
+      <span class="page-nav-direction">Previous</span>
+      ← Harmony from Scratch
+    </a>
+    <a href="mixing-eq.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      Mixing — EQ →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Block 00 · Mixing: Dynamics &amp; Compression</div>
+
+</div>
+
+</body>
+</html>

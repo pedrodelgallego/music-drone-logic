@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Block 00 — Arrangement from Scratch</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page-type-block" id="top">
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
+  <a href="index.html" class="active"><span class="nav-num">F0</span>Foundations</a>
+  <a href="../block-0/index.html"><span class="nav-num">B0</span>The Rig</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 00</a><span class="breadcrumb-sep">/</span><span>Arrangement from Scratch</span></nav>
+
+  <header class="page-header">
+    <div class="eyebrow">Block 00 · Foundations · Primer 5</div>
+    <h1>Arrangement from Scratch</h1>
+    <p class="lede"><strong>Arrangement</strong> is the decision about what happens when. You decide which sounds play, when they enter and leave, and how the energy of the track moves from start to finish. This primer covers the conventional building blocks — sections, phrasing, tension, energy, and transitions — so you have a solid foundation before the workshop's subtractive approach tears it apart.</p>
+  </header>
+  <p class="block-meta">Primer · conventional forms as a baseline · ends in a build + compare gate</p>
+
+  <div class="callout">
+    <div class="callout-label">This primer is optional — here is why it matters anyway</div>
+    <p>The workshop deliberately teaches <strong>subtractive and experimental arrangement</strong>. <a href="../block-5/index.html">Block 5</a> covers Subtractive Arrangement and <a href="../block-7/index.html">Block 7</a> covers long-form experimental structure. Neither of those assume you already know conventional song form. But knowing the standard model gives you something concrete to push against. When you choose to remove a drop or blur a section boundary, you will understand exactly what you are doing — and why it sounds different. Come back to this primer any time you want a club-ready track or a clear structural skeleton to start from.</p>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Your anchor instrument</div>
+    <p>Work directly in <strong>Live's Arrangement view</strong>. You need a looping clip or a short loop already built — anything from the workshop so far will do. The goal is to stretch one idea across time, not to write new sounds.</p>
+  </div>
+
+  <h2>The whole shape, in one line</h2>
+
+  <div class="signal-flow">
+    <span class="signal-node">Intro<br><span style="font-size:11px;color:var(--text-dim);">set the scene</span></span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">Build<br><span style="font-size:11px;color:var(--text-dim);">raise tension</span></span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">Drop<br><span style="font-size:11px;color:var(--text-dim);">release it</span></span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">Breakdown<br><span style="font-size:11px;color:var(--text-dim);">strip back</span></span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">Outro<br><span style="font-size:11px;color:var(--text-dim);">wind down</span></span>
+  </div>
+  <p style="text-align:center; color:var(--text-muted); max-width:600px; margin:0 auto 8px; font-size:14px;">This shape is a convention, not a rule. Knowing it lets you follow it deliberately or break it deliberately.</p>
+
+  <!-- ATOM 1 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Atom 1</div>
+      <h3 class="step-title">Sections — the named regions of a track</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">A section is a named chunk of your track with a distinct character. Most electronic tracks use some version of this set.</p>
+    <table class="param-table">
+      <caption>Common sections and what they do</caption>
+      <tr><td><strong>Intro</strong></td><td>Introduce the world slowly. Often just kick and bass, or a single texture. Give the DJ somewhere to mix in.</td></tr>
+      <tr><td><strong>Build</strong></td><td>Add elements or raise tension so the listener knows something is coming. Often 8 or 16 bars.</td></tr>
+      <tr><td><strong>Drop</strong></td><td>The moment everything lands at once — or a key element hits for the first time. The payoff.</td></tr>
+      <tr><td><strong>Breakdown</strong></td><td>Strip back to almost nothing. Creates contrast so the next drop hits harder.</td></tr>
+      <tr><td><strong>Outro</strong></td><td>Mirror of the intro. Thin it out so the next DJ can mix in cleanly.</td></tr>
+    </table>
+    <div class="sub-block">
+      <div class="sub-label">Do this in Live's Arrangement view</div>
+      <ol>
+        <li>Open a reference track you like in Live. Use <span class="menu">View → Arrangement</span>.</li>
+        <li>Drop Arrangement Markers (<span class="code">Set 1.1.1</span> button or right-click the scrub bar) at each section change.</li>
+        <li>Label them: Intro, Build, Drop, Breakdown, Outro. Notice how long each section is.</li>
+      </ol>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Prove it</div>
+      <p>Can you place a marker at the exact bar where the drop lands? Can you name every section in the track? If yes, this atom is done.</p>
+    </div>
+  </div>
+
+  <!-- ATOM 2 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Atom 2</div>
+      <h3 class="step-title">Phrasing — why music turns over on 8, 16, and 32 bars</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;"><strong>Phrasing</strong> is how music groups beats into bigger units. A bar is 4 beats. A phrase is usually 8 bars. Two phrases make 16 bars. Listeners feel these boundaries even without counting — something "completes" and a new idea starts.</p>
+    <div class="sub-block">
+      <div class="sub-label">Why these numbers?</div>
+      <ol>
+        <li>4/4 time groups beats into bars. Two bars feel like a small idea. Four bars make a complete thought. Eight bars make a musical sentence.</li>
+        <li>Most electronic dance music uses 8-bar or 16-bar sections because a DJ mixing two tracks needs predictable boundaries to line them up.</li>
+        <li>32 bars is common for the full drop or the main section — it gives listeners time to settle into the groove.</li>
+        <li>Listen to your reference track with a bar counter running. Notice that section changes almost always land on bar 9, 17, 33, or a multiple of 8.</li>
+      </ol>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Prove it</div>
+      <p>Listen to any track and tap along. Predict when the next section change will happen before it arrives. If you can do that consistently, phrasing is in your ear.</p>
+    </div>
+  </div>
+
+  <!-- ATOM 3 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Atom 3</div>
+      <h3 class="step-title">Tension and release — taking away and bringing back</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;"><strong>Tension</strong> is the feeling that something is being withheld. <strong>Release</strong> is the payoff when it arrives. The most reliable way to build tension in electronic music is to remove something the listener has come to expect — then bring it back.</p>
+    <div class="sub-block">
+      <div class="sub-label">The simplest techniques</div>
+      <ol>
+        <li><strong>Remove the kick</strong> for 4 or 8 bars before the drop. When it returns, it hits harder than if it had never left.</li>
+        <li><strong>Filter the whole mix</strong> down (low-pass) going into the breakdown. The muffled sound creates anticipation. Open the filter on the drop.</li>
+        <li><strong>Cut everything to one element</strong> — a clap, a vocal stab, a single synth line — for two bars. Then bring the full arrangement back.</li>
+        <li>Tension does not require adding. It often means removing. This is why Block 5's subtractive approach is so effective: it weaponises absence.</li>
+      </ol>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Prove it</div>
+      <p>In your arrangement, mute the kick for 8 bars before a drop. Play it back. Does the re-entry feel stronger? That feeling is tension and release working.</p>
+    </div>
+  </div>
+
+  <!-- ATOM 4 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Atom 4</div>
+      <h3 class="step-title">The energy curve — sketching intensity over time</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Before you arrange a single clip, sketch how you want the track to <em>feel</em> over its full length. Draw a line on paper — the horizontal axis is time, the vertical axis is energy. This is your <strong>energy curve</strong>.</p>
+    <div class="sub-block">
+      <div class="sub-label">A simple starting curve for a 6-minute track</div>
+      <ol>
+        <li>0–1 min: low energy, single elements entering one at a time (intro).</li>
+        <li>1–2 min: slow rise, add layers, filter opens (build).</li>
+        <li>2–3 min: peak energy, full arrangement playing (drop).</li>
+        <li>3–4 min: sudden drop to low energy, breakdown — often just one or two elements.</li>
+        <li>4–5 min: second build, shorter and more urgent.</li>
+        <li>5–6 min: second drop, then gradual fade (outro).</li>
+      </ol>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">How to use the sketch</div>
+      <ol>
+        <li>Draw the curve before you open Live. It takes two minutes and gives you a target.</li>
+        <li>When you are in the middle of arranging and get lost, look at your sketch. Ask: "Is what I just built moving the curve in the right direction?"</li>
+        <li>The curve does not have to match the sketch exactly. The point is to have an intention before you start adding clips.</li>
+      </ol>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Prove it</div>
+      <p>Sketch an energy curve for your track on paper — just a line. Then play your arrangement back and draw a second line showing what it actually does. Are they close? If they disagree, that is a gap to fix.</p>
+    </div>
+  </div>
+
+  <!-- ATOM 5 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Atom 5</div>
+      <h3 class="step-title">Transitions — the seams between sections</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">A <strong>transition</strong> is what bridges one section to the next. A raw cut — one section ending and the next beginning with nothing in between — can work, but usually sounds abrupt. These tools smooth or dramatise the join.</p>
+    <table class="param-table">
+      <caption>Transition tools</caption>
+      <tr><td><strong>Riser</strong></td><td>A sound that sweeps upward in pitch or intensity, usually in the last 4 bars of a build. Creates anticipation right before the drop.</td></tr>
+      <tr><td><strong>Impact / hit</strong></td><td>A single loud, wide sound (white noise burst, crash cymbal, reverb tail) that lands on the first beat of the new section.</td></tr>
+      <tr><td><strong>Filter sweep</strong></td><td>Automate a high-pass or low-pass filter across the full mix over 4 bars. The muffling or opening becomes the transition itself.</td></tr>
+      <tr><td><strong>Reversed cymbal</strong></td><td>A crash cymbal played in reverse builds into the downbeat. Classic and still effective.</td></tr>
+      <tr><td><strong>Snare roll / drum fill</strong></td><td>A fast accelerating roll in the last 2–4 bars creates urgency. The silence right after sets up the drop.</td></tr>
+      <tr><td><strong>Drop</strong></td><td>Cut everything except one element for one bar. The listener leans forward. Then everything comes back.</td></tr>
+    </table>
+    <div class="sub-block">
+      <div class="sub-label">In Live's Arrangement view</div>
+      <ol>
+        <li>Find each section boundary in your arrangement. Add a marker at each one.</li>
+        <li>For each boundary, choose one transition tool and add it in the 2 bars before the change.</li>
+        <li>Play back the full track. A good transition should feel like it was always there — you stop noticing it.</li>
+      </ol>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Prove it</div>
+      <p>Can you name the transition tool at each section boundary in your track? If you can also explain why you chose each one, this atom is done.</p>
+    </div>
+  </div>
+
+  <!-- ATOM 6 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Atom 6</div>
+      <h3 class="step-title">The "what changes every 8 bars?" discipline</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Repetition is what makes dance music hypnotic. But pure repetition without any change makes a track feel stuck. The fix is simple: <strong>something small changes every 8 bars</strong>. It does not need to be dramatic — a single element enters, leaves, or shifts.</p>
+    <div class="sub-block">
+      <div class="sub-label">What can change every 8 bars?</div>
+      <ol>
+        <li>An element enters or exits (a hi-hat appears, a pad disappears).</li>
+        <li>A filter cutoff opens or closes slightly.</li>
+        <li>A reverb wet/dry shifts.</li>
+        <li>A rhythmic pattern changes (kick pattern varies, an off-beat snare appears).</li>
+        <li>A note in the bassline changes (same rhythm, one different pitch).</li>
+        <li>The block-1 listening sessions are built around this — you will hear producers apply it constantly once you start looking for it.</li>
+      </ol>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">How to audit your arrangement</div>
+      <ol>
+        <li>Play your track back in Arrangement view.</li>
+        <li>Every 8 bars, pause and ask: "What changed since the last 8-bar mark?"</li>
+        <li>If the answer is "nothing," find one small thing to add, remove, or automate at that boundary.</li>
+        <li>After the pass, play the full track again. It will feel more alive — even if none of the individual changes are obvious.</li>
+      </ol>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Prove it</div>
+      <p>Go through your arrangement and list one change per 8-bar phrase on paper. If the list has gaps, fill them. If every change is a new element entering, try making some of them subtractions instead.</p>
+    </div>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Free practice tools.</strong> Any reference track you like plus Live's Arrangement view with markers is all you need. Use <strong>Live's Arrangement Markers</strong> (right-click the scrub bar) to label sections. If you want a visual breakdown of tracks you cannot import, <a href="https://www.mixedinkey.com/captain-plugins/captain-beat/" target="_blank" rel="noopener">Captain Beat</a> or the waveform view in <strong>Rekordbox</strong> will show section changes clearly. Spotify's desktop app shows a rough intensity graph under the scrubber — useful for quick energy-curve sketches.</li>
+    </ul>
+  </div>
+
+  <h2>Proof gate</h2>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">You pass this primer when you can…</div>
+    </div>
+    <ul>
+      <li><strong>Arrange one loop into a 3-minute track</strong> with labelled sections (Intro, Build, Drop, Breakdown, Outro) and a stated energy curve written on paper before you start.</li>
+      <li><strong>Place a transition tool at every section boundary</strong> and name which tool you used and why.</li>
+      <li><strong>Audit the 8-bar discipline:</strong> list one change per 8-bar phrase — some entries, some exits, some automation moves.</li>
+      <li><strong>Build the subtractive version:</strong> take the same loop and arrange it without a conventional drop. Instead, let elements drift in and out without signposting section changes. Play both versions back to back and describe in one sentence what is different about how they feel.</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">What you carry into the workshop</div>
+    <p>You now have a vocabulary for conventional structure — sections, phrases, tension, energy, and transitions. <a href="../block-5/index.html">Block 5</a> (Subtractive Arrangement) takes this vocabulary and deliberately undermines it. <a href="../block-7/index.html">Block 7</a> extends it into long-form experimental structure. In both cases, knowing the standard model is what makes the deviation meaningful.</p>
+  </div>
+
+  <div class="tag-row">
+    <span class="tag">arrangement</span><span class="tag">sections</span><span class="tag">phrasing</span><span class="tag">tension</span><span class="tag">energy curve</span><span class="tag">transitions</span><span class="tag">8-bar discipline</span>
+  </div>
+
+  <div class="page-nav">
+    <a href="ear-training.html">
+      <span class="page-nav-direction">Previous</span>
+      ← Ear Training
+    </a>
+    <a href="polyphony.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      Polyphony as a System →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Block 00 · Arrangement from Scratch</div>
+
+</div>
+
+</body>
+</html>

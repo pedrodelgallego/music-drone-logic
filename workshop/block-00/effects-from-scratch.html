@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Block 00 — Effects from Scratch</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page-type-block" id="top">
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
+  <a href="index.html" class="active"><span class="nav-num">F0</span>Foundations</a>
+  <a href="../block-0/index.html"><span class="nav-num">B0</span>The Rig</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 00</a><span class="breadcrumb-sep">/</span><span>Effects from Scratch</span></nav>
+
+  <header class="page-header">
+    <div class="eyebrow">Block 00 · Foundations · Primer 4</div>
+    <h1>Effects from Scratch</h1>
+    <p class="lede">Effects add space, time, and movement to a sound. There are three families: <strong>reverb</strong> places sound in a room, <strong>delay</strong> echoes it in time, and <strong>modulation effects</strong> (chorus, phaser, flanger) make it shimmer and shift. This primer drills the parameters of each one — one control at a time — so you know what every knob actually does before you start tweaking.</p>
+  </header>
+  <p class="block-meta">Primer · parameters one control at a time · ends in a three-sound proof gate</p>
+
+  <div class="callout">
+    <div class="callout-label">Your anchor instrument</div>
+    <p>Build every atom in <strong>Live's effects rack</strong> — Reverb, Delay, Chorus-Ensemble, and Phaser-Flanger are all included in Live 12 Suite. For the Digitakt II, you'll work with its built-in <strong>delay, reverb, and chorus sends</strong> on the FX page. <strong>Routing architecture — insert vs send, wet/dry balance, feedback, pre- vs post-fader</strong> — is covered in depth in <a href="../block-5/index.html">Block 5 (Space &amp; Mix)</a>. This primer focuses on the <em>parameters inside each device</em>, which Block 5 treats lightly.</p>
+  </div>
+
+  <!-- ATOM 1 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Atom 1</div>
+      <h3 class="step-title">Reverb — placing sound in a room</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Reverb is the sound of a room. In real life, sound bounces off every surface and arrives at your ears at slightly different times. A reverb plugin recreates that. There are two phases: the first distinct bounces arrive early (<strong>early reflections</strong>), then the tail of blurred echoes fills in (<strong>late reflections</strong>). Together they tell your brain: this is a small box, a cave, a cathedral.</p>
+    <div class="sub-block">
+      <div class="sub-label">Parameters — Live's Reverb (move one at a time)</div>
+      <ol>
+        <li><strong>Predelay.</strong> The gap in milliseconds between the dry sound and the first reflection. Zero = you're in the room. 30–80 ms = a concert hall with a little distance. Predelay keeps the attack of a sound crisp even with heavy reverb behind it.</li>
+        <li><strong>Decay time.</strong> How long the tail rings. Short (under 1 s) = small room. 2–4 s = large hall. 10+ s = ambient wash. This single control sets the "size" you hear most immediately.</li>
+        <li><strong>Size.</strong> In Live's Reverb, Size scales the early reflection pattern — bigger = the room is wider. Combine with decay to shape the character. A big room with short decay sounds dead; a small room with long decay sounds unnatural.</li>
+        <li><strong>Diffusion.</strong> How quickly the echoes blur together. Low diffusion = you hear distinct repeats (a "flutter" or "slap" texture). High diffusion = a smooth, glassy wash. Most ambient reverbs run diffusion high.</li>
+        <li><strong>Early reflections vs late reflections.</strong> The two knobs in Live's Reverb let you balance these independently. Boost early reflections to make the room feel real and present. Reduce them to get a more abstract, all-tail sound.</li>
+      </ol>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Prove it</div>
+      <p>Without touching the dry/wet knob (leave it at 100% wet), make three clearly different room characters — a tight bathroom, a medium hall, a vast ambient space — by adjusting only decay, size, and predelay. If you can hear the difference immediately each time, this atom is done.</p>
+    </div>
+  </div>
+
+  <!-- ATOM 2 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Atom 2</div>
+      <h3 class="step-title">Delay — echoes in time</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">A delay records what you play and plays it back after a set amount of time. Repeat that enough times and you get an echo trail. The simplest kind is a single repeat; add feedback and the echo echoes itself — building into a wash or running away into noise.</p>
+    <div class="sub-block">
+      <div class="sub-label">Parameters — Live's Delay (move one at a time)</div>
+      <ol>
+        <li><strong>Delay time.</strong> How long until you hear the repeat. Set it in milliseconds (free) or sync it to your tempo in note values: <span class="code">1/4</span> = one repeat per beat, <span class="code">1/8</span> = twice as fast, <span class="code">1/4d</span> (dotted quarter) = 1.5× a beat. Synced delays lock to the groove; free delays add tension or drift.</li>
+        <li><strong>Sync to note values.</strong> In Live's Delay, click the note icon next to the time display to switch between milliseconds and note values. The dotted-eighth (<span class="code">1/8d</span>) is the classic dub delay interval — it lands on the off-beats and pushes the rhythm forward.</li>
+        <li><strong>Feedback amount.</strong> How much of the repeat feeds back into the input for another pass. Zero = one echo, then silence. Around 50% = a handful of repeats fading naturally. Near 100% = the echo runs away and fills the room. Over 100% = it grows louder with each repeat, which is usually unintentional — useful once, then chaotic.</li>
+        <li><strong>Filtering in the loop.</strong> Live's Delay has a high-pass and low-pass filter inside the feedback path. Cutting the low end means each repeat sounds thinner and less bassy than the last — a natural-feeling decay. Cutting the top end makes repeats warmer and further away. This filtering is what separates a clean digital echo from a worn tape-style one.</li>
+        <li><strong>Ping-pong.</strong> When ping-pong mode is on, each repeat bounces between the left and right channel — left, right, left, right. It creates stereo width from a mono source. The wider the pan spread, the more dramatic the bounce.</li>
+      </ol>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Prove it</div>
+      <p>Set a delay to sync at <span class="code">1/8d</span> (dotted eighth). Play a single short note and listen to where the repeat lands in the bar. Now switch to <span class="code">1/4</span> and hear how it changes the rhythmic feel. Then push feedback above 80% and listen to what happens over the next eight beats. If all three outcomes are clear to you, this atom is done.</p>
+    </div>
+  </div>
+
+  <!-- ATOM 3 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Atom 3</div>
+      <h3 class="step-title">Modulation FX — chorus, phaser, flanger</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">Modulation effects all work by splitting the signal, shifting or delaying one copy slightly, and mixing the two back together. The result is a shifting comb of frequencies that makes a sound feel wider, thicker, or more alive. Chorus, phaser, and flanger are all variations on this idea — they differ in <em>what</em> gets shifted and by <em>how much</em>.</p>
+    <div class="sub-block">
+      <div class="sub-label">The three shared controls</div>
+      <ol>
+        <li><strong>Rate.</strong> How fast the effect cycles — the speed of the LFO driving the shift. Slow (0.1–0.5 Hz) = a slow, gentle sweep. Fast (2–8 Hz) = a faster wobble. Very fast = the character of the effect disappears and you start getting something stranger.</li>
+        <li><strong>Depth.</strong> How wide the sweep is. Small depth = a subtle shimmer, as if the sound has a bit of air around it. Large depth = a more obvious, wavy movement. Push it hard and any of these effects becomes a sound design tool rather than a polish tool.</li>
+        <li><strong>Feedback.</strong> Feeds the shifted signal back into itself. Low feedback = the effect is coloured but restrained. High feedback = the resonant peaks get emphasised and the effect starts to have a pitch of its own. Phaser and flanger respond to feedback most dramatically.</li>
+      </ol>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">How each effect is different</div>
+      <ol>
+        <li><strong>Chorus (Live's Chorus-Ensemble).</strong> Splits the signal, delays one copy by a small random amount, and detunes it slightly. The result sounds like several players on the same part — a thickening effect. Good for pads and leads that feel thin.</li>
+        <li><strong>Phaser (Live's Phaser-Flanger in Phaser mode).</strong> Splits the signal and passes one copy through all-pass filters that shift the phase of certain frequencies. The interaction creates notches that sweep through the sound as the LFO moves. The result is a hollow, swooping quality. Common on synth pads and evolving drones.</li>
+        <li><strong>Flanger (Live's Phaser-Flanger in Flanger mode).</strong> Similar to chorus but uses a very short, time-varying delay (1–10 ms) instead of pitch shifting. The comb filtering this creates is more metallic and jet-like than a chorus. Push feedback to get the classic jet-plane sound.</li>
+      </ol>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Prove it</div>
+      <p>Apply Live's Phaser-Flanger to a sustained pad. Switch between Phaser and Flanger mode and notice the different character — one is hollow, one is metallic. Then find a rate and depth setting where the effect sounds like movement but not obvious processing. If you can describe the difference by ear and find that "just right" zone, this atom is done.</p>
+    </div>
+  </div>
+
+  <h2>The Digitakt's effect sends</h2>
+
+  <p style="color: var(--text-muted); max-width: 680px; margin: 0 auto 18px;">The Digitakt II has three global send effects accessible from the <span class="menu">FX</span> page: delay, reverb, and chorus. Each track routes to them via send level knobs. The parameters map directly to the atoms above — <strong>DEL TIME</strong> (delay time), <strong>DEL FDBK</strong> (feedback), <strong>REV SIZE</strong> (size), <strong>REV TIME</strong> (decay), <strong>CHO RATE</strong> and <strong>CHO DEPTH</strong> (rate and depth). Treat those controls the same way: move one at a time, note what changes.</p>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Free tools.</strong> <a href="https://valhalladsp.com/shop/reverb/valhalla-supermassive/" target="_blank" rel="noopener">Valhalla Supermassive</a> (free reverb and delay — very long times, ideal for ambient). Live's built-in Reverb, Delay, and Phaser-Flanger are all you need for this primer. All three are included in any Live licence.</li>
+    </ul>
+  </div>
+
+  <h2>Proof gate</h2>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">You pass this primer when you can…</div>
+    </div>
+    <ul>
+      <li><strong>Recreate a slap delay.</strong> Start from an init Delay. Set sync to <span class="code">1/8d</span>, feedback around 20%, filter the repeats to roll off the bass. The result: a single clean echo that lands on the off-beat and doesn't clutter. Name every parameter you set.</li>
+      <li><strong>Recreate a dub throw.</strong> Start from an init Delay. Push feedback to 70–85%, keep a longer delay time (around <span class="code">1/4</span> or <span class="code">3/8</span>). The repeat should build into a long self-sustaining trail. Automate or manually cut the send to one beat so you get a single throw that washes out. Name every parameter you set.</li>
+      <li><strong>Recreate a long ambient reverb.</strong> Start from an init Reverb. Set decay to 8+ s, predelay around 40 ms, diffusion high, size large. Play one note and let the tail bloom for several seconds. Name every parameter you set.</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">What you carry into the workshop</div>
+    <p>You can now describe what every parameter does and build a named effect sound from scratch. <a href="../block-5/index.html">Block 5</a> builds on this to teach <em>routing</em> — how to place effects in a signal chain, when to use a send vs an insert, and how to use effects compositionally. That's the rest of the picture.</p>
+  </div>
+
+  <div class="tag-row">
+    <span class="tag">reverb</span><span class="tag">delay</span><span class="tag">chorus</span><span class="tag">phaser</span><span class="tag">flanger</span><span class="tag">predelay</span><span class="tag">feedback</span><span class="tag">modulation</span>
+  </div>
+
+  <div class="page-nav">
+    <a href="mixing-eq.html">
+      <span class="page-nav-direction">Previous</span>
+      ← Mixing — EQ
+    </a>
+    <a href="ear-training.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      Ear Training →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Block 00 · Effects from Scratch</div>
+
+</div>
+
+</body>
+</html>

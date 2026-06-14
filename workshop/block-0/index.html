@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Block 0 — The Rig</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page-type-block" id="top">
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
+  <a href="index.html" class="active"><span class="nav-num">B0</span>The Rig</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><span>Block 0 — The Rig</span></nav>
+
+  <header class="page-header">
+    <div class="eyebrow">Block 0 — The Rig · optional</div>
+    <h1>Set up your studio once, then stop thinking about it</h1>
+    <p class="lede">A deep, opinionated guide to your exact gear — how the boxes connect, who keeps time, where the sound is mixed, and how the whole rig should grow from your first hour to your first year. None of this is required to start Block 1. It is here so that when a lab says "wire the Digitakt II to the M4," you already know three ways to do it and why you picked one.</p>
+  </header>
+  <p class="block-meta">Optional · Setup &amp; systems · MicroFreak · Digitakt II · MOTU M4 · Launchpad Pro MK3 · Ableton Live 12 Suite (Max for Live) · DT 990 Pro</p>
+
+  <div class="callout">
+    <div class="callout-label">The opinion up front</div>
+    <p>You already own a complete, professional studio. Buy nothing else for a year. Every block in this course can be built on these six boxes. The work is not acquiring gear — it is learning the rig you have so well that it disappears.</p>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Do you need this block?</strong> No. Block 1 walks you through the minimum wiring step by step. Come here when you want the <em>why</em> behind those steps, the alternatives, and a plan for how your setup should evolve.</li>
+      <li><strong>Deep pages:</strong> <a href="signal-and-clock.html">Signal &amp; clock</a> — every cable and who keeps time · <a href="live-and-max.html">Live, Max &amp; sample packs</a> — the software rig · <a href="instruments.html">The three instruments</a> — Digitakt II, MicroFreak, Launchpad in depth · <a href="digitone.html">Adding the Digitone II</a> — routing &amp; the two-Elektron workflow · <a href="digitone-fm.html">Digitone FM</a> — FM in depth.</li>
+      <li><strong>New to synthesis?</strong> Do <a href="../block-00/index.html">Block 00 — Foundations</a> first: oscillators, filters, envelopes, and LFOs taught one control at a time.</li>
+    </ul>
+  </div>
+
+  <h2>The six boxes, and the one job each does</h2>
+
+  <p style="text-align: center; color: var(--text-muted); max-width: 680px; margin: 0 auto 18px;">A rig only makes sense when every box has a single clear role. Here is the role each one plays in this course. When two boxes can do the same job, the table further down tells you which to pick.</p>
+
+  <table>
+    <thead><tr><th>Box</th><th>Its one job</th><th>What it is, in plain words</th></tr></thead>
+    <tbody>
+      <tr><td><span class="lab-title">Arturia MicroFreak</span></td><td>The single voice</td><td>A small synth that makes one melodic sound at a time (it can stack up to four notes — paraphonic — but shares one filter). Many digital oscillator engines into one analog filter. Your "one oscillator, one filter" instrument.</td></tr>
+      <tr><td><span class="lab-title">Elektron Digitakt II</span></td><td>Rhythm, sampling &amp; the sequencer brain</td><td>A drum machine and sampler with a deep step sequencer: 16 audio tracks, 16 MIDI tracks, stereo sampling, two inputs, on-board delay/reverb/chorus. The heart of every beat and the place per-step changes (p-locks) live.</td></tr>
+      <tr><td><span class="lab-title">MOTU M4</span></td><td>The hub</td><td>The audio interface — sound in and out of the computer (4 in / 4 out), two preamps, a headphone output with its own knob, and a pair of real 5-pin MIDI DIN sockets. Everything meets here.</td></tr>
+      <tr><td><span class="lab-title">Launchpad Pro MK3</span></td><td>Your hands</td><td>An 8×8 grid of pressure-sensitive pads. Plays and launches things in Live, and also works as a standalone four-track sequencer that can drive the hardware with no computer at all.</td></tr>
+      <tr><td><span class="lab-title">Ableton Live 12 Suite</span></td><td>The DAW &amp; the lab</td><td>The software where you record, arrange, process, mix, and run every lab. "Suite" includes all the built-in instruments and <strong>Max for Live</strong>, the toolkit for building your own devices.</td></tr>
+      <tr><td><span class="lab-title">Ableton sample packs</span></td><td>Raw material</td><td>The Core Library plus downloadable Packs — drums, textures, multisampled instruments. A stocked larder. Use them as ingredients, never as finished meals.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>The whole rig, drawn</h2>
+
+  <p style="text-align:center; max-width:660px; margin:0 auto 18px; color:var(--text-muted);">This is the audio path of the full rig — the sound you can hear. Solid lines carry audio. Every box you own has exactly one place its sound goes. Control and clock (the messages that tell machines what to do and when) run on a separate layer, shown below.</p>
+
+  <div class="signal-flow" style="display:block; padding:26px 16px;">
+    <svg viewBox="0 0 760 320" width="100%" role="img" aria-label="Full rig audio path: MicroFreak and Digitakt II into the MOTU M4, M4 to computer and headphones">
+      <defs>
+        <marker id="arrA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#7dd3c0"/>
+        </marker>
+      </defs>
+      <!-- audio lines -->
+      <line x1="172" y1="62" x2="322" y2="132" stroke="#7dd3c0" stroke-width="1.5" marker-end="url(#arrA)"/>
+      <line x1="172" y1="170" x2="322" y2="178" stroke="#7dd3c0" stroke-width="1.5" marker-end="url(#arrA)"/>
+      <line x1="466" y1="140" x2="592" y2="80" stroke="#7dd3c0" stroke-width="1.5" marker-start="url(#arrA)" marker-end="url(#arrA)"/>
+      <line x1="466" y1="210" x2="592" y2="250" stroke="#7dd3c0" stroke-width="1.5" marker-end="url(#arrA)"/>
+      <text x="232" y="86" fill="#7dd3c0" font-size="10.5" text-anchor="middle">¼″ TS · mono</text>
+      <text x="232" y="188" fill="#7dd3c0" font-size="10.5" text-anchor="middle">2 × ¼″ TRS · L/R</text>
+      <text x="529" y="98" fill="#7dd3c0" font-size="10.5" text-anchor="middle">USB-C · 4-in / 4-out audio</text>
+      <text x="529" y="244" fill="#7dd3c0" font-size="10.5" text-anchor="middle">phones</text>
+      <!-- left column devices -->
+      <rect x="22" y="36" width="150" height="58" rx="10" fill="#1f2530" stroke="#7dd3c0" stroke-width="1.2"/>
+      <text x="97" y="60" fill="#e6edf3" font-size="12.5" text-anchor="middle">MicroFreak</text>
+      <text x="97" y="78" fill="#8b949e" font-size="9.5" text-anchor="middle">audio out · rear · mono</text>
+      <rect x="22" y="146" width="150" height="58" rx="10" fill="#1f2530" stroke="#7dd3c0" stroke-width="1.2"/>
+      <text x="97" y="170" fill="#e6edf3" font-size="12.5" text-anchor="middle">Digitakt II</text>
+      <text x="97" y="188" fill="#8b949e" font-size="9.5" text-anchor="middle">main out L / R</text>
+      <rect x="22" y="246" width="150" height="56" rx="10" fill="#161b22" stroke="#6e7681" stroke-width="1.2" stroke-dasharray="5 4"/>
+      <text x="97" y="270" fill="#8b949e" font-size="12.5" text-anchor="middle">Launchpad Pro</text>
+      <text x="97" y="288" fill="#6e7681" font-size="9.5" text-anchor="middle">control only · no audio</text>
+      <!-- M4 -->
+      <rect x="326" y="104" width="140" height="120" rx="10" fill="#1f2530" stroke="#7dd3c0" stroke-width="1.4"/>
+      <text x="396" y="158" fill="#e6edf3" font-size="13" text-anchor="middle">MOTU M4</text>
+      <text x="396" y="176" fill="#8b949e" font-size="9.5" text-anchor="middle">the hub</text>
+      <text x="336" y="134" fill="#8b949e" font-size="9.5">IN 1</text>
+      <text x="336" y="204" fill="#8b949e" font-size="9.5">IN 3/4</text>
+      <text x="456" y="140" fill="#8b949e" font-size="9.5" text-anchor="end">USB</text>
+      <text x="456" y="212" fill="#8b949e" font-size="9.5" text-anchor="end">PHONES</text>
+      <!-- right column -->
+      <rect x="596" y="50" width="144" height="60" rx="10" fill="#1f2530" stroke="#7dd3c0" stroke-width="1.2"/>
+      <text x="668" y="76" fill="#e6edf3" font-size="12.5" text-anchor="middle">Computer · Live 12</text>
+      <text x="668" y="94" fill="#8b949e" font-size="9.5" text-anchor="middle">in + out device: M4</text>
+      <rect x="596" y="226" width="144" height="50" rx="10" fill="#1f2530" stroke="#7dd3c0" stroke-width="1.2"/>
+      <text x="668" y="248" fill="#e6edf3" font-size="12.5" text-anchor="middle">DT 990 Pro</text>
+      <text x="668" y="265" fill="#8b949e" font-size="9.5" text-anchor="middle">250 Ω · open-back</text>
+    </svg>
+  </div>
+
+  <p style="text-align:center; color:var(--text-muted); font-size:14px; max-width:640px; margin:0 auto 8px;">The Launchpad is drawn dashed because it never carries audio — only your gestures. Here is the control and clock layer that the audio diagram leaves out:</p>
+
+  <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:11px; letter-spacing:0.2em; text-transform:uppercase;">Control &amp; clock — two ways to keep time</h3>
+  <div class="signal-flow">
+    <span class="signal-node">Computer · Live</span>
+    <span class="signal-arrow">→ USB MIDI →</span>
+    <span class="signal-node">MicroFreak</span>
+    <span class="signal-arrow">+</span>
+    <span class="signal-node">Digitakt II</span>
+    <span class="signal-arrow">+</span>
+    <span class="signal-node">Launchpad</span>
+  </div>
+  <div class="signal-flow">
+    <span class="signal-node">Live</span>
+    <span class="signal-arrow">→ M4 MIDI DIN out →</span>
+    <span class="signal-node">Digitakt II DIN in</span>
+    <span class="signal-arrow">→ thru →</span>
+    <span class="signal-node">MicroFreak</span>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>The M4's secret weapon:</strong> it has real 5-pin MIDI sockets on the back. That means you can send a rock-solid clock to the Digitakt II over a DIN cable instead of over USB — often tighter, and it works even with the computer doing nothing. Most M2/M4 owners never plug these in. You will. Full detail on <a href="signal-and-clock.html">Signal &amp; clock</a>.</li>
+    </ul>
+  </div>
+
+  <h2>Four rigs in one — pick by intent</h2>
+
+  <p style="text-align: center; color: var(--text-muted); max-width: 680px; margin: 0 auto 18px;">The same six boxes can be wired into very different studios depending on who is the brain. You will not pick one forever — you will switch between them by mood and task. Here they are drawn, then side by side.</p>
+
+  <div class="cards two" style="margin-top:22px;">
+
+    <div class="card" style="padding:18px 16px;">
+      <svg viewBox="0 0 300 150" role="img" aria-label="Config A signal flow: MicroFreak and Digitakt II into the M4, M4 into Live, where Live is the brain and the audio sums" style="width:100%;height:auto;display:block;">
+        <defs><marker id="ar-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#7dd3c0"/></marker></defs>
+        <line x1="72" y1="31" x2="116" y2="67" stroke="#7dd3c0" stroke-width="1.3" marker-end="url(#ar-a)"/>
+        <line x1="72" y1="119" x2="116" y2="81" stroke="#7dd3c0" stroke-width="1.3" marker-end="url(#ar-a)"/>
+        <line x1="170" y1="74" x2="210" y2="74" stroke="#7dd3c0" stroke-width="1.3" marker-start="url(#ar-a)" marker-end="url(#ar-a)"/>
+        <rect x="8" y="16" width="64" height="30" rx="8" fill="#1f2530" stroke="#6e7681" stroke-width="1.2"/>
+        <text x="40" y="35" fill="#e6edf3" font-size="10.5" text-anchor="middle">MicroFreak</text>
+        <rect x="8" y="104" width="64" height="30" rx="8" fill="#1f2530" stroke="#6e7681" stroke-width="1.2"/>
+        <text x="40" y="123" fill="#e6edf3" font-size="10.5" text-anchor="middle">Digitakt II</text>
+        <rect x="120" y="59" width="50" height="30" rx="8" fill="#1f2530" stroke="#6e7681" stroke-width="1.2"/>
+        <text x="145" y="78" fill="#e6edf3" font-size="10.5" text-anchor="middle">M4</text>
+        <rect x="212" y="54" width="78" height="40" rx="8" fill="#19463f" stroke="#7dd3c0" stroke-width="1.6"/>
+        <text x="251" y="73" fill="#e6edf3" font-size="10.5" text-anchor="middle">Live</text>
+        <text x="251" y="86" fill="#7dd3c0" font-size="8" text-anchor="middle">brain · sums ◆</text>
+      </svg>
+      <h3 class="card-title" style="margin:14px 0 4px;">A · DAW-centric</h3>
+      <p class="card-body" style="text-align:center;">Live keeps time; every box lands on its own channel. One mix, total recall.</p>
+    </div>
+
+    <div class="card" style="padding:18px 16px;">
+      <svg viewBox="0 0 300 150" role="img" aria-label="Config B signal flow: MicroFreak into the Digitakt II which is the brain and sums the mix, then into the M4 and headphones" style="width:100%;height:auto;display:block;">
+        <defs><marker id="ar-b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#7dd3c0"/></marker></defs>
+        <line x1="40" y1="46" x2="40" y2="100" stroke="#7dd3c0" stroke-width="1.3" marker-end="url(#ar-b)"/>
+        <line x1="72" y1="120" x2="116" y2="80" stroke="#7dd3c0" stroke-width="1.3" marker-end="url(#ar-b)"/>
+        <line x1="170" y1="74" x2="210" y2="74" stroke="#7dd3c0" stroke-width="1.3" marker-end="url(#ar-b)"/>
+        <rect x="8" y="16" width="64" height="30" rx="8" fill="#1f2530" stroke="#6e7681" stroke-width="1.2"/>
+        <text x="40" y="35" fill="#e6edf3" font-size="10.5" text-anchor="middle">MicroFreak</text>
+        <rect x="8" y="100" width="64" height="40" rx="8" fill="#19463f" stroke="#7dd3c0" stroke-width="1.6"/>
+        <text x="40" y="117" fill="#e6edf3" font-size="10.5" text-anchor="middle">Digitakt II</text>
+        <text x="40" y="130" fill="#7dd3c0" font-size="8" text-anchor="middle">brain · sums ◆</text>
+        <rect x="120" y="59" width="50" height="30" rx="8" fill="#1f2530" stroke="#6e7681" stroke-width="1.2"/>
+        <text x="145" y="78" fill="#e6edf3" font-size="10.5" text-anchor="middle">M4</text>
+        <rect x="212" y="59" width="78" height="30" rx="8" fill="#1f2530" stroke="#6e7681" stroke-width="1.2"/>
+        <text x="251" y="78" fill="#e6edf3" font-size="10.5" text-anchor="middle">phones</text>
+      </svg>
+      <h3 class="card-title" style="margin:14px 0 4px;">B · Hardware jam</h3>
+      <p class="card-body" style="text-align:center;">The Digitakt clocks and sums everything; the M4 just feeds your ears. No screen.</p>
+    </div>
+
+    <div class="card" style="padding:18px 16px;">
+      <svg viewBox="0 0 300 150" role="img" aria-label="Config C signal flow: MicroFreak and Digitakt II into the M4 into Live; Live is the brain, records separate stems, and clocks the Digitakt over MIDI" style="width:100%;height:auto;display:block;">
+        <defs>
+          <marker id="ar-c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#7dd3c0"/></marker>
+          <marker id="ar-cg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8b949e"/></marker>
+        </defs>
+        <line x1="72" y1="31" x2="116" y2="67" stroke="#7dd3c0" stroke-width="1.3" marker-end="url(#ar-c)"/>
+        <line x1="72" y1="120" x2="116" y2="81" stroke="#7dd3c0" stroke-width="1.3" marker-end="url(#ar-c)"/>
+        <line x1="170" y1="74" x2="210" y2="74" stroke="#7dd3c0" stroke-width="1.3" marker-start="url(#ar-c)" marker-end="url(#ar-c)"/>
+        <line x1="214" y1="88" x2="76" y2="124" stroke="#8b949e" stroke-width="1.1" stroke-dasharray="4 3" marker-end="url(#ar-cg)"/>
+        <rect x="8" y="16" width="64" height="30" rx="8" fill="#1f2530" stroke="#6e7681" stroke-width="1.2"/>
+        <text x="40" y="35" fill="#e6edf3" font-size="10.5" text-anchor="middle">MicroFreak</text>
+        <rect x="8" y="104" width="64" height="38" rx="8" fill="#1f2530" stroke="#6e7681" stroke-width="1.2"/>
+        <text x="40" y="121" fill="#e6edf3" font-size="10.5" text-anchor="middle">Digitakt II</text>
+        <text x="40" y="134" fill="#8b949e" font-size="8" text-anchor="middle">drums</text>
+        <rect x="120" y="59" width="50" height="30" rx="8" fill="#1f2530" stroke="#6e7681" stroke-width="1.2"/>
+        <text x="145" y="78" fill="#e6edf3" font-size="10.5" text-anchor="middle">M4</text>
+        <rect x="212" y="52" width="78" height="40" rx="8" fill="#19463f" stroke="#7dd3c0" stroke-width="1.6"/>
+        <text x="251" y="71" fill="#e6edf3" font-size="10.5" text-anchor="middle">Live</text>
+        <text x="251" y="84" fill="#7dd3c0" font-size="8" text-anchor="middle">brain · stems ◆</text>
+      </svg>
+      <h3 class="card-title" style="margin:14px 0 4px;">C · Hybrid</h3>
+      <p class="card-body" style="text-align:center;">Live clocks and records separate stems while the Digitakt drives the drums. The course home base.</p>
+    </div>
+
+    <div class="card" style="padding:18px 16px;">
+      <svg viewBox="0 0 300 150" role="img" aria-label="Config D signal flow: no computer. MicroFreak into the Digitakt II and Launchpad, which together are the brain, into the M4 where the audio sums, then headphones" style="width:100%;height:auto;display:block;">
+        <defs><marker id="ar-d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#7dd3c0"/></marker></defs>
+        <line x1="40" y1="46" x2="40" y2="100" stroke="#7dd3c0" stroke-width="1.3" marker-end="url(#ar-d)"/>
+        <line x1="72" y1="120" x2="116" y2="80" stroke="#7dd3c0" stroke-width="1.3" marker-end="url(#ar-d)"/>
+        <line x1="170" y1="74" x2="210" y2="76" stroke="#7dd3c0" stroke-width="1.3" marker-end="url(#ar-d)"/>
+        <text x="251" y="30" fill="#6e7681" font-size="8.5" text-anchor="middle">no computer</text>
+        <rect x="8" y="16" width="64" height="30" rx="8" fill="#1f2530" stroke="#6e7681" stroke-width="1.2"/>
+        <text x="40" y="35" fill="#e6edf3" font-size="10.5" text-anchor="middle">MicroFreak</text>
+        <rect x="8" y="100" width="64" height="40" rx="8" fill="#19463f" stroke="#7dd3c0" stroke-width="1.6"/>
+        <text x="40" y="117" fill="#e6edf3" font-size="10.5" text-anchor="middle">Digitakt II</text>
+        <text x="40" y="130" fill="#7dd3c0" font-size="8" text-anchor="middle">+ Launchpad · brain</text>
+        <rect x="120" y="57" width="50" height="34" rx="8" fill="#1f2530" stroke="#6e7681" stroke-width="1.2"/>
+        <text x="145" y="74" fill="#e6edf3" font-size="10.5" text-anchor="middle">M4</text>
+        <text x="145" y="86" fill="#7dd3c0" font-size="8" text-anchor="middle">sums ◆</text>
+        <rect x="212" y="62" width="78" height="28" rx="8" fill="#1f2530" stroke="#6e7681" stroke-width="1.2"/>
+        <text x="251" y="80" fill="#e6edf3" font-size="10.5" text-anchor="middle">phones</text>
+      </svg>
+      <h3 class="card-title" style="margin:14px 0 4px;">D · Standalone</h3>
+      <p class="card-body" style="text-align:center;">Unplug the computer entirely. The Digitakt and Launchpad lead; the M4 sums straight to your ears.</p>
+    </div>
+
+  </div>
+
+  <p style="text-align:center;color:var(--text-muted);font-size:13px;max-width:640px;margin:-4px auto 26px;">Filled box = <strong style="color:var(--accent);">the brain</strong> (keeps time + sequences). <strong>◆</strong> = where the audio sums to one mix. Dashed line = clock or control, not audio.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>&nbsp;</th>
+        <th>A · DAW-centric<br><span style="font-weight:400;color:var(--text-muted);">"Live is the brain"</span></th>
+        <th>B · Hardware jam<br><span style="font-weight:400;color:var(--text-muted);">"Digitakt is the brain"</span></th>
+        <th>C · Hybrid<br><span style="font-weight:400;color:var(--text-muted);">"split the brain"</span></th>
+        <th>D · Standalone<br><span style="font-weight:400;color:var(--text-muted);">"no computer"</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Clock master</strong></td><td>Live</td><td>Digitakt II</td><td>Live</td><td>Digitakt II or Launchpad</td></tr>
+      <tr><td><strong>Main sequencer</strong></td><td>Live</td><td>Digitakt II</td><td>Shared — Digitakt drums, Live/Launchpad melody</td><td>Digitakt II + Launchpad</td></tr>
+      <tr><td><strong>Where audio sums</strong></td><td>In Live (each device its own input)</td><td>In the Digitakt II, then one stereo pair out</td><td>In Live, recorded as separate stems</td><td>In the M4 (straight to phones) or a recorder</td></tr>
+      <tr><td><strong>Recall &amp; undo</strong></td><td>Total — it is a saved Live set</td><td>Limited — patterns and kits only</td><td>Total for what Live holds</td><td>Limited — hardware memory only</td></tr>
+      <tr><td><strong>Latency to manage</strong></td><td>Yes — monitor through Live carefully</td><td>None — you hear the hardware directly</td><td>Yes — but you can monitor hardware direct</td><td>None</td></tr>
+      <tr><td><strong>Screen needed</strong></td><td>Always</td><td>No</td><td>Mostly</td><td>Never</td></tr>
+      <tr><td><strong>Best for</strong></td><td>Arranging, editing, the labs, total recall</td><td>Flow, ideas, playing without a screen</td><td>Most of this course — capture + control</td><td>Portability, focus, live sets</td></tr>
+      <tr><td><strong>Main downside</strong></td><td>Tethered to the computer; latency care</td><td>Hard to edit precisely; little recall</td><td>The most cables and the most to manage</td><td>No DAW editing or recall</td></tr>
+      <tr><td><strong>You meet it in</strong></td><td>Block 1 onward</td><td>Block 2 jamming, Block 7</td><td>Blocks 2–6</td><td>Block 7 live set</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">Recommendation</div>
+    <p>Start in <strong>Config A</strong> for your first week — it is the simplest to reason about and the labs assume it. Grow into <strong>Config C (Hybrid)</strong> as your home base by month three. Keep <strong>B</strong> for flow days and <strong>D</strong> for when you want to disappear from the screen. The rig is the same; only the brain moves.</p>
+  </div>
+
+  <h2 id="experimental">Three experimental rigs — when you want to break the frame</h2>
+
+  <p style="text-align: center; color: var(--text-muted); max-width: 680px; margin: 0 auto 18px;">The four rigs above cover most of the course. These three bend the same six boxes toward sound that partly makes itself — held drones, self-feeding loops, machines that improvise while you steer. Reach for them once Config A feels automatic: in the later blocks, or any day you want to be surprised. Same legend as above — filled box is the brain, ◆ is where audio sums.</p>
+
+  <div class="cards">
+
+    <div class="card" style="padding:18px 16px;">
+      <svg viewBox="0 0 300 150" role="img" aria-label="Config E drone rig: MicroFreak held with slow LFOs leads, Digitakt II slow texture, both into the M4 into Live with long reverb where the audio sums" style="width:100%;height:auto;display:block;">
+        <defs><marker id="ar-e" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#7dd3c0"/></marker></defs>
+        <line x1="72" y1="30" x2="116" y2="67" stroke="#7dd3c0" stroke-width="1.3" marker-end="url(#ar-e)"/>
+        <line x1="72" y1="119" x2="116" y2="81" stroke="#7dd3c0" stroke-width="1.3" marker-end="url(#ar-e)"/>
+        <line x1="170" y1="74" x2="210" y2="74" stroke="#7dd3c0" stroke-width="1.3" marker-end="url(#ar-e)"/>
+        <rect x="8" y="10" width="64" height="40" rx="8" fill="#19463f" stroke="#7dd3c0" stroke-width="1.6"/>
+        <text x="40" y="27" fill="#e6edf3" font-size="10.5" text-anchor="middle">MicroFreak</text>
+        <text x="40" y="40" fill="#7dd3c0" font-size="8" text-anchor="middle">held · slow LFO</text>
+        <rect x="8" y="102" width="64" height="34" rx="8" fill="#1f2530" stroke="#6e7681" stroke-width="1.2"/>
+        <text x="40" y="119" fill="#e6edf3" font-size="10.5" text-anchor="middle">Digitakt II</text>
+        <text x="40" y="132" fill="#8b949e" font-size="8" text-anchor="middle">slow texture</text>
+        <rect x="120" y="59" width="50" height="30" rx="8" fill="#1f2530" stroke="#6e7681" stroke-width="1.2"/>
+        <text x="145" y="78" fill="#e6edf3" font-size="10.5" text-anchor="middle">M4</text>
+        <rect x="212" y="54" width="78" height="40" rx="8" fill="#1f2530" stroke="#6e7681" stroke-width="1.2"/>
+        <text x="251" y="73" fill="#e6edf3" font-size="10.5" text-anchor="middle">Live</text>
+        <text x="251" y="86" fill="#7dd3c0" font-size="8" text-anchor="middle">∞ reverb · sums ◆</text>
+      </svg>
+      <h3 class="card-title" style="margin:14px 0 4px;">E · Drone</h3>
+      <p class="card-body" style="text-align:center;">Nobody plays notes — slow LFOs lead. The MicroFreak holds a chord, the Digitakt adds slow texture, a long reverb in Live binds it. Modulation is the composer.</p>
+    </div>
+
+    <div class="card" style="padding:18px 16px;">
+      <svg viewBox="0 0 300 150" role="img" aria-label="Config F feedback rig: MicroFreak into the Digitakt II which is the brain and sums; its output goes to the M4 and headphones, and the M4 feeds back into the Digitakt to resample" style="width:100%;height:auto;display:block;">
+        <defs><marker id="ar-f" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#7dd3c0"/></marker></defs>
+        <line x1="40" y1="46" x2="40" y2="100" stroke="#7dd3c0" stroke-width="1.3" marker-end="url(#ar-f)"/>
+        <line x1="72" y1="114" x2="116" y2="72" stroke="#7dd3c0" stroke-width="1.3" marker-end="url(#ar-f)"/>
+        <path d="M134 90 C 112 122, 92 126, 74 127" fill="none" stroke="#7dd3c0" stroke-width="1.3" marker-end="url(#ar-f)"/>
+        <line x1="170" y1="72" x2="210" y2="72" stroke="#7dd3c0" stroke-width="1.3" marker-end="url(#ar-f)"/>
+        <text x="100" y="120" fill="#7dd3c0" font-size="8" text-anchor="middle">↺ resample</text>
+        <rect x="8" y="16" width="64" height="30" rx="8" fill="#1f2530" stroke="#6e7681" stroke-width="1.2"/>
+        <text x="40" y="35" fill="#e6edf3" font-size="10.5" text-anchor="middle">MicroFreak</text>
+        <rect x="8" y="100" width="64" height="40" rx="8" fill="#19463f" stroke="#7dd3c0" stroke-width="1.6"/>
+        <text x="40" y="117" fill="#e6edf3" font-size="10.5" text-anchor="middle">Digitakt II</text>
+        <text x="40" y="130" fill="#7dd3c0" font-size="8" text-anchor="middle">brain · sums ◆</text>
+        <rect x="120" y="59" width="50" height="30" rx="8" fill="#1f2530" stroke="#6e7681" stroke-width="1.2"/>
+        <text x="145" y="78" fill="#e6edf3" font-size="10.5" text-anchor="middle">M4</text>
+        <rect x="212" y="57" width="78" height="30" rx="8" fill="#1f2530" stroke="#6e7681" stroke-width="1.2"/>
+        <text x="251" y="76" fill="#e6edf3" font-size="10.5" text-anchor="middle">phones</text>
+      </svg>
+      <h3 class="card-title" style="margin:14px 0 4px;">F · Feedback / resample</h3>
+      <p class="card-body" style="text-align:center;">The Digitakt records its own output back in, layer on layer. A no-input-style loop that grows texture from itself. Each pass mutates the last.</p>
+    </div>
+
+    <div class="card" style="padding:18px 16px;">
+      <svg viewBox="0 0 300 150" role="img" aria-label="Config G generative rig: Live with Max for Live and probability is the brain, clocking and triggering the MicroFreak and Digitakt II; their audio returns to the M4 and into Live where it sums" style="width:100%;height:auto;display:block;">
+        <defs>
+          <marker id="ar-g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#7dd3c0"/></marker>
+          <marker id="ar-gg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8b949e"/></marker>
+        </defs>
+        <line x1="72" y1="31" x2="116" y2="67" stroke="#7dd3c0" stroke-width="1.3" marker-end="url(#ar-g)"/>
+        <line x1="72" y1="119" x2="116" y2="80" stroke="#7dd3c0" stroke-width="1.3" marker-end="url(#ar-g)"/>
+        <line x1="170" y1="72" x2="210" y2="72" stroke="#7dd3c0" stroke-width="1.3" marker-end="url(#ar-g)"/>
+        <line x1="214" y1="58" x2="76" y2="31" stroke="#8b949e" stroke-width="1.1" stroke-dasharray="4 3" marker-end="url(#ar-gg)"/>
+        <line x1="214" y1="88" x2="76" y2="118" stroke="#8b949e" stroke-width="1.1" stroke-dasharray="4 3" marker-end="url(#ar-gg)"/>
+        <rect x="8" y="16" width="64" height="30" rx="8" fill="#1f2530" stroke="#6e7681" stroke-width="1.2"/>
+        <text x="40" y="35" fill="#e6edf3" font-size="10.5" text-anchor="middle">MicroFreak</text>
+        <rect x="8" y="104" width="64" height="30" rx="8" fill="#1f2530" stroke="#6e7681" stroke-width="1.2"/>
+        <text x="40" y="123" fill="#e6edf3" font-size="10.5" text-anchor="middle">Digitakt II</text>
+        <rect x="120" y="59" width="50" height="30" rx="8" fill="#1f2530" stroke="#6e7681" stroke-width="1.2"/>
+        <text x="145" y="78" fill="#e6edf3" font-size="10.5" text-anchor="middle">M4</text>
+        <rect x="212" y="50" width="78" height="46" rx="8" fill="#19463f" stroke="#7dd3c0" stroke-width="1.6"/>
+        <text x="251" y="66" fill="#e6edf3" font-size="10.5" text-anchor="middle">Live</text>
+        <text x="251" y="78" fill="#8b949e" font-size="8" text-anchor="middle">Max · probability</text>
+        <text x="251" y="90" fill="#7dd3c0" font-size="8" text-anchor="middle">brain · sums ◆</text>
+      </svg>
+      <h3 class="card-title" style="margin:14px 0 4px;">G · Generative</h3>
+      <p class="card-body" style="text-align:center;">Max for Live and probability decide what fires; you set the rules and the odds, not the notes. The dashed lines are triggers out; audio returns to be mixed. The machine improvises, you steer.</p>
+    </div>
+
+  </div>
+
+  <p style="text-align:center;color:var(--text-muted);font-size:13px;max-width:640px;margin:-4px auto 8px;">These are not on the Day-1-to-Year-1 path — they are detours worth taking. <strong>E</strong> suits Block 3 (time) and any ambient interlude; <strong>F</strong> belongs with Block 2 sampling and Block 4 transformation; <strong>G</strong> is the natural home of Block 6 decision systems.</p>
+
+  <h2>Where does the audio get mixed?</h2>
+
+  <p style="text-align: center; color: var(--text-muted); max-width: 680px; margin: 0 auto 18px;">One real decision worth understanding early: does the MicroFreak go straight into the M4 as its own channel, or into the Digitakt II first? Both are valid. Here is the trade.</p>
+
+  <table class="param-table">
+    <caption>Two ways to route the MicroFreak</caption>
+    <tr><td>&nbsp;</td><td>Into the M4 directly</td><td>Through the Digitakt II first</td></tr>
+    <tr><td>Channels in Live</td><td>Its own — full separate control</td><td>Shares the Digitakt's stereo pair</td></tr>
+    <tr><td>Effects on the synth</td><td>Only Live's</td><td>The Digitakt's delay/reverb too, played live</td></tr>
+    <tr><td>Resampling the synth</td><td>In Live</td><td>Straight into the Digitakt sampler — fast, hands-on</td></tr>
+    <tr><td>Mixing</td><td>You set the balance in Live</td><td>You set it on the Digitakt, before it ever reaches Live</td></tr>
+    <tr><td>Best when</td><td>You want clean, separate, editable tracks</td><td>You want to jam, resample, and treat the synth like another Digitakt voice</td></tr>
+  </table>
+
+  <p style="text-align: center; color: var(--text-muted); max-width: 640px; margin: 0 auto;">The course default is <strong>direct into the M4</strong> (Config A/C), because separate channels make the early bench and gain labs clear. The Digitakt route is a wonderful Block-2-onward toy. Diagrams for both are on <a href="signal-and-clock.html">Signal &amp; clock</a>.</p>
+
+  <h2>How the rig grows — Day 1 to Year 1</h2>
+
+  <p style="text-align: center; color: var(--text-muted); max-width: 680px; margin: 0 auto 18px;">Do not connect everything on day one. A studio is learned one box at a time. This is the progression that keeps you making sound the whole way instead of drowning in cables.</p>
+
+  <div class="timeline">
+    <div class="timeline-row">
+      <div class="timeline-time">Day 1</div>
+      <div class="timeline-desc"><strong>One sound, start to finish.</strong> Plug in only the MicroFreak → M4 → headphones. Open Live, set the M4 as the audio device, make one note, record eight bars. Save it as a template. Leave the Digitakt and Launchpad in the box. Goal: hear yourself, end to end, with nothing to debug.</div>
+    </div>
+    <div class="timeline-row">
+      <div class="timeline-time">Days 2–7</div>
+      <div class="timeline-desc"><strong>The full audio path + one clock.</strong> Add the Digitakt II into M4 inputs 3/4. Make Live the clock master over USB. Mark your headphone level. This is exactly Block 1, Labs 001–002: draw the signal map, fill the gain ledger, prove the timing. You now have <strong>Config A</strong>, minimal and clean.</div>
+    </div>
+    <div class="timeline-row">
+      <div class="timeline-time">Weeks 2–4</div>
+      <div class="timeline-desc"><strong>Hands and a template.</strong> Add the Launchpad in Live (Session and Note modes). Build a starter Live set: two return tracks (a reverb, a delay), a Drum Rack, an Operator. Learn the Digitakt sequencer and its sampler. Start resampling. You can now build a whole loop without the mouse.</div>
+    </div>
+    <div class="timeline-row">
+      <div class="timeline-time">Month 3</div>
+      <div class="timeline-desc"><strong>Hybrid home base.</strong> Move to <strong>Config C</strong>: Live clocks and records separate stems while the Digitakt drives the drums. Add a few Max for Live devices (an extra LFO, an envelope follower). Curate your sample packs into one personal folder. Commit to a single clock-master setup and stop fiddling with it.</div>
+    </div>
+    <div class="timeline-row">
+      <div class="timeline-time">Month 6</div>
+      <div class="timeline-desc"><strong>Flow and reuse.</strong> Try <strong>Config B</strong> (Digitakt-led jams) on days you want no screen. Build Launchpad Custom Modes for your most-used controls. Save Instrument Racks with Macros so a built sound becomes a tool you keep (Block 2, lab 007b). Your template now loads a working studio in one click.</div>
+    </div>
+    <div class="timeline-row">
+      <div class="timeline-time">Year 1</div>
+      <div class="timeline-desc"><strong>The rig disappears.</strong> You switch between all four configs by intent without thinking about cables. You can unplug into <strong>Config D</strong> and play a set with no computer. You have your own templates, racks, a tagged sample library, and a documented signal map. You think in music; the gear is just where your hands are.</div>
+    </div>
+  </div>
+
+  <p style="text-align: center; color: var(--text-muted); max-width: 680px; margin: 22px auto 14px;">The same progression, as a side-by-side — read each column as a snapshot of your whole setup at that moment:</p>
+
+  <table>
+    <thead>
+      <tr><th>&nbsp;</th><th>Day 1</th><th>Day 7</th><th>Month 3</th><th>Month 6</th><th>Year 1</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Plugged in</strong></td><td>MicroFreak + M4 + phones</td><td>+ Digitakt II</td><td>+ Launchpad</td><td>All six, fluently</td><td>All six, plus DIN clock</td></tr>
+      <tr><td><strong>Config</strong></td><td>A (minimal)</td><td>A</td><td>C (hybrid)</td><td>B, C as needed</td><td>A · B · C · D by intent</td></tr>
+      <tr><td><strong>Clock master</strong></td><td>Live</td><td>Live (USB)</td><td>Live (USB)</td><td>Live or Digitakt</td><td>Whatever the task needs</td></tr>
+      <tr><td><strong>You can</strong></td><td>Record one sound</td><td>Build a loop, prove timing</td><td>Multitrack, resample, control by hand</td><td>Jam screen-free, reuse racks</td><td>Play a set with no computer</td></tr>
+      <tr><td><strong>Add next</strong></td><td>The Digitakt</td><td>The Launchpad + a template</td><td>Max devices, a sample library</td><td>Custom Modes, saved racks</td><td>Nothing — deepen what you have</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Opinions, stated plainly</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <h3 class="card-title">One clock master, chosen and forgotten</h3>
+      <ul class="card-points">
+        <li>Pick who keeps time and commit. Two devices both trying to lead is the number-one cause of sloppy timing.</li>
+        <li>For the computer-based configs, make it Live. For screen-free jams, the Digitakt.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Use the M4's MIDI DIN ports</h3>
+      <ul class="card-points">
+        <li>They mean you never need a separate MIDI interface, and a DIN clock to the Digitakt is steadier than USB.</li>
+        <li>Most owners ignore them. Plugging them in is a free upgrade.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Keep the MicroFreak mono on purpose</h3>
+      <ul class="card-points">
+        <li>One cable, one channel. Width, when you want it, is made deliberately with effects — never by accident with a second cable.</li>
+        <li>A single voice is a feature here, not a limit. It is the whole point of Lab 004.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Build sounds before you borrow them</h3>
+      <ul class="card-points">
+        <li>Reach for Operator and Wavetable before the sample packs. Make the kick, then sample one if you must.</li>
+        <li>Packs are ingredients, not finished dishes. Treat them as raw material to deconstruct.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Commit early, resample often</h3>
+      <ul class="card-points">
+        <li>A sound printed to audio is a sound you can stop second-guessing. Limits free you.</li>
+        <li>Resampling — into Live or the Digitakt — is the engine of half this course.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Overbridge later, not now</h3>
+      <ul class="card-points">
+        <li>Elektron's Overbridge gives you the Digitakt's tracks as separate channels over USB, with full recall — powerful, but more CPU and more to break.</li>
+        <li>For Year 1, analog audio into the M4 plus a DIN clock is simpler and more reliable. Add Overbridge when you actually need per-track stems.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Go deeper</h2>
+
+  <div class="cards three">
+    <div class="card">
+      <h3 class="card-title"><a href="signal-and-clock.html">Signal &amp; clock →</a></h3>
+      <ul class="card-points">
+        <li>Every cable, drawn — audio and MIDI</li>
+        <li>Three clock-master setups compared</li>
+        <li>Latency, DIN vs USB, grounding &amp; noise</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title"><a href="live-and-max.html">Live, Max &amp; packs →</a></h3>
+      <ul class="card-points">
+        <li>Audio preferences and a starter template</li>
+        <li>Racks, Macros, and Max for Live picks</li>
+        <li>Managing the sample library; build-don't-buy</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title"><a href="instruments.html">The three instruments →</a></h3>
+      <ul class="card-points">
+        <li>Digitakt II — sequencer, sampler, FX, sync</li>
+        <li>MicroFreak — engines, filter, mod matrix</li>
+        <li>Launchpad Pro MK3 — Live modes &amp; standalone</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="tag-row">
+    <span class="tag">optional block</span>
+    <span class="tag">do it once</span>
+    <span class="tag">then forget it</span>
+  </div>
+
+  <div class="page-nav">
+    <a href="../index.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 00 / Overview
+    </a>
+    <a href="../block-1/index.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      01 / The Bench →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Block 0 · The Rig</div>
+
+</div>
+
+</body>
+</html>

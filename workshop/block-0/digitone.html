@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Block 0 — Adding the Digitone II</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page-type-block" id="top">
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
+  <a href="index.html" class="active"><span class="nav-num">B0</span>The Rig</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 0</a><span class="breadcrumb-sep">/</span><span>Digitone II</span></nav>
+
+  <header class="page-header">
+    <div class="eyebrow">Block 0 — The Rig · optional</div>
+    <h1>Adding the Digitone II</h1>
+    <p class="lede">The Elektron Digitone II is a polyphonic FM synthesizer and sequencer. It makes chords, pads, bass lines, bells, and metallic percussion — all the melodic and harmonic material the Digitakt II does not cover. This page explains its role, and works through the one real problem it introduces: a stereo audio signal that needs to get into a 4-input interface that is already nearly full.</p>
+  </header>
+  <p class="block-meta">Optional · New instrument · Elektron Digitone II · MOTU M4 · Overbridge · Digitakt II</p>
+
+  <div class="callout">
+    <div class="callout-label">What you are adding</div>
+    <p>The Digitone II (Elektron, 2024) is a <strong>polyphonic FM synthesizer</strong> — up to 16 voices, stereo output, on-board filter, overdrive, and effects. It has its own deep step sequencer — 16 tracks, p-locks, conditional trigs, micro-timing, per-track lengths, song mode. That sequencer is the same as the Digitakt II's, so if you have learned one, you already know the other. MIDI travels over 3.5&nbsp;mm TRS (adapters included) and USB-C. Overbridge lets you stream every track as a separate audio channel into Live over USB.</p>
+  </div>
+
+  <h2>Its role in the rig</h2>
+
+  <p style="text-align:center; color:var(--text-muted); max-width:680px; margin:0 auto 18px;">Every box should have one job. Adding the Digitone II turns a two-instrument rig into a three-instrument rig where the jobs divide cleanly.</p>
+
+  <table>
+    <thead><tr><th>Box</th><th>Its one job in this rig</th></tr></thead>
+    <tbody>
+      <tr><td><span class="lab-title">Elektron Digitakt II</span></td><td>Drums, percussion, sampling, and the rhythmic backbone. It sequences itself, sequences the MicroFreak over MIDI, and can pull audio from anything into its sampler.</td></tr>
+      <tr><td><span class="lab-title">Elektron Digitone II</span></td><td>Melody, harmony, pads, FM bass, and inharmonic textures. Polyphonic — it can hold a chord. Works as the melodic brain of a track.</td></tr>
+      <tr><td><span class="lab-title">Arturia MicroFreak</span></td><td>One carefully chosen voice. Mono, expressive, weird. Still the single-line counterpoint or lead against what the Digitone holds.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">The sequencer carries over</div>
+    <p>If you have spent time on the Digitakt II's sequencer — p-locks (settings saved per step), conditional trigs (steps that only fire sometimes), micro-timing, trig conditions — all of that works exactly the same on the Digitone II. The two boxes share the same sequencer engine. Learning one taught you both.</p>
+  </div>
+
+  <h2>Where does its stereo audio go? The M4 constraint</h2>
+
+  <p style="text-align:center; color:var(--text-muted); max-width:680px; margin:0 auto 18px;">This is the real question. The MOTU M4 has four inputs. They are already assigned:</p>
+
+  <table class="param-table">
+    <caption>M4 inputs — current rig before adding the Digitone II</caption>
+    <tr><td>Input 1</td><td>MicroFreak audio out · mono · ¼″ TS</td></tr>
+    <tr><td>Input 2</td><td><strong>Free — one mono jack available</strong></td></tr>
+    <tr><td>Input 3</td><td>Digitakt II main out L · ¼″ TRS</td></tr>
+    <tr><td>Input 4</td><td>Digitakt II main out R · ¼″ TRS</td></tr>
+  </table>
+
+  <p style="text-align:center; color:var(--text-muted); max-width:680px; margin:18px auto 18px;">One input is free: input 2. But the Digitone II is a stereo instrument. A stereo signal needs two inputs. You cannot plug a stereo synth into one mono jack without losing half the signal. So you have three real options.</p>
+
+  <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:11px; letter-spacing:0.2em; text-transform:uppercase;">Three routing options — side by side</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th>&nbsp;</th>
+        <th>1 · Overbridge (USB audio)<br><span style="font-weight:400;color:var(--text-muted);">RECOMMENDED DEFAULT</span></th>
+        <th>2 · Through the Digitakt II<br><span style="font-weight:400;color:var(--text-muted);">jam / resample alternative</span></th>
+        <th>3 · Analog into the M4<br><span style="font-weight:400;color:var(--text-muted);">needs an interface upgrade</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>How the audio travels</strong></td><td>USB-C from the Digitone II to the computer, as separate audio channels inside Live via Overbridge</td><td>¼″ TS cables from the Digitone II into the Digitakt's audio inputs A and B, then the Digitakt's main out (L/R) carries everything to the M4</td><td>¼″ TRS cables from the Digitone II directly into two M4 inputs — which means unplugging something else or buying a bigger interface</td></tr>
+      <tr><td><strong>M4 inputs used</strong></td><td>None — the audio never touches the M4</td><td>None extra — Digitone II rides inside the Digitakt's existing stereo pair</td><td>Two — and the M4 only has one free, so something has to move</td></tr>
+      <tr><td><strong>Channels in Live</strong></td><td>Each Digitone II track arrives as its own separate channel — full mix control in Live</td><td>Digitone II is baked into the Digitakt's stereo pair — one combined channel</td><td>Digitone II L and R as their own channels in Live, but you had to unplug something to get there</td></tr>
+      <tr><td><strong>Recall</strong></td><td>Total — every Digitone II parameter is saved in the Overbridge plug-in state in your Live set</td><td>Limited — you set the Digitakt mix by hand each time</td><td>Total for Live's mix; the Digitone II's own state is saved in its Projects</td></tr>
+      <tr><td><strong>Can you resample the Digitone II in the Digitakt?</strong></td><td>No — the audio goes USB, not into the Digitakt's hardware inputs</td><td><strong>Yes</strong> — the Digitone II is literally going into the Digitakt's audio inputs, so the Digitakt sampler can grab it instantly</td><td>No</td></tr>
+      <tr><td><strong>CPU cost</strong></td><td>Higher — Overbridge is a plug-in running on the computer</td><td>Low — all hardware, no computer overhead</td><td>Low</td></tr>
+      <tr><td><strong>Cable complexity</strong></td><td>One USB-C cable. Install the Overbridge plug-in once.</td><td>Two short ¼″ cables: Digitone out L/R → Digitakt in A/B</td><td>Two ¼″ TRS cables, plus deciding what to unplug</td></tr>
+      <tr><td><strong>Best for</strong></td><td>Tracking, arranging, producing — when you want separate editable stems and total recall</td><td>Flow sessions, jamming, resampling — when you want to capture the Digitone into the Digitakt sampler on the fly</td><td>Only worth it after upgrading to a 6-in or 8-in interface</td></tr>
+      <tr><td><strong>Main downside</strong></td><td>Overbridge adds CPU load and complexity. Must install drivers.</td><td>The Digitakt's converter stage is in the chain. Digitone II is not separate in Live.</td><td>You have to give up another input or buy new gear to make it work</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">Recommendation</div>
+    <p><strong>Use Overbridge by default.</strong> One USB-C cable, no M4 inputs consumed, separate stems in Live, full recall. Install Overbridge once and leave it. Switch to the <strong>through-the-Digitakt route</strong> on any session where you want to resample the Digitone II directly into the Digitakt sampler — it is the fastest way to capture FM textures into your drum patterns. Only consider analog-into-the-M4 after you have upgraded to an interface with more inputs.</p>
+  </div>
+
+  <h2>Routing diagrams</h2>
+
+  <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:11px; letter-spacing:0.2em; text-transform:uppercase;">Option 1 — Overbridge path (default)</h3>
+  <p style="text-align:center; color:var(--text-muted); font-size:14px; max-width:640px; margin:0 auto 10px;">The Digitone II's audio travels over USB directly into Live as a plug-in. The M4 handles everything else. The dashed box shows that the Digitone II is present in Live's mixer without using any M4 input.</p>
+
+  <div class="signal-flow" style="display:block; padding:26px 16px;">
+    <svg viewBox="0 0 760 300" width="100%" role="img" aria-label="Overbridge path: Digitone II USB-C into computer running Overbridge plugin in Live; MicroFreak and Digitakt II still go through the M4 analog inputs">
+      <defs>
+        <marker id="arrB" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#7dd3c0"/>
+        </marker>
+        <marker id="arrD" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#f0a04b"/>
+        </marker>
+      </defs>
+      <!-- analog audio lines (teal) -->
+      <line x1="174" y1="68" x2="328" y2="130" stroke="#7dd3c0" stroke-width="1.5" marker-end="url(#arrB)"/>
+      <line x1="174" y1="178" x2="328" y2="178" stroke="#7dd3c0" stroke-width="1.5" marker-end="url(#arrB)"/>
+      <!-- M4 to Live -->
+      <line x1="468" y1="154" x2="560" y2="100" stroke="#7dd3c0" stroke-width="1.5" marker-end="url(#arrB)"/>
+      <!-- Digitone II USB (orange) -->
+      <line x1="174" y1="248" x2="560" y2="248" stroke="#f0a04b" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arrD)"/>
+      <!-- labels -->
+      <text x="234" y="90" fill="#7dd3c0" font-size="10" text-anchor="middle">¼″ TS · mono</text>
+      <text x="234" y="190" fill="#7dd3c0" font-size="10" text-anchor="middle">¼″ TRS · L / R</text>
+      <text x="514" y="118" fill="#7dd3c0" font-size="10" text-anchor="middle">USB-C · audio</text>
+      <text x="367" y="263" fill="#f0a04b" font-size="10" text-anchor="middle">USB-C · Overbridge audio (bypasses M4)</text>
+      <!-- left devices -->
+      <rect x="24" y="42" width="150" height="52" rx="10" fill="#1f2530" stroke="#7dd3c0" stroke-width="1.2"/>
+      <text x="99" y="65" fill="#e6edf3" font-size="12" text-anchor="middle">MicroFreak</text>
+      <text x="99" y="82" fill="#8b949e" font-size="9.5" text-anchor="middle">audio out · mono</text>
+      <rect x="24" y="154" width="150" height="52" rx="10" fill="#1f2530" stroke="#7dd3c0" stroke-width="1.2"/>
+      <text x="99" y="177" fill="#e6edf3" font-size="12" text-anchor="middle">Digitakt II</text>
+      <text x="99" y="194" fill="#8b949e" font-size="9.5" text-anchor="middle">main out L / R</text>
+      <rect x="24" y="224" width="150" height="52" rx="10" fill="#1f2530" stroke="#f0a04b" stroke-width="1.4"/>
+      <text x="99" y="248" fill="#e6edf3" font-size="12" text-anchor="middle">Digitone II</text>
+      <text x="99" y="265" fill="#f0a04b" font-size="9.5" text-anchor="middle">USB-C · Overbridge</text>
+      <!-- M4 -->
+      <rect x="332" y="106" width="136" height="100" rx="10" fill="#1f2530" stroke="#7dd3c0" stroke-width="1.4"/>
+      <text x="400" y="154" fill="#e6edf3" font-size="13" text-anchor="middle">MOTU M4</text>
+      <text x="400" y="172" fill="#8b949e" font-size="9.5" text-anchor="middle">IN 1 · IN 3/4 used</text>
+      <text x="342" y="134" fill="#8b949e" font-size="9">IN 1</text>
+      <text x="342" y="204" fill="#8b949e" font-size="9">IN 3/4</text>
+      <!-- Live -->
+      <rect x="564" y="62" width="162" height="220" rx="10" fill="#1f2530" stroke="#7dd3c0" stroke-width="1.4"/>
+      <text x="645" y="100" fill="#e6edf3" font-size="13" text-anchor="middle">Live 12</text>
+      <text x="645" y="120" fill="#8b949e" font-size="9.5" text-anchor="middle">MicroFreak ch</text>
+      <text x="645" y="138" fill="#8b949e" font-size="9.5" text-anchor="middle">Digitakt II ch</text>
+      <text x="645" y="160" fill="#f0a04b" font-size="9.5" text-anchor="middle">Digitone II ch(s)</text>
+      <text x="645" y="178" fill="#f0a04b" font-size="9.5" text-anchor="middle">via Overbridge</text>
+      <text x="645" y="200" fill="#6e7681" font-size="9" text-anchor="middle">separate stems</text>
+      <text x="645" y="218" fill="#6e7681" font-size="9" text-anchor="middle">total recall</text>
+      <text x="645" y="268" fill="#8b949e" font-size="9.5" text-anchor="middle">→ DT 990 Pro</text>
+    </svg>
+  </div>
+
+  <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:11px; letter-spacing:0.2em; text-transform:uppercase;">Option 2 — Through the Digitakt II (jam / resample)</h3>
+  <p style="text-align:center; color:var(--text-muted); font-size:14px; max-width:640px; margin:0 auto 10px;">The Digitone II's audio goes into the Digitakt II's hardware inputs. The Digitakt sums it with its own sounds and sends one stereo pair to the M4. You can resample the Digitone II directly inside the Digitakt.</p>
+
+  <div class="signal-flow">
+    <span class="signal-node">Digitone II L/R out</span>
+    <span class="signal-arrow">→ ¼″ TS ×2 →</span>
+    <span class="signal-node">Digitakt II in A / B</span>
+    <span class="signal-arrow">→ summed stereo →</span>
+    <span class="signal-node">Digitakt II main out L/R</span>
+    <span class="signal-arrow">→ M4 IN 3/4 →</span>
+    <span class="signal-node">Live</span>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Resampling bonus:</strong> with the Digitone II going into the Digitakt's audio inputs, the Digitakt can record it — one button. You can capture an FM chord, chop it up as a sample, and play it back on a drum track. This is one of the fastest ways to turn pitched material into rhythmic texture.</li>
+      <li><strong>Trade-off:</strong> in this path, the Digitone II's audio passes through the Digitakt's converter stage. It is fine quality, but the two instruments are no longer separate channels in Live — they share one stereo pair. You lose per-instrument mixing in Live and you lose Overbridge recall for the Digitone II.</li>
+      <li><strong>Switching between options:</strong> you do not have to choose forever. Keep the Overbridge cable connected. When you want to resample, plug the two ¼″ cables from the Digitone II into the Digitakt inputs and route the Digitakt's input monitoring on. When you are done resampling, unplug and go back to Overbridge.</li>
+    </ul>
+  </div>
+
+  <h2>Two-Elektron workflow</h2>
+
+  <p style="text-align:center; color:var(--text-muted); max-width:680px; margin:0 auto 18px;">With both Elektron boxes running, the simplest division of labour is also the most musical one.</p>
+
+  <table>
+    <thead><tr><th>Digitakt II</th><th>Digitone II</th></tr></thead>
+    <tbody>
+      <tr><td>Kicks, snares, claps, hats — the rhythmic skeleton</td><td>Pads, chords, FM bass lines, bells — the harmonic body</td></tr>
+      <tr><td>Samples — field recordings, sliced loops, resampled textures</td><td>Melodic leads, evolving textures via p-locked FM parameters</td></tr>
+      <tr><td>The clock brain in hardware-led configs (C and D)</td><td>Follows the Digitakt's clock, or follows Live's clock alongside it</td></tr>
+      <tr><td>Sequences the MicroFreak over MIDI (as a third voice)</td><td>Can also sequence the MicroFreak — or be sequenced by Live directly</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Clock and MIDI between the two boxes</h3>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Live stays master in the default (Config A/C).</strong> Live sends MIDI clock over USB to both the Digitakt II and the Digitone II independently. Both follow. Neither sends clock to the other — Live is the single leader. Enable <span class="code">Clock Receive</span> and <span class="code">Transport Receive</span> in <span class="menu">SETTINGS → MIDI Config → Sync</span> on both boxes.</li>
+      <li><strong>In screen-free jams (Config B/C hardware-led):</strong> the Digitakt II becomes the clock master. Its MIDI out connects to the Digitone II's MIDI in. The Digitone II then follows the Digitakt's tempo and transport. On the Digitakt, enable <span class="code">Clock Send</span> and <span class="code">Transport Send</span>; on the Digitone II, enable <span class="code">Clock Receive</span> and <span class="code">Transport Receive</span>.</li>
+      <li><strong>MIDI notes between the boxes:</strong> you can sequence the Digitone II's synth tracks from the Digitakt's MIDI tracks — select a MIDI track on the Digitakt, set its MIDI channel to match the Digitone II track you want to trigger, and the Digitakt's step sequencer drives the Digitone II's voices. This lets you build rhythmic patterns on the Digitakt that fire FM notes on the Digitone II.</li>
+      <li><strong>Do not let both boxes send clock.</strong> The same rule as always: one leader. If both are set to send clock, you get confusion and timing drift.</li>
+    </ul>
+  </div>
+
+  <h2>Where this fits in the "four configs"</h2>
+
+  <p style="text-align:center; color:var(--text-muted); max-width:680px; margin:0 auto 14px;">The four configurations described on <a href="index.html">Block 0 index</a> extend naturally with the Digitone II added. The audio routing choice (Overbridge or through-Digitakt) combines with the clock choice independently.</p>
+
+  <div class="cards two">
+    <div class="card">
+      <h3 class="card-title">Config A/C + Overbridge</h3>
+      <ul class="card-points">
+        <li>Live is the clock master over USB.</li>
+        <li>Digitone II audio enters Live via Overbridge — no M4 inputs used.</li>
+        <li>Full separate stems, total recall, most CPU.</li>
+        <li>Best for: producing, arranging, all the labs.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Config B/C + through-Digitakt</h3>
+      <ul class="card-points">
+        <li>Digitakt II leads the clock over DIN or USB.</li>
+        <li>Digitone II audio into Digitakt inputs A/B — one combined stereo pair out.</li>
+        <li>No computer overhead, instant resampling, screen-optional.</li>
+        <li>Best for: flow sessions, ideas, live jamming.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="tag-row">
+    <span class="tag">Digitone II</span>
+    <span class="tag">Overbridge</span>
+    <span class="tag">M4 constraint</span>
+    <span class="tag">two Elektrons</span>
+  </div>
+
+  <div class="page-nav">
+    <a href="instruments.html">
+      <span class="page-nav-direction">Previous</span>
+      ← The three instruments
+    </a>
+    <a href="digitone-fm.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      Digitone FM →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Block 0 · Adding the Digitone II</div>
+
+</div>
+
+</body>
+</html>

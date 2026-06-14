@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Block 00 — Harmony from Scratch</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page-type-block" id="top">
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
+  <a href="index.html" class="active"><span class="nav-num">F0</span>Foundations</a>
+  <a href="../block-0/index.html"><span class="nav-num">B0</span>The Rig</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 00</a><span class="breadcrumb-sep">/</span><span>Harmony from Scratch</span></nav>
+
+  <header class="page-header">
+    <div class="eyebrow">Block 00 · Foundations · Primer 3</div>
+    <h1>Harmony from Scratch</h1>
+    <p class="lede">Harmony is what happens when two or more notes sound at the same time. Before the workshop asks you to tune oscillators and build chord progressions, you need to hear the atoms: <strong>intervals</strong>, <strong>scales</strong>, <strong>chords</strong>, <strong>keys</strong>, <strong>voicings</strong>, and <strong>voice-leading</strong>. This primer drills each one on its own, then hands you a four-chord progression to build three different ways.</p>
+  </header>
+  <p class="block-meta">Primer · the atoms one control at a time · ends in a voiced progression + a pad-building gate</p>
+
+  <div class="callout">
+    <div class="callout-label">Your anchor instrument</div>
+    <p>Build every atom on the <strong>Digitone II</strong> — it is a four-voice polyphonic FM synth, so you can play chords directly. If your Digitone has not arrived yet, use <strong>Live 12's Scale, Chord, and Stacks MIDI devices</strong> instead — they make intervals and chords visible before you hear them. Both paths cover the same atoms.</p>
+  </div>
+
+  <h2>How the atoms connect</h2>
+
+  <div class="signal-flow">
+    <span class="signal-node">Intervals<br><span style="font-size:11px;color:var(--text-dim);">two notes</span></span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">Scales<br><span style="font-size:11px;color:var(--text-dim);">a set of notes</span></span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">Chords<br><span style="font-size:11px;color:var(--text-dim);">three or more notes</span></span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">Voice-leading<br><span style="font-size:11px;color:var(--text-dim);">how chords move</span></span>
+  </div>
+  <p style="text-align:center; color:var(--text-muted); max-width:600px; margin:0 auto 8px; font-size:14px;">Each layer builds on the one before. You do not need to memorise music theory — you need to hear these relationships and recognise them while you work.</p>
+
+  <!-- ATOM 1 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Atom 1</div>
+      <h3 class="step-title">Intervals — the distance between two notes</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">An <strong>interval</strong> is the distance between two pitches. The smallest interval in Western music is a <strong>semitone</strong> — one step on a keyboard (e.g. C to C#). Two semitones make a <strong>tone</strong> (also called a whole step). Larger intervals have names based on how many steps they span.</p>
+    <table class="param-table">
+      <caption>Key intervals — play each on the Digitone II or a keyboard</caption>
+      <tr><td><strong>Semitone (minor 2nd)</strong></td><td>1 key. Very tense. C → C#. Sounds uneasy, like a horror-film step.</td></tr>
+      <tr><td><strong>Tone (major 2nd)</strong></td><td>2 keys. Mild tension. C → D. Adjacent notes in a scale.</td></tr>
+      <tr><td><strong>Minor third</strong></td><td>3 keys. Darker, a little sad. C → Eb. The bottom of a minor chord.</td></tr>
+      <tr><td><strong>Major third</strong></td><td>4 keys. Brighter, stable. C → E. The bottom of a major chord.</td></tr>
+      <tr><td><strong>Perfect fifth</strong></td><td>7 keys. Open, stable, powerful. C → G. Two notes that agree almost perfectly.</td></tr>
+      <tr><td><strong>Octave</strong></td><td>12 keys. Same note, one pitch higher. C → C. Complete resolution.</td></tr>
+    </table>
+    <div class="sub-block">
+      <div class="sub-label">Hear beating (ties to Lab 004b)</div>
+      <ol>
+        <li>Play C and C# together — a semitone. Listen for a fast, harsh <strong>beating</strong>: a pulsing roughness caused by the two frequencies clashing. The closer two pitches are, the faster and rougher the beating.</li>
+        <li>Play C and G together — a perfect fifth. The beating almost disappears. The two notes fuse and sound stable.</li>
+        <li>This is why a fifth sounds "open" and a semitone sounds "tense" — beating is physics, not opinion. Lab 004b uses this fact when tuning oscillators together.</li>
+      </ol>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Prove it</div>
+      <p>Play any note, then play another without looking. Say whether it is a semitone, a third, a fifth, or something else — and whether it sounds tense or stable. Do this five times in a row.</p>
+    </div>
+  </div>
+
+  <!-- ATOM 2 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Atom 2</div>
+      <h3 class="step-title">Scales — a set of notes that work together</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">A <strong>scale</strong> is a fixed collection of notes. Any melody or chord you build from those notes will sound like it belongs to the same family. The pattern of tones (T) and semitones (S) between the notes is what gives each scale its character.</p>
+    <div class="sub-block">
+      <div class="sub-label">The four scales to know</div>
+      <ol>
+        <li><strong>Major scale:</strong> pattern T T S T T T S. Start on C: C D E F G A B C. Sounds bright and resolved. This is the "do re mi" scale.</li>
+        <li><strong>Natural minor scale:</strong> pattern T S T T S T T. Start on A: A B C D E F G A. Darker, slightly unresolved. Most electronic and rock music lives here.</li>
+        <li><strong>Pentatonic scale:</strong> five notes only, no semitones. Minor pentatonic from A: A C D E G A. Sounds open and almost universally good — no note clashes with any other. Great for beginner melodies.</li>
+        <li><strong>One mode — Dorian:</strong> like natural minor but with a raised 6th. From D: D E F G A B C D. It has the darkness of minor but one brighter note that makes it sound sophisticated — used in jazz, funk, and many electronic tracks.</li>
+      </ol>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">In Live's Scale MIDI device</div>
+      <ol>
+        <li>Drop a <span class="menu">Scale</span> device before any instrument. Set root note to C.</li>
+        <li>Select Major. Play any notes on your keyboard — every note snaps to the scale. Listen to the character.</li>
+        <li>Switch to Natural Minor. Same root, different pattern. The mood changes immediately.</li>
+        <li>Switch to Pentatonic Minor. Notice that any combination of notes still sounds "safe" — no harsh clashes.</li>
+      </ol>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Prove it</div>
+      <p>Without the Scale device, play a C major scale by ear from bottom to top, one note at a time. Then play A natural minor. Can you hear the difference in mood? If not, slow down and play them again until the difference lands.</p>
+    </div>
+  </div>
+
+  <!-- ATOM 3 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Atom 3</div>
+      <h3 class="step-title">Chords — three or more notes at once</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">A <strong>chord</strong> is three or more notes played at the same time. The most common chords are <strong>triads</strong> (three notes) built by stacking intervals of thirds. A <strong>seventh chord</strong> adds one more third on top — four notes total.</p>
+    <table class="param-table">
+      <caption>The four chords you will use most</caption>
+      <tr><td><strong>Major triad</strong></td><td>Root + major third + perfect fifth. C E G. Bright, stable. Sounds "finished".</td></tr>
+      <tr><td><strong>Minor triad</strong></td><td>Root + minor third + perfect fifth. C Eb G. Darker, slightly tense. Sounds "searching".</td></tr>
+      <tr><td><strong>Major seventh</strong></td><td>Major triad + major seventh. C E G B. Dreamy, lush. Common in soul, jazz, and ambient.</td></tr>
+      <tr><td><strong>Minor seventh</strong></td><td>Minor triad + minor seventh. C Eb G Bb. Smoother than a plain minor. Common in funk and R&amp;B.</td></tr>
+    </table>
+    <div class="sub-block">
+      <div class="sub-label">Do this on the Digitone II</div>
+      <ol>
+        <li>Hold a chord using the Digitone's polyphony (up to four voices). Play C E G — a major triad. Listen for the blend. All three notes should feel like they "agree".</li>
+        <li>Lower the E one semitone to Eb: C Eb G. That is now a minor triad. The mood shifts with one note moved by one key.</li>
+        <li>Add B on top of C E G — a major seventh. The chord gains a soft, suspended quality.</li>
+        <li>In Live's <span class="menu">Chord</span> MIDI device: set it to add a major third and a perfect fifth above any note you play. Now every single key press gives you a full triad automatically.</li>
+      </ol>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Prove it</div>
+      <p>Play C E G (major) and C Eb G (minor) back to back. Then have someone play one of them while you look away. Can you say which one it is — and explain what note makes the difference?</p>
+    </div>
+  </div>
+
+  <!-- ATOM 4 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Atom 4</div>
+      <h3 class="step-title">Keys — the home base, and the chords that belong to it</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">A <strong>key</strong> means you have chosen one note as "home" (the <strong>tonic</strong>) and one scale as the pool of notes. A chord is "in the key" if all of its notes come from that pool. The chords you can build from the notes of a key are called the <strong>diatonic chords</strong> of that key.</p>
+    <div class="sub-block">
+      <div class="sub-label">The diatonic chords of C major — the seven chords you get for free</div>
+      <ol>
+        <li>Build a triad starting on each note of the C major scale. Use only the other notes of C major — no outside notes.</li>
+        <li>The result: C major, D minor, E minor, F major, G major, A minor, B diminished. All seven fit together because they all come from the same pool.</li>
+        <li>The most common four-chord progression in Western music uses chords I, IV, V, and VI: in C major, that is C major, F major, G major, A minor. Play them in any order — they all "belong".</li>
+        <li>In Live's <span class="menu">Scale</span> device set to C major: every note you play is already in the key. This lets you focus on rhythm and gesture while the device enforces the key for you.</li>
+      </ol>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Prove it</div>
+      <p>Play a I–IV–V–VI progression in C major (C–F–G–Am) from memory. Then try the same chords in A minor (Am–Dm–Em–C). Can you hear that both feel "settled" even though the mood is different?</p>
+    </div>
+  </div>
+
+  <!-- ATOM 5 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Atom 5</div>
+      <h3 class="step-title">Voicing and inversions — close vs open, moving the bottom note</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">A <strong>voicing</strong> is the way you arrange the notes of a chord across the keyboard. You can put the notes close together (<strong>close voicing</strong>) or spread them far apart (<strong>open voicing</strong>). An <strong>inversion</strong> is when the lowest note is not the root — you move one note down an octave so a different note sits at the bottom.</p>
+    <table class="param-table">
+      <caption>C major triad (C E G) — three positions</caption>
+      <tr><td><strong>Root position</strong></td><td>C E G — root on the bottom. Most stable. Clear and grounded.</td></tr>
+      <tr><td><strong>First inversion</strong></td><td>E G C — third on the bottom. Slightly lighter. Common in voice-leading.</td></tr>
+      <tr><td><strong>Second inversion</strong></td><td>G C E — fifth on the bottom. Most unstable. Often used as a passing chord.</td></tr>
+    </table>
+    <div class="sub-block">
+      <div class="sub-label">Close vs open voicing</div>
+      <ol>
+        <li><strong>Close voicing:</strong> pack the notes as tightly as possible. C E G in one octave. Sounds dense and locked-in.</li>
+        <li><strong>Open voicing:</strong> spread the notes across two octaves. C (low) G E (both higher). Sounds airy and wide — good for pads.</li>
+        <li>On the Digitone II, you can assign each voice a different pitch. Try playing a C in one octave, a G a fifth up, and then an E an octave above that. That open spacing gives pads their characteristic width.</li>
+        <li>In Live's <span class="menu">Stacks</span> MIDI device: set it to add notes at specific intervals and octaves above any note you play — this lets you audition open voicings quickly.</li>
+      </ol>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Prove it</div>
+      <p>Play C major in root position, then first inversion, then second inversion. Describe out loud what changes in the feel — which sounds most stable? Which sounds like it wants to go somewhere?</p>
+    </div>
+  </div>
+
+  <!-- ATOM 6 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Atom 6</div>
+      <h3 class="step-title">Voice-leading — move as little as possible between chords</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;"><strong>Voice-leading</strong> means choosing which inversion or voicing of each chord to play so that the notes move the shortest distance when you change chords. Good voice-leading makes a chord progression feel smooth and connected — each note takes the path of least resistance to the next chord. Bad voice-leading makes the same progression sound jumpy and disconnected.</p>
+    <div class="sub-block">
+      <div class="sub-label">Build a four-chord progression with smooth voice-leading</div>
+      <ol>
+        <li>Start with C major in root position: C E G.</li>
+        <li>Move to A minor. Instead of jumping to root position (A C E), keep two notes the same: C and E are already in A minor. Just move G down one step to A. Result: A C E — a first inversion A minor. Only one note moved, and only by one step.</li>
+        <li>Move to F major. From A C E, keep C and E. Move A down to F. Result: F A C — but voiced as C F A. Two notes stayed, one moved by a tone.</li>
+        <li>Move to G major. From C F A, keep nothing — this requires more movement — but voice G B D so each note moves by the smallest available step from where you are.</li>
+        <li>The rule: when moving between any two chords, find the notes they share and keep them in place. Move the remaining notes by the smallest interval possible.</li>
+      </ol>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Prove it</div>
+      <p>Play the progression C major → A minor → F major → G major with smooth voice-leading. Record it. Play it back and listen — does each chord change feel like a small step or a big jump? If it jumps, revise the voicings until it flows.</p>
+    </div>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Free practice tools.</strong> <strong>Live 12 Scale, Chord, and Stacks MIDI devices</strong> — use these to audition any scale or chord instantly, especially before the Digitone arrives. <a href="https://www.musictheory.net" target="_blank" rel="noopener">musictheory.net</a> — free, interactive lessons on every atom in this primer, with visual keyboard diagrams. For ear training: the interval exercises at musictheory.net are the fastest way to recognise thirds and fifths without looking.</li>
+    </ul>
+  </div>
+
+  <h2>Proof gate</h2>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">You pass this primer when you can voice one four-chord progression three ways and build a deliberate pad</div>
+    </div>
+    <ul>
+      <li><strong>Close voicing:</strong> play I–VI–IV–V (e.g. C Am F G) with all chords voiced in close position — notes packed tightly in one octave. Explain out loud why each chord is major or minor.</li>
+      <li><strong>Open voicing:</strong> replay the same progression with all chords spread across two octaves. Describe what changes in the sound — fuller? Airier? More distance between the notes?</li>
+      <li><strong>With a passing inversion:</strong> choose one chord change where a first or second inversion helps the voice-leading. Play the progression again, name the inversion you used, and explain why that note moved to the bottom.</li>
+      <li><strong>Build a pad with deliberate voice-leading:</strong> on the Digitone II (or Live + a pad instrument), build a chord progression of at least four chords where each change moves no note by more than a tone if possible. Record eight bars. Listen back and confirm the chord changes feel smooth — no sudden jumps.</li>
+      <li><strong>Explain your choices:</strong> for the recorded pad, say out loud which scale you used, which chords came from it, and which note moved in each voice-leading step.</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">What you carry into the workshop</div>
+    <p>You can now name an interval by ear, build a chord from a scale, and move between chords smoothly. Lab 026 (tuning) assumes you already hear a perfect fifth and know when two notes are beating. The pad and chord work in <a href="../block-5/index.html">Block 5</a> and <a href="../block-8/index.html">Block 8</a> builds directly on all six atoms here.</p>
+  </div>
+
+  <div class="tag-row">
+    <span class="tag">intervals</span><span class="tag">scales</span><span class="tag">chords</span><span class="tag">keys</span><span class="tag">voicing</span><span class="tag">inversions</span><span class="tag">voice-leading</span><span class="tag">harmony</span>
+  </div>
+
+  <div class="page-nav">
+    <a href="rhythm-from-scratch.html">
+      <span class="page-nav-direction">Previous</span>
+      ← Rhythm from Scratch
+    </a>
+    <a href="mixing-dynamics.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      Mixing — Dynamics →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Block 00 · Harmony from Scratch</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Block 00 — Polyphony as a System</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page-type-block" id="top">
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
+  <a href="index.html" class="active"><span class="nav-num">F0</span>Foundations</a>
+  <a href="../block-0/index.html"><span class="nav-num">B0</span>The Rig</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 00</a><span class="breadcrumb-sep">/</span><span>Polyphony as a System</span></nav>
+
+  <header class="page-header">
+    <div class="eyebrow">Block 00 · Foundations · Primer 6</div>
+    <h1>Polyphony as a System</h1>
+    <p class="lede">This is a step up from the synthesis primer. <strong>Polyphony</strong> means playing multiple notes at the same time, each on its own independent voice. The workshop's core instruments are <em>mono</em> or <em>paraphonic</em> — only the Digitone II gives you true polyphony. This primer explains what that difference actually means, how voices are managed, and what breaks when you run out of them.</p>
+  </header>
+  <p class="block-meta">Primer · voice architecture in depth · ends in a three-way build and compare gate</p>
+
+  <div class="callout">
+    <div class="callout-label">Your anchor instrument</div>
+    <p>Primary anchor: <strong>Digitone II</strong> — your first true polyphonic, multitimbral voice in this rig. If the Digitone II has not arrived yet, work through every atom in <strong>Live</strong> using a software polyphonic instrument (Analog or Drift set to polyphonic mode, or any Instrument Rack). Everything here applies identically — the hardware just gives you the physical controls to make it concrete. Come back and re-run the proof gate once the Digitone II is in the studio.</p>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Why the workshop has no polyphony primer until now</div>
+    <p>The MicroFreak (paraphonic), the Digitakt II (monophonic sampler), and most patch-based work in Block 1–4 assume one note at a time. Polyphony is genuinely different — it introduces voice management, voice stealing, and chord voicing decisions that do not exist on a mono instrument. This primer sits at the end of Foundations because it requires the synthesis vocabulary from the earlier primers before it makes sense. <a href="../block-8/index.html">Block 8 (Synthesis &amp; Voice)</a> and the Harmony primer build directly on what you learn here.</p>
+  </div>
+
+  <!-- ATOM 1 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Atom 1</div>
+      <h3 class="step-title">Mono vs paraphonic vs polyphonic — what "voices" are</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">A <strong>voice</strong> is one complete signal path: oscillator → filter → amplifier. How many complete paths a synth has determines how many notes it can sustain at once.</p>
+    <table class="param-table">
+      <caption>The three architectures</caption>
+      <tr>
+        <td><strong>Monophonic</strong></td>
+        <td>One voice. Play a second note while holding the first and the synth moves to the new note — the first is cut off. Every classic bass synth works this way. The Digitakt II is effectively mono (one sample per track).</td>
+      </tr>
+      <tr>
+        <td><strong>Paraphonic</strong></td>
+        <td>Multiple oscillators, but they share a single filter and amplifier. The MicroFreak can play up to 4 oscillators at once — but all 4 run through one filter. The filter acts on all of them simultaneously, so they are not fully independent. A chord through a shared filter sounds different from a true poly chord.</td>
+      </tr>
+      <tr>
+        <td><strong>Polyphonic</strong></td>
+        <td>Multiple complete voices — each note gets its own oscillator, filter, and amplifier. The Digitone II is 8-voice polyphonic. All 8 voices can be playing at the same time, each with its own envelope stage and filter position.</td>
+      </tr>
+    </table>
+    <div class="sub-block">
+      <div class="sub-label">Hear the difference</div>
+      <ol>
+        <li>On the MicroFreak (paraphonic): hold a chord and open and close the filter. All notes brighten and darken together — because they share one filter.</li>
+        <li>On the Digitone II or in Live (polyphonic): play the same chord. Automate or manually move the filter for one note's voice only. That note changes while the others stay the same.</li>
+        <li>That independence is the defining feature of a true poly synth.</li>
+      </ol>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Prove it</div>
+      <p>On both instruments, hold a three-note chord and sweep the filter. Describe in one sentence what you hear on each. If you can explain why they sound different, this atom is done.</p>
+    </div>
+  </div>
+
+  <!-- ATOM 2 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Atom 2</div>
+      <h3 class="step-title">Voice allocation and voice stealing — what happens when you run out</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;"><strong>Voice allocation</strong> is how a synth assigns its available voices to incoming notes. <strong>Voice stealing</strong> is what happens when all voices are in use and a new note arrives — the synth takes a voice away from a note already playing.</p>
+    <div class="sub-block">
+      <div class="sub-label">How it works on the Digitone II</div>
+      <ol>
+        <li>The Digitone II has 8 voices. Play a sustained chord with 8 notes held down. All 8 voices are now allocated.</li>
+        <li>Play a 9th note while holding the others. The synth has to steal a voice. Which voice it steals depends on the <strong>voice allocation mode</strong> — usually it steals the oldest note, the quietest, or the lowest-priority one.</li>
+        <li>On the Digitone II, go to <span class="menu">SYN</span> page on a track and look at the voice configuration. Try different allocation modes and listen to which note disappears when you push the polyphony limit.</li>
+        <li>In Live, use a polyphonic instrument and set <span class="code">Voices</span> to 2. Play a three-note chord slowly. Listen to which note cuts out. Raise voices to 8 and the problem disappears.</li>
+      </ol>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Why it matters in practice</div>
+      <ol>
+        <li>Long sustaining pads run out of voices faster than short plucks. A 4-voice patch playing slow chords can steal constantly — you hear a note drop out mid-chord.</li>
+        <li>Voice stealing is not always a problem. Some producers route it deliberately so low-priority notes cut off in a musically predictable way.</li>
+        <li>If you hear notes unexpectedly cutting off, voice stealing is the likely cause. The fix is either more voices, shorter release times, or simpler chords.</li>
+      </ol>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Prove it</div>
+      <p>Deliberately trigger voice stealing on the Digitone II or in Live. Then change one setting (voices, release time, or chord size) to stop it. Describe the fix in one sentence.</p>
+    </div>
+  </div>
+
+  <!-- ATOM 3 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Atom 3</div>
+      <h3 class="step-title">Shared filter (paraphonic) vs filter-per-voice — why they sound different</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">This atom makes the paraphonic vs polyphonic distinction audible in a specific, useful way. When a filter envelope fires, what exactly does it act on?</p>
+    <div class="sub-block">
+      <div class="sub-label">On a paraphonic synth (MicroFreak)</div>
+      <ol>
+        <li>Hold two notes — different pitches. Let the filter envelope run with a medium attack and decay.</li>
+        <li>The envelope opens and closes the filter for both notes at the same time. The chord brightens and darkens as a unit.</li>
+        <li>Now play the two notes slightly out of sync — one, then the other a beat later. The second note's arrival does not restart the filter envelope — it started on the first note and is already mid-course.</li>
+        <li>This shared-filter behaviour gives paraphonic chords a glued, organ-like quality. It also means you cannot have one note decaying brightly while another decays dark.</li>
+      </ol>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">On a polyphonic synth (Digitone II or Live)</div>
+      <ol>
+        <li>Hold two notes. Each has its own filter and its own envelope. They are independent.</li>
+        <li>Play the same two notes out of sync. The second note triggers its own filter envelope from the beginning, even while the first note's envelope is mid-decay. You get two separate filter arcs running at the same time.</li>
+        <li>This is why a poly pad can feel more "alive" than a paraphonic one — each voice responds individually to when it was played.</li>
+      </ol>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Prove it</div>
+      <p>Play the same two-note sequence on the MicroFreak and then on the Digitone II (or in Live). Set a slow filter envelope on both. Can you hear the difference in how the filter behaves? Describe it.</p>
+    </div>
+  </div>
+
+  <!-- ATOM 4 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Atom 4</div>
+      <h3 class="step-title">Unison and spread — stacking voices on one note for width</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;"><strong>Unison</strong> means routing multiple voices to play the same pitch at the same time. Instead of spreading the voices across different notes, they all pile onto one note. The result is a thicker, wider sound.</p>
+    <div class="sub-block">
+      <div class="sub-label">How unison creates width</div>
+      <ol>
+        <li>If all voices play exactly the same pitch with no variation, they cancel each other out (or just get louder). The interesting part is the <strong>detune</strong> setting: each voice is slightly out of tune with the others.</li>
+        <li>Small detune (1–3 cents): the voices blur together into a thick, chorus-like texture. This is the classic "supersaw" lead sound.</li>
+        <li>Larger detune: the pitches become audibly separate — you hear them as slightly different notes rather than one wide sound.</li>
+        <li><strong>Spread</strong> or <strong>pan spread</strong>: the voices are also panned left and right, so they take up physical space in the stereo field.</li>
+        <li>On the Digitone II: look at the <span class="menu">SYN</span> page for voice detuning. In Live's Analog or Operator, use the <span class="code">Detune</span> parameter with polyphony set above 1.</li>
+      </ol>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">The trade-off</div>
+      <ol>
+        <li>Unison uses multiple voices for a single note. An 8-voice poly synth in 4-voice unison mode can only play 2 notes at once. You are trading polyphony for width.</li>
+        <li>For a lead or a bass, you probably have voices to spare. For a sustained chord, be careful — you might run out of voices quickly.</li>
+      </ol>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Prove it</div>
+      <p>Turn on unison with a small detune on one note. Slowly increase the detune while listening. At what point does it stop sounding "wide" and start sounding "out of tune"? There is no correct answer — just learn where your ear puts the line.</p>
+    </div>
+  </div>
+
+  <!-- ATOM 5 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Atom 5</div>
+      <h3 class="step-title">Chord voicing and register — placing notes so a chord is clear</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;"><strong>Voicing</strong> is which octave you put each note of a chord in. The same three notes of a chord can sound clear and open or muddy and cluttered depending on how far apart the notes are and how low they sit.</p>
+    <div class="sub-block">
+      <div class="sub-label">The basic rules of register</div>
+      <ol>
+        <li><strong>Keep the bass register clear.</strong> Notes below about E2 start to clash badly when played together. A chord that sounds clean in the mid-range becomes a mud cloud an octave lower. Bass = one note only.</li>
+        <li><strong>Wider spacing in the low-mid.</strong> If you are playing a chord that spans the range from C3 upward, put the notes further apart in the lower register (a 5th or more) and closer together in the upper register (a 3rd is fine up top).</li>
+        <li><strong>Try open voicings.</strong> A "closed" voicing packs the three chord tones as close together as possible. An "open" voicing spreads them out across two octaves. Open voicings tend to sound less cluttered through a synth filter.</li>
+        <li>This is a listening and taste skill. There are no fixed rules — experiment with the same chord in different registers and voicings until you hear the difference.</li>
+      </ol>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Try this on the Digitone II or in Live</div>
+      <ol>
+        <li>Play a three-note chord (e.g. C–E–G) in closed position starting at C2. Notice the mud.</li>
+        <li>Move the same chord up to C3. The mud clears.</li>
+        <li>Try an open voicing: C3, G3, E4. Same three notes, spread across two octaves. Compare how it sits in the mix.</li>
+      </ol>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Prove it</div>
+      <p>Find a voicing of any three-note chord that sounds clear through the Digitone II or a Live instrument. Then move it two octaves lower. Describe what happens to the sound. Then move it back up and adjust the voicing to recover clarity.</p>
+    </div>
+  </div>
+
+  <!-- ATOM 6 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Atom 6</div>
+      <h3 class="step-title">Pad movement — slow internal motion across voices</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;">A static chord on a poly synth can feel flat. <strong>Pad movement</strong> means adding slow, independent changes inside the chord — so the sound feels alive even when the notes are not changing.</p>
+    <div class="sub-block">
+      <div class="sub-label">Techniques for internal movement</div>
+      <ol>
+        <li><strong>Per-voice LFO.</strong> On a poly synth, each voice can have its own LFO phase. Set the LFO to modulate filter cutoff at a slow rate, and make the phase random or "free" (not synced to the same start point). Each note in the chord will breathe at a slightly different time — the pad shimmers.</li>
+        <li><strong>Envelope variation.</strong> Set a very slow attack so notes swell in at different rates. Play the chord notes slightly out of sync so each voice is at a different point in its envelope.</li>
+        <li><strong>Pitch micro-drift.</strong> A tiny amount of LFO on pitch — too small to sound like vibrato — gives each voice a slight waver. The chord stays in tune but feels less rigid.</li>
+        <li>On the Digitone II: on the <span class="menu">LFO</span> page, try <span class="code">LFO MODE: FREE</span> for unsynced motion, or assign a different LFO depth per voice if the instrument allows it.</li>
+        <li>In Live: add a Chord + Arpeggiator combination, or use Max for Live's Envelope MIDI device to vary envelope times per note. Even simpler: draw in slight pitch modulation in the MIDI clip for individual notes.</li>
+      </ol>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Prove it</div>
+      <p>Hold a sustained chord. Add one source of internal movement — per-voice LFO on filter, envelope stagger, or micro-drift. The chord should now feel like it is breathing. If you can hear it moving without any notes changing, this atom is done.</p>
+    </div>
+  </div>
+
+  <!-- ATOM 7 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Atom 7</div>
+      <h3 class="step-title">Multitimbral — different sounds on different tracks at once</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 14px;"><strong>Multitimbral</strong> means one instrument can produce multiple completely different sounds simultaneously, each on its own MIDI channel. The Digitone II is 4-track multitimbral — you can have a bass sound on Track 1, a pad on Track 2, a lead on Track 3, and a percussion sound on Track 4, all playing at the same time from one box.</p>
+    <div class="sub-block">
+      <div class="sub-label">How it works on the Digitone II</div>
+      <ol>
+        <li>Each of the 4 tracks on the Digitone II has its own FM synthesis engine, its own filter, its own effects, and its own MIDI channel.</li>
+        <li>From Live, send MIDI to the Digitone II on four different MIDI channels. Each channel controls one track independently.</li>
+        <li>The Digitone II's voices are shared across all four tracks by default — if Track 1 uses 4 voices, only 4 remain for Tracks 2–4. You can reserve voices per track in the settings to prevent stealing across tracks.</li>
+        <li>This is the most efficient use of the instrument: instead of four separate synths, you get four independent voices from one unit.</li>
+      </ol>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Why this matters for the workshop</div>
+      <ol>
+        <li>In Blocks 1–4 you build sounds one at a time. The Digitone II lets you build a small multi-voice system in one instrument — bass, harmony, and texture without adding more hardware.</li>
+        <li><a href="../block-8/index.html">Block 8 (Synthesis &amp; Voice)</a> goes deeper into FM synthesis specifically, which is the Digitone II's engine. The multitimbral architecture you set up here is the foundation for that block.</li>
+      </ol>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Prove it</div>
+      <p>Set up the Digitone II with two different sounds on two different tracks, each receiving MIDI from Live on separate channels. Play a bass note on Track 1 and a chord on Track 2 at the same time. If both sounds play independently, the multitimbral setup is working.</p>
+    </div>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Software-first approach.</strong> If the Digitone II has not arrived, do all seven atoms in Live. Use <strong>Analog</strong> (set Voice count to 8, filter in polyphonic mode) for Atoms 1–6. Use multiple Instrument Racks on separate MIDI tracks for Atom 7's multitimbral simulation. The concepts transfer directly — the only thing that changes is the physical interface.</li>
+      <li><strong>Useful reading.</strong> Elektron's Digitone II manual section on voice allocation (PDF, available at elektron.se) explains the voice reservation system in detail. Ableton's "Polyphony and MIDI" help article covers voice count settings in all Live instruments.</li>
+    </ul>
+  </div>
+
+  <h2>Proof gate</h2>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">You pass this primer when you can…</div>
+    </div>
+    <ul>
+      <li><strong>Build the same harmonic idea three ways:</strong>
+        <ol>
+          <li>Mono or paraphonic on the MicroFreak — one note or a paraphonic chord through a shared filter.</li>
+          <li>Software polyphonic in Live — the same chord with per-voice independent filters.</li>
+          <li>On the Digitone II — the same chord using true polyphony.</li>
+        </ol>
+      </li>
+      <li><strong>Compare voice allocation:</strong> for each version, note how many voices are in use and what happens when you exceed the limit.</li>
+      <li><strong>Compare filter behaviour:</strong> sweep the filter on all three versions. Describe in one sentence what is different about each one and why.</li>
+      <li><strong>Compare mix space:</strong> layer all three versions in Live and listen. Which takes up the most space? Which sits most cleanly with a bass line underneath? Write down one mixing decision the comparison suggests.</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">What you carry into the workshop</div>
+    <p>You now understand voice architecture — what a voice is, how allocation and stealing work, why a paraphonic chord sounds different from a true poly one, and how to create internal movement. <a href="../block-8/index.html">Block 8 (Synthesis &amp; Voice)</a> builds on this with FM synthesis in depth, and the Harmony primer (Block 00) connects chord voicing to harmonic practice. Both assume this primer is done.</p>
+  </div>
+
+  <div class="tag-row">
+    <span class="tag">polyphony</span><span class="tag">voice allocation</span><span class="tag">voice stealing</span><span class="tag">paraphonic</span><span class="tag">unison</span><span class="tag">chord voicing</span><span class="tag">multitimbral</span><span class="tag">Digitone II</span>
+  </div>
+
+  <div class="page-nav">
+    <a href="arrangement.html">
+      <span class="page-nav-direction">Previous</span>
+      ← Arrangement from Scratch
+    </a>
+    <a href="../block-1/index.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      01 / The Bench →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Block 00 · Polyphony as a System</div>
+
+</div>
+
+</body>
+</html>
