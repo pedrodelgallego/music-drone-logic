@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Analog Poly Synth</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page-type-reference" id="top">
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
+  <a href="../block-00/index.html"><span class="nav-num">F0</span>Foundations</a>
+  <a href="../block-0/index.html"><span class="nav-num">B0</span>The Rig</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html" class="active"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="../references.html">References</a><span class="breadcrumb-sep">/</span><span>Hardware</span><span class="breadcrumb-sep">/</span><span>Analog Poly Synth</span></nav>
+
+  <header class="page-header">
+    <div class="eyebrow">Hardware expansion</div>
+    <h1>Analog Poly Synth</h1>
+    <p class="lede">A polyphonic synthesiser with analog signal circuits — each voice is a separate analog path through oscillators and a filter. Your free substitute is Live's Wavetable or Operator, both fully polyphonic. Only pursue this after a software polyphony lab proves you have a recurring harmonic need the software can't solve.</p>
+  </header>
+
+  <div class="callout">
+    <div class="callout-label">Optional — gated</div>
+    <p>You do not own this gear yet. Work through <a href="../block-00/polyphony.html">Block 00 / Polyphony primer</a> using Wavetable or Operator first. Return here only after that lab is complete and after this purchase passes the <a href="../gear-purchase-gate.html">Gear Purchase Gate</a>. Do not buy for texture or aesthetics alone — buy when software polyphony has proven a named limitation over multiple real projects.</p>
+  </div>
+
+  <h2>Oscillator types in practice</h2>
+
+  <p>Analog poly synths use one of three oscillator designs. The difference matters more for maintenance and tuning stability than for sound quality — all three can sound excellent.</p>
+
+  <table class="param-table">
+    <tr>
+      <td><strong>VCO (voltage-controlled oscillator)</strong></td>
+      <td>A true analog circuit. Pitch is set by a control voltage. VCOs drift with temperature — especially in the first 15–20 minutes after power-on. You need to let the synth warm up and then retune before recording. Each voice may drift slightly differently, giving a small natural chorus. Managing this is part of the workflow, not a fault.</td>
+    </tr>
+    <tr>
+      <td><strong>DCO (digitally-controlled oscillator)</strong></td>
+      <td>An analog oscillator whose pitch is locked by a digital clock. Much more stable than a VCO — minimal warm-up drift, voices stay close to each other. The rest of the signal path (filter, VCA, envelope) can still be fully analog. Most "analog poly" synths from the 1980s onward use DCOs. Stable tuning makes them easier to use in a recording context.</td>
+    </tr>
+    <tr>
+      <td><strong>Digital oscillator with analog filter</strong></td>
+      <td>The oscillator is a digital algorithm; the filter is analog. Perfectly stable, zero drift. Still produces the filter character people associate with analog synths. Many modern instruments take this approach. If you are buying for harmonic work and not for drift texture, this is the lowest-maintenance option.</td>
+    </tr>
+  </table>
+
+  <h2>Core concepts</h2>
+
+  <table class="param-table">
+    <tr>
+      <td><strong>Tuning &amp; warm-up</strong></td>
+      <td>For VCO instruments: power on, wait 15 minutes, run the onboard autotune function. Do this before every session. For DCO or digital-oscillator instruments: run autotune once after power-on. Check that all voices track the same pitch by playing a chord slowly and listening for beating between voices — any audible wavering means one voice is slightly out.</td>
+    </tr>
+    <tr>
+      <td><strong>Filter self-oscillation &amp; calibration</strong></td>
+      <td>When resonance (the filter's feedback amount) is turned very high, the filter starts generating its own pitch — it rings like a sine wave. This is called self-oscillation. At moderate resonance the filter adds character; at maximum it becomes a pitched sound in its own right. On a polyphonic instrument, each filter voice needs to be calibrated to self-oscillate at the same pitch. This is a factory or service step, not a user tuning — but knowing it exists helps you understand why two voices of the same patch can sound slightly different.</td>
+    </tr>
+    <tr>
+      <td><strong>Shared filter vs filter-per-voice</strong></td>
+      <td>Some poly synths run all voices through a single filter (a paraphonic design — the voices share signal processing). Others give each voice its own filter. A shared filter is simpler and cheaper; filter-per-voice is more expensive but lets each note have an independent envelope and brightness. Paraphonic designs create a characteristic "choked" sound when multiple notes are held, because the filter envelope only opens once for the whole chord.</td>
+    </tr>
+    <tr>
+      <td><strong>Voice allocation</strong></td>
+      <td>When you play more notes than the synth has voices, it must steal a voice — drop one note to play the new one. Which note it drops depends on the voice-stealing mode: oldest (steal the note held longest), lowest-priority (steal the quietest), or rotate (cycle through voices in order). The mode changes how chords behave under pressure. Rotate is usually the most even-sounding for pads; oldest-note stealing works well for melodic lines.</td>
+    </tr>
+    <tr>
+      <td><strong>Chord voicing, register, and mud</strong></td>
+      <td>Analog filters add harmonic content (overtones) to whatever goes through them. In the low register, dense chords create a buildup of overlapping overtones that makes the mix sound thick and undefined — this is called mud. The fix is the same as in orchestration: spread voicings wider in the low register, keep dense chords higher up. A pad that sounds warm at middle C often sounds muddy an octave lower. Check every patch across its register range.</td>
+    </tr>
+    <tr>
+      <td><strong>Pads as systems</strong></td>
+      <td>A pad is not a single sound — it is a combination of movement (an LFO or envelope slowly changing a filter or pitch), width (voices slightly detuned or panned differently), and an arrangement role (does it sit under everything, or does it move through the mix?). Before buying, define which of these your software substitute cannot do. Most can be achieved in Wavetable with a few modulation assignments.</td>
+    </tr>
+    <tr>
+      <td><strong>Patch memory &amp; recall</strong></td>
+      <td>Digital and hybrid instruments save patches as numbers — recall is perfect. Many VCO instruments have no patch memory at all, or save only the digital parameters and not the analog trims. "Recall" on a fully analog instrument means a photo of the panel, written notes, and careful re-patching. This is not a flaw — it is a different workflow. Know which type you are buying and plan your documentation accordingly.</td>
+    </tr>
+  </table>
+
+  <h2>Proof gate</h2>
+
+  <p>Build the same harmonic idea in both environments and compare them honestly before committing to a purchase.</p>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-body">Complete <a href="../block-00/polyphony.html">Block 00 / Polyphony primer</a>. Build a four-voice pad in Wavetable or Operator: a static chord with slow filter movement and slight voice detuning. Export a 60-second audio file.</div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-body">On the analog poly, program the same chord voicing and a similar filter sweep. Record a 60-second take through the MOTU M4 at −12 dBFS peak. Let the synth warm up fully before recording.</div>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-body">Import both files into the same Live set. Compare: voice allocation (does the hardware handle note stealing differently?), filter behaviour (does the analog filter open and close in a way Wavetable does not?), mix space (does one sit more naturally without EQ?), and recall (can you reload the software patch exactly — can you reload the hardware patch exactly?).</div>
+  </div>
+  <div class="step">
+    <div class="step-num">4</div>
+    <div class="step-body">Write one sentence naming the specific gap the analog instrument fills that Wavetable does not. If you cannot write that sentence, the purchase has not passed the gate.</div>
+  </div>
+
+  <p style="color: var(--text-muted); font-size: 14.5px; margin-top: 18px;">The gate passes when step 4 produces a clear, honest answer — not "it sounds warmer" but something specific: "the per-voice filter envelopes create a stagger on chord attacks that I could not replicate without separate plugin instances per voice."</p>
+
+  <p style="text-align: center; color: var(--text-muted); margin: 30px auto 0; font-size: 14.5px;">See also <a href="../gear-purchase-gate.html">Gear purchase gate</a> · <a href="../block-00/polyphony.html">Polyphony primer</a> · <a href="../references.html">References</a> · <a href="#top">top ↑</a></p>
+
+  <div class="page-nav">
+    <a href="recorder.html">
+      <span class="page-nav-direction">Previous</span>
+      ← Standalone hardware recorder
+    </a>
+    <a href="../coverage.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      Coverage &amp; gaps →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Analog Poly Synth</div>
+
+</div>
+
+</body>
+</html>

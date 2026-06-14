@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digitakt Project Hygiene &amp; Performance Patterns</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-type-reference" id="top">
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
+  <a href="block-00/index.html"><span class="nav-num">F0</span>Foundations</a>
+  <a href="block-0/index.html"><span class="nav-num">B0</span>The Rig</a>
+  <a href="block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="references.html" class="active"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="references.html">References</a><span class="breadcrumb-sep">/</span><span>Digitakt Project Hygiene &amp; Performance Patterns</span></nav>
+
+  <header class="page-header">
+    <div class="eyebrow">References</div>
+    <h1>Digitakt Project Hygiene &amp; Performance Patterns</h1>
+    <p class="lede">The Digitakt II holds a lot of state — projects, patterns, kits, and a sample pool — and it is easy to lose track of what is saved where. This page covers the basic structure, how to keep it organised, and how to use mutes and fills to design a live set section by section.</p>
+  </header>
+
+  <div class="callout">
+    <div class="callout-label">Why hygiene matters</div>
+    <p>If you do not know what is saved in which pattern, you will reach for something during a performance and find a different sound or an empty slot. Good project hygiene means every pattern has a purpose, every sample has a home, and every state can be recovered after a power cycle.</p>
+  </div>
+
+  <h2>Project structure — what lives where</h2>
+
+  <p>The Digitakt II stores its state in a hierarchy. Understanding this hierarchy is the foundation of good hygiene.</p>
+
+  <table class="param-table">
+    <tr><td><strong>Project</strong></td><td>The top-level container. One project holds up to 16 banks of 16 patterns (256 patterns total), its own sample pool (the samples loaded into RAM for that project), and all kits. When you switch projects, everything changes — patterns, kits, and loaded samples.</td></tr>
+    <tr><td><strong>Pattern bank</strong></td><td>A group of 16 patterns, labelled A–P. Each bank is a section of your live set or a stage of development. A common split: Bank A = intro patterns, Bank B = main loops, Bank C = variations and breakdowns.</td></tr>
+    <tr><td><strong>Pattern</strong></td><td>One sequence of up to 64 steps across eight tracks. Each pattern has its own tempo, length, and swing. A pattern also stores which kit it is linked to (or you can use pattern-level parameter locks on top of the kit).</td></tr>
+    <tr><td><strong>Kit</strong></td><td>A snapshot of all eight tracks' sound settings — which sample is loaded on each track, and all the synthesis and effect parameters for each. A kit can be shared across multiple patterns or unique to one. Changing a kit affects every pattern that uses it, unless you save a new kit first.</td></tr>
+    <tr><td><strong>Sample pool</strong></td><td>The samples the project has loaded into RAM from the +Drive (internal storage). The pool can hold up to 128 MB of audio. Loading a sample into the pool does not use it — you still assign it to a track manually.</td></tr>
+    <tr><td><strong>+Drive</strong></td><td>The Digitakt's internal storage — up to 1 GB of samples and 128 project slots. Samples on the +Drive are not in RAM until you load them into a project's sample pool. Projects are backed up to and restored from the +Drive.</td></tr>
+  </table>
+
+  <h2>Kit and sample-pool discipline</h2>
+
+  <p>The most common Digitakt mistake is editing a kit without saving it first — your changes overwrite the shared kit and change every pattern that uses it. Follow these rules.</p>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Save a kit before you edit it.</strong> Press <kbd>FUNC</kbd> + <kbd>SAVE/RELOAD</kbd> → <span class="menu">Save Kit</span>. Give it a name that describes the sound (e.g. <span class="code">KICK-A-TIGHT</span> or <span class="code">PAD-OPEN</span>). Now your edits go into the new kit and the old one is untouched.</li>
+      <li><strong>Give each pattern its own kit if the sounds differ.</strong> Patterns that share a kit will always change together. If you want a variation to sound different, it needs its own kit.</li>
+      <li><strong>Name your samples when you load them.</strong> The +Drive shows file names. Short, descriptive names (e.g. <span class="code">CLAP-DRY</span>, <span class="code">SUB-808</span>) make it possible to navigate quickly under pressure.</li>
+      <li><strong>Keep the sample pool trim.</strong> Only load what the project actually uses. A bloated pool makes scrolling slow and makes it harder to see what matters.</li>
+    </ul>
+  </div>
+
+  <h2>Mutes and fills as performance design</h2>
+
+  <p><strong>Mutes</strong> silence one or more tracks without stopping the pattern. They are the primary performance tool on the Digitakt — hold a track button and press <kbd>MUTE</kbd>, or set up mute states in advance. Design your patterns so muting one or two tracks creates a distinct section feel.</p>
+
+  <p><strong>Fills</strong> (also called Fill mode or Trig Conditions with fill) play a set of steps only when you hold the <kbd>YES</kbd> button. Use fills for one-bar variations that drop in when you choose — a snare roll, a cymbal crash, a melodic accent. They are pre-composed but performer-triggered.</p>
+
+  <table class="param-table">
+    <tr><td><strong>Mute for drama</strong></td><td>Drop the kick and bass together for a breakdown. Bring them back for impact. Design every pattern so muting the low tracks gives you a breakdown without changing patterns.</td></tr>
+    <tr><td><strong>Mute for texture</strong></td><td>Remove one melodic track to thin the texture. Restore it gradually or all at once. The same pattern sounds different depending on which tracks are active.</td></tr>
+    <tr><td><strong>Fill for punctuation</strong></td><td>Program a fill on a percussion track that only fires when you hold <kbd>YES</kbd>. Hold it for the last bar of a section as a signal to the listener that something is about to change.</td></tr>
+    <tr><td><strong>Fill for transition</strong></td><td>Use a fill that plays a short melody or noise burst. Trigger it as you switch patterns so the transition has a musical event rather than an abrupt cut.</td></tr>
+  </table>
+
+  <h2>Backups and exports</h2>
+
+  <p>The Digitakt can lose power. Kits can be overwritten by accident. Back up regularly.</p>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-body">
+      <strong>Save the project to +Drive.</strong> Press <kbd>FUNC</kbd> + <kbd>SAVE/RELOAD</kbd> → <span class="menu">Save Project</span>. The project writes to the +Drive slot. Do this after every session.
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-body">
+      <strong>Back up to a computer using Elektron Transfer.</strong> Open Elektron Transfer on your Mac. Connect the Digitakt via USB. Use the <span class="menu">Backup</span> function to export the full project as a <span class="code">.dtprj</span> file. Store this on your computer after each significant session.
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-body">
+      <strong>Export samples if you created new ones.</strong> If you resampled audio into the Digitakt during a session, export those audio files via Elektron Transfer → <span class="menu">Sample Manager</span> before the next session. Resampled audio lives in the +Drive but is not automatically backed up to your computer.
+    </div>
+  </div>
+
+  <h2>Moving from one pattern to a live-set section</h2>
+
+  <p>A pattern is one loop. A live-set section is a stretch of time — intro, build, peak, breakdown, recovery. Here is how to map patterns to sections.</p>
+
+  <table class="param-table">
+    <tr><td><strong>One bank per section</strong></td><td>Bank A = intro patterns (sparse, minimal). Bank B = main body (full groove). Bank C = variations (different mute states, subtle changes). Bank D = breakdown and recovery. This makes it easy to navigate with the bank buttons during a performance.</td></tr>
+    <tr><td><strong>Pattern chaining</strong></td><td>The Digitakt can chain patterns to play in sequence automatically. Set the pattern length and chain them in <span class="menu">Pattern → Pattern Settings → Pattern Chain</span>. Use chaining for a section that needs several loops in fixed order — for example, an intro that runs 4 bars of A1, then 8 bars of A2.</td></tr>
+    <tr><td><strong>Manual switching</strong></td><td>For live performance, switch patterns manually by pressing the pattern buttons. The Digitakt queues the next pattern and switches at the end of the current loop. No gap, no click.</td></tr>
+  </table>
+
+  <h2>Documenting Digitakt state in the print map</h2>
+
+  <p>Your print map (the document that describes your live set) must include the Digitakt state. Write down what lives where so you can reconstruct the set after a gap or recover from a crash.</p>
+
+  <table>
+    <thead><tr><th>What to document</th><th>Where to write it</th></tr></thead>
+    <tbody>
+      <tr><td>Project name and +Drive slot number</td><td>Top of your print map</td></tr>
+      <tr><td>Which bank maps to which section of the set</td><td>Section map in your print map</td></tr>
+      <tr><td>Which kit each pattern uses</td><td>Per-pattern notes or a table</td></tr>
+      <tr><td>Which samples are in the pool and which tracks use them</td><td>Per-track column in your print map</td></tr>
+      <tr><td>Mute states for each section (which tracks are muted)</td><td>Per-section column or colour-coded grid</td></tr>
+      <tr><td>Fill assignments (which track, what it plays)</td><td>Per-pattern notes</td></tr>
+    </tbody>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Project memory</strong> (what is saved in the project file): all patterns, all kits, all parameter locks, all mute states, the sample pool list, and the project tempo and settings.</li>
+      <li><strong>Kit memory</strong> (what is saved in a kit): the sound settings for all eight tracks — sample assignment, filter, amplitude, effects, and MIDI settings.</li>
+      <li><strong>Pattern memory</strong> (what is in a pattern): the step sequence, trig conditions, parameter locks, pattern length, and which kit the pattern is linked to.</li>
+      <li><strong>Not saved automatically</strong>: changes to a kit are in RAM until you explicitly save the kit. If you power off without saving, those edits are lost.</li>
+    </ul>
+  </div>
+
+  <h2>Proof gate</h2>
+
+  <p>You pass this reference when you have built the small bank described below, backed it up, and documented its state.</p>
+
+  <div class="checklist">
+    <label><input type="checkbox"> Intro pattern — sparse, one or two tracks active, named <span class="code">A01-INTRO</span> (or your own naming convention). Has its own saved kit.</label>
+    <label><input type="checkbox"> Main pattern — full groove, all tracks active, named <span class="code">B01-MAIN</span>. Has its own saved kit.</label>
+    <label><input type="checkbox"> Variation pattern — same groove with at least one mute state or parameter lock change, named <span class="code">B02-VAR</span>.</label>
+    <label><input type="checkbox"> Breakdown pattern — minimal, tension-building, named <span class="code">C01-DOWN</span>.</label>
+    <label><input type="checkbox"> Recovery pattern — return to energy, named <span class="code">C02-RECOV</span>.</label>
+    <label><input type="checkbox"> Project saved to +Drive and exported as a backup file to computer via Elektron Transfer.</label>
+    <label><input type="checkbox"> Print map updated: project name, bank/section map, kit list, sample pool contents, mute states for each pattern.</label>
+  </div>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Recovery test</div>
+    <p>After completing the proof gate, power cycle the Digitakt. Reload the project from +Drive. Confirm all five patterns play correctly and all kit sounds are as expected. If anything is missing, you have found a gap in your save workflow — fix it now, not during a performance.</p>
+  </div>
+
+  <p style="text-align: center; color: var(--text-muted); margin: 30px auto 0; font-size: 14.5px;">See also <a href="cc-mapping.html">CC-Mapping Lab</a> · <a href="controller-map.html">Performance Controller Map</a> · <a href="coverage.html">Coverage &amp; gaps</a> · <a href="references.html">References</a> · <a href="#top">top ↑</a></p>
+
+  <div class="page-nav">
+    <a href="cc-mapping.html">
+      <span class="page-nav-direction">Previous</span>
+      ← CC-Mapping Lab
+    </a>
+    <a href="coverage.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      Coverage &amp; gaps →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Digitakt Project Hygiene &amp; Performance Patterns</div>
+
+</div>
+
+</body>
+</html>

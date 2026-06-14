@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CC-Mapping Lab</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-type-reference" id="top">
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
+  <a href="block-00/index.html"><span class="nav-num">F0</span>Foundations</a>
+  <a href="block-0/index.html"><span class="nav-num">B0</span>The Rig</a>
+  <a href="block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="references.html" class="active"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="references.html">References</a><span class="breadcrumb-sep">/</span><span>CC-Mapping Lab</span></nav>
+
+  <header class="page-header">
+    <div class="eyebrow">References</div>
+    <h1>CC-Mapping Lab</h1>
+    <p class="lede">A MIDI CC is a numbered control message your controller sends when you move a knob or push a pad. This lab walks you through mapping one control end-to-end — to a Live Macro, to the MicroFreak, and to the Digitakt II — and proves that the movement records and recalls correctly.</p>
+  </header>
+
+  <div class="callout">
+    <div class="callout-label">What is a MIDI CC?</div>
+    <p>CC stands for <strong>Control Change</strong>. It is a MIDI message with two numbers: a CC number (0–127, which identifies the control) and a value (also 0–127, which says how far you turned the knob). Your controller sends these messages over a MIDI channel (1–16). The receiving device uses the CC number to know which of its parameters to move.</p>
+  </div>
+
+  <h2>The three targets</h2>
+
+  <p>You can send a CC message to three different places in your rig. The mapping method is different for each.</p>
+
+  <table class="param-table">
+    <tr><td><strong>Live Macro</strong></td><td>Mapped inside Live using MIDI Map mode (<kbd>⌘ M</kbd>). Live intercepts the CC and applies it to the Macro. The movement is recorded as automation inside Live's session or arrangement. Everything stays in the computer.</td></tr>
+    <tr><td><strong>MicroFreak parameter</strong></td><td>The MicroFreak responds to MIDI CC on whatever channel you set in its MIDI settings. The controller sends the CC directly — Live can pass it through, or you can connect the controller to the MicroFreak without going through Live at all. Check the MicroFreak's MIDI CC table in its manual to find which CC number controls which parameter.</td></tr>
+    <tr><td><strong>Digitakt II performance move</strong></td><td>The Digitakt II can receive MIDI CC to control its track levels, mutes, and some performance parameters. Send CC on the Digitakt's auto-channel or a specific track channel. Check the Digitakt II MIDI CC table for the correct numbers.</td></tr>
+  </table>
+
+  <h2>Mapping to a Live Macro</h2>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-body">
+      <strong>Create a Rack if you do not have one.</strong> Select a device in Live. Right-click → <span class="menu">Group into Instrument Rack</span> or <span class="menu">Group into Audio Effect Rack</span>. Eight Macro knobs appear.
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-body">
+      <strong>Assign a device parameter to Macro 1.</strong> Right-click any knob inside the Rack → <span class="menu">Map to Macro 1</span>. Set a min and max range in the Macro map panel so the full knob throw maps to a useful range.
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-body">
+      <strong>Enter MIDI Map mode.</strong> Press <kbd>⌘ M</kbd>. The interface turns blue.
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">4</div>
+    <div class="step-body">
+      <strong>Click Macro 1, then move your controller knob.</strong> Live shows the CC number and channel it detected. Press <kbd>⌘ M</kbd> again to exit. The Macro is now mapped.
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">5</div>
+    <div class="step-body">
+      <strong>Test it.</strong> Move the physical knob. The Macro should respond in real time.
+    </div>
+  </div>
+
+  <h2>Mapping to the MicroFreak via MIDI</h2>
+
+  <p>The MicroFreak receives MIDI from an external source. Your controller sends CC directly to it — Live can be in the middle as a pass-through, or you can use a separate MIDI cable or USB connection.</p>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-body">
+      <strong>Find the CC number for the parameter you want.</strong> Open the MicroFreak manual and look at the MIDI CC implementation chart. For example, Cutoff is typically CC 74.
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-body">
+      <strong>Set your controller knob to send that CC number on the MicroFreak's MIDI channel.</strong> In your controller's editor software or the Launchpad's Custom mode, assign the CC number and channel to the knob. The default MIDI channel on the MicroFreak is channel 1 — confirm this in <span class="menu">MicroFreak → Utility → MIDI Channel</span>.
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-body">
+      <strong>Route MIDI from your controller to the MicroFreak.</strong> If going through Live, enable the controller's MIDI output in <span class="menu">Live → Preferences → Link / Tempo / MIDI</span>. Create a MIDI track, set its output to the MicroFreak, and arm it. Or connect the controller directly to the MicroFreak's MIDI in (bypassing Live).
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">4</div>
+    <div class="step-body">
+      <strong>Test it.</strong> Move the knob. The MicroFreak's parameter should change. You should hear a change in the sound.
+    </div>
+  </div>
+
+  <h2>Mapping to the Digitakt II</h2>
+
+  <p>The Digitakt II responds to MIDI CC on its auto-channel (which controls the currently selected track) or on individual track channels. Check the Digitakt II manual's MIDI CC implementation table for the exact CC numbers for track level, mute, and performance parameters.</p>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-body">
+      <strong>Find the CC number.</strong> The Digitakt II manual lists which CC numbers control which parameters. CC 7 is usually volume; performance moves like filter cutoff are on other numbers per track.
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-body">
+      <strong>Set your controller to send that CC on the Digitakt's auto-channel.</strong> The auto-channel follows whichever track is selected. This is the most flexible option for live control.
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-body">
+      <strong>Route MIDI to the Digitakt.</strong> Connect the Digitakt's MIDI in to your interface. In Live, enable the Digitakt as a MIDI output in Preferences. On a MIDI track, set the output to the Digitakt and the channel to the auto-channel.
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">4</div>
+    <div class="step-body">
+      <strong>Test it.</strong> Select a Digitakt track. Move the controller knob. You should hear or see the Digitakt respond.
+    </div>
+  </div>
+
+  <h2>Mapping in Live vs sending CC to hardware — the key difference</h2>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Mapping in Live</strong> means Live intercepts the CC and applies it to a software parameter. The movement can be recorded as automation in your Live Set. When you recall the Set, the automation replays automatically. Nothing is sent to hardware unless you explicitly route it.</li>
+      <li><strong>Sending CC to hardware</strong> means the CC message travels out of your computer to a physical device (MicroFreak, Digitakt). The hardware responds in real time, but Live does not automatically record what you did. To record hardware CC movements, you need a MIDI track set to record the input, or you record the audio output of the hardware instead.</li>
+    </ul>
+  </div>
+
+  <h2>Proving recordability and recall</h2>
+
+  <p>A mapping is only useful in a live set if it records and recalls. Here is how to prove it.</p>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-body">
+      <strong>Map a control to a Live Macro</strong> (see above). This is the easiest target to prove recall, because automation lives inside the Live Set file.
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-body">
+      <strong>Arm automation recording.</strong> Click the Automation Arm button (red circle with A) in Live's toolbar. Make sure you are recording into Arrangement view or a clip envelope.
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-body">
+      <strong>Play and move the control.</strong> Start playback. Sweep the knob several times over a minute or so. Stop.
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">4</div>
+    <div class="step-body">
+      <strong>Check the automation lane.</strong> Open the Arrangement view. Press <kbd>A</kbd> to show automation. Select your Macro in the automation lane selector. You should see a line that follows your knob movements.
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">5</div>
+    <div class="step-body">
+      <strong>Save the Set. Close Live. Reopen it.</strong>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">6</div>
+    <div class="step-body">
+      <strong>Play back the arrangement.</strong> The Macro should move by itself, following the automation you recorded. If it does, the mapping recalls correctly.
+    </div>
+  </div>
+
+  <h2>Proof gate</h2>
+
+  <p>You pass this lab when you can answer yes to all four checks.</p>
+
+  <div class="checklist">
+    <label><input type="checkbox"> Mapped one physical knob to a Live Macro. The Macro responds when you move the knob.</label>
+    <label><input type="checkbox"> Mapped a control to one MicroFreak parameter. Moving the control changes a sound parameter on the synth in real time.</label>
+    <label><input type="checkbox"> Mapped a control to one Digitakt II performance parameter (track level, mute, or filter). Moving the control changes the Digitakt's behaviour.</label>
+    <label><input type="checkbox"> Recorded a Live Macro movement as automation. Closed and reopened the Live Set. The automation replayed correctly — the Macro moved on its own.</label>
+  </div>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Key facts to write down</div>
+    <p>For each mapping you make: the CC number, the MIDI channel, the physical control, and the parameter it moves. You will forget these. A single table in your notes prevents confusion during a performance.</p>
+  </div>
+
+  <p style="text-align: center; color: var(--text-muted); margin: 30px auto 0; font-size: 14.5px;">See also <a href="controller-map.html">Performance Controller Map</a> · <a href="digitakt-hygiene.html">Digitakt Hygiene</a> · <a href="references.html">References</a> · <a href="#top">top ↑</a></p>
+
+  <div class="page-nav">
+    <a href="controller-map.html">
+      <span class="page-nav-direction">Previous</span>
+      ← Performance Controller Map
+    </a>
+    <a href="digitakt-hygiene.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      Digitakt Hygiene →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — CC-Mapping Lab</div>
+
+</div>
+
+</body>
+</html>

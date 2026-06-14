@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>External &amp; Performance Mixer</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page-type-reference" id="top">
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
+  <a href="../block-00/index.html"><span class="nav-num">F0</span>Foundations</a>
+  <a href="../block-0/index.html"><span class="nav-num">B0</span>The Rig</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html" class="active"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="../references.html">References</a><span class="breadcrumb-sep">/</span><span>Hardware / External Mixer</span></nav>
+
+  <header class="page-header">
+    <div class="eyebrow">Hardware Expansion — Optional &amp; Gated</div>
+    <h1>External &amp; Performance Mixer</h1>
+    <p class="lede">A hardware mixer lets you mute, blend, and route sources with your hands while the session plays — and it makes no-input feedback a real instrument. But input count or cueing must actually be a bottleneck first. This page stays locked until the gate passes.</p>
+  </header>
+
+  <div class="callout">
+    <div class="callout-label">Optional — gated</div>
+    <p>You do not own this gear yet. The free substitute is <strong>Live's mixer and a VCV Rack feedback loop</strong> — use them until hands-on sends, physical cueing, or a no-input practice prove themselves as real needs. Buy only after this gear passes the <a href="../gear-purchase-gate.html">Gear Purchase Gate</a>. Come back to this page then.</p>
+  </div>
+
+  <h2>When and why</h2>
+
+  <p>A hardware mixer earns its place when you run out of M4 inputs, when you need to cue a source in headphones without sending it to the main out, or when you want to perform mutes and sends live without touching a mouse. It also unlocks no-input feedback as a standalone instrument — something Live's mixer cannot do safely without extra routing.</p>
+
+  <h2>Key concepts</h2>
+
+  <h3>Channel gain vs fader</h3>
+
+  <p>The <strong>channel gain</strong> (sometimes called "trim") is the first knob a signal hits. Set it so the meter reaches around −12 dBFS on the loudest moments. The <strong>fader</strong> then controls the level you send to the mix — think of gain as "set it once" and the fader as "ride it live." Never use the fader to correct a gain problem; fix the gain first.</p>
+
+  <h3>Aux sends and returns</h3>
+
+  <p>An <strong>aux send</strong> takes a copy of a channel and routes it somewhere else — a reverb unit, a delay, a monitor speaker. The send level is separate from the channel fader. The processed signal comes back on an <strong>aux return</strong> (or a spare channel). This lets you share one effects unit across many channels and control the wet amount per source.</p>
+
+  <h3>Inserts</h3>
+
+  <p>An <strong>insert</strong> breaks the channel's signal path: the signal goes out to a processor and comes back before the fader. Use it for compression or EQ that should affect only that channel. Unlike a send, the full signal passes through the processor — there is no dry/wet blend at the mixer level.</p>
+
+  <h3>Subgroups</h3>
+
+  <p>A <strong>subgroup</strong> collects several channels under one fader. Assign all percussion channels to a subgroup and you can ride them together without touching each fader. Useful when you have more sources than hands.</p>
+
+  <h3>Cue / headphone bus</h3>
+
+  <p>The <strong>cue bus</strong> sends signals to the headphone output independently from the main out. You can listen to a channel before it goes live — for checking levels, rehearsing a transition, or monitoring a return without the audience hearing it.</p>
+
+  <h3>Main out vs record out</h3>
+
+  <p>The <strong>main out</strong> drives your monitors (and venue PA). The <strong>record out</strong> (or a post-fader direct out) feeds the M4 for archiving. Keep them separate so monitor level changes do not affect the recording level.</p>
+
+  <h3>Performance mutes</h3>
+
+  <p>The fastest mix move is a mute button. Map sources to mutes before the session so you know exactly what each button does. Practice the order you will hit them — a missed mute during a live set is permanent.</p>
+
+  <h2>No-input mixer (feedback as instrument)</h2>
+
+  <p>A <strong>no-input mixer</strong> technique — developed by Toshimaru Nakamura and explored in Block 7 Lab 029 — routes the mixer's own outputs back into its inputs, creating feedback loops that become an instrument in themselves. The mixer is the instrument; there are no external sources.</p>
+
+  <p>The signal chain: send output → channel input, possibly through EQ and aux sends to shape the feedback character. Small fader and EQ changes cause large tonal shifts. The result is unpredictable and changes in real time.</p>
+
+  <p>Always prepare a <strong>panic path</strong>: a dedicated mute or VCA that can cut all output instantly. Set this up before any feedback session and know where it is without looking.</p>
+
+  <h2>Proof gate</h2>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Before using this gear in a session</div>
+    <p>Route the MicroFreak, Digitakt II, a Live return channel, and one send effect through the mixer. Record a main mix via the record out into the M4. When the print is done, explain — in one sentence per item — what cannot be changed after that print without re-recording. Then demonstrate: perform live mutes, ride at least one send, cue a source in headphones without it appearing in the main out, and execute a panic mute. You are done when the print exists, the explanation is written, and each move was performed cleanly.</p>
+  </div>
+
+  <p style="text-align: center; color: var(--text-muted); margin: 30px auto 0; font-size: 14.5px;">Locked until the <a href="../gear-purchase-gate.html">Gear Purchase Gate</a> passes · <a href="../references.html">References</a> · <a href="../index.html">Overview</a> · <a href="#top">top ↑</a></p>
+
+  <div class="page-nav">
+    <a href="modular.html">
+      <span class="page-nav-direction">Previous</span>
+      ← Hardware Modular &amp; 0-Coast
+    </a>
+    <a href="pedals.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      First Pedal / Hardware FX →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — External &amp; Performance Mixer</div>
+
+</div>
+
+</body>
+</html>

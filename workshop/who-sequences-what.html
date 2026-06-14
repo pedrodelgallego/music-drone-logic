@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Who Should Sequence What?</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-type-reference" id="top">
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
+  <a href="block-00/index.html"><span class="nav-num">F0</span>Foundations</a>
+  <a href="block-0/index.html"><span class="nav-num">B0</span>The Rig</a>
+  <a href="block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="references.html" class="active"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="references.html">References</a><span class="breadcrumb-sep">/</span><span>Who Should Sequence What?</span></nav>
+
+  <header class="page-header">
+    <div class="eyebrow">References</div>
+    <h1>Who Should Sequence What?</h1>
+    <p class="lede">Your rig has several devices that can control when notes play — the Digitakt II, the MicroFreak's built-in sequencer, the Digitone II, Ableton Live, and the Launchpad Pro MK3. Using more than one at a time without a clear plan causes clock drift (the machines fall out of time with each other) and reset confusion (patterns start in the wrong place). This page gives each role a single home.</p>
+  </header>
+
+  <div class="callout">
+    <div class="callout-label">One clock master — always</div>
+    <p>Exactly one device sends the master clock. Every other device follows it. In this rig, <strong>Ableton Live is the master clock by default</strong>. If you move the master to a hardware box for a standalone performance, you commit to that in writing before the session starts and change it back after. You never have two masters running at the same time. That is the rule that prevents drift.</p>
+  </div>
+
+  <h2>Role-to-sequencer table</h2>
+
+  <p style="text-align: center; color: var(--text-muted); max-width: 640px; margin: 0 auto 18px;">Each musical role has one recommended sequencer. The "why" column explains the specific feature that makes it the best fit — not just preference, but a technical reason.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Role</th>
+        <th>Best sequencer</th>
+        <th>Why</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Drums and percussion</strong></td>
+        <td>Digitakt II</td>
+        <td>The Digitakt II has <strong>p-locks</strong> (a setting saved to one single step, so every hit can have its own pitch, filter, or envelope), <strong>conditional trigs</strong> (a step that only fires sometimes — for example, "play this hi-hat only on the second pass"), and per-track pattern lengths so the kick can run 16 steps while the hi-hat runs 12, creating a slowly shifting groove without any extra work</td>
+      </tr>
+      <tr>
+        <td><strong>Bass line or lead melody</strong></td>
+        <td>MicroFreak sequencer or Digitone II</td>
+        <td>The MicroFreak's sequencer is physically attached to the sound engine, so the melody and the timbre are edited in the same place — fast for sketching one-voice ideas. The Digitone II works well here too if you want p-locks on the melody or need the bass to share patterns with FM drums</td>
+      </tr>
+      <tr>
+        <td><strong>Chords and pads</strong></td>
+        <td>Digitone II or Ableton Live</td>
+        <td>The Digitone II is polyphonic (it can play several notes at once), which the Digitakt II cannot do. Live works equally well and gives you MIDI piano-roll editing for complex chords. Either is fine — choose based on whether the sound is coming from the Digitone II's own engine or from a Live instrument</td>
+      </tr>
+      <tr>
+        <td><strong>Long evolving textures and automation</strong></td>
+        <td>Ableton Live</td>
+        <td>Live's automation lanes can draw a parameter change that takes ten minutes to complete — far longer than any hardware pattern. For anything that needs to move over the span of a whole track, Live is the only practical choice. It is also where you arrange the final piece</td>
+      </tr>
+      <tr>
+        <td><strong>Live clip launch and standalone hardware driving</strong></td>
+        <td>Launchpad Pro MK3</td>
+        <td>The Launchpad Pro MK3 can run its own internal sequences independently of Live (standalone mode) and launch Live clips by touch. Use it when you need hands-on grid control in a performance — it does not add a second clock, because it either follows Live or takes over as the single master</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Before you start a session: the sequencer check</div>
+    <p>For each musical role in your session, write down which sequencer owns it and confirm it is not also owned by a different device. Then confirm: which device is clock master? Is it set correctly in Live's Link/Tempo/MIDI preferences and on the hardware's MIDI clock receive setting? If you cannot answer both questions, stop and set it up before you play a note.</p>
+  </div>
+
+  <h2>Clock and reset rules</h2>
+
+  <p style="text-align: center; color: var(--text-muted); max-width: 640px; margin: 0 auto 18px;">Clock confusion is the most common cause of patterns that feel "almost right but slightly off." These rules prevent it.</p>
+
+  <table class="param-table">
+    <tr><td><strong>One master</strong></td><td>Live sends clock via USB MIDI to the Digitakt II and Digitone II. Both hardware boxes are set to receive external clock (not send it).</td></tr>
+    <tr><td><strong>Press play once</strong></td><td>Start transport in Live. The hardware patterns start because they are receiving a start message from Live. Do not press play on the hardware separately — that causes double-start glitches.</td></tr>
+    <tr><td><strong>Reset from the master</strong></td><td>If patterns fall out of sync, stop transport in Live (which sends a stop message) and restart from Live. Do not try to tap-sync or nudge hardware clocks individually.</td></tr>
+    <tr><td><strong>Standalone exception</strong></td><td>If you perform without a computer, one hardware box (Digitakt II recommended) becomes the clock master and sends clock to the others. Update this in writing in your session notes. Change it back when you reconnect Live.</td></tr>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>The MicroFreak sequencer does not send MIDI clock.</strong> It follows an external clock or runs free. If you are using the MicroFreak sequencer in a synced session, set it to receive clock from Live via the MIDI input on the MicroFreak.</li>
+      <li><strong>Avoid using two sequencers for the same role.</strong> For example, do not run a bass pattern on both the MicroFreak and the Digitone II at the same time unless one is clearly silent. Two sources playing the same role creates phase clashes and makes mixing impossible.</li>
+    </ul>
+  </div>
+
+  <p style="text-align: center; color: var(--text-muted); margin: 30px auto 0; font-size: 14.5px;">See also <a href="drone-pathway.html">Drone Pathway Map</a> · <a href="synthesis-index.html">Synthesis Index</a> · <a href="references.html">References</a> · <a href="#top">top ↑</a></p>
+
+  <div class="page-nav">
+    <a href="drone-pathway.html">
+      <span class="page-nav-direction">Previous</span>
+      ← Drone Pathway Map
+    </a>
+    <a href="synthesis-index.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      Synthesis Index →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Who Should Sequence What?</div>
+
+</div>
+
+</body>
+</html>

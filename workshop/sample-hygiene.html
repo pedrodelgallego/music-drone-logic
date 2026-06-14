@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sample Library &amp; Release Hygiene</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-type-reference" id="top">
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
+  <a href="block-00/index.html"><span class="nav-num">F0</span>Foundations</a>
+  <a href="block-0/index.html"><span class="nav-num">B0</span>The Rig</a>
+  <a href="block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="references.html" class="active"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="references.html">References</a><span class="breadcrumb-sep">/</span><span>Sample Library &amp; Release Hygiene</span></nav>
+
+  <header class="page-header">
+    <div class="eyebrow">References</div>
+    <h1>Sample Library &amp; Release Hygiene</h1>
+    <p class="lede">How to keep your sample library organised, how to know whether a sample is safe to release, and what counts as original material in a portfolio.</p>
+  </header>
+
+  <div class="callout">
+    <div class="callout-label">The stance</div>
+    <p>Every sample in a release candidate needs a clear answer to two questions: where did this come from, and can I release it? If you can't answer both, the track is not ready to release — even if it sounds finished.</p>
+  </div>
+
+  <h2>Sample legality and clearance for released work</h2>
+
+  <p>A <strong>sample</strong> is any recording you did not make yourself. Using one in a released track may require permission from the copyright holder — even if you have heavily processed it.</p>
+
+  <table class="param-table">
+    <tr><td><strong>Original recordings</strong></td><td>You made the recording yourself (field recording, direct instrument capture, printed synthesis). No clearance needed. These are always safe.</td></tr>
+    <tr><td><strong>Sample packs — royalty-free</strong></td><td>Packs labelled "royalty-free" or "no clearance needed" let you use the sounds in released work without payment or permission. Read the licence anyway — some restrict commercial use.</td></tr>
+    <tr><td><strong>Sample packs — all rights reserved</strong></td><td>Some packs are sold for personal/production use only. Using them in a released track may violate the licence. Check before you release.</td></tr>
+    <tr><td><strong>Recorded music (other artists)</strong></td><td>Recording a loop, riff, or any portion of another artist's released track and using it in your own requires a <strong>sample clearance</strong> — written permission from the rights holder. Without it, release is a legal risk regardless of how much you process the sample.</td></tr>
+    <tr><td><strong>Field recordings of people</strong></td><td>Recordings of identifiable voices in public or private spaces may require consent in some jurisdictions. When in doubt, record your own voice or use ambience where no individual is recognisable.</td></tr>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Processing does not clear a sample.</strong> Pitching, reversing, time-stretching, or heavily filtering a copyrighted recording does not remove the copyright. The source material still needs clearance.</li>
+      <li><strong>Creative Commons licences vary.</strong> CC0 and CC-BY are generally safe for commercial use. CC-NC (Non-Commercial) means you cannot use the sample in a paid release. Always check the exact licence code.</li>
+    </ul>
+  </div>
+
+  <h2>Library organisation</h2>
+
+  <p>A disorganised library slows down every session. You spend time searching instead of making. The goal is to find any sample in under 30 seconds.</p>
+
+  <h3>Folder structure</h3>
+
+  <p>Keep all samples in one root folder. A simple structure that scales:</p>
+
+  <div class="note-block">
+    <ul>
+      <li><span class="code">Samples/</span>
+        <ul style="margin-top: 6px;">
+          <li><span class="code">field-recordings/</span> — your own location recordings</li>
+          <li><span class="code">synthesis-prints/</span> — hardware and software synth prints by date</li>
+          <li><span class="code">packs/[Pack Name]/</span> — third-party sample packs, one folder per pack</li>
+          <li><span class="code">vocals/</span> — voice recordings</li>
+          <li><span class="code">foley/</span> — objects, surfaces, mechanical sounds</li>
+          <li><span class="code">archive/</span> — old or unsorted samples you are not actively using</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <h3>Live Browser: Places, labels, and collections</h3>
+
+  <p>In Live's Browser, the <strong>Places</strong> section lets you add any folder as a shortcut. Add your <span class="code">Samples/</span> root so you never navigate from scratch.</p>
+
+  <table class="param-table">
+    <tr><td><strong>Colored labels</strong></td><td>Right-click any folder or file in the Browser to assign a colour. Use colour consistently: e.g. green = cleared for release, orange = check licence, red = personal use only.</td></tr>
+    <tr><td><strong>Collections</strong></td><td>Live's Collections (the coloured dots in the bottom-left of the Browser) let you tag any item across folders. Use one collection for "current project," another for "favourite textures," another for "needs clearance check."</td></tr>
+    <tr><td><strong>Search</strong></td><td>Live's Browser search (the magnifier) searches by file name within the selected Place. This is why file naming matters — see below.</td></tr>
+  </table>
+
+  <h2>Naming and metadata</h2>
+
+  <p>Name files so they describe what they are without you needing to play them. A good name has: source / character / key or pitch / date.</p>
+
+  <p>Examples:</p>
+
+  <div class="note-block">
+    <ul>
+      <li><span class="code">field-rain-heavy-roof-2025-02-14.wav</span></li>
+      <li><span class="code">mf-pad-slow-atk-Aminor-2025-03-01.wav</span></li>
+      <li><span class="code">dtii-kick-punchy-120bpm-2025-03-05.wav</span></li>
+      <li><span class="code">pack-spitfire-labs-felt-piano-C4.wav</span></li>
+    </ul>
+  </div>
+
+  <p>Keep names lowercase with hyphens, no spaces. This makes them safe in any operating system and easy to read in a file list.</p>
+
+  <h2>Collect All and Save</h2>
+
+  <p>When a project uses samples from multiple locations across your drive, those samples can move or be deleted. <strong>Collect All and Save</strong> (<span class="menu">File → Collect All and Save</span>) copies every sample the project references into the project's own <span class="code">Samples/</span> folder. After this, the project is self-contained.</p>
+
+  <p>Do this for every project you consider finished. The collected samples inside the project folder are the definitive set for that track — do not move or rename them.</p>
+
+  <h2>Sample-rate consistency</h2>
+
+  <p>Your project runs at one sample rate (most likely 48 kHz). When you drop a sample at a different rate (e.g. 44.1 kHz) into a Live Set, Live converts it in real time. This is fine for most work, but it uses CPU and can introduce subtle artefacts.</p>
+
+  <div class="note-block">
+    <ul>
+      <li>Check the sample rate of any downloaded pack: right-click the file and view its properties, or look at the file info in Live's Browser detail pane.</li>
+      <li>If you record field audio on a portable recorder, set it to 48 kHz before you start. This matches your Live project and avoids any conversion.</li>
+      <li>When exporting prints from Live, always export at your project sample rate (48 kHz), not at the file's original rate.</li>
+    </ul>
+  </div>
+
+  <h2>Destructive vs non-destructive edits</h2>
+
+  <p>A <strong>destructive edit</strong> permanently changes the audio file on disk. A <strong>non-destructive edit</strong> changes how the file is played back, without touching the file itself.</p>
+
+  <table class="param-table">
+    <tr><td><strong>Non-destructive (preferred)</strong></td><td>Clip envelope, warp markers, transposition, gain, start/end points in Live's clip view. These changes only exist inside the project — the original file is untouched. You can always return to the original.</td></tr>
+    <tr><td><strong>Destructive (be careful)</strong></td><td>Editing in an external audio editor (like Audacity), normalising a file to disk, or using Live's "Consolidate" function. The file on disk changes. Keep a copy of the original before doing this.</td></tr>
+  </table>
+
+  <p>The rule: never destructively edit your only copy of a sample. Always keep the original, even if you think you won't need it.</p>
+
+  <h2>What counts as original material in a portfolio</h2>
+
+  <p>When you present work in a portfolio, "original" means you made every sound yourself — or used third-party sounds with a licence that permits that use.</p>
+
+  <table class="param-table">
+    <tr><td><strong>Fully original</strong></td><td>All sounds are your own recordings or synthesised by you (hardware or software). No third-party samples. Strongest position for a portfolio.</td></tr>
+    <tr><td><strong>Original with licensed samples</strong></td><td>Your arrangement, processing, and composition are original. Third-party samples are royalty-free and licensed for this use. Acceptable — be ready to name the packs used.</td></tr>
+    <tr><td><strong>Cover / remix with clearance</strong></td><td>You have written permission to use the source material. Acceptable, but note it clearly in the portfolio as a remix or cover, not original composition.</td></tr>
+    <tr><td><strong>Uncleared samples</strong></td><td>Do not include in a public portfolio or release. Risk of takedown and legal exposure.</td></tr>
+  </table>
+
+  <h2>Proof gate</h2>
+
+  <div class="callout">
+    <div class="callout-label">What to prove</div>
+    <p>For every release candidate: trace every sample to its source, confirm the licence, document the processing chain, and confirm a printed audio file exists. Complete this table for the track before you release it.</p>
+  </div>
+
+  <table>
+    <thead><tr><th>Sample / sound</th><th>Source</th><th>Licence / status</th><th>Processing applied</th><th>Final print?</th></tr></thead>
+    <tbody>
+      <tr><td>Kick</td><td>Digitakt II — self-recorded</td><td>Original — clear</td><td>Compression, EQ</td><td>Yes — <span class="code">kick-print-2025-03-01.wav</span></td></tr>
+      <tr><td>Rain texture</td><td>Field recording — own microphone</td><td>Original — clear</td><td>Filtered, time-stretched</td><td>Yes — <span class="code">field-rain-processed.wav</span></td></tr>
+      <tr><td>Pad</td><td>Spitfire LABS — Felt Piano</td><td>LABS licence — free, royalty-free commercial use allowed</td><td>Reverb, pitch shift</td><td>Yes — <span class="code">pad-felt-print.wav</span></td></tr>
+      <tr><td>Bass loop</td><td>Unknown pack — check needed</td><td><strong>Unconfirmed — do not release</strong></td><td>Filter, distortion</td><td>No</td></tr>
+    </tbody>
+  </table>
+
+  <ul class="checklist">
+    <li><span class="checklist-box"></span>Every sample in the project is listed in the table above.</li>
+    <li><span class="checklist-box"></span>Every source is identified. No "unknown" entries remain.</li>
+    <li><span class="checklist-box"></span>Every licence is confirmed as compatible with the intended release (commercial / non-commercial).</li>
+    <li><span class="checklist-box"></span>Every sound has a final printed audio file in the project folder.</li>
+    <li><span class="checklist-box"></span>Collect All and Save has been run. All samples are inside the project folder.</li>
+    <li><span class="checklist-box"></span>No sample in the project is labelled "unconfirmed" or "check needed."</li>
+  </ul>
+
+  <p style="text-align: center; color: var(--text-muted); margin: 30px auto 0; font-size: 14.5px;">See also <a href="session-survival.html">Session Survival &amp; Export Discipline</a> · <a href="m4-troubleshooting.html">MOTU M4 Troubleshooting</a> · <a href="references.html">References</a> · <a href="#top">top ↑</a></p>
+
+  <div class="page-nav">
+    <a href="session-survival.html">
+      <span class="page-nav-direction">Previous</span>
+      ← Session Survival &amp; Export Discipline
+    </a>
+    <a href="m4-troubleshooting.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      MOTU M4 Troubleshooting →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Sample Library &amp; Release Hygiene</div>
+
+</div>
+
+</body>
+</html>

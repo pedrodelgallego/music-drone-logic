@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MOTU M4 Troubleshooting Appendix</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-type-reference" id="top">
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
+  <a href="block-00/index.html"><span class="nav-num">F0</span>Foundations</a>
+  <a href="block-0/index.html"><span class="nav-num">B0</span>The Rig</a>
+  <a href="block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="references.html" class="active"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="references.html">References</a><span class="breadcrumb-sep">/</span><span>MOTU M4 Troubleshooting Appendix</span></nav>
+
+  <header class="page-header">
+    <div class="eyebrow">References</div>
+    <h1>MOTU M4 Troubleshooting Appendix</h1>
+    <p class="lede">A quick symptom-to-fix reference for the most common M4 problems. Use this when something stops working. If the issue isn't here, check <a href="block-1/lab-001.html">Lab 001 (signal path)</a> and <a href="block-1/lab-002.html">Lab 002 (clock and latency)</a> first.</p>
+  </header>
+
+  <div class="callout">
+    <div class="callout-label">Before you start diagnosing</div>
+    <p>Power-cycle the M4 first. Unplug the USB cable, wait 10 seconds, replug. This clears most stuck states. If the problem persists, then work through the table below.</p>
+  </div>
+
+  <h2>Symptom reference</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Symptom</th>
+        <th>Likely cause</th>
+        <th>Fix</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>No input signal</strong> — the input meter in Live shows nothing, even with a source connected and gain up</td>
+        <td>Wrong input selected in Live, or gain too low, or cable fault</td>
+        <td>
+          1. In Live: <span class="menu">Preferences → Audio → Input Config</span> — confirm the correct channel pair is activated (e.g. Ext. In 1/2).<br>
+          2. Check the M4's front-panel gain knob for the relevant channel — turn it up slowly while watching the M4's signal LED.<br>
+          3. Swap the cable. Test with a known-working cable from a different source.<br>
+          4. If using a microphone, confirm the XLR is seated fully and phantom power (+48V) is on if the mic needs it — press the <kbd>48V</kbd> button on the M4 front panel.
+        </td>
+      </tr>
+      <tr>
+        <td><strong>Doubled/hollow monitoring sound</strong> — a comb-filter effect, as if the sound is phasing against itself</td>
+        <td>Direct monitoring on the M4 and software monitoring in Live are both active at the same time. You are hearing the signal twice, slightly offset in time.</td>
+        <td>
+          Choose one monitoring path, not both.<br>
+          • <strong>Direct monitoring (recommended for low latency):</strong> press the <kbd>DIRECT</kbd> button on the M4 so its LED is lit. In Live, set the track's Monitor switch to <span class="menu">Off</span>.<br>
+          • <strong>Software monitoring only:</strong> press <kbd>DIRECT</kbd> again so its LED is off. In Live, set the track's Monitor switch to <span class="menu">In</span> or <span class="menu">Auto</span>.<br>
+          Never have both active simultaneously.
+        </td>
+      </tr>
+      <tr>
+        <td><strong>Clicks, pops, or crackles</strong> during playback or recording — not occasional, but regular</td>
+        <td>Buffer size too small, or sample rate mismatch between M4 and Live project</td>
+        <td>
+          1. Check sample rates match: M4 internal rate (shown on front display or in MOTU Audio Setup) must equal the Live project rate (<span class="menu">Preferences → Audio → Sample Rate</span>). Both should be 48 kHz.<br>
+          2. Increase the buffer size: <span class="menu">Preferences → Audio → Buffer Size</span> — try 256 samples first, then 512 if clicks continue. See <a href="block-1/lab-002.html">Lab 002</a> for the latency trade-off.<br>
+          3. Quit other audio apps (browsers with video, streaming apps) that may be competing for the audio driver.
+        </td>
+      </tr>
+      <tr>
+        <td><strong>High latency</strong> — noticeable delay between playing a key/pad and hearing the result through monitors</td>
+        <td>Buffer size too large</td>
+        <td>
+          Lower the buffer size: <span class="menu">Preferences → Audio → Buffer Size</span> — try 128 samples for real-time playing, 64 if your CPU can handle it. If clicks appear, raise it back one step. See <a href="block-1/lab-002.html">Lab 002</a> for the full latency-setting procedure.
+        </td>
+      </tr>
+      <tr>
+        <td><strong>Missing or wrong channel configuration</strong> — you can see fewer channels than expected, or channels are mapped incorrectly</td>
+        <td>Input/output configuration not enabled in Live's preferences</td>
+        <td>
+          In Live: <span class="menu">Preferences → Audio → Input Config</span> and <span class="menu">Output Config</span>. Click to activate the channel pairs you need. Channels must be toggled on here before they appear in the track I/O selectors. Check that you haven't accidentally limited the channel count — MOTU Audio Setup (the standalone app) can also restrict available channels.
+        </td>
+      </tr>
+      <tr>
+        <td><strong>M4 not appearing in Live's audio device menu</strong> — the M4 is plugged in but doesn't show up under <span class="menu">Preferences → Audio → Audio Device</span></td>
+        <td>Driver not loaded, USB power issue, or Live needs a restart</td>
+        <td>
+          1. Check the M4's front display — if it shows no USB indicator, the connection hasn't been established. Try a different USB port (prefer USB-A directly on the computer, not a hub).<br>
+          2. Open <strong>MOTU Audio Setup</strong> (standalone app, installed with the M4 driver). If the M4 doesn't appear here either, the issue is driver-level — reinstall the MOTU driver from motu.com.<br>
+          3. If MOTU Audio Setup sees the M4 but Live doesn't, quit Live completely and relaunch it.
+        </td>
+      </tr>
+      <tr>
+        <td><strong>Ground hum or electrical whine</strong> — a low 50/60 Hz hum or high-pitched tone that stays even when the input gain is at zero</td>
+        <td>Ground loop between devices sharing power, or electrical interference from a nearby power supply</td>
+        <td>
+          1. Plug the M4, computer, and all connected hardware into the same power strip or outlet. Ground loops occur when devices share different circuits or different ground paths.<br>
+          2. If using balanced TRS or XLR cables, check that they are fully seated. Unbalanced cables (TS, RCA) are more susceptible to hum — replace with balanced equivalents where possible.<br>
+          3. Move any switching power supplies (phone chargers, LED drivers) away from the M4 and cables. They radiate interference.<br>
+          4. If the hum only appears on a specific hardware input (e.g. Digitakt II): the issue is likely a ground loop between that device and the M4. Try a <strong>DI box</strong> (a passive direct-injection box) inline — it breaks the ground loop without affecting the signal.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>First five checks</h2>
+
+  <p>If you are not sure where to start, run this checklist in order. It resolves the majority of M4 problems in under two minutes.</p>
+
+  <ul class="checklist">
+    <li><span class="checklist-box"></span><strong>Power-cycle the M4.</strong> Unplug USB, wait 10 seconds, replug. Check the front display lights up.</li>
+    <li><span class="checklist-box"></span><strong>Sample rate match.</strong> M4 rate = Live project rate = 48 kHz. Check both: MOTU Audio Setup and <span class="menu">Live Preferences → Audio → Sample Rate</span>.</li>
+    <li><span class="checklist-box"></span><strong>One monitoring path only.</strong> Either <kbd>DIRECT</kbd> on + Live Monitor <span class="menu">Off</span>, or <kbd>DIRECT</kbd> off + Live Monitor <span class="menu">In</span>. Never both.</li>
+    <li><span class="checklist-box"></span><strong>Channels activated in Live.</strong> <span class="menu">Preferences → Audio → Input Config / Output Config</span> — confirm the channel pairs you need are toggled on.</li>
+    <li><span class="checklist-box"></span><strong>Buffer size appropriate for the task.</strong> Playing live → 128 samples. Mixing/processing → 256 or 512 samples. Clicks → raise it. Latency → lower it.</li>
+  </ul>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Still stuck after the checklist?</strong> Open <a href="block-1/lab-001.html">Lab 001</a> and retrace the signal path from source to monitor, step by step. Most problems are a single broken link in the chain — the lab's signal-flow diagram makes it easy to find.</li>
+      <li><strong>Clock and sync problems</strong> (out-of-time audio, drifting hardware) are covered in <a href="block-1/lab-002.html">Lab 002</a>. If you are running the Digitakt II or MicroFreak via MIDI clock and notice drift, start there.</li>
+    </ul>
+  </div>
+
+  <p style="text-align: center; color: var(--text-muted); margin: 30px auto 0; font-size: 14.5px;">See also <a href="sample-hygiene.html">Sample Library &amp; Release Hygiene</a> · <a href="session-survival.html">Session Survival &amp; Export Discipline</a> · <a href="references.html">References</a> · <a href="#top">top ↑</a></p>
+
+  <div class="page-nav">
+    <a href="sample-hygiene.html">
+      <span class="page-nav-direction">Previous</span>
+      ← Sample Library &amp; Release Hygiene
+    </a>
+    <a href="coverage.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      Coverage &amp; gaps →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — MOTU M4 Troubleshooting Appendix</div>
+
+</div>
+
+</body>
+</html>

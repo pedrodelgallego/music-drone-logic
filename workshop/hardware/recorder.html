@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Standalone Hardware Recorder</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page-type-reference" id="top">
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
+  <a href="../block-00/index.html"><span class="nav-num">F0</span>Foundations</a>
+  <a href="../block-0/index.html"><span class="nav-num">B0</span>The Rig</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html" class="active"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="../references.html">References</a><span class="breadcrumb-sep">/</span><span>Hardware</span><span class="breadcrumb-sep">/</span><span>Standalone Hardware Recorder</span></nav>
+
+  <header class="page-header">
+    <div class="eyebrow">Hardware expansion</div>
+    <h1>Standalone Hardware Recorder</h1>
+    <p class="lede">A device that records audio to an SD card or USB drive without a computer. Your free substitute is Live — it records everything already. Only pursue this if you need screen-free capture or a second recorder running in parallel during live sets.</p>
+  </header>
+
+  <div class="callout">
+    <div class="callout-label">Optional — gated</div>
+    <p>You do not own this gear yet. Practise the free substitute first: Live can record your main mix right now. Return here only after this purchase passes the <a href="../gear-purchase-gate.html">Gear Purchase Gate</a>. A field recorder already appears in <a href="../block-2/lab-008.html">Block 2 Lab 008</a> — work through that lab with your current rig before considering a dedicated machine.</p>
+  </div>
+
+  <h2>Why a second recorder?</h2>
+
+  <p>A standalone recorder adds one thing Live cannot: a completely separate machine capturing the same audio at the same time. If Live crashes mid-set, the recorder kept rolling. This is called belt-and-braces redundancy — two independent captures so a single failure does not erase the take.</p>
+
+  <p>The second use case is screen-free capture. Some performance contexts (improvised sets, installations, field sessions) make it impractical to watch a laptop. A hardware recorder is self-contained: press record, walk away.</p>
+
+  <h2>Core concepts</h2>
+
+  <table class="param-table">
+    <tr>
+      <td><strong>Main-mix capture</strong></td>
+      <td>The recorder listens at the final mix output — after your interface, after your faders. It hears exactly what your speakers hear. Connect it to a spare output on your MOTU M4 set to the same level as your monitor output, or use a Y-cable from the mix bus.</td>
+    </tr>
+    <tr>
+      <td><strong>24-bit headroom</strong></td>
+      <td>Record at 24-bit depth (not 16-bit). 24-bit gives you roughly 48 dB more room below your signal before noise becomes a problem. Set the input level so the loudest moment peaks around −12 dBFS — loud enough to be clean, low enough to never clip.</td>
+    </tr>
+    <tr>
+      <td><strong>File format &amp; naming</strong></td>
+      <td>Use WAV, not MP3. Name the file before you start: <span class="code">YYYY-MM-DD_setname_take01.wav</span>. Do this before every take — an untitled file from a crashed session is harder to salvage than a named one.</td>
+    </tr>
+    <tr>
+      <td><strong>Calibration tone</strong></td>
+      <td>Before the real take, send a 1 kHz sine tone from Live at your target level (−12 dBFS) and record five seconds of it into the hardware recorder. Import that clip later — if the tone reads −12 dBFS in both recordings, your levels match. If they differ, you know by how much before you try to edit.</td>
+    </tr>
+    <tr>
+      <td><strong>Battery &amp; storage preflight</strong></td>
+      <td>Check these before every session: battery above 80 % (or plugged in), enough free space for the full duration plus 20 %, and the correct sample rate set (matching Live's project rate, usually 44.1 kHz or 48 kHz). A mismatch in sample rate causes slow playback on import.</td>
+    </tr>
+    <tr>
+      <td><strong>Sync drift on long takes</strong></td>
+      <td>Two machines with no shared clock will drift apart over time — the hardware recorder runs fractionally faster or slower than Live. On a 30-minute take this can be several frames. It will not matter for archiving, but it matters if you want to line up both recordings side by side for editing. Use the calibration tone at the start as an alignment marker.</td>
+    </tr>
+    <tr>
+      <td><strong>Importing into Live</strong></td>
+      <td>Drag the WAV file into an empty audio track. Place the calibration tone at bar 1. Nudge the hardware recording until its tone aligns with Live's tone clip. From that point the two recordings are as close to phase-aligned as they can be, given the drift.</td>
+    </tr>
+  </table>
+
+  <h2>Proof gate</h2>
+
+  <p>Before this gear earns a permanent place in your workflow, run this test once:</p>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-body">Record the same pass into Live (audio track on the master bus) and into the hardware recorder simultaneously. Use the same calibration tone at the start of both.</div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-body">Import both files into a new Live set. Check: do the peak levels match within 1 dB? Does the tone align? Is there audible drift at the end of the take?</div>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-body">Rename the hardware file using the naming convention above and note where you stored it. Confirm you can find it in 30 seconds without searching.</div>
+  </div>
+  <div class="step">
+    <div class="step-num">4</div>
+    <div class="step-body">Simulate a recovery scenario: mute the Live recording. Can you use the hardware recording alone as a finished take? If yes, the recorder has proved its redundancy value.</div>
+  </div>
+
+  <p style="color: var(--text-muted); font-size: 14.5px; margin-top: 18px;">If all four steps pass, the recorder has earned its place. If step 4 fails — the hardware take is too noisy, the levels are wrong, or the file is missing — fix the setup before relying on it live.</p>
+
+  <p style="text-align: center; color: var(--text-muted); margin: 30px auto 0; font-size: 14.5px;">See also <a href="../gear-purchase-gate.html">Gear purchase gate</a> · <a href="../references.html">References</a> · <a href="../block-2/lab-008.html">Block 2 Lab 008</a> · <a href="#top">top ↑</a></p>
+
+  <div class="page-nav">
+    <a href="../references.html">
+      <span class="page-nav-direction">Previous</span>
+      ← RF / References
+    </a>
+    <a href="analog-poly.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      Analog poly synth →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Standalone Hardware Recorder</div>
+
+</div>
+
+</body>
+</html>

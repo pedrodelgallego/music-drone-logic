@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Performance Controller Map</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-type-reference" id="top">
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
+  <a href="block-00/index.html"><span class="nav-num">F0</span>Foundations</a>
+  <a href="block-0/index.html"><span class="nav-num">B0</span>The Rig</a>
+  <a href="block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="references.html" class="active"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="references.html">References</a><span class="breadcrumb-sep">/</span><span>Performance Controller Map</span></nav>
+
+  <header class="page-header">
+    <div class="eyebrow">References</div>
+    <h1>Performance Controller Map</h1>
+    <p class="lede">Your Launchpad Pro MK3 is already in the rig. This page shows you how to put it to work: how to enter MIDI Map mode in Live, how the three Launchpad modes work, and how to wire eight controls so you can perform a full pass and prove your gestures were captured.</p>
+  </header>
+
+  <div class="callout">
+    <div class="callout-label">The goal</div>
+    <p>A controller is only useful if you can reach for it in the dark and trust it. Map eight controls with a clear purpose each. Record a performance pass. Confirm Live captured every gesture. Then document at least one panic control — a way to cut or mute instantly if something goes wrong.</p>
+  </div>
+
+  <h2>MIDI Map mode in Live</h2>
+
+  <p>MIDI Map mode is how you link a physical knob, pad, or button to a Live parameter. Press <kbd>⌘ M</kbd> (Mac) or <kbd>Ctrl M</kbd> (Windows) to enter it. The interface turns blue — every mappable parameter now shows a highlight. Click the parameter you want, then move the control on your Launchpad or hardware. Live records the link. Press <kbd>⌘ M</kbd> again to exit.</p>
+
+  <div class="note-block">
+    <ul>
+      <li>Maps are saved with the Live Set. Reopen the set and the maps are still there.</li>
+      <li>One physical control can map to only one parameter in MIDI Map mode. For more flexible routing, use Max for Live or the Macro system.</li>
+      <li>If a control does not respond, check that your Launchpad is set to the correct mode (see below) and that its MIDI output is enabled in <span class="menu">Live → Preferences → Link / Tempo / MIDI</span>.</li>
+    </ul>
+  </div>
+
+  <h2>Launchpad Pro MK3 modes</h2>
+
+  <p>The Launchpad has three main operating modes. Use the mode buttons at the top of the device to switch between them.</p>
+
+  <table class="param-table">
+    <tr><td><strong>Session mode</strong></td><td>Shows your Live Session View clips as a coloured grid. Press a pad to launch a clip or scene. This is the most common performance mode. The Launchpad talks directly to Live via Ableton's native integration — no manual MIDI mapping needed for clip launch.</td></tr>
+    <tr><td><strong>Note mode</strong></td><td>Turns the grid into a chromatic or scale-locked pad layout. Each pad sends a MIDI note. Use this to play the MicroFreak or a Live instrument as if it were a drum pad or keyboard. You do need to set the MIDI output channel to match your instrument.</td></tr>
+    <tr><td><strong>Custom mode</strong></td><td>A blank canvas you define in Novation's editor software. Pads send whatever MIDI CC or note you assign. Use this for hands-on macro control or any mapping that Session and Note modes don't cover.</td></tr>
+  </table>
+
+  <h2>Macro control banks</h2>
+
+  <p>A <strong>Macro</strong> is a single knob inside an Instrument Rack or Audio Effect Rack that you wire to up to eight internal parameters. Macros are what you map to your controller — one physical knob can then sweep several parameters at once.</p>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-body">
+      <strong>Create a Rack.</strong> Select your device in Live's chain. Right-click → <span class="menu">Group into Instrument Rack</span> (or Audio Effect Rack for audio devices). You now have eight Macros available.
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-body">
+      <strong>Map a parameter to a Macro.</strong> Right-click any device parameter inside the Rack → <span class="menu">Map to Macro 1</span> (or whichever number you want). Set the min/max range in the Macro map panel.
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-body">
+      <strong>Map the Macro to your controller.</strong> Enter MIDI Map mode (<kbd>⌘ M</kbd>). Click the Macro knob. Move a physical knob or pad on your Launchpad. Exit MIDI Map mode.
+    </div>
+  </div>
+
+  <p>You can have multiple Racks and therefore multiple banks of eight Macros. Switch between them by changing which Rack is in focus, or by dedicating one controller button to select the active Rack.</p>
+
+  <h2>Clip launching vs note playing vs device control</h2>
+
+  <table class="param-table">
+    <tr><td><strong>Clip launching</strong></td><td>Session mode. Pads trigger clips and scenes. The Launchpad handles this automatically via the native integration — no manual mapping. Use this for arrangement-style performance where you move through musical sections.</td></tr>
+    <tr><td><strong>Note playing</strong></td><td>Note mode. Pads send MIDI notes to a selected track. Use this to play melodic or rhythmic parts live. Set the MIDI channel on the Launchpad to match the channel your instrument listens on.</td></tr>
+    <tr><td><strong>Device control</strong></td><td>Custom mode or MIDI Map mode. Pads and knobs send CC messages you have assigned. Use this to move Macros, control filters, adjust send levels, or any other Live parameter in real time.</td></tr>
+  </table>
+
+  <h2>Recording automation and gestures (Capture MIDI)</h2>
+
+  <p><strong>Capture MIDI</strong> records what you just played even if you forgot to hit record first. Live listens all the time in the background. Press <kbd>⌘ Shift C</kbd> to pull recent MIDI into a new clip on the selected track.</p>
+
+  <p>To record automation gestures (knob moves, macro sweeps) during a performance pass:</p>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-body">
+      <strong>Arm automation recording.</strong> Click the <span class="menu">Automation Arm</span> button in the toolbar (the red circle with an A). If you are recording into the Arrangement view, also arm the track.
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-body">
+      <strong>Record.</strong> Press <kbd>Space</kbd> or the transport button on your controller to start. Move your mapped controls. Live writes every movement as automation data on the timeline.
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-body">
+      <strong>Check the automation lane.</strong> Stop recording. Open the track's automation lane (<kbd>A</kbd> in Arrangement view). You should see a line drawing the shape of your movement. That is the proof the gesture was captured.
+    </div>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li>In Session view, automation records into clip envelopes rather than the Arrangement timeline. Open the clip and choose <span class="menu">Envelopes</span> to see it.</li>
+      <li>If the automation lane is flat, the control was not mapped or Automation Arm was off.</li>
+    </ul>
+  </div>
+
+  <h2>Footswitch / MIDI pedal option</h2>
+
+  <p>A footswitch (a simple on/off pedal) or an expression pedal frees your hands during a performance. Plug one into a device with a footswitch jack — the MicroFreak has one, and many MIDI interfaces have a pedal input. Map the footswitch in MIDI Map mode just like any other control. Common uses:</p>
+
+  <table class="param-table">
+    <tr><td><strong>Transport start/stop</strong></td><td>Map to Live's play button. One foot tap to start or stop the set.</td></tr>
+    <tr><td><strong>Loop toggle</strong></td><td>Map to a clip's loop switch. Hold a section while your hands work elsewhere.</td></tr>
+    <tr><td><strong>Scene advance</strong></td><td>Map to the "next scene" button. Move through sections without touching the laptop.</td></tr>
+    <tr><td><strong>Panic / feedback kill</strong></td><td>Map to a track's mute or a send level. One stomp cuts the problem signal. See the panic section below.</td></tr>
+  </table>
+
+  <h2>Panic controls</h2>
+
+  <p>A panic control is a pre-mapped button or pedal that fixes an emergency in one move. Map all four in this order — mute first, transport last, so you can kill the sound before you touch anything else.</p>
+
+  <table class="param-table">
+    <tr><td><strong>1 · Mute</strong></td><td>Map a Launchpad pad or a footswitch to the master track's mute button (or a group track mute). One press silences everything downstream. This is your first move in any emergency.</td></tr>
+    <tr><td><strong>2 · Stop</strong></td><td>Map a pad to Live's Stop button or to the Stop All Clips button. This halts playback cleanly without cutting the signal abruptly (unlike mute, which is immediate).</td></tr>
+    <tr><td><strong>3 · Dry signal</strong></td><td>Map a pad or knob to the Wet/Dry on your main reverb and delay sends. Pull them to zero instantly. Use this when feedback builds in the effect chain but the source signal is still fine.</td></tr>
+    <tr><td><strong>4 · Feedback kill</strong></td><td>Map a pad to the feedback or resonance parameter on any filter or delay that could self-oscillate. One press brings it to zero. This is your last resort — it changes the sound but stops runaway feedback.</td></tr>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">Practise the panic controls before you perform</div>
+    <p>Run a short stress test: deliberately push feedback until it starts to squeal, then reach for control 1. Repeat until the movements are automatic. You should not have to think during an emergency.</p>
+  </div>
+
+  <h2>Proof gate</h2>
+
+  <p>You pass this reference when you can answer yes to all four checks.</p>
+
+  <div class="checklist">
+    <label><input type="checkbox"> Mapped eight controls with a named purpose for each (write them in the table below or your own notes).</label>
+    <label><input type="checkbox"> Recorded a performance pass with automation arm on. At least two mapped controls show movement in the automation lane or clip envelope.</label>
+    <label><input type="checkbox"> Reopened the Live Set after saving. Confirmed the automation data is still there.</label>
+    <label><input type="checkbox"> Documented all four panic controls — which pad or pedal, which parameter, and the order you would reach for them.</label>
+  </div>
+
+  <h2>Your eight-control map (fill this in)</h2>
+
+  <table>
+    <thead><tr><th>#</th><th>Physical control (pad / knob / pedal)</th><th>Live parameter or Macro</th><th>Purpose in performance</th></tr></thead>
+    <tbody>
+      <tr><td class="num">1</td><td></td><td></td><td></td></tr>
+      <tr><td class="num">2</td><td></td><td></td><td></td></tr>
+      <tr><td class="num">3</td><td></td><td></td><td></td></tr>
+      <tr><td class="num">4</td><td></td><td></td><td></td></tr>
+      <tr><td class="num">5</td><td></td><td></td><td></td></tr>
+      <tr><td class="num">6</td><td></td><td></td><td></td></tr>
+      <tr><td class="num">7</td><td></td><td></td><td></td></tr>
+      <tr><td class="num">8</td><td></td><td></td><td></td></tr>
+    </tbody>
+  </table>
+
+  <p style="text-align: center; color: var(--text-muted); margin: 30px auto 0; font-size: 14.5px;">See also <a href="cc-mapping.html">CC-Mapping Lab</a> · <a href="references.html">References</a> · <a href="index.html">Overview</a> · <a href="#top">top ↑</a></p>
+
+  <div class="page-nav">
+    <a href="references.html">
+      <span class="page-nav-direction">Previous</span>
+      ← RF / References
+    </a>
+    <a href="cc-mapping.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      CC-Mapping Lab →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Performance Controller Map</div>
+
+</div>
+
+</body>
+</html>

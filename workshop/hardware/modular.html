@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hardware Modular &amp; 0-Coast</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page-type-reference" id="top">
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
+  <a href="../block-00/index.html"><span class="nav-num">F0</span>Foundations</a>
+  <a href="../block-0/index.html"><span class="nav-num">B0</span>The Rig</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html" class="active"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="../references.html">References</a><span class="breadcrumb-sep">/</span><span>Hardware / Modular &amp; 0-Coast</span></nav>
+
+  <header class="page-header">
+    <div class="eyebrow">Hardware Expansion — Optional &amp; Gated</div>
+    <h1>Hardware Modular &amp; 0-Coast</h1>
+    <p class="lede">Physical patching adds something software can't: every connection is visible and tactile, and patch state is a physical object you can photograph. But modular is also the most expensive failure surface on the buy list. This page stays locked until the gate passes.</p>
+  </header>
+
+  <div class="callout">
+    <div class="callout-label">Optional — gated</div>
+    <p>You do not own this gear yet. The free substitute is <strong>VCV Rack</strong>, already used in Lab 024b — use it until the physical patching proves itself as a real need. Buy or build only after this gear passes the <a href="../gear-purchase-gate.html">Gear Purchase Gate</a>. Come back to this page then.</p>
+  </div>
+
+  <h2>When and why</h2>
+
+  <p>Reach for hardware modular when VCV Rack has proved you want the physical constraints: one cable = one signal, no undo, patch memory only by photo. The 0-Coast is the right first step — it is semi-modular (no rack required, self-contained voices) and covers the core west-coast ideas before you commit to a full system.</p>
+
+  <h2>Key concepts</h2>
+
+  <h3>Signal types</h3>
+
+  <p>If these four are new to you, read the <a href="../cv-gate.html">CV, Gate &amp; Voltage Control</a> reference first — it teaches the concept in full, with a free VCV Rack practice path, before you spend anything on hardware.</p>
+
+  <table class="param-table">
+    <tr><td><strong>CV (control voltage)</strong></td><td>A slowly moving voltage that controls a parameter — pitch, filter cutoff, panning. Think of it as a knob moved automatically by electricity.</td></tr>
+    <tr><td><strong>Gate</strong></td><td>A voltage that is either fully on or fully off. It tells a module "start now / stop now."</td></tr>
+    <tr><td><strong>Trigger</strong></td><td>A very short pulse — just enough to poke a module into action. Use it where you only need the moment, not the duration.</td></tr>
+    <tr><td><strong>Audio</strong></td><td>Fast oscillating voltage — the same connectors carry it, but at frequencies you hear. Treat audio and CV as separate paths even when the hardware doesn't force you to.</td></tr>
+  </table>
+
+  <h3>Utilities matter more than oscillators</h3>
+
+  <p>New modular users buy voices. Experienced ones buy utilities. An <strong>attenuator</strong> scales a signal down. An <strong>offset</strong> shifts a signal up or down. A <strong>mult</strong> (multiple) copies a signal to several destinations. A <strong>mixer</strong> adds signals together. A <strong>clock divider</strong> takes your main clock and outputs a slower version — half speed, quarter speed, and so on. Without these, signals collide at the wrong levels and modulation is uncontrollable.</p>
+
+  <h3>Clock and reset distribution</h3>
+
+  <p>Every clocked module must share the same master clock — typically sent from the Digitakt II or Live. Run clock out first; then distribute it through a mult or a dedicated clock module. Add a reset signal on bar 1 so all modules restart together. Without a reset, every power-on starts modules at random points in their cycles.</p>
+
+  <h3>Patch memory by photo and diagram</h3>
+
+  <p>Hardware modular has no preset recall. Before you unplug anything, photograph the full patch from above and draw a quick signal-flow diagram. Name the photo with the session date and a one-line description. File it alongside the session recording. That photo is your only way back.</p>
+
+  <h3>Safe gain levels between modular and your rig</h3>
+
+  <p>Modular audio runs at a higher level than typical line level — it can easily clip your interface or mixer input. Insert an attenuator or a line-level converter between the modular output and the M4 input. Start with the input gain at minimum and bring it up slowly while watching the meter. Target −12 dBFS on peaks.</p>
+
+  <h2>0-Coast as a first semi-modular</h2>
+
+  <p>The 0-Coast accepts MIDI over its 3.5 mm TRS input. Connect it from the MicroFreak or the M4 MIDI out. It has one oscillator with an <strong>overtone</strong> control (adds harmonics by waveshaping), a <strong>slope/contour</strong> section (a single envelope that acts like both attack and decay), and a <strong>dynamics/LPG</strong> (low-pass gate) section.</p>
+
+  <p>A <strong>low-pass gate (LPG)</strong> ties brightness and volume together so that a sound gets duller as it gets quieter — the opposite of a standard filter + VCA setup. This is the defining west-coast character: sounds bloom and then die away rather than cutting off sharply.</p>
+
+  <p>The 0-Coast also has a <strong>clock</strong> input and a <strong>random</strong> voltage output. Patch the random out into the overtone or contour amount for controlled unpredictability without an extra random module.</p>
+
+  <p>To record: route the 0-Coast audio output into the M4, or into a Digitakt II audio input if you want to resample it directly. Set the input gain carefully — see the gain note above. Arm a track in Live and record a full take, then print a committed version before unpatching anything.</p>
+
+  <h2>Proof gate</h2>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Before using this gear in a session</div>
+    <p>Patch one voice, one modulation path (a CV signal controlling something), and one clocked event (a gate or trigger from the master clock). Record the result as a committed print. Then open your Studio Signal Map and update it to show the new audio path and clock connection. You are done when the print exists and the map is current.</p>
+  </div>
+
+  <p style="text-align: center; color: var(--text-muted); margin: 30px auto 0; font-size: 14.5px;">Locked until the <a href="../gear-purchase-gate.html">Gear Purchase Gate</a> passes · <a href="../references.html">References</a> · <a href="../index.html">Overview</a> · <a href="#top">top ↑</a></p>
+
+  <div class="page-nav">
+    <a href="../references.html">
+      <span class="page-nav-direction">Previous</span>
+      ← RF / References
+    </a>
+    <a href="mixer.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      External Mixer →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Hardware Modular &amp; 0-Coast</div>
+
+</div>
+
+</body>
+</html>

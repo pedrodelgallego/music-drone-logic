@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glossary</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-type-reference" id="top">
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
+  <a href="block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="references.html" class="active"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="references.html">References</a><span class="breadcrumb-sep">/</span><span>Glossary</span></nav>
+
+  <header class="page-header">
+    <div class="eyebrow">References</div>
+    <h1>Glossary</h1>
+    <p class="lede">Every term the workshop uses, explained in plain words. If a lab throws a word at you that you don't know, it is here — what it means, why it matters, and where you meet it in the course.</p>
+  </header>
+
+  <div class="callout">
+    <div class="callout-label">How to read this</div>
+    <p>Each entry says what the thing <em>is</em>, why it matters, and gives a real example from the labs. Jump to a group below, or use your browser's find (⌘F / Ctrl+F) to search a word.</p>
+  </div>
+
+  <div class="gloss-jump">
+    <a href="#cat-levels">Levels &amp; gain</a>
+    <a href="#cat-path">Signal path</a>
+    <a href="#cat-time">Time &amp; clock</a>
+    <a href="#cat-synth">Synthesis</a>
+    <a href="#cat-sample">Sampling &amp; capture</a>
+    <a href="#cat-space">Space &amp; mix</a>
+    <a href="#cat-method">Method</a>
+    <a href="#cat-gear">Gear</a>
+  </div>
+  <p class="gloss-count">8 groups · 100+ terms</p>
+
+  <!-- ============================================================ -->
+  <h2 id="cat-levels">Levels, gain &amp; loudness</h2>
+  <p style="text-align: center; color: var(--text-muted); max-width: 640px; margin: 0 auto 18px;">Everything about how loud a signal is, where its volume gets changed, and what happens when it is too loud. This is the language of Block 1.</p>
+
+  <div class="glossary">
+
+    <div class="gloss-entry" id="gain">
+      <div class="gloss-term"><h3>Gain</h3></div>
+      <p class="gloss-def">The amount a single point turns the volume up or down. "Gain" is just the audio word for "how much louder or quieter this point makes the signal."</p>
+      <p><span class="gloss-k">Why it matters</span> Every knob and fader in your studio is a gain control. Knowing which one to reach for is half of clean recording.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#gain-stage">Gain stage</a>, <a href="#unity-gain">Unity gain</a>, <a href="#nominal-level">Nominal level</a></p>
+    </div>
+
+    <div class="gloss-entry" id="gain-stage">
+      <div class="gloss-term"><h3>Gain stage</h3></div>
+      <p class="gloss-def">Any single point in your studio where a signal's volume can be changed: a knob, a fader, a slider, an effect. A typical bench has about ten of them between the synth and your ears.</p>
+      <p><span class="gloss-k">Why it matters</span> Each stage was either set on purpose or left wherever it landed — and a forgotten knob does not stay neutral. Problems hide at the stage you forgot.</p>
+      <p><span class="gloss-k">In the workshop</span> Lab 001 has you walk the whole chain and mark every gain stage on your signal map.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#gain-staging">Gain staging</a>, <a href="#gain-ledger">Gain ledger</a></p>
+    </div>
+
+    <div class="gloss-entry" id="gain-staging">
+      <div class="gloss-term"><h3>Gain staging</h3></div>
+      <p class="gloss-def">Setting the volume at every stage so the signal stays healthy all the way through — never so quiet it picks up hiss, never so loud it distorts.</p>
+      <p><span class="gloss-k">Why it matters</span> Good gain staging means one clean signal end to end. Bad gain staging means a sound that is too quiet here and clipped there, and you cannot tell why.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#headroom">Headroom</a>, <a href="#clipping">Clipping</a>, <a href="#noise-floor">Noise floor</a></p>
+    </div>
+
+    <div class="gloss-entry" id="gain-ledger">
+      <div class="gloss-term"><h3>Gain ledger</h3></div>
+      <p class="gloss-def">A simple sheet that lists every gain stage in your studio with its agreed setting, one row per control.</p>
+      <p><span class="gloss-k">Why it matters</span> Written down, your levels become repeatable. You can rebuild the same clean setup tomorrow instead of guessing.</p>
+      <p><span class="gloss-k">In the workshop</span> You first fill the gain ledger in Lab 001, and update it in Lab 004b for long, held sounds.</p>
+    </div>
+
+    <div class="gloss-entry" id="nominal-level">
+      <div class="gloss-term"><h3>Nominal level</h3><span class="gloss-aka">target level</span></div>
+      <p class="gloss-def">The volume you decide to aim for at each stage — chosen once and written down. Like a cruising speed on a road trip: the exact number matters less than everyone agreeing on it.</p>
+      <p><span class="gloss-k">Why it matters</span> Once you have a target, "too quiet" and "too loud" actually mean something. The workshop's default is peaks around <span class="code">−12 dBFS</span>, never above <span class="code">−6 dBFS</span>.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#dbfs">dBFS</a>, <a href="#headroom">Headroom</a>, <a href="#unity-gain">Unity gain</a></p>
+    </div>
+
+    <div class="gloss-entry" id="unity-gain">
+      <div class="gloss-term"><h3>Unity gain</h3></div>
+      <p class="gloss-def">The "change nothing" setting: the signal leaves at exactly the volume it arrived. A fader at <span class="code">0 dB</span> is at unity.</p>
+      <p><span class="gloss-k">Why it matters</span> Start everything at unity, and whenever something is louder or quieter you know a person decided it — nothing changed by accident.</p>
+    </div>
+
+    <div class="gloss-entry" id="headroom">
+      <div class="gloss-term"><h3>Headroom</h3></div>
+      <p class="gloss-def">The space left between your normal signal level and the absolute ceiling where clipping starts. If you peak at <span class="code">−12 dBFS</span>, you have 12 dB of headroom.</p>
+      <p><span class="gloss-k">Why it matters</span> That empty space above is not waste. It is room for an effect, a reverb tail, or the mix bus to grow into without distorting.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#clipping">Clipping</a>, <a href="#crest-factor">Crest factor</a></p>
+    </div>
+
+    <div class="gloss-entry" id="dbfs">
+      <div class="gloss-term"><h3>dBFS</h3><span class="gloss-aka">decibels full scale</span></div>
+      <p class="gloss-def">The volume scale your DAW's meters use. <span class="code">0 dBFS</span> is the absolute top of what the system can record digitally, so every real signal reads as a negative number — <span class="code">−12 dBFS</span> means twelve decibels below the top.</p>
+      <p><span class="gloss-k">Why it matters</span> It is the shared ruler for "how loud." When the workshop says "peaks at −12," it means on this scale.</p>
+    </div>
+
+    <div class="gloss-entry" id="peak-vs-rms">
+      <div class="gloss-term"><h3>Peak vs. average (RMS)</h3></div>
+      <p class="gloss-def">Two ways to measure loudness. <strong>Peak</strong> is the single highest instant of the wave. <strong>Average (RMS)</strong> is the overall energy over time — closer to how loud something actually feels.</p>
+      <p><span class="gloss-k">Why it matters</span> A snappy drum can peak high but feel quiet; a steady drone can feel loud while peaking low. You need both numbers to judge a sound.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#crest-factor">Crest factor</a>, <a href="#lufs">LUFS</a></p>
+    </div>
+
+    <div class="gloss-entry" id="clipping">
+      <div class="gloss-term"><h3>Clipping</h3></div>
+      <p class="gloss-def">What happens when a sound is too loud: the top of the wave gets cut flat, like scissors trimming the peaks. It adds a harsh, gritty edge.</p>
+      <p><span class="gloss-k">Why it matters</span> Clipping can be a fault to avoid or a sound to use on purpose — but only if you know where it is happening. The whole point of Lab 001 is telling the kinds apart.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#converter-clipping">Converter clipping</a>, <a href="#float-overs">Float overs</a>, <a href="#saturation">Saturation</a></p>
+    </div>
+
+    <div class="gloss-entry" id="converter-clipping">
+      <div class="gloss-term"><h3>Converter clipping</h3></div>
+      <p class="gloss-def">Clipping at the chip that turns electricity into numbers (the analog-to-digital converter, in your audio interface). Feed it a signal that is too loud and the damage is permanent — baked into the recording.</p>
+      <p><span class="gloss-k">Why it matters</span> This is the clipping you must not let happen, because no fader can undo it later. Watch your interface input meter.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#float-overs">Float overs</a>, <a href="#preamp">Preamp</a></p>
+    </div>
+
+    <div class="gloss-entry" id="float-overs">
+      <div class="gloss-term"><h3>Float overs</h3><span class="gloss-aka">32-bit float</span></div>
+      <p class="gloss-def">Inside the DAW, "too loud" is just a big number, not damage. Because Live works in 32-bit floating point, you can pull a fader down and the sound comes back perfectly — like a calculator, not scissors.</p>
+      <p><span class="gloss-k">Why it matters</span> Same red light on the meter as converter clipping, completely different problem. One is recoverable inside the box; the other is not.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#converter-clipping">Converter clipping</a></p>
+    </div>
+
+    <div class="gloss-entry" id="crest-factor">
+      <div class="gloss-term"><h3>Crest factor</h3></div>
+      <p class="gloss-def">The gap between a sound's peak and its average level — in other words, how "peaky" it is. A kick drum is spiky (high crest factor); a held drone is flat and steady (low crest factor).</p>
+      <p><span class="gloss-k">Why it matters</span> Peaky and steady sounds need different level targets. A drone that averages as loud as a kick will peak far lower, which changes how you set its nominal level.</p>
+      <p><span class="gloss-k">In the workshop</span> Lab 004b has you compare a kick against a held tone and amend the gain ledger for sustained material.</p>
+    </div>
+
+    <div class="gloss-entry" id="saturation">
+      <div class="gloss-term"><h3>Saturation</h3></div>
+      <p class="gloss-def">A gentle, musical kind of overload that adds warmth, weight, and extra harmonics — distortion used as a flavour rather than as damage.</p>
+      <p><span class="gloss-k">Why it matters</span> It is how a bare sound gets body and grit without anything being added to the arrangement. Pressure on the signal becomes the texture.</p>
+      <p><span class="gloss-k">In the workshop</span> The listening list in Lab 001 includes records (Sunn O))), Emptyset) where saturation is the whole sound.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#clipping">Clipping</a>, <a href="#limiting">Limiting</a></p>
+    </div>
+
+    <div class="gloss-entry" id="limiting">
+      <div class="gloss-term"><h3>Limiting</h3></div>
+      <p class="gloss-def">An automatic ceiling. A limiter watches the signal and clamps any peak that tries to go above a level you set, so nothing gets through louder than the ceiling.</p>
+      <p><span class="gloss-k">Why it matters</span> It is a safety net against clipping and a tool for making things feel loud and dense. The workshop puts one on the master before any feedback or loud experiment.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#headroom">Headroom</a>, <a href="#feedback">Feedback</a></p>
+    </div>
+
+    <div class="gloss-entry" id="noise-floor">
+      <div class="gloss-term"><h3>Noise floor</h3></div>
+      <p class="gloss-def">The quiet hiss that is always present under everything — from your gear, cables, and room. The "floor" your wanted sound has to sit above.</p>
+      <p><span class="gloss-k">Why it matters</span> Record too quietly and you have to turn it up later, dragging the noise up with it. Set a healthy level and the noise stays buried.</p>
+      <p><span class="gloss-k">In the workshop</span> Pole's "Tanzen 2" (Lab 001 listening) makes the noise floor itself the lead instrument.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#signal-to-noise">Signal-to-noise</a>, <a href="#self-noise">Self-noise</a></p>
+    </div>
+
+    <div class="gloss-entry" id="signal-to-noise">
+      <div class="gloss-term"><h3>Signal-to-noise ratio</h3></div>
+      <p class="gloss-def">How much louder your wanted sound is than the background noise. More signal over less noise is better.</p>
+      <p><span class="gloss-k">Why it matters</span> It is the single best reason to record at a healthy level instead of a timid one.</p>
+    </div>
+
+    <div class="gloss-entry" id="lufs">
+      <div class="gloss-term"><h3>LUFS</h3><span class="gloss-aka">loudness units</span></div>
+      <p class="gloss-def">A measurement of how loud something <em>feels</em> to a listener over time, not just its peak. Streaming services use it to set playback volume.</p>
+      <p><span class="gloss-k">Why it matters</span> Two tracks can peak at the same number yet feel very different. LUFS catches the felt loudness your ear responds to.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#true-peak">True peak</a>, <a href="#peak-vs-rms">Peak vs. average</a></p>
+    </div>
+
+    <div class="gloss-entry" id="true-peak">
+      <div class="gloss-term"><h3>True peak</h3></div>
+      <p class="gloss-def">The real highest point of a wave, including peaks that fall <em>between</em> the digital samples and can slip past an ordinary meter.</p>
+      <p><span class="gloss-k">Why it matters</span> A signal that looks safe on a normal meter can still clip once it becomes sound again. A true-peak meter catches it.</p>
+    </div>
+
+    <div class="gloss-entry" id="monitoring-discipline">
+      <div class="gloss-term"><h3>Monitoring discipline</h3></div>
+      <p class="gloss-def">Keeping your listening volume fixed at one marked position for the whole session.</p>
+      <p><span class="gloss-k">Why it matters</span> Louder always sounds better, so if your listening level creeps up during a session, your judgment drifts with it and your mix decisions go wrong.</p>
+      <p><span class="gloss-k">In the workshop</span> Lab 001 has you physically mark the headphone knob and start every session at the mark.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#monitoring">Monitoring</a></p>
+    </div>
+
+  </div>
+
+  <!-- ============================================================ -->
+  <h2 id="cat-path">The signal path &amp; routing</h2>
+  <p style="text-align: center; color: var(--text-muted); max-width: 640px; margin: 0 auto 18px;">How sound and control travel from box to box, and the cables and connections that carry them.</p>
+
+  <div class="glossary">
+
+    <div class="gloss-entry" id="signal-path">
+      <div class="gloss-term"><h3>Signal path</h3></div>
+      <p class="gloss-def">The route a sound takes from where it is made to where you hear it — synth, cable, interface, computer, headphones, and every stage in between.</p>
+      <p><span class="gloss-k">Why it matters</span> If you can draw your signal path, you can find any problem fast. If you cannot, every problem looks the same: "it sounds bad somewhere."</p>
+      <p><span class="gloss-k">In the workshop</span> Drawing and correcting your Studio Signal Map is the first deliverable of Lab 001.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#routing">Routing</a>, <a href="#signal-map">Signal map</a>, <a href="#audio-vs-control">Audio vs. control</a></p>
+    </div>
+
+    <div class="gloss-entry" id="audio-vs-control">
+      <div class="gloss-term"><h3>Audio vs. control (MIDI)</h3></div>
+      <p class="gloss-def">Two different kinds of signal on the bench. <strong>Audio</strong> is the actual sound you can hear. <strong>Control</strong> (usually MIDI) is instructions — "play this note," "the tempo is 124" — that carry no sound at all.</p>
+      <p><span class="gloss-k">Why it matters</span> Keeping them separate in your head stops a whole class of confusion, like wondering why a USB cable carrying only MIDI makes no sound.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#midi-clock">MIDI clock</a>, <a href="#transport">Transport</a></p>
+    </div>
+
+    <div class="gloss-entry" id="preamp">
+      <div class="gloss-term"><h3>Preamp</h3></div>
+      <p class="gloss-def">A small amplifier behind an interface's input jack, set by its gain knob. It boosts a weak mic or instrument signal up to a usable strength (line level).</p>
+      <p><span class="gloss-k">Why it matters</span> The preamp is where you set your recording level, and where converter clipping happens if you push it too far.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#line-vs-mic-level">Line vs. mic level</a>, <a href="#converter-clipping">Converter clipping</a></p>
+    </div>
+
+    <div class="gloss-entry" id="line-vs-mic-level">
+      <div class="gloss-term"><h3>Line level vs. mic level</h3></div>
+      <p class="gloss-def">Two standard signal strengths. <strong>Mic level</strong> is very weak (from a microphone) and needs a preamp. <strong>Line level</strong> is much stronger (from a synth, drum machine, or mixer) and is ready to use.</p>
+      <p><span class="gloss-k">Why it matters</span> Plug a line-level synth into a mic input and it overloads; plug a mic into a line input and it is too quiet. Matching levels is matching the jack to the source.</p>
+    </div>
+
+    <div class="gloss-entry" id="balanced-unbalanced">
+      <div class="gloss-term"><h3>Balanced vs. unbalanced</h3></div>
+      <p class="gloss-def">Two kinds of cabling. <strong>Balanced</strong> connections carry the signal in a way that cancels out hum and interference, good for long runs. <strong>Unbalanced</strong> connections are simpler but pick up more noise over distance.</p>
+      <p><span class="gloss-k">Why it matters</span> Using balanced cables where you can keeps a faint whine out of your recordings.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#ts-trs">TS / TRS</a>, <a href="#impedance">Impedance</a></p>
+    </div>
+
+    <div class="gloss-entry" id="ts-trs">
+      <div class="gloss-term"><h3>TS and TRS cables</h3></div>
+      <p class="gloss-def">Two ¼-inch plug types. <strong>TS</strong> (one black ring) is unbalanced — the right cable for a guitar or the mono MicroFreak output. <strong>TRS</strong> (two black rings) can carry a balanced signal that rejects noise.</p>
+      <p><span class="gloss-k">Why it matters</span> Using TRS on the Digitakt II's outputs rejects hum; TS still works but is noisier. Knowing which is which prevents mystery noise.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#balanced-unbalanced">Balanced vs. unbalanced</a></p>
+    </div>
+
+    <div class="gloss-entry" id="impedance">
+      <div class="gloss-term"><h3>Impedance</h3></div>
+      <p class="gloss-def">A kind of electrical "resistance" that a source and the input it feeds need to get along. Roughly, it is about whether two devices are a good electrical match.</p>
+      <p><span class="gloss-k">Why it matters</span> A mismatch can make a source sound weak or dull. Most modern gear matches automatically, but it is why a "Hi-Z" instrument input exists.</p>
+    </div>
+
+    <div class="gloss-entry" id="di-box">
+      <div class="gloss-term"><h3>DI box</h3><span class="gloss-aka">direct injection</span></div>
+      <p class="gloss-def">A small box that turns a high-impedance instrument signal into a balanced, mic-level one that plugs cleanly into a mixer or interface.</p>
+      <p><span class="gloss-k">Why it matters</span> It is the standard way to record an instrument over a long cable without noise or level problems.</p>
+    </div>
+
+    <div class="gloss-entry" id="send-return">
+      <div class="gloss-term"><h3>Send / return</h3></div>
+      <p class="gloss-def">A way to peel off a copy of a track's signal, pass it through an effect (like reverb), and blend the result back in. You "send" to the effect and it "returns."</p>
+      <p><span class="gloss-k">Why it matters</span> One reverb on a send can be shared by many tracks, and you can perform a track live just by riding its sends.</p>
+      <p><span class="gloss-k">In the workshop</span> Basic Channel's "Quadrant Dub I" (Block 1) is a static loop performed almost entirely from filter, sends, and level.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#bus">Bus / group</a>, <a href="#dry-wet">Dry / wet</a></p>
+    </div>
+
+    <div class="gloss-entry" id="bus">
+      <div class="gloss-term"><h3>Bus / group</h3></div>
+      <p class="gloss-def">A channel that several tracks are routed into so you can treat them together. A "drum bus," for example, sums all your drums onto one fader.</p>
+      <p><span class="gloss-k">Why it matters</span> It is a place to glue sounds together — and a place clipping can happen even when each track looks fine on its own.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#master">Master</a>, <a href="#gain-stage">Gain stage</a></p>
+    </div>
+
+    <div class="gloss-entry" id="master">
+      <div class="gloss-term"><h3>Master</h3></div>
+      <p class="gloss-def">The final stage where everything is summed into one signal before it leaves your DAW — the last fader and meter the whole mix passes through.</p>
+      <p><span class="gloss-k">Why it matters</span> It is the last place to catch clipping, and where a safety limiter lives. Master clipping sounds different from a single track clipping.</p>
+    </div>
+
+    <div class="gloss-entry" id="monitoring">
+      <div class="gloss-term"><h3>Monitoring</h3></div>
+      <p class="gloss-def">What you are listening through, and how. It also names a track setting in Live (<span class="menu">Monitor</span>: In / Auto / Off) that decides whether you hear the live input or only the recording.</p>
+      <p><span class="gloss-k">Why it matters</span> Much of what "sounds wrong" is really a monitoring choice. Some music barely exists on the wrong playback path at all.</p>
+      <p><span class="gloss-k">In the workshop</span> Thomas Köner's "Permafrost" (Block 1) lives below ≈200 Hz — huge on the right system, near-silent on a laptop.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#monitoring-discipline">Monitoring discipline</a>, <a href="#direct-vs-software-monitoring">Direct vs. software monitoring</a></p>
+    </div>
+
+    <div class="gloss-entry" id="direct-vs-software-monitoring">
+      <div class="gloss-term"><h3>Direct vs. software monitoring</h3></div>
+      <p class="gloss-def">Two ways to hear a live input. <strong>Direct</strong> monitoring hears it straight from the interface (no delay). <strong>Software</strong> monitoring hears it after it has gone through the computer and back (with a small delay).</p>
+      <p><span class="gloss-k">Why it matters</span> Hearing both at once gives you a hollow, flanged sound. The rule is one listening path only.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#comb-filtering">Comb filtering</a>, <a href="#latency">Latency</a></p>
+    </div>
+
+    <div class="gloss-entry" id="loopback">
+      <div class="gloss-term"><h3>Loopback</h3></div>
+      <p class="gloss-def">Wiring an output of your interface straight back into one of its inputs, so the computer can send a signal out and measure what comes back.</p>
+      <p><span class="gloss-k">Why it matters</span> It is how you measure your system's real round-trip delay, instead of trusting the number the software claims.</p>
+      <p><span class="gloss-k">In the workshop</span> Lab 002 uses a loopback to measure latency and set the correct compensation.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#latency">Latency</a>, <a href="#drift">Drift</a></p>
+    </div>
+
+    <div class="gloss-entry" id="routing">
+      <div class="gloss-term"><h3>Routing</h3></div>
+      <p class="gloss-def">The choices about how signals are connected — which output goes to which input, which track feeds which bus, where an effect sits in the chain.</p>
+      <p><span class="gloss-k">Why it matters</span> In experimental music the routing often <em>is</em> the instrument. Change the path and you change the piece.</p>
+    </div>
+
+  </div>
+
+  <!-- ============================================================ -->
+  <h2 id="cat-time">Timing, clock &amp; groove</h2>
+  <p style="text-align: center; color: var(--text-muted); max-width: 640px; margin: 0 auto 18px;">How machines stay in time together, and how small timing choices create feel. The language of Block 3.</p>
+
+  <div class="glossary">
+
+    <div class="gloss-entry" id="latency">
+      <div class="gloss-term"><h3>Latency</h3></div>
+      <p class="gloss-def">The short delay between a signal going into your system and coming back out, caused by the time the computer needs to process it.</p>
+      <p><span class="gloss-k">Why it matters</span> A constant latency is knowable and fixable; you can compensate for it. It only becomes a problem when it is large or when it grows.</p>
+      <p><span class="gloss-k">In the workshop</span> Lab 002 measures it and tells constant latency apart from drift.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#buffer-size">Buffer size</a>, <a href="#drift">Drift</a></p>
+    </div>
+
+    <div class="gloss-entry" id="buffer-size">
+      <div class="gloss-term"><h3>Buffer size</h3></div>
+      <p class="gloss-def">How big a chunk of audio the computer works on at once, measured in samples (e.g. <span class="code">256</span>). Small buffers mean less delay but more strain; large buffers mean more delay but smoother running.</p>
+      <p><span class="gloss-k">Why it matters</span> It is the main trade-off behind your latency. Change the buffer and you change the delay, so any latency compensation has to be re-checked.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#latency">Latency</a></p>
+    </div>
+
+    <div class="gloss-entry" id="midi-clock">
+      <div class="gloss-term"><h3>Clock / MIDI clock</h3></div>
+      <p class="gloss-def">A steady tempo pulse that one device sends to others so they all run at the same speed. It carries timing, not sound.</p>
+      <p><span class="gloss-k">Why it matters</span> One clock keeps your synth, drum machine, and DAW locked together. Two clocks fighting is a classic cause of drifting, sloppy timing.</p>
+      <p><span class="gloss-k">In the workshop</span> The "Spastik" drill (Block 1) makes Live the one clock master and the Digitakt II follow.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#sync">Sync</a>, <a href="#transport">Transport</a>, <a href="#drift">Drift</a></p>
+    </div>
+
+    <div class="gloss-entry" id="transport">
+      <div class="gloss-term"><h3>Transport</h3></div>
+      <p class="gloss-def">The play / stop / position controls. "Transport" messages let one device's play and stop buttons start and stop another.</p>
+      <p><span class="gloss-k">Why it matters</span> Separate from clock: a follower can know the tempo (clock) but still need transport to start on bar 1 with the master.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#sync">Sync</a>, <a href="#midi-clock">MIDI clock</a></p>
+    </div>
+
+    <div class="gloss-entry" id="sync">
+      <div class="gloss-term"><h3>Sync (clock master &amp; follower)</h3></div>
+      <p class="gloss-def">Locking devices to one tempo. The <strong>master</strong> sets the tempo and sends the clock; the <strong>followers</strong> receive it and obey.</p>
+      <p><span class="gloss-k">Why it matters</span> Exactly one master is the rule. The most common timing bug is two devices both trying to lead.</p>
+    </div>
+
+    <div class="gloss-entry" id="drift">
+      <div class="gloss-term"><h3>Drift</h3></div>
+      <p class="gloss-def">Timing that slowly grows apart over time, so two parts that started together end up further and further off.</p>
+      <p><span class="gloss-k">Why it matters</span> Unlike constant latency, drift cannot be fixed by compensation — you have to fix the clock chain. A growing offset is the tell.</p>
+      <p><span class="gloss-k">In the workshop</span> The "Spastik" drill proves the clock by checking the bar 1 and bar 16 kicks sit the same distance from the grid.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#jitter">Jitter</a>, <a href="#latency">Latency</a></p>
+    </div>
+
+    <div class="gloss-entry" id="jitter">
+      <div class="gloss-term"><h3>Jitter</h3></div>
+      <p class="gloss-def">Tiny, random wobble in timing from one moment to the next — not a steady offset, just small flickers.</p>
+      <p><span class="gloss-k">Why it matters</span> A little is normal; a lot smears transients and softens a tight groove.</p>
+    </div>
+
+    <div class="gloss-entry" id="quantize">
+      <div class="gloss-term"><h3>Quantize</h3></div>
+      <p class="gloss-def">Snapping notes or hits onto the nearest grid line so they land exactly on the beat.</p>
+      <p><span class="gloss-k">Why it matters</span> It is how you get machine-tight timing — and, used too hard, how you flatten the life out of a human performance.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#groove">Groove</a>, <a href="#micro-timing">Micro-timing</a></p>
+    </div>
+
+    <div class="gloss-entry" id="swing">
+      <div class="gloss-term"><h3>Swing</h3></div>
+      <p class="gloss-def">Pushing the in-between beats slightly late (or early) by a set amount, giving a rolling, bouncing feel instead of a stiff one.</p>
+      <p><span class="gloss-k">Why it matters</span> Swing is an exact, measurable timing amount — not just a vibe. On the Digitakt II, <span class="code">50%</span> means no swing.</p>
+      <p><span class="gloss-k">In the workshop</span> Mr. Fingers' "Can You Feel It" (Block 1) is the swing-you-can-set reference.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#micro-timing">Micro-timing</a>, <a href="#groove">Groove</a></p>
+    </div>
+
+    <div class="gloss-entry" id="micro-timing">
+      <div class="gloss-term"><h3>Micro-timing</h3></div>
+      <p class="gloss-def">Very small nudges of individual hits earlier or later than the grid, measured in milliseconds.</p>
+      <p><span class="gloss-k">Why it matters</span> It is the fine control behind a custom groove — and something you zero out when you want dead-straight timing.</p>
+      <p><span class="gloss-k">In the workshop</span> J Dilla's <em>Donuts</em> (Block 1) is groove built from lateness that repeats exactly.</p>
+    </div>
+
+    <div class="gloss-entry" id="groove">
+      <div class="gloss-term"><h3>Groove / pocket</h3></div>
+      <p class="gloss-def">The feel that comes from how parts sit in time against each other — slightly ahead, behind, or dead-on. "The pocket" is the sweet spot where it locks.</p>
+      <p><span class="gloss-k">Why it matters</span> Groove is a timing relationship you can build on purpose, not a mystery. Even perfectly straight timing is a groove choice.</p>
+      <p><span class="gloss-k">In the workshop</span> D'Angelo's "Playa Playa" (Block 1) layers parts each a fixed amount behind the kick — apart, but locked.</p>
+    </div>
+
+    <div class="gloss-entry" id="bpm">
+      <div class="gloss-term"><h3>BPM</h3><span class="gloss-aka">beats per minute</span></div>
+      <p class="gloss-def">The tempo: how many beats happen in a minute. 120 BPM is two beats a second.</p>
+      <p><span class="gloss-k">Why it matters</span> It is the number the clock master sets and the followers run at.</p>
+    </div>
+
+    <div class="gloss-entry" id="polymeter">
+      <div class="gloss-term"><h3>Polymeter / polyrhythm</h3></div>
+      <p class="gloss-def">Layering different counts at once. <strong>Polymeter</strong> runs patterns of different lengths together (a 4-step over a 5-step). <strong>Polyrhythm</strong> runs different divisions of the same beat (3 against 4).</p>
+      <p><span class="gloss-k">Why it matters</span> Both make simple loops keep evolving, because the parts line up differently every cycle before they finally meet again.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#phase-rhythm">Phase (rhythmic)</a>, <a href="#euclidean">Euclidean rhythm</a></p>
+    </div>
+
+    <div class="gloss-entry" id="euclidean">
+      <div class="gloss-term"><h3>Euclidean rhythm</h3></div>
+      <p class="gloss-def">A way of spreading a number of hits as evenly as possible across a number of steps, using a simple rule (the same maths Euclid used for dividing numbers). 3 hits over 8 steps gives a familiar pattern.</p>
+      <p><span class="gloss-k">Why it matters</span> It turns rhythm into a couple of numbers you can dial, and it lands on patterns from traditions all over the world.</p>
+    </div>
+
+    <div class="gloss-entry" id="probability">
+      <div class="gloss-term"><h3>Probability / chance</h3></div>
+      <p class="gloss-def">Setting a step to fire only some of the time — say, a 60% chance each cycle — so the pattern is never quite the same twice.</p>
+      <p><span class="gloss-k">Why it matters</span> A little randomness keeps a loop alive and human without you touching it. It is a core tool of Block 6's self-playing systems.</p>
+    </div>
+
+    <div class="gloss-entry" id="phase-rhythm">
+      <div class="gloss-term"><h3>Phase (rhythmic)</h3></div>
+      <p class="gloss-def">Two identical patterns running at slightly different speeds so one slowly slides against the other, constantly changing how they line up.</p>
+      <p><span class="gloss-k">Why it matters</span> From almost nothing you get endless variation. (Not to be confused with <a href="#phase">phase</a> in the stereo/mixing sense.)</p>
+      <p><span class="gloss-k">In the workshop</span> Steve Reich's <em>Music for 18 Musicians</em> (Block 1) and his phase pieces are the model.</p>
+    </div>
+
+    <div class="gloss-entry" id="p-lock">
+      <div class="gloss-term"><h3>Parameter lock (p-lock)</h3></div>
+      <p class="gloss-def">An Elektron feature: a setting saved to one single step of a pattern, so just that one hit has a different pitch, decay, or filter while the rest stay as they are.</p>
+      <p><span class="gloss-k">Why it matters</span> It lets a fixed pattern develop from the inside — the sequencer becomes the sound design, with no new parts added.</p>
+      <p><span class="gloss-k">In the workshop</span> DBX's "Losing Control" (Block 1) builds a whole track from accents, p-locks, and dropouts.</p>
+    </div>
+
+  </div>
+
+  <!-- ============================================================ -->
+  <h2 id="cat-synth">Synthesis &amp; sound design</h2>
+  <p style="text-align: center; color: var(--text-muted); max-width: 640px; margin: 0 auto 18px;">Building a sound from scratch and shaping it — the vocabulary of synths and the labs that make tones from nothing.</p>
+
+  <div class="glossary">
+
+    <div class="gloss-entry" id="oscillator">
+      <div class="gloss-term"><h3>Oscillator</h3></div>
+      <p class="gloss-def">The part of a synth that makes the raw tone — a repeating wave at a chosen pitch. It is the starting sound everything else shapes.</p>
+      <p><span class="gloss-k">Why it matters</span> Almost every synth voice begins here. The waveform you pick (sine, saw, square) sets the raw character.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#subtractive">Subtractive synthesis</a>, <a href="#fundamental">Fundamental</a></p>
+    </div>
+
+    <div class="gloss-entry" id="subtractive">
+      <div class="gloss-term"><h3>Subtractive synthesis</h3></div>
+      <p class="gloss-def">The most common way to make a sound: start with a bright, harmonically rich waveform, then use a filter to carve unwanted parts away.</p>
+      <p><span class="gloss-k">Why it matters</span> It is the method behind classic analog tones, and the whole basis of the one-voice étude in Lab 004.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#filter">Filter</a>, <a href="#cutoff">Cutoff</a></p>
+    </div>
+
+    <div class="gloss-entry" id="fm-synthesis">
+      <div class="gloss-term"><h3>FM synthesis</h3></div>
+      <p class="gloss-def">Frequency modulation: using one oscillator to rapidly wobble the pitch of another. Done fast enough, this creates new, often metallic or bell-like harmonics.</p>
+      <p><span class="gloss-k">Why it matters</span> It makes sounds subtractive synthesis struggles to — clangs, bells, sharp digital textures. Live's Operator is an FM instrument.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#suite-instruments">Operator</a>, <a href="#modulation">Modulation</a></p>
+    </div>
+
+    <div class="gloss-entry" id="wavetable-synth">
+      <div class="gloss-term"><h3>Wavetable synthesis</h3></div>
+      <p class="gloss-def">Building a tone from a stored set of different waveforms and sweeping smoothly from one to the next, so the sound morphs as it plays.</p>
+      <p><span class="gloss-k">Why it matters</span> It gives evolving, moving timbres from a single note. Live's Wavetable instrument does exactly this.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#suite-instruments">Wavetable (device)</a></p>
+    </div>
+
+    <div class="gloss-entry" id="filter">
+      <div class="gloss-term"><h3>Filter</h3></div>
+      <p class="gloss-def">A tool that removes or reduces part of a sound's frequency range. A low-pass filter keeps the lows and cuts the highs; a high-pass does the opposite.</p>
+      <p><span class="gloss-k">Why it matters</span> The filter is the single most expressive control on a synth. Open and close it and one note can sound like several instruments.</p>
+      <p><span class="gloss-k">In the workshop</span> Phuture's "Acid Tracks" (Block 1) is one ridden filter heard as a whole arrangement.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#cutoff">Cutoff</a>, <a href="#resonance">Resonance</a></p>
+    </div>
+
+    <div class="gloss-entry" id="cutoff">
+      <div class="gloss-term"><h3>Cutoff</h3></div>
+      <p class="gloss-def">The frequency where a filter starts working — the point above (or below) which sound gets removed. Moving the cutoff is "opening" or "closing" the filter.</p>
+      <p><span class="gloss-k">Why it matters</span> It is the knob you ride for movement and energy. Most filter sweeps you hear are the cutoff moving.</p>
+    </div>
+
+    <div class="gloss-entry" id="resonance">
+      <div class="gloss-term"><h3>Resonance</h3></div>
+      <p class="gloss-def">A boost right at the filter's cutoff point that emphasises it, adding a vocal, whistling, or zingy quality. Pushed far enough, the filter starts to sing on its own.</p>
+      <p><span class="gloss-k">Why it matters</span> Resonance is where a filter gets its character and bite — and where it can get loud or unstable, so it needs watching.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#self-oscillation">Self-oscillation</a>, <a href="#cutoff">Cutoff</a></p>
+    </div>
+
+    <div class="gloss-entry" id="self-oscillation">
+      <div class="gloss-term"><h3>Self-oscillation</h3></div>
+      <p class="gloss-def">When a filter's resonance is turned up so high that the filter generates its own pure tone, even with no input — it "sings" at the cutoff pitch.</p>
+      <p><span class="gloss-k">Why it matters</span> It turns a filter into an oscillator you can play, and is a building block of feedback and drone patches.</p>
+      <p><span class="gloss-k">In the workshop</span> The rebuild of Alvin Lucier's "Long Thin Wire" (Block 2) uses a filter on the edge of self-oscillation as a stand-in for a wire under tension.</p>
+    </div>
+
+    <div class="gloss-entry" id="envelope">
+      <div class="gloss-term"><h3>Envelope (ADSR)</h3></div>
+      <p class="gloss-def">The shape of how a sound changes over the life of a note, set by four stages: <strong>Attack</strong> (how fast it starts), <strong>Decay</strong> (the initial fall), <strong>Sustain</strong> (the held level), and <strong>Release</strong> (how it fades after you let go).</p>
+      <p><span class="gloss-k">Why it matters</span> The envelope is the difference between a sharp pluck and a slow swell. A long attack and release is how you make a sound with no clear beginning or end.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#transient">Transient</a>, <a href="#sustain">Sustain</a></p>
+    </div>
+
+    <div class="gloss-entry" id="lfo">
+      <div class="gloss-term"><h3>LFO</h3><span class="gloss-aka">low-frequency oscillator</span></div>
+      <p class="gloss-def">A slow, automatic knob-mover. Instead of making sound you hear, an LFO gently moves another control — the filter, the pitch, the volume — up and down on a repeating cycle.</p>
+      <p><span class="gloss-k">Why it matters</span> It is how a held sound stays alive without your hands. Set it slow and shallow and a drone breathes; set it fast and it becomes wobble or vibrato.</p>
+      <p><span class="gloss-k">In the workshop</span> Lab 005 keeps a sustained tone interesting with very slow LFOs and long envelopes.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#modulation">Modulation</a>, <a href="#mod-matrix">Mod matrix</a></p>
+    </div>
+
+    <div class="gloss-entry" id="modulation">
+      <div class="gloss-term"><h3>Modulation</h3></div>
+      <p class="gloss-def">One control automatically changing another over time — an LFO moving the filter, an envelope moving the pitch. "Modulating" something is having a source drive it instead of your hand.</p>
+      <p><span class="gloss-k">Why it matters</span> Modulation is what makes a sound move and evolve on its own. It is the whole reason "do less, but make each element evolve" is possible.</p>
+    </div>
+
+    <div class="gloss-entry" id="mod-matrix">
+      <div class="gloss-term"><h3>Mod matrix</h3><span class="gloss-aka">modulation matrix</span></div>
+      <p class="gloss-def">A small routing table inside a synth where you choose what controls what — for example "LFO → filter cutoff, small amount."</p>
+      <p><span class="gloss-k">Why it matters</span> It is where you wire up movement. The MicroFreak's mod matrix is how you connect a source to a destination by a chosen amount.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#modulation">Modulation</a>, <a href="#lfo">LFO</a></p>
+    </div>
+
+    <div class="gloss-entry" id="detune">
+      <div class="gloss-term"><h3>Detune</h3></div>
+      <p class="gloss-def">Setting two tones to very slightly different pitches instead of exactly the same one.</p>
+      <p><span class="gloss-k">Why it matters</span> A small detune fattens and thickens a sound. A tiny one creates a slow throb (see beating); a wider one sounds lush or unstable.</p>
+      <p><span class="gloss-k">In the workshop</span> Coil's <em>Time Machines</em> (Block 1) is two detuned tones held still, with the throb between them as the only motion.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#beating">Beating</a>, <a href="#overtones">Overtones</a></p>
+    </div>
+
+    <div class="gloss-entry" id="beating">
+      <div class="gloss-term"><h3>Beating</h3></div>
+      <p class="gloss-def">A slow, pulsing throb you hear when two tones are very close in pitch but not identical. The two waves drift in and out of step, and the volume swells and dips at the rate of the difference.</p>
+      <p><span class="gloss-k">Why it matters</span> It is movement made from stillness — pure interference, with nothing being modulated. The closer the pitches, the slower the throb.</p>
+      <p><span class="gloss-k">In the workshop</span> Lab 004b builds a piece where beating is the only thing happening.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#detune">Detune</a></p>
+    </div>
+
+    <div class="gloss-entry" id="drone">
+      <div class="gloss-term"><h3>Drone</h3></div>
+      <p class="gloss-def">A tone held for a very long time. A good drone is not static — it is slow. The interest lives inside the sound itself rather than in notes or rhythm.</p>
+      <p><span class="gloss-k">Why it matters</span> When nothing repeats and nothing pulses, the ear starts examining the sound closely. It is the whole world of Block 2's beatless work.</p>
+      <p><span class="gloss-k">In the workshop</span> Lab 005 and 005b are built around sustaining a drone and keeping it alive.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#sustain">Sustain</a>, <a href="#held-tone-test">Held Tone Test</a></p>
+    </div>
+
+    <div class="gloss-entry" id="sustain">
+      <div class="gloss-term"><h3>Sustain</h3></div>
+      <p class="gloss-def">The held part of a sound — the level it stays at while a note is down, after the initial attack and before it is released. As a verb, "to sustain" is simply to hold.</p>
+      <p><span class="gloss-k">Why it matters</span> Long sustains are what make drones and pads possible. They also behave differently on the meters than short, peaky sounds.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#envelope">Envelope</a>, <a href="#crest-factor">Crest factor</a></p>
+    </div>
+
+    <div class="gloss-entry" id="overtones">
+      <div class="gloss-term"><h3>Overtones / harmonics</h3></div>
+      <p class="gloss-def">The quieter, higher tones that sit on top of a note's main pitch and give it its colour. Every natural sound is its fundamental plus a stack of overtones.</p>
+      <p><span class="gloss-k">Why it matters</span> Filtering, saturation, and detuning all work by changing which overtones you hear. Light them up one at a time and the overtones become a melody.</p>
+      <p><span class="gloss-k">In the workshop</span> Folke Rabe's "What??" (Block 2) lights the overtones of one held tone one by one.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#fundamental">Fundamental</a>, <a href="#timbre">Timbre</a></p>
+    </div>
+
+    <div class="gloss-entry" id="fundamental">
+      <div class="gloss-term"><h3>Fundamental</h3></div>
+      <p class="gloss-def">The main, lowest pitch of a note — the one you name when you say "that's an A." Everything above it is overtones.</p>
+      <p><span class="gloss-k">Why it matters</span> A very low fundamental may only be reproduced by some speakers, which can make a piece's bass disappear on the wrong system.</p>
+      <p><span class="gloss-k">In the workshop</span> LFO's "LFO" (Block 1) hides a sub hook whose fundamental only some playback paths can play.</p>
+    </div>
+
+    <div class="gloss-entry" id="timbre">
+      <div class="gloss-term"><h3>Timbre</h3><span class="gloss-aka">tone colour</span></div>
+      <p class="gloss-def">The quality that makes two instruments playing the same note sound different — the "colour" or "texture" of a sound, set mostly by its overtones and how it starts.</p>
+      <p><span class="gloss-k">Why it matters</span> When pitch and rhythm are fixed, timbre is what you compose with. Much of this course is learning to hear and shape it.</p>
+    </div>
+
+  </div>
+
+  <!-- ============================================================ -->
+  <h2 id="cat-sample">Sampling, recording &amp; capture</h2>
+  <p style="text-align: center; color: var(--text-muted); max-width: 640px; margin: 0 auto 18px;">Bringing real-world and recorded sound into your system, and reshaping it. The toolkit of Block 2.</p>
+
+  <div class="glossary">
+
+    <div class="gloss-entry" id="sample">
+      <div class="gloss-term"><h3>Sample</h3></div>
+      <p class="gloss-def">A recorded piece of sound — anything from a single drum hit to a whole phrase — stored so you can play it back.</p>
+      <p><span class="gloss-k">Why it matters</span> A sample is raw material with conditions already attached: where it was recorded, how loud, with what noise. Owning those conditions is the lesson of Block 2.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#sampler">Sampler</a>, <a href="#resampling">Resampling</a></p>
+    </div>
+
+    <div class="gloss-entry" id="sampler">
+      <div class="gloss-term"><h3>Sampler</h3></div>
+      <p class="gloss-def">An instrument that plays back samples, often letting you pitch them, loop them, and shape them like any synth voice.</p>
+      <p><span class="gloss-k">Why it matters</span> A sampler turns any recording into something you can play across a keyboard. Live's Sampler and Simpler, and the Digitakt II, are all samplers.</p>
+      <p><span class="gloss-k">In the workshop</span> DJ Shadow's "Building Steam" (Block 2) makes unrelated sources sound like one band by passing them all through one sampler.</p>
+    </div>
+
+    <div class="gloss-entry" id="resampling">
+      <div class="gloss-term"><h3>Resampling</h3></div>
+      <p class="gloss-def">Recording your own sound back into the system as a new sample, so you can reshape it again — slice it, stretch it, pitch it, or blur it.</p>
+      <p><span class="gloss-k">Why it matters</span> It is a way to commit to a sound and then treat the result as fresh raw material. Each pass can wear the sound down or transform it further.</p>
+      <p><span class="gloss-k">In the workshop</span> Lab 007 resamples one source through three different architectures and compares them.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#print">Print / commit</a>, <a href="#loop-point">Loop point</a></p>
+    </div>
+
+    <div class="gloss-entry" id="field-recording">
+      <div class="gloss-term"><h3>Field recording</h3></div>
+      <p class="gloss-def">Recording real-world sound on location — a street, a forest, a machine room — rather than making it in the studio.</p>
+      <p><span class="gloss-k">Why it matters</span> In the field, the gain decision is a one-shot: set it wrong and the moment is gone. That makes capture a skill of its own.</p>
+      <p><span class="gloss-k">In the workshop</span> Lab 008 certifies the field kit, with a safety and ethics checklist.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#contact-mic">Contact mic</a>, <a href="#hydrophone">Hydrophone</a>, <a href="#concrete">Musique concrète</a></p>
+    </div>
+
+    <div class="gloss-entry" id="contact-mic">
+      <div class="gloss-term"><h3>Contact mic</h3></div>
+      <p class="gloss-def">A microphone that picks up vibration travelling <em>through a solid object</em> rather than sound in the air. Stuck to a fence, a window, or a radiator, it hears the object's inner life.</p>
+      <p><span class="gloss-k">Why it matters</span> It reveals sounds your ears cannot reach, and makes the surface you attach it to part of the instrument.</p>
+      <p><span class="gloss-k">In the workshop</span> Toshiya Tsunoda's <em>Extract from Field Recording Archive</em> (Block 2) is one contact mic on five surfaces.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#induction-coil">Induction coil</a>, <a href="#hydrophone">Hydrophone</a></p>
+    </div>
+
+    <div class="gloss-entry" id="hydrophone">
+      <div class="gloss-term"><h3>Hydrophone</h3></div>
+      <p class="gloss-def">A microphone built to record underwater.</p>
+      <p><span class="gloss-k">Why it matters</span> A whole world of sound exists only for the right sensor. Underwater, the silence an air mic would hear becomes an orchestra.</p>
+      <p><span class="gloss-k">In the workshop</span> Jana Winderen's <em>Energy Field</em> (Block 2) is the hydrophone reference.</p>
+    </div>
+
+    <div class="gloss-entry" id="induction-coil">
+      <div class="gloss-term"><h3>Induction coil</h3><span class="gloss-aka">electromagnetic pickup</span></div>
+      <p class="gloss-def">A pickup that listens to the electromagnetic fields leaking from electronics — screens, chargers, transit systems — and turns them into sound. It works like a guitar pickup, but for stray fields instead of strings.</p>
+      <p><span class="gloss-k">Why it matters</span> Every circuit leaks a field with a voice. The coil hears a layer of the world that is completely silent to your ears.</p>
+      <p><span class="gloss-k">In the workshop</span> Christina Kubisch's <em>Five Electrical Walks</em> (Block 2) is built entirely from these fields.</p>
+    </div>
+
+    <div class="gloss-entry" id="concrete">
+      <div class="gloss-term"><h3>Musique concrète</h3><span class="gloss-aka">concrète</span></div>
+      <p class="gloss-def">Music made from recordings of real-world sounds — trains, doors, voices — treated as raw material to be edited and transformed, rather than from instruments playing notes.</p>
+      <p><span class="gloss-k">Why it matters</span> It is the foundation of capture-based experimental music. Repeating a recorded sound exactly strips its label and leaves a pure "sound object."</p>
+      <p><span class="gloss-k">In the workshop</span> Pierre Schaeffer's "Étude aux chemins de fer" (Block 2) is the founding example.</p>
+    </div>
+
+    <div class="gloss-entry" id="granular">
+      <div class="gloss-term"><h3>Granular synthesis</h3></div>
+      <p class="gloss-def">Making sound from tiny fragments ("grains") of a sample, a few milliseconds each, layered into clouds. You can freeze a moment, stretch it forever, or blur it into a texture.</p>
+      <p><span class="gloss-k">Why it matters</span> It turns any recording into an endless, evolving atmosphere. Live's Granulator does exactly this.</p>
+      <p><span class="gloss-k">In the workshop</span> Lab 008b granulates your own voice into something unmoored from speech.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#suite-instruments">Granulator</a>, <a href="#formant">Formant</a></p>
+    </div>
+
+    <div class="gloss-entry" id="formant">
+      <div class="gloss-term"><h3>Formant</h3></div>
+      <p class="gloss-def">The fixed resonances that give a voice its vowel sounds and a body its character. "Formant shifting" moves these to make a voice sound bigger, smaller, or alien — separately from its pitch.</p>
+      <p><span class="gloss-k">Why it matters</span> It is how you change the <em>identity</em> of a voice without simply pitching it up or down like a chipmunk.</p>
+    </div>
+
+    <div class="gloss-entry" id="transient">
+      <div class="gloss-term"><h3>Transient</h3></div>
+      <p class="gloss-def">The short, sharp spike at the very start of a sound — the "click" of a kick, the "pick" of a string. It is what your ear uses to identify the hit.</p>
+      <p><span class="gloss-k">Why it matters</span> A strong transient cuts through a mix; a softened one sits back. It is also the part most easily smeared by latency or jitter.</p>
+      <p><span class="gloss-k">In the workshop</span> Lab 006b builds drum sounds from scratch, shaping the transient against the body.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#envelope">Envelope</a></p>
+    </div>
+
+    <div class="gloss-entry" id="loop-point">
+      <div class="gloss-term"><h3>Loop point</h3></div>
+      <p class="gloss-def">The spot where a sample is set to jump back and repeat. Choosing exactly where the loop starts and ends decides what music a recording becomes.</p>
+      <p><span class="gloss-k">Why it matters</span> The same two seconds contain many different loops. Even a loop that "stumbles" can become the whole feel of a track.</p>
+      <p><span class="gloss-k">In the workshop</span> Oneohtrix Point Never's "Replica" (Block 2) treats the loop point itself as the instrument.</p>
+    </div>
+
+    <div class="gloss-entry" id="warp">
+      <div class="gloss-term"><h3>Warp / time-stretch</h3></div>
+      <p class="gloss-def">Changing the length of a recording without changing its pitch (or changing pitch without changing length). It is how a sample locks to your tempo, or stretches into a drone.</p>
+      <p><span class="gloss-k">Why it matters</span> It frees timing and pitch from each other. Pushed far, the stretching artefacts become a sound of their own.</p>
+    </div>
+
+    <div class="gloss-entry" id="bit-depth-sample-rate">
+      <div class="gloss-term"><h3>Bit depth &amp; sample rate</h3></div>
+      <p class="gloss-def">The two numbers that set a recording's resolution. <strong>Sample rate</strong> (e.g. <span class="code">48 kHz</span>) is how many snapshots per second; <strong>bit depth</strong> (e.g. 24-bit) is how finely each snapshot's level is measured.</p>
+      <p><span class="gloss-k">Why it matters</span> They set the quality and the headroom of a recording. The workshop records at <span class="code">48 kHz</span> as standard.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#dbfs">dBFS</a>, <a href="#float-overs">Float overs</a></p>
+    </div>
+
+    <div class="gloss-entry" id="self-noise">
+      <div class="gloss-term"><h3>Self-noise</h3></div>
+      <p class="gloss-def">The faint hiss a microphone or recorder makes on its own, even in perfect silence.</p>
+      <p><span class="gloss-k">Why it matters</span> On very quiet field recordings, self-noise sets the real floor. It is why a quiet capture wants a low-noise mic and a healthy level.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#noise-floor">Noise floor</a></p>
+    </div>
+
+  </div>
+
+  <!-- ============================================================ -->
+  <h2 id="cat-space">Space, mix &amp; stereo</h2>
+  <p style="text-align: center; color: var(--text-muted); max-width: 640px; margin: 0 auto 18px;">Placing sounds in a space and balancing them against each other. The territory of Block 5.</p>
+
+  <div class="glossary">
+
+    <div class="gloss-entry" id="reverb">
+      <div class="gloss-term"><h3>Reverb</h3></div>
+      <p class="gloss-def">The sense of a space around a sound — the wash of reflections you hear in a room, a hall, or a cave, recreated as an effect.</p>
+      <p><span class="gloss-k">Why it matters</span> Reverb sets distance and mood. Drowned deep enough, it can blur a repeating loop into pure atmosphere.</p>
+      <p><span class="gloss-k">In the workshop</span> GAS's "Pop 1" (Block 1) dissolves its loop into reverb until the edges vanish.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#dry-wet">Dry / wet</a>, <a href="#delay">Delay</a></p>
+    </div>
+
+    <div class="gloss-entry" id="delay">
+      <div class="gloss-term"><h3>Delay</h3></div>
+      <p class="gloss-def">An effect that repeats a sound after a set time, creating distinct echoes. Feed some of the output back in and the echoes repeat and fade.</p>
+      <p><span class="gloss-k">Why it matters</span> Delay creates rhythm, depth, and dub-style space. Set off the grid, it can erase the bar line while keeping the pulse.</p>
+      <p><span class="gloss-k">In the workshop</span> Lee "Scratch" Perry's <em>Super Ape</em> (Block 1) and Vladislav Delay's <em>Multila</em> (Block 2) are delay references.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#feedback">Feedback</a>, <a href="#comb-filtering">Comb filtering</a></p>
+    </div>
+
+    <div class="gloss-entry" id="feedback">
+      <div class="gloss-term"><h3>Feedback</h3></div>
+      <p class="gloss-def">Sending a signal's output back into its own input. A little feedback makes a delay repeat; too much builds into a runaway howl (the screech of a mic too close to a speaker).</p>
+      <p><span class="gloss-k">Why it matters</span> It is a powerful sound source and a real hazard. The workshop always meets it with a limiter and a hand on the fader.</p>
+      <p><span class="gloss-k">In the workshop</span> Block 6–7 build no-input feedback systems with a full safety checklist.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#limiting">Limiting</a>, <a href="#self-oscillation">Self-oscillation</a></p>
+    </div>
+
+    <div class="gloss-entry" id="dry-wet">
+      <div class="gloss-term"><h3>Dry / wet</h3></div>
+      <p class="gloss-def">The balance between the untouched signal (<strong>dry</strong>) and the effected signal (<strong>wet</strong>). 100% wet is all reverb or delay and none of the original.</p>
+      <p><span class="gloss-k">Why it matters</span> The dry/wet balance often <em>is</em> the arrangement — it decides whether a sound is in your face or buried in the distance.</p>
+    </div>
+
+    <div class="gloss-entry" id="mono-stereo">
+      <div class="gloss-term"><h3>Mono / stereo</h3></div>
+      <p class="gloss-def"><strong>Mono</strong> is a single channel — the same sound in both ears. <strong>Stereo</strong> is two channels, so sounds can sit left, right, or anywhere between.</p>
+      <p><span class="gloss-k">Why it matters</span> Many systems (club subs, phone speakers) play in mono. A mix has to survive being summed to mono.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#width">Width</a>, <a href="#mono-compatibility">Mono compatibility</a></p>
+    </div>
+
+    <div class="gloss-entry" id="width">
+      <div class="gloss-term"><h3>Width</h3></div>
+      <p class="gloss-def">How wide a sound seems to spread across the stereo field — from a tight point in the centre to a broad wash filling both sides.</p>
+      <p><span class="gloss-k">Why it matters</span> Width adds size and space, but extreme width often collapses in mono. It is something you create on purpose, not by accident.</p>
+    </div>
+
+    <div class="gloss-entry" id="panning">
+      <div class="gloss-term"><h3>Panning</h3></div>
+      <p class="gloss-def">Placing a sound left, right, or centre in the stereo field.</p>
+      <p><span class="gloss-k">Why it matters</span> Panning separates sounds so they stop fighting for the same space, and is a simple way to add movement.</p>
+    </div>
+
+    <div class="gloss-entry" id="mono-compatibility">
+      <div class="gloss-term"><h3>Mono compatibility / collapse</h3></div>
+      <p class="gloss-def">What survives when a stereo mix is summed to mono. "Collapse" is when wide or out-of-phase parts get quieter or vanish in mono.</p>
+      <p><span class="gloss-k">Why it matters</span> If a key element disappears in mono, it disappears on a lot of real-world systems. You check for this on purpose.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#phase">Phase</a>, <a href="#correlation-meter">Correlation meter</a></p>
+    </div>
+
+    <div class="gloss-entry" id="phase">
+      <div class="gloss-term"><h3>Phase</h3></div>
+      <p class="gloss-def">Where two waves are in their cycle relative to each other. Lined up, they reinforce; opposite, they cancel and the sound thins or disappears.</p>
+      <p><span class="gloss-k">Why it matters</span> Phase problems are a hidden cause of weak bass and sounds that vanish in mono. You often see them before you hear them.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#comb-filtering">Comb filtering</a>, <a href="#correlation-meter">Correlation meter</a></p>
+    </div>
+
+    <div class="gloss-entry" id="comb-filtering">
+      <div class="gloss-term"><h3>Comb filtering</h3></div>
+      <p class="gloss-def">A hollow, metallic colouring that happens when a signal is mixed with a slightly delayed copy of itself. Some frequencies cancel and others add, in a pattern that looks like a comb.</p>
+      <p><span class="gloss-k">Why it matters</span> It is the exact sound of a doubled-monitoring mistake or a phase problem — once you can name it, you can find its cause.</p>
+      <p><span class="gloss-k">In the workshop</span> Lab 002's fault is the comb filter you get from hearing your input twice.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#direct-vs-software-monitoring">Direct vs. software monitoring</a>, <a href="#phase">Phase</a></p>
+    </div>
+
+    <div class="gloss-entry" id="correlation-meter">
+      <div class="gloss-term"><h3>Correlation meter</h3></div>
+      <p class="gloss-def">A small meter that shows how the left and right channels relate — whether they agree (mono-safe) or work against each other (will collapse in mono).</p>
+      <p><span class="gloss-k">Why it matters</span> It turns an invisible phase problem into a reading you can act on, before it ruins the mix on a mono system.</p>
+      <p><span class="gloss-k">In the workshop</span> Lab 003b drills the correlation meter as one of the tools that make invisible problems visible.</p>
+    </div>
+
+    <div class="gloss-entry" id="eq">
+      <div class="gloss-term"><h3>EQ</h3><span class="gloss-aka">equalisation</span></div>
+      <p class="gloss-def">A tool for boosting or cutting specific frequency ranges — adding bass, taming harshness, carving room for one sound by lowering another.</p>
+      <p><span class="gloss-k">Why it matters</span> EQ is how sounds stop overlapping and start fitting together. It is also how you shape tone without changing the performance.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#spectral-tilt">Spectral tilt</a>, <a href="#masking">Masking</a></p>
+    </div>
+
+    <div class="gloss-entry" id="spectral-tilt">
+      <div class="gloss-term"><h3>Spectral tilt</h3></div>
+      <p class="gloss-def">The overall slope of a sound's frequency balance — whether it leans bright (more highs) or dark (more lows) across the whole spectrum.</p>
+      <p><span class="gloss-k">Why it matters</span> A small global tilt can shift the entire mood of a track without touching any single element. It is a slow, whole-mix treatment.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#eq">EQ</a></p>
+    </div>
+
+    <div class="gloss-entry" id="masking">
+      <div class="gloss-term"><h3>Masking</h3></div>
+      <p class="gloss-def">When a louder sound hides a quieter one that lives in the same frequency range, so you stop hearing the quieter one clearly.</p>
+      <p><span class="gloss-k">Why it matters</span> Masking is why a mix can feel cluttered even when nothing is loud. The fix is usually EQ or arrangement, not volume.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#eq">EQ</a>, <a href="#mute-test">The mute test</a></p>
+    </div>
+
+    <div class="gloss-entry" id="spectrum-analyzer">
+      <div class="gloss-term"><h3>Spectrum analyzer</h3></div>
+      <p class="gloss-def">A display that shows the frequency content of a sound — how much energy sits in the lows, mids, and highs, moment to moment.</p>
+      <p><span class="gloss-k">Why it matters</span> It confirms with your eyes what your ears suspect, turning "sounds bad somewhere" into "too much energy here."</p>
+      <p><span class="gloss-k">In the workshop</span> Lab 003b drills the spectrum analyzer alongside the correlation meter.</p>
+    </div>
+
+  </div>
+
+  <!-- ============================================================ -->
+  <h2 id="cat-method">Method &amp; workshop terms</h2>
+  <p style="text-align: center; color: var(--text-muted); max-width: 640px; margin: 0 auto 18px;">The course's own vocabulary — the working process, the kinds of lab, and the things you produce.</p>
+
+  <div class="glossary">
+
+    <div class="gloss-entry" id="working-loop">
+      <div class="gloss-term"><h3>The working loop</h3></div>
+      <p class="gloss-def">The repeating process behind every lesson: listen → say what is happening → wire it up → set the levels → build or measure → record the result → compare with the original → fix the difference → write the rule.</p>
+      <p><span class="gloss-k">Why it matters</span> It turns listening into a test you can pass or fail, instead of a matter of taste. It is the backbone of the whole course.</p>
+    </div>
+
+    <div class="gloss-entry" id="six-question-frame">
+      <div class="gloss-term"><h3>Six-question frame</h3></div>
+      <p class="gloss-def">A fixed set of six questions you ask of every listening reference, ending in the big one: "what setup had to exist for this record to be made?"</p>
+      <p><span class="gloss-k">Why it matters</span> It analyses music as a <em>system</em> rather than a feeling, so two very different tracks can be compared on the same terms.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#deconstruction">Deconstruction</a>, <a href="#reduced-listening">Reduced listening</a></p>
+    </div>
+
+    <div class="gloss-entry" id="deconstruction">
+      <div class="gloss-term"><h3>Deconstruction</h3></div>
+      <p class="gloss-def">Working a track backwards to its sources: for each sound, what was the raw material, what was done to it, and in what order.</p>
+      <p><span class="gloss-k">Why it matters</span> Tracing a record back to its path is how you learn to build forward. Your deconstruction worksheet becomes the blueprint for a rebuild lab.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#replication">Replication / rebuild</a></p>
+    </div>
+
+    <div class="gloss-entry" id="replication">
+      <div class="gloss-term"><h3>Replication / rebuild lab</h3><span class="gloss-aka">R1, R2, rep-…</span></div>
+      <p class="gloss-def">A lesson where you copy a reference track you have analysed yourself, to learn how it works — then use what you learned in your own original piece.</p>
+      <p><span class="gloss-k">Why it matters</span> Copying to learn is allowed and useful; copying as your finished work is not. The replica is filed as a study, with a list of what you missed.</p>
+      <p><span class="gloss-k">In the workshop</span> Most rebuild lessons are optional practice; R1 and three named drills are required before Lab 003.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#stolen-principle">Stolen principle</a>, <a href="#system-vs-material">System vs. material</a></p>
+    </div>
+
+    <div class="gloss-entry" id="stolen-principle">
+      <div class="gloss-term"><h3>Stolen / borrowed principle</h3></div>
+      <p class="gloss-def">One structural idea or method you take from a listening reference and name in advance — a way of arranging, a kind of movement — never the actual sounds.</p>
+      <p><span class="gloss-k">Why it matters</span> It is how you learn from the greats while staying original. You steal the <em>structure</em>, never the material.</p>
+      <p><span class="gloss-k">In the workshop</span> Each listening programme asks for exactly one, evaluated at the block's capstone.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#system-vs-material">System vs. material</a></p>
+    </div>
+
+    <div class="gloss-entry" id="system-vs-material">
+      <div class="gloss-term"><h3>System vs. material</h3></div>
+      <p class="gloss-def">The course's core distinction. <strong>Material</strong> is the actual sounds — a specific kick, a specific sample. <strong>System</strong> is the method that organises them — the routing, the rules, the structure.</p>
+      <p><span class="gloss-k">Why it matters</span> You are allowed to borrow systems; you must invent your own material. It is the line between learning and copying.</p>
+    </div>
+
+    <div class="gloss-entry" id="mute-test">
+      <div class="gloss-term"><h3>The mute test</h3></div>
+      <p class="gloss-def">A simple check for whether an element earns its place: mute it. If the track does not get worse, delete it.</p>
+      <p><span class="gloss-k">Why it matters</span> It enforces the "do less, but make each element matter" philosophy. Every part should be load-bearing.</p>
+      <p><span class="gloss-k">In the workshop</span> Robert Hood's <em>Minimal Nation</em> (Block 1) is the mute-test reference.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#masking">Masking</a></p>
+    </div>
+
+    <div class="gloss-entry" id="ab">
+      <div class="gloss-term"><h3>A/B comparison</h3></div>
+      <p class="gloss-def">Switching back and forth between two things — your version and the reference, or two settings — to hear the difference. Crucially, you match their loudness first.</p>
+      <p><span class="gloss-k">Why it matters</span> Without matched loudness the louder one always seems better, and you fool yourself. A/B done right is how you find what is actually different.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#monitoring-discipline">Monitoring discipline</a></p>
+    </div>
+
+    <div class="gloss-entry" id="logbook">
+      <div class="gloss-term"><h3>Logbook</h3></div>
+      <p class="gloss-def">Your running journal through the course — where you write settings, decisions, faults, and the rules you learn.</p>
+      <p><span class="gloss-k">Why it matters</span> Written-down knowledge is repeatable knowledge. The logbook is where a lucky result becomes a method you own.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#gain-ledger">Gain ledger</a>, <a href="#system-diff">System diff</a></p>
+    </div>
+
+    <div class="gloss-entry" id="deliverable">
+      <div class="gloss-term"><h3>Deliverable</h3></div>
+      <p class="gloss-def">A named thing a lab asks you to produce — a recording, a diagram, a filled-in table — listed up front so nothing gets invented at the end.</p>
+      <p><span class="gloss-k">Why it matters</span> Knowing the outputs before you start keeps the work honest. "Done" is a file, not a feeling.</p>
+    </div>
+
+    <div class="gloss-entry" id="capstone">
+      <div class="gloss-term"><h3>Capstone / gate</h3><span class="gloss-aka">C1–C7</span></div>
+      <p class="gloss-def">A project that closes a block. It gives you a brief made of <em>rules</em> (constraints), not a recipe, and you must work through the whole process on your own.</p>
+      <p><span class="gloss-k">Why it matters</span> It is where you prove you can do without the scaffolding what the labs taught you to do with it.</p>
+      <p><span class="gloss-k">In the workshop</span> C1 asks for a second hypnotic piece from a constraint menu, plus renewed bench certification.</p>
+    </div>
+
+    <div class="gloss-entry" id="etude">
+      <div class="gloss-term"><h3>Étude</h3></div>
+      <p class="gloss-def">A short, focused exercise piece that drills one specific skill — borrowed from the music word for a study.</p>
+      <p><span class="gloss-k">Why it matters</span> An étude strips away everything but the one thing you are learning, so the lesson is unmissable.</p>
+      <p><span class="gloss-k">In the workshop</span> Lab 004 is a 3-minute étude built from a single synth voice.</p>
+    </div>
+
+    <div class="gloss-entry" id="lab-types">
+      <div class="gloss-term"><h3>Track lab / bench lab / étude</h3></div>
+      <p class="gloss-def">The three kinds of build lab. A <strong>track lab</strong> makes a full original piece around one technique. A <strong>bench lab</strong> is engineering — calibration, routing, measurement. An <strong>étude</strong> is a short focused exercise.</p>
+      <p><span class="gloss-k">Why it matters</span> Knowing the type tells you what success looks like: a finished piece, a certified setup, or a single skill drilled.</p>
+    </div>
+
+    <div class="gloss-entry" id="held-tone-test">
+      <div class="gloss-term"><h3>Held Tone Test</h3></div>
+      <p class="gloss-def">A recurring check from the drone strand: can you hold a single sustained tone interesting for a set length of time (three minutes at first, longer later)?</p>
+      <p><span class="gloss-k">Why it matters</span> It certifies that you can make stillness compelling — the hardest and most fundamental skill of beatless music.</p>
+      <p><span class="gloss-k">In the workshop</span> Introduced in Lab 005b and renewed at later capstones.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#drone">Drone</a></p>
+    </div>
+
+    <div class="gloss-entry" id="fault-ritual">
+      <div class="gloss-term"><h3>Fault ritual</h3></div>
+      <p class="gloss-def">A deliberate, controlled breakage in a lab: predict the symptom, create the fault, observe, find where it lives, fix it, and write a rule to prevent it.</p>
+      <p><span class="gloss-k">Why it matters</span> You learn a system best by breaking it on purpose, once, safely — so the real failure later is one you have already met.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#system-diff">System diff</a></p>
+    </div>
+
+    <div class="gloss-entry" id="system-diff">
+      <div class="gloss-term"><h3>System diff</h3></div>
+      <p class="gloss-def">A one-sentence note of what surprised you: "I thought it worked like X; it actually worked like Y."</p>
+      <p><span class="gloss-k">Why it matters</span> The gap between what you expected and what happened is the real lesson. Naming it turns a surprise into understanding.</p>
+    </div>
+
+    <div class="gloss-entry" id="print">
+      <div class="gloss-term"><h3>Print / commit</h3></div>
+      <p class="gloss-def">Recording a sound or a whole part down to plain audio, fixing it in place so it can no longer be tweaked endlessly.</p>
+      <p><span class="gloss-k">Why it matters</span> Committing is a constraint that frees you to move on, and it is the first step of resampling. A "print map" tracks what is audio, what is still editable state, and what is gone.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#resampling">Resampling</a></p>
+    </div>
+
+    <div class="gloss-entry" id="signal-map">
+      <div class="gloss-term"><h3>Signal map</h3></div>
+      <p class="gloss-def">A hand-drawn diagram of your studio — every box, every cable, and every point where the level can change — kept as two views: the audio path and the control path.</p>
+      <p><span class="gloss-k">Why it matters</span> Drawn before you patch and corrected after, the difference between the two is the lesson. It is your master reference for finding faults.</p>
+      <p><span class="gloss-k">In the workshop</span> The Studio Signal Map is the first deliverable of Lab 001.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#signal-path">Signal path</a>, <a href="#routing">Routing</a></p>
+    </div>
+
+    <div class="gloss-entry" id="reduced-listening">
+      <div class="gloss-term"><h3>Reduced listening</h3></div>
+      <p class="gloss-def">Listening to a sound for what it actually <em>is</em> — its shape, texture, and movement — instead of for what made it or what it means.</p>
+      <p><span class="gloss-k">Why it matters</span> It is the core skill of concrète and analysis: hear the sound object, not the story. It is what the six-question frame trains.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#concrete">Musique concrète</a>, <a href="#six-question-frame">Six-question frame</a></p>
+    </div>
+
+  </div>
+
+  <!-- ============================================================ -->
+  <h2 id="cat-gear">The core gear</h2>
+  <p style="text-align: center; color: var(--text-muted); max-width: 640px; margin: 0 auto 18px;">The instruments and tools the labs are written around. The method matters more than the model — but these are the named boxes.</p>
+
+  <div class="glossary">
+
+    <div class="gloss-entry" id="microfreak">
+      <div class="gloss-term"><h3>Arturia MicroFreak</h3></div>
+      <p class="gloss-def">A compact mono synthesizer with an unusual range of sound engines and a built-in modulation matrix. The workshop's main "one voice" instrument.</p>
+      <p><span class="gloss-k">Why it matters</span> Mono and hands-on, it is perfect for learning subtractive synthesis, modulation, and the one-oscillator étude.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#oscillator">Oscillator</a>, <a href="#mod-matrix">Mod matrix</a></p>
+    </div>
+
+    <div class="gloss-entry" id="digitakt">
+      <div class="gloss-term"><h3>Elektron Digitakt II</h3></div>
+      <p class="gloss-def">A hardware drum machine and sampler with a powerful step sequencer and per-step parameter locks.</p>
+      <p><span class="gloss-k">Why it matters</span> It is the workshop's rhythm and sampling brain, and the home of p-locks — the feature behind much of the course's "fixed pattern, evolving sound" work.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#p-lock">Parameter lock</a>, <a href="#sampler">Sampler</a></p>
+    </div>
+
+    <div class="gloss-entry" id="motu-m4">
+      <div class="gloss-term"><h3>MOTU M4</h3></div>
+      <p class="gloss-def">The audio interface — the box that gets sound in and out of the computer, with preamps on its inputs and a headphone output.</p>
+      <p><span class="gloss-k">Why it matters</span> It is the meeting point of your whole rig, and where input gain and converter clipping live. In Live, the M4 is set as both the input and output device.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#preamp">Preamp</a>, <a href="#loopback">Loopback</a></p>
+    </div>
+
+    <div class="gloss-entry" id="ableton-live">
+      <div class="gloss-term"><h3>Ableton Live 12 (Suite)</h3></div>
+      <p class="gloss-def">The DAW (digital audio workstation) — the software where you record, arrange, process, and mix. "Suite" is the full edition, which includes all the built-in instruments below.</p>
+      <p><span class="gloss-k">Why it matters</span> It is the hub the whole course runs through. The Suite already contains powerful instruments, so the rule is "build the sound, don't buy it."</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#suite-instruments">Operator</a>, <a href="#suite-instruments">Granulator</a></p>
+    </div>
+
+    <div class="gloss-entry" id="suite-instruments">
+      <div class="gloss-term"><h3>Operator · Wavetable · Sampler · Granulator · Corpus</h3></div>
+      <p class="gloss-def">Live Suite's main instruments. <strong>Operator</strong> is FM and subtractive synthesis. <strong>Wavetable</strong> morphs between waveforms. <strong>Sampler</strong> plays your recordings as an instrument. <strong>Granulator</strong> makes clouds of grains from any file. <strong>Corpus</strong> models the resonance of physical objects.</p>
+      <p><span class="gloss-k">Why it matters</span> Between them, these cover synthesis, sampling, granular work, and physical-modelled resonance — most of what the course needs, already owned.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#fm-synthesis">FM synthesis</a>, <a href="#wavetable-synth">Wavetable synthesis</a>, <a href="#granular">Granular synthesis</a></p>
+    </div>
+
+    <div class="gloss-entry" id="dt990">
+      <div class="gloss-term"><h3>DT 990 Pro</h3></div>
+      <p class="gloss-def">The workshop's reference headphones — an open-back, 250-ohm pair used for monitoring.</p>
+      <p><span class="gloss-k">Why it matters</span> Open-back phones invite turning up "just a little" all session, which is exactly why the monitoring mark and discipline matter.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#monitoring">Monitoring</a>, <a href="#monitoring-discipline">Monitoring discipline</a></p>
+    </div>
+
+    <div class="gloss-entry" id="launchpad">
+      <div class="gloss-term"><h3>Launchpad Pro MK3</h3></div>
+      <p class="gloss-def">A grid control surface — a pad of buttons used to launch clips, play notes, and map controls in Live. It sends control data, never audio.</p>
+      <p><span class="gloss-k">Why it matters</span> It is how you perform Live with your hands instead of a mouse, important for the live-set work of Block 7.</p>
+      <p class="gloss-see"><span class="gloss-k">See also</span> <a href="#audio-vs-control">Audio vs. control</a></p>
+    </div>
+
+  </div>
+
+  <p style="text-align: center; color: var(--text-muted); margin: 30px auto 0; font-size: 14.5px;">Back to <a href="references.html">References</a> · <a href="index.html">Workshop overview</a> · <a href="#top">top of page ↑</a></p>
+
+  <div class="page-nav">
+    <a href="references.html">
+      <span class="page-nav-direction">Previous</span>
+      ← RF / References
+    </a>
+    <a href="index.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      00 / Overview →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Glossary</div>
+
+</div>
+
+</body>
+</html>

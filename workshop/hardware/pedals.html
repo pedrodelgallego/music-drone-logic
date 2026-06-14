@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>First Pedal / Hardware FX Chain</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page-type-reference" id="top">
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
+  <a href="../block-00/index.html"><span class="nav-num">F0</span>Foundations</a>
+  <a href="../block-0/index.html"><span class="nav-num">B0</span>The Rig</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html" class="active"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="../references.html">References</a><span class="breadcrumb-sep">/</span><span>Hardware / First Pedal</span></nav>
+
+  <header class="page-header">
+    <div class="eyebrow">Hardware Expansion — Optional &amp; Gated</div>
+    <h1>First Pedal / Hardware FX Chain</h1>
+    <p class="lede">A hardware effects pedal prints its character in a way that Live's effects do not — it is always slightly noisy, always slightly nonlinear, and those qualities are the point. But the Block 5 routing work transfers directly, so there is no reason to buy before you've used those tools deeply.</p>
+  </header>
+
+  <div class="callout">
+    <div class="callout-label">Optional — gated</div>
+    <p>You do not own this gear yet. The free substitute is <strong>Live's audio effects</strong> — everything from Block 5's routing transfers directly to hardware send/return use. Buy only after this gear passes the <a href="../gear-purchase-gate.html">Gear Purchase Gate</a>. Come back to this page then.</p>
+  </div>
+
+  <h2>When and why</h2>
+
+  <p>Hardware effects earn their place after Block 5, once you have a specific send/return or insert role in mind. The question is not "would reverb sound better in hardware?" but "is there a particular character I keep reaching for that Live's reverbs cannot produce?" If yes, and a specific pedal solves it, the gate will pass quickly. If not, keep using Live's effects.</p>
+
+  <h2>Key concepts</h2>
+
+  <h3>Instrument level vs line level</h3>
+
+  <p>Guitar pedals expect <strong>instrument level</strong> — a quieter signal than the line level your synths and the M4 produce. Sending line level into an instrument-level pedal input will overload it and add harsh distortion. You need a <strong>DI box</strong> (direct injection box) or a dedicated pad to step the level down on the way in, and possibly a clean boost on the way out to restore it.</p>
+
+  <h3>Mono vs stereo</h3>
+
+  <p>Most guitar pedals have mono inputs and outputs. If you send a stereo signal in, only the left channel is processed. You can run two identical pedals in parallel for true stereo, or accept that the pedal is a mono insert and re-widen after printing.</p>
+
+  <h3>Power supply noise</h3>
+
+  <p>Cheap or shared power supplies inject noise into the signal. Use an isolated power supply — one that keeps each pedal's power circuit separate from the others. Listen for hum or buzzing at low signal levels; if it appears only when the pedal is connected, the power supply is the first suspect.</p>
+
+  <h3>Gain staging into and out of a pedal</h3>
+
+  <p>Set the pedal's output level so the M4 input meter reaches around −12 dBFS at the loudest moment. Check this with the pedal bypassed first (that is your baseline), then engaged. If the bypassed and engaged levels are very different, adjust the pedal's output or the M4 input gain until they match. A pedal that is much louder engaged than bypassed will always feel "better" — it is just louder. Match levels before judging tone.</p>
+
+  <h3>Wet/dry blend and latency</h3>
+
+  <p>Some pedals have a wet/dry blend knob. Use it to keep some dry signal if you want the original transient intact. Be aware that analog pedals add a small, fixed latency — usually under 1 ms, but enough to cause comb filtering if you blend the processed and unprocessed signals digitally afterwards. Print the wet signal alone and blend in Live if comb filtering is a problem.</p>
+
+  <h3>Photographing settings for recall</h3>
+
+  <p>Hardware pedals have no preset memory. Before changing any knob, photograph the full face of the pedal from directly above. Name the photo with the date and the source it was processing. That photo is your only way back to that setting.</p>
+
+  <h3>Printing as commitment</h3>
+
+  <p>When you run audio through a pedal and record the result, you are making a permanent decision. The pedal character, the noise floor, and the wet/dry balance are all baked in. This is the point: it forces you to commit. Treat printing as a deliberate act, not a backup plan.</p>
+
+  <h3>Feedback safety</h3>
+
+  <p>Delay and reverb pedals with high feedback settings can produce runaway loops. Before any high-feedback session, set the M4 output limiter or a dedicated VCA to catch runaway volume. Know the fastest way to cut the signal — usually the input gain knob on the M4 — and practice reaching it without looking.</p>
+
+  <h2>Proof gate</h2>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Before using this gear in a session</div>
+    <p>Route one pedal as an <strong>insert</strong> (full signal through it) and separately as a <strong>send/return</strong> (copy of the signal through it, blended back). Print both. Compare the noise floor and the output level of each configuration. File a recall photo of the pedal settings alongside each print. You are done when both prints exist, the noise and level comparison is written in one sentence each, and the recall photos are filed.</p>
+  </div>
+
+  <p style="text-align: center; color: var(--text-muted); margin: 30px auto 0; font-size: 14.5px;">Locked until the <a href="../gear-purchase-gate.html">Gear Purchase Gate</a> passes · <a href="../references.html">References</a> · <a href="../index.html">Overview</a> · <a href="#top">top ↑</a></p>
+
+  <div class="page-nav">
+    <a href="mixer.html">
+      <span class="page-nav-direction">Previous</span>
+      ← External &amp; Performance Mixer
+    </a>
+    <a href="../coverage.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      Coverage &amp; gaps →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — First Pedal / Hardware FX Chain</div>
+
+</div>
+
+</body>
+</html>

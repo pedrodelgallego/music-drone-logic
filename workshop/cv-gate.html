@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV, Gate &amp; Voltage Control</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-type-reference" id="top">
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
+  <a href="block-00/index.html"><span class="nav-num">F0</span>Foundations</a>
+  <a href="block-0/index.html"><span class="nav-num">B0</span>The Rig</a>
+  <a href="block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="references.html" class="active"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="references.html">References</a><span class="breadcrumb-sep">/</span><span>CV, Gate &amp; Voltage Control</span></nav>
+
+  <header class="page-header">
+    <div class="eyebrow">References</div>
+    <h1>CV, Gate &amp; Voltage Control</h1>
+    <p class="lede">One idea sits under modular, semi-modular, and every analog synth on the buy list: control by voltage. A moving voltage is a knob turned by electricity; an on/off voltage is a finger pressing a key. Once you can read those two signals you can patch your MicroFreak into anything that speaks them — and the modular labs stop being mysterious. You own enough to start today, and VCV Rack covers the rest for free.</p>
+  </header>
+
+  <div class="callout">
+    <div class="callout-label">The core idea</div>
+    <p>A synthesiser has two jobs to coordinate: <strong>what pitch to play</strong> and <strong>when to play it</strong>. In a voltage-controlled system those are two separate cables. A <strong>CV</strong> (control voltage) cable carries the pitch — a steady voltage that goes up when the note goes up. A <strong>gate</strong> cable carries the timing — a voltage that switches on while a key is held and off when it is released. Pitch and timing travel on different wires, and that separation is the whole reason patching is powerful: you can drive the pitch from one source and the timing from another.</p>
+  </div>
+
+  <h2>The four signal types</h2>
+
+  <p style="text-align: center; color: var(--text-muted); max-width: 640px; margin: 0 auto 18px;">Every cable in a voltage-controlled rig carries one of these. The connectors look identical — knowing which is which is half the skill.</p>
+
+  <table class="param-table">
+    <tr><td><strong>CV (control voltage)</strong></td><td>A slowly moving voltage that sets a parameter — pitch, filter cutoff, level, pan. Think of it as a knob being turned automatically by electricity. It can sit still, ramp, or wobble.</td></tr>
+    <tr><td><strong>Gate</strong></td><td>A voltage that is either fully on or fully off. It tells a module "a note is being held — start now, sustain, stop when I release." Its <em>length</em> matters: a long gate holds an envelope open; a short one lets it close.</td></tr>
+    <tr><td><strong>Trigger</strong></td><td>A very short pulse — just a spike, length doesn't matter. Use it where you only need the <em>moment</em>: fire a drum, advance a sequencer, reset a pattern. A gate says "for this long"; a trigger says "now."</td></tr>
+    <tr><td><strong>Audio</strong></td><td>The same connectors carry it, but oscillating fast enough to hear. Patch an audio-rate signal into a CV input and you get modulation so fast it becomes timbre (this is FM). Keep audio and CV as separate mental paths even though the hardware lets them mix.</td></tr>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">CV and gate are a pair</div>
+    <p>A single note needs <em>both</em>: the CV says which pitch, the gate says when. Patch only the CV and the oscillator changes pitch silently — nothing tells it to sound. Patch only the gate and you get rhythm on one stuck pitch. New patchers forget the gate and hear "nothing's happening" while the pitch is in fact moving. Always trace both wires.</p>
+  </div>
+
+  <h2>The standards that make it work</h2>
+
+  <p style="text-align: center; color: var(--text-muted); max-width: 640px; margin: 0 auto 18px;">Voltage control is only useful because devices agree on what a voltage <em>means</em>. Three conventions cover most of what you'll meet.</p>
+
+  <table class="param-table">
+    <tr><td><strong>1 volt per octave (1V/oct)</strong></td><td>The near-universal pitch standard. Every extra volt raises the pitch one octave; each semitone is one-twelfth of a volt (≈ 83 mV). So 0 V, 1 V, 2 V are the same note an octave apart. This is why a CV keyboard can play any 1V/oct oscillator in tune. (A few vintage designs use Hz/volt instead — check before patching across brands.)</td></tr>
+    <tr><td><strong>Gate voltage</strong></td><td>"On" is typically somewhere between +5 V and +10 V; "off" is 0 V. Most modern gear is happy anywhere in that range, so a +5 V gate usually triggers a +10 V system. If a gate doesn't register, voltage height is the first thing to check.</td></tr>
+    <tr><td><strong>Eurorack levels &amp; ranges</strong></td><td>Modular CV commonly swings <strong>0 to +10 V</strong> (unipolar, e.g. an envelope) or <strong>−5 to +5 V</strong> (bipolar, e.g. an LFO). Audio runs around 10 V peak-to-peak — far hotter than the line level your MOTU M4 expects. This level mismatch is why you can't plug modular straight into the interface without attenuating (see safety, below).</td></tr>
+  </table>
+
+  <h2>What in your rig speaks voltage</h2>
+
+  <p style="text-align: center; color: var(--text-muted); max-width: 640px; margin: 0 auto 18px;">You already own a CV source. Knowing what does and doesn't carry voltage saves a lot of confusion at the patchbay.</p>
+
+  <table class="param-table">
+    <tr><td><strong>Arturia MicroFreak — a CV/Gate source</strong></td><td>The back panel has three outputs: <strong>CV</strong> (1V/oct pitch), <strong>Gate</strong>, and <strong>Pressure</strong> (the keyboard's aftertouch as a control voltage). The MicroFreak can therefore <em>drive</em> an external voltage-controlled instrument — its sequencer and arpeggiator become a brain for a 0-Coast or a modular voice. This is your free, owned entry into real CV.</td></tr>
+    <tr><td><strong>MOTU M4 — audio &amp; MIDI, not CV</strong></td><td>The interface carries audio and MIDI (its DIN ports), but it has no CV jacks. It cannot output 1V/oct directly. To send CV from the computer you need a MIDI-to-CV converter, or a DC-coupled interface plus software (a more advanced path, not required here).</td></tr>
+    <tr><td><strong>Digitakt II / Live — MIDI, not CV</strong></td><td>These sequence over MIDI (note numbers + velocity + clock), which is the digital cousin of CV/gate. To control a voltage instrument from them, convert: MIDI note → CV (pitch), MIDI note-on/off → gate, MIDI clock → analog clock pulses.</td></tr>
+    <tr><td><strong>MIDI ↔ CV conversion</strong></td><td>A MIDI-to-CV module or box translates between the two worlds: note number becomes a 1V/oct voltage, note-on becomes a gate, the modwheel or a CC becomes a CV. It's the bridge between your sequenced (MIDI) rig and any future voltage (CV) gear. VCV Rack includes this conversion built in (the MIDI-CV module).</td></tr>
+  </table>
+
+  <h2>Modulation routing — the real payoff</h2>
+
+  <p>Pitch and gate are just the start. The reason voltage control matters compositionally is that <em>any</em> CV can drive <em>any</em> CV input. An envelope can open a filter; an LFO can sweep pan; a random voltage can nudge the oscillator's overtone; the MicroFreak's pressure output can push reverb depth. Each of these is one cable from a source to a destination. Build a few of them and you have a <strong>modulation organism</strong> — a patch that keeps moving on its own, the core idea behind the Block 6 decision-systems work and the west-coast voice in <a href="block-6/lab-024b.html">Lab 024b</a>.</p>
+
+  <div class="signal-flow">
+    <span class="signal-node">Source (env / LFO / random / pressure)</span><span class="signal-arrow">→</span>
+    <span class="signal-node">Attenuator (set how much)</span><span class="signal-arrow">→</span>
+    <span class="signal-node">CV input (cutoff / pan / overtone)</span><span class="signal-arrow">→</span>
+    <span class="signal-node">Sound moves on its own</span>
+  </div>
+
+  <h3>Utilities are how you shape voltage</h3>
+
+  <p>You rarely patch a source straight to a destination — you shape it first. An <strong>attenuator</strong> scales a CV down (a full-swing LFO is usually too much). An <strong>offset</strong> shifts it up or down (centre a bipolar LFO on a useful range). An <strong>attenuverter</strong> does both and can flip the signal upside down. A <strong>mult</strong> copies one CV to several destinations (one envelope opens the filter <em>and</em> ducks the level). These utilities matter more than extra oscillators — without them, modulation is all-or-nothing and signals collide at the wrong levels.</p>
+
+  <h3>Clock is just a trigger you trust</h3>
+
+  <p>An <strong>analog clock</strong> is a steady stream of triggers — one pulse per step. A <strong>clock divider</strong> turns it into slower streams (every 2nd, 4th, 8th pulse) so different parts move at related speeds. A <strong>reset</strong> trigger on bar 1 restarts every sequencer together. This is the voltage version of the "one clock master" rule from <a href="who-sequences-what.html">Who Sequences What</a>: in a mixed rig, one device owns the clock (usually the Digitakt II or Live), and its pulse is converted and distributed to everything that counts time.</p>
+
+  <h2>Practising now — VCV Rack and the MicroFreak</h2>
+
+  <div class="callout">
+    <div class="callout-label">No hardware required</div>
+    <p>You do not need a modular system to learn this. <strong>VCV Rack</strong> (free, already used in <a href="block-6/lab-024b.html">Lab 024b</a>) gives you every signal type, real cables, and the utilities above — and the cables are colour-coded so you can <em>see</em> CV versus audio. Practise the whole concept there. Then, the moment you want the tactile version, the <a href="hardware/modular.html">Modular &amp; 0-Coast</a> page picks up with real patching — but only after the <a href="gear-purchase-gate.html">Gear Purchase Gate</a> passes. The MicroFreak's CV/Gate/Pressure outs let you bridge owned hardware into VCV or into a future modular without buying anything.</p>
+  </div>
+
+  <table class="param-table">
+    <tr><td><strong>In VCV Rack (free)</strong></td><td>Patch a MIDI-CV or sequencer module's CV out to an oscillator's V/oct in, and its gate out to an envelope's gate in; route the envelope to a VCA. Watch the cable colours: pitch CV sits still between notes, the gate blinks, the envelope ramps. Now patch an LFO through an attenuator into the filter cutoff and hear the patch start to move itself.</td></tr>
+    <tr><td><strong>With the MicroFreak (owned)</strong></td><td>The MicroFreak's CV/Gate/Pressure outs can drive a voltage instrument; its internal mod matrix is the same idea in miniature — assign an envelope or LFO to cutoff, then to two destinations at once, and you've built a modulation organism without a single patch cable. This is the on-ramp to thinking in voltages before any modular arrives.</td></tr>
+  </table>
+
+  <h2>Safety &amp; levels</h2>
+
+  <table class="param-table">
+    <tr><td><strong>Modular audio is hot</strong></td><td>A modular output (≈ 10 V p-p) will clip the M4 instantly. Bring it in through an attenuator or a line-level converter, start the input gain at minimum, and raise it slowly watching the meter — target −12 dBFS on peaks. Never patch a modular out straight into the interface input.</td></tr>
+    <tr><td><strong>Match the pitch standard</strong></td><td>Confirm both devices are 1V/oct before expecting tuning to line up; a Hz/volt instrument will play in tune at one octave and drift everywhere else. Tune by ear against a reference after patching.</td></tr>
+    <tr><td><strong>Watch self-patched feedback</strong></td><td>Routing a CV or audio output back to an input that feeds it can run away. Keep a hand on the level (or set the M4 output limiter) before experimenting, exactly as in the no-input work in <a href="block-7/lab-029.html">Lab 029</a>.</td></tr>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>CV is the analog of automation.</strong> A CV envelope opening a filter is the same idea as a clip-envelope automating cutoff in Live — one is a voltage, the other is a number. Learning CV makes Live's modulation make more sense, and vice versa.</li>
+      <li><strong>Where you meet it in the workshop:</strong> the mod-matrix thinking runs through Block 6 (<a href="block-6/lab-024b.html">Lab 024b — West-Coast Voice</a>) and the generative systems; the hardware version waits in <a href="hardware/modular.html">Modular &amp; 0-Coast</a>; the clock discipline lives in <a href="who-sequences-what.html">Who Sequences What</a>; the synthesis-method map is in the <a href="synthesis-index.html">Synthesis Index</a>.</li>
+    </ul>
+  </div>
+
+  <h2>Proof gate</h2>
+
+  <div class="decision-check">
+    <div class="decision-check-label">You understand CV/gate when you can do this</div>
+    <p>In VCV Rack (or on a modular if you have one), build one voice from scratch: a CV source playing a short sequence into an oscillator's 1V/oct input, the matching gate driving an envelope, and the envelope opening a VCA so notes actually sound. Then add <em>one</em> self-moving modulation — an LFO through an attenuator into the filter cutoff. Record a committed print. In one sentence each, name which cable carries pitch, which carries timing, and what the attenuator is doing. You are done when the patch sounds notes (not silence), the modulation moves on its own, the print exists, and the three sentences are written.</p>
+  </div>
+
+  <p style="text-align: center; color: var(--text-muted); margin: 30px auto 0; font-size: 14.5px;">See also <a href="block-6/lab-024b.html">Lab 024b — West-Coast Voice</a> · <a href="hardware/modular.html">Modular &amp; 0-Coast</a> · <a href="synthesis-index.html">Synthesis Index</a> · <a href="references.html">References</a> · <a href="#top">top ↑</a></p>
+
+  <div class="page-nav">
+    <a href="references.html">
+      <span class="page-nav-direction">Previous</span>
+      ← RF / References
+    </a>
+    <a href="hardware/modular.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      Modular &amp; 0-Coast →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — CV, Gate &amp; Voltage Control</div>
+
+</div>
+
+</body>
+</html>

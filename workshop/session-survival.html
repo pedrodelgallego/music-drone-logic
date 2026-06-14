@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Session Survival &amp; Export Discipline</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-type-reference" id="top">
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
+  <a href="block-00/index.html"><span class="nav-num">F0</span>Foundations</a>
+  <a href="block-0/index.html"><span class="nav-num">B0</span>The Rig</a>
+  <a href="block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="references.html" class="active"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="references.html">References</a><span class="breadcrumb-sep">/</span><span>Session Survival &amp; Export Discipline</span></nav>
+
+  <header class="page-header">
+    <div class="eyebrow">References</div>
+    <h1>Session Survival &amp; Export Discipline</h1>
+    <p class="lede">How to keep a Live project safe over the long term, export it correctly, and know exactly what you'll have left if everything else disappears.</p>
+  </header>
+
+  <div class="callout">
+    <div class="callout-label">The stance</div>
+    <p>A project that only lives on your computer is not finished — it is at risk. The goal of every session is to leave with a state you could reopen on a different machine, on a different day, and still make sound.</p>
+  </div>
+
+  <h2>Templates and the Default Set</h2>
+
+  <p>A <strong>Default Set</strong> is the project Live opens when you press <span class="menu">File → New Live Set</span>. If you leave it empty, every session starts from scratch. Instead, build a template that matches your rig.</p>
+
+  <div class="note-block">
+    <ul>
+      <li>Route your standard inputs (M4 channels 1–2, 3–4) and outputs (1–2 to monitors) in the template so you never rebuild them.</li>
+      <li>Add your most-used instrument and effect devices pre-loaded and named.</li>
+      <li>Save it with <span class="menu">File → Save Live Set as Default</span>.</li>
+      <li>Keep a second copy named <span class="code">_template-YYYY-MM-DD.als</span> in a <span class="code">_templates/</span> folder. Update it every few months.</li>
+    </ul>
+  </div>
+
+  <h2>Backups</h2>
+
+  <p>Live saves automatic backups in a hidden <span class="code">Backup</span> folder inside your project folder. They are time-stamped snapshots. You can raise the count in <span class="menu">Preferences → File &amp; Folder → Maximum Backup Files</span>. Set it to at least 10.</p>
+
+  <p>Automatic backups are not a substitute for a real backup strategy. Use at least two of these three:</p>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2"><rect x="8" y="8" width="28" height="28" rx="3"/><path d="M16 22h12M22 16v12"/></svg>
+      </div>
+      <div class="card-title">Cloud sync</div>
+      <div class="card-points">iCloud Drive, Dropbox, or similar. Automatic, continuous, survives hardware failure. Make sure the sync folder is your projects root.</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="12" width="32" height="22" rx="3"/><path d="M14 12V9a2 2 0 012-2h12a2 2 0 012 2v3"/></svg>
+      </div>
+      <div class="card-title">External drive</div>
+      <div class="card-points">A physical hard drive kept off-site or at least unplugged. Run a copy after every major session. Works even when your internet is down.</div>
+    </div>
+  </div>
+
+  <h2>Collect All and Save</h2>
+
+  <p><strong>Collect All and Save</strong> (<span class="menu">File → Collect All and Save</span>) copies every sample the project references into the project's own <span class="code">Samples/</span> folder. After running it, the project is self-contained — it no longer depends on samples sitting in other locations on your drive.</p>
+
+  <div class="callout">
+    <div class="callout-label">When to run it</div>
+    <p>Run Collect All and Save before you: archive a finished track, move a project to another drive, share a project with anyone, or back up to an external drive. If you skip this step, missing-sample warnings are almost guaranteed.</p>
+  </div>
+
+  <h2>Versioning — dated save-as</h2>
+
+  <p>Live's autosave keeps short-term history. For longer-term milestones, use a dated save-as. The pattern is:</p>
+
+  <p><span class="code">ProjectName-YYYY-MM-DD.als</span></p>
+
+  <p>Save a new version: after a major structural change, before you try something risky, when you reach a state you want to be able to return to. Keep all versions in the same project folder. Do not delete old versions until the track is fully released and archived.</p>
+
+  <h2>Freeze, flatten, and print decisions</h2>
+
+  <p>These three operations all turn something editable into audio, but they mean different things.</p>
+
+  <table class="param-table">
+    <tr><td><strong>Freeze</strong></td><td>Temporarily renders a track to audio so it plays without CPU load. The original devices and clips are still there — just hidden. You can unfreeze at any time. Use it on CPU-heavy tracks while you work on other parts.</td></tr>
+    <tr><td><strong>Flatten</strong></td><td>Permanently replaces a frozen track's clips with audio files. The devices and MIDI are gone from that track. You cannot undo this after saving. Use it when you are certain a sound is finished.</td></tr>
+    <tr><td><strong>Print to audio</strong></td><td>Record the track's output into a new audio track while the original runs. You keep both. The safest option: the MIDI/device track survives, and you have an audio capture for mixing or export.</td></tr>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li>Always print rather than flatten unless you are consciously reducing project size and you are certain about the sound.</li>
+      <li>When you print hardware (MicroFreak, Digitakt II), that print is irreplaceable — the hardware state will change. Name the audio file with the patch name and date: <span class="code">MF-Dronepatch-2025-03-01.wav</span>.</li>
+    </ul>
+  </div>
+
+  <h2>Exporting stems and a master</h2>
+
+  <p>A <strong>stem</strong> is a single element of the mix exported as its own audio file (kick, bass, synth pad, etc.). A <strong>master</strong> is the full stereo mixdown. Both are exported with <span class="menu">File → Export Audio / Video</span>.</p>
+
+  <h3>Settings that matter</h3>
+
+  <table class="param-table">
+    <tr><td><strong>Sample rate</strong></td><td>Match your project rate. For most work: 48 kHz. Do not upsample on export — if the project ran at 48 kHz, export at 48 kHz.</td></tr>
+    <tr><td><strong>Bit depth</strong></td><td>Export at 24-bit for stems and archive masters. 16-bit is only for final delivery (CD, some streaming). Higher bit depth = more headroom for later processing.</td></tr>
+    <tr><td><strong>Normalize</strong></td><td>Leave this <strong>off</strong>. Normalizing changes the level relationship between your stems and makes them harder to use together later. Set your mix level by ear, not by automatic normalization.</td></tr>
+    <tr><td><strong>True-peak ceiling</strong></td><td>If your mastering limiter has a true-peak setting, use −1.0 dBTP as a ceiling for streaming delivery. For stems and working files, leave the limiter off and let the mix breathe.</td></tr>
+    <tr><td><strong>Dithering</strong></td><td>Turn on dithering only when reducing bit depth (e.g. 24-bit project → 16-bit delivery). Use POW-r 1 for most music. Do not dither when staying at 24-bit.</td></tr>
+  </table>
+
+  <h3>Stem export procedure</h3>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-body">Solo each track group in turn (or use track activation). Set the export range with the Loop Brace to cover the full arrangement.</div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-body">Export each stem with the same settings (48 kHz / 24-bit / normalize off). Name files consistently: <span class="code">TrackName-StemRole-YYYY-MM-DD.wav</span>.</div>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-body">Export the stereo master last, with the full mix active. Keep the master export in the same folder as the stems.</div>
+  </div>
+  <div class="step">
+    <div class="step-num">4</div>
+    <div class="step-body">Import all stems back into a blank Live Set and check that they sum to the same sound as the master. If they don't, something was muted or routed wrong.</div>
+  </div>
+
+  <h2>Recovery from missing samples and plugins</h2>
+
+  <p>When you open a project and see missing-file warnings, do this in order:</p>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-body">In Live's missing-file browser, click <span class="menu">Search</span>. Live will look for files with the same name across your drives. Accept any matches that are obviously correct.</div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-body">If search fails, manually locate the file using <span class="menu">Browse for File</span>. Check your external drive and cloud sync folder first.</div>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-body">If the sample is gone entirely, check whether you have a printed audio version of the track it was part of. The print is a valid substitute — replace the missing clip with the print.</div>
+  </div>
+  <div class="step">
+    <div class="step-num">4</div>
+    <div class="step-body">For missing plugins: install or reinstall the plugin, then reopen the project. If the plugin is no longer available, you must replace it with something equivalent, or use the printed audio.</div>
+  </div>
+
+  <h2>The print map</h2>
+
+  <p>A <strong>print map</strong> is a plain-text document listing every track in the project and its status. It answers: if I opened this project on a clean machine, what would I have? Keep it next to the project file.</p>
+
+  <table>
+    <thead><tr><th>Track name</th><th>Type</th><th>Status</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td>Kick</td><td>Audio</td><td>Printed — self-contained</td><td>Digitakt II pattern 1, printed 2025-03-01</td></tr>
+      <tr><td>Bass drone</td><td>MIDI + device</td><td>Device state only — requires plugin</td><td>Operator patch, no print yet</td></tr>
+      <tr><td>Pad layer</td><td>Audio</td><td>Printed — self-contained</td><td>MicroFreak Dronepatch-A, printed 2025-03-01</td></tr>
+      <tr><td>FX return A</td><td>MIDI + device</td><td>Device state only — requires plugin</td><td>Live's Echo, built-in, always available</td></tr>
+    </tbody>
+  </table>
+
+  <p>Four possible states for any track:</p>
+
+  <table class="param-table">
+    <tr><td><strong>Audio — self-contained</strong></td><td>An audio clip with its sample collected inside the project folder. Safe on any machine.</td></tr>
+    <tr><td><strong>MIDI + device</strong></td><td>Requires the plugin or Live instrument to be installed. The sound is not saved as audio — it is re-synthesised every time.</td></tr>
+    <tr><td><strong>Hardware state</strong></td><td>Depends on a hardware device (MicroFreak, Digitakt II) being connected and set to a specific patch. The patch may have changed since the session.</td></tr>
+    <tr><td><strong>Gone</strong></td><td>Missing sample or uninstalled plugin with no print. The track is silent until you find a replacement.</td></tr>
+  </table>
+
+  <h2>Proof gate</h2>
+
+  <div class="callout">
+    <div class="callout-label">What to prove</div>
+    <p>This gate certifies that your project is genuinely portable and your export is trustworthy. Run it on every track before you call it finished.</p>
+  </div>
+
+  <ul class="checklist">
+    <li><span class="checklist-box"></span>Run <span class="menu">File → Collect All and Save</span>. No warnings appear.</li>
+    <li><span class="checklist-box"></span>Copy the project folder to a different location (or a second drive). Open it from that new location.</li>
+    <li><span class="checklist-box"></span>No missing-sample warnings on open. Every track plays correctly.</li>
+    <li><span class="checklist-box"></span>Export stems (48 kHz / 24-bit / normalize off). File names follow the naming convention.</li>
+    <li><span class="checklist-box"></span>Export the stereo master with the same settings and a −1.0 dBTP ceiling if mastered.</li>
+    <li><span class="checklist-box"></span>Import stems into a blank Set and confirm they sum correctly against the master.</li>
+    <li><span class="checklist-box"></span>Write or update the print map. Every track has a status: audio self-contained / MIDI + device / hardware state / gone.</li>
+    <li><span class="checklist-box"></span>Create a dated save-as version: <span class="code">ProjectName-YYYY-MM-DD-final.als</span>.</li>
+  </ul>
+
+  <p style="text-align: center; color: var(--text-muted); margin: 30px auto 0; font-size: 14.5px;">See also <a href="sample-hygiene.html">Sample Library &amp; Release Hygiene</a> · <a href="references.html">References</a> · <a href="index.html">Overview</a> · <a href="#top">top ↑</a></p>
+
+  <div class="page-nav">
+    <a href="references.html">
+      <span class="page-nav-direction">Previous</span>
+      ← RF / References
+    </a>
+    <a href="sample-hygiene.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      Sample Library &amp; Release Hygiene →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Session Survival &amp; Export Discipline</div>
+
+</div>
+
+</body>
+</html>
