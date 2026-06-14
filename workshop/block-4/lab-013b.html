@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab 013b — FM &amp; Inharmonic Spectra</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page-type-lab" id="top">
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu"><span class="hamburger-lines"><span></span><span></span><span></span></span></label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html" class="active"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 4 · Transformation</a><span class="breadcrumb-sep">/</span><span>FM &amp; Inharmonic Spectra</span></nav>
+
+  <header class="page-header">
+    <div class="eyebrow">Block 4 · Lab 013b · Track lab — worked exemplar</div>
+    <h1>FM &amp; Inharmonic Spectra</h1>
+    <p class="lede">Subtractive synthesis carves a spectrum away; FM builds one up — and the single number that decides whether you get a warm harmonic tone or a clanging bell is the ratio between two oscillators. This lab teaches you to predict the spectrum from the ratio before you ever hear it, using Ableton Operator.</p>
+  </header>
+  <p class="block-meta">Track lab · S4 · synthesis · full cycle · Ableton Operator · introduces the Ratio Prediction Test</p>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l4.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs" class="current">Labs</a><a href="lab-r4.html" data-section="rebuild">Rebuild</a><a href="capstone-c3.html" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
+
+  <div class="signal-flow">
+    <span class="signal-node">listen</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">hypothesis</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">1:1 harmonic</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">non-integer inharmonic</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">envelope the index</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">two voices</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">fault</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">diagnose</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">print</span>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Start here</div>
+    </div>
+    <ul>
+      <li>This lab is the additive/FM contrast to the resonance-and-filtering work in <a href="lab-013.html">Lab 013</a> — FM builds a spectrum up where filtering carves one down.</li>
+      <li>Save a Live set as <span class="code">LAB-013B-fm</span>.</li>
+      <li>Open a spectrum analyzer (Live's <strong>Spectrum</strong> device) on the master — you will <em>see</em> harmonic vs inharmonic, not only hear it.</li>
+      <li>Tool: Ableton <strong>Operator</strong> only. Operator is a true phase-modulation FM synth with four operators arranged in selectable algorithms.</li>
+      <li>Expected time: two sessions — one to learn ratio → spectrum, one to build the two voices and write the phrase.</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The point</div>
+    <p>FM's reputation as "unpredictable" is a myth that comes from twiddling without a model. The model is simple: a modulator oscillator bends a carrier oscillator's pitch thousands of times a second, adding sidebands. Where those sidebands land is set entirely by the carrier-to-modulator <em>ratio</em>; how loud they are is set by the modulation <em>index</em>. Two numbers, fully predictable.</p>
+  </div>
+
+  <h2>1 · Listen first — harmonic versus inharmonic</h2>
+
+  <p>Listen to four pieces of classic FM. The first two are harmonic (electric pianos, warm basses); the last two are inharmonic (bells, mallets, metal). The whole lab lives in the difference your ear is about to learn to predict.</p>
+
+  <div class="listen-acc">
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">01</span>
+        <span class="listen-title">Any DX7 electric-piano record (the "DX Rhodes")</span>
+        <span class="listen-tag">harmonic — integer ratio</span>
+      </summary>
+      <div class="listen-body">
+        <p>The most famous FM sound on earth: a bell-tinged electric piano. The body is harmonic — a clear pitch you can sing — with a brief metallic attack on top.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>A definite, singable pitch — the sustained tone is harmonic, built from integer-related partials.</li>
+          <li>A short inharmonic "tine" at the very attack that fades as the note settles — that is a modulation index that drops over time.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Hum the note, then hum the attack. The body has a pitch; the attack barely does. That split — harmonic body, inharmonic transient — is an envelope on the index, which you will build in step 3.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=DX7+electric+piano" target="_blank" rel="noopener">YouTube</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">02</span>
+        <span class="listen-title">Any FM bass (DX7 / Operator) record</span>
+        <span class="listen-tag">harmonic — bright but pitched</span>
+      </summary>
+      <div class="listen-body">
+        <p>FM bass is harmonic and aggressive — a clear fundamental with bright integer harmonics stacked on top, the brightness controlled by index.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>A solid pitched fundamental — it works as a bassline, so it must be harmonic.</li>
+          <li>How the brightness (the upper harmonics) can be turned up without changing the pitch — that is index moving, not ratio.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>If you can play a melody with it and it stays in tune, the ratio is integer. Brightness without detuning = harmonic FM.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=FM+bass+DX7" target="_blank" rel="noopener">YouTube</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">03</span>
+        <span class="listen-title">Any FM bell / tubular-bell patch</span>
+        <span class="listen-tag">inharmonic — non-integer ratio</span>
+      </summary>
+      <div class="listen-body">
+        <p>A bell's partials are not whole-number multiples of the fundamental — that is why a bell sounds like a bell and not like a flute. FM makes bells trivially: pick a non-integer ratio.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>A pitch that is present but "smeared" — you can roughly name it, but the tone has a metallic shimmer around it.</li>
+          <li>Partials that beat and clash rather than fuse — the signature of inharmonic spectra.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Try to sing the exact pitch. You will get close but the tone fights you — that ambiguity is inharmonicity, and it comes straight from a non-integer ratio like 1 : 1.41.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=FM+bell+synthesis" target="_blank" rel="noopener">YouTube</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">04</span>
+        <span class="listen-title">Aphex Twin / Autechre — any FM-mallet or metallic-percussion track</span>
+        <span class="listen-tag">inharmonic — percussion from ratio</span>
+      </summary>
+      <div class="listen-body">
+        <p>IDM lives on inharmonic FM percussion — wood blocks, metal, glass. The pitch is almost gone; what remains is the spectrum's clash.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Percussive hits with a metallic or wooden colour but no clear melody — extreme inharmonicity plus short envelopes.</li>
+          <li>How the same patch at a different ratio would change the <em>material</em> (wood → glass → metal) without changing the rhythm.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Ask: could you play a tune on this sound? If no, the ratio is far from integer. Material, not melody, is what inharmonic FM is for.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Autechre+FM+percussion" target="_blank" rel="noopener">YouTube</a></p>
+      </div>
+    </details>
+  </div>
+
+  <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 18px 0 0;">Write a one-sentence hypothesis predicting the rule. The target is something like — <strong style="color: var(--text);">integer carrier:modulator ratios give harmonic (singable) spectra; non-integer ratios give inharmonic (bell/metal) spectra; the modulation index sets how many sidebands and how loud, and enveloping the index makes the timbre evolve.</strong> The build will prove or break this sentence.</p>
+
+  <h2>2 · The two specs</h2>
+
+  <table class="param-table">
+    <caption>System Spec — FM as a system</caption>
+    <tr><td>Inputs</td><td>Two Operator instances — one harmonic pad, one inharmonic mallet/bell · each uses one carrier + one modulator operator (the other two off) for clarity</td></tr>
+    <tr><td>Transforms</td><td>Carrier:modulator ratio (sets where sidebands land) · modulation index/level (sets sideband strength = brightness) · an envelope on the modulator level so the index changes over the note · operator feedback for added edge/noise</td></tr>
+    <tr><td>Feedback / variation</td><td>The index envelope is the variation — the tone evolves within each note · feedback on the modulator adds a noisy edge at high settings</td></tr>
+    <tr><td>Constraints</td><td>One carrier + one modulator per voice (no four-operator stacks yet) · every ratio and index written down before it is dialed · the harmonic voice must be singable; the inharmonic voice must not be</td></tr>
+    <tr><td>Human role</td><td>Predict the spectrum from the ratio, then confirm on the analyzer · choose an index envelope that earns the note's length · keep the high carrier out of aliasing territory</td></tr>
+  </table>
+
+  <table class="param-table">
+    <caption>Engineering Spec — the bench</caption>
+    <tr><td>Signal path</td><td>Two MIDI tracks, each one Operator → group <span class="code">FM</span> → master · <strong>Spectrum</strong> analyzer on the master to watch sidebands · <strong>Tuner</strong> optional to check whether a pitch is even nameable</td></tr>
+    <tr><td>Gain plan</td><td>Each voice peaks ≈ <span class="code">−12 dBFS</span> · raising index raises level — gain-compensate the operator output so brightness changes are not just loudness changes · bus ≤ <span class="code">−6 dBFS</span></td></tr>
+    <tr><td>Clock / sync</td><td>Index envelopes are free per-note; the phrase sits on the grid at a chosen tempo · keep the phrase short (2–4 bars) so the contrast is the focus</td></tr>
+    <tr><td>Latency</td><td>Buffer 256 · played or programmed, latency does not affect the printed spectrum</td></tr>
+    <tr><td>Stereo / phase</td><td>Mono is fine for proving spectrum · widen later with the existing Block 5 tools, not here</td></tr>
+    <tr><td>Noise budget</td><td>The only "noise" should be deliberate — from operator feedback at high settings; system hiss must stay well below it</td></tr>
+    <tr><td>Print strategy</td><td>Print each voice as a sustained one-note WAV plus a screenshot of its Spectrum trace; print the contrasting phrase · keep both Operator presets</td></tr>
+    <tr><td>Failure mode</td><td>Aliasing/harshness from too-high index on a high carrier (false high partials fold back), and the "dead" tone from a static, un-enveloped index — both induced in step 5</td></tr>
+  </table>
+
+  <h2>3 · Concepts — the three numbers of FM</h2>
+
+  <table>
+    <thead><tr><th>Concept</th><th>In plain words</th></tr></thead>
+    <tbody>
+      <tr><td><span class="lab-title">Carrier &amp; modulator</span></td><td>The carrier is the operator you hear. The modulator is an operator you do not hear directly — instead its output is wired to bend the carrier's pitch up and down very fast. Those tiny fast bends add new frequencies (sidebands) to the carrier's tone.</td></tr>
+      <tr><td><span class="lab-title">Ratio (C:M)</span></td><td>The frequency relationship between carrier and modulator, set by their coarse/fine tuning. <strong>Integer ratios</strong> (1:1, 1:2, 2:3) place every sideband on a whole-number multiple of the fundamental → harmonic, singable. <strong>Non-integer ratios</strong> (1:1.41, 1:3.5) scatter sidebands onto non-harmonic frequencies → inharmonic, bell/metal. This one choice decides the character.</td></tr>
+      <tr><td><span class="lab-title">Modulation index</span></td><td>How hard the modulator bends the carrier — set by the modulator's output <em>level</em>. Low index = few sidebands = nearly a pure sine. High index = many strong sidebands = bright/complex. Index controls <em>brightness and richness</em>, never pitch.</td></tr>
+      <tr><td><span class="lab-title">Operator feedback</span></td><td>An operator fed back into itself. Small amounts add edge; large amounts push the sine toward a sawtooth and then into noise. Use it as a seasoning, not the main course.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>4 · Build</h2>
+
+  <!-- HARMONIC -->
+  <h3 style="margin-top:28px;">Step A — the 1:1 harmonic tone</h3>
+
+  <div class="signal-flow">
+    <span class="signal-node">modulator B<br>ratio 1</span>
+    <span class="signal-arrow">→ modulates →</span>
+    <span class="signal-node">carrier A<br>ratio 1</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">harmonic tone<br>(singable)</span>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Step 01</div>
+      <h3 class="step-title">Two operators, integer ratio, watch the harmonics appear</h3>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <ol>
+        <li>Add <strong>Operator</strong> to a track named <span class="code">HARMONIC PAD</span>. Choose the algorithm where operator <strong>B sits on top of A</strong> (B modulates A; A is the only carrier reaching output). Turn C and D off.</li>
+        <li>Set both A and B <strong>Coarse = 1</strong> (ratio 1:1). Carrier A level full; modulator B level at zero to start.</li>
+        <li>Hold a note and slowly raise <strong>B's level</strong> (the modulation index). Watch the Spectrum: at zero you see one spike (a sine); as B rises, evenly spaced harmonics appear above the fundamental — 2×, 3×, 4×. The pitch never moves.</li>
+        <li>Set a pad-like amp envelope on A (Attack ~300 ms, long sustain). Note the B level that gives a pleasing brightness without harshness.</li>
+      </ol>
+    </div>
+    <table class="param-table">
+      <caption>Harmonic pad — Operator (1:1)</caption>
+      <tr><td>Algorithm</td><td>B → A (two-operator stack), C/D off</td></tr>
+      <tr><td>Carrier A</td><td>Sine, Coarse 1, level full</td></tr>
+      <tr><td>Modulator B</td><td>Sine, Coarse 1, level = your chosen index</td></tr>
+      <tr><td>Ratio</td><td>1 : 1 → harmonic, singable</td></tr>
+      <tr><td>Amp env (A)</td><td>A 300 ms · sustained · pad release</td></tr>
+      <tr><td>Spectrum check</td><td>Evenly spaced spikes at integer multiples = harmonic confirmed</td></tr>
+    </table>
+    <div class="note-block">
+      <ul>
+        <li><strong>Other harmonic ratios to try:</strong> 1:2 (hollow, clarinet-like odd emphasis), 2:1, 1:3, 2:3 — all integer-related, all stay singable. Note in the logbook how the <em>colour</em> changes while the pitch stays put.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- INHARMONIC -->
+  <h3 style="margin-top:28px;">Step B — move to a non-integer ratio</h3>
+
+  <div class="signal-flow">
+    <span class="signal-node">modulator B<br>ratio 1.41</span>
+    <span class="signal-arrow">→ modulates →</span>
+    <span class="signal-node">carrier A<br>ratio 1</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">inharmonic tone<br>(bell/metal)</span>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Step 02</div>
+      <h3 class="step-title">Detune the modulator off integer — watch harmony break</h3>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <ol>
+        <li>Duplicate the patch onto a track <span class="code">INHARMONIC BELL</span>. Keep carrier A Coarse 1.</li>
+        <li>Move modulator <strong>B to a non-integer ratio</strong>: use Coarse and Fine to reach <span class="code">≈ 1.41</span> (or try <span class="code">3.5</span> for a clangier result). Now the sidebands land on non-harmonic frequencies.</li>
+        <li>Hold a note and watch Spectrum: the spikes are now <em>unevenly</em> spaced — no longer integer multiples. Try to sing the pitch; it resists.</li>
+        <li>Give it a percussive amp envelope (Attack 0, Decay ~600 ms, Sustain 0) — inharmonic spectra read most clearly as struck bells/mallets.</li>
+      </ol>
+    </div>
+    <table class="param-table">
+      <caption>Inharmonic bell — Operator (1 : 1.41)</caption>
+      <tr><td>Algorithm</td><td>B → A, C/D off</td></tr>
+      <tr><td>Carrier A</td><td>Sine, Coarse 1</td></tr>
+      <tr><td>Modulator B</td><td>Sine, ratio ≈ 1.41 (Coarse 1 + Fine, or 3.5 for clang)</td></tr>
+      <tr><td>Ratio</td><td>1 : 1.41 → inharmonic, bell/metal</td></tr>
+      <tr><td>Amp env (A)</td><td>A 0 ms · D 600 ms · S 0 (struck)</td></tr>
+      <tr><td>Spectrum check</td><td>Unevenly spaced spikes = inharmonic confirmed</td></tr>
+    </table>
+  </div>
+
+  <!-- INDEX ENVELOPE -->
+  <h3 style="margin-top:28px;">Step C — envelope the modulation index</h3>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Step 03</div>
+      <h3 class="step-title">Make the timbre evolve across the note</h3>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <ol>
+        <li>On either voice, give the <strong>modulator (B)</strong> its own amp envelope with a fast decay — Attack 0, Decay ~150 ms, Sustain low. Because B's level <em>is</em> the index, this makes the spectrum bright at the attack and mellow as it settles.</li>
+        <li>Hold a note and watch Spectrum animate: many sidebands at the start, collapsing toward a near-sine. This is exactly the DX-Rhodes "tine fades to body" you heard in listening 01.</li>
+        <li>Compare to a <em>static</em> index (full sustain on B): the tone is the same brightness start to finish — and sounds dead. Note the difference; you will turn it into a fault in step 5.</li>
+      </ol>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Why this is the whole game</div>
+      <p>A static FM tone is a fixed spectrum — interesting for one second, then inert. An <em>enveloped index</em> means the spectrum changes shape over the note, which is what makes FM read as a living instrument rather than a buzzer. The index envelope is the difference between "a patch" and "a sound."</p>
+    </div>
+  </div>
+
+  <!-- TWO VOICES + PHRASE -->
+  <h3 style="margin-top:28px;">Step D — two contrasting voices and a phrase</h3>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Step 04</div>
+      <h3 class="step-title">Write a short phrase contrasting harmonic and inharmonic</h3>
+    </div>
+    <ol class="rules-list">
+      <li>Finalize voice 1 as a <strong>harmonic pad</strong> (1:1, slow attack, gentle index envelope) and voice 2 as an <strong>inharmonic mallet/bell</strong> (1:1.41 or 3.5, struck envelope, fast index decay). Add a touch of operator feedback to the bell for edge if it sounds too clean.</li>
+      <li>Write a 2–4 bar phrase: the pad holds a chord; the bell plays a sparse melodic figure over it. The point is to <em>hear</em> harmonic fuse and inharmonic clash side by side.</li>
+      <li>Document, for each voice: the ratio, the index (B level), and the index-envelope shape. These three lines must let someone else predict the spectrum without listening.</li>
+    </ol>
+  </div>
+
+  <h2>5 · The prescribed faults — induce and diagnose</h2>
+
+  <div class="callout">
+    <div class="callout-label">Required</div>
+    <p>Manufacture both faults, hear them, document the diagnosis. These are the two ways FM goes wrong in practice — over-driving a high carrier, and forgetting to move the index.</p>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Fault A</div>
+      <h3 class="step-title">Aliasing from too-high index on a high carrier</h3>
+    </div>
+    <ol class="rules-list">
+      <li>On the bell, play a high note (so the carrier is already high) and push modulator B's level (index) to maximum.</li>
+      <li>Listen and watch Spectrum: high sidebands exceed Nyquist and <strong>fold back</strong> as gritty, detuned partials in the wrong places — a harsh, dirty quality that gets worse the higher you play.</li>
+      <li>Diagnose: aliasing. Fixes — lower the index, lower the carrier ratio, play lower, or accept it as deliberate dirt. Note that index that sounds fine on a low note can alias on a high one.</li>
+    </ol>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Fault B</div>
+      <h3 class="step-title">The dead tone from a static index</h3>
+    </div>
+    <ol class="rules-list">
+      <li>Remove the modulator's envelope (B at full sustain, no decay). The index is now constant for the whole note.</li>
+      <li>Hold a long note: the spectrum never moves; the tone is fixed and lifeless — a buzzer, not an instrument.</li>
+      <li>Restore the index envelope; A/B and write the rule that FM aliveness comes from the index moving.</li>
+    </ol>
+  </div>
+
+  <table class="param-table">
+    <caption>Diagnosis — symptom → cause → fix</caption>
+    <tr><td>Symptom</td><td>Cause</td><td>Fix</td></tr>
+    <tr><td>Harsh, gritty, "out of tune" at high notes</td><td>Aliasing — high sidebands folding below Nyquist (index too high for the carrier)</td><td>Lower index, lower carrier ratio, play lower, or keep it as intentional dirt</td></tr>
+    <tr><td>Tone sounds fixed and lifeless</td><td>Static (un-enveloped) modulation index</td><td>Add a decay envelope to the modulator's level so the spectrum evolves</td></tr>
+    <tr><td>Brightness change is really just a volume change</td><td>Index raised without gain-compensating the carrier output</td><td>Trim carrier/output level so loudness stays matched while index moves</td></tr>
+    <tr><td>"Bell" still sounds singable / pitched</td><td>Ratio still integer or only slightly off</td><td>Move modulator ratio clearly off-integer (1.41, 3.5)</td></tr>
+    <tr><td>"Pad" sounds clangy / won't hold a chord</td><td>Ratio accidentally non-integer (stray Fine value)</td><td>Reset carrier and modulator to integer Coarse, Fine 0</td></tr>
+    <tr><td>Thin, almost a pure sine</td><td>Modulation index too low — few sidebands</td><td>Raise modulator B's level</td></tr>
+    <tr><td>Noisy/raspy when you didn't ask for it</td><td>Operator feedback too high</td><td>Reduce feedback to a seasoning level</td></tr>
+  </table>
+
+  <h2>6 · The Ratio Prediction Test — certified here</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Certification</div>
+      <h3 class="step-title">Predict the spectrum before you hear it</h3>
+    </div>
+    <ol class="rules-list">
+      <li>A partner (or your future self) names a ratio — e.g. "1:2" or "1:1.78". Before playing it, you state: harmonic or inharmonic, and roughly bright or dark for a given index.</li>
+      <li>Play it and confirm on the Spectrum analyzer. Score yourself across at least five ratios.</li>
+      <li>File one sentence stating the rule in your own words and the evidence (the Spectrum screenshots).</li>
+    </ol>
+    <div class="decision-check">
+      <div class="decision-check-label">Pass condition</div>
+      <p>You correctly call harmonic vs inharmonic from the ratio every time, and you can predict that raising the index adds and strengthens sidebands without moving the pitch. If you are still surprised by the spectrum, the model has not landed yet.</p>
+    </div>
+  </div>
+
+  <h2>7 · Pass gate</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Gate</div>
+      <h3 class="step-title">Two voices, one harmonic and one inharmonic, fully documented</h3>
+    </div>
+    <ol class="rules-list">
+      <li>A harmonic pad (singable, integer ratio) and an inharmonic mallet/bell (not singable, non-integer ratio) in one short phrase.</li>
+      <li>For each: ratio, index, and index-envelope shape written down — enough that the spectrum is predictable from the page alone.</li>
+      <li>Spectrum screenshots proving harmonic (even spacing) vs inharmonic (uneven spacing).</li>
+    </ol>
+    <div class="decision-check">
+      <div class="decision-check-label">Pass condition</div>
+      <p>The two voices are demonstrably one harmonic and one inharmonic; the documentation proves you can predict harmonic vs inharmonic from the ratio, and the index envelope makes each voice evolve rather than sit still.</p>
+    </div>
+  </div>
+
+  <h2>8 · Report bundle</h2>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Filed in the logbook</div>
+    </div>
+    <ul>
+      <li>Two sustained one-note WAVs — harmonic and inharmonic</li>
+      <li>The contrasting phrase, printed</li>
+      <li>Two Spectrum screenshots — even spacing vs uneven spacing</li>
+      <li>Patch documentation per voice — ratio, index, index-envelope shape, feedback</li>
+      <li>Ratio Prediction Test results — at least five ratios called before listening</li>
+      <li>Fault entries A and B — symptom, cause, fix, prevention rule</li>
+      <li>The diagnosis table, completed</li>
+      <li>System diff sentence — "I thought FM was X; after building it, I found it was Y"</li>
+    </ul>
+  </div>
+
+  <table class="param-table">
+    <caption>Pass standard</caption>
+    <tr><td>Minimum pass</td><td>The bundle exists; the two voices are correctly harmonic and inharmonic; the Ratio Prediction Test is certified.</td></tr>
+    <tr><td>Solid pass</td><td>Both faults induced and diagnosed; the index envelope audibly shapes each note; brightness changes are gain-compensated, not just louder.</td></tr>
+    <tr><td>Advanced transfer</td><td>You can design a target sound (e.g. "a wooden mallet") by choosing the ratio first and the index envelope second, rather than by trial and error.</td></tr>
+  </table>
+
+  <ol class="reflection-list">
+    <li>At which ratio did the tone stop being singable? Was the boundary as sharp as you expected?</li>
+    <li>What did enveloping the index give you that raising it statically could not?</li>
+    <li>How did aliasing change with the played note, and what does that tell you about index limits?</li>
+    <li>Which subtractive intuition from Lab 013 misled you here, and which transferred?</li>
+    <li>Given a sound you want, can you now name the ratio first instead of hunting?</li>
+  </ol>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Worked system diff — the expected granularity</div>
+    <p>"I thought FM brightness and FM pitch were tangled; they are separate knobs — ratio sets the spectrum's shape, index sets its strength, and the pitch never moves with either."</p>
+  </div>
+
+  <div class="final">
+    <div class="final-label">Track-lab principle</div>
+    <p>In FM the ratio decides harmonic or inharmonic, the index decides how bright, and the index envelope decides whether the sound is alive — three numbers, fully predictable.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="lab-013.html">
+      <span class="page-nav-direction">Previous</span>
+      ← Lab 013 / Resonance as Melody
+    </a>
+    <a href="index.html" class="next">
+      <span class="page-nav-direction">Back</span>
+      Block 4 index →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Block 4 · Lab 013b</div>
+
+</div>
+
+  <script src="../nav.js"></script>
+</body>
+</html>

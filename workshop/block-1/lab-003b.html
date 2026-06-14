@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab 003b — Measurement Tools</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page-type-lab" id="top">
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu"><span class="hamburger-lines"><span></span><span></span><span></span></span></label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
+  <a href="../block-1/index.html" class="active"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 1 · The Bench</a><span class="breadcrumb-sep">/</span><span>Measurement Tools</span></nav>
+
+  <header class="page-header">
+    <div class="eyebrow">Block 1 · Lab 003b · Bench</div>
+    <h1>Measurement Tools</h1>
+    <p class="lede">Two tools make invisible problems visible. A <strong>spectrum analyzer</strong> shows the shape of your sound across all frequencies. A <strong>correlation meter</strong> tells you whether your stereo mix will survive being summed to mono. This lab teaches you to use both proactively — reaching for them before a problem, not after something already sounds wrong.</p>
+  </header>
+  <p class="block-meta">Bench lab · S1 · E3 · full cycle · new concepts: 5</p>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l1.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs" class="current">Labs</a><a href="lab-r1.html" data-section="rebuild">Rebuild</a><a href="capstone-c1.html" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
+
+  <div class="signal-flow">
+    <span class="signal-node">listen</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">insert meters</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">characterize reference</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">induce phase fault</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">measure it</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">diagnose</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">fix</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">confirm on the meter</span>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Start here</div>
+    </div>
+    <ul>
+      <li>Complete <a href="lab-001.html">Lab 001</a> first — the bench must pass signal and the gain ledger must exist.</li>
+      <li>Save a new set as <span class="code">LAB-003B-meters</span>.</li>
+      <li>Pick one <strong>known-good reference track</strong> — a finished, well-regarded piece in a style you trust — in lossless form.</li>
+      <li>Live 12 Suite ships <strong>Spectrum</strong> and <strong>Utility</strong>; you also need a correlation/phase meter — Live's metering offers one, or install a free meter (e.g. Youlean / MeldaProduction MStereoScope). Have both ready before step 1.</li>
+      <li>Expected time: one session of 90 minutes.</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The point</div>
+    <p>Later in this workshop you will encounter phase problems by accident — that hollow comb-filter sound when two monitoring paths are both on. Here you learn it on purpose. You put the meter up first, read what healthy looks like, create a phase problem deliberately, then watch the meter confirm what your ears suspect. A measurement you trust finds a fault in seconds that ears alone would chase for an hour. It also catches the one fault ears in headphones miss entirely: a mix that sounds wide and full in stereo but disappears in mono.</p>
+  </div>
+
+  <h2>1 · New concepts — in plain words</h2>
+
+  <table>
+    <thead><tr><th>Concept</th><th>In plain words</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><span class="lab-title">Spectrum analyzer</span></td>
+        <td>A live graph of your sound. Frequency runs left (low) to right (high). Height shows how much energy is at each frequency. It turns "sounds muddy" into "there is a 3 dB hump at 250 Hz" — a vague impression into a specific number.</td>
+      </tr>
+      <tr>
+        <td><span class="lab-title">Spectral tilt</span></td>
+        <td>The overall slope of the spectrum from low to high frequencies. Most finished music tilts gently downward — more energy at the low end, less at the high end. A flat or upward tilt often sounds thin or harsh. An overly steep downward tilt sounds dull. The tilt gives you the broad tonal character of a sound at a glance.</td>
+      </tr>
+      <tr>
+        <td><span class="lab-title">Resonance · mud · masking</span></td>
+        <td>Three problems the spectrum reveals. A <strong>resonance</strong> is a narrow spike where one frequency rings louder than the rest. <strong>Mud</strong> is a broad buildup in the low-mids (around 200–500 Hz) that makes everything sound thick and unclear. <strong>Masking</strong> is when two sounds pile up in the same frequency band, so one buries the other.</td>
+      </tr>
+      <tr>
+        <td><span class="lab-title">Correlation meter</span></td>
+        <td>A single needle that scores how similar your left and right channels are. <strong>+1</strong> means they are identical — perfectly mono-safe. <strong>0</strong> means they are unrelated — wide, but still safe. <strong>−1</strong> means they are exact mirror-opposites — when summed to mono they cancel each other out, and the sound disappears. This is the most important meter for checking stereo safety.</td>
+      </tr>
+      <tr>
+        <td><span class="lab-title">Mono collapse</span></td>
+        <td>Summing left and right into a single channel — what a phone speaker, a club PA's mono sub, or a Bluetooth speaker does to your mix. Any element near −1 correlation cancels out in that sum and disappears. The correlation meter predicts this before it happens.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="tag-row">
+    <span class="tag">spectrum analyzer</span>
+    <span class="tag">spectral tilt</span>
+    <span class="tag">resonance · mud · masking</span>
+    <span class="tag">correlation meter</span>
+    <span class="tag">mono collapse</span>
+  </div>
+
+  <h2>2 · Listening — read with your eyes and ears at once</h2>
+
+  <p>Before building anything, put the meters on a few finished tracks and learn what healthy looks like. The goal is to connect what you <em>hear</em> with what the meters <em>show</em>, so the readings start to mean something.</p>
+
+  <div class="listen-acc">
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">01</span>
+        <span class="listen-title">Your known-good reference — on the spectrum</span>
+        <span class="listen-tag">what a healthy tilt looks like</span>
+      </summary>
+      <div class="listen-body">
+        <p>Drop Spectrum on the master and play your reference. Watch the broad shape, not the dancing detail.</p>
+        <div class="sub-label">Listen / look for</div>
+        <ul>
+          <li>The downward tilt — strong lows, gently falling highs — and how smooth it is.</li>
+          <li>No lone spikes towering over their neighbours (those would be resonances).</li>
+          <li>How full but uncluttered the low-mids are: present, not piled up into mud.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Sketch the tilt as a single line. That sketch is your target shape — step 03 turns it into a written characterization.</p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">02</span>
+        <span class="listen-title">The same reference — on the correlation meter</span>
+        <span class="listen-tag">what mono-safe looks like</span>
+      </summary>
+      <div class="listen-body">
+        <p>Now watch the correlation needle through the same track.</p>
+        <div class="sub-label">Look for</div>
+        <ul>
+          <li>The needle living mostly between <strong>0 and +1</strong> — wide where it wants width, but rarely if ever dipping below 0.</li>
+          <li>That the bass holds near +1 (low end is kept mono in almost every good master).</li>
+          <li>How brief any dips toward 0 are — width that never tips into cancellation.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Sum the reference to mono (Utility, Width 0 %). Nothing should vanish — confirming a needle that stayed above −1 predicts a safe collapse. This is the behaviour your own mix must match.</p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">03</span>
+        <span class="listen-title">A deliberately over-widened track</span>
+        <span class="listen-tag">what danger looks like</span>
+      </summary>
+      <div class="listen-body">
+        <p>Find or make a track with a heavy stereo widener on it. Watch the needle swing toward −1.</p>
+        <div class="sub-label">Look for</div>
+        <ul>
+          <li>The needle plunging below 0 — toward −1 — on the widened element.</li>
+          <li>The huge stereo impression in headphones that the meter is warning you about.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Collapse to mono: the widened element thins or disappears. You just watched the meter predict a fault before you heard it — the whole skill of this lab, in one move.</p>
+      </div>
+    </details>
+  </div>
+
+  <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 18px 0 0;">Before building, write one sentence describing what you expect to learn. For example: <strong style="color: var(--text);">a problem I can measure is a problem I can fix in seconds — and the correlation meter catches the one fault my ears in headphones will never warn me about.</strong> The bench will test it.</p>
+
+  <h2>3 · The two specs</h2>
+
+  <table class="param-table">
+    <caption>System Spec — the measurement bench (fill before building)</caption>
+    <tr><td>Inputs</td><td>One known-good reference track · one test signal you will widen (a stereo synth pad, or a doubled detuned layer)</td></tr>
+    <tr><td>Transforms</td><td>Spectrum analyzer reading tilt / resonance / mud / masking · correlation meter reading +1…−1 · a stereo widener or a detuned double used to <em>create</em> a phase problem on purpose</td></tr>
+    <tr><td>Feedback / variation</td><td>The before/after: the same signal measured wide, then measured fixed — the meters must record the change</td></tr>
+    <tr><td>Constraints</td><td>Both meters last in the master chain · every judgment backed by a reading, not by ears alone · the fix proven on the meter, not just asserted</td></tr>
+    <tr><td>Human role</td><td>Read the instruments first, hypothesize, then confirm with ears — measurement leads, hearing verifies</td></tr>
+  </table>
+
+  <table class="param-table">
+    <caption>Engineering Spec — meter placement (verify, correct after)</caption>
+    <tr><td>Signal path</td><td>Sources → tracks → master · on the master, last in the chain: Spectrum, correlation meter, and a Utility (for the mono-collapse test) · meters read what leaves the system, so they go after everything</td></tr>
+    <tr><td>Reading discipline</td><td>Spectrum: judge the broad tilt and standing features, not the instantaneous flicker · Correlation: judge where the needle <em>lives</em>, not a single transient dip</td></tr>
+    <tr><td>Mono test</td><td>A Utility with a Width control on the master, toggled 100 % → 0 %, is the ground truth the correlation meter predicts</td></tr>
+    <tr><td>Gain plan</td><td>Comparisons at matched loudness — louder always looks and sounds better; an unmatched A/B lies on both meters' significance</td></tr>
+    <tr><td>Failure mode</td><td>A mix that reads great in stereo and collapses in mono (negative correlation) — manufactured and diagnosed in section 5</td></tr>
+    <tr><td>Safety</td><td>Phones at the mark; stereo width is exaggerated in headphones, so trust the meter over the impression</td></tr>
+  </table>
+
+  <h2>4 · Procedure</h2>
+
+  <!-- STEP 1 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Step 01</div>
+      <h3 class="step-title">Insert both meters last on the master</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Goal: a permanent set of meters on the master that reads exactly what leaves your system.</p>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <ol>
+        <li>On the master, add <strong>Spectrum</strong>, then a <strong>correlation meter</strong>, then a <strong>Utility</strong> — in that order, last in the chain.</li>
+        <li>Set Spectrum to a readable scale (logarithmic frequency, a sensible averaging so the display is stable, not jittery).</li>
+        <li>Confirm the correlation meter shows a scale from +1 through 0 to −1.</li>
+        <li>Leave the Utility at Width 100 % for now; it is your mono switch later.</li>
+      </ol>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Expected result</div>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Two live meters and a mono switch, reading the master output. This chain stays on your master template from now on — there from the start, not added after something goes wrong.</p>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Step 02</div>
+      <h3 class="step-title">Characterize the known-good reference</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Goal: a written description of what a healthy track looks like on both meters — your reference point for everything that follows.</p>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <ol>
+        <li>Play the reference through the chain. On Spectrum, write down: the tilt (downward / flat / rising), any standing resonance (frequency + how prominent), and the low-mid fullness (mud or clean).</li>
+        <li>On the correlation meter, write down: where the needle lives (the band it occupies), how low it dips, how often.</li>
+        <li>Toggle the Utility to Width 0 % and back: note what, if anything, changes on mono collapse.</li>
+      </ol>
+    </div>
+    <table class="param-table">
+      <caption>Reference characterization blank — copy and fill</caption>
+      <tr><td>Reading</td><td>Reference (good)</td><td>My mix (before)</td><td>My mix (after)</td></tr>
+      <tr><td>Spectral tilt</td><td>___</td><td>___</td><td>___</td></tr>
+      <tr><td>Resonances / spikes</td><td>___</td><td>___</td><td>___</td></tr>
+      <tr><td>Low-mid (mud?)</td><td>___</td><td>___</td><td>___</td></tr>
+      <tr><td>Correlation — where it lives</td><td>___</td><td>___</td><td>___</td></tr>
+      <tr><td>Correlation — lowest dip</td><td>___</td><td>___</td><td>___</td></tr>
+      <tr><td>Survives mono?</td><td>___</td><td>___</td><td>___</td></tr>
+    </table>
+    <div class="sub-block">
+      <div class="sub-label">Logbook</div>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">The reference column, filled — your standard of "good," in numbers and positions you can compare against.</p>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Step 03</div>
+      <h3 class="step-title">Build a test signal and read it clean</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Goal: a healthy stereo signal you understand on both meters — the clean starting point you will then deliberately break.</p>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <ol>
+        <li>Make a sustained stereo source: a MicroFreak pad printed and lightly stereo-spread, or a synth pad — something with body across the spectrum.</li>
+        <li>Read it: note its tilt and where its correlation needle sits. A naturally stereo pad should read near 0 to +0.7 and survive mono fine.</li>
+        <li>Fill the "before" column for this clean baseline.</li>
+      </ol>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Decision checkpoint</div>
+      <p>Can you state your test signal's tilt and correlation number from the meters, without guessing from how it sounds? If you are reading the needle's position rather than relying on your impression of width, you are ready to break it.</p>
+    </div>
+  </div>
+
+  <h2>5 · The fault &amp; diagnosis</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Step 04</div>
+      <h3 class="step-title">Fault ritual — create a phase problem, then measure it</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">The required fault: a mix that sounds good in stereo but <strong>collapses in mono</strong>. You create it on purpose, see it on the meters, fix it, and watch the meters recover.</p>
+    <div class="signal-flow">
+      <span class="signal-node">predict</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">widen</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">read both meters</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">collapse to mono</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">fix</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">confirm recovery</span>
+    </div>
+    <ul>
+      <li><strong>Predict:</strong> write down what you expect the correlation needle to do, and what you expect to happen to the spectrum when you collapse to mono.</li>
+      <li><strong>Create (choose one):</strong> put an aggressive stereo widener on the test signal and push it hard — or duplicate the signal, detune the copy a few cents, and pan the pair hard left and right. Both methods create out-of-phase stereo content.</li>
+      <li><strong>Measure in stereo:</strong> note how wide it sounds, and that the correlation needle has dropped toward −1.</li>
+      <li><strong>Collapse to mono:</strong> set Utility Width to 0 %. Watch the spectrum: the affected frequencies drop into <strong>comb notches</strong> — regular dips where the two channels cancel each other out — and the element thins or disappears. The needle, the spectrum, and your ears should all agree.</li>
+      <li><strong>Fix:</strong> remove the widener, or mono the low end and reduce the detune and panning, until the needle climbs back above 0 and the comb notches are gone from the mono spectrum.</li>
+      <li><strong>Confirm:</strong> re-read both meters in mono. Recovery on the meters is the proof, not your impression. Fill the "after" column.</li>
+    </ul>
+  </div>
+
+  <table>
+    <thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead>
+    <tbody>
+      <tr><td>Sounds huge and wide in headphones, weak or gone on a phone / in a club</td><td>Negative correlation — out-of-phase stereo content that cancels on mono sum</td><td>Find the offending element with the correlation meter, narrow it or remove the widener, mono the low end</td></tr>
+      <tr><td>Correlation needle parked near −1</td><td>A widener, an out-of-phase double, or hard-panned detuned copies</td><td>Reduce width / detune; check each track's needle in solo to locate the source</td></tr>
+      <tr><td>Regular evenly-spaced dips appear in the spectrum on mono collapse</td><td>Comb filtering — the two channels cancelling at periodic frequencies</td><td>Remove the time/phase offset (detune, delay, or widener) causing the comb</td></tr>
+      <tr><td>Bass loses power in mono specifically</td><td>Low frequencies spread in stereo and partially cancelling</td><td>Mono everything below ≈ 120 Hz (Utility's bass-mono, or a mono'd low band)</td></tr>
+      <tr><td>Spectrum shows a tall narrow spike; one note rings</td><td>A resonance, not a phase issue — measured here in passing</td><td>Narrow EQ cut at the spike's frequency; recheck the tilt</td></tr>
+      <tr><td>Mix reads fine on meters but still sounds wrong</td><td>Meters placed before a level/width device, so they don't read the output</td><td>Move Spectrum, correlation, and Utility to the end of the master chain</td></tr>
+    </tbody>
+  </table>
+
+  <h2>6 · Pass gate &amp; report bundle</h2>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">The report bundle — filed in the logbook</div>
+    </div>
+    <ul>
+      <li>Reference characterization — the "good" column, tilt + correlation profiled</li>
+      <li>Before reading — the widened test signal's correlation dip and the comb notches in its mono spectrum (screenshot or written values)</li>
+      <li>After reading — the same signal fixed, needle back above 0, notches gone</li>
+      <li>The completed before/after table</li>
+      <li>Fault entry — symptom, cause, fix, prevention rule, and the meter reading that proves the fix</li>
+      <li>The master diagnostic chain saved into your master template (Spectrum + correlation + Utility, last in chain)</li>
+      <li>System diff sentence — "I thought my mix was wide; the meter showed it was cancelling."</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Pass gate</div>
+    <p>A <strong>before/after correlation and spectrum reading</strong> showing a phase problem found and fixed <strong>by measurement, not by ear alone</strong>. The "before" reading shows negative correlation and comb notches on mono collapse. The "after" reading shows the needle back above 0 and the notches gone. "It sounds better now" does not pass. "Correlation went from −0.6 to +0.3 and the 1.2 kHz / 2.4 kHz comb notches disappeared in mono" passes.</p>
+  </div>
+
+  <table class="param-table">
+    <caption>Pass standard</caption>
+    <tr><td>Minimum pass</td><td>The bundle above exists; the before/after readings document a phase fault found and fixed on the meters.</td></tr>
+    <tr><td>Solid pass</td><td>You can read tilt, resonance, mud, and masking off the spectrum and the correlation band off the needle without prompting; the diagnostic chain lives on your master template.</td></tr>
+    <tr><td>Advanced transfer</td><td>You reach for the correlation meter <em>before</em> a problem — checking mono safety on every wide element as you place it, not after a collapse.</td></tr>
+  </table>
+
+  <ol class="reflection-list">
+    <li>Which fault did the meter catch that your ears in headphones had not flagged?</li>
+    <li>How far did the correlation needle move between the broken and fixed states — and was the audible mono difference proportional?</li>
+    <li>What in the reference's spectrum surprised you when you saw it measured?</li>
+    <li>Where will you now place these meters by default — and at what point in a build will you first glance at the correlation needle?</li>
+  </ol>
+
+  <div class="final">
+    <div class="final-icon"><svg viewBox="0 0 44 44"><line x1="6" y1="34" x2="38" y2="34"/><line x1="6" y1="34" x2="6" y2="10"/><path d="M6 28 L16 22 L24 26 L32 14 L38 20"/></svg></div>
+    <div class="final-label">Bench principle</div>
+    <p>A problem you can measure is a problem you can fix in seconds — put the meter up first, and let the needle catch the fault your ears would miss.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="index.html">
+      <span class="page-nav-direction">Back</span>
+      ← Block 1 index
+    </a>
+    <a href="lab-004.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      Lab 004 →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Block 1 · Lab 003b</div>
+
+</div>
+
+  <script src="../nav.js"></script>
+</body>
+</html>

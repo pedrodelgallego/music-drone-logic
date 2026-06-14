@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab 006b — Drum Synthesis from Scratch</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page-type-lab" id="top">
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu"><span class="hamburger-lines"><span></span><span></span><span></span></span></label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html" class="active"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 2 · Sources</a><span class="breadcrumb-sep">/</span><span>Drum Synthesis from Scratch</span></nav>
+
+  <header class="page-header">
+    <div class="eyebrow">Block 2 · Lab 006b · Track lab — worked exemplar</div>
+    <h1>Drum Synthesis from Scratch</h1>
+    <p class="lede">A drum sound is not a recording — it is a volume shape wrapped around a frequency that moves. This lab builds a complete three-voice kit (kick, hat, clap) entirely from oscillators, noise, and envelopes, with no samples anywhere in the chain. An <strong>oscillator</strong> is a tone generator, an <strong>envelope</strong> controls how a sound's volume or pitch changes over time, and <strong>noise</strong> is a signal containing all frequencies at once. By the end you will be able to draw each voice as a signal flow and explain every millisecond of every envelope.</p>
+  </header>
+  <p class="block-meta">Track lab · S2 · synthesis · full cycle · no samples · introduces the Transient Test</p>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l2.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs" class="current">Labs</a><a href="lab-r2.html" data-section="rebuild">Rebuild</a><a href="index.html#capstone" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
+
+  <div class="signal-flow">
+    <span class="signal-node">listen</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">hypothesis</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">draw the path</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">build 3 voices</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">fault</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">diagnose</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">A/B vs samples</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">print</span>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Start here</div>
+    </div>
+    <ul>
+      <li>Run <a href="lab-006.html">Lab 006</a>'s capture and sampling work first — this lab is its mirror image: where 006 records the world, 006b manufactures sound from nothing.</li>
+      <li>Save a new Live set as <span class="code">LAB-006B-synthkit</span>.</li>
+      <li>Have one sampled drum kit loaded on a parked track for the final A/B — any factory kit will do, you only need it to compare against.</li>
+      <li>Tools: Ableton Operator (kick, hat), one Operator or Simpler-free noise source for the clap, plus the MicroFreak as the analog alternative path noted in each voice.</li>
+      <li>Expected time: two sessions of 90 minutes — one to build the three voices, one to fault, A/B, and print.</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The point</div>
+    <p>A sample (a recorded drum hit) is fixed — its sharp front edge, main body, and fade are already baked in; you can only trim them. A synthesized drum is adjustable to the millisecond. You decide where the click ends and the body begins, how fast the pitch drops, and how long the noise rings. That precision is the whole reason to synthesize, and this lab puts you in charge of all of it.</p>
+  </div>
+
+  <h2>1 · Listen first — three records made of synthesized drums</h2>
+
+  <p>Before building anything, listen to three tracks whose drums are unmistakably synthesized — no acoustic recordings underneath. Each one focuses on a different voice you are about to build.</p>
+
+  <div class="listen-acc">
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">01</span>
+        <span class="listen-title">Various — Roland TR-808 demonstrations / any 808-driven record</span>
+        <span class="listen-tag">the kick is a falling sine</span>
+      </summary>
+      <div class="listen-body">
+        <p>The 808 kick is the classic synthesized drum: a sine wave (a pure, smooth tone) whose pitch drops fast at the very start and then holds steady, with a short click layered on top. Listen to a version with the decay turned up so you can hear the full body of the sound.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The two distinct events in one hit — a short bright <em>tick</em> at the front, then a round low tone that rings on.</li>
+          <li>How the pitch of the tone is highest at the instant it starts and settles within a fraction of a second.</li>
+          <li>That the "punch" lives in the first 10 ms, not in the long tail.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Try to hum the kick. You can hum the body tone, but not the click at the front — that split between an unpitched sharp hit (called the <strong>transient</strong>) and a pitched body is why your kick will use two separate generators.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Roland+TR-808+kick+demonstration" target="_blank" rel="noopener">YouTube</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">02</span>
+        <span class="listen-title">Any classic 808/909 hi-hat pattern</span>
+        <span class="listen-tag">the hat is gated noise</span>
+      </summary>
+      <div class="listen-body">
+        <p>A drum-machine hi-hat is noise run through a filter, then cut short by an envelope. The closed hat and the open hat use the exact same noise — only the decay length (how quickly the sound fades) differs.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>That the hat has no pitch you can sing — it is broadband noise, shaped only by a filter.</li>
+          <li>The difference between closed and open is purely how long the gate stays open: same source, two decay times.</li>
+          <li>How a too-long hat smears into the next one and turns the groove to mush.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>How much of the hat is attack (the ramp up to full volume) versus decay (the fade)? Almost all of it is decay. Noise has no rise time — it is loud immediately. The decay length is effectively the whole instrument.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=909+hi+hat+pattern" target="_blank" rel="noopener">YouTube</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">03</span>
+        <span class="listen-title">Any 909 clap / handclap-machine record</span>
+        <span class="listen-tag">the clap is several bursts plus a tail</span>
+      </summary>
+      <div class="listen-body">
+        <p>A synthesized clap is not a single noise burst. It is three or four short bursts fired a few milliseconds apart — imitating a group of hands that are not perfectly in sync. These are run through a band-pass filter (which keeps only a band of mid frequencies) and finished with a short reverb tail that glues them into one recognizable clap.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The "spread" at the front — the bursts arriving in quick succession, not a single hit.</li>
+          <li>The short ringing tail that follows and fuses the bursts into one clap.</li>
+          <li>The mid-band focus — no deep lows, no extreme highs; the band-pass owns roughly 1–2 kHz.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Imagine the track in slow motion: can you hear the front edge flutter — a rapid flurry of tiny hits? That is the staggered bursts. If a clap sounds like a single dry snap, it has lost its multi-burst structure. That is exactly the fault you will create on purpose later in this lab.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=909+clap+isolated" target="_blank" rel="noopener">YouTube</a></p>
+      </div>
+    </details>
+  </div>
+
+  <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 18px 0 0;">Write a one-sentence hypothesis. Name what each voice is made of in terms of mechanism, not how it sounds. Aim for something like: <strong style="color: var(--text);">a drum is an envelope shaping a frequency — the kick is a falling sine plus a click, the hat is gated filtered noise, the clap is staggered noise bursts glued by a tail.</strong> This is the idea the build will test.</p>
+
+  <h2>2 · The two specs</h2>
+
+  <table class="param-table">
+    <caption>System Spec — the kit as a system</caption>
+    <tr><td>Inputs</td><td>Oscillators and noise only — no audio files anywhere · kick: sine oscillator + click generator · hat: white-noise source · clap: white-noise source · all generated inside Live's Operator (or analog on the MicroFreak)</td></tr>
+    <tr><td>Transforms</td><td>Per-voice amplitude envelope (the gate) · kick pitch envelope (the falling sweep) · hat high-pass filter · clap band-pass filter + staggered re-triggers + a short reverb/tail to glue</td></tr>
+    <tr><td>Feedback / variation</td><td>None internal — each voice is a one-shot · variation comes only from velocity and from deliberately editing envelope times between takes</td></tr>
+    <tr><td>Constraints</td><td>Zero samples · three voices only · each voice must be drawable as a signal flow · each envelope time written as a number in milliseconds before it is dialed</td></tr>
+    <tr><td>Human role</td><td>Decide where the transient ends and the body begins; decide how fast pitch falls; decide how long each voice rings — then defend each number against the A/B with samples</td></tr>
+  </table>
+
+  <table class="param-table">
+    <caption>Engineering Spec — the bench for this kit</caption>
+    <tr><td>Signal path</td><td>Three MIDI tracks, each hosting one Operator (or one Drum Rack pad per voice) · routed to a group <span class="code">SYNTH KIT</span> · sampled reference kit parked on a muted track <span class="code">REF KIT</span> at matched level</td></tr>
+    <tr><td>Gain plan</td><td>Each voice peaks ≈ <span class="code">−12 dBFS</span> solo · kit bus peaks ≤ <span class="code">−6 dBFS</span> · the A/B must be loudness-matched — trim <span class="code">REF KIT</span> by ear to the same perceived level before judging, or the louder one always "wins"</td></tr>
+    <tr><td>Clock / sync</td><td>120 BPM grid · a one-bar pattern: kick on every beat, hats on 8ths, clap on 2 and 4 — enough to hear the voices interact</td></tr>
+    <tr><td>Latency</td><td>Buffer 256 · these are programmed, not played, so latency is irrelevant to the result</td></tr>
+    <tr><td>Stereo / phase</td><td>Kick mono and centred · hat slightly panned or centred · clap can be widened by its tail · mono-check the clap so the tail does not vanish</td></tr>
+    <tr><td>Noise budget</td><td>The hat and clap <em>are</em> noise by design — keep system hiss below them by setting source levels, not by gating later</td></tr>
+    <tr><td>Print strategy</td><td>Print each voice as a one-shot WAV (its own audio file, now allowed — it is your synthesis, not a borrowed sample) plus a bounce of the one-bar pattern · keep the device presets</td></tr>
+    <tr><td>Failure mode</td><td>The transient-less kick (pitch envelope too slow → no click, no punch) and the ringing hat (no decay control → one-shots smear into mush) — both induced on purpose in step 5</td></tr>
+  </table>
+
+  <h2>3 · Concepts — the four moving parts of any drum</h2>
+
+  <table>
+    <thead><tr><th>Concept</th><th>In plain words</th></tr></thead>
+    <tbody>
+      <tr><td><span class="lab-title">Amplitude envelope</span></td><td>How a sound's volume changes during its short life. For drums this mainly means <em>attack</em> (how fast it reaches full volume — for drums, almost instant) and <em>decay</em> (how fast it fades away). Sustain and release barely matter for one-shot hits.</td></tr>
+      <tr><td><span class="lab-title">Pitch envelope</span></td><td>A second envelope that moves the pitch instead of the volume. The kick's punch comes from a pitch envelope that drops the tone from a high starting note to a low resting note in a few milliseconds. Fast drop = clicky and punchy. Slow drop = a soft "boop" with no impact.</td></tr>
+      <tr><td><span class="lab-title">Transient</span></td><td>The first few milliseconds of a hit — the click, the spit, the sharp edge. It is what makes a drum cut through a mix. Synthesized drums build the transient separately from the main body so you can adjust each one independently.</td></tr>
+      <tr><td><span class="lab-title">Filtered noise</span></td><td>White noise contains every frequency at once. Run it through a high-pass filter (which removes low frequencies) and you get a hi-hat. Run it through a band-pass filter (which keeps only a middle band) and you get a clap or snare body. The filter chooses the tone colour; the envelope chooses the length.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>4 · Build the three voices</h2>
+
+  <!-- KICK -->
+  <h3 style="margin-top:28px;">Voice 1 — Kick: a falling sine plus a click</h3>
+
+  <div class="signal-flow">
+    <span class="signal-node">sine osc</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">pitch env<br>150→50 Hz, ~5 ms</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">amp env<br>0 ms atk · ~250 ms dec</span>
+    <span class="signal-arrow">+</span>
+    <span class="signal-node">click<br>short noise/high osc</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">sum → kick</span>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Step 01</div>
+      <h3 class="step-title">Build the kick body in Operator</h3>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <ol>
+        <li>Add <strong>Operator</strong> to a MIDI track named <span class="code">KICK</span>. Set only oscillator <strong>A</strong> active, waveform <strong>Sine</strong>, coarse <span class="code">1</span>, level full. Mute B, C, D.</li>
+        <li>On oscillator A's <strong>amplitude envelope</strong>: Attack <span class="code">0 ms</span>, Decay <span class="code">~250 ms</span>, Sustain <span class="code">0</span>, Release short. This is the body length — tune it later between 150–400 ms.</li>
+        <li>Open the <strong>Pitch</strong> envelope (Pitch tab, enable Envelope). Set <strong>Initial</strong> high and <strong>Decay</strong> very fast so the oscillator starts near <span class="code">150 Hz</span> and falls to its resting note (around <span class="code">50 Hz</span> — play a low C/E). Pitch envelope time <span class="code">≈ 3–8 ms</span>. The amount of drop is the "thump"; the speed is the "click → body" snap.</li>
+        <li>Set the played note so the resting frequency lands near <span class="code">45–55 Hz</span> (around F1).</li>
+      </ol>
+    </div>
+    <table class="param-table">
+      <caption>Kick — Operator parameters (sane starting values)</caption>
+      <tr><td>Oscillator</td><td>A only, Sine, coarse 1</td></tr>
+      <tr><td>Amp envelope</td><td>A 0 ms · D 250 ms · S 0 · R 10 ms</td></tr>
+      <tr><td>Pitch env amount</td><td>≈ +1 to +2 octaves above the resting note (start ~150 Hz)</td></tr>
+      <tr><td>Pitch env time</td><td>3–8 ms decay (this is the punch — keep it short)</td></tr>
+      <tr><td>Resting note</td><td>≈ 50 Hz (F1)</td></tr>
+      <tr><td>Click (osc B)</td><td>optional: B as noise or high sine, amp env D ≈ 2–5 ms, level low</td></tr>
+    </table>
+    <div class="sub-block">
+      <div class="sub-label">Add the click</div>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">To add a transient, enable oscillator <strong>B</strong> as either Operator's <em>Noise</em> waveform or a high-frequency sine (coarse set high), with its own amp envelope decay of <span class="code">2–5 ms</span> and a low level. Route B in parallel (not as a modulator) so it mixes with the body. This ultra-short second generator is the click — it gives the kick its front edge, independent of how long the body lasts.</p>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">MicroFreak alternative</div>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">On the MicroFreak: use the Basic/Sawtooth or analog-style oscillator set to a low note, with the cycling or standard envelope assigned to <strong>Pitch</strong> using a very short attack/decay for the sweep, and a short amp envelope. The MicroFreak has only one envelope, which makes the separate click harder to add — either layer a second short MicroFreak take, or accept a softer transient.</p>
+    </div>
+  </div>
+
+  <!-- HAT -->
+  <h3 style="margin-top:28px;">Voice 2 — Hat: gated filtered noise</h3>
+
+  <div class="signal-flow">
+    <span class="signal-node">white noise</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">high-pass<br>~7–8 kHz</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">amp env<br>0 ms atk · 40 ms dec (closed)</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">hat</span>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Step 02</div>
+      <h3 class="step-title">Build the hat from noise</h3>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <ol>
+        <li>Add <strong>Operator</strong> to a track named <span class="code">HAT</span>. Set oscillator A waveform to <strong>Noise</strong> (Operator has a noise waveform); or add Operator with a high-ratio oscillator pair for the metallic route below.</li>
+        <li>Add an <strong>Auto Filter</strong> (or use Operator's filter) set to <strong>High-pass</strong>, cutoff <span class="code">≈ 7–8 kHz</span>. This removes the low rumble of raw noise and leaves the bright "tss."</li>
+        <li>Amp envelope: Attack <span class="code">0 ms</span>, Decay <span class="code">≈ 40 ms</span>, Sustain <span class="code">0</span>. That short decay is the <strong>closed</strong> hat.</li>
+        <li>Duplicate the track as <span class="code">HAT OPEN</span> and lengthen Decay to <span class="code">≈ 250–350 ms</span> — same source, longer gate, now an open hat. Program the closed hat to <em>choke</em> the open one (open hat on the off-beat, closed hat cutting it).</li>
+      </ol>
+    </div>
+    <table class="param-table">
+      <caption>Hat — parameters</caption>
+      <tr><td>Source</td><td>White noise (Operator Noise waveform)</td></tr>
+      <tr><td>Filter</td><td>High-pass, cutoff ≈ 7–8 kHz, mild resonance</td></tr>
+      <tr><td>Amp env (closed)</td><td>A 0 ms · D 40 ms · S 0</td></tr>
+      <tr><td>Amp env (open)</td><td>A 0 ms · D 300 ms · S 0</td></tr>
+      <tr><td>Metallic option</td><td>two square/saw oscillators at inharmonic ratios (e.g. 1 : 1.41) instead of noise → FM-style metal — see Lab 013b</td></tr>
+    </table>
+    <div class="note-block">
+      <ul>
+        <li><strong>The metallic route:</strong> real 808 hats use six square-wave oscillators tuned to inharmonic (non-musical) ratios — that is why they ring metallic rather than airy. You can approximate this in Operator with two oscillators at a non-integer ratio (a preview of Lab 013b). Noise is simpler and sounds more like a modern hat; pick one approach and note it in the logbook.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CLAP -->
+  <h3 style="margin-top:28px;">Voice 3 — Clap: staggered bursts plus a tail</h3>
+
+  <div class="signal-flow">
+    <span class="signal-node">white noise</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">band-pass<br>~1–2 kHz</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">3–4 bursts<br>staggered ~12 ms apart</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">short reverb tail<br>glue</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">clap</span>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Step 03</div>
+      <h3 class="step-title">Build the clap from staggered noise bursts</h3>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <ol>
+        <li>Add <strong>Operator</strong> to a track named <span class="code">CLAP</span>, oscillator A waveform <strong>Noise</strong>. Amp envelope: Attack <span class="code">0 ms</span>, Decay <span class="code">≈ 15 ms</span>, Sustain <span class="code">0</span> — one short burst.</li>
+        <li>Add an <strong>Auto Filter</strong> set to <strong>Band-pass</strong>, centre <span class="code">≈ 1–1.5 kHz</span>, moderate resonance. This is the clap's "hand" colour.</li>
+        <li>Create the stagger: in the clip, place <strong>3–4 MIDI notes</strong> roughly <span class="code">10–20 ms apart</span> (about a 64th-note or finer; nudge them off-grid). Make the last burst slightly louder/longer. These quick repeats are the many-hands flam.</li>
+        <li>Add a short <strong>Reverb</strong> on the track (or a send): decay <span class="code">≈ 150–300 ms</span>, small room, fully wet on a short tail — this glues the bursts into one clap. Without it the bursts read as separate ticks.</li>
+      </ol>
+    </div>
+    <table class="param-table">
+      <caption>Clap — parameters</caption>
+      <tr><td>Source</td><td>White noise</td></tr>
+      <tr><td>Filter</td><td>Band-pass, centre ≈ 1–1.5 kHz, resonance moderate</td></tr>
+      <tr><td>Burst envelope</td><td>A 0 ms · D 15 ms · S 0 (per burst)</td></tr>
+      <tr><td>Stagger</td><td>3–4 bursts, ~10–20 ms apart, last one loudest</td></tr>
+      <tr><td>Tail</td><td>Reverb decay ~150–300 ms, small/short, to fuse the bursts</td></tr>
+    </table>
+    <div class="note-block">
+      <ul>
+        <li><strong>Two ways to stagger:</strong> place several closely spaced MIDI notes in the clip (simplest), or build the repeats inside a single envelope using an LFO or retrigger. The MIDI-note method is easier to see and tune by nudging notes — use that one for this lab.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>5 · The prescribed faults — induce and diagnose</h2>
+
+  <div class="callout">
+    <div class="callout-label">Required</div>
+    <p>You must create both faults on purpose, hear them clearly, and write the diagnosis. Being able to recognize these problems by ear later — when they happen by accident — is the skill this lab certifies.</p>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Fault A</div>
+      <h3 class="step-title">The transient-less kick</h3>
+    </div>
+    <ol class="rules-list">
+      <li>On the kick, slow the <strong>pitch envelope time</strong> from ~5 ms to <span class="code">80–150 ms</span>, and mute the click oscillator.</li>
+      <li>Play it. The kick now sounds like "boooo" — a slow downward glide with no click and no punch. It will not cut through the hat and clap.</li>
+      <li>Restore the fast pitch envelope and the click. Compare the two versions at the same volume and write the rule.</li>
+    </ol>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Fault B</div>
+      <h3 class="step-title">The ringing hat (no decay control)</h3>
+    </div>
+    <ol class="rules-list">
+      <li>On the closed hat, set Sustain above 0 or lengthen Decay to <span class="code">500 ms+</span> so the gate never really closes.</li>
+      <li>Play the 8th-note pattern. The hats overlap and blur into a continuous noise wash — the groove disappears.</li>
+      <li>Restore Sustain 0 and a 40 ms decay. Compare the two versions and write the rule: a hat's character is defined by its decay length.</li>
+    </ol>
+  </div>
+
+  <table class="param-table">
+    <caption>Diagnosis — symptom → cause → fix</caption>
+    <tr><td>Symptom</td><td>Cause</td><td>Fix</td></tr>
+    <tr><td>Kick has no click, sounds like a "boop"</td><td>Pitch envelope too slow and/or no separate click generator</td><td>Pitch env time to 3–8 ms; add a 2–5 ms noise/high-osc click in parallel</td></tr>
+    <tr><td>Kick is all click, no weight</td><td>Body decay too short or resting note too high</td><td>Lengthen amp decay to 200–300 ms; lower resting note to ~50 Hz</td></tr>
+    <tr><td>Kick "flubs" / loses pitch</td><td>Pitch env amount too large or starts too high</td><td>Reduce the drop to ~1–2 octaves above the resting note</td></tr>
+    <tr><td>Hats smear into a wash</td><td>Decay too long / sustain above 0 — gate never closes</td><td>Sustain 0; closed-hat decay ≈ 40 ms</td></tr>
+    <tr><td>Hats sound dull, no "tss"</td><td>High-pass cutoff too low</td><td>Raise HP cutoff to 7–8 kHz</td></tr>
+    <tr><td>Clap reads as separate ticks</td><td>No glue tail, or bursts too far apart</td><td>Add a 150–300 ms reverb tail; bring bursts to 10–20 ms spacing</td></tr>
+    <tr><td>Clap sounds like one dry snap</td><td>Multi-burst stagger collapsed to a single hit</td><td>Restore 3–4 staggered bursts, last one loudest</td></tr>
+    <tr><td>Clap muddy or thin</td><td>Band-pass off-centre</td><td>Centre band-pass ≈ 1–1.5 kHz</td></tr>
+  </table>
+
+  <h2>6 · The Transient Test — certified here</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Certification</div>
+      <h3 class="step-title">Each voice has a defendable front edge</h3>
+    </div>
+    <ol class="rules-list">
+      <li>Solo each voice and play one hit. For the kick, say where the click ends and the body begins (in ms). For the hat, state the decay time. For the clap, count the bursts and name the tail length.</li>
+      <li>Write one sentence per voice naming the mechanism that makes it sound like a drum. Use numbers: "the kick's punch is the pitch dropping 150→50 Hz in 5 ms" — not "it sounds punchy."</li>
+      <li>Draw each voice's signal flow by hand — source → shaper(s) → output — matching the diagrams above.</li>
+    </ol>
+    <div class="decision-check">
+      <div class="decision-check-label">Pass condition</div>
+      <p>You can point to a specific number for every part of every voice and explain what changing it would do. If any answer is just an adjective ("punchy," "bright") with no mechanism behind it, keep working on that voice until you can name the numbers.</p>
+    </div>
+  </div>
+
+  <h2>7 · Pass gate — the A/B against samples</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Gate</div>
+      <h3 class="step-title">Loudness-matched A/B, gains and losses named</h3>
+    </div>
+    <ol class="rules-list">
+      <li>Play your one-bar pattern on the <span class="code">SYNTH KIT</span> group. Then play the same pattern on the parked <span class="code">REF KIT</span> sampled kit, adjusted to the <em>same perceived loudness</em> — a louder kit always sounds better to our ears, so match the levels before judging.</li>
+      <li>Write three things you <strong>gained</strong> by synthesizing (for example: "I can tune the kick to the bass," "the hat decay locks to tempo," "every hit is identical or varied on purpose").</li>
+      <li>Write two things you <strong>lost</strong> (for example: "the sampled kit has recorded-room character my synth kit lacks," "the sampled snare has a complexity my clap doesn't").</li>
+    </ol>
+    <div class="decision-check">
+      <div class="decision-check-label">Pass condition</div>
+      <p>A three-voice kit built entirely from synthesis, each voice drawn as a signal flow with numbered envelope times, compared against a sampled kit at matched loudness — and an honest gains/losses list showing you understand when and why you would choose synthesis.</p>
+    </div>
+  </div>
+
+  <h2>8 · Report bundle</h2>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Filed in the logbook</div>
+    </div>
+    <ul>
+      <li>Three one-shot WAVs — kick, hat, clap — printed from your synthesis</li>
+      <li>One-bar pattern bounce of the full kit</li>
+      <li>Three hand-drawn signal-flow diagrams, one per voice, with every envelope time labelled</li>
+      <li>Parameter tables, filled with the values you actually used (not the defaults above)</li>
+      <li>Fault entries A and B — symptom, cause, fix, prevention rule, each from your own ears</li>
+      <li>The diagnosis table, completed</li>
+      <li>A/B gains-and-losses list — three gained, two lost</li>
+      <li>Transient Test sentences — one per voice, mechanism not adjective</li>
+      <li>System diff sentence — "I thought a drum sound was X; after synthesizing one, I found it was Y"</li>
+    </ul>
+  </div>
+
+  <table class="param-table">
+    <caption>Pass standard</caption>
+    <tr><td>Minimum pass</td><td>The bundle above exists, all three voices are synthesized with no samples, and the Transient Test is passed.</td></tr>
+    <tr><td>Solid pass</td><td>Both faults were created and diagnosed by ear. The kit holds up against the sampled reference at matched loudness. The clap still sounds good in mono.</td></tr>
+    <tr><td>Advanced transfer</td><td>You can rebuild the same three voices on the MicroFreak (or any other synthesizer) by translating the envelopes and filters — showing that you learned a method, not just a preset.</td></tr>
+  </table>
+
+  <ol class="reflection-list">
+    <li>Which voice was hardest to make convincing? Was it the one with the most moving parts?</li>
+    <li>At what pitch-envelope time did the kick change from "boop" to "punch"? Name the number.</li>
+    <li>What did the reverb tail add to the clap that a single longer noise burst could not?</li>
+    <li>After the A/B, when would you choose a sampled kit over this one — and what is the mechanical reason?</li>
+    <li>Which skill from Lab 006 (capturing the world) turned out to be irrelevant here, and which one carried over?</li>
+  </ol>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Worked system diff — the expected granularity</div>
+    <p>"I thought a kick was one sound. It is two — a click I built in 5 ms and a body I built in 250 ms. The punch lives entirely in the gap between them."</p>
+  </div>
+
+  <div class="final">
+    <div class="final-label">Track-lab principle</div>
+    <p>A drum is a volume shape wrapped around a moving frequency. Synthesize it and every millisecond is yours to set.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="lab-006.html">
+      <span class="page-nav-direction">Previous</span>
+      ← Lab 006 / Capturing the World
+    </a>
+    <a href="index.html" class="next">
+      <span class="page-nav-direction">Back</span>
+      Block 2 index →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Block 2 · Lab 006b</div>
+
+</div>
+
+  <script src="../nav.js"></script>
+</body>
+</html>

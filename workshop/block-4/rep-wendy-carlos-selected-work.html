@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Replicate — Polyphony from Mono Voices</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page-type-rep" id="top">
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu"><span class="hamburger-lines"><span></span><span></span><span></span></span></label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html" class="active"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 4 · Transformation</a><span class="breadcrumb-sep">/</span><span>Replicate: polyphony from mono voices</span></nav>
+
+  <header class="page-header">
+    <div class="eyebrow">Block 4 · Replication lesson</div>
+    <h1>Replicate: polyphony from mono voices</h1>
+    <p class="lede">Copy one short contrapuntal passage from Wendy Carlos. Build each line as a separate monophonic take with its own timbre, record a short multitrack, and compare it to the reference at the same loudness.</p>
+  </header>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l4.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs">Labs</a><a href="lab-r4.html" data-section="rebuild">Rebuild</a><a href="capstone-c3.html" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep" class="current">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
+  <div class="callout">
+    <div class="callout-label">The point</div>
+    <p>This drill teaches the record's core mechanism: polyphony is assembled from one-note-at-a-time voices, and each voice is given a distinct timbre so the ear can track it through the texture. Do only the steps that make that mechanism audible.</p>
+  </div>
+
+  <table class="param-table">
+    <caption>The system you are replicating</caption>
+    <tr><td>Source record</td><td>Wendy Carlos — <em>Switched-On Bach</em> (1968) / <em>Sonic Seasonings</em></td></tr>
+    <tr><td>The effect</td><td>Several independent lines moving at once, each one clear and singable even when they overlap</td></tr>
+    <tr><td>The mechanism</td><td>A monophonic synth plays one line at a time, multitracked into counterpoint; the timbre of each voice is chosen to clarify which line is which</td></tr>
+  </table>
+
+  <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Wendy+Carlos+Switched-On+Bach" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Wendy%20Carlos%20Switched-On%20Bach">Spotify</a></p>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"></path></svg></div>
+      <div class="checklist-label">Before you start</div>
+    </div>
+    <ul>
+      <li>MicroFreak on Live's input, Digitakt II synced (lab 002's clock setup) in case you want a bass voice from it</li>
+      <li>Pen and paper to write down the two or three lines you will track, and which timbre goes with which</li>
+    </ul>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>What you will make:</strong> a short replica of a Carlos contrapuntal passage. Focus on this effect: several independent lines moving at once, each one clear and singable even when they overlap.</li>
+      <li><strong>What you will turn off:</strong> any polyphonic patch, any chord pad, any reverb that smears the lines together before you have proven they are separable.</li>
+      <li><strong>What you will prove:</strong> your version and <span class="code">REF</span> use the same core mechanism: polyphony built from layered mono voices, each with a distinct timbre and role.</li>
+      <li><strong>What counts as success:</strong> remaining differences are voice-leading choices or rig limits, not a single fat chord standing in for real counterpoint.</li>
+    </ul>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Reference pass · 10 minutes</div>
+      <h3 class="step-title">Listen before you build</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Listen to about one minute of a Carlos two- or three-voice passage. Choose the clearest short section. Write one short answer for each question before you touch the gear.</p>
+    <ol class="rules-list">
+      <li>How many independent lines can you actually follow at once?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Usually two or three, and you can follow them because each one has its own colour. Try to hum the lowest line while a higher one moves — if you can hold one in your head against the other, they are genuinely independent, not a chord.</p></div></details>
+      </li>
+      <li>What is different about the timbre of the top line versus the bass line?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>The bass tends to be rounder and darker, the upper voices brighter or reedier. The contrast is not decoration — it is the thing that lets your ear assign each note to a line instead of hearing a blur. Carlos picks a patch per voice the way an orchestrator picks an instrument.</p></div></details>
+      </li>
+      <li>When two lines cross or land on the same beat, can you still tell them apart?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Yes, and that is the test. At the moment of a crossing, pitch alone would fuse them; the timbre difference keeps them legible. If you lose one at the crossing, listen again — the colour you stopped tracking is the one whose patch is closest to its neighbour's.</p></div></details>
+      </li>
+      <li>Does any single voice ever play a chord, or is each one strictly one note at a time?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Each voice is one note at a time — that is the constraint the original Moog imposed and Carlos turned into a method. The richness comes from stacking mono takes, not from a polyphonic patch. That constraint is exactly what you are stealing.</p></div></details>
+      </li>
+    </ol>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Now build the passage you described. Do not build from memory.</p>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Sound target:</strong> each line is a separate mono take with its own patch — no polyphonic shortcut, no shared timbre across voices.</li>
+      <li><strong>Elements:</strong> two or three lines transcribed from the section by ear, lowest to highest.</li>
+      <li><strong>Clarity:</strong> the timbre contrast that keeps their lines legible keeps yours legible too.</li>
+      <li><strong>Crossing:</strong> wherever two lines cross in the record, both are still trackable in your take.</li>
+    </ul>
+  </div>
+
+  <h2>Steps</h2>
+
+  <div class="note-block control-map">
+    <ul>
+      <li><strong>Button map for the steps below:</strong> use these controls whenever the lesson names the device.</li>
+      <li><strong>Live 12:</strong> <kbd>⌘ T</kbd> creates an audio track, <kbd>⇧⌘ T</kbd> creates a MIDI track, <kbd>⌘ R</kbd> renames the selected track, and <kbd>⌘ J</kbd> consolidates the selected clip. Use a separate track per voice so each take stays independent.</li>
+      <li><strong>MicroFreak:</strong> select the oscillator engine with the <span class="code">Type</span> control, then set cutoff, resonance, envelope, LFO, and volume with the front-panel knobs. Keep the voice setting monophonic — one note per take is the point. Change the engine or filter between voices so each line has its own colour.</li>
+      <li><strong>Digitakt II:</strong> if you use it for the bass voice, press <span class="code">[SRC]</span> and turn DATA ENTRY knob D to choose a sample, and play one note at a time so the line stays monophonic.</li>
+      <li><strong>Recorder or phone:</strong> set gain before each take and do not touch it during the take, so all voices sit at honest relative levels.</li>
+    </ul>
+  </div>
+
+  <div class="gear-switch"><input type="radio" name="gear" id="gear-hw" class="gear-radio" checked><input type="radio" name="gear" id="gear-sw" class="gear-radio"><input type="radio" name="gear" id="gear-tg" class="gear-radio"><div class="gear-labels"><span class="gear-lead">Your rig</span><label for="gear-hw">MicroFreak + Live</label><label for="gear-sw">Ableton Live only</label><label for="gear-tg">Digitone II · target</label></div><div class="gear-scope"><div class="step">
+    <div class="step-head">
+      <div class="step-num">Phase 1 — ~15 minutes</div>
+      <h3 class="step-title">Transcribe the lines and assign a timbre to each</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: transcribe each line and decide its colour before recording anything. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol class="rules-list">
+        <li><strong>Import the record on a REF track</strong> and loop the clearest 4–8 bars of the passage. Gain-match it with a Utility so comparisons are honest.</li>
+        <li>Transcribe each line separately — lowest first — note for note: pitches and rhythm.</li>
+        <li>Beside each line, write the colour you will give it: which is round and dark, which is bright, which is reedy. Each must be distinct.</li>
+        <li>Audition one patch per voice and check it against the REF voice it represents — does it sit in the same register and have the same general brightness?</li>
+      </ol>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Wendy Carlos — Switched-On Bach (1968) / Sonic Seasonings and use Operator or Wavetable into Auto Filter, with clip automation.</li><li>Build the phase goal — <em>Transcribe the lines and assign a timbre to each</em> — as the smallest Live set that proves <em>A monophonic synth plays one line at a time, multitracked into counterpoint; the timbre of each voice is chosen to clarify which line is which</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>Several independent lines moving at once, each one clear and singable even when they overlap</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Digitone II for this phase: translate <em>Transcribe the lines and assign a timbre to each</em> into FM tracks, sound locks, trig conditions, LFOs, macros, and Overbridge or main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>A monophonic synth plays one line at a time, multitracked into counterpoint; the timbre of each voice is chosen to clarify which line is which</em>, not just the surface of Wendy Carlos — Switched-On Bach (1968) / Sonic Seasonings.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
+    <div class="sub-block">
+      <div class="sub-label">Expected result</div>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Two or three written lines, each with a named, distinct timbre, ready to track one at a time.</p>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">If it fails</div>
+      <table>
+        <thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead>
+        <tbody>
+          <tr><td>You wrote one line and a "rest"</td><td>You heard the texture as melody-plus-accompaniment, not counterpoint</td><td>Relisten following the bass alone for a full pass; it is a line, not filler</td></tr>
+          <tr><td>Two of your chosen patches sound alike</td><td>Timbres not contrasted enough to separate the voices</td><td>Push one darker and one brighter until you can tell them apart with eyes closed</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Phase 2 — ~30 minutes</div>
+      <h3 class="step-title">Track each voice mono, one at a time</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: build the polyphony by stacking mono takes. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <div class="signal-flow">
+      <span class="signal-node">MicroFreak (mono, one patch per voice)</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">one audio track per line</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">master</span>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol class="rules-list">
+        <li><strong>Record the bass line first</strong> with its patch, to the click. A/B it solo against the REF bass before moving on.</li>
+        <li><strong>Reprogram the patch</strong> for the next voice — a genuinely different colour — and record the middle or top line on its own track.</li>
+        <li>Add the third voice the same way if the passage has one. Never use a poly patch to cover two lines at once.</li>
+        <li>Play all voices together and check that you can still follow each line, especially where two cross.</li>
+      </ol>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Wendy Carlos — Switched-On Bach (1968) / Sonic Seasonings and use Operator or Wavetable into Auto Filter, with clip automation.</li><li>Build the phase goal — <em>Track each voice mono, one at a time</em> — as the smallest Live set that proves <em>A monophonic synth plays one line at a time, multitracked into counterpoint; the timbre of each voice is chosen to clarify which line is which</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>Several independent lines moving at once, each one clear and singable even when they overlap</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Digitone II for this phase: translate <em>Track each voice mono, one at a time</em> into FM tracks, sound locks, trig conditions, LFOs, macros, and Overbridge or main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>A monophonic synth plays one line at a time, multitracked into counterpoint; the timbre of each voice is chosen to clarify which line is which</em>, not just the surface of Wendy Carlos — Switched-On Bach (1968) / Sonic Seasonings.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
+    <div class="sub-block">
+      <div class="sub-label">Expected result</div>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A short multitrack where each line is a separate mono take, and all of them stay legible when played together.</p>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">If it fails</div>
+      <table>
+        <thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead>
+        <tbody>
+          <tr><td>The voices fuse into a chord when stacked</td><td>Timbres too similar or reverb smearing them</td><td>Pull the reverb off and widen the timbre contrast until each line re-emerges dry</td></tr>
+          <tr><td>One line drags or rushes against the others</td><td>Recorded without the click or against an earlier take's drift</td><td>Re-track that voice to the click, not to the other voices</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Phase 3 — ~15 minutes</div>
+      <h3 class="step-title">A/B at matched loudness, then write the diff</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: verify against the record at honest level. Follow the steps in order.</p>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol class="rules-list">
+        <li><strong>Match loudness</strong> — set a Utility on your stack so 10 seconds of yours and 10 of theirs feel equally loud, then switch between them.</li>
+        <li><strong>Write the diff:</strong> which lines stay independent in theirs but fuse in yours, and which timbre pairing failed at a crossing.</li>
+      </ol>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Wendy Carlos — Switched-On Bach (1968) / Sonic Seasonings and use Operator or Wavetable into Auto Filter, with clip automation.</li><li>Build the phase goal — <em>A/B at matched loudness, then write the diff</em> — as the smallest Live set that proves <em>A monophonic synth plays one line at a time, multitracked into counterpoint; the timbre of each voice is chosen to clarify which line is which</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>Several independent lines moving at once, each one clear and singable even when they overlap</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Digitone II for this phase: translate <em>A/B at matched loudness, then write the diff</em> into FM tracks, sound locks, trig conditions, LFOs, macros, and Overbridge or main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>A monophonic synth plays one line at a time, multitracked into counterpoint; the timbre of each voice is chosen to clarify which line is which</em>, not just the surface of Wendy Carlos — Switched-On Bach (1968) / Sonic Seasonings.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
+    <div class="sub-block">
+      <div class="sub-label">Expected result</div>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A short written diff naming exactly where your counterpoint reads as a chord and theirs reads as separate lines.</p>
+    </div>
+  </div>
+
+  </div></div><div class="decision-check">
+    <div class="decision-check-label">Verify against the record</div>
+    <p>A/B your passage against the same bars of the Carlos recording — 10 seconds of yours, 10 of theirs, matched loudness. Then answer two questions in writing.</p>
+    <p><strong>Can you follow each line in your take as clearly as in theirs?</strong></p>
+    <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Test it by humming one line over your own playback. If you can hold the bass against the moving top voice, the timbres are doing their job. The usual failure is the middle voice — it gets crowded from both sides, so if any line disappears it is normally that one, and the fix is to give it a sharper, more distinct colour.</p></div></details>
+    <p><strong>At the crossing point, do both voices survive in yours the way they do in theirs?</strong></p>
+    <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>They should — that crossing is the whole reason the mechanism exists. If your two lines fuse exactly where theirs stay split, the patches are too close in brightness; Carlos avoids this by making one voice unmistakably darker. Widen the contrast and re-track the brighter of the two.</p></div></details>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Logbook — the miss list, three lines:</strong> "Matched: …" · "Missed: … (best guess why)" · "Change next: …"</li>
+      <li>These three lines feed the full miss list in <a href="lab-r4.html">replication lab R4</a>.</li>
+      <li>And one more line — which timbre pairing did the most work to keep the lines apart.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="listening-l4.html"><span class="page-nav-direction">Back</span>Listening L4</a>
+    <a href="index.html" class="next"><span class="page-nav-direction">Block</span>Block 4 index →</a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Block 4 · Replication lesson</div>
+
+</div>
+
+  <script src="../nav.js"></script>
+</body>
+</html>

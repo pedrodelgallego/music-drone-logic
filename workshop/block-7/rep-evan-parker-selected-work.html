@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Replicate — A Permutation Engine That Never Stops</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page-type-rep" id="top">
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu"><span class="hamburger-lines"><span></span><span></span><span></span></span></label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html" class="active"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 7 · Performance</a><span class="breadcrumb-sep">/</span><span>Replicate: a permutation engine that never stops</span></nav>
+  <header class="page-header">
+    <div class="eyebrow">Block 7 · Replication lesson</div>
+    <h1>Replicate: a permutation engine that never stops</h1>
+    <p class="lede">Copy one mechanism from Evan Parker — <em>Conic Sections</em>: take a tiny cell of three to five notes and run a permutation engine that endlessly reorders it without pausing and without literally looping. Build a short continuous version on the rig and compare it to the reference at the same loudness.</p>
+  </header>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l7.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs">Labs</a><a href="lab-r7.html" data-section="rebuild">Rebuild</a><a href="capstone-c6.html" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep" class="current">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
+
+  <div class="callout">
+    <div class="callout-label">The point</div>
+    <p>This drill treats improvisation as a real-time decision system. Parker's solo soprano is not a tune played from memory — it is a small set of figures fed through continuous permutation, so the stream self-generates, never breathes, and never repeats literally. You are stealing the engine (small cell → endless reorder/octave/articulation, no gaps), not Parker's notes or his circular breathing.</p>
+  </div>
+
+  <table class="param-table">
+    <caption>The system you are replicating</caption>
+    <tr><td>Source work</td><td>Evan Parker — <em>Conic Sections</em> (1989), solo soprano saxophone improvisations</td></tr>
+    <tr><td>The effect</td><td>One monophonic horn sounds like several interlocking voices — an unbroken stream of fast notes that never stops to breathe</td></tr>
+    <tr><td>The mechanism</td><td>A small cell of figures is continuously permuted — reordered, octave-shifted, re-articulated — and circular breathing keeps the stream literally gapless, so the line is endless and self-similar but never a literal loop</td></tr>
+  </table>
+
+  <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Evan+Parker+Conic+Sections" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Evan%20Parker%20Conic%20Sections">Spotify</a></p>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"></path></svg></div>
+      <div class="checklist-label">Before you start</div>
+    </div>
+    <ul>
+      <li>A permutation engine ready: free VCV Rack with a Turing-machine / shift-register patch is ideal, or the MicroFreak arpeggiator/sequencer, or the Digitakt II sequencer with conditional/retrig trigs</li>
+      <li>MicroFreak set to a fast monophonic voice that can articulate quickly with no envelope gaps between notes</li>
+      <li>Live recording one continuous take; a way to sustain/overlap so the stream never fully stops (continuity stands in for circular breathing)</li>
+      <li>Pen and paper to write your cell down first — the whole improv must come from that one small set</li>
+    </ul>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>What you will make:</strong> one continuous take of a self-permuting stream. Focus on this effect: a single line, never stopping, that starts to imply more than one voice.</li>
+      <li><strong>What you will turn off:</strong> chords, harmony, a written melody, song form, and any pause for "phrasing."</li>
+      <li><strong>What you will prove:</strong> your version and <span class="code">REF</span> use the same core mechanism: a small cell run through real-time permutation, endless and gapless, never a literal loop.</li>
+      <li><strong>What counts as success:</strong> remaining differences are timbre or cell choices, not missing steps.</li>
+    </ul>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Reference pass · 12 minutes</div>
+      <h3 class="step-title">Listen before you build</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Listen to three to four minutes of a <em>Conic Sections</em> solo. Write one short answer per question before you touch the gear.</p>
+    <ol class="rules-list">
+      <li>Does the line ever stop or take an audible breath?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>No. There is no gap. Circular breathing keeps the stream continuous, so the sound never fully stops — that unbroken continuity is the spine of the whole mechanism, not a flourish.</p></div></details>
+      </li>
+      <li>How many distinct notes are actually in play?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Surprisingly few. Underneath the blur is a small cell — a handful of pitches and figures — recycled at high speed. The density comes from how the cell is reordered, not from a large note vocabulary.</p></div></details>
+      </li>
+      <li>Is the material repeating literally, or being reordered?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Reordered. You hear the same cells return, but the order, octave and articulation keep changing, so it is self-similar without ever being a literal loop. That is the permutation engine at work.</p></div></details>
+      </li>
+      <li>Does one monophonic horn start to sound like more than one voice — and why?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Yes. The speed and the octave leaps split the single line into implied streams: low notes group into one voice, high notes into another, and the ear hears polyphony from one monophonic instrument. Implied polyphony is an emergent result of fast permutation across registers.</p></div></details>
+      </li>
+    </ol>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Now build the engine you described. Do not build from memory of the notes.</p>
+  </div>
+
+  <h2>Steps</h2>
+
+  <div class="gear-switch"><input type="radio" name="gear" id="gear-hw" class="gear-radio" checked><input type="radio" name="gear" id="gear-sw" class="gear-radio"><input type="radio" name="gear" id="gear-tg" class="gear-radio"><div class="gear-labels"><span class="gear-lead">Your rig</span><label for="gear-hw">VCV Rack + MicroFreak + Digitakt II</label><label for="gear-sw">Ableton Live only</label><label for="gear-tg">Analog Rytm MKII · target</label></div><div class="gear-scope"><div class="step">
+    <div class="step-head">
+      <div class="step-num">Phase 1 — ~20 minutes</div>
+      <h3 class="step-title">Define a small cell and commit to it</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: prove the whole improv will come from one tiny set.</p>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol class="rules-list">
+        <li><strong>Write a cell of three to five pitches</strong> — no key, no melody, just a small ordered set you can play fast. Pick intervals that survive octave leaps (a few seconds and a wide jump work well).</li>
+        <li>Play the cell by hand at speed, in one octave, with no gaps between notes — prove it is comfortable as a continuous loop before you add any variation.</li>
+        <li>Write the rule out loud: "every note in this take is one of these pitches, in some octave." This is the constraint that makes the engine, not the taste, do the composing.</li>
+      </ol>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from the reference and use audio clips, Simpler/Sampler, clip envelopes, and resampling.</li><li>Build the phase goal — <em>Define a small cell and commit to it</em> — as the smallest Live set that proves <em>A small cell of figures is continuously permuted — reordered, octave-shifted, re-articulated — and circular breathing keeps the stream literally gapless, so the line is endless and self-similar but never a literal loop</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>One monophonic horn sounds like several interlocking voices — an unbroken stream of fast notes that never stops to breathe</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>Define a small cell and commit to it</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>A small cell of figures is continuously permuted — reordered, octave-shifted, re-articulated — and circular breathing keeps the stream literally gapless, so the line is endless and self-similar but never a literal loop</em>, not just the surface of the reference.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
+    <div class="sub-block">
+      <div class="sub-label">Expected result</div>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A written cell of three to five pitches you can already play as a gapless fast loop, and a one-line rule that bans any note outside it.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Phase 2 — ~30 minutes</div>
+      <h3 class="step-title">Build the permutation engine</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: make the cell reorder itself endlessly, gapless, never literally looping.</p>
+    <div class="signal-flow">
+      <span class="signal-node">small cell</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">shift-register / sequencer permutation (VCV Rack · Digitakt II · MicroFreak)</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">endless gapless monophonic stream</span>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol class="rules-list">
+        <li><strong>Patch a Turing-machine / shift-register engine</strong> feeding pitch from your cell — set the lock/randomize control so the order keeps changing slowly, returning to known cells without ever freezing into one fixed loop.</li>
+        <li>If you prefer hardware, hold the cell in the sequencer and use conditional trigs / retrig and the arpeggiator to reorder and re-articulate it; let probability or fill conditions vary the order each pass.</li>
+        <li>Add an octave operation: route a second slow source to push some notes up or down an octave, so the single line spreads across registers and starts to imply two voices.</li>
+        <li>Set the voice so notes overlap or glue together — short release, high speed, no silence between trigs. The stream must never fully stop; this continuity stands in for circular breathing.</li>
+      </ol>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from the reference and use audio clips, Simpler/Sampler, clip envelopes, and resampling.</li><li>Build the phase goal — <em>Build the permutation engine</em> — as the smallest Live set that proves <em>A small cell of figures is continuously permuted — reordered, octave-shifted, re-articulated — and circular breathing keeps the stream literally gapless, so the line is endless and self-similar but never a literal loop</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>One monophonic horn sounds like several interlocking voices — an unbroken stream of fast notes that never stops to breathe</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>Build the permutation engine</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>A small cell of figures is continuously permuted — reordered, octave-shifted, re-articulated — and circular breathing keeps the stream literally gapless, so the line is endless and self-similar but never a literal loop</em>, not just the surface of the reference.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
+    <div class="sub-block">
+      <div class="sub-label">Expected result</div>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A gapless monophonic stream built only from your cell, reordering and octave-shifting on its own, self-similar but never repeating a fixed pattern — and already hinting at more than one voice.</p>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">If it fails</div>
+      <table>
+        <thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead>
+        <tbody>
+          <tr><td>It loops literally — same order every bar</td><td>The permutation control is fully locked, or the sequence length matches the cell exactly</td><td>Loosen the lock/probability so the order keeps drifting; use a permutation length that does not divide evenly into the cell</td></tr>
+          <tr><td>It sounds random, not like one evolving line</td><td>Too much variation, or notes drawn from outside the cell</td><td>Restrict pitches to the cell only and slow the rate of change — the engine should reorder familiar material, not invent new</td></tr>
+          <tr><td>Audible gaps break the stream</td><td>Note releases leave silence between trigs</td><td>Shorten release, raise speed, overlap notes so there is never a moment of true silence</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Phase 3 — ~25 minutes</div>
+      <h3 class="step-title">Perform one continuous take, steering live</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: drive the parameters in real time without ever stopping the stream.</p>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol class="rules-list">
+        <li><strong>Record one continuous take</strong> from the first note. There is no edit point and no restart — the take is the performance.</li>
+        <li>Steer two parameters live as the decision system: density (how fast / how busy the permutation runs) and register spread (how far the octave operation throws notes). Move them by hand to build and release tension.</li>
+        <li>Keep the one rule sacred while you steer: never stop the stream, and never let it settle into a literal loop. If you feel a loop forming, nudge the permutation, not the pitches.</li>
+        <li>Aim for three to four minutes unbroken. Listen for the implied polyphony to emerge from your own line as the register spread widens.</li>
+      </ol>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from the reference and use audio clips, Simpler/Sampler, clip envelopes, and resampling.</li><li>Build the phase goal — <em>Perform one continuous take, steering live</em> — as the smallest Live set that proves <em>A small cell of figures is continuously permuted — reordered, octave-shifted, re-articulated — and circular breathing keeps the stream literally gapless, so the line is endless and self-similar but never a literal loop</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>One monophonic horn sounds like several interlocking voices — an unbroken stream of fast notes that never stops to breathe</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>Perform one continuous take, steering live</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>A small cell of figures is continuously permuted — reordered, octave-shifted, re-articulated — and circular breathing keeps the stream literally gapless, so the line is endless and self-similar but never a literal loop</em>, not just the surface of the reference.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
+    <div class="sub-block">
+      <div class="sub-label">Expected result</div>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">One unbroken take, built entirely from your cell, that thickens and thins under your hands but never stops and never loops literally — with at least one stretch where it implies more than one voice.</p>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">If it fails</div>
+      <table>
+        <thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead>
+        <tbody>
+          <tr><td>The stream stalls or you instinctively pause</td><td>Treating it as phrased melody instead of a continuous engine</td><td>Take your hands off pitch and only steer density/register; let the engine carry the continuity while you shape it</td></tr>
+          <tr><td>It never implies a second voice</td><td>Register spread too narrow or speed too low</td><td>Widen the octave throw and raise density until low and high notes split into separate perceived streams</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  </div></div><div class="decision-check">
+    <div class="decision-check-label">Verify against the work</div>
+    <p>A/B your take against a few minutes of <em>Conic Sections</em> — matched loudness, 15 seconds of yours, 15 of theirs. Then answer two questions in writing.</p>
+    <p><strong>Does your stream stay gapless and non-literal the way theirs does?</strong></p>
+    <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>If you can hear a breath, a stop, or a bar that repeats exactly, your engine is not running the way theirs is. The proof is continuity plus constant reordering — gapless but never the same order twice. A nameable seam or a fixed loop means the engine stalled.</p></div></details>
+    <p><strong>Does one line of yours imply more than one voice the way theirs does?</strong></p>
+    <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Theirs splits into implied streams because of speed plus octave leaps. If yours reads as a single flat line, your register spread or density is too low — implied polyphony is the emergent payoff of permuting fast across registers, and its absence means the engine is running too tame.</p></div></details>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Logbook — the miss list, two to three lines:</strong> "Matched: …" · "Missed: … (best guess why — e.g. stream stalled, fell into a literal loop, no implied second voice)" · "Change next: …"</li>
+      <li>Note which permutation operation did the most work — reorder, octave, or articulation — that is the one to lean on next attempt.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav"><a href="listening-l7.html"><span class="page-nav-direction">Back</span>Listening L7</a><a href="index.html" class="next"><span class="page-nav-direction">Block</span>Block 7 index →</a></div>
+  <div class="footer">Experimental Music Workshop — Block 7 · Replication lesson</div>
+</div>
+  <script src="../nav.js"></script>
+</body>
+</html>

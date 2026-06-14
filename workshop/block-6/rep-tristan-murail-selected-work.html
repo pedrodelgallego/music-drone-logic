@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Replicate — Chords Built From FM Spectra</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page-type-rep" id="top">
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu"><span class="hamburger-lines"><span></span><span></span><span></span></span></label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html" class="active"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 6 · Decision Systems</a><span class="breadcrumb-sep">/</span><span>Replicate: chords built from FM spectra</span></nav>
+
+  <header class="page-header">
+    <div class="eyebrow">Block 6 · Replication lesson</div>
+    <h1>Replicate: chords built from FM spectra</h1>
+    <p class="lede">Copy one mechanism from Tristan Murail — <em>Gondwana</em> (1980): build a chord from a frequency-modulation calculation, voice it as one fused timbre, then slowly morph it into a second FM chord. Build a short version on the rig and compare it to the reference at the same loudness.</p>
+  </header>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l6.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs">Labs</a><a href="lab-r6.html" data-section="rebuild">Rebuild</a><a href="capstone-c5.html" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep" class="current">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
+
+  <div class="callout">
+    <div class="callout-label">The point</div>
+    <p>This drill teaches the record's core mechanism: a chord is not chosen by ear — its pitches are <em>computed</em> from carrier and modulator frequencies (FM sidebands) or from sums and differences (ring modulation), and the form is a slow interpolation from one such spectrum into another. Each chord is treated as a single instrument that transforms as one mass. You are stealing the structure (calculate spectrum → voice as one timbre → morph into the next), never Murail's pitches.</p>
+  </div>
+
+  <table class="param-table">
+    <caption>The system you are replicating</caption>
+    <tr><td>Source work</td><td>Tristan Murail — <em>Gondwana</em> (1980)</td></tr>
+    <tr><td>The effect</td><td>Massive, slowly transforming chords that read as single fused timbres — bell-like, brass-like masses that mutate rather than progress</td></tr>
+    <tr><td>The mechanism</td><td>Chords derived from FM and ring-modulation spectra (carrier + modulator sidebands, sum/difference tones), each orchestrated as one timbre; the form is a long interpolation morphing one computed spectrum into another</td></tr>
+  </table>
+
+  <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Murail+Gondwana" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Murail%20Gondwana">Spotify</a></p>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"></path></svg></div>
+      <div class="checklist-label">Before you start</div>
+    </div>
+    <ul>
+      <li>Live open and a calculator (or VCV Rack with FM operators) for working out sidebands; a way to enter exact pitches/frequencies for each computed partial</li>
+      <li>MicroFreak ready for FM-derived tones (its oscillator can produce FM/metallic spectra); Digitakt II ready to hold sustained sampled tones</li>
+      <li>Pen and paper for two chord charts — every pitch is computed from a carrier and modulator, not invented</li>
+    </ul>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>What you will make:</strong> a short FM-spectrum morph. Focus on this effect: a single fused timbre that slowly transforms into a second fused timbre.</li>
+      <li><strong>What you will turn off:</strong> melody, ear-chosen harmony, chord progressions, rhythm, and any pitch you picked because you liked it.</li>
+      <li><strong>What you will prove:</strong> your version and <span class="code">REF</span> use the same core mechanism: chords are calculated from FM/ring-mod spectra and one mass interpolates into another.</li>
+      <li><strong>What counts as success:</strong> remaining differences are carrier/modulator choices or rig limits, not missing steps.</li>
+    </ul>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Reference pass · 12 minutes</div>
+      <h3 class="step-title">Listen before you build</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Listen to the first several minutes of <em>Gondwana</em>. Write one short answer per question before you touch the gear.</p>
+    <ol class="rules-list">
+      <li>Do the big chords read as harmony — separate notes you could name — or as single fused timbres?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>As single fused timbres. Each mass is voiced so densely and so tightly that the ear hears one huge bell-like or brass-like sound rather than a stack of pitches. That fusion is the point of deriving the chord from one FM calculation: the partials belong to a single spectrum.</p></div></details>
+      </li>
+      <li>What is being composed — a melody, or the slow morph between fused spectra?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>The morph. There is essentially no tune to hum and no chord progression to follow. The parameter being composed is the gradual interpolation from one computed spectrum into the next — the chords mutate as masses, they do not move as harmony.</p></div></details>
+      </li>
+      <li>When one mass becomes another, is the change sudden or a long interpolation?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>A long interpolation. One spectrum slowly bends toward the next over many seconds — pitches glide, partials fade in and out, the index seems to swell. You rarely hear a cut; you hear one timbre becoming another.</p></div></details>
+      </li>
+      <li>Do the chords sound metallic or bell-like rather than like ordinary tonal harmony?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Yes — distinctly metallic and bell-like. That inharmonic ring is the signature of FM and ring-modulation spectra: the sidebands and sum/difference tones land off the harmonic series, so the chords shimmer like struck metal rather than sounding like triads.</p></div></details>
+      </li>
+    </ol>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Now build the mechanism you described. Do not build from memory of the pitches.</p>
+  </div>
+
+  <h2>Steps</h2>
+
+  <div class="gear-switch"><input type="radio" name="gear" id="gear-hw" class="gear-radio" checked><input type="radio" name="gear" id="gear-sw" class="gear-radio"><input type="radio" name="gear" id="gear-tg" class="gear-radio"><div class="gear-labels"><span class="gear-lead">Your rig</span><label for="gear-hw">MicroFreak + Digitakt II</label><label for="gear-sw">Ableton Live only</label><label for="gear-tg">Analog Rytm MKII · target</label></div><div class="gear-scope"><div class="step">
+    <div class="step-head">
+      <div class="step-num">Phase 1 — ~25 minutes</div>
+      <h3 class="step-title">Compute a chord from an FM calculation</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: get the chord from arithmetic, not from taste.</p>
+    <div class="signal-flow">
+      <span class="signal-node">carrier C + modulator M</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">sidebands C ± n·M (and sum/difference for ring mod)</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">chord chart</span>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol class="rules-list">
+        <li><strong>Pick a carrier frequency C and a modulator frequency M</strong> in a non-integer ratio (for example C = 220 Hz, M = 173 Hz). The off-ratio is what makes the result inharmonic and bell-like.</li>
+        <li><strong>Compute the FM sidebands:</strong> C, C±M, C±2M, C±3M — keep the five to eight that land in a usable range and drop any that go negative or too high. For a ring-mod flavour, also note the sum (C+M) and difference (C−M) tones.</li>
+        <li>Convert each frequency to the nearest pitch you can play (note name + cents off) and write the chart. This chart IS your chord — you did not choose a single note of it by ear.</li>
+        <li>Mark which sidebands are loudest (those nearest the carrier, at a moderate FM index) — those carry the timbre.</li>
+      </ol>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from the reference and use Operator or Wavetable into Auto Filter, with clip automation.</li><li>Build the phase goal — <em>Compute a chord from an FM calculation</em> — as the smallest Live set that proves <em>Chords derived from FM and ring-modulation spectra (carrier + modulator sidebands, sum/difference tones), each orchestrated as one timbre; the form is a long interpolation morphing one computed spectrum into another</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>Massive, slowly transforming chords that read as single fused timbres — bell-like, brass-like masses that mutate rather than progress</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>Compute a chord from an FM calculation</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>Chords derived from FM and ring-modulation spectra (carrier + modulator sidebands, sum/difference tones), each orchestrated as one timbre; the form is a long interpolation morphing one computed spectrum into another</em>, not just the surface of the reference.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
+    <div class="sub-block">
+      <div class="sub-label">Expected result</div>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A written chord of five to eight frequencies, every one of them computed from your carrier and modulator — a spectrum, not a chosen harmony.</p>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">If it fails</div>
+      <table>
+        <thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead>
+        <tbody>
+          <tr><td>The chord sounds like an ordinary triad</td><td>You chose a simple integer C:M ratio, so the sidebands fell on the harmonic series</td><td>Use an irrational or off-integer ratio (e.g. 1:1.27) so the sidebands land inharmonic and metallic</td></tr>
+          <tr><td>Too few usable pitches</td><td>Most sidebands went out of range or negative</td><td>Lower the modulator or raise the carrier so more C±n·M terms land in a playable band</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Phase 2 — ~30 minutes</div>
+      <h3 class="step-title">Orchestrate the spectrum as one fused timbre</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: make the separate sidebands fuse into a single instrument.</p>
+    <div class="signal-flow">
+      <span class="signal-node">computed sidebands</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">one tuned voice per partial (MicroFreak + Digitakt II + Live)</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">fused FM chord at master</span>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol class="rules-list">
+        <li><strong>Tune one sustained voice to each computed partial</strong> — the MicroFreak's FM oscillator on the carrier and the metallic upper sidebands, Digitakt II holding sampled sustains, Live instruments for the rest. Use the exact cents offsets from your chart.</li>
+        <li>Balance the levels to match the loudness order — carrier and nearest sidebands loudest, far sidebands quieter — so the spectrum reads as one weighted timbre.</li>
+        <li>A/B: it should read as ONE bell-like or brass-like sound, not a chord. If you can pick out individual notes, soften and align the attacks, kill vibrato, and tighten tuning to the cents values until they fuse.</li>
+      </ol>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from the reference and use Operator or Wavetable into Auto Filter, with clip automation.</li><li>Build the phase goal — <em>Orchestrate the spectrum as one fused timbre</em> — as the smallest Live set that proves <em>Chords derived from FM and ring-modulation spectra (carrier + modulator sidebands, sum/difference tones), each orchestrated as one timbre; the form is a long interpolation morphing one computed spectrum into another</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>Massive, slowly transforming chords that read as single fused timbres — bell-like, brass-like masses that mutate rather than progress</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>Orchestrate the spectrum as one fused timbre</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>Chords derived from FM and ring-modulation spectra (carrier + modulator sidebands, sum/difference tones), each orchestrated as one timbre; the form is a long interpolation morphing one computed spectrum into another</em>, not just the surface of the reference.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
+    <div class="sub-block">
+      <div class="sub-label">Expected result</div>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A held chord that fuses into a single metallic mass — the same "one huge sound made of many pitches" the record trades in.</p>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">If it fails</div>
+      <table>
+        <thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead>
+        <tbody>
+          <tr><td>You hear a chord, not one instrument</td><td>Attacks, vibrato, or level spread give the partials away as separate notes</td><td>Make attacks slow and identical, kill vibrato, follow the loudness order so far sidebands sit under the carrier</td></tr>
+          <tr><td>It sounds thin or tonal, not metallic</td><td>You dropped the inharmonic upper sidebands and kept only the consonant ones</td><td>Restore the off-integer partials from the chart — the bell-like body lives in the inharmonic sidebands</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Phase 3 — ~30 minutes</div>
+      <h3 class="step-title">Compute a second chord and interpolate one mass into the other</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: a slow, one-way morph from one FM spectrum to the next — never a cut.</p>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol class="rules-list">
+        <li><strong>Compute a SECOND FM chord</strong> — change the carrier, the modulator ratio, or the FM index, and work out its sidebands the same way. Write the second chart next to the first.</li>
+        <li><strong>Write the morph order on paper first:</strong> which partial glides to its new pitch first, which fades, which appears, over how many bars. The interpolation order is the composition.</li>
+        <li>Over a long stretch, automate each voice from its first-chord value to its second-chord value — glide pitches, swell or shrink the FM index/ratio, crossfade voices that exist only in one chord. Move one partial at a time.</li>
+        <li>Record one continuous take of the full interpolation, first mass to second mass, with no edit point you could name — the timbre transforms as a single object.</li>
+      </ol>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from the reference and use Operator or Wavetable into Auto Filter, with clip automation.</li><li>Build the phase goal — <em>Compute a second chord and interpolate one mass into the other</em> — as the smallest Live set that proves <em>Chords derived from FM and ring-modulation spectra (carrier + modulator sidebands, sum/difference tones), each orchestrated as one timbre; the form is a long interpolation morphing one computed spectrum into another</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>Massive, slowly transforming chords that read as single fused timbres — bell-like, brass-like masses that mutate rather than progress</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>Compute a second chord and interpolate one mass into the other</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>Chords derived from FM and ring-modulation spectra (carrier + modulator sidebands, sum/difference tones), each orchestrated as one timbre; the form is a long interpolation morphing one computed spectrum into another</em>, not just the surface of the reference.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
+    <div class="sub-block">
+      <div class="sub-label">Expected result</div>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">One take that begins as the first fused FM chord and ends as the second, with the crossing so gradual nobody can point to where one mass became the other.</p>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">If it fails</div>
+      <table>
+        <thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead>
+        <tbody>
+          <tr><td>The second chord arrives as a sudden swap</td><td>You changed all voices at once instead of overlapping individual glides</td><td>Spread the interpolation across more voices and more bars; only one partial should be visibly moving at any moment</td></tr>
+          <tr><td>It reads as two chords with a melody in between</td><td>The gliding pitches became hummable lines instead of a fused morph</td><td>Slow the glides, keep voices fused with identical envelopes, and crossfade so no single line stands out as a tune</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  </div></div><div class="decision-check">
+    <div class="decision-check-label">Verify against the work</div>
+    <p>A/B your morph against a passage of <em>Gondwana</em> — matched loudness, 15 seconds of yours, 15 of theirs. Then answer two questions in writing.</p>
+    <p><strong>Do your chords fuse into single metallic timbres the way theirs do?</strong></p>
+    <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>If you can still pick out individual pitches in yours but theirs reads as one bell-like mass, your partials have not fused — the give-away is usually attack and level spread, not the FM math. Fusion is the proof you orchestrated a computed spectrum rather than voiced a chord by ear.</p></div></details>
+    <p><strong>Is your change between masses as gradual and one-way as theirs?</strong></p>
+    <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Theirs has no nameable moment where one chord becomes the next; if yours does, you moved too much at once. The structure is a slow interpolation between two computed spectra, and an audible seam means you cut instead of morphing.</p></div></details>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Logbook — the miss list, three lines:</strong> "Matched: …" · "Missed: … (best guess why)" · "Change next: …"</li>
+      <li>Note which carrier:modulator ratio gave the most convincing bell-like fusion — that is your starting spectrum for the next attempt.</li>
+      <li>Note whether the morph or the fusion was the weaker half, and put the next session's time there.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav"><a href="listening-l6.html"><span class="page-nav-direction">Back</span>Listening L6</a><a href="index.html" class="next"><span class="page-nav-direction">Block</span>Block 6 index →</a></div>
+  <div class="footer">Experimental Music Workshop — Block 6 · Replication lesson</div>
+</div>
+  <script src="../nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab 022b — Loudness &amp; the Master</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page-type-lab" id="top">
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu"><span class="hamburger-lines"><span></span><span></span><span></span></span></label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html" class="active"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 5 · Space &amp; Mix</a><span class="breadcrumb-sep">/</span><span>Loudness &amp; the Master</span></nav>
+
+  <header class="page-header">
+    <div class="eyebrow">Block 5 · Lab 022b · Bench</div>
+    <h1>Loudness &amp; the Master</h1>
+    <p class="lede">A finished mix is not a finished master. This lab teaches the four ways "how loud is it?" can be answered — peak, RMS, LUFS, and true-peak — shows you which one the streaming and club worlds actually use, and walks one of your own pieces to a named, defended loudness target with a metering reading you can show.</p>
+  </header>
+  <p class="block-meta">Bench lab · S2 · LUFS metering · full cycle · new concepts: 6</p>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l5.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs" class="current">Labs</a><a href="lab-r5.html" data-section="rebuild">Rebuild</a><a href="capstone-c4.html" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
+
+  <div class="signal-flow">
+    <span class="signal-node">listen</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">hypothesis</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">route the meter</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">measure</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">reference-match</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">limit to target</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">induce fault</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">diagnose</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">translate</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">deliver</span>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Start here</div>
+    </div>
+    <ul>
+      <li>Bring one finished piece of your own — ideally a master candidate from <a href="capstone-c4.html">C4</a>, or anything you intend to deliver. This lab masters a real piece, not a test tone.</li>
+      <li>Save a new set as <span class="code">LAB-022B-loudness</span> with that piece imported on the master.</li>
+      <li>Install a LUFS meter: Live 12 Suite ships a metering display with LUFS, or install <strong>Youlean Loudness Meter 2</strong> (free) — either works. Have one ready before step 1.</li>
+      <li>Choose one <strong>reference track</strong> in the same world as your piece, in lossless form if possible.</li>
+      <li>Expected time: two sessions — measure &amp; reference (steps 01–04), then limit, fault, translate, deliver (steps 05–08).</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The point</div>
+    <p>"Make it loud" is not a target — it is a wish. A target is a number with a meter behind it: "−14 LUFS integrated, true-peak under −1 dBTP, delivered as 16-bit dithered." Once you can read those numbers, loudness stops being a vibe you chase by ear and becomes a decision you defend.</p>
+  </div>
+
+  <h2>1 · New concepts — in plain words</h2>
+
+  <p>Six terms run through this whole lab. Come back to this table whenever one appears.</p>
+
+  <table>
+    <thead><tr><th>Concept</th><th>In plain words</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><span class="lab-title">Peak (sample peak)</span></td>
+        <td>The single highest sample value in the file. Tells you about <em>clipping headroom</em>, almost nothing about loudness — a quiet click and a wall of sound can share the same peak.</td>
+      </tr>
+      <tr>
+        <td><span class="lab-title">RMS</span></td>
+        <td>The average energy over a window — closer to "how loud does it feel" than peak, but it ignores how the ear actually weights frequencies. A useful old tool; LUFS is its modern, ear-matched replacement.</td>
+      </tr>
+      <tr>
+        <td><span class="lab-title">LUFS</span></td>
+        <td>Loudness Units relative to Full Scale — RMS, but filtered to match human hearing, and the unit every streaming platform uses. Three time-windows: <strong>momentary</strong> (≈400 ms, the instantaneous feel), <strong>short-term</strong> (≈3 s, the section feel), and <strong>integrated</strong> (the whole piece averaged — the one number that defines a master's loudness).</td>
+      </tr>
+      <tr>
+        <td><span class="lab-title">True-peak (dBTP)</span></td>
+        <td>The real peak <em>between</em> samples, after the file is reconstructed into a continuous wave on playback or conversion. A file can read 0.0 dB on a sample-peak meter and still overshoot to +0.8 dBTP when decoded — inter-sample clipping no sample-peak meter ever showed you.</td>
+      </tr>
+      <tr>
+        <td><span class="lab-title">Normalization</span></td>
+        <td>What streaming platforms do to <em>your</em> master: they turn it down (or up) to hit their own target, so a track mastered at −6 LUFS and one at −14 LUFS play back at the same loudness — but the over-loud one arrives squashed and pre-distorted. This is <em>why</em> chasing maximum loudness backfires on streaming.</td>
+      </tr>
+      <tr>
+        <td><span class="lab-title">Dither</span></td>
+        <td>Tiny shaped noise added when you reduce bit depth (24-bit → 16-bit). It trades inaudible hiss for the removal of audible quantization distortion in quiet tails. Apply it <em>once</em>, on the final 16-bit export — never on a 24-bit render, never twice.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="tag-row">
+    <span class="tag">peak</span>
+    <span class="tag">RMS</span>
+    <span class="tag">LUFS (M/S/I)</span>
+    <span class="tag">true-peak</span>
+    <span class="tag">normalization</span>
+    <span class="tag">dither</span>
+  </div>
+
+  <h2>2 · Listening — same masters, two destinations</h2>
+
+  <p>Before metering anything, do a structured listen. The goal is to <em>hear</em> what a loudness target costs and buys, so the numbers later mean something.</p>
+
+  <div class="listen-acc">
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">01</span>
+        <span class="listen-title">A loud club master vs. a quiet ambient master</span>
+        <span class="listen-tag">loudness vs. dynamics</span>
+      </summary>
+      <div class="listen-body">
+        <p>Pick one track built to be loud (a recent techno or club release) and one built to breathe (an ambient or modern-classical piece). Level-match them by ear as best you can, then compare.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>How much the loud master <em>moves</em> — or doesn't. Loudness is bought with dynamic range; the wall has no quiet to fall back to.</li>
+          <li>How the quiet master uses its headroom: transients that actually hit, tails that actually decay.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>State the trade in one sentence: louder integrated LUFS buys impact-on-first-listen and costs dynamic contrast. Which does your piece want? That answer is your target.</p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">02</span>
+        <span class="listen-title">One track, streaming vs. the original file</span>
+        <span class="listen-tag">normalization, heard</span>
+      </summary>
+      <div class="listen-body">
+        <p>Play a loud master from a streaming app with normalization on, then from a lossless file at full level. The app turned it down toward its target.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>That the "loud" master is no louder than anything else once the platform normalizes — its loudness war was unwinnable.</li>
+          <li>Any squash or pumping that survived the turn-down: the platform removed the volume but not the damage.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Conclude why ~−14 LUFS is a sane streaming target: above it, the platform only turns you down, keeping the dynamics you sacrificed for nothing.</p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">03</span>
+        <span class="listen-title">Your chosen reference — across four systems</span>
+        <span class="listen-tag">translation</span>
+      </summary>
+      <div class="listen-body">
+        <p>Play your reference track on monitors (if present), the DT 990s, your phone speaker, and in mono. A real master survives all four.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>What stays constant: the broad spectral balance, the relative loudness of bass to top.</li>
+          <li>What collapses on the phone or in mono — that is what your own master must protect.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Note one thing the reference keeps everywhere. Your translation test in step 07 must clear the same bar.</p>
+      </div>
+    </details>
+  </div>
+
+  <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 18px 0 0;">Write a one-sentence hypothesis naming your target before measuring: something like <strong style="color: var(--text);">my piece wants ≈ −14 LUFS integrated for streaming, true-peak under −1 dBTP, because its dynamics matter more than first-listen impact.</strong> The bench will test whether you can hit it and defend it.</p>
+
+  <h2>3 · The two specs</h2>
+
+  <table class="param-table">
+    <caption>System Spec — the delivery (fill before measuring)</caption>
+    <tr><td>Inputs</td><td>One finished piece of yours · one reference track in the same idiom · a LUFS meter (Live 12 or Youlean)</td></tr>
+    <tr><td>Transforms</td><td>Broad tonal match to the reference · optional gentle limiting to reach the loudness target · bit-depth reduction with dither on the 16-bit export</td></tr>
+    <tr><td>Feedback / variation</td><td>The loudness-vs-dynamics trade — every dB of integrated LUFS gained above the mix's natural level costs dynamic range and risks pumping</td></tr>
+    <tr><td>Constraints</td><td>One named LUFS target · true-peak ceiling (≤ −1 dBTP recommended) · one delivery format decided up front (streaming vs. file vs. club)</td></tr>
+    <tr><td>Human role</td><td>Choose the target and defend it; ride the limiter only as far as the target needs, not as far as it can go</td></tr>
+  </table>
+
+  <table class="param-table">
+    <caption>Engineering Spec — the master chain (verify, correct after)</caption>
+    <tr><td>Signal path</td><td>Mix bus → (corrective EQ if needed) → limiter → LUFS/true-peak meter <em>last in the chain</em> → master out · meter reads what leaves the system, so it goes after everything that changes level</td></tr>
+    <tr><td>Gain plan</td><td>Mix arrives with headroom (peaks ≤ −6 dBFS); the limiter's threshold, not the master fader, sets final loudness · true-peak ceiling set to −1 dBTP on the limiter</td></tr>
+    <tr><td>Metering</td><td>Integrated LUFS over the whole piece (reset, play start to finish) · short-term watched during loud sections · true-peak max logged</td></tr>
+    <tr><td>Reference method</td><td>Import the reference onto a muted bypass track at matched LUFS; A/B for spectral balance, not for loudness, so the comparison is fair</td></tr>
+    <tr><td>Export</td><td>Master archive: 24-bit WAV, <strong>no dither</strong>, normalize off · Delivery: render again to the target format; if 16-bit, dither <em>on</em>, applied once</td></tr>
+    <tr><td>Failure mode</td><td>Inter-sample clipping (true-peak &gt; 0 dBTP despite a clean sample-peak meter) and pumping from over-limiting — both manufactured and diagnosed in section 5</td></tr>
+    <tr><td>Safety</td><td>Limiting is fatiguing and loudness creeps judgment — phones at the mark, level-matched A/B only, breaks every fifteen minutes</td></tr>
+  </table>
+
+  <h2>4 · Procedure</h2>
+
+  <!-- STEP 1 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Step 01</div>
+      <h3 class="step-title">Route the LUFS meter as the last device</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Goal: a meter that reads exactly what leaves the system — so it sits after every device that can change level.</p>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <ol>
+        <li>Put your piece on the master (or a print track feeding the master). Master fader at <span class="code">0 dB</span>.</li>
+        <li>Insert the LUFS meter as the <em>last</em> device in the chain. If using Live 12's built-in metering, switch its display to LUFS; if Youlean, drop it last on the master.</li>
+        <li>Enable, where the meter offers it: <strong>integrated</strong>, <strong>short-term</strong>, <strong>momentary</strong>, and <strong>true-peak</strong> readouts.</li>
+      </ol>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Expected result</div>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Four numbers available at once: M, S, I, and true-peak. If the meter is placed before the limiter later, it lies — it must always be the final device.</p>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Step 02</div>
+      <h3 class="step-title">Measure the piece as-is</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Goal: the honest baseline — what your unmastered mix actually reads, end to end.</p>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <ol>
+        <li>Reset the integrated reading. Play the piece <strong>from the very start to the very end</strong> without stopping — integrated LUFS is only valid over the whole piece.</li>
+        <li>Record three numbers: integrated LUFS, maximum short-term LUFS, maximum true-peak (dBTP).</li>
+        <li>Compare to the four units in your head: note how far the peak is from the LUFS — that gap is your dynamic range, and it is what limiting will spend.</li>
+      </ol>
+    </div>
+    <table class="param-table">
+      <caption>Measurement log blank — copy and fill</caption>
+      <tr><td>Stage</td><td>Integrated LUFS</td><td>Max short-term</td><td>Max true-peak</td></tr>
+      <tr><td>Mix as-is</td><td>___</td><td>___</td><td>___</td></tr>
+      <tr><td>Reference (matched)</td><td>___</td><td>___</td><td>___</td></tr>
+      <tr><td>After limiting</td><td>___</td><td>___</td><td>___</td></tr>
+      <tr><td>Delivered file</td><td>___</td><td>___</td><td>___</td></tr>
+    </table>
+    <div class="sub-block">
+      <div class="sub-label">Logbook</div>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">The baseline row, dated. Most unmastered mixes land −18 to −24 LUFS integrated — quieter than you expect, which is correct: the headroom is there on purpose.</p>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Step 03</div>
+      <h3 class="step-title">Name the target — and say why</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Goal: one committed number, chosen from the destination, not from ambition.</p>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <ol>
+        <li>Choose the destination: <strong>streaming</strong> (≈ −14 LUFS integrated, the loudness platforms normalize toward) or a <strong>louder club / file master</strong> (−9 to −6 LUFS, where the system plays the file at full level and loudness is not normalized away).</li>
+        <li>Write the target with its true-peak ceiling: e.g. <span class="code">−14 LUFS I, ≤ −1 dBTP</span>.</li>
+        <li>Write the <em>why</em> in one line: what the destination does with loudness, and what your piece values (dynamics vs. impact).</li>
+      </ol>
+    </div>
+    <div class="callout">
+      <div class="callout-label">Why the two worlds differ</div>
+      <p>Streaming <em>normalizes</em>: master above its target and the platform turns you down, so you keep none of the loudness and lose the dynamics you traded for it — hence ≈ −14 LUFS. A club PA or a downloaded file plays your level as-is, so a louder integrated LUFS genuinely arrives louder — hence club masters push harder, accepting the dynamic cost on purpose.</p>
+    </div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Step 04</div>
+      <h3 class="step-title">Reference-match: loudness, then balance</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Goal: compare your piece to the reference fairly — at matched loudness — so you judge tonal balance, not volume.</p>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <ol>
+        <li>Import the reference on a track that bypasses the master chain. Measure its integrated LUFS the same way (whole track).</li>
+        <li>Trim the reference's track gain so it plays at the <em>same</em> integrated loudness as your piece — louder always sounds better, so an unmatched A/B always favours the louder file.</li>
+        <li>A/B in short loops. Note where your broad balance differs: too much low-mid mud, a dull top, a hollow midrange. Correct with gentle <em>broad</em> master EQ moves (≤ 2–3 dB), not surgical cuts.</li>
+      </ol>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Decision checkpoint</div>
+      <p>At matched loudness, does your piece sit in the same broad tonal world as the reference? If it only sounded worse because it was quieter, you skipped the match — redo it.</p>
+    </div>
+  </div>
+
+  <!-- STEP 5 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Step 05</div>
+      <h3 class="step-title">Limit to target — and stop there</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Goal: raise integrated LUFS to the target with a limiter, set the true-peak ceiling, and resist going louder than the target requires.</p>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <ol>
+        <li>Insert a limiter before the meter. Set its ceiling / output to <span class="code">−1 dBTP</span> and enable true-peak limiting if offered.</li>
+        <li>Lower the threshold (or raise input gain) in small steps, re-measuring integrated LUFS over the whole piece each time, until you reach the target.</li>
+        <li>Watch gain reduction: a few dB on peaks is healthy; constant heavy reduction means you are over-limiting — back off and reconsider the target.</li>
+        <li>Log the after-limiting row in the measurement table.</li>
+      </ol>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Expected result</div>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Integrated LUFS at target, true-peak at or under −1 dBTP, and the piece still breathing. If reaching the target required crushing the life out of it, the target is wrong for this piece — that is information, not failure.</p>
+    </div>
+  </div>
+
+  <h2>5 · The fault &amp; diagnosis</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Step 06</div>
+      <h3 class="step-title">Fault ritual — break the master two ways</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Deliver, on purpose, the two masters you must learn to recognize: one that clips between samples, and one that pumps from too much limiting.</p>
+    <div class="signal-flow">
+      <span class="signal-node">over-push</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">export</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">re-measure</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">hear the damage</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">fix</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">write the rule</span>
+    </div>
+    <ul>
+      <li><strong>Inter-sample clip:</strong> set the limiter ceiling to <span class="code">0.0 dB</span> sample-peak with true-peak limiting <em>off</em>, push loud, and export. Re-import and measure true-peak: it will read <em>over</em> 0 dBTP even though the sample-peak meter said 0.0. That overshoot is the distortion a phone DAC or MP3 encoder will reconstruct and clip.</li>
+      <li><strong>Pumping:</strong> drive the limiter 6–10 dB into heavy gain reduction to chase a club-loud number. Listen on the bass and the tails: the whole mix breathes against the kick, transients flatten, sustains duck. That is over-limiting.</li>
+      <li><strong>Fix both:</strong> restore true-peak limiting at −1 dBTP and back the threshold off to your real target. Re-measure to confirm true-peak ≤ −1 and the pumping is gone.</li>
+    </ul>
+  </div>
+
+  <table>
+    <thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead>
+    <tbody>
+      <tr><td>Crackle/harshness on a phone or after MP3, though the file looked clean at 0.0 dB</td><td>Inter-sample (true-peak) clipping — the between-sample overshoot the sample meter never showed</td><td>Enable true-peak limiting; set ceiling to −1 dBTP; re-export and re-measure dBTP</td></tr>
+      <tr><td>Mix breathes/pumps against the kick; transients gone; tails duck</td><td>Over-limiting — gain reduction too deep, chasing loudness past what the piece allows</td><td>Raise the threshold, lower the loudness target, or fix dynamics in the mix before the master</td></tr>
+      <tr><td>Master sounds great in the room, weak/squashed on streaming</td><td>Mastered louder than the platform target; normalization turned it down, keeping the squash, losing the loudness</td><td>Re-master to ≈ −14 LUFS for streaming; reserve louder masters for non-normalized destinations</td></tr>
+      <tr><td>Quiet tails have a gritty, grainy fizz on the 16-bit file</td><td>Bit depth reduced with no dither — quantization distortion in low-level signal</td><td>Re-export 16-bit with dither on, applied once at the final stage</td></tr>
+      <tr><td>Faint hiss / "thinner" sound after repeated exports</td><td>Dither applied twice, or applied to a 24-bit render then again to 16-bit</td><td>Dither only on the final bit-depth reduction; archive 24-bit undithered</td></tr>
+    </tbody>
+  </table>
+
+  <h2>6 · Translate and deliver</h2>
+
+  <!-- STEP 7 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Step 07</div>
+      <h3 class="step-title">Translation test — four systems, one mono</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Goal: confirm the master holds up where it will actually be heard, not just on the bench.</p>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <ol>
+        <li>Play the limited master on: monitors (if present), the DT 990s, your phone speaker, and collapsed to <strong>mono</strong> (a Utility set to Width 0 % on the master).</li>
+        <li>On each, ask: does the balance survive? Does anything vanish in mono (a phase-cancelling element)? Does the bass disappear on the phone, or overwhelm it?</li>
+        <li>Compare each pass against the reference's behaviour on the same system from the listening section.</li>
+      </ol>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">If it fails</div>
+      <table>
+        <thead><tr><th>Symptom</th><th>Likely cause</th><th>Fix</th></tr></thead>
+        <tbody>
+          <tr><td>Element disappears in mono</td><td>Phase-cancelling stereo content (cross-reference the correlation meter in <a href="../block-1/lab-003b.html">Lab 003b</a>)</td><td>Narrow or mono the offending layer in the mix, then re-master</td></tr>
+          <tr><td>Nothing audible on the phone</td><td>Energy lives only in sub-bass the phone can't reproduce</td><td>Ensure mid/upper-mid content carries the identity; check broad EQ against the reference</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- STEP 8 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Step 08</div>
+      <h3 class="step-title">Export the archive and the delivery</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Goal: two files done right — a clean 24-bit archive and a correctly-dithered delivery at the named target.</p>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <ol>
+        <li><strong>Archive:</strong> render 24-bit WAV, normalize <em>off</em>, dither <em>off</em>. This is the master of record.</li>
+        <li><strong>Delivery:</strong> render to the destination format. If 16-bit, set dither <em>on</em>; apply it once. Normalize off — your limiter already set the level.</li>
+        <li>Re-import the delivered file and measure it one last time. Log integrated LUFS and true-peak in the final row of the table — the reading you will defend.</li>
+      </ol>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Logbook</div>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">The completed measurement table, all four rows, plus the one-paragraph defended decision. Carry the same metering discipline into <a href="capstone-c4.html">C4</a> and <a href="../block-8/capstone-c7.html">C7</a>, where finished pieces are delivered under these same rules.</p>
+    </div>
+  </div>
+
+  <h2>7 · Pass gate &amp; report bundle</h2>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">The report bundle — filed in the logbook</div>
+    </div>
+    <ul>
+      <li>The delivered file at the named LUFS target, true-peak ≤ −1 dBTP</li>
+      <li>The 24-bit undithered archive</li>
+      <li>Measurement table — mix, reference, after-limiting, delivered — all four numbers each</li>
+      <li>Reference-match notes — what broad balance changed and why</li>
+      <li>Fault entry — the inter-sample clip and the pumping master, with the re-measured proof of each fix</li>
+      <li>Translation notes — four systems + mono, pass/fail each</li>
+      <li>One-paragraph defended decision (the pass gate proper)</li>
+      <li>System diff sentence — "I thought loud meant X; the meter showed it meant Y."</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Pass gate</div>
+    <p>One piece delivered at a <strong>named LUFS target</strong>, with the metering reading recorded (integrated LUFS + true-peak) and a <strong>one-paragraph written defence</strong> of the decision: why this target, for this destination, with this trade against dynamics. "I made it loud" fails. "−14 LUFS integrated, −1.2 dBTP, for streaming — the piece is ambient and platform normalization would erase any extra loudness while costing me the tails" passes.</p>
+  </div>
+
+  <table class="param-table">
+    <caption>Pass standard</caption>
+    <tr><td>Minimum pass</td><td>The bundle above exists; the delivered file hits the named target and stays under the true-peak ceiling.</td></tr>
+    <tr><td>Solid pass</td><td>You can read all four loudness units off the meter and say what each is for; the fault entry proves you found and fixed inter-sample clipping by measurement.</td></tr>
+    <tr><td>Advanced transfer</td><td>You can master the same piece to two destinations (streaming and club) and defend the different target each got.</td></tr>
+  </table>
+
+  <ol class="reflection-list">
+    <li>How far apart were your mix's peak and its integrated LUFS — and what did that gap tell you before you limited anything?</li>
+    <li>How much loudness did limiting buy before the piece started to suffer? Where was your limit?</li>
+    <li>Did the reference change your broad balance, or only confirm it?</li>
+    <li>Which system in the translation test was hardest to pass, and why?</li>
+  </ol>
+
+  <div class="final">
+    <div class="final-icon"><svg viewBox="0 0 44 44"><path d="M6 30 L14 18 L22 26 L30 10 L38 22"/></svg></div>
+    <div class="final-label">Bench principle</div>
+    <p>Loudness is a target, not a wish — a number with a meter behind it and a destination in front of it.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="index.html">
+      <span class="page-nav-direction">Back</span>
+      ← Block 5 index
+    </a>
+    <a href="capstone-c4.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      Capstone C4 →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Block 5 · Lab 022b</div>
+
+</div>
+
+  <script src="../nav.js"></script>
+</body>
+</html>

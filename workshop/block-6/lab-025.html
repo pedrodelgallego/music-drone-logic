@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab 025 — Chance Operations</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page-type-lab" id="top">
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="index.html" class="active"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 6 · Decision Systems</a><span class="breadcrumb-sep">/</span><span>Chance Operations</span></nav>
+
+  <header class="page-header">
+    <div class="eyebrow">Block 6 · Lab 025 · Track lab</div>
+    <h1>Chance Operations</h1>
+    <p class="lede">You write the questions and the allowed answers; the dice choose between them. Every roll is logged before it is obeyed, every roll is obeyed once it is logged — and at the end you prove the whole piece can be rebuilt from the log alone. Chance decides parameters; you decide what chance is allowed to touch.</p>
+  </header>
+  <p class="block-meta">Track lab · S3 · D4 E3 M2 F2 · aleatoric · full cycle · new concepts: 5</p>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l6.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs" class="current">Labs</a><a href="lab-r6.html" data-section="rebuild">Rebuild</a><a href="capstone-c5.html" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
+
+  <div class="signal-flow">
+    <span class="signal-node">listen</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">hypothesis</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">draw the path</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">calibrate</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">build</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">fault</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">diagnose</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">print</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">delta</span>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Start here</div>
+    </div>
+    <ul>
+      <li>Run the ten listening references below first; the hypothesis they produce is the start of the build.</li>
+      <li>Save a new set as <span class="code">LAB-025-chance</span>.</li>
+      <li>This is an S3 lab: both specs are <strong>authored by you</strong> from the prompts below, on paper, before any gear.</li>
+      <li>Declare state, seed, and boundary before the first note — the Block 6 ritual. This lab is the one where the <strong>seed row is finally real</strong>: dice rolled on a bench and logged on paper are a seed you fully own.</li>
+      <li>You need physical dice (one d6 minimum; a d6 + d12 pair is better) and a roll log — a page with columns for roll number, question, result, and the value entered.</li>
+      <li>Expected time: one full cycle — two to three weeks of part-time sessions.</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The point</div>
+    <p>Lab 023 put randomness inside the machine, where it rolls forever and can never be caught. This lab takes the dice out of the box and puts them in your hand: chance happens <em>on the bench, at decision time</em>, one logged roll per question. The composition is the table of allowed answers — chance only ever chooses between options you already signed off on. A roll you wouldn’t accept every outcome of is a question you had no right to ask the dice.</p>
+  </div>
+
+  <h2>How this lab works</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3 class="card-title">Write the decision tables</h3>
+      <ul class="card-points">
+        <li>List every parameter chance may decide: pitch from a pool, section length, which transform applies, density, pan, mute.</li>
+        <li>For each, write a table mapping die faces to outcomes — 1–2: root, 3–4: fifth, 5: octave, 6: silence.</li>
+        <li>Read each table once and ask: would I accept every row? Rewrite until yes — that rewrite is the composing.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Roll, log, obey</h3>
+      <ul class="card-points">
+        <li>One question, one roll, one log line, one entered value — in that order, every time.</li>
+        <li>No rerolls, ever: a reroll is a forgery that signs chance’s name to your taste.</li>
+        <li>The configured system then runs deterministically — and takes the block’s 10-minute unattended test as built.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Audit by rebuilding</h3>
+      <ul class="card-points">
+        <li>The two-run reproducibility audit: days later, rebuild the entire session from the tables and the roll log alone.</li>
+        <li>Print both runs; the diff between them is this lab’s measurement (M2).</li>
+        <li>Every difference is a decision that was made off-table — find it, name it, log it.</li>
+      </ul>
+    </div>
+  </div>
+
+  <table class="param-table">
+    <caption>Pass standard</caption>
+    <tr><td>Minimum pass</td><td>Audible original piece, audio-path and control-path diagrams (two separate drawings), decision tables and complete roll log, fault entry, print map, and system diff exist.</td></tr>
+    <tr><td>Solid pass</td><td>The second run, rebuilt from the log alone, matches the first in every logged decision — and you can point at any feature of the piece and name the roll (or the table) that produced it.</td></tr>
+    <tr><td>Advanced transfer</td><td>The two-run diff is empty or fully explained, no roll was ever rerolled, and you can articulate which parameters you refused to give the dice — and why that refusal is the piece’s identity.</td></tr>
+  </table>
+
+  <h2>New concepts — in plain words</h2>
+
+  <table>
+    <tr><th>Concept</th><th>In plain words</th></tr>
+    <tr><td><span class="lab-title">Chance operation</span></td><td>A question, a bounded set of allowed answers, and a random draw between them. Not “anything can happen” — “one of these five things will happen, and I have already accepted all five.” The craft is entirely in the question and the answer set.</td></tr>
+    <tr><td><span class="lab-title">Decision table</span></td><td>The written mapping from die faces to outcomes. This is where the authorship lives: weight the table (three faces for the root, one for silence) and you have composed a tendency; chance only executes it.</td></tr>
+    <tr><td><span class="lab-title">Indeterminacy vs randomness</span></td><td>Randomness is a source; indeterminacy is a policy — the deliberate decision that some parameter will be settled by something other than taste. Cage’s distinction: a piece can be indeterminate in its composition (dice decide the score, then it is fixed forever — this lab) or in its performance (every rendition rolls again — lab 023’s machines).</td></tr>
+    <tr><td><span class="lab-title">True seed</span></td><td>Lab 023’s tools were unseeded, so the log was a substitute. Here the rolls happen on the bench and land in writing — the roll log <em>is</em> the seed, complete and replayable. For once in this block, “can the result be reproduced?” is answerable with yes, exactly.</td></tr>
+    <tr><td><span class="lab-title">Two-run reproducibility audit</span></td><td>The block’s fault emphasis made into a measurement: rebuild the session from the documents, print both runs, and diff them decision by decision. The diff counts the choices you made without noticing — the audit’s job is to make your hidden hand visible.</td></tr>
+  </table>
+
+  <div class="tag-row">
+    <span class="tag">chance operation</span>
+    <span class="tag">decision table</span>
+    <span class="tag">indeterminacy</span>
+    <span class="tag">true seed</span>
+    <span class="tag">two-run audit</span>
+  </div>
+
+  <h2>Listening — the hypothesis source</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Ten works where chance was given a bounded job — dice over pre-composed bars, coins over tape splices, graphs over registers, decaying tape over everything. Each gets a brief: what to listen for before you press play, and how to check yourself after.</p>
+
+  <div class="listen-acc">
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">01</span>
+        <span class="listen-title">Wolfgang Amadeus Mozart (attrib.) — “Musikalisches Würfelspiel”</span>
+        <span class="listen-tag">dice over pre-composed bars</span>
+      </summary>
+      <div class="listen-body">
+        <p>The eighteenth-century musical dice game: a grid of pre-composed one-bar fragments, two dice choosing which bar fills each slot of a minuet. Every possible outcome was written — and made correct — in advance.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>How seamless the result is: no joint between bars betrays that dice chose them.</li>
+          <li>What never changes — meter, key, cadence positions — versus what the dice actually decide.</li>
+          <li>Listen to two different realizations: the same piece, recognizably, with no bar in common.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>What did the dice compose? Nothing — every bar was already music before any die was cast; chance only selected among guaranteed-good options. That is this lab’s thesis, 200 years early: make every cell of the table acceptable, and randomness can never hurt you. If the realizations sounded interchangeable, relisten asking which slots carry the identity — the cadence bars are nearly fixed, and that fixity is the boundary.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Mozart+Musikalisches+W%C3%BCrfelspiel+musical+dice+game" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Mozart%20Musikalisches%20W%C3%BCrfelspiel">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-wolfgang-amadeus-mozart-attrib-musikalisches-wurfelspiel.html">lesson</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">02</span>
+        <span class="listen-title">John Cage — “Imaginary Landscape No. 4”</span>
+        <span class="listen-tag">chance with unownable input</span>
+      </summary>
+      <div class="listen-body">
+        <p>Twelve radios, twenty-four performers, a fully notated score of tunings and volumes — and no control whatsoever over what any frequency will be broadcasting at that moment. The gestures are fixed; the content is surrendered.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The precision of the choreography against the anarchy of the material — entries and dynamics are exact.</li>
+          <li>Silence as a legal outcome: a tuned-to-static or empty frequency is obeyed like any other result.</li>
+          <li>Your own reflex to hear intention in whatever the radios happen to say — and the piece refusing to confirm it.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Where exactly is the boundary? In the score: <em>when</em>, <em>how loud</em>, and <em>which dial position</em> are composed; <em>what sounds</em> is not — a razor-clean split between bounded and surrendered parameters. Your decision tables need exactly this clarity about which column chance owns. If it read as a prank, relisten following one performer’s part as a part: it is as strict as chamber music.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=John+Cage+Imaginary+Landscape+No.+4" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:John%20Cage%20Imaginary%20Landscape%20No%204">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-john-cage-imaginary-landscape-no-4.html">lesson</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">03</span>
+        <span class="listen-title">John Cage — “Williams Mix”</span>
+        <span class="listen-tag">chance as labor — the logged roll</span>
+      </summary>
+      <div class="listen-body">
+        <p>Some six hundred tape fragments in six categories, spliced according to I Ching consultations into a four-minute octophonic piece — a year of work executing a score of chance decisions, every one of them written down before it was obeyed.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The category system underneath the chaos: city, country, electronic, manual, wind, small sounds — try to tag what you hear.</li>
+          <li>Cut density as the chance-controlled parameter — some seconds hold a dozen splices.</li>
+          <li>The total absence of phrase logic: no sound prepares the next, because no decision knew the next.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Could “Williams Mix” be rebuilt? Yes — and that is the astonishing part: the score survives, every chance decision is logged, and new realizations have been made from it. Chance and reproducibility are not opposites; an <em>unlogged</em> chance is the only irreproducible one. This is your roll log at heroic scale. If it exhausted you, relisten for thirty seconds only, counting splices — the labor becomes audible.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=John+Cage+Williams+Mix" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:John%20Cage%20Williams%20Mix">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-john-cage-williams-mix.html">lesson</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">04</span>
+        <span class="listen-title">Morton Feldman — “Projection 1”</span>
+        <span class="listen-tag">the bounded box — free inside, fenced outside</span>
+      </summary>
+      <div class="listen-body">
+        <p>Solo cello played from a graph: boxes specify register (high, middle, low), timbre, and timing — the exact pitch inside each box is the performer’s, every time. Indeterminacy drawn as geometry, from 1950.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>How composed it sounds despite the freedom — the register contour is authored, and contour is most of what you remember.</li>
+          <li>The quietness as a fence: dynamics are bounded low, so no realization can be aggressive.</li>
+          <li>Compare two recordings: different pitches, same piece — identify what makes it the same.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>What did Feldman keep? Register, duration, density, dynamic — the statistical shape; what he released was only the final digit of pitch. The lesson for your tables: bound the parameter that carries identity, free the one that carries surface. If two recordings sounded like different pieces to you, relisten tracking only high/middle/low — the drawn line is identical.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Morton+Feldman+Projection+1+cello" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Morton%20Feldman%20Projection%201">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-morton-feldman-projection-1.html">lesson</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">05</span>
+        <span class="listen-title">Earle Brown — “December 1952”</span>
+        <span class="listen-tag">the open form — performer as dice</span>
+      </summary>
+      <div class="listen-body">
+        <p>One page: thirty-one black rectangles floating in white space, no clefs, no instructions that survive argument. The performer reads the page in any direction, mapping thickness, length, and position onto sound however they declare — the realization is the roll.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The mapping at work: once a performer fixes “thick = loud, low = low,” you can almost see the page.</li>
+          <li>Consistency as the audible spine — good realizations obey their own declared rules ruthlessly.</li>
+          <li>Compare two realizations: the same page producing music with nothing in common but discipline.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Where does this piece keep its identity? In the <em>commitment to a mapping</em> — a realization that changes its rules mid-flight audibly dissolves; one that holds them sounds composed. That is your “no rerolls” rule from the other side: a chance system is only as real as your obedience to it. If it sounded arbitrary, relisten to one realization’s first and last minute and check whether its private law held.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Earle+Brown+December+1952" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Earle%20Brown%20December%201952">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-earle-brown-december-1952.html">lesson</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">06</span>
+        <span class="listen-title">Christian Wolff — “For 1, 2 or 3 People”</span>
+        <span class="listen-tag">chance from contingency — no dice at all</span>
+      </summary>
+      <div class="listen-body">
+        <p>A score of cues and conditions: play after the next sound you hear, hold until someone else changes, start together by accident. No randomizer anywhere — the unpredictability is manufactured entirely from players reacting to players.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Hesitations and near-collisions — the audible sound of a condition being waited for.</li>
+          <li>Phrases that begin with a flinch: someone’s rule just triggered.</li>
+          <li>How alert the playing is — every performer is listening harder than they are playing.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Where is the randomness source? In the loop between people: each player’s rule takes another player’s output as input, and the network becomes unpredictable with zero dice. This widens the lab’s lens — “chance” is any decision source outside your taste, including someone else’s timing. Relisten to a minute and mark each event as cause or effect; the impossibility of deciding is the piece working.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Christian+Wolff+For+1+2+or+3+People" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Christian%20Wolff%20For%201%202%20or%203%20People">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-christian-wolff-for-1-2-or-3-people.html">lesson</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">07</span>
+        <span class="listen-title">Witold Lutosławski — “Jeux vénitiens”</span>
+        <span class="listen-tag">controlled aleatorism — chance inside fences</span>
+      </summary>
+      <div class="listen-body">
+        <p>The orchestral answer to Cage: inside marked sections, players repeat their material unsynchronized, each at their own pace — but every pitch is composed, every section cued, and the form is entirely the composer’s. Chance is granted exactly one parameter: micro-timing.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The texture shimmer that desynchronization buys — a cloud no conductor could beat and no two nights repeat.</li>
+          <li>The hard cuts between aleatoric clouds and conducted music: the fence is audible as an edit.</li>
+          <li>Harmony staying put while rhythm boils — the proof that only one column of the table was given away.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>What did chance receive, and what was withheld? It received the vertical alignment of notes — nothing else; pitch, register, density envelope, and form stayed authored, which is why every performance is different in detail and identical in drama. This is the lab’s engineering target stated as orchestration: <em>give chance one bounded parameter and architecture absorbs the variance.</em> If the clouds sounded like noise, relisten following one woodwind line inside one — it is a melody, looping politely.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Lutoslawski+Jeux+venitiens+Venetian+Games" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Lutoslawski%20Jeux%20venitiens">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-witold-lutosawski-jeux-venitiens.html">lesson</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">08</span>
+        <span class="listen-title">Hainbach — <em>Destruction Loops I–IV</em></span>
+        <span class="listen-tag">the medium rolls the dice</span>
+      </summary>
+      <div class="listen-body">
+        <p>Tape loops played until the medium fails: oxide shedding, splices stretching, the machine eating its own program. The chance source is physics; the boundary is everything chosen beforehand — the material on the loop, its length, the machine, and when to stop.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Which losses arrive first — highs dull, dropouts pock the surface, wow bends the pitch — destruction has an order.</li>
+          <li>The loop length as the only clock: every degradation event recurs at the loop period until it worsens.</li>
+          <li>The end as a found object: the piece stops where the medium decides, not where a form does.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>What was decided in advance? Everything except the details: a loop of <em>this</em> material at <em>this</em> length on <em>this</em> machine can only die in certain ways — the artist chose the space of outcomes and let physics pick the path. Note what is reproducible here: the procedure exactly, the result never — print or it is gone. If it read as passive, relisten asking how different a third of the material would have made the death; the choice of what to destroy is the composition.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Hainbach+Destruction+Loops" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Hainbach%20Destruction%20Loops">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-hainbach-destruction-loops-iiv.html">lesson</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">09</span>
+        <span class="listen-title">Marcus Fischer — <em>Loss</em></span>
+        <span class="listen-tag">curating the accidents</span>
+      </summary>
+      <div class="listen-body">
+        <p>Fragile tape loops at the edge of falling apart, re-recorded through rooms and speakers, generation loss doing the developing — and a curator pulling the chance moments of beauty out of the rubble and building an album from them.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Events no hand made: a dropout landing on a downbeat, a wobble that reads as expression.</li>
+          <li>The layer of intention above the accidents — loops are chosen, stacked, and faded with complete deliberation.</li>
+          <li>Warmth as a curatorial position: from identical materials, a harsher editor would have cut a harsher record.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Who made the moment you liked best? Probably the tape — but the tape made a thousand moments and you heard twelve; the authorship is the ratio. This is the human-role row of your spec: chance proposes at one level, you dispose at the next, and both levels must be declared. Relisten to one track and sort its events: accident kept, accident shaped, or placed on purpose — the mix of the three is the style.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Marcus+Fischer+Loss+12k" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Marcus%20Fischer%20Loss">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-marcus-fischer-loss.html">lesson</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">10</span>
+        <span class="listen-title">William Fields — <em>FieldsOS</em></span>
+        <span class="listen-tag">zero curation — the run published raw</span>
+      </summary>
+      <div class="listen-body">
+        <p>A contemporary generative system configured in advance — probabilities, conditions, constraints — then recorded and released exactly as it ran: 100% algorithmic, no curation, no editing. The opposite pole from lab 023’s record-hours-keep-minutes.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Passages a curator would have cut — and what keeping them tells you about the system’s honesty.</li>
+          <li>The configuration audible as taste: genre moves, palettes, and transitions all live in the pre-set constraints.</li>
+          <li>Your own trust shifting: knowing nothing was edited, you start crediting the system, not the author.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Where did the author act? Entirely before the run — every musical opinion was spent on the constraints, and then the output was accepted <em>in full</em>, the most radical form of “no rerolls” available. Your lab sits between this and Fischer: declare in your human-role row exactly how much curation you permit yourself, because both extremes are coherent and the undeclared middle is not. Relisten to ten minutes and ask which constraint you would tighten — that one sentence is a complete generative-music critique.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=William+Fields+FieldsOS" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:William%20Fields%20FieldsOS">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-william-fields-fieldsos.html">lesson</a></p>
+      </div>
+    </details>
+  </div>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Requirement</div>
+    <p>Your written hypothesis names <strong>which parameters this piece will surrender to chance, and how each one is fenced</strong> — dice over pre-made bars, exact gestures around unownable content, a logged roll that makes chance rebuildable, freedom boxed by register, a mapping obeyed to the end, contingency instead of dice, one parameter released inside an authored form, physics choosing the path of decay, accidents curated into warmth, or a run accepted whole — and what was stolen from the comparison. The target idea across all ten: <strong>chance chooses; the table limits; the log remembers.</strong> What you steal is a structure, never a sound.</p>
+  </div>
+
+  <h2>1 · The two specs — author from prompts</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">This is an S3 lab: no fields are provided. Answer each prompt in writing — your answers <em>are</em> the spec — then correct every row against reality after the build.</p>
+
+  <table class="param-table">
+    <caption>System Spec — author from these prompts</caption>
+    <tr><td>Inputs</td><td>Which voice realizes the rolled decisions — MicroFreak preset, Live instrument, Digitakt pattern? List every parameter that appears in a decision table, and every parameter that explicitly does not — the second list is the longer and more important one.</td></tr>
+    <tr><td>Transforms</td><td>Write the decision tables themselves: question, die used, face-to-outcome mapping, weights. Each table must be enterable by a stranger — “roll for the vibe” is not a table. How many questions does the whole piece ask? Number them; the numbers index the roll log.</td></tr>
+    <tr><td>Feedback / variation</td><td>Once the rolls are entered, the system runs deterministically — so where does life come from across 6–8 minutes? More questions per section, a table that schedules re-rolls at composed points, or motion designed into the patch beneath the frozen decisions?</td></tr>
+    <tr><td>Constraints</td><td>Track budget? The no-reroll rule — written where you can see it? Which outcomes did you remove from a table because you couldn’t accept them — keep the crossed-out rows; they are evidence of composing.</td></tr>
+    <tr><td>Human role</td><td>You write tables, roll, log, enter, and print. May you curate between complete realizations? Declare the curation level in advance — Fischer’s twelve-from-a-thousand or Fields’ zero — and hold it.</td></tr>
+  </table>
+
+  <table class="param-table">
+    <caption>Engineering Spec — author from these prompts, correct after building</caption>
+    <tr><td>Signal path</td><td>Draw both: source → recorder and source → ears. Which M4 input carries the MicroFreak? The dice and the roll log live on the <em>control-path</em> diagram — where exactly does a paper decision become a parameter value, and who carries it across (your hand, typing)?</td></tr>
+    <tr><td>Gain plan</td><td>Chance may legally stack the densest outcomes of every table at once — compute that worst case and set the peak ceiling for it, not for the average roll. Quote the lab-001 ledger value you are using.</td></tr>
+    <tr><td>Clock / sync</td><td>Live is master; the rolled configuration follows the transport. If a table decides tempo or section length, what re-syncs after the value is entered — and is a mid-piece tempo result acceptable, or did you fence it out?</td></tr>
+    <tr><td>Latency</td><td>Nothing is performed in real time — decisions happen on paper. What does latency still touch (monitoring while auditioning outcomes), and what can you ignore?</td></tr>
+    <tr><td>Stereo / phase</td><td>If pan is a rolled parameter, what stops chance from stacking everything on one side — a table bound, or a post-roll correction you must then declare? Does the result survive a mono check?</td></tr>
+    <tr><td>Noise budget</td><td>If a table can choose near-silence for a section, the floor becomes the soloist. Record thirty seconds of the patch at idle and write down what you hear.</td></tr>
+    <tr><td>Print strategy</td><td>Print each realization in full, named for its run: <span class="code">LAB-025-run-1</span>, <span class="code">-run-2</span>. The audit needs both prints intact — no patching run 2 from run 1’s audio.</td></tr>
+    <tr><td>Failure mode</td><td>Predict one likely failure and how you would see it. This lab’s faultType is <strong>reproducibility</strong> — the canonical failure is a second run that disagrees with the first because a decision never went through a table.</td></tr>
+    <tr><td>Safety</td><td>Worst-case stacking is loud by construction — set the level ceiling before the first full realization, and write the phones level next to the no-reroll rule.</td></tr>
+  </table>
+
+  <h2>2 · State · seed · boundary — declare before the first note</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">The Block 6 ritual — and this lab is the seed row’s one honest victory: for once, every random decision in the piece is written on paper in your own hand.</p>
+
+  <table class="param-table">
+    <caption>Decision-system declaration — authored, then corrected after the build</caption>
+    <tr><td>State</td><td>What does the system remember? The decision tables and roll log live on paper; the entered values live in the set. Which is authoritative when they disagree? (Paper — the set is a rendering of the log. Say so in writing.)</td></tr>
+    <tr><td>Seed</td><td>Can a run be reproduced? Yes — exactly, for the first time in this block: the roll log is a true seed. Declare its format (run number, question number, die, result, value entered) and where it is filed. The two-run audit is this row under test.</td></tr>
+    <tr><td>Boundary</td><td>What may chance decide — only what a numbered table grants it. What is forbidden — every parameter not in a table, rerolls, off-log adjustments, and the final say on curation. The crossed-out table rows are the boundary’s visible edge.</td></tr>
+  </table>
+
+  <h2>3 · Bench preflight — two paths, drawn separately</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Block 6 draws every system twice. The audio path carries sound; the control path carries decisions — and in this lab the control path starts in your hand: dice, log, entry. Every arrow a decision crosses on paper is an arrow the fault ritual will interrogate.</p>
+
+  <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:var(--fs-xs); letter-spacing:0.2em; text-transform:uppercase;">Audio path — what carries sound</h3>
+  <div class="signal-flow">
+    <span class="signal-node">MicroFreak out</span>
+    <span class="signal-arrow">→ TRS →</span>
+    <span class="signal-node">M4 in 1</span>
+    <span class="signal-arrow">→ USB-C →</span>
+    <span class="signal-node">Live audio track</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">master + ceiling</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">M4 → DT 990</span>
+  </div>
+
+  <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:var(--fs-xs); letter-spacing:0.2em; text-transform:uppercase;">Control path — what carries decisions</h3>
+  <div class="signal-flow">
+    <span class="signal-node">decision tables (paper)</span>
+    <span class="signal-arrow">→ dice →</span>
+    <span class="signal-node">roll log (paper)</span>
+    <span class="signal-arrow">→ entered by hand →</span>
+    <span class="signal-node">Live / Digitakt parameters</span>
+    <span class="signal-arrow">→ USB MIDI →</span>
+    <span class="signal-node">MicroFreak voice</span>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Honest rig note:</strong> the Digitakt II’s trig conditions and chance can hold rolled values as pattern data, and the gear roadmap’s Torso T-1 is this lab’s hardware home when it arrives — labs 023/025 are its named targets. Whatever holds the values, the dice stay physical and the log stays paper: the seed must outlive every device. All of it appears on the <em>control</em> diagram only.</li>
+      <li><strong>10-minute unattended test:</strong> once the rolls are entered, the realization is a self-running system and takes the block’s test — start it, hands off for ten minutes, record everything. Pass: it neither falls silent past its tables nor clips the worst-case stack. Fail: fix a table bound, never a rolled value.</li>
+    </ul>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Pre-flight — before the first roll</div>
+    </div>
+    <ul>
+      <li>Both specs authored on paper from the prompts — this is S3: blank pages, your answers</li>
+      <li>State, seed, and boundary declared — one sentence each, filed with the specs</li>
+      <li>Both diagrams drawn — audio path and control path, two separate drawings</li>
+      <li>Every decision table written, numbered, and read through once — every row acceptable, rejected rows crossed out and kept</li>
+      <li>Roll log ruled and headed: run number, question number, die, result, value entered</li>
+      <li>Gain ledger from lab 001 applied at M4 in 1; worst-case stack computed and the ceiling set for it</li>
+      <li>The no-reroll rule written where you will see it when you most want to break it</li>
+      <li>Phones at the lab-001 mark; level ceiling set before any unattended run</li>
+    </ul>
+  </div>
+
+  <h2>3 · Build</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Build the lab in five passes. Each pass produces an artifact, not just a better-sounding session: a written rule, a printed comparison, a fault entry, and a corrected system sentence.</p>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Build recipe · Chance Operations</div>
+      <h3 class="step-title">Make the decision system audible</h3>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Do this in order</div>
+      <ol class="rules-list">
+        <li><strong>Declare the rule set.</strong> Write state, seed, and boundary before programming. If a row is blank, the system is not ready to run.</li><li><strong>Build the generator.</strong> Use Digitakt II conditions/probability, Live MIDI devices, MicroFreak modulation, or rack limits to make the decision path audible.</li><li><strong>Run unattended.</strong> Record at least ten minutes with hands off. If the system needs rescuing, fix the boundary and run again from zero.</li><li><strong>Print a sibling run.</strong> Change one rule value and record a second run. Compare event distribution, density, range, and forbidden events.</li><li><strong>Run the fault.</strong> Lose the seed, corrupt state, or change one rule mid-run. Diagnose what can be reproduced and what exists only as audio.</li>
+      </ol>
+    </div>
+    <div class="signal-flow">
+      <span class="signal-node">Live 12</span>
+      <span class="signal-arrow">↔</span>
+      <span class="signal-node">Digitakt II</span>
+      <span class="signal-arrow">+</span>
+      <span class="signal-node">MicroFreak</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">MOTU M4</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">Print + logbook</span>
+    </div>
+  </div>
+
+  <table class="param-table">
+    <caption>Build artifacts</caption>
+    <tr><td>Rule or hypothesis</td><td>one sentence, written before sound</td></tr>
+    <tr><td>System drawing</td><td>audio path and, where relevant, control path</td></tr>
+    <tr><td>Calibration proof</td><td>state, seed, boundary, unattended test, and behavior comparison</td></tr>
+    <tr><td>Printed comparison</td><td>neutral / changed / keeper prints, named and gain matched</td></tr>
+    <tr><td>Fault entry</td><td>symptom → cause → fix → prevention rule</td></tr>
+  </table>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Build exit check</div>
+    <p>The lab can move to diagnosis only when the printed audio proves the written rule. If the rule sounds true only while you explain it, simplify the system and print again.</p>
+  </div>
+
+  <h2>5 · Diagnosis &amp; report</h2>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Fault ritual — faultType: reproducibility</div>
+    <p>Predict the symptom → create the fault → observe → diagnose → fix → write the rule. The fault is the audit itself: days after the first realization, rebuild the entire session from the decision tables and roll log alone — no listening to run 1 first — and print run 2. Diff the two prints decision by decision. Every divergence is a decision that was made off-table: a knob nudged by taste, a “correction” after a roll, an unlogged default. Find each one, name it, and either give it a table or write it into the spec as a declared human decision. The expected lesson: the dice were never the threat to reproducibility — you were.</p>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">The full report bundle — ten items, filed in the logbook</div>
+    </div>
+    <ul>
+      <li>Rendered piece — 24-bit WAV, master peaking −3 dBFS, 6–8 minutes, the realization you stand behind</li>
+      <li>Routing diagrams — audio path <em>and</em> control path, drawn before patching, corrected after; the diff is the lesson</li>
+      <li>Recording plan — which realizations were printed, named by run number</li>
+      <li>Patch notes — every decision table in full, including crossed-out rows, plus the complete roll log</li>
+      <li>Session notes — per run: which rolls hurt to obey, and what obeying them taught</li>
+      <li>Reflection answers, including the listening comparison — which reference contributed what to the hypothesis</li>
+      <li>One removal decision — a table, question, or outcome cut, and what cutting it did</li>
+      <li>Fault entry — symptom, cause, fix, prevention rule (faultType: reproducibility)</li>
+      <li>Print map — both audit runs as audio, the tables and log as text, and the two-run diff with every divergence explained</li>
+      <li>System diff sentence — “I thought the system worked like X; after building it, I discovered it worked like Y.”</li>
+    </ul>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Minimum pass gate:</strong> audible output · routing diagrams (both paths) · fault entry · print map · system diff. Without these five, the lab is incomplete regardless of audio quality — a musically strong piece cannot bypass the engineering spine.</li>
+    </ul>
+  </div>
+
+  <div class="final">
+    <div class="final-label">Track-lab principle</div>
+    <p>Chance chooses, the table limits, the log remembers — and a chance operation is only honest if you would accept every outcome, obey every roll, and let a stranger rebuild the piece from your paper.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="lab-024.html">
+      <span class="page-nav-direction">Previous</span>
+      ← Lab 024 / The Modulation Organism
+    </a>
+    <a href="lab-026.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      Lab 026 / Tuning as System →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Block 6 · Lab 025</div>
+
+</div>
+
+  <script src="../nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Replicate — A Listening Machine as Duo Partner</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page-type-rep" id="top">
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu"><span class="hamburger-lines"><span></span><span></span><span></span></span></label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html" class="active"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 8 · Synthesis &amp; Voice</a><span class="breadcrumb-sep">/</span><span>Replicate: a listening machine as duo partner</span></nav>
+
+  <header class="page-header">
+    <div class="eyebrow">Black experimental lineage · Replication lesson</div>
+    <h1>Replicate: a listening machine as duo partner</h1>
+    <p class="lede">Copy the structural engine of George Lewis’s <em>Voyager</em>: a machine that listens to a human player and answers, so the music is a negotiation between two improvisers — one of whom is software. Build a small listening responder on the rig and play a duet with it.</p>
+  </header>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l8.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs">Labs</a><a href="lab-r8.html" data-section="rebuild">Rebuild</a><a href="capstone-c7.html" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep" class="current">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
+
+  <div class="callout">
+    <div class="callout-label">The point</div>
+    <p>This drill teaches <em>Voyager</em>’s core mechanism: an interactive computer improviser that <em>analyses</em> what the human plays and <em>responds</em> with its own choices, so neither party is accompanist — the piece is human↔machine negotiation. You steal the <em>structure</em> (a listening responder you trade with), never Lewis’s specific algorithm or output. Do only the steps that make the listening-and-answering loop audible.</p>
+  </div>
+
+  <table class="param-table">
+    <caption>The system you are replicating</caption>
+    <tr><td>Source</td><td>George Lewis — <em>Voyager</em></td></tr>
+    <tr><td>The effect</td><td>A duet in which the electronic voice clearly hears the human — surging when you surge, retreating into its own ideas when you rest — so it feels like a partner with opinions, not a backing track</td></tr>
+    <tr><td>The mechanism</td><td>A listening machine: analysis of the human’s input (level, density, register) drives the machine’s response, making the form an ongoing two-way negotiation rather than a fixed part</td></tr>
+  </table>
+
+  <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=George+Lewis+Voyager+interactive" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:George%20Lewis%20Voyager">Spotify</a></p>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"></path></svg></div>
+      <div class="checklist-label">Before you start</div>
+    </div>
+    <ul>
+      <li>Digitakt II synced to Live (lab 002’s clock setup), MicroFreak on its input</li>
+      <li>Pen and paper for a response map — transcribed from the record before you build: what does the machine do when the human gets louder, busier, or stops?</li>
+    </ul>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>What you will make:</strong> a small listening responder — an envelope-follower or analysis driving a synth voice — and a short recorded duet with it. Focus on this effect: the machine audibly reacts to you.</li>
+      <li><strong>What you will turn off:</strong> any pre-sequenced machine part or fixed clip that would let the “responder” play the same thing regardless of what you do.</li>
+      <li><strong>What you will prove:</strong> your version and <span class="code">REF</span> share the mechanism: a listening machine (analysis → response) acting as a duo partner.</li>
+      <li><strong>What counts as success:</strong> a listener can tell the machine heard you. The replica stays in the logbook as study evidence; it is never released.</li>
+    </ul>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Reference pass · 10 minutes</div>
+      <h3 class="step-title">Listen before you build</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Listen to a few minutes of <em>Voyager</em>, watching the relationship between the human player and the electronic voice. Write one short answer for each question before you touch the gear.</p>
+    <ol class="rules-list">
+      <li>How do you know the machine is listening at all?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Its behaviour changes in step with the human’s — it gets denser when the player gets denser, leaves gaps when the player leans in, and changes character at the player’s phrase boundaries. The correlation is the tell; a tape would not track you.</p></div></details>
+      </li>
+      <li>Does the machine mirror the human, or argue with it?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Both, unpredictably. Sometimes it doubles the human’s energy; sometimes it does the opposite — answering a loud surge with sudden sparseness. It is responding, not copying, which is why it reads as a partner with its own taste.</p></div></details>
+      </li>
+      <li>What happens to the machine when the human stops playing?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>It does not just stop. It either keeps developing its own line into the silence or thins out — but the human’s rest is clearly an input that produces a response, not a dead patch. The silence is part of the conversation.</p></div></details>
+      </li>
+      <li>Is there a fixed form, or is the shape produced by the exchange itself?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>There is no through-composed form; the shape is whatever the negotiation produces on the night. Sections arrive because one party pushed and the other answered, not because a chart said so.</p></div></details>
+      </li>
+    </ol>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Now build a responder that makes those reactions audible. Do not build from memory.</p>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Structural target:</strong> the machine’s output is driven by analysis of your live input — not a clip, not a fixed pattern.</li>
+      <li><strong>Inputs:</strong> at minimum the human’s amplitude (envelope follower); ideally also density (how busy) so silence is itself a trigger.</li>
+      <li><strong>Responses:</strong> map each input to a musical move — louder → filter opens; you stop → the machine takes a solo turn — and let at least one response be a contrary one.</li>
+      <li><strong>Duet:</strong> you and the responder trade; neither is the backing.</li>
+    </ul>
+  </div>
+
+  <h2>Steps</h2>
+
+  <div class="note-block control-map">
+    <ul>
+      <li><strong>Button map for the steps below:</strong> use these controls whenever the lesson names the device.</li>
+      <li><strong>Live 12:</strong> <kbd>⌘ T</kbd> creates an audio track, <kbd>⇧⌘ T</kbd> creates a MIDI track, <kbd>⌘ R</kbd> renames the selected track, and <kbd>⌘ M</kbd> enters MIDI Map mode. Use <span class="menu">Envelope Follower</span> (right-click a parameter → Modulate, or the Mapping browser) to turn audio into control.</li>
+      <li><strong>Digitakt II:</strong> <span class="code">[TRK]</span> + <span class="code">[TRIG 1-16]</span> selects the active track; <span class="code">[FUNC]</span> + the LFO/parameter pages route an LFO or input to a destination. Use a track’s LFO retrig and conditional trigs to make its behaviour depend on changing state.</li>
+      <li><strong>MicroFreak:</strong> the responder voice — select its engine with <span class="code">Type</span>; the front-panel <span class="code">Cutoff</span>, <span class="code">LFO</span>, and envelope are the parameters Live’s follower will drive over MIDI/CV.</li>
+      <li><strong>Recorder or phone:</strong> capture the duet in one pass; do not edit the machine’s reactions afterward — its mistakes are the evidence.</li>
+    </ul>
+  </div>
+
+  <div class="gear-switch"><input type="radio" name="gear" id="gear-hw" class="gear-radio" checked><input type="radio" name="gear" id="gear-sw" class="gear-radio"><input type="radio" name="gear" id="gear-tg" class="gear-radio"><div class="gear-labels"><span class="gear-lead">Your rig</span><label for="gear-hw">MicroFreak + Digitakt II</label><label for="gear-sw">Ableton Live only</label><label for="gear-tg">Digitone II · target</label></div><div class="gear-scope"><div class="step">
+    <div class="step-head">
+      <div class="step-num">Phase 1 — ~25 minutes</div>
+      <h3 class="step-title">Build the listener: analysis → response</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: wire your live input so it drives the machine voice. Follow the steps in order.</p>
+    <div class="signal-flow">
+      <span class="signal-node">human input (MicroFreak / voice)</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">Live Envelope Follower (level + density)</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">machine voice parameters</span>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol class="rules-list">
+        <li>Route your live input (play the MicroFreak by hand, or sing) into an audio track and put an Envelope Follower on it.</li>
+        <li>Map the follower to a second, machine voice — open its filter as you get louder, push its LFO rate as you get busier.</li>
+        <li>Add one <em>contrary</em> mapping: when your input drops below a threshold (you stop), trigger the machine to start its own phrase — so silence is an input, not an off switch.</li>
+        <li>Test by playing a loud surge, then stopping dead. Confirm the machine surges, then takes its turn.</li>
+      </ol>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from the reference and use Live audio/MIDI tracks, Utility, automation, and resampling.</li><li>Build the phase goal — <em>Build the listener: analysis → response</em> — as the smallest Live set that proves <em>A listening machine: analysis of the human’s input (level, density, register) drives the machine’s response, making the form an ongoing two-way negotiation rather than a fixed part</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>A duet in which the electronic voice clearly hears the human — surging when you surge, retreating into its own ideas when you rest — so it feels like a partner with opinions, not a backing track</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Digitone II for this phase: translate <em>Build the listener: analysis → response</em> into FM tracks, sound locks, trig conditions, LFOs, macros, and Overbridge or main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>A listening machine: analysis of the human’s input (level, density, register) drives the machine’s response, making the form an ongoing two-way negotiation rather than a fixed part</em>, not just the surface of the reference.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
+    <div class="sub-block">
+      <div class="sub-label">Expected result</div>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A machine voice that demonstrably changes with your level and density, and that does something deliberate when you go quiet — a responder, not a clip.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Phase 2 — ~20 minutes</div>
+      <h3 class="step-title">Play the duet</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: improvise a two-way exchange and record it in one pass. Follow the steps in order.</p>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol class="rules-list">
+        <li>Arm recording and play a short statement, then leave room and listen to what the machine answers.</li>
+        <li>React to the machine in turn — push when it pushes, withdraw when it crowds you — so the shape comes from the trade.</li>
+        <li>Deliberately stop once, fully, to hear the machine carry the silence and take its own turn.</li>
+        <li>Do not edit the take. Keep the machine’s wrong-footed responses; they are proof it was reacting, not playing back.</li>
+      </ol>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from the reference and use Live audio/MIDI tracks, Utility, automation, and resampling.</li><li>Build the phase goal — <em>Play the duet</em> — as the smallest Live set that proves <em>A listening machine: analysis of the human’s input (level, density, register) drives the machine’s response, making the form an ongoing two-way negotiation rather than a fixed part</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>A duet in which the electronic voice clearly hears the human — surging when you surge, retreating into its own ideas when you rest — so it feels like a partner with opinions, not a backing track</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Digitone II for this phase: translate <em>Play the duet</em> into FM tracks, sound locks, trig conditions, LFOs, macros, and Overbridge or main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>A listening machine: analysis of the human’s input (level, density, register) drives the machine’s response, making the form an ongoing two-way negotiation rather than a fixed part</em>, not just the surface of the reference.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
+    <div class="sub-block">
+      <div class="sub-label">Expected result</div>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A few minutes where the form is visibly produced by the exchange — you can point to a moment the machine “heard” a move of yours and answered it.</p>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">If it fails</div>
+      <table>
+        <thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead>
+        <tbody>
+          <tr><td>The machine sounds the same no matter what you do</td><td>The follower range is too narrow, or the mapping is too subtle to hear</td><td>Widen the mapped range and pick a destination with obvious effect (filter cutoff, voice on/off) before adding subtle ones</td></tr>
+          <tr><td>When you stop, the machine just stops too</td><td>No contrary mapping — silence reads as “off” not “your turn”</td><td>Add a low-threshold trigger so dropping below it launches the machine’s own phrase</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  </div></div><div class="decision-check">
+    <div class="decision-check-label">Verify against the record</div>
+    <p>A/B your duet against a stretch of <em>Voyager</em> at matched loudness — 10 seconds of yours, 10 of theirs, gain-matched with a Utility. Then answer two questions in writing.</p>
+    <p><strong>Could a listener tell the machine was hearing you?</strong></p>
+    <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>The proof is correlation a stranger could spot — your surge and its surge land together, your silence changes its behaviour. If your machine’s output would be identical with the input muted, you built an accompaniment, not a listener. Re-check that the follower is actually driving an audible parameter.</p></div></details>
+    <p><strong>Did the machine ever answer rather than mirror?</strong></p>
+    <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>It should at least once do the opposite of you — thin out when you surge, or speak into your silence. That contrariness is what makes Lewis’s system feel like a partner with its own mind rather than a delay line. If yours only mirrors, your mappings are all positive; add an inverse or threshold response.</p></div></details>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Logbook — the miss list, three lines:</strong> “Matched: …” · “Missed: … (best guess why)” · “Change next: …”</li>
+      <li>And one more line — name the single moment the machine most convincingly “heard” you, and what mapping produced it.</li>
+      <li>This replica stays in the logbook as study evidence; it is not a release.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav"><a href="listening-l8.html"><span class="page-nav-direction">Back</span>Listening L8</a><a href="index.html" class="next"><span class="page-nav-direction">Block</span>Block 8 index →</a></div>
+  <div class="footer">Experimental Music Workshop — Block 8 · Replication lesson</div>
+</div>
+  <script src="../nav.js"></script>
+</body>
+</html>

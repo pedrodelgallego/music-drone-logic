@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab 024b — West-Coast Voice</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page-type-lab" id="top">
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu"><span class="hamburger-lines"><span></span><span></span><span></span></span></label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html" class="active"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 6 · Decision Systems</a><span class="breadcrumb-sep">/</span><span>West-Coast Voice</span></nav>
+
+  <header class="page-header">
+    <div class="eyebrow">Block 6 · Lab 024b · Étude</div>
+    <h1>West-Coast Voice</h1>
+    <p class="lede">The course has taught you the east-coast model: a rich oscillator carved down by a resonant filter and shaped by an ADSR. This étude builds the opposite philosophy — the west-coast (Buchla) voice, where a simple oscillator is made complex by <em>wavefolding</em> and articulated by a <em>low-pass gate</em>. Brightness, loudness, and length become one gesture instead of three.</p>
+  </header>
+  <p class="block-meta">Étude · É6 · west-coast synthesis · VCV Rack · introduces the Folder/LPG Test</p>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l6.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs" class="current">Labs</a><a href="lab-r6.html" data-section="rebuild">Rebuild</a><a href="capstone-c5.html" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
+
+  <div class="signal-flow">
+    <span class="signal-node">listen</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">hypothesis</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">sine → folder</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">ping the LPG</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">one-control phrase</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">fault: LPF not LPG</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">diagnose</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">A/B vs subtractive</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">print</span>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Start here</div>
+    </div>
+    <ul>
+      <li>Install <strong>VCV Rack 2</strong> (free) — this étude is built in modular. Hardware owners can use a Make Noise Strega or similar; the MicroFreak is a limited approximation (it has a wavefolder but no true LPG).</li>
+      <li>Run the listening below first — Subotnick and Ciani <em>are</em> the hypothesis for this voice.</li>
+      <li>Save the patch as <span class="code">LAB-024B-westcoast.vcv</span> and a Live set <span class="code">LAB-024B</span> to record into.</li>
+      <li>Have a normal subtractive patch (saw → resonant low-pass → ADSR) ready on another track for the final A/B.</li>
+      <li>Expected time: two sessions — one to build the folder + LPG voice, one to write the phrase, fault, and A/B.</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The point</div>
+    <p>East coast (Moog/Buchla's rival tradition) starts rich and subtracts. West coast (Buchla) starts simple and <em>adds</em> complexity through nonlinear shaping, then articulates with a gate that ties brightness to loudness the way an acoustic instrument does — hit it harder and it is louder, brighter, and rings longer, all at once. This étude makes one control carry all the expression, which is the west-coast idea in one sentence.</p>
+  </div>
+
+  <h2>1 · Listen first — the west-coast sound</h2>
+
+  <p>Three listening sources define this voice. They are not "ambient texture" — they are demonstrations of folding and the low-pass gate doing the work a filter and ADSR would do on the east coast.</p>
+
+  <div class="listen-acc">
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">01</span>
+        <span class="listen-title">Morton Subotnick — <em>Silver Apples of the Moon</em></span>
+        <span class="listen-tag">the Buchla, articulated</span>
+      </summary>
+      <div class="listen-body">
+        <p>The first electronic work commissioned for a record. Built entirely on the Buchla 100 — no keyboard, no subtractive filter sweeps. The sounds are folded and gated, bubbling and percussive.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Plucky, bongo-like tones that get brighter as they get louder — that is the low-pass gate, not an envelope on a filter.</li>
+          <li>Timbres that bloom in complexity at peaks and simplify at troughs — wavefolding tracking dynamics.</li>
+          <li>The near-total absence of the "filter sweep" gesture you associate with synths — west coast does not work that way.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Find a single repeated pluck and notice that the loud ones are brighter and ring longer than the quiet ones — brightness, loudness, and length are one control. That fusion is the LPG signature you will build.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Morton+Subotnick+Silver+Apples+of+the+Moon" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Subotnick%20Silver%20Apples%20of%20the%20Moon">Spotify</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">02</span>
+        <span class="listen-title">Suzanne Ciani — Buchla concerts / <em>Buchla Concerts 1975</em></span>
+        <span class="listen-tag">folding as the whole timbre</span>
+      </summary>
+      <div class="listen-body">
+        <p>Ciani is the great living voice of the Buchla. Her live patches are sequences of folded tones articulated by gates — the expression lives in how hard each event hits the folder and the LPG.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Tones that morph in harmonic content as they swell — the wavefolder adding harmonics as level rises.</li>
+          <li>Watery, vocal-like movement created without a resonant filter anywhere.</li>
+          <li>How a single sequence stays interesting because each step is folded/gated to a different depth.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Try to locate a resonant filter "wah." You will not find one — the motion is folding depth changing, not a cutoff sweeping. That absence is the test of whether you are hearing west coast or east coast.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Suzanne+Ciani+Buchla+Concerts+1975" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Suzanne%20Ciani%20Buchla%20Concerts">Spotify</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">03</span>
+        <span class="listen-title">Suzanne Ciani — "The Fifth Wave" / any LPG-driven pluck piece</span>
+        <span class="listen-tag">the bongo / plucked decay</span>
+      </summary>
+      <div class="listen-body">
+        <p>The vactrol low-pass gate gives a characteristic "bongo" decay — a soft, organic pluck that no ADSR quite matches because the brightness and the volume fall together along the vactrol's natural curve.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Percussive events with a soft, rounded attack and a decay that darkens as it fades — not the sharp gate of a VCA.</li>
+          <li>The "rubbery" organic quality of the decay — that is the vactrol's slow response, modelled in VCV's LPG.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Compare a pluck here to a synth pluck made with an ADSR closing a VCA: the LPG one gets <em>darker</em> as it decays; the ADSR one stays the same colour and just gets quieter. That darkening-on-decay is the LPG.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Suzanne+Ciani+low+pass+gate+buchla" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Suzanne%20Ciani">Spotify</a></p>
+      </div>
+    </details>
+  </div>
+
+  <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 18px 0 0;">Write a one-sentence hypothesis contrasting the two philosophies. The target is something like — <strong style="color: var(--text);">west coast makes a simple oscillator complex by folding (more level = more harmonics) and articulates it with a low-pass gate that ties brightness, loudness, and decay length into one gesture, where east coast carves a rich oscillator with a resonant filter and a separate ADSR.</strong> The build tests whether you can hear and make the difference.</p>
+
+  <h2>2 · The two specs</h2>
+
+  <table class="param-table">
+    <caption>System Spec — the west-coast voice as a system</caption>
+    <tr><td>Inputs</td><td>One simple oscillator — a sine or triangle (harmonically poor on purpose) · a trigger/clock source to ping the gate · an envelope to modulate fold depth</td></tr>
+    <tr><td>Transforms</td><td>Wavefolder (adds harmonics as input level rises) · low-pass gate (combined VCA+VCF on a vactrol curve: louder = brighter + longer) · an envelope driving fold depth so brightness tracks dynamics</td></tr>
+    <tr><td>Feedback / variation</td><td>Variation comes from one control carrying the expression — either fold depth or the strength of the LPG ping; a slow random/LFO source can drive it for a generative phrase</td></tr>
+    <tr><td>Constraints</td><td>No resonant low-pass filter used as the articulator (that is east coast — and the prescribed fault) · the oscillator must start simple · one control must carry the expression in the final phrase</td></tr>
+    <tr><td>Human role</td><td>Choose what the single expressive control is; tune the folder so it blooms rather than buzzes; tune the LPG so the pluck reads as organic, not as a VCA gate</td></tr>
+  </table>
+
+  <table class="param-table">
+    <caption>Engineering Spec — the bench (VCV Rack)</caption>
+    <tr><td>Signal path</td><td>VCO (sine/tri) → Wavefolder → Low-Pass Gate → Audio output module → recorded into Live · clock/trigger module → LPG ping input · envelope (e.g. an AD/function generator) → folder fold-depth CV</td></tr>
+    <tr><td>Gain plan</td><td>Watch folder input level — folding depends on amplitude, so the VCO/level into the folder <em>is</em> a timbre control, not just a volume · keep the recorded peak ≈ <span class="code">−12 dBFS</span> in Live</td></tr>
+    <tr><td>Clock / sync</td><td>A trigger source pings the LPG; tempo can be free (generative) or synced · the phrase is short, 2–8 bars</td></tr>
+    <tr><td>Latency</td><td>VCV → audio interface → Live; buffer 256 · monitor through Live to keep one listening path</td></tr>
+    <tr><td>Stereo / phase</td><td>Mono is fine and authentic (classic Buchla voices are mono); add space later with Block 5 tools</td></tr>
+    <tr><td>Noise budget</td><td>The LPG naturally closes to silence between pings — exploit that for a low noise floor; do not gate by hand</td></tr>
+    <tr><td>Print strategy</td><td>Save the .vcv patch and a screenshot of the cabling · print the generative phrase and the A/B subtractive version · note every module by name</td></tr>
+    <tr><td>Failure mode</td><td>Reaching for a resonant low-pass filter (VCF) as the articulator instead of an LPG — you get east-coast "wah/pluck," not the west-coast vactrol bongo — induced and diagnosed in step 5</td></tr>
+  </table>
+
+  <h2>3 · Concepts — east coast versus west coast</h2>
+
+  <table>
+    <thead><tr><th>Concept</th><th>In plain words</th></tr></thead>
+    <tbody>
+      <tr><td><span class="lab-title">East-coast (subtractive)</span></td><td>Start with a harmonically rich oscillator (saw/square), remove harmonics with a resonant low-pass filter, and shape volume with an ADSR envelope on a VCA. Brightness and loudness are separate controls. This is what the course has taught so far.</td></tr>
+      <tr><td><span class="lab-title">Wavefolding</span></td><td>A nonlinear shaper that "folds" a waveform back on itself when it exceeds a threshold. A pure sine has no harmonics; fold it and you generate new harmonics — and the harder you drive the input (more level), the more folds and the brighter the tone. Complexity from amplitude, not from a filter.</td></tr>
+      <tr><td><span class="lab-title">Low-pass gate (LPG)</span></td><td>A combined VCA + low-pass filter controlled together, classically through a <em>vactrol</em> (an LED + light-dependent resistor). Ping it with a trigger and it opens then closes along the vactrol's slow organic curve, so as the sound fades it also gets <em>darker</em> — louder = brighter + longer, all at once. This is what makes the "bongo/plucked" Buchla sound.</td></tr>
+      <tr><td><span class="lab-title">Vactrol curve</span></td><td>The vactrol does not respond instantly — the LDR lags the LED. That lag gives the LPG its characteristic soft attack and rubbery decay that a clean digital VCA cannot reproduce. VCV's LPG modules model this; it is the reason an LPG pluck never sounds like an ADSR pluck.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>4 · Build (VCV Rack)</h2>
+
+  <!-- FOLDER -->
+  <h3 style="margin-top:28px;">Step A — sine into a wavefolder, fold depth on an envelope</h3>
+
+  <div class="signal-flow">
+    <span class="signal-node">VCO<br>sine/tri</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">wavefolder</span>
+    <span class="signal-arrow">↑ CV</span>
+    <span class="signal-node">envelope<br>→ fold depth</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">harmonics<br>bloom with dynamics</span>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Step 01</div>
+      <h3 class="step-title">Make a simple oscillator complex by folding</h3>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <ol>
+        <li>In VCV, add a <strong>VCO</strong> (e.g. Fundamental VCO-1 or Befaco EvenVCO). Take its <strong>sine</strong> (or triangle) output — the harmonically poorest waveform on purpose.</li>
+        <li>Add a <strong>wavefolder</strong> module. Reliable free choices in the VCV library: <strong>Bogaudio "FOLD"</strong>, the wavefolder in <strong>Surge XT "Waveshaper"</strong>, or a Befaco folder. Patch the VCO sine into the folder input.</li>
+        <li>Turn the folder's <strong>fold/gain</strong> knob up slowly while a note sounds: a pure tone sprouts new harmonics, getting brighter and buzzier as you drive it harder. Confirm on a scope module that the smooth sine is now folded.</li>
+        <li>Add an <strong>envelope generator</strong> (AD or function module like Bogaudio "FOLLOW"? use Befaco "Rampage" or Fundamental ADSR) and patch its output to the folder's <strong>fold-depth CV input</strong> (with attenuation). Now fold depth — and therefore brightness — tracks the envelope: dynamics drive timbre.</li>
+      </ol>
+    </div>
+    <table class="param-table">
+      <caption>Folder stage — modules and settings</caption>
+      <tr><td>Oscillator</td><td>VCO sine or triangle (low harmonic content)</td></tr>
+      <tr><td>Folder</td><td>Bogaudio FOLD / Befaco folder / Surge XT folder</td></tr>
+      <tr><td>Fold knob</td><td>start near minimum; brightness rises as it (or its CV) increases</td></tr>
+      <tr><td>Fold-depth CV</td><td>from an AD/function envelope, attenuated — this makes brightness track dynamics</td></tr>
+      <tr><td>Scope</td><td>patch the folder output to a scope to <em>see</em> the folds appear</td></tr>
+    </table>
+    <div class="note-block">
+      <ul>
+        <li><strong>Why a sine, not a saw:</strong> if you fold a saw you cannot tell the folding from the source's own harmonics. Folding a sine isolates the lesson — every new harmonic you hear was made by the fold, controllable by level.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- LPG -->
+  <h3 style="margin-top:28px;">Step B — route through a low-pass gate, pinged by a trigger</h3>
+
+  <div class="signal-flow">
+    <span class="signal-node">folder out</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">low-pass gate<br>(VCA+VCF, vactrol)</span>
+    <span class="signal-arrow">↑ ping</span>
+    <span class="signal-node">trigger/clock</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">plucked "bongo"<br>brighter+longer when louder</span>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Step 02</div>
+      <h3 class="step-title">Articulate with the LPG, not a filter</h3>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <ol>
+        <li>Add a <strong>low-pass gate</strong> module — VCV has several. Recommended free choices: <strong>Bogaudio "LLPG"</strong> (a dedicated vactrol-modelled LPG), or Audible Instruments "Veils" used in its LPG mode. Patch the folder output into the LPG audio input; LPG output → audio interface module → Live.</li>
+        <li>Add a <strong>trigger/clock</strong> source (e.g. Fundamental "SEQ-3" gates, or a clock + a manual button). Patch a trigger into the LPG's <strong>ping/excite</strong> input.</li>
+        <li>Each trigger now produces a <strong>pluck</strong>: the LPG opens (bright + loud) and closes along the vactrol curve (darkening as it fades). Tune the LPG's decay/response so it reads as a soft bongo, not a hard click.</li>
+        <li>Vary the <strong>trigger strength / velocity</strong> (or the level into the LPG): harder pings give brighter, louder, longer plucks — confirm this fusion by ear. That is the LPG behaving as VCA and VCF at once.</li>
+      </ol>
+    </div>
+    <table class="param-table">
+      <caption>LPG stage — modules and settings</caption>
+      <tr><td>LPG module</td><td>Bogaudio LPG, or Mutable/Audible "Veils" in LPG mode (vactrol-modelled)</td></tr>
+      <tr><td>Audio in</td><td>from the wavefolder output</td></tr>
+      <tr><td>Ping / excite</td><td>a trigger or gate — this articulates each note</td></tr>
+      <tr><td>Response/decay</td><td>set to a soft "bongo" — slow enough to darken audibly as it fades</td></tr>
+      <tr><td>Velocity</td><td>harder ping = brighter + louder + longer (the LPG fusion)</td></tr>
+    </table>
+    <div class="note-block">
+      <ul>
+        <li><strong>If your LPG has a VCA/LPG/both switch:</strong> use "both" (the combined mode). VCA-only gives a hard volume gate with no darkening; LPG (or "both") gives the brightness-tracks-loudness behaviour that defines the west-coast pluck.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- PHRASE -->
+  <h3 style="margin-top:28px;">Step C — a phrase where one control carries the expression</h3>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Step 03</div>
+      <h3 class="step-title">One control, all the expression</h3>
+    </div>
+    <ol class="rules-list">
+      <li>Choose the single expressive control: either <strong>fold depth</strong> (brightness blooming) or <strong>LPG ping strength</strong> (pluck dynamics). Drive it from one source — a slow LFO, a random/sample-and-hold, or a sequencer's velocity lane.</li>
+      <li>Hold everything else still: fixed pitch (or a slow sequence), fixed clock. Let the chosen control modulate, and record a short generative phrase (2–8 bars) where the listener's interest comes from that one parameter moving.</li>
+      <li>Document the patch: every module, every cable, and which control carries the expression. The phrase must <em>fail</em> to be interesting if you freeze that one control — prove it to yourself.</li>
+    </ol>
+    <div class="decision-check">
+      <div class="decision-check-label">Why one control</div>
+      <p>The west-coast discipline is that a single nonlinear gesture (folding, or the gate's excitation) can carry a whole part — the expression is in the depth of one move, not in an arrangement of many parts. If freezing your chosen control leaves the phrase still interesting, the expression was actually coming from somewhere else, and the étude has not landed.</p>
+    </div>
+  </div>
+
+  <h2>5 · The prescribed fault — induce and diagnose</h2>
+
+  <div class="callout">
+    <div class="callout-label">Required</div>
+    <p>Replace the LPG with a resonant low-pass filter (VCF) plus an envelope on its cutoff — the east-coast articulator — and hear why it is <em>not</em> the west-coast voice. This is the single most common mistake when people first try to "do Buchla."</p>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Fault</div>
+      <h3 class="step-title">Using a resonant VCF instead of an LPG</h3>
+    </div>
+    <ol class="rules-list">
+      <li>Patch the folder output through a <strong>resonant low-pass VCF</strong> with an envelope on its cutoff and a separate VCA/ADSR for volume — the classic east-coast pluck.</li>
+      <li>Play the same phrase. Listen: the VCF version has a resonant "wah/zap" on each note, the brightness is set by cutoff (independent of loudness), and the decay does <em>not</em> darken the way the LPG's did. Crank resonance and it whistles — a sound the LPG never makes.</li>
+      <li>Switch back to the LPG and A/B. Write the rule: the LPG fuses brightness + loudness + length on a vactrol curve; the VCF separates them and adds resonance. Same notes, fundamentally different instrument.</li>
+    </ol>
+  </div>
+
+  <table class="param-table">
+    <caption>Diagnosis — symptom → cause → fix</caption>
+    <tr><td>Symptom</td><td>Cause</td><td>Fix</td></tr>
+    <tr><td>Pluck has a resonant "wah/zap," whistles at high resonance</td><td>You used a resonant VCF (east-coast articulator), not an LPG</td><td>Replace the VCF with a low-pass gate; remove resonance</td></tr>
+    <tr><td>Decay stays the same colour as it fades (just gets quieter)</td><td>A clean VCA/ADSR closing — no vactrol darkening</td><td>Use the LPG's combined VCF+VCA ("both") mode</td></tr>
+    <tr><td>Folded tone buzzes harshly instead of blooming</td><td>Fold depth driven too hard / no envelope on it</td><td>Back off fold gain; drive fold depth from an envelope so it tracks dynamics</td></tr>
+    <tr><td>Folding does almost nothing</td><td>Input level into the folder too low (folding is amplitude-dependent)</td><td>Raise the VCO/level feeding the folder</td></tr>
+    <tr><td>Brightness does not change with how hard you play</td><td>Expression mapped to the wrong control, or LPG in VCA-only mode</td><td>Map dynamics to fold depth or LPG ping strength; set LPG to "both"</td></tr>
+    <tr><td>Pluck sounds like a hard click, not a bongo</td><td>LPG decay/response too fast — no vactrol lag</td><td>Lengthen the LPG response so it darkens audibly as it fades</td></tr>
+    <tr><td>Phrase still interesting when the chosen control is frozen</td><td>Expression is coming from elsewhere (sequence, other modulation)</td><td>Strip other movement so one control truly carries the part</td></tr>
+  </table>
+
+  <h2>6 · The Folder/LPG Test — certified here</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Certification</div>
+      <h3 class="step-title">Tell west coast from east coast, by ear and by patch</h3>
+    </div>
+    <ol class="rules-list">
+      <li>Play your LPG pluck and your VCF pluck back to back. State, in mechanism, the two differences: (a) LPG darkens on decay, VCF holds its colour; (b) LPG ties brightness to loudness, VCF sets them independently and adds resonance.</li>
+      <li>Play your folded tone and a subtractive saw-through-filter tone. State where each one's harmonics come from: folding (amplitude-driven, from a sine) vs subtraction (a filter removing harmonics from a rich source).</li>
+      <li>File one sentence naming which single control carries the expression in your phrase and what it does mechanically.</li>
+    </ol>
+    <div class="decision-check">
+      <div class="decision-check-label">Pass condition</div>
+      <p>You can identify west-coast vs east-coast articulation blind, and explain the difference as mechanism (vactrol fusion, amplitude-driven harmonics) rather than vibe. If your only description is "it sounds more organic," the model has not landed.</p>
+    </div>
+  </div>
+
+  <h2>7 · Pass gate — A/B against subtractive</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Gate</div>
+      <h3 class="step-title">The same line, west coast and east coast</h3>
+    </div>
+    <ol class="rules-list">
+      <li>Take your generative phrase and remake the same line subtractively: saw → resonant low-pass → ADSR/VCA, matched in tempo and loudness.</li>
+      <li>A/B the two at matched loudness. Name three things the folding + LPG version does that the subtractive version cannot (e.g. "brightness rises with loudness on every note," "decays darken," "the timbre blooms from a sine").</li>
+      <li>Name one thing the subtractive version does better (e.g. "independent control of cutoff for a deliberate filter sweep").</li>
+    </ol>
+    <div class="decision-check">
+      <div class="decision-check-label">Pass condition</div>
+      <p>A phrase whose timbre and dynamics are driven by wavefolding + an LPG, with the patch documented, A/B'd against the same line made subtractively — and a clear, mechanical account of what folding + LPG gained and what it lost.</p>
+    </div>
+  </div>
+
+  <h2>8 · Report bundle</h2>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Filed in the logbook</div>
+    </div>
+    <ul>
+      <li>The .vcv patch file plus a screenshot of the full cabling</li>
+      <li>The generative phrase, printed (folding + LPG)</li>
+      <li>The subtractive A/B version of the same line</li>
+      <li>The fault version (VCF instead of LPG), printed for comparison</li>
+      <li>A patch diagram naming every module and which control carries the expression</li>
+      <li>Fault entry — symptom, cause, fix, prevention rule</li>
+      <li>The diagnosis table, completed</li>
+      <li>Folder/LPG Test sentences — mechanism, not vibe</li>
+      <li>A/B gains-and-losses list — three gained, one lost</li>
+      <li>System diff sentence — "I thought west-coast was X; after patching it, I found it was Y"</li>
+    </ul>
+  </div>
+
+  <table class="param-table">
+    <caption>Pass standard</caption>
+    <tr><td>Minimum pass</td><td>The bundle exists; the voice uses wavefolding and a low-pass gate (no resonant VCF as articulator); the Folder/LPG Test is certified.</td></tr>
+    <tr><td>Solid pass</td><td>The fault was induced and diagnosed; the phrase's expression collapses when the chosen control is frozen; the A/B clearly demonstrates the LPG's brightness-loudness-length fusion.</td></tr>
+    <tr><td>Advanced transfer</td><td>You can state when you would choose a west-coast voice over an east-coast one for a given musical job, and approximate the folder/LPG idea on the MicroFreak (folder + tight envelope) when no modular is available.</td></tr>
+  </table>
+
+  <ol class="reflection-list">
+    <li>What did the wavefolder give you that no filter could, and where did it come from mechanically?</li>
+    <li>How did the LPG's decay differ from an ADSR-closed VCA on the same pluck?</li>
+    <li>Which single control did you choose to carry the phrase, and did freezing it really kill the interest?</li>
+    <li>After the A/B, when would you reach for subtractive instead — and why, mechanically?</li>
+    <li>Which Subotnick or Ciani detail do you now hear differently, knowing the folder and the LPG?</li>
+  </ol>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Worked system diff — the expected granularity</div>
+    <p>"I thought 'plucky synth' meant an ADSR on a filter; the Buchla pluck is a low-pass gate whose brightness and length fall together — louder is brighter is longer, all from one ping."</p>
+  </div>
+
+  <div class="final">
+    <div class="final-label">Étude principle</div>
+    <p>West coast adds complexity by folding and articulates by gating — brightness, loudness, and length become a single gesture, where east coast keeps them three separate knobs.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="lab-024.html">
+      <span class="page-nav-direction">Previous</span>
+      ← Lab 024 / Resonance as Melody
+    </a>
+    <a href="index.html" class="next">
+      <span class="page-nav-direction">Back</span>
+      Block 6 index →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Block 6 · Lab 024b</div>
+
+</div>
+
+  <script src="../nav.js"></script>
+</body>
+</html>

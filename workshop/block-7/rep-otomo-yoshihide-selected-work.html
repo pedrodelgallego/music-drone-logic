@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Replicate — A Silence-to-Saturation Arc</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page-type-rep" id="top">
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu"><span class="hamburger-lines"><span></span><span></span><span></span></span></label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html" class="active"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 7 · Performance</a><span class="breadcrumb-sep">/</span><span>Replicate: a silence-to-saturation arc</span></nav>
+  <header class="page-header">
+    <div class="eyebrow">Block 7 · Replication lesson</div>
+    <h1>Replicate: a silence-to-saturation arc</h1>
+    <p class="lede">Copy one mechanism from Otomo Yoshihide — <em>Anode</em>: treat the dynamic position over time as the form. Write a planned arc from near-silence to a wall of saturation, then perform it in one continuous real-time take. Compare the loud sections to the reference at matched loudness.</p>
+  </header>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l7.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs">Labs</a><a href="lab-r7.html" data-section="rebuild">Rebuild</a><a href="capstone-c6.html" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep" class="current">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
+
+  <div class="callout">
+    <div class="callout-label">The point</div>
+    <p>This drill teaches the record's core mechanism: there is no melody and no beat to lean on — the structure IS where the music sits on the loudness/density axis at each moment. You are stealing a performable rule (hold a genuine near-silence, then cross to genuine saturation on a planned curve), not Otomo's sounds. Improvisation here is a real-time decision system: you write the arc, then ride it live.</p>
+  </div>
+
+  <table class="param-table">
+    <caption>The system you are replicating</caption>
+    <tr><td>Source work</td><td>Otomo Yoshihide / Ground Zero — <em>Anode</em> (2001)</td></tr>
+    <tr><td>The effect</td><td>Music that lives at the extremes — long stretches of near-silence (onkyo: tiny, sparse sounds at the edge of audibility) that build to walls of turntable and guitar noise, then fall back</td></tr>
+    <tr><td>The mechanism</td><td>A planned dynamic trajectory: how long near-silence is held, where it crosses to saturation, and whether the crossing is a slow ramp or a sudden snap. Dynamics are the compositional parameter, performed in real time</td></tr>
+  </table>
+
+  <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Otomo+Yoshihide+Anode" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Otomo%20Yoshihide%20Anode">Spotify</a></p>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"></path></svg></div>
+      <div class="checklist-label">Before you start</div>
+    </div>
+    <ul>
+      <li>Live open with a master gain/density macro you can ride by hand, plus a saturation/distortion device on a bus you can push into a wall</li>
+      <li>MicroFreak ready to run from barely-audible filtered tones up to self-oscillating screaming resonance; Digitakt II loaded with both sparse single hits (quiet pole) and dense, overdriven / noise samples (turntable and guitar stand-ins for the loud pole)</li>
+      <li>Pen and paper for the dynamic arc — the form is a curve you draw before you play, not something you find while playing</li>
+      <li>Monitoring you trust at low level; near-silence only works if you can hear the edge-of-audible material honestly</li>
+    </ul>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>What you will make:</strong> one short performed take. Focus on this effect: the dynamic position over time is the whole structure.</li>
+      <li><strong>What you will turn off:</strong> melody, chord changes, steady rhythm, and the reflex to fill quiet space.</li>
+      <li><strong>What you will prove:</strong> your take and <span class="code">REF</span> use the same core mechanism: a held near-silence and a real saturation wall, joined by a planned crossing you performed live.</li>
+      <li><strong>What counts as success:</strong> remaining differences are sound-source choices or rig limits, not a missing pole or a missing arc.</li>
+    </ul>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Reference pass · 12 minutes</div>
+      <h3 class="step-title">Listen before you build</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Listen to a long stretch of <em>Anode</em> — enough to cross from a quiet zone into a loud one at least once. Write one short answer per question before you touch the gear.</p>
+    <ol class="rules-list">
+      <li>How quiet does it actually get — does the music risk silence?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>It really risks it. The quiet sections drop to tiny, sparse sounds at the edge of audibility — you lean in, unsure if a sound is part of the piece or the room. The silence is not a gap between events; it is the event.</p></div></details>
+      </li>
+      <li>If not melody or beat, what is the form built from?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>The dynamic arc itself. The thing being composed is loudness and density over time — how long you sit near silence, when you climb, how far you go. Track that axis and you have the whole structure; there is nothing to hum.</p></div></details>
+      </li>
+      <li>When it goes from near-silence to noise, is it a ramp or a snap?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Both happen, and the choice is the drama. Sometimes saturation creeps in over a long build; sometimes it cuts in suddenly after a held silence. The crossing behavior — ramp versus snap — is a real-time decision, not a fixed automation.</p></div></details>
+      </li>
+      <li>Does the loudness ever sit "comfortably" in the middle?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Almost never. The music lives at the extremes — near-silence or wall. The mid-level "comfortable mix" zone is exactly what is avoided, because sitting there would dissolve the form into ordinary background music.</p></div></details>
+      </li>
+    </ol>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Now build the mechanism you described. Do not try to copy the actual sounds.</p>
+  </div>
+
+  <h2>Steps</h2>
+
+  <div class="gear-switch"><input type="radio" name="gear" id="gear-hw" class="gear-radio" checked><input type="radio" name="gear" id="gear-sw" class="gear-radio"><input type="radio" name="gear" id="gear-tg" class="gear-radio"><div class="gear-labels"><span class="gear-lead">Your rig</span><label for="gear-hw">MicroFreak + Digitakt II</label><label for="gear-sw">Ableton Live only</label><label for="gear-tg">Analog Rytm MKII · target</label></div><div class="gear-scope"><div class="step">
+    <div class="step-head">
+      <div class="step-num">Phase 1 — ~25 minutes</div>
+      <h3 class="step-title">Establish the two poles and prove both are usable</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: build a genuine near-silence and a genuine saturation wall before you think about joining them.</p>
+    <div class="signal-flow">
+      <span class="signal-node">edge-of-audible texture (MicroFreak + sparse Digitakt II hits)</span>
+      <span class="signal-arrow">↔</span>
+      <span class="signal-node">saturation wall (dense Digitakt II + MicroFreak resonance → distortion bus)</span>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol class="rules-list">
+        <li><strong>Build the quiet pole:</strong> a barely-audible filtered MicroFreak tone and a few sparse single Digitakt II hits, spaced wide. So quiet that a listener has to lean in. Resist any pad or drone that fills the space.</li>
+        <li><strong>Build the loud pole:</strong> stack dense, overdriven samples (your turntable/guitar-noise stand-ins) and push MicroFreak into self-oscillating screaming resonance, all into a distortion/saturation bus driven into a wall.</li>
+        <li>Solo each pole and confirm it works on its own: the quiet one is genuinely at the edge of audibility, the loud one is genuinely saturated, not just "fairly loud".</li>
+      </ol>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from the reference and use Live audio/MIDI tracks, Utility, automation, and resampling.</li><li>Build the phase goal — <em>Establish the two poles and prove both are usable</em> — as the smallest Live set that proves <em>A planned dynamic trajectory: how long near-silence is held, where it crosses to saturation, and whether the crossing is a slow ramp or a sudden snap. Dynamics are the compositional parameter, performed in real time</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>Music that lives at the extremes — long stretches of near-silence (onkyo: tiny, sparse sounds at the edge of audibility) that build to walls of turntable and guitar noise, then fall back</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>Establish the two poles and prove both are usable</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>A planned dynamic trajectory: how long near-silence is held, where it crosses to saturation, and whether the crossing is a slow ramp or a sudden snap. Dynamics are the compositional parameter, performed in real time</em>, not just the surface of the reference.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
+    <div class="sub-block">
+      <div class="sub-label">Expected result</div>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Two extremes you can call up at will — a real near-silence and a real wall — with a large, usable distance between them.</p>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">If it fails</div>
+      <table>
+        <thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead>
+        <tbody>
+          <tr><td>The "quiet" pole is still clearly audible, comfortable music</td><td>Too many elements, levels too high, gaps filled</td><td>Strip to one tone plus a few sparse hits, drop the level until you have to lean in, leave real holes</td></tr>
+          <tr><td>The "loud" pole is loud but not a wall</td><td>Density without saturation — clean signal just turned up</td><td>Drive the distortion bus harder, layer more dense sources, push MicroFreak into self-oscillation so the signal breaks up</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Phase 2 — ~20 minutes</div>
+      <h3 class="step-title">Write the dynamic arc on paper</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: the form is a decision plan — durations, crossing points, and crossing behavior — committed before you perform.</p>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol class="rules-list">
+        <li><strong>Draw the curve over time:</strong> a line that runs along the near-silence ↔ saturation axis for the length of your take (aim for two to four minutes). This drawing is the composition.</li>
+        <li>Mark how long you hold near-silence at the start — write a real duration (e.g. 45 seconds) and commit to it, because the held silence is the hardest and most important part.</li>
+        <li>Mark each crossing point, and label its behavior: <strong>ramp</strong> (slow climb of gain/density) or <strong>snap</strong> (sudden cut into the wall after a silence). Decide where the loudness lives — it should sit at the extremes, not park in the middle.</li>
+      </ol>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from the reference and use Live audio/MIDI tracks, Utility, automation, and resampling.</li><li>Build the phase goal — <em>Write the dynamic arc on paper</em> — as the smallest Live set that proves <em>A planned dynamic trajectory: how long near-silence is held, where it crosses to saturation, and whether the crossing is a slow ramp or a sudden snap. Dynamics are the compositional parameter, performed in real time</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>Music that lives at the extremes — long stretches of near-silence (onkyo: tiny, sparse sounds at the edge of audibility) that build to walls of turntable and guitar noise, then fall back</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>Write the dynamic arc on paper</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>A planned dynamic trajectory: how long near-silence is held, where it crosses to saturation, and whether the crossing is a slow ramp or a sudden snap. Dynamics are the compositional parameter, performed in real time</em>, not just the surface of the reference.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
+    <div class="sub-block">
+      <div class="sub-label">Expected result</div>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A one-page arc with named durations and a ramp/snap label on every crossing — a plan precise enough to perform without inventing the structure mid-take.</p>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">If it fails</div>
+      <table>
+        <thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead>
+        <tbody>
+          <tr><td>The curve hovers around the middle</td><td>Defaulting to a comfortable mix level</td><td>Redraw so the line spends its time at the top or the bottom of the axis, and only passes through the middle while crossing</td></tr>
+          <tr><td>No clear ramp/snap decisions</td><td>You left the crossings vague to "feel it out"</td><td>Commit each crossing in writing — the surprise of a snap or the dread of a ramp only lands if it is decided in advance</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Phase 3 — ~30 minutes</div>
+      <h3 class="step-title">Perform one continuous take, riding the arc live</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: real-time decisions along the loudness/density axis — hold the silence as long as the plan says, with no post edits.</p>
+    <div class="signal-flow">
+      <span class="signal-node">written arc</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">hands on gain/density macro + MicroFreak + Digitakt II</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">one continuous take</span>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol class="rules-list">
+        <li><strong>Arm one continuous recording</strong> — no comping, no edits. Whatever happens in this pass is the piece.</li>
+        <li>Open in near-silence and <strong>hold it for the full written duration.</strong> This is the discipline: do not fill it. Trust the plan and your monitoring while almost nothing sounds.</li>
+        <li>Cross to saturation exactly as labelled — ride the gain/density macro up for a ramp, or cut straight to the wall for a snap — making moment-to-moment loudness and density decisions as you go.</li>
+        <li>Return toward near-silence to close if the arc says so. Stop the take. Do not fix anything afterward.</li>
+      </ol>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from the reference and use Live audio/MIDI tracks, Utility, automation, and resampling.</li><li>Build the phase goal — <em>Perform one continuous take, riding the arc live</em> — as the smallest Live set that proves <em>A planned dynamic trajectory: how long near-silence is held, where it crosses to saturation, and whether the crossing is a slow ramp or a sudden snap. Dynamics are the compositional parameter, performed in real time</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>Music that lives at the extremes — long stretches of near-silence (onkyo: tiny, sparse sounds at the edge of audibility) that build to walls of turntable and guitar noise, then fall back</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>Perform one continuous take, riding the arc live</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>A planned dynamic trajectory: how long near-silence is held, where it crosses to saturation, and whether the crossing is a slow ramp or a sudden snap. Dynamics are the compositional parameter, performed in real time</em>, not just the surface of the reference.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
+    <div class="sub-block">
+      <div class="sub-label">Expected result</div>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A single live take whose form you can read straight off the loudness over time — a held silence, a deliberate crossing, a real wall — performed, not edited together.</p>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">If it fails</div>
+      <table>
+        <thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead>
+        <tbody>
+          <tr><td>You filled the silence early</td><td>Nerve failed — the held silence felt too long in the moment</td><td>Re-take and watch a clock; the silence almost always needs to be longer than it feels, and that discomfort is the point</td></tr>
+          <tr><td>The crossing sounds tidy and safe</td><td>You softened a planned snap into a ramp, or eased off the wall</td><td>Perform the crossing as written and push the loud pole all the way — the extremes are the structure, not an effect to tame</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  </div></div><div class="decision-check">
+    <div class="decision-check-label">Verify against the work</div>
+    <p>A/B your take against <em>Anode</em> — matched loudness <em>on the wall sections only</em> (the quiet parts are meant to be quiet, so match the peaks). Play 15 seconds of each at a loud point. Then answer two questions in writing.</p>
+    <p><strong>Did you hold a near-silence as genuine and as long as theirs?</strong></p>
+    <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>If your quiet zone is still busy or short while theirs makes you lean in and wait, you filled the space. The held silence is the hardest part of the mechanism, and a take that skips it has copied the noise but not the form.</p></div></details>
+    <p><strong>Does your saturation reach a real wall, and does the crossing read as a deliberate decision?</strong></p>
+    <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>At matched loudness, theirs breaks up into genuine saturation while yours may just be a loud-but-clean mix. And the crossing should feel chosen — a ramp you committed to or a snap that lands — not an accidental drift. If the loud pole is timid or the crossing is mushy, the arc was performed, but not at the extremes that make it work.</p></div></details>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Logbook — the miss list, two to three lines:</strong> e.g. "Couldn't hold the silence — filled it at ~20s" · "Never reached real saturation, just loud" · "Crossing came out as a ramp when I planned a snap".</li>
+      <li>Note which single decision carried the take — the length of the silence, or the crossing behavior — and make that the thing you commit harder to next attempt.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav"><a href="listening-l7.html"><span class="page-nav-direction">Back</span>Listening L7</a><a href="index.html" class="next"><span class="page-nav-direction">Block</span>Block 7 index →</a></div>
+  <div class="footer">Experimental Music Workshop — Block 7 · Replication lesson</div>
+</div>
+  <script src="../nav.js"></script>
+</body>
+</html>

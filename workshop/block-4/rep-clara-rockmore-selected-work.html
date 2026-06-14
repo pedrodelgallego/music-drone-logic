@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Replicate — Phrasing a Continuous Pitch</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page-type-rep" id="top">
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu"><span class="hamburger-lines"><span></span><span></span><span></span></span></label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html" class="active"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 4 · Transformation</a><span class="breadcrumb-sep">/</span><span>Replicate: phrasing a continuous pitch</span></nav>
+
+  <header class="page-header">
+    <div class="eyebrow">Block 4 · Replication lesson</div>
+    <h1>Replicate: phrasing a continuous pitch</h1>
+    <p class="lede">Copy one short phrase from Clara Rockmore. Drive a zero-step instrument with continuous pitch and shape it into discrete notes using amplitude alone, then compare to the reference at the same loudness.</p>
+  </header>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l4.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs">Labs</a><a href="lab-r4.html" data-section="rebuild">Rebuild</a><a href="capstone-c3.html" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep" class="current">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
+  <div class="callout">
+    <div class="callout-label">The point</div>
+    <p>This drill teaches the record's core mechanism: the instrument has no keys and no steps — pitch is one unbroken glide, and the notes you hear are carved out of that glide by amplitude shaping. Do only the steps that make that mechanism audible.</p>
+  </div>
+
+  <table class="param-table">
+    <caption>The system you are replicating</caption>
+    <tr><td>Source record</td><td>Clara Rockmore — <em>The Art of the Theremin</em></td></tr>
+    <tr><td>The effect</td><td>A singing, vocal melody where notes are clearly articulated even though the instrument never stops sliding</td></tr>
+    <tr><td>The mechanism</td><td>Continuous pitch and continuous amplitude with no discrete steps; portamento plus amplitude shaping ("aerial fingering") cut a glide into separate notes</td></tr>
+  </table>
+
+  <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Clara+Rockmore+The+Art+of+the+Theremin" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Clara%20Rockmore%20The%20Art%20of%20the%20Theremin">Spotify</a></p>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"></path></svg></div>
+      <div class="checklist-label">Before you start</div>
+    </div>
+    <ul>
+      <li>MicroFreak on Live's input; if you have an expression pedal or aftertouch, route it to amplitude</li>
+      <li>Pen and paper to mark where each note "begins" inside the glide — the articulation points, not the pitches alone</li>
+    </ul>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>What you will make:</strong> a short replica of a Rockmore phrase. Focus on this effect: a singing melody whose notes are articulated even though the pitch never truly stops moving.</li>
+      <li><strong>What you will turn off:</strong> quantised MIDI, the keyboard's discrete note-on retriggers, and any patch where pitch jumps in steps.</li>
+      <li><strong>What you will prove:</strong> your version and <span class="code">REF</span> use the same core mechanism: a continuous instrument articulated into phrasing by amplitude shaping.</li>
+      <li><strong>What counts as success:</strong> remaining differences are intonation or vibrato, not notes that step instead of glide.</li>
+    </ul>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Reference pass · 10 minutes</div>
+      <h3 class="step-title">Listen before you build</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Listen to about one minute of Rockmore. Choose the clearest short phrase. Write one short answer for each question before you touch the gear.</p>
+    <ol class="rules-list">
+      <li>Does the pitch ever jump instantly between two notes, or does it always travel?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>It always travels — there is a tiny slide into almost every note, because the hand moves through the air and the pitch follows it continuously. Even fast passages are a connected glide whose stopping points become the notes.</p></div></details>
+      </li>
+      <li>If the pitch is continuous, how does she make one note end and the next begin?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>With the volume hand. She dips the amplitude between notes — a quick duck and rise — so the slide is masked at the moment of change and you hear two separate notes. The "articulation" is amplitude, not pitch. That dip is the move you are stealing.</p></div></details>
+      </li>
+      <li>What does the vibrato do to your sense of pitch?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>It centres it. A small, fast pitch wobble around the target makes the held note read as in-tune and vocal, and it hides how unstable a continuous pitch really is. It is part of how the glide is tamed into a melody.</p></div></details>
+      </li>
+      <li>Where are the phrase's breaths — the points where the line lets go?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>At the ends of phrases the amplitude falls to silence and the pitch can drift unheard, exactly like a singer breathing. These breath points are where the volume hand fully closes — mark them, because they shape the phrasing as much as the notes do.</p></div></details>
+      </li>
+    </ol>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Now build the phrase you described. Do not build from memory.</p>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Sound target:</strong> one continuous voice, pitch always gliding, notes defined by amplitude dips — never by retriggered note-ons.</li>
+      <li><strong>Elements:</strong> the phrase's pitch contour and the location of each amplitude dip, transcribed by ear.</li>
+      <li><strong>Vibrato:</strong> a small, fast wobble that centres the held notes the way hers does.</li>
+      <li><strong>Breath:</strong> the amplitude falls to silence at phrase ends, where hers does.</li>
+    </ul>
+  </div>
+
+  <h2>Steps</h2>
+
+  <div class="note-block control-map">
+    <ul>
+      <li><strong>Button map for the steps below:</strong> use these controls whenever the lesson names the device.</li>
+      <li><strong>MicroFreak:</strong> set the voice to <span class="code">Mono</span> with <span class="code">Glide</span> turned up high so any move between notes is a slide, not a jump. Use the LFO at a small depth and a fast rate into pitch for vibrato. The pressure-sensitive keybed and the assignable LFO/envelope give you a continuous controller; do not let the keybed retrigger hard envelopes between notes.</li>
+      <li><strong>Live 12:</strong> if you draw the part instead of playing it, automate amplitude (a Utility gain or the synth volume) as a continuous curve, and draw pitch as one unbroken line — no stepped MIDI notes. <kbd>⌘ T</kbd> creates the audio track for recording the take.</li>
+      <li><strong>Expression source:</strong> map a pedal or aftertouch to amplitude so the volume hand is independent from the pitch hand, mirroring how the theremin separates the two.</li>
+      <li><strong>Recorder or phone:</strong> set gain before the take and leave it; the dynamics are the instrument, so do not let any input gain or limiter flatten them.</li>
+    </ul>
+  </div>
+
+  <div class="gear-switch"><input type="radio" name="gear" id="gear-hw" class="gear-radio" checked><input type="radio" name="gear" id="gear-sw" class="gear-radio"><input type="radio" name="gear" id="gear-tg" class="gear-radio"><div class="gear-labels"><span class="gear-lead">Your rig</span><label for="gear-hw">MicroFreak + Live</label><label for="gear-sw">Ableton Live only</label><label for="gear-tg">Octatrack MKII · target</label></div><div class="gear-scope"><div class="step">
+    <div class="step-head">
+      <div class="step-num">Phase 1 — ~20 minutes</div>
+      <h3 class="step-title">Build a zero-step glide voice</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: make an instrument that physically cannot step. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol class="rules-list">
+        <li>Set <span class="code">Mono</span> and turn <span class="code">Glide</span> high. Play two distant notes and confirm the pitch travels between them with no instant jump.</li>
+        <li>Add a small, fast LFO to pitch for vibrato — enough to centre a held note, not so much it warbles.</li>
+        <li>Put amplitude on a continuous controller (pedal, aftertouch, or drawn automation) so you can open and close the note independent of pitch.</li>
+        <li>Import the record on a REF track, loop the phrase, and gain-match with a Utility.</li>
+      </ol>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Clara Rockmore — The Art of the Theremin and use audio clips, Simpler/Sampler, clip envelopes, and resampling.</li><li>Build the phase goal — <em>Build a zero-step glide voice</em> — as the smallest Live set that proves <em>Continuous pitch and continuous amplitude with no discrete steps; portamento plus amplitude shaping ("aerial fingering") cut a glide into separate notes</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>A singing, vocal melody where notes are clearly articulated even though the instrument never stops sliding</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Octatrack MKII for this phase: translate <em>Build a zero-step glide voice</em> into Flex/Static machines, slices, recorder buffers, scenes, the crossfader, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>Continuous pitch and continuous amplitude with no discrete steps; portamento plus amplitude shaping ("aerial fingering") cut a glide into separate notes</em>, not just the surface of Clara Rockmore — The Art of the Theremin.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
+    <div class="sub-block">
+      <div class="sub-label">Expected result</div>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A single mono voice that glides between any two pitches and whose loudness you can shape by hand, with a gentle centring vibrato.</p>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">If it fails</div>
+      <table>
+        <thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead>
+        <tbody>
+          <tr><td>Notes still snap to pitch instantly</td><td>Glide off or too short, or you are triggering discrete MIDI notes</td><td>Raise glide and play legato so the voice never retriggers; draw pitch as one line if sequencing</td></tr>
+          <tr><td>The vibrato sounds seasick</td><td>LFO depth too high or rate too slow</td><td>Drop depth and speed up the rate until the held note reads as steady, not wobbling</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Phase 2 — ~25 minutes</div>
+      <h3 class="step-title">Articulate the phrase with amplitude</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: cut the glide into notes using the volume hand. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <div class="signal-flow">
+      <span class="signal-node">continuous pitch (glide voice)</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">amplitude dips at note boundaries</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">master</span>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol class="rules-list">
+        <li><strong>Play the contour first</strong> as one unbroken glide, ignoring articulation, just matching pitch movement to the REF.</li>
+        <li><strong>Add the amplitude dips:</strong> duck the volume briefly at each note boundary so the slide between notes is masked and two notes appear.</li>
+        <li><strong>Drop to silence at phrase ends</strong> — the breaths — exactly where the record breathes.</li>
+        <li>Record the take. A/B against the REF immediately.</li>
+      </ol>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Clara Rockmore — The Art of the Theremin and use audio clips, Simpler/Sampler, clip envelopes, and resampling.</li><li>Build the phase goal — <em>Articulate the phrase with amplitude</em> — as the smallest Live set that proves <em>Continuous pitch and continuous amplitude with no discrete steps; portamento plus amplitude shaping ("aerial fingering") cut a glide into separate notes</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>A singing, vocal melody where notes are clearly articulated even though the instrument never stops sliding</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Octatrack MKII for this phase: translate <em>Articulate the phrase with amplitude</em> into Flex/Static machines, slices, recorder buffers, scenes, the crossfader, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>Continuous pitch and continuous amplitude with no discrete steps; portamento plus amplitude shaping ("aerial fingering") cut a glide into separate notes</em>, not just the surface of Clara Rockmore — The Art of the Theremin.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
+    <div class="sub-block">
+      <div class="sub-label">Expected result</div>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A phrase that reads as separate, singing notes even though the pitch never truly stops moving — articulation carried entirely by amplitude.</p>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">If it fails</div>
+      <table>
+        <thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead>
+        <tbody>
+          <tr><td>It sounds like one long siren, not a melody</td><td>No amplitude dips — the glide is never interrupted</td><td>Add a brief duck at every note change; that duck is what your ear reads as a new note</td></tr>
+          <tr><td>The dips sound like a stutter or gate</td><td>Dips too deep or too abrupt</td><td>Soften them — a quick, shallow dip masks the slide without sounding chopped</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Phase 3 — ~15 minutes</div>
+      <h3 class="step-title">A/B at matched loudness, then write the diff</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: verify against the record at honest level. Follow the steps in order.</p>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol class="rules-list">
+        <li><strong>Match loudness</strong> so 10 seconds of yours and 10 of theirs feel equally loud, then switch between them.</li>
+        <li><strong>Write the diff:</strong> which notes still step instead of glide, which boundaries you over- or under-articulated, and whether your breaths land where theirs do.</li>
+      </ol>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Clara Rockmore — The Art of the Theremin and use audio clips, Simpler/Sampler, clip envelopes, and resampling.</li><li>Build the phase goal — <em>A/B at matched loudness, then write the diff</em> — as the smallest Live set that proves <em>Continuous pitch and continuous amplitude with no discrete steps; portamento plus amplitude shaping ("aerial fingering") cut a glide into separate notes</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>A singing, vocal melody where notes are clearly articulated even though the instrument never stops sliding</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Octatrack MKII for this phase: translate <em>A/B at matched loudness, then write the diff</em> into Flex/Static machines, slices, recorder buffers, scenes, the crossfader, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>Continuous pitch and continuous amplitude with no discrete steps; portamento plus amplitude shaping ("aerial fingering") cut a glide into separate notes</em>, not just the surface of Clara Rockmore — The Art of the Theremin.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
+    <div class="sub-block">
+      <div class="sub-label">Expected result</div>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A short written diff naming exactly where your articulation came from pitch steps instead of amplitude.</p>
+    </div>
+  </div>
+
+  </div></div><div class="decision-check">
+    <div class="decision-check-label">Verify against the record</div>
+    <p>A/B your phrase against the same passage of Rockmore — 10 seconds of yours, 10 of theirs, matched loudness. Then answer two questions in writing.</p>
+    <p><strong>Are your notes carved by amplitude, or are you secretly stepping the pitch?</strong></p>
+    <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Mute the amplitude automation and listen to the raw pitch line: if it still sounds like discrete notes, you stepped it and the drill failed. The proof is that with pitch alone you hear a glide, and only the amplitude shaping turns it into a melody — that is the mechanism working.</p></div></details>
+    <p><strong>Does your phrase breathe where theirs does?</strong></p>
+    <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>It should — the breaths are the phrasing. The common miss is holding through a point where Rockmore lets go, which makes your line sound mechanical and tireless. If your phrase never quite rests, find her silences and let the amplitude fall fully to zero there.</p></div></details>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Logbook — the miss list, three lines:</strong> "Matched: …" · "Missed: … (best guess why)" · "Change next: …"</li>
+      <li>These three lines feed the full miss list in <a href="lab-r4.html">replication lab R4</a>.</li>
+      <li>And one more line — which amplitude dip did the most work to make a note appear.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="listening-l4.html"><span class="page-nav-direction">Back</span>Listening L4</a>
+    <a href="index.html" class="next"><span class="page-nav-direction">Block</span>Block 4 index →</a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Block 4 · Replication lesson</div>
+
+</div>
+
+  <script src="../nav.js"></script>
+</body>
+</html>

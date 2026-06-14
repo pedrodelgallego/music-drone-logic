@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Replicate — A Chord That Becomes Noise</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page-type-rep" id="top">
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu"><span class="hamburger-lines"><span></span><span></span><span></span></span></label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html" class="active"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 6 · Decision Systems</a><span class="breadcrumb-sep">/</span><span>Replicate: a chord that becomes noise</span></nav>
+
+  <header class="page-header">
+    <div class="eyebrow">Block 6 · Replication lesson</div>
+    <h1>Replicate: a chord that becomes noise</h1>
+    <p class="lede">Copy one mechanism from Gérard Grisey — <em>Partiels</em>: derive a chord from a real spectrum analysis, then move it gradually from harmonic to noise. Build a short version on the rig and compare it to the reference at the same loudness.</p>
+  </header>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l6.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs">Labs</a><a href="lab-r6.html" data-section="rebuild">Rebuild</a><a href="capstone-c5.html" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep" class="current">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
+
+  <div class="callout">
+    <div class="callout-label">The point</div>
+    <p>This drill teaches the record's core mechanism: a chord is not chosen by taste — it is the measured overtones of one real sound, and the form is a slow, ordered migration from those harmonic partials toward inharmonic noise. You are stealing the structure (spectrum → chord → drift to noise), never Grisey's pitches.</p>
+  </div>
+
+  <table class="param-table">
+    <caption>The system you are replicating</caption>
+    <tr><td>Source work</td><td>Gérard Grisey — <em>Partiels</em> (1975), from <em>Les Espaces Acoustiques</em></td></tr>
+    <tr><td>The effect</td><td>An orchestra sounds like one living sound breathing — a single timbre that slowly cracks open into noise and beating</td></tr>
+    <tr><td>The mechanism</td><td>The opening chord is the analyzed harmonic spectrum of a trombone E2, scored across instruments; the form is a gradual morph from that harmonic spectrum toward inharmonicity and noise</td></tr>
+  </table>
+
+  <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Grisey+Partiels" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Grisey%20Partiels">Spotify</a></p>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"></path></svg></div>
+      <div class="checklist-label">Before you start</div>
+    </div>
+    <ul>
+      <li>Live open with a spectrum analyzer ready (Spectrum on a track, or free VCV Rack scope/analyzer); a way to play a single sustained note to analyze</li>
+      <li>MicroFreak on its input for one or two of the spectral partials; Digitakt II ready to hold sustained sampled tones</li>
+      <li>Pen and paper for the partial chart — the chord is read off a real analysis, not invented</li>
+    </ul>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>What you will make:</strong> a short spectral morph. Focus on this effect: a single fused timbre that slowly opens from harmonic into noise.</li>
+      <li><strong>What you will turn off:</strong> melody, chord changes, rhythm, and any pitch you chose because you liked it.</li>
+      <li><strong>What you will prove:</strong> your version and <span class="code">REF</span> use the same core mechanism: a measured spectrum becomes the chord, and the chord migrates toward noise on a planned curve.</li>
+      <li><strong>What counts as success:</strong> remaining differences are source-sound choices or rig limits, not missing steps.</li>
+    </ul>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Reference pass · 12 minutes</div>
+      <h3 class="step-title">Listen before you build</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Listen to the first three to four minutes of <em>Partiels</em>. Write one short answer per question before you touch the gear.</p>
+    <ol class="rules-list">
+      <li>At the very opening, does the sound read as a chord or as one note?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>As one note. The instruments are tuned to the partials of a single low trombone tone, so the ear fuses them into one fat, slightly buzzing timbre rather than hearing separate pitches. That fusion is the whole point of starting from a spectrum.</p></div></details>
+      </li>
+      <li>Over the next minutes, what direction is the change — toward order or toward noise?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Toward noise. The clean harmonic stack gradually gains beating, detuning, air, scratch and breath sounds. The structure is a one-way migration: harmonic at the start, inharmonic and noisy by the end.</p></div></details>
+      </li>
+      <li>Is there a tune or a rhythm you could hum or tap?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>No. There is essentially no melody and no steady pulse to hold onto. The parameter being composed is timbre and its position on the harmonic-to-noise axis, not melody or rhythm.</p></div></details>
+      </li>
+      <li>When the noise arrives, is it sudden or has it been creeping in for a long time?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Creeping. Each instrument adds a little instability at a time, so by the time you notice it is noisy you cannot say when it stopped being a chord. The migration is slow and overlapped, never a cut.</p></div></details>
+      </li>
+    </ol>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Now build the mechanism you described. Do not build from memory of the pitches.</p>
+  </div>
+
+  <h2>Steps</h2>
+
+  <div class="gear-switch"><input type="radio" name="gear" id="gear-hw" class="gear-radio" checked><input type="radio" name="gear" id="gear-sw" class="gear-radio"><input type="radio" name="gear" id="gear-tg" class="gear-radio"><div class="gear-labels"><span class="gear-lead">Your rig</span><label for="gear-hw">MicroFreak + Digitakt II</label><label for="gear-sw">Ableton Live only</label><label for="gear-tg">Analog Rytm MKII · target</label></div><div class="gear-scope"><div class="step">
+    <div class="step-head">
+      <div class="step-num">Phase 1 — ~25 minutes</div>
+      <h3 class="step-title">Measure a real spectrum and read off the chord</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: get the chord from a measurement, not from taste.</p>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol class="rules-list">
+        <li><strong>Pick one rich, sustained source sound</strong> — a low brass sample, a bowed string, a struck metal object, or a held MicroFreak note. Record three to five seconds of it sustaining.</li>
+        <li>Put a Spectrum analyzer on it (freeze a frame), and read off the five to eight loudest partials by frequency.</li>
+        <li>Write the partials as a chart: fundamental plus the strongest overtones, in order of loudness. This chart IS your chord — you did not choose a single note of it.</li>
+        <li>Mark which partials are near-harmonic (integer multiples) and which are slightly off — those off ones are where the drift will start.</li>
+      </ol>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from the reference and use Operator or Wavetable into Auto Filter, with clip automation.</li><li>Build the phase goal — <em>Measure a real spectrum and read off the chord</em> — as the smallest Live set that proves <em>The opening chord is the analyzed harmonic spectrum of a trombone E2, scored across instruments; the form is a gradual morph from that harmonic spectrum toward inharmonicity and noise</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>An orchestra sounds like one living sound breathing — a single timbre that slowly cracks open into noise and beating</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>Measure a real spectrum and read off the chord</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>The opening chord is the analyzed harmonic spectrum of a trombone E2, scored across instruments; the form is a gradual morph from that harmonic spectrum toward inharmonicity and noise</em>, not just the surface of the reference.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
+    <div class="sub-block">
+      <div class="sub-label">Expected result</div>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A written chord of five to eight frequencies, every one of them read off a real analysis of your own source sound.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Phase 2 — ~30 minutes</div>
+      <h3 class="step-title">Orchestrate the spectrum as one fused timbre</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: make the separate partials fuse into a single sound.</p>
+    <div class="signal-flow">
+      <span class="signal-node">measured partials</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">one tuned voice per partial (MicroFreak + Digitakt II + Live)</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">fused chord at master</span>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol class="rules-list">
+        <li><strong>Tune one sustained voice to each partial</strong> — MicroFreak for the lowest and the buzzier upper ones, Digitakt II holding sampled sustains, Live instruments for the rest. Sine-ish, simple tones.</li>
+        <li>Balance their levels to match the loudness order from your chart — the fundamental loudest, upper partials quieter.</li>
+        <li>A/B: it should read as ONE timbre, not a chord. If you can pick out individual notes, soften attacks, remove vibrato, and tighten tuning until they fuse.</li>
+      </ol>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from the reference and use Operator or Wavetable into Auto Filter, with clip automation.</li><li>Build the phase goal — <em>Orchestrate the spectrum as one fused timbre</em> — as the smallest Live set that proves <em>The opening chord is the analyzed harmonic spectrum of a trombone E2, scored across instruments; the form is a gradual morph from that harmonic spectrum toward inharmonicity and noise</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>An orchestra sounds like one living sound breathing — a single timbre that slowly cracks open into noise and beating</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>Orchestrate the spectrum as one fused timbre</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>The opening chord is the analyzed harmonic spectrum of a trombone E2, scored across instruments; the form is a gradual morph from that harmonic spectrum toward inharmonicity and noise</em>, not just the surface of the reference.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
+    <div class="sub-block">
+      <div class="sub-label">Expected result</div>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A held chord that fuses into a single fat tone — the same kind of "one note made of many" the record opens with.</p>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">If it fails</div>
+      <table>
+        <thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead>
+        <tbody>
+          <tr><td>You hear a chord, not one sound</td><td>Attacks/vibrato/level spread give the partials away as separate notes</td><td>Make attacks slow and identical, kill vibrato, follow the loudness order so upper partials sit under the fundamental</td></tr>
+          <tr><td>It sounds thin, not like a real instrument's body</td><td>Too few partials, or only the harmonic ones kept</td><td>Add the quieter and slightly-detuned partials from the chart — the body lives in the upper, imperfect ones</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Phase 3 — ~30 minutes</div>
+      <h3 class="step-title">Migrate the chord toward noise on a planned curve</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: a slow, one-way drift from harmonic to noise — never a cut.</p>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol class="rules-list">
+        <li><strong>Write the drift order on paper first:</strong> which partial detunes first, which adds noise/breath next, in what bars. The order is the composition.</li>
+        <li>Over a long stretch, slowly detune the upper partials away from their integer ratios — automate small pitch drift, one voice at a time.</li>
+        <li>Bring in noise gradually: open MicroFreak's noise/cutoff, fade in air or scratch samples, raise resonance into instability — following your written order.</li>
+        <li>Record one continuous take of the full migration, harmonic start to noisy end, with no edit point you could name.</li>
+      </ol>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from the reference and use Operator or Wavetable into Auto Filter, with clip automation.</li><li>Build the phase goal — <em>Migrate the chord toward noise on a planned curve</em> — as the smallest Live set that proves <em>The opening chord is the analyzed harmonic spectrum of a trombone E2, scored across instruments; the form is a gradual morph from that harmonic spectrum toward inharmonicity and noise</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>An orchestra sounds like one living sound breathing — a single timbre that slowly cracks open into noise and beating</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>Migrate the chord toward noise on a planned curve</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>The opening chord is the analyzed harmonic spectrum of a trombone E2, scored across instruments; the form is a gradual morph from that harmonic spectrum toward inharmonicity and noise</em>, not just the surface of the reference.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
+    <div class="sub-block">
+      <div class="sub-label">Expected result</div>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">One take that begins as a fused harmonic tone and ends in noise, with the crossing so gradual nobody can point to where the chord stopped being a chord.</p>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">If it fails</div>
+      <table>
+        <thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead>
+        <tbody>
+          <tr><td>Noise arrives as a sudden event</td><td>You changed too much at once instead of overlapping small moves</td><td>Spread the drift across more voices and more bars; only one partial should be visibly changing at any moment</td></tr>
+          <tr><td>It drifts but never reaches real noise</td><td>Detuning without adding actual noise content</td><td>Add broadband noise, breath, or self-oscillating resonance at the end — detuning alone stays musical</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  </div></div><div class="decision-check">
+    <div class="decision-check-label">Verify against the work</div>
+    <p>A/B your migration against the first minutes of <em>Partiels</em> — matched loudness, 15 seconds of yours, 15 of theirs. Then answer two questions in writing.</p>
+    <p><strong>Does your opening fuse into one timbre the way theirs does?</strong></p>
+    <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>If you can still pick out individual pitches in yours but theirs reads as one sound, your partials have not fused — the give-away is usually attack and level spread, not tuning. Fusion is the proof you orchestrated a spectrum rather than voiced a chord.</p></div></details>
+    <p><strong>Is your drift to noise as gradual and one-way as theirs?</strong></p>
+    <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Theirs has no nameable moment where harmony becomes noise; if yours does, you moved too much at once. The structure is a measured migration, and an audible seam means you cut instead of crossing.</p></div></details>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Logbook — the miss list, three lines:</strong> "Matched: …" · "Missed: … (best guess why)" · "Change next: …"</li>
+      <li>Note which single partial did the most work carrying the timbre — that is your fundamental for the next attempt.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav"><a href="listening-l6.html"><span class="page-nav-direction">Back</span>Listening L6</a><a href="index.html" class="next"><span class="page-nav-direction">Block</span>Block 6 index →</a></div>
+  <div class="footer">Experimental Music Workshop — Block 6 · Replication lesson</div>
+</div>
+  <script src="../nav.js"></script>
+</body>
+</html>

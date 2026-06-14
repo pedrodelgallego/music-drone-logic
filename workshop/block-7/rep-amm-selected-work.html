@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Replicate — Texture That Answers the Whole</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page-type-rep" id="top">
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu"><span class="hamburger-lines"><span></span><span></span><span></span></span></label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html" class="active"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 7 · Performance</a><span class="breadcrumb-sep">/</span><span>Replicate: texture that answers the whole</span></nav>
+  <header class="page-header">
+    <div class="eyebrow">Block 7 · Replication lesson</div>
+    <h1>Replicate: texture that answers the whole</h1>
+    <p class="lede">Copy one mechanism from AMM — <em>AMMMusic 1966</em>: collective laminal improvisation where every sound is added or withdrawn in answer to the total density of the moment, with no leader, no melody, and no pulse. You work solo, so you cannot replicate the group's interplay — instead you rebuild the interaction logic by improvising against an autonomous running bed and compare it to the reference at the same loudness.</p>
+  </header>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l7.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs">Labs</a><a href="lab-r7.html" data-section="rebuild">Rebuild</a><a href="capstone-c6.html" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep" class="current">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
+
+  <div class="callout">
+    <div class="callout-label">The point</div>
+    <p>This drill teaches the record's core mechanism: there is no leader and no grid — each voice listens to the running whole and decides only to thicken, thin, or hold. As a solo player you cannot have four people interacting, so you set up an autonomous, ever-changing bed to stand in for the other players, then govern your own layers entirely by the bed's current density. You are stealing the rule of interaction (answer the whole, never the beat), not AMM's sounds.</p>
+  </div>
+
+  <table class="param-table">
+    <caption>The system you are replicating</caption>
+    <tr><td>Source work</td><td>AMM — <em>AMMMusic 1966</em> (Elektra, 1967)</td></tr>
+    <tr><td>The effect</td><td>A continuous, slowly shifting cloud of overlapping sound — density rising and falling organically, with nothing to tap, hum, or follow as a lead</td></tr>
+    <tr><td>The mechanism</td><td>Laminal collective improvisation: every entry and exit is governed by the total density of the running whole, not by a beat or a leader; sounds appear in the cloud rather than locking to a grid</td></tr>
+  </table>
+
+  <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=AMM+AMMMusic+1966" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:AMM%20AMMMusic%201966">Spotify</a></p>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"></path></svg></div>
+      <div class="checklist-label">Before you start</div>
+    </div>
+    <ul>
+      <li>Live open to record one continuous take; no metronome, no click, transport free-running with loops rather than a fixed bar grid</li>
+      <li>An autonomous bed ready to play itself: a generative VCV Rack patch, a long evolving Live clip, or a free-running Digitakt II texture pattern with no kick and no downbeat — this stands in for the other players</li>
+      <li>MicroFreak set for sustained drones and textures, and the Digitakt II usable as a texture source, so you can add or withdraw your own layers by hand while the bed runs</li>
+      <li>Pen and paper for one written interaction rule set — what you do when the whole is dense, thin, or static</li>
+    </ul>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>What you will make:</strong> one continuous laminal take. Focus on this effect: a shifting cloud where your layers answer the whole, not a beat.</li>
+      <li><strong>What you will turn off:</strong> the metronome, any melody or lead, any downbeat or grid quantize, and the urge to "play a part" instead of responding to density.</li>
+      <li><strong>What you will prove:</strong> your version and <span class="code">REF</span> use the same core mechanism: every entry and exit is driven by the current density of the whole, with no leader and no pulse.</li>
+      <li><strong>What counts as success:</strong> remaining differences are sound-source choices or rig limits, not a missing rule.</li>
+    </ul>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Reference pass · 12 minutes</div>
+      <h3 class="step-title">Listen before you build</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Listen to ten to fifteen minutes of <em>AMMMusic 1966</em>. Write one short answer per question before you touch the gear.</p>
+    <ol class="rules-list">
+      <li>Can you find a leader — one player the others are following?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>No. Voices come and go without anyone calling the change. Nothing in the texture acts as the source the others lock to; the music is collective, so the "decider" at any moment is the whole density, not a person. That leaderlessness is the mechanism you are copying.</p></div></details>
+      </li>
+      <li>When a new sound enters, does it lock to a grid or just appear in the cloud?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>It just appears. There is no downbeat for it to land on, so entries are timed by the state of the texture — a gap opening, a thinning — not by a count. Sounds fade in and out of the cloud rather than snapping to a pulse.</p></div></details>
+      </li>
+      <li>What governs density — a section plan, or moment-to-moment listening?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Moment-to-moment listening. There is no audible map of "here comes the loud bit." Density rises when players add into space and falls when they back off a crowded moment; the form is the running consequence of everyone answering the whole, not a written arrangement.</p></div></details>
+      </li>
+      <li>Does any single voice dominate, or do they all sit inside one continuous texture?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>They sit inside one texture. Even a loud event is heard as part of the cloud rather than as a lead line on top of accompaniment. No voice is foreground for long, because foreground/background is itself dissolved into laminal density.</p></div></details>
+      </li>
+    </ol>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Now build the mechanism you described. You are rebuilding the interaction logic, not the sounds.</p>
+  </div>
+
+  <h2>Steps</h2>
+
+  <div class="gear-switch"><input type="radio" name="gear" id="gear-hw" class="gear-radio" checked><input type="radio" name="gear" id="gear-sw" class="gear-radio"><input type="radio" name="gear" id="gear-tg" class="gear-radio"><div class="gear-labels"><span class="gear-lead">Your rig</span><label for="gear-hw">VCV Rack + MicroFreak + Digitakt II</label><label for="gear-sw">Ableton Live only</label><label for="gear-tg">Octatrack MKII · target</label></div><div class="gear-scope"><div class="step">
+    <div class="step-head">
+      <div class="step-num">Phase 1 — ~25 minutes</div>
+      <h3 class="step-title">Build an autonomous bed that changes on its own</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: make an "ensemble" that plays itself without your input — this is what you will answer.</p>
+    <div class="signal-flow">
+      <span class="signal-node">generative VCV patch / long Live clip / free-running Digitakt texture</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">no pulse, no kick, no downbeat</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">a bed whose density rises and falls by itself</span>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol class="rules-list">
+        <li><strong>Build a self-running generative patch</strong> — slow random/sequential gates into a couple of textural voices, with random or LFO-driven level and filter movement, so voices enter and leave on their own. No clock you would tap to.</li>
+        <li>Alternatively or additionally, set a very long evolving Live clip and a free-running Digitakt II texture pattern (sampled drones/scrapes, kick muted), so layers fade in and out without you.</li>
+        <li>Let it run for two minutes untouched and listen: does its density actually change by itself — thinning here, thickening there? If it is static, add more independent movement so the whole keeps shifting.</li>
+      </ol>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from the reference and use Drum Rack, MIDI clips, Groove Pool, and clip automation.</li><li>Build the phase goal — <em>Build an autonomous bed that changes on its own</em> — as the smallest Live set that proves <em>Laminal collective improvisation: every entry and exit is governed by the total density of the running whole, not by a beat or a leader; sounds appear in the cloud rather than locking to a grid</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>A continuous, slowly shifting cloud of overlapping sound — density rising and falling organically, with nothing to tap, hum, or follow as a lead</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Octatrack MKII for this phase: translate <em>Build an autonomous bed that changes on its own</em> into Flex/Static machines, slices, recorder buffers, scenes, the crossfader, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>Laminal collective improvisation: every entry and exit is governed by the total density of the running whole, not by a beat or a leader; sounds appear in the cloud rather than locking to a grid</em>, not just the surface of the reference.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
+    <div class="sub-block">
+      <div class="sub-label">Expected result</div>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A bed you can leave running that behaves like other players — its density changes organically with no input from you, and there is nothing to tap or treat as a downbeat.</p>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">If it fails</div>
+      <table>
+        <thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead>
+        <tbody>
+          <tr><td>The bed feels like a loop with a pulse</td><td>A repeating pattern or audible kick is acting as a grid</td><td>Mute any kick, use prime/irrational loop lengths or free-running generative gates, blur onsets with long attacks so nothing reads as a beat</td></tr>
+          <tr><td>The density never really changes</td><td>All voices play constantly at one level</td><td>Drive each voice's level and presence with slow independent randomness/LFOs so voices genuinely enter and leave on their own</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Phase 2 — ~20 minutes</div>
+      <h3 class="step-title">Write the interaction rule set</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: decide in advance how your own layers answer the whole — and only the whole.</p>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol class="rules-list">
+        <li><strong>Write a short rule set governed only by the bed's current density</strong>, for example: "If it is dense, withdraw. If a gap opens, fill it slowly. Hold when it is already shifting. Never start on a downbeat — there isn't one."</li>
+        <li>Add a rule for your own loudness so you stay inside the cloud, not on top of it: "Never the loudest voice for more than a few seconds."</li>
+        <li>Map the rules to gestures you can perform live: a sustained MicroFreak drone to fade in on a gap, a Digitakt II texture to bring up or pull down, a filter sweep to thin — all by hand, none quantized.</li>
+        <li>Forbid one thing in writing: no melody, no riff, no entering "because it's time." Every move must cite the whole's state at that moment.</li>
+      </ol>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from the reference and use Drum Rack, MIDI clips, Groove Pool, and clip automation.</li><li>Build the phase goal — <em>Write the interaction rule set</em> — as the smallest Live set that proves <em>Laminal collective improvisation: every entry and exit is governed by the total density of the running whole, not by a beat or a leader; sounds appear in the cloud rather than locking to a grid</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>A continuous, slowly shifting cloud of overlapping sound — density rising and falling organically, with nothing to tap, hum, or follow as a lead</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Octatrack MKII for this phase: translate <em>Write the interaction rule set</em> into Flex/Static machines, slices, recorder buffers, scenes, the crossfader, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>Laminal collective improvisation: every entry and exit is governed by the total density of the running whole, not by a beat or a leader; sounds appear in the cloud rather than locking to a grid</em>, not just the surface of the reference.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
+    <div class="sub-block">
+      <div class="sub-label">Expected result</div>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A handful of written rules that tell you what to do as a function of the bed's density only — your stand-in for the listening AMM did to each other.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Phase 3 — ~30 minutes</div>
+      <h3 class="step-title">Perform one continuous take against the running bed</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: one unbroken response — no edits, no overdubs to "fix" the interplay.</p>
+    <div class="signal-flow">
+      <span class="signal-node">autonomous bed running</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">you add/withdraw MicroFreak + Digitakt layers by rule</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">one continuous laminal take</span>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol class="rules-list">
+        <li><strong>Start the bed, arm one continuous record, and play to the rule set in real time</strong> for several minutes — adding only into gaps, withdrawing when it crowds, holding when it is already moving.</li>
+        <li>Time every entry to the texture, never to a count; fade rather than trigger so your sounds appear in the cloud instead of landing on a beat.</li>
+        <li>Capture the whole thing in one pass. Do not stop to redo a moment, and do not overdub a layer afterward to make the interplay "better" — the take is the evidence of your decisions.</li>
+      </ol>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from the reference and use Drum Rack, MIDI clips, Groove Pool, and clip automation.</li><li>Build the phase goal — <em>Perform one continuous take against the running bed</em> — as the smallest Live set that proves <em>Laminal collective improvisation: every entry and exit is governed by the total density of the running whole, not by a beat or a leader; sounds appear in the cloud rather than locking to a grid</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>A continuous, slowly shifting cloud of overlapping sound — density rising and falling organically, with nothing to tap, hum, or follow as a lead</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Octatrack MKII for this phase: translate <em>Perform one continuous take against the running bed</em> into Flex/Static machines, slices, recorder buffers, scenes, the crossfader, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>Laminal collective improvisation: every entry and exit is governed by the total density of the running whole, not by a beat or a leader; sounds appear in the cloud rather than locking to a grid</em>, not just the surface of the reference.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
+    <div class="sub-block">
+      <div class="sub-label">Expected result</div>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">One continuous recording where density rises and falls organically, your layers clearly answer the whole, and there is no leader, no melody, and nothing to tap.</p>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">If it fails</div>
+      <table>
+        <thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead>
+        <tbody>
+          <tr><td>You start sounding like a lead over a backing track</td><td>You are playing a part instead of answering density</td><td>Re-read the rule set; force yourself to withdraw whenever you have been the loudest voice, so you sink back into the cloud</td></tr>
+          <tr><td>Your entries snap to a felt beat</td><td>You are still counting internally to a grid the bed does not have</td><td>Decide entries only on a heard gap; use long fades so onsets blur and nothing aligns to an imagined downbeat</td></tr>
+          <tr><td>The take feels like editing was needed</td><td>You stopped responding and tried to compose</td><td>Run it again as one performance; trust the bed to change and answer only what is actually there, no overdubs</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  </div></div><div class="decision-check">
+    <div class="decision-check-label">Verify against the work</div>
+    <p>A/B your take against ten to fifteen minutes of <em>AMMMusic 1966</em> — matched loudness, 30 seconds of yours, 30 of theirs. Then answer two questions in writing.</p>
+    <p><strong>Can a listener find a leader or a downbeat in yours, the way they cannot in theirs?</strong></p>
+    <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>If your layers read as a lead over a bed, or if anyone can tap a steady pulse, you played a part instead of answering the whole — the give-away is a voice that stays foreground or an entry that lands on a count. Leaderless, pulseless texture is the proof you copied the interaction rule, not the sounds.</p></div></details>
+    <p><strong>Does your density rise and fall by listening, the way theirs does?</strong></p>
+    <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Theirs thickens and thins because players answer the moment; if yours changes on a plan you can name in advance — "loud bit here" — you arranged it instead of responding. Density that tracks the running whole, with you withdrawing on crowding and filling gaps slowly, means the mechanism is in place.</p></div></details>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Logbook — the miss list, three lines:</strong> "Matched: …" · "Missed: … (best guess why)" · "Change next: …"</li>
+      <li>Note the one moment you broke a rule — entered on a felt beat, or stayed the loudest voice — and which rule would have caught it.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav"><a href="listening-l7.html"><span class="page-nav-direction">Back</span>Listening L7</a><a href="index.html" class="next"><span class="page-nav-direction">Block</span>Block 7 index →</a></div>
+  <div class="footer">Experimental Music Workshop — Block 7 · Replication lesson</div>
+</div>
+  <script src="../nav.js"></script>
+</body>
+</html>

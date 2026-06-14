@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Replicate: Algorave / TidalCycles — pattern as code</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page-type-rep" id="top">
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu"><span class="hamburger-lines"><span></span><span></span><span></span></span></label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html" class="active"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 6 · Decision Systems</a><span class="breadcrumb-sep">/</span><span>Replicate: pattern as code</span></nav>
+
+  <header class="page-header">
+    <div class="eyebrow">Block 6 · Replication lesson · Livecoding / Algorave</div>
+    <h1>Replicate: pattern as code</h1>
+    <p class="lede">Study a TidalCycles / Algorave performance. Rebuild the mechanism — a base pattern reshaped live by named transformation functions — on whatever decides things in your studio. Decision-system-as-performance: the rules are edited in real time.</p>
+  </header>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l6.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs">Labs</a><a href="lab-r6.html" data-section="rebuild">Rebuild</a><a href="capstone-c5.html" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep" class="current">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
+
+  <div class="callout">
+    <div class="callout-label">The point</div>
+    <p>This is not about the language. The mechanism is that <strong>music is held as a short cyclic pattern, and form is made by applying named transformations to that pattern live</strong> — <span class="code">every</span>, <span class="code">sometimesBy</span>, <span class="code">chop</span>, <span class="code">jux</span>, <span class="code">off</span>. One unit (the cycle), a vocabulary of operations, composed and re-composed on the fly. You can rebuild that logic with Digitakt conditions and Live's MIDI tools, or actually run TidalCycles (free).</p>
+  </div>
+
+  <table class="param-table">
+    <caption>The system you are replicating</caption>
+    <tr><td>Source</td><td>An Algorave set built in <em>TidalCycles</em> (e.g. an Alex McLean / live-coding showcase set)</td></tr>
+    <tr><td>The effect</td><td>Dense, constantly mutating rhythm that never stops evolving, with audible "edits" landing on cycle boundaries</td></tr>
+    <tr><td>The mechanism</td><td>A small cyclic pattern + a vocabulary of transformation functions applied and stacked live; the cycle is the unit, the transforms are the composition</td></tr>
+  </table>
+
+  <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=TidalCycles+algorave+live+coding" target="_blank" rel="noopener">YouTube</a> · <a href="https://tidalcycles.org/" target="_blank" rel="noopener">tidalcycles.org</a></p>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Before you start</div>
+    </div>
+    <ul>
+      <li>Pick ONE tool path: (a) TidalCycles + SuperDirt (free, the real thing), or (b) the workshop rig — Digitakt II trig conditions + Live MIDI tools / Max for Live as a hand-driven stand-in</li>
+      <li>Pen and paper: write your transformation vocabulary down before you perform it</li>
+      <li>Clock running; one drum source loaded so the pattern has something to speak through</li>
+    </ul>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>What you will make:</strong> a short performance where ONE base pattern is reshaped live, and every change is a named operation you can repeat.</li>
+      <li><strong>What you will turn off:</strong> pre-arranged clips, drawn automation, anything that hides whether the transformation made the change.</li>
+      <li><strong>What you will prove:</strong> your version and <span class="code">REF</span> share the mechanism — form generated by applying operations to a cycle, not by adding new material.</li>
+      <li><strong>What counts as success:</strong> remaining differences are tool limits or taste, not a missing mechanism.</li>
+    </ul>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Reference pass · 10 minutes</div>
+      <h3 class="step-title">Listen before you build</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Watch and listen to about a minute of a TidalCycles set. Answer each question before touching the tool.</p>
+    <ol class="rules-list">
+      <li>When the music changes, does new material arrive, or is the same material rearranged?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Almost always rearranged. A short pattern is reversed, chopped, density-shifted, or panned in pairs — the source set is small; the operations are what move.</p></div></details>
+      </li>
+      <li>Where do the edits land in time?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>On cycle boundaries. The cycle is the unit of change: you hear an edit "take" at the top of the next cycle, which is why the music feels quantised to its own breathing.</p></div></details>
+      </li>
+      <li>Is the change deterministic or chancy?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Both, by choice. <span class="code">every 4</span> is deterministic (every 4th cycle); <span class="code">sometimesBy 0.3</span> is probabilistic. The performer decides how much of the form is rule and how much is dice.</p></div></details>
+      </li>
+      <li>Do transformations stack?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Yes — that is the density. A pattern can be chopped, then have an offset copy, then be panned in stereo, all at once. Order matters: the same operations in a different order give a different result.</p></div></details>
+      </li>
+    </ol>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Build · step 1</div>
+      <h3 class="step-title">State the base pattern and the vocabulary</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus);">Write one short pattern (e.g. a 16-step kick/hat/clap line on the Digitakt, or <span class="code">d1 $ s "bd*4 hh*8 ~ cp"</span> in Tidal). Then list four operations you will allow yourself and nothing more: a reorder (reverse/rotate), a density change (chop/retrig), a stereo move (pan-in-pairs), and an offset echo (a delayed copy at a fixed interval). On the rig, map each to a concrete move: trig-condition probability, retrig, per-track pan, and a synced delay throw.</p>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Build · step 2</div>
+      <h3 class="step-title">Perform the operations on cycle boundaries</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus);">Record a take. Start with the bare pattern for two cycles, then introduce one operation per cycle, then start stacking. Make every change land at the top of a cycle (in Tidal it does automatically; on the rig, time your edits to the bar). The discipline is the lesson: you are composing form out of operations, not out of new parts.</p>
+    <div class="signal-flow">
+      <span class="signal-node">base pattern</span><span class="signal-arrow">→</span>
+      <span class="signal-node">apply operation</span><span class="signal-arrow">→</span>
+      <span class="signal-node">stack on next cycle</span><span class="signal-arrow">→</span>
+      <span class="signal-node">cycle boundary commits it</span>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Decision check · A/B at matched loudness</div>
+      <h3 class="step-title">Compare with the reference</h3>
+    </div>
+    <ol class="rules-list">
+      <li>Loudness-match your take to <span class="code">REF</span> and play them back to back. Does your form move by rearrangement, like the reference, or did you cheat and add parts?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>If you added parts, the mechanism failed — you wrote an arrangement, not a transformation system. Strip back to one pattern and let the operations do the work.</p></div></details>
+      </li>
+      <li>Can you name every change you made as a repeatable operation?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>If any change can't be named and repeated, it was a fluke, not a system. The whole point of pattern-as-code is that the form is reproducible from the operations.</p></div></details>
+      </li>
+    </ol>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Miss-list:</strong> note what your version misses versus the record — and say whether each miss is a tool limit (no live re-evaluation on the rig), a taste choice, or a mechanism you didn't actually steal. File the take in the logbook; carry the corrected analysis to <a href="lab-r6.html">lab-r6</a>.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav"><a href="listening-l6.html"><span class="page-nav-direction">Back</span>Listening L6</a><a href="index.html" class="next"><span class="page-nav-direction">Block</span>Block 6 index →</a></div>
+  <div class="footer">Block 6 · Replication lesson</div>
+</div>
+  <script src="../nav.js"></script>
+</body>
+</html>

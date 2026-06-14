@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Replicate: Kubisch — the field as found score</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page-type-rep" id="top">
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu"><span class="hamburger-lines"><span></span><span></span><span></span></span></label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html" class="active"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 2 · Sources</a><span class="breadcrumb-sep">/</span><span>Replicate: the field as found score</span></nav>
+
+  <header class="page-header">
+    <div class="eyebrow">Block 2 · Replication lesson</div>
+    <h1>Replicate: the field as found score</h1>
+    <p class="lede">Steal one structural idea from Christina Kubisch's <em>Electrical Walks</em>: reveal a layer of sound that was always present but inaudible, then let a <em>map</em> of where that layer lives decide your arrangement. Build a short take and compare it to the reference at the same loudness.</p>
+  </header>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l2.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs">Labs</a><a href="lab-r2.html" data-section="rebuild">Rebuild</a><a href="index.html#capstone" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep" class="current">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
+
+  <div class="callout">
+    <div class="callout-label">The point</div>
+    <p>You are not copying Kubisch's specific sounds or her city. You are copying the technique: reveal a layer that was inaudible, draw a map of where its events are strongest, and let the route through that map decide the form — not your taste. The piece is <strong>discovered</strong>, not composed. Everything else is decoration.</p>
+  </div>
+
+  <table class="param-table">
+    <caption>The system you are replicating</caption>
+    <tr><td>Source record</td><td>Christina Kubisch — <em>Electrical Walks</em> (ongoing since 2003)</td></tr>
+    <tr><td>The effect</td><td>A hidden electromagnetic world — ATMs, lights, security gates, transit lines — suddenly becomes a vivid, composed-sounding piece, even though nobody wrote a note</td></tr>
+    <tr><td>The mechanism</td><td>Induction-coil listening makes an inaudible field audible; the map of where the field's events occur becomes the found score, and the route through it <em>is</em> the form</td></tr>
+  </table>
+
+  <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Christina+Kubisch+Electrical+Walks" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Christina%20Kubisch%20Electrical%20Walks">Spotify</a></p>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"></path></svg></div>
+      <div class="checklist-label">Before you start</div>
+    </div>
+    <ul>
+      <li>One piece of your own raw material that hides a quiet layer — a noisy field recording, a buzzy synth take, a Digitakt II sample with audible noise floor, or a MicroFreak patch with raw oscillator/noise content</li>
+      <li>MicroFreak ready on Live's input — its plain oscillators and noise are your stand-in for electromagnetic buzz if you want to generate the hidden layer rather than excavate it</li>
+      <li>Pen and paper, or a clip overview in Live, for the map — it is drawn from what you uncover, before any arranging happens</li>
+      <li>Optional: a real telephone/induction pickup coil into Live's input will literally capture the EMI from a phone charger, laptop, or screen — use it if you have one, but the build works without it</li>
+    </ul>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>What you will make:</strong> a 60–90 second study built entirely from a layer you exposed that was inaudible in your source, arranged by walking a map of that layer. Focus on this effect: a hidden world is revealed and its own geography becomes the music.</li>
+      <li><strong>What you will turn off:</strong> your composing instinct, your taste, and the urge to tidy the discovered layer into something pretty. You curate the route; you do not write the notes.</li>
+      <li><strong>What you will prove:</strong> your version and <span class="code">REF</span> use the same core mechanism: an inaudible layer made audible, and a map of it used as the score.</li>
+      <li><strong>What counts as success:</strong> remaining differences are source choices or rig limits, not missing steps.</li>
+    </ul>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Reference pass · 10 minutes</div>
+      <h3 class="step-title">Listen before you build</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Listen to a few minutes of <em>Electrical Walks</em> documentation. Write one short answer for each question before you touch the gear.</p>
+    <ol class="rules-list">
+      <li>None of these sounds were "made" by a musician — so where does the music come from?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>From revealing, not making. The electromagnetic emissions of lights, ATMs, and transit systems were always there; the induction coil just converts them into audible signal. The composer's act is choosing the coil and the route, not authoring the sound. The "music" is a layer of the ordinary world that was always below the threshold of hearing.</p></div></details>
+      </li>
+      <li>Why does it feel composed — phrased, sectional, full of arrivals — when nobody wrote it?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Because the city's electromagnetic geography is already sectional: a quiet stretch of pavement, a loud bank of fluorescent tubes, the rhythmic pulse of a ticket gate. As you move, you cut from one source to the next. That sequence reads as phrasing. The route through the field is the arrangement — the city does the composing and the walker does the editing.</p></div></details>
+      </li>
+      <li>What is the map for — why guide the walk instead of wandering?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>The map turns wandering into a score. It marks where the strong sources are, so the walk becomes a repeatable, intentional path through known events rather than chance. That's the key transfer for you: a map of where the hidden events live, used as the thing that decides order and duration. Authorship shifts from "what notes" to "which path."</p></div></details>
+      </li>
+      <li>What would be lost if Kubisch cleaned up the hum into smooth, pleasant tones?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>The evidence that it's real. The grit, the ugly buzz, the lurching levels prove this is a real field and not a designed synth patch. If you smooth the discovered layer into something tasteful, you've stopped discovering and started composing. Present the layer as found — keep the warts.</p></div></details>
+      </li>
+    </ol>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Now build the mechanism you just described. Do not imitate her sounds — reveal your own hidden layer and let its map score it.</p>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Sound target:</strong> a take made only of a layer that was inaudible in your source, presented as found, with its order and timing taken from a map of where its events occur.</li>
+      <li><strong>The hidden layer:</strong> the noise floor, buried hum, sub rumble, digital artefacts, or raw EMI-style buzz you exposed — never the obvious sound that was already in front.</li>
+      <li><strong>The map:</strong> a drawn or listed chart of where in the material the strong events sit, made before you arrange anything.</li>
+      <li><strong>The form:</strong> the route you walk through that map — nothing else decides the order.</li>
+    </ul>
+  </div>
+
+  <h2>Steps</h2>
+
+  <div class="gear-switch"><input type="radio" name="gear" id="gear-hw" class="gear-radio" checked><input type="radio" name="gear" id="gear-sw" class="gear-radio"><input type="radio" name="gear" id="gear-tg" class="gear-radio"><div class="gear-labels"><span class="gear-lead">Your rig</span><label for="gear-hw">MicroFreak + Digitakt II</label><label for="gear-sw">Ableton Live only</label><label for="gear-tg">Octatrack MKII · target</label></div><div class="gear-scope"><div class="step">
+    <div class="step-head">
+      <div class="step-num">Phase 1 — ~25 minutes</div>
+      <h3 class="step-title">Make the inaudible layer audible</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: excavate a layer that is present but below the threshold of hearing, so there is something to map. Compare against <span class="code">REF</span> before moving on.</p>
+    <div class="signal-flow">
+      <span class="signal-node">source material (or MicroFreak / pickup coil)</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">extreme boost + EQ (expose the buried layer)</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">the revealed field, as found</span>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol class="rules-list">
+        <li><strong>Import the record on a REF track</strong> and gain-match it with a Utility so A/Bs are honest.</li>
+        <li><strong>Choose your source:</strong> load a sample that you suspect hides a quiet layer — one with audible noise floor, hum, or sub. Or use a noisy field recording on a Live track.</li>
+        <li><strong>Or generate the hidden layer:</strong> set a raw oscillator or the noise engine very low, the kind of buzz you would normally filter out. The optional pickup coil into Live's input does the same job by capturing real device EMI.</li>
+        <li><strong>Reveal it:</strong> drop a Utility with heavy gain and an EQ Eight, then carve away the loud, obvious content and boost the quiet residue — the hiss, the 50/60 Hz hum, the digital fizz, the sub rumble — until the buried layer is the loudest thing in the room.</li>
+        <li>Audition the revealed layer alone. It should sound like a world you did not know was there, not like your original sample with treble on it.</li>
+      </ol>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Christina Kubisch — Electrical Walks (ongoing since 2003) and use audio clips, Simpler/Sampler, clip envelopes, and resampling.</li><li>Build the phase goal — <em>Make the inaudible layer audible</em> — as the smallest Live set that proves <em>Induction-coil listening makes an inaudible field audible; the map of where the field's events occur becomes the found score, and the route through it is the form</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>A hidden electromagnetic world — ATMs, lights, security gates, transit lines — suddenly becomes a vivid, composed-sounding piece, even though nobody wrote a note</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Octatrack MKII for this phase: translate <em>Make the inaudible layer audible</em> into Flex/Static machines, slices, recorder buffers, scenes, the crossfader, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>Induction-coil listening makes an inaudible field audible; the map of where the field's events occur becomes the found score, and the route through it is the form</em>, not just the surface of Christina Kubisch — Electrical Walks (ongoing since 2003).</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
+    <div class="sub-block">
+      <div class="sub-label">Expected result</div>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A track that plays only the previously inaudible layer of your material — grit, hum, and all — clearly a hidden domain dragged into earshot.</p>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">If it fails</div>
+      <table>
+        <thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead>
+        <tbody>
+          <tr><td>You still mostly hear the original, obvious sound</td><td>The loud content was boosted along with the buried layer</td><td>Cut hard where the main material lives first, <em>then</em> boost the residue; the hidden layer can only emerge once the foreground is gone</td></tr>
+          <tr><td>The result is just clean tone, no grit</td><td>You generated a layer instead of excavating one, and made it tasteful</td><td>Use rawer noise or a noisier source; the found layer must carry evidence of the real signal it came from</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Phase 2 — ~30 minutes</div>
+      <h3 class="step-title">Draw the map of where the events are</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: chart the geography of the revealed layer — where it surges, where it goes quiet, where it pulses — so you have a found score to walk.</p>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol class="rules-list">
+        <li><strong>Scan the revealed layer end to end,</strong> listening only for where its character changes — a surge of hum here, a silence there, a rhythmic flutter of digital artefact, a low drone.</li>
+        <li><strong>Mark every distinct emitter</strong> as a point on a map: name it (e.g. <em>buzz-zone</em>, <em>dead-air</em>, <em>tick-pulse</em>, <em>sub-bloom</em>) and note where it sits in the source and how strong it is.</li>
+        <li><strong>Treat it as a real map, not a timeline:</strong> sketch the strong zones as places you could visit in any order, the way Kubisch's city map marks emitters, not a fixed sequence.</li>
+        <li><strong>Mark the single strongest emitter</strong> and the quietest dead zone — the extremes of your field. These anchor the walk.</li>
+      </ol>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Christina Kubisch — Electrical Walks (ongoing since 2003) and use audio clips, Simpler/Sampler, clip envelopes, and resampling.</li><li>Build the phase goal — <em>Draw the map of where the events are</em> — as the smallest Live set that proves <em>Induction-coil listening makes an inaudible field audible; the map of where the field's events occur becomes the found score, and the route through it is the form</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>A hidden electromagnetic world — ATMs, lights, security gates, transit lines — suddenly becomes a vivid, composed-sounding piece, even though nobody wrote a note</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Octatrack MKII for this phase: translate <em>Draw the map of where the events are</em> into Flex/Static machines, slices, recorder buffers, scenes, the crossfader, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>Induction-coil listening makes an inaudible field audible; the map of where the field's events occur becomes the found score, and the route through it is the form</em>, not just the surface of Christina Kubisch — Electrical Walks (ongoing since 2003).</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
+    <div class="sub-block">
+      <div class="sub-label">Expected result</div>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A map of the hidden layer specific enough that someone else could "walk" it — every emitter named and placed, with its strength noted, before any arranging.</p>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">If it fails</div>
+      <table>
+        <thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead>
+        <tbody>
+          <tr><td>The map is one undifferentiated smear</td><td>The revealed layer is too uniform — one continuous hiss with no geography</td><td>Go back to phase 1 and expose more than one band; a field needs distinct emitters, so dig out the sub, the hum, and the fizz separately</td></tr>
+          <tr><td>You started ordering events while mapping</td><td>Composing crept in — you sketched a tune instead of a territory</td><td>Redraw it as places, not a sequence; the order is decided in phase 3 by the route, not here</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Phase 3 — ~25 minutes</div>
+      <h3 class="step-title">Walk the map and let the route be the form</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: choose a path through the map and record the walk. The route is the whole arrangement — your authorship is in the curation of the path, not the sound.</p>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol class="rules-list">
+        <li><strong>Plot one route across the map:</strong> a list of emitters in the order you will visit them and how long you linger at each, e.g. <em>dead-air → buzz-zone (long) → tick-pulse → sub-bloom → dead-air</em>. This list is your found score.</li>
+        <li><strong>Walk it in one pass:</strong> move through your revealed layer in the route's order — by jumping the playhead, muting and unmuting the mapped zones, or re-triggering the regions — holding each emitter as long as the route says.</li>
+        <li><strong>If the layer lives in samples,</strong> place each emitter as a slice and trigger them in route order so the walk plays as a sequence of arrivals at known places.</li>
+        <li><strong>Record the walk</strong> with no metre and no tidying — let the durations and the grit fall as the field gives them. You decided the path; you do not get to fix the sounds along it.</li>
+        <li>Listen back: a stranger should feel they are being led somewhere through a real place, not hearing a tune you wrote.</li>
+      </ol>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Christina Kubisch — Electrical Walks (ongoing since 2003) and use audio clips, Simpler/Sampler, clip envelopes, and resampling.</li><li>Build the phase goal — <em>Walk the map and let the route be the form</em> — as the smallest Live set that proves <em>Induction-coil listening makes an inaudible field audible; the map of where the field's events occur becomes the found score, and the route through it is the form</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>A hidden electromagnetic world — ATMs, lights, security gates, transit lines — suddenly becomes a vivid, composed-sounding piece, even though nobody wrote a note</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Octatrack MKII for this phase: translate <em>Walk the map and let the route be the form</em> into Flex/Static machines, slices, recorder buffers, scenes, the crossfader, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>Induction-coil listening makes an inaudible field audible; the map of where the field's events occur becomes the found score, and the route through it is the form</em>, not just the surface of Christina Kubisch — Electrical Walks (ongoing since 2003).</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
+    <div class="sub-block">
+      <div class="sub-label">Expected result</div>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A 60–90 second take whose only structural decision was the route through the map — and which still has a shape, because the field's own geography supplied it.</p>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">If it fails</div>
+      <table>
+        <thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead>
+        <tbody>
+          <tr><td>You edited the events into a satisfying loop or beat</td><td>Taste overrode the route — you composed instead of walked</td><td>Re-perform straight from the route list, lingering exactly as written; the discomfort of an "unmusical" arrival is the evidence the form is found, not invented</td></tr>
+          <tr><td>The take feels arbitrary, no sense of being led</td><td>The route had no arc — emitters in random order</td><td>Give the path a shape on the map: depart from a dead zone, build through the strongest emitter, return changed; you choose the walk, the field supplies the sound</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  </div></div><div class="decision-check">
+    <div class="decision-check-label">Verify against the record</div>
+    <p>A/B your take against a comparable stretch of <em>Electrical Walks</em> — 10 seconds of yours, 10 of theirs, matched loudness. Then answer two questions in writing.</p>
+    <p><strong>Does yours sound discovered rather than composed — like a hidden layer revealed, not a patch you designed?</strong></p>
+    <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>If it sounds like a deliberate musical idea, you smoothed the field into taste and lost the technique. The proof is the grit: a found layer keeps the lurches, the ugly buzz, the uneven levels that mark it as real. If yours is too clean and pleasant, go back and present the revealed layer as found — Kubisch's work gets its authority from not tidying it.</p></div></details>
+    <p><strong>Did the map decide the form — could you point to the route as the reason the events fall in this order?</strong></p>
+    <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>It should. That's the whole claim of this technique: a map of where the hidden events live can be the score. If you can't trace your arrangement back to a step on the map — if the order came from "what sounded good" — you replaced the found score with composition. Check that every arrival in the take matches a step on your route. In Kubisch, the geography is always the reason.</p></div></details>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Logbook — the miss list, three lines:</strong> "Matched: …" · "Missed: … (best guess why)" · "Change next: …"</li>
+      <li>Name the one emitter on your map that did the most work — the place on the route that sold the whole walk.</li>
+      <li>Replica audio stays in the logbook as study evidence; it is not a release, and never reuses Kubisch's own recordings.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav"><a href="listening-l2.html"><span class="page-nav-direction">Back</span>Listening L2</a><a href="index.html" class="next"><span class="page-nav-direction">Block</span>Block 2 index →</a></div>
+  <div class="footer">Experimental Music Workshop — Block 2 · Replication lesson</div>
+</div>
+  <script src="../nav.js"></script>
+</body>
+</html>

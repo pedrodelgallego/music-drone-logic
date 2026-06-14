@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab 029 — Audio Feedback Systems</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page-type-lab" id="top">
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html" class="active"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 7 · Performance</a><span class="breadcrumb-sep">/</span><span>Audio Feedback Systems</span></nav>
+
+  <header class="page-header">
+    <div class="eyebrow">Block 7 · Lab 029 · Track lab</div>
+    <h1>Audio Feedback Systems</h1>
+    <p class="lede">Sound from nothing. No oscillator, no sample, no input — only a signal path bent back on itself until it sings. The Tudor lineage: music made by governing an instability instead of playing an instrument.</p>
+  </header>
+  <p class="block-meta">Track lab · S4 · D5 E4 M5 F3 · performance · full cycle · new concepts: 5</p>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l7.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs" class="current">Labs</a><a href="lab-r7.html" data-section="rebuild">Rebuild</a><a href="capstone-c6.html" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
+
+  <div class="signal-flow">
+    <span class="signal-node">listen</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">hypothesis</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">draw the path</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">calibrate</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">build</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">fault</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">diagnose</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">print</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">delta</span>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Start here</div>
+    </div>
+    <ul>
+      <li><strong>Requires lab 020:</strong> feedback paths drawn as both a musical system and a safety-critical system — that double drawing is assumed here, not retaught.</li>
+      <li><strong>The safety checklist below comes before everything</strong> — before the listening, before the specs, before any cable moves. It is filed as a deliverable, dated, before the first sound exists.</li>
+      <li>Save a new set as <span class="code">LAB-029-feedback</span>.</li>
+      <li>This is an S4 lab: author both specs from the brief alone — no prompts, no pre-filled rows.</li>
+      <li>The roadmap proposes a small mixer with an aux send at Block 5 and a Strega-class unstable voice at Block 6; the core-rig fallback is a Live send/return loop with a limiter — the capability is the lab, not the brand.</li>
+    </ul>
+  </div>
+
+  <h2>Safety — run this before any sound exists</h2>
+
+  <div class="callout">
+    <div class="callout-label">Why this is first</div>
+    <p>A feedback loop does not fade in — past unity gain it grows <em>exponentially</em>, from inaudible to full scale in well under a second, directly into your converters and your ears. Lab 020’s rule still stands: the checklist is completed and filed <strong>before the loop is closed</strong>, every session, no exceptions. Headphones stay off your head during every first excitation.</p>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Feedback safety checklist — file it dated, then patch</div>
+    </div>
+    <ul>
+      <li><strong>Limiter location</strong> — a brickwall limiter sits downstream of <em>every</em> loop, on the path your ears and converters share; ceiling written down (test sessions: −12 dBFS, never above −6 dBFS)</li>
+      <li><strong>Emergency mute</strong> — one single gesture that opens the loop, named and physically rehearsed before patching; not a menu, not a mouse hunt</li>
+      <li><strong>Send amount</strong> — starts at zero, raised only in small steps; the current value is known at all times, never “wherever it was”</li>
+      <li><strong>Return level</strong> — starts at zero; send and return are never raised in the same gesture</li>
+      <li><strong>Monitoring level</strong> — speakers low or off, DT 990 <em>off the head</em> at the lab-001 mark for first excitation; phones go on only after the loop has proven its ceiling</li>
+      <li><strong>Pre/post-fader status</strong> — declared in writing for every send in the loop; a pre-fader send keeps feeding a loop whose fader you pulled down — know which escape routes actually work</li>
+      <li><strong>Maximum safe test procedure</strong> — written before testing: raise send in steps from silence, one hand resting on the emergency mute, pause at each step to hear the trend; if level still grows two seconds after your hand stopped, mute first, think second</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The point</div>
+    <p>Feedback is this workshop’s first fully autonomous instrument: nothing enters, yet sound emerges, because the path itself is unstable. Your job moves one level up — from making sounds to governing the conditions under which a system makes them, and recovering musically when it runs.</p>
+  </div>
+
+  <h2>How this lab works</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3 class="card-title">Close the loop — safely</h3>
+      <ul class="card-points">
+        <li>Output bent back to input: a mixer’s aux return into its own send, a no-input desk, or a Live send/return chain — the limiter always downstream.</li>
+        <li>The loop is drawn twice before sound, as in lab 020: once as music, once as a hazard diagram.</li>
+        <li>What sits <em>inside</em> the loop (EQ, delay, drive) decides which frequency wins the race.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Find the playable region</h3>
+      <ul class="card-points">
+        <li>Between silence and runaway there is a ridge where the loop sings and answers — that ridge is the instrument.</li>
+        <li>Map the stable regions: which settings settle into a tone, a pulse, a chirp — name each one like a patch.</li>
+        <li>Tiny moves, long listens: this instrument responds to position, not velocity.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Govern, don’t trigger</h3>
+      <ul class="card-points">
+        <li>This is a long-form lab (15+ minutes): the piece is a curated journey through the system’s states.</li>
+        <li>You control conditions — gain, filter, topology — and the system supplies events; D5 means it would keep playing without you.</li>
+        <li>One staged runaway, recovered musically, is the lab’s failure rehearsal — with the checklist live and the limiter proven.</li>
+      </ul>
+    </div>
+  </div>
+
+  <table class="param-table">
+    <caption>Pass standard</caption>
+    <tr><td>Minimum pass</td><td>A 15+ minute piece sourced from feedback alone, the dated safety checklist filed before first sound, plus loop diagram, panic path, fault entry, and system diff.</td></tr>
+    <tr><td>Solid pass</td><td>At least three named stable regions visited and audibly distinct, and one runaway recovered as music rather than stopped.</td></tr>
+    <tr><td>Advanced transfer</td><td>The system is re-tunable from your documentation alone, and another person could execute your safe test procedure without you in the room.</td></tr>
+  </table>
+
+  <h2>New concepts — in plain words</h2>
+
+  <table>
+    <tr><th>Concept</th><th>In plain words</th></tr>
+    <tr><td><span class="lab-title">Loop gain</span></td><td>How much the signal grows or shrinks each time around the circle. Below 1, every pass is quieter and the sound dies; above 1, every pass is louder and it explodes; at exactly 1 it sustains. The whole instrument is the third option, held by hand.</td></tr>
+    <tr><td><span class="lab-title">No-input technique</span></td><td>A mixing desk with its output patched into its own input and nothing else connected — the device that was built to be neutral becomes the entire orchestra. The honest name for it: playing the electronics, not playing <em>through</em> them.</td></tr>
+    <tr><td><span class="lab-title">Stable region</span></td><td>A combination of settings where the loop settles into a repeatable behavior — a steady tone, a slow pulse, a chirping pattern — instead of dying or exploding. Mapping these regions is to feedback what learning scales is to a piano.</td></tr>
+    <tr><td><span class="lab-title">Runaway</span></td><td>What happens past unity gain: growth that doubles and doubles again, faster than reflexes. Not a risk to flirt with but a physics fact to engineer around — which is why the limiter and the mute exist before the loop does.</td></tr>
+    <tr><td><span class="lab-title">Governing</span></td><td>The performance mode of this lab: you do not place events, you steer conditions and select among the system’s offers. Closer to gardening than to drumming — and still a performance, because the recovery moves are yours.</td></tr>
+  </table>
+
+  <div class="tag-row">
+    <span class="tag">loop gain</span>
+    <span class="tag">no-input technique</span>
+    <span class="tag">stable region</span>
+    <span class="tag">runaway</span>
+    <span class="tag">governing</span>
+  </div>
+
+  <h2>Listening — the hypothesis source</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Ten ways of making something from nothing — sixty years of performers letting a circuit, a room, or an amplifier sing on its own terms and then governing what emerged. Listen for the gain hand: who or what is holding the loop at the edge, and what happens when it slips. Each gets a brief: what to listen for before you press play, and how to check yourself after.</p>
+
+  <div class="listen-acc">
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">01</span>
+        <span class="listen-title">David Tudor — <em>Toneburst</em> (1975)</span>
+        <span class="listen-tag">the lineage, pure</span>
+      </summary>
+      <div class="listen-body">
+        <p>Commissioned for Merce Cunningham’s <em>Sounddance</em>: chains of filters, clippers, and modulators with no source material at all — the sound is the network’s own feedback, performed live. Where Block 7’s L7 programme studies <em>Rainforest IV</em>’s resonating objects, this is the same mind with nothing but the circuit.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Physicality without instruments — growls and bursts that feel mechanical though nothing mechanical exists.</li>
+          <li>Behaviors, not phrases: the music moves when the network changes state, not when a hand plays a note.</li>
+          <li>The edges of control — moments the system audibly surprises its own operator, and what he does next.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Could you tell governed from random? Governed feedback has direction — states persist, develop, and get abandoned on purpose; random would have no memory. If it sounded like noise, relisten to five minutes and mark every state change: the spacing is decided, and that decision is the performance your lab must contain.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=David+Tudor+Toneburst" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:David%20Tudor%20Toneburst">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-david-tudor-toneburst-1975.html">lesson</a> (complete lesson)</p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">02</span>
+        <span class="listen-title">Gordon Mumma — “Hornpipe” (1967)</span>
+        <span class="listen-tag">the room joins the loop</span>
+      </summary>
+      <div class="listen-body">
+        <p>A French horn player wearing custom “cybersonic” electronics that listen to the horn’s resonances in the performance space and respond with their own — the feedback loop includes the player, the circuit, and the room itself.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The handover: acoustic horn sounds provoking electronic answers that gradually take over the piece.</li>
+          <li>The room as a component — the electronics are reacting to resonances you can half-hear forming.</li>
+          <li>A duet logic between player and circuit: call, distorted echo, escalation.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Who is following whom? It trades — early on the electronics follow the horn; later the horn is answering the circuit. That reversal is D5 in 1967: the system became the lead performer. If you could not hear the trade, relisten to the opening and closing five minutes back to back and ask who starts each phrase.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Gordon+Mumma+Hornpipe" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Gordon%20Mumma%20Hornpipe">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-gordon-mumma-hornpipe-1967.html">lesson</a> (complete lesson)</p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">03</span>
+        <span class="listen-title">Alvin Lucier — “Bird and Person Dyning” (1975)</span>
+        <span class="listen-tag">feedback steered by walking</span>
+      </summary>
+      <div class="listen-body">
+        <p>A performer wearing binaural microphones walks slowly toward an electronic bird call while the mics feed the room’s speakers — the feedback between mics and speakers shifts with every step, and the walking <em>is</em> the score. Lucier’s third appearance in this workshop, with a third instrument: the room’s instability itself.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Feedback tones that bend as the performer moves — pitch steered by position, centimeters audible.</li>
+          <li>Heterodyning ghost tones: combination pitches that exist in the air, made by the bird call beating against the feedback.</li>
+          <li>How slow the changes are — the gain hand here is a person’s gait.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>What is the instrument? Not the bird call, not the mics — the <em>distance</em> between transducers, played by walking. Your lab’s version: the playable region is a geometry, and your controls move you through it. If the piece felt static, relisten to ten minutes tracking only one feedback tone’s pitch — it never stops drifting, because the performer never stops moving.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Alvin+Lucier+Bird+and+Person+Dyning" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Alvin%20Lucier%20Bird%20and%20Person%20Dyning">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-alvin-lucier-bird-and-person-dyning-1975.html">lesson</a> (complete lesson)</p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">04</span>
+        <span class="listen-title">Nicolas Collins — “Pea Soup” (1974)</span>
+        <span class="listen-tag">feedback that tunes itself</span>
+      </summary>
+      <div class="listen-body">
+        <p>A self-stabilizing feedback network: phase shifters nudge the mic-speaker feedback away from any pitch it settles on, so the loop wanders the room’s resonances on its own — an architecture that solves this lab’s central problem (runaway) in circuitry instead of reflexes.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Feedback that blooms, bends, and yields instead of screaming — the stabilizer audibly at work.</li>
+          <li>The room’s resonant pitches being visited one by one, like a slow survey of the building.</li>
+          <li>What people moving in the space do to the music — bodies retune the loop.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Why doesn’t it run away? Because the system’s design pushes gain and phase away from the singing point the instant it arrives — an engineered version of your hand on the send. Name the difference between this and a limiter: the limiter catches runaway; this <em>prevents</em> the loop from committing to it. If that distinction is fuzzy, relisten to one swell and notice it retreats before it peaks.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Nicolas+Collins+Pea+Soup" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Nicolas%20Collins%20Pea%20Soup">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-nicolas-collins-pea-soup-1974.html">lesson</a> (complete lesson)</p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">05</span>
+        <span class="listen-title">Robert Ashley — “The Wolfman” (1964)</span>
+        <span class="listen-tag">voice as loop excitation</span>
+      </summary>
+      <div class="listen-body">
+        <p>A vocalist at maximum amplification holds quiet, sustained mouth sounds against a room already at the edge of feedback — the voice does not sing over the loop, it <em>steers</em> it. Brutal, controlled, and one of the earliest pieces to treat runaway as material.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>How small the vocal gestures are versus how massive the result — tiny mouth shapes selecting which scream the room produces.</li>
+          <li>The continuous tone of the system versus the punctuation of the voice.</li>
+          <li>Loudness as a structure, not an accident: the level is the composition’s premise.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>What is the voice actually doing? Not singing — filtering: the mouth is a variable resonator inserted into the loop, the same role your EQ plays inside yours. One warning to take literally: this piece lives at levels your bench must never reach — its lesson is the architecture, your limiter ceiling stays where the checklist put it. If it read as pure noise, relisten following only the moments the texture changes and ask what mouth shape change preceded each.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Robert+Ashley+The+Wolfman" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Robert%20Ashley%20The%20Wolfman">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-robert-ashley-the-wolfman-1964.html">lesson</a> (complete lesson)</p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">06</span>
+        <span class="listen-title">Éliane Radigue — <em>Feedback Works 1969–1970</em></span>
+        <span class="listen-tag">runaway slowed to meditation</span>
+      </summary>
+      <div class="listen-body">
+        <p>Before the ARP synthesizer of “Kyema” (Block 2’s lesson), Radigue composed with microphones held near loudspeakers and tape recorders feeding themselves — feedback held so close to unity, for so long, that the most violent phenomenon in audio becomes the stillest music imaginable.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>How close to silence the loops sit — gain ridden just under the singing point, beating slowly against tape hiss.</li>
+          <li>Changes that take minutes — the unity-gain ridge held with a patience that is itself the virtuosity.</li>
+          <li>The family resemblance to her later drones: she found her language inside a hazard.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Where is the danger in this music? Everywhere and nowhere — every tone is one nudge from runaway, and the not-nudging is the performance. This is the existence proof that a feedback piece can be quiet, long, and gentle, which is the register your 15-minute form should consider. If it felt eventless, relisten to ten minutes and log every change you notice; the list will be longer than you expect.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Eliane+Radigue+Feedback+Works" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Eliane%20Radigue%20Feedback%20Works">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-eliane-radigue-feedback-works-19691970.html">lesson</a> (complete lesson)</p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">07</span>
+        <span class="listen-title">Toshimaru Nakamura — <em>Egrets</em> (2010)</span>
+        <span class="listen-tag">the no-input desk, matured</span>
+      </summary>
+      <div class="listen-body">
+        <p>The L7 programme studies Nakamura’s defining <em>No-Input Mixing Board</em> records; this later album shows the same instrument — a mixer feeding only itself — three decades into its player’s technique, with collaborators and a wider palette. The 029 safety reference: nobody has governed loop gain longer or more precisely.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The instrument’s registers: sine-pure whistles, motorik throbs, granular crackle — all from one closed desk.</li>
+          <li>Transitions between stable regions made without runaway — the player knows where the cliffs are.</li>
+          <li>Dynamics: this is quiet music from a device that wants to be the loudest thing on earth.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Count the distinct behaviors in one track. Each is a stable region found, named in the hands, and revisitable — the exact map your lab requires on your own loop. The control is the message: mastery of feedback sounds calm. If the palette seemed narrow, relisten comparing two tracks and list the behaviors that appear in only one.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Toshimaru+Nakamura+Egrets" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Toshimaru%20Nakamura%20Egrets">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-toshimaru-nakamura-egrets-2010.html">lesson</a> (complete lesson)</p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">08</span>
+        <span class="listen-title">Sachiko M — <em>Sine Wave Solo</em></span>
+        <span class="listen-tag">the empty sampler</span>
+      </summary>
+      <div class="listen-body">
+        <p>A sampler with no samples loaded, performed using only its internal test tones — the onkyo scene’s companion answer to the no-input mixer: when the material is nothing, every remaining decision (which tone, when, how long, how loud) becomes enormous.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>How much weight a single sine on/off carries when it is the only event type available.</li>
+          <li>Duration as expression — tones held past comfort, silence held past politeness.</li>
+          <li>Beating and difference tones when two sines coexist — the physics doing the composing, as in your loop.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>What is left of “performance” when sound generation is trivial? Selection and time — exactly the residue your governing role keeps after the loop takes over sound production. If it felt unbearable, note <em>when</em> it became unbearable and what she did next; that tension management is long-form pacing in its starkest form. Relisten to five minutes and write down every event; defend any one of them as a decision.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Sachiko+M+Sine+Wave+Solo" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Sachiko%20M%20Sine%20Wave%20Solo">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-sachiko-m-sine-wave-solo.html">lesson</a> (complete lesson)</p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">09</span>
+        <span class="listen-title">Lesley Flanigan — <em>Amplifications</em> (2009)</span>
+        <span class="listen-tag">feedback you can hold</span>
+      </summary>
+      <div class="listen-body">
+        <p>Handmade wooden instruments built around bare speakers and piezos that feed back through themselves, played by touch and layered with a single voice — feedback domesticated into something intimate, almost folk.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Feedback timbres with woodgrain — the instrument’s body filtering the loop, a physical EQ-in-the-loop.</li>
+          <li>The duet between the most stable sound here (her voice) and the least stable (the speakers).</li>
+          <li>Touch as gain control: damping a speaker cone by hand is the emergency mute made musical.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Does this sound dangerous? No — and that is the finding: the same physics as “The Wolfman,” scaled to a whisper by building the limiter into the instrument’s body and the player’s palm. Feedback’s character is set by what surrounds the loop, not the loop itself. If you doubt the kinship, relisten to one swell and hear the identical exponential bloom, ending in a hand instead of a scream.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Lesley+Flanigan+Amplifications" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Lesley%20Flanigan%20Amplifications">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-lesley-flanigan-amplifications-2009.html">lesson</a> (complete lesson)</p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">10</span>
+        <span class="listen-title">Jimi Hendrix — “The Star-Spangled Banner” (Woodstock, 1969)</span>
+        <span class="listen-tag">runaway as rhetoric · video</span>
+      </summary>
+      <div class="listen-body">
+        <p>The most famous feedback performance ever filmed: a guitar held against a wall of amplification, runaway invited in on purpose, shaped by body position and whammy bar, and released — feedback as vocabulary inside a melody every listener already knows.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Where the melody hands over to the loop — sustained notes that bloom into feedback exactly when the anthem needs a siren.</li>
+          <li>Body and guitar position as the gain hand: he steps toward and away from the amps to steer it.</li>
+          <li>Re-entry: how he leaves a runaway and lands back on the tune without a seam.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Is the feedback decoration or content? Content — the dive-bombs and screams carry the piece’s argument, and they are played with the same intent as the melody notes. That is governance at full aggression: he chooses every entry and every exit. If it sounded chaotic, rewatch one runaway and find the exact gesture that ends it — there always is one, which is the panic-path lesson hiding in the spectacle.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Jimi+Hendrix+Star+Spangled+Banner+Woodstock" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Jimi%20Hendrix%20Star%20Spangled%20Banner%20Woodstock">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-jimi-hendrix-the-star-spangled-banner-woodstock-1969.html">lesson</a> (complete lesson)</p>
+      </div>
+    </details>
+  </div>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Requirement</div>
+    <p>Your written hypothesis names <strong>where this piece’s instability will live</strong> — a sourceless network performed, a room joined to a horn, a loop steered by walking, a circuit that refuses to commit, a mouth filtering a scream, unity gain held for decades, a desk mastered into calm, an empty sampler’s bare decisions, feedback with woodgrain, or runaway as rhetoric — and what was stolen from the comparison. The target idea across all ten: <strong>feedback turns the performer into a governor — the music is the system’s, the conditions and recoveries are yours.</strong> What you steal is a structure, never a sound.</p>
+  </div>
+
+  <h2>1 · The two specs — yours to author</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">This is an S4 lab: both specs are authored from the brief alone. The frames below are deliberately blank — the granularity standard is lab 003’s worked example.</p>
+
+  <div class="callout">
+    <div class="callout-label">The brief — constraints only</div>
+    <p>A <strong>15+ minute</strong> original piece whose only sound sources are <strong>feedback loops</strong> — no oscillators, no samples, no external inputs. (A microphone is allowed only if the room is part of a declared loop, Lucier/Collins style.) The dated <strong>safety checklist is filed before the first loop is closed</strong>, a limiter sits downstream of every loop, and the maximum safe test procedure is written before testing. At least <strong>three stable regions</strong> are mapped and named before the piece is attempted; one <strong>staged runaway</strong> is rehearsed and recovered. Required artifacts: live signal-flow diagram with every loop and its gain stages marked · written panic path · failure rehearsal (the staged runaway) · recording strategy · stable-region map · post-performance fault report. <span class="code">faultType: performance failure · failureMode: runaway feedback</span>.</p>
+  </div>
+
+  <table class="param-table">
+    <caption>System Spec — blank (S4: author from the brief alone)</caption>
+    <tr><td>Inputs</td><td><span class="code">___</span></td></tr>
+    <tr><td>Transforms</td><td><span class="code">___</span></td></tr>
+    <tr><td>Feedback / variation</td><td><span class="code">___</span></td></tr>
+    <tr><td>Constraints</td><td><span class="code">___</span></td></tr>
+    <tr><td>Human role</td><td><span class="code">___</span></td></tr>
+  </table>
+
+  <table class="param-table">
+    <caption>Engineering Spec — blank (S4: author, then correct after the session)</caption>
+    <tr><td>Signal path</td><td><span class="code">___</span></td></tr>
+    <tr><td>Gain plan</td><td><span class="code">___</span></td></tr>
+    <tr><td>Clock / sync</td><td><span class="code">___</span></td></tr>
+    <tr><td>Latency</td><td><span class="code">___</span></td></tr>
+    <tr><td>Stereo / phase</td><td><span class="code">___</span></td></tr>
+    <tr><td>Noise budget</td><td><span class="code">___</span></td></tr>
+    <tr><td>Print strategy</td><td><span class="code">___</span></td></tr>
+    <tr><td>Failure mode</td><td><span class="code">___</span></td></tr>
+    <tr><td>Safety</td><td><span class="code">___</span> (the checklist above, restated as numbers: limiter ceiling, starting levels, step size)</td></tr>
+  </table>
+
+  <h2>2 · Bench preflight</h2>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Pre-flight — before the loop is closed</div>
+    </div>
+    <ul>
+      <li>Safety checklist above completed, dated, and filed — this is a deliverable, not a vibe</li>
+      <li>Limiter proven: send a test signal hot enough to hit the ceiling and watch it catch, <em>before</em> any loop exists</li>
+      <li>Emergency mute rehearsed three times with eyes closed — the gesture must work without looking</li>
+      <li>Loop drawn twice: as a musical system and as a hazard diagram, both taped in sight</li>
+      <li>Recording armed from the first excitation — feedback discoveries are unrepeatable; the map is built from recordings</li>
+      <li>Monitoring declared: speakers low for excitation sessions; DT 990 off the head until the ceiling is proven; phones at the lab-001 mark thereafter</li>
+      <li>Session timer set: feedback listening fatigues ears quickly — breaks are part of the safe test procedure</li>
+    </ul>
+  </div>
+
+  <h2>3 · Build</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Build the lab in five passes. Each pass produces an artifact, not just a better-sounding session: a written rule, a printed comparison, a fault entry, and a corrected system sentence.</p>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Build recipe · Audio Feedback Systems</div>
+      <h3 class="step-title">Make the performance system audible</h3>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Do this in order</div>
+      <ol class="rules-list">
+        <li><strong>Map the hands.</strong> Limit the rig to six reachable controls. Name every control, its safe range, and what it changes in the form.</li><li><strong>Write the panic path.</strong> Before sound, write the one-gesture mute, bypass, stop, monitor-lower, and save procedure. Rehearse it silently.</li><li><strong>Rehearse without repair.</strong> Run the first minute twice without recording. Fix the map, not the take.</li><li><strong>Print the take.</strong> Record one full take in Live. Do not edit automation after the fact; failed takes are performed again.</li><li><strong>Run the fault.</strong> Trigger the performance fault safely: wrong mute, too-hot feedback, lost loop, or missed cue. Recover using the written panic path.</li>
+      </ol>
+    </div>
+    <div class="signal-flow">
+      <span class="signal-node">Live 12</span>
+      <span class="signal-arrow">↔</span>
+      <span class="signal-node">Digitakt II</span>
+      <span class="signal-arrow">+</span>
+      <span class="signal-node">MicroFreak</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">MOTU M4</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">Print + logbook</span>
+    </div>
+  </div>
+
+  <table class="param-table">
+    <caption>Build artifacts</caption>
+    <tr><td>Rule or hypothesis</td><td>one sentence, written before sound</td></tr>
+    <tr><td>System drawing</td><td>audio path and, where relevant, control path</td></tr>
+    <tr><td>Calibration proof</td><td>macro budget, full take, panic path, and post-take fault log</td></tr>
+    <tr><td>Printed comparison</td><td>neutral / changed / keeper prints, named and gain matched</td></tr>
+    <tr><td>Fault entry</td><td>symptom → cause → fix → prevention rule</td></tr>
+  </table>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Build exit check</div>
+    <p>The lab can move to diagnosis only when the printed audio proves the written rule. If the rule sounds true only while you explain it, simplify the system and print again.</p>
+  </div>
+
+  <h2>4 · Diagnosis &amp; report</h2>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">The full report bundle — ten items, filed in the logbook</div>
+    </div>
+    <ul>
+      <li>Rendered piece — 24-bit WAV, master peaking −3 dBFS, 15+ minutes, feedback-sourced only</li>
+      <li>Safety checklist — the dated copy filed before first sound, plus any mid-session amendments</li>
+      <li>Routing diagram — both drawings (musical and hazard), corrected after; the diff is the lesson</li>
+      <li>Stable-region map — each named region: settings, behavior, how it is entered and left safely</li>
+      <li>Recording plan — what was printed, when, at what stage; which discoveries exist only as recordings</li>
+      <li>Session notes — including the staged runaway: what ran, how it was recovered, what the recovery sounded like</li>
+      <li>Reflection answers, including the listening comparison — which document contributed what to the hypothesis</li>
+      <li>One removal decision — a stable region found and left out of the piece, and why</li>
+      <li>Fault entry — symptom, cause, fix, prevention rule (faultType: performance failure · failureMode: runaway feedback)</li>
+      <li>System diff sentence — “I thought the system worked like X; after building it, I discovered it worked like Y.”</li>
+    </ul>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Minimum pass gate:</strong> audible output · dated safety checklist · routing diagram · fault entry · system diff. Without these five, the lab is incomplete regardless of audio quality — and without the checklist filed before first sound, the lab is void regardless of everything else.</li>
+    </ul>
+  </div>
+
+  <div class="final">
+    <div class="final-label">Track-lab principle</div>
+    <p>The loop does not need you to make sound — it needs you to keep it civil. Governing an instability, and recovering musically when it slips, is performing.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="lab-028.html">
+      <span class="page-nav-direction">Previous</span>
+      ← Lab 028 / Live Resampling
+    </a>
+    <a href="lab-030.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      Lab 030 / The Long Form →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Block 7 · Lab 029</div>
+
+</div>
+
+  <script src="../nav.js"></script>
+</body>
+</html>

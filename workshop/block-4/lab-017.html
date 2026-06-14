@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab 017 — Generation Loss</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page-type-lab" id="top">
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="index.html" class="active"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 4 · Transformation</a><span class="breadcrumb-sep">/</span><span>Generation Loss</span></nav>
+
+  <header class="page-header">
+    <div class="eyebrow">Block 4 · Lab 017 · Track lab</div>
+    <h1>Generation Loss</h1>
+    <p class="lede">The canonical "history is audible in the path" lab. A recording passed through a real tape path and re-recorded is a copy; the copy copied is a grandchild; by the tenth generation, the music is mostly the path's accumulated opinion of it. This lab numbers every pass — G0, G1, G3, G10 — and documents what each one costs in level, floor, and high end, then composes a long-form tape piece whose form <em>is</em> the degradation schedule. Nothing here is emulation: the loss must be physically earned.</p>
+  </header>
+  <p class="block-meta">Track lab · S3 · D4 E3 M4 F3 · tape music · full cycle · new concepts: 6</p>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l4.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs" class="current">Labs</a><a href="lab-r4.html" data-section="rebuild">Rebuild</a><a href="capstone-c3.html" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
+
+  <div class="signal-flow">
+    <span class="signal-node">listen</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">hypothesis</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">draw the path</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">calibrate</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">build</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">fault</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">diagnose</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">print</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">delta</span>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Start here</div>
+    </div>
+    <ul>
+      <li>Choose one of your own recordings as G0 — something with high-frequency detail and dynamics to lose: a lab 005 drone, a lab 008 capture, a printed phrase from any earlier piece. This lab is M4: your archive, reprocessed.</li>
+      <li>The path: per the gear roadmap, a used Porta-class 4-track or any cassette recorder with a record head. If the deck is not yet staged, the interim path is lab 007's analog loop — out of the MOTU M4, through a cable, back in — run as numbered passes. Slower to degrade, but genuinely generational. Declare which path you ran; an emulation plug-in passes nothing here.</li>
+      <li>Save a new set as <span class="code">LAB-017-genloss</span>; rule the generation ledger before any audio moves.</li>
+      <li>This is an S3 lab: <strong>no filled specs arrive.</strong> You author both from the prompt lists below, before the first pass.</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The point</div>
+    <p>The block has asked of every processor: is the change reversible, cumulative, or generational? This lab is the third answer made physical. An EQ move can be undone; a printed saturation is paid once; but a copy of a copy compounds — every pass re-applies the whole path to everything the previous passes already did. After one pass you hear a warm copy. After three, a character. After ten, the path has become the composer, and your G0 is its memory of a memory.</p>
+  </div>
+
+  <h2>How this lab works</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3 class="card-title">Build the tape path</h3>
+      <ul class="card-points">
+        <li>Interface out → deck record in → tape → deck play out → interface in. Draw it with a level at every arrow before anything passes through.</li>
+        <li>Calibrate once with a 1 kHz tone: what the path does to a known signal is measured before music enters.</li>
+        <li>Core-rig fallback if the deck is pending: the lab 007 analog loop, run as numbered passes — the ritual is identical, the erosion politer.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Number every generation</h3>
+      <ul class="card-points">
+        <li>G0 is the parent print; each full pass through the path increments the number. No pass goes unprinted, no print goes unnamed.</li>
+        <li>The ledger gets a row per generation: peak level, noise floor, high-frequency loss, pitch drift, one sentence of description.</li>
+        <li>Checkpoints at G1, G3, and G10: the block's question — what does the path cost after one pass, three, ten? — answered in numbers you measured.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Compose the decay</h3>
+      <ul class="card-points">
+        <li>This is a D4 lab: you author the rule, the path executes it. Write the degradation schedule — which generations sound when, which lineages layer, when a lineage retires — before the first pass.</li>
+        <li>Loop assembly: short loops survive more passes per minute of work; a physical tape loop, if your deck allows one, makes the process audible as ritual.</li>
+        <li>F3 long form, 15+ minutes: the piece's arc is the material's decline, and the listener should be able to hear time passing through the path.</li>
+      </ul>
+    </div>
+  </div>
+
+  <table class="param-table">
+    <caption>Pass standard</caption>
+    <tr><td>Minimum pass</td><td>Audible original piece, routing diagram, fault entry, print map, and system diff exist — plus both specs, authored by you, and the generation ledger with a row for every pass.</td></tr>
+    <tr><td>Solid pass</td><td>Blind, you can place any of your own generation prints within ±1 generation by ear, naming the cues — floor, high end, wobble — that told you.</td></tr>
+    <tr><td>Advanced transfer</td><td>You can hear any recording and say whether its degradation is reversible, cumulative, or generational — and roughly how many generations deep it sits — and defend the guess in path terms.</td></tr>
+  </table>
+
+  <h2>New concepts — in plain words</h2>
+
+  <table>
+    <tr><th>Concept</th><th>In plain words</th></tr>
+    <tr><td><span class="lab-title">Generation (G0…Gn)</span></td><td>The copy count. G0 is the first print of the parent; every full record-and-replay pass makes the next generation. The number is a unit of accumulated path — two recordings of the same material at different G numbers differ by exactly that many applications of the same machine.</td></tr>
+    <tr><td><span class="lab-title">The tape path</span></td><td>Erase head, record head with its bias signal, the moving magnetic medium, play head, and the electronics around them. Recording to tape is a physical act — particles magnetized on plastic — which is why its failures are physical too: nothing in this path has an undo.</td></tr>
+    <tr><td><span class="lab-title">Wow &amp; flutter</span></td><td>Speed instability: wow is the slow wobble (pitch leaning seasick), flutter the fast one (a nervous shimmer). Each pass records the previous pass's wobble and adds its own on top — pitch instability is one of the few things tape <em>gains</em> with every generation.</td></tr>
+    <tr><td><span class="lab-title">Noise floor accumulation</span></td><td>Every pass adds the medium's hiss above your signal and shaves high frequencies off it — the exchange rate of generation loss. The signal walks down toward a floor that walks up; the generation where they meet is the natural end of the lineage.</td></tr>
+    <tr><td><span class="lab-title">Reversible / cumulative / generational</span></td><td>The block's taxonomy of cost. Reversible: the change is metadata, undo exists (a fader, lab 016's slice order). Cumulative: paid once per print (a saturator). Generational: the whole path re-applied to its own output, compounding — interest on interest. Ask it of every processor you ever touch again.</td></tr>
+    <tr><td><span class="lab-title">The loop &amp; the splice</span></td><td>A length of tape joined end to end plays forever, and the splice — the physical joint — passes the heads once per revolution: a downbeat you made with a razor. Loop length is set by physical distance, not by the grid; the loop is a clock that owes Live nothing.</td></tr>
+  </table>
+
+  <div class="tag-row">
+    <span class="tag">generation</span>
+    <span class="tag">tape path</span>
+    <span class="tag">wow &amp; flutter</span>
+    <span class="tag">noise floor accumulation</span>
+    <span class="tag">reversible / cumulative / generational</span>
+    <span class="tag">loop &amp; splice</span>
+  </div>
+
+  <h2>Listening — the hypothesis source</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Ten works in which the recording medium is a composer — from the first piece ever made on a recording device to loops that died of being played. Listen for the same exchange in every one: what the path takes, and what the music gets back. Each gets a brief: what to listen for before you press play, and how to check yourself after.</p>
+
+  <div class="listen-acc">
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">01</span>
+        <span class="listen-title">Steve Reich — “It’s Gonna Rain”</span>
+        <span class="listen-tag">two machines, one sermon</span>
+      </summary>
+      <div class="listen-body">
+        <p>1965: one recorded phrase of street preaching on two tape machines that cannot quite agree on speed — the imperfection of the playback path generating the entire form.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The drift: the two copies start together and slide apart — that slide is wow at composition scale, hardware instability promoted to author.</li>
+          <li>What repetition does to the words: "it's gonna rain" decaying from meaning into rhythm into pure spectrum — semantic generation loss before any tape degrades.</li>
+          <li>The recording's own grain: street noise, pigeon wings, the 1964 path — the document's imperfections are part of the instrument.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Where is the composition here — in the material or in the path? The path: Reich chose a phrase and two imperfect machines, then let physics write the piece. That is this lab's D4 stance in its purest historical form — author the rule, let the hardware execute. If it read as a process demo rather than music, relisten to the final minutes and notice the emotional temperature of pure phase: the machines built a dread no arrangement decision placed there.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Steve+Reich+It%27s+Gonna+Rain" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Steve%20Reich%20It%27s%20Gonna%20Rain">Spotify</a></p>
+        <p class="listen-rep"><a href="rep-steve-reich-its-gonna-rain.html">Replicate it — step-by-step lesson →</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">02</span>
+        <span class="listen-title">Hugh Le Caine — “Dripsody”</span>
+        <span class="listen-tag">one drop, every transform</span>
+      </summary>
+      <div class="listen-body">
+        <p>1955: a single water drop, re-pitched and re-assembled on tape into an entire étude — the maximal demonstration of how much music one second of material yields when the medium is the instrument.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The drop at its original pitch, then everywhere else: every "note" is the same recording at a different tape speed — pitch and duration locked together, the analog law.</li>
+          <li>The copies' generations: some drops are audibly further from the source — duller, hissier — because each splice-and-copy cost a pass.</li>
+          <li>The two-minute discipline: a complete arc from a parent shorter than your breath.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>How was the melody made, mechanically? Tape speed: each pitch is the drop copied at a different transport rate, then spliced into order — every note literally a generation. The lesson for your build: re-pitching on tape is a pass like any other, and it shows in the ledger. If it read as a novelty, relisten and count distinct timbres — the variety you hear is one drop wearing ten different amounts of path.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Hugh+Le+Caine+Dripsody" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Hugh%20Le%20Caine%20Dripsody">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-hugh-le-caine-dripsody.html">lesson</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">03</span>
+        <span class="listen-title">Daphne Oram — “Four Aspects”</span>
+        <span class="listen-tag">composing on the medium itself</span>
+      </summary>
+      <div class="listen-body">
+        <p>The Radiophonic Workshop's co-founder, working tape as a first-class compositional surface: sine sources layered, slowed, and re-recorded into slow architecture — assembly by passes, decades before undo.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Layering as generations: each added voice meant bouncing what existed onto a new tape — the early layers have audibly been through more path than the late ones.</li>
+          <li>The texture of slowed tape: tones with a soft, wide grain that no oscillator of the era produced directly.</li>
+          <li>Form built from patience: changes arrive at tape-handling speed, and the music inherits that pace.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Can you hear which layers are oldest? Often yes — the duller, more distant voices have survived more bounces, so the mix's depth axis is partly a generation axis: history audible as perspective. Your layered lineages can use exactly this. If all layers seemed equally present, relisten on phones comparing the brightest voice to the most buried one — the difference is not just level; it is accumulated path.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Daphne+Oram+Four+Aspects" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Daphne%20Oram%20Four%20Aspects">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-daphne-oram-four-aspects.html">lesson</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">04</span>
+        <span class="listen-title">Halim El-Dabh — “Wire Recorder Piece”</span>
+        <span class="listen-tag">the first recorded-music music</span>
+      </summary>
+      <div class="listen-body">
+        <p>Cairo, 1944: a street ceremony captured on a wire recorder and reworked — by re-recording, filtering through room resonance, and manipulation — into what is arguably the first electroacoustic piece, four years before Schaeffer's études.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>How little of the source ceremony survives identifiably — the reworking pushed the document toward pure texture, on 1944 equipment.</li>
+          <li>The medium's voice: wire's narrow, ghostly band — the path contributes most of the piece's color.</li>
+          <li>The intent: this is not a field recording presented but a recording <em>transformed</em> — the founding gesture of everything in this block.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>What did El-Dabh treat as his instrument — the ceremony or the recorder? The recorder: the source was raw material, and every transformation available (re-recording, resonance, level) was a pass through a physical path. Hearing this after the polished works in this list resets your standard for what counts as "enough fidelity" — the idea survives a medium far rougher than your worst cassette. If it read as just an old recording, relisten knowing the original was a wedding-adjacent zaar ceremony: ask what removed the people, and the answer is passes.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Halim+El-Dabh+Wire+Recorder+Piece" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Halim%20El-Dabh%20Wire%20Recorder%20Piece">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-halim-el-dabh-wire-recorder-piece.html">lesson</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">05</span>
+        <span class="listen-title">Terry Riley — “Music for the Gift”</span>
+        <span class="listen-tag">the accumulator is born</span>
+      </summary>
+      <div class="listen-body">
+        <p>1963: Chet Baker's quartet fed through Riley's first "time lag accumulator" — two tape machines passing a signal back and forth so each phrase returns, again and again, a little more worn each time. The feedback ancestor of every looper, made of generations happening live. (Its descendant, “Poppy Nogood,” belongs to Block 5's delay lab.)</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Each repeat as a generation: a phrase's second return is duller and dirtier than its first — generation loss at performance speed.</li>
+          <li>The accumulation: layers stacking toward saturation, then receding — the machine's memory filling and emptying.</li>
+          <li>The jazz inside the system: Baker's trumpet stays itself while the path multiplies it into a hall of decaying mirrors.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>What decays first in each repeat — level, highs, or clarity? Highs and clarity, before level: tape-loop feedback is a generational EQ as much as an echo, which is why old repeats sound <em>further away</em> rather than merely quieter. Your G3 and G10 prints will show the same signature. If the layers blurred together, relisten following one trumpet phrase through three returns and write one word for each state — the three words are a generation ledger.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Terry+Riley+Music+for+the+Gift" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Terry%20Riley%20Music%20for%20the%20Gift">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-terry-riley-music-for-the-gift.html">lesson</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">06</span>
+        <span class="listen-title">William Basinski — “Disintegration Loop 1.1”</span>
+        <span class="listen-tag">the medium dies on record</span>
+      </summary>
+      <div class="listen-body">
+        <p>A twenty-year-old tape loop transferred to digital while the ferrite literally fell off the plastic: each revolution loses more material, and an hour of music documents the loop's death — the lab's title piece.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The dropouts growing: the first gaps are pinholes; by the end, the silence outweighs the music — chart the decline's curve in your mind.</li>
+          <li>What dies first and what survives longest: highs and attacks go early; the low swell remains nearly to the end.</li>
+          <li>The splice as the clock: the loop's revolution is the only meter, and you learn its length within minutes.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Is this generation loss, strictly? It is the limit case: the medium degrading per <em>playback</em> pass, with the path's cost compounding exactly as your copy-of-a-copy lineage will — the same exchange, run on the tape itself rather than across tapes. And notice the form is unedited: the schedule was "play until gone," a one-line D4 rule. If an hour felt unearnable, relisten to the first ten minutes and the last ten only — the distance between them is the piece, and a ledger would have predicted it.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=William+Basinski+Disintegration+Loop+1.1" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:William%20Basinski%20Disintegration%20Loops">Spotify</a></p>
+        <p class="listen-rep"><a href="rep-william-basinski-disintegration-loop-1-1.html">Replicate it — step-by-step lesson →</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">07</span>
+        <span class="listen-title">Philip Jeck — <em>Surf</em></span>
+        <span class="listen-tag">degradation performed live</span>
+      </summary>
+      <div class="listen-body">
+        <p>Worn records on junk-shop turntables, layered and ridden in real time: the degradation is not a process left running but an instrument under hands — crackle, locked grooves, and pitch sag played like keys.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The vinyl's surface as rhythm section: crackle and groove noise carrying the pulse the way hiss carries the air in your tape passes.</li>
+          <li>Locked grooves as loops: physical repetition with the medium's wobble inside every revolution.</li>
+          <li>The performance: layers swelling and retiring on musical judgment — compare this human schedule against Basinski's hands-off rule.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Where is the human in this system? Everywhere: Jeck selects, layers, and rides degraded media in real time — D-axis opposite to Basinski, same material law. Your spec's human-role row must place you somewhere on the line between them. If it read as formless haze, relisten to one track and log each entrance and exit — the moves come at performed, breathing intervals, not at process intervals.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Philip+Jeck+Surf" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Philip%20Jeck%20Surf">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-philip-jeck-surf.html">lesson</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">08</span>
+        <span class="listen-title">The Caretaker — <em>Everywhere at the End of Time — Stage 1</em></span>
+        <span class="listen-tag">decay with a narrative</span>
+      </summary>
+      <div class="listen-body">
+        <p>The opening stage of a six-stage portrait of dementia: 78-era ballroom recordings, still nearly intact, with the degradation system that will consume them only beginning to show — from the artist whose <em>An Empty Bliss Beyond This World</em> anchored lab 007's sampling lesson.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The baseline: how much surface noise, wow, and distance is already present at "intact" — Stage 1 sets the G0 against which the later stages' losses will be measured.</li>
+          <li>The loop seams: phrases repeating with the gentle wrongness of a memory rehearsing itself.</li>
+          <li>What the crackle does emotionally before anything is even lost: the medium's age stands in for the mind's.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Why does the degradation read as narrative here rather than as texture? Because it is staged: the album series is a schedule of generations with a meaning assigned to each — Stage 1 is the ledger's first row, and knowing the later rows exist changes how you hear it. That is the strongest argument for your own schedule meaning something. If it read as pleasant nostalgia, relisten to one track twice in a row and find the seam where the loop forgets itself — the dread is already in the system.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=The+Caretaker+Everywhere+at+the+End+of+Time+Stage+1" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:The%20Caretaker%20Everywhere%20at%20the%20End%20of%20Time">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-the-caretaker-everywhere-at-the-end-of-time-stage-1.html">lesson</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">09</span>
+        <span class="listen-title">Leyland Kirby — <em>Sadly, the Future Is No Longer What It Was</em></span>
+        <span class="listen-tag">the haze without the system</span>
+      </summary>
+      <div class="listen-body">
+        <p>The same hands as The Caretaker, under the artist's own name: vast, blurred synthesizer elegies with no found 78s and no decay conceit — the degradation aesthetic rebuilt forward, from clean sources, instead of eroded backward from old ones.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Haze without crackle's alibi: the distance and blur are synthesized and mixed in, not inherited from a medium — can you tell?</li>
+          <li>What is missing compared to the Caretaker work: no loop seams, no surface rhythm — the absence of a physical path, audible as smoothness.</li>
+          <li>Duration as material: pieces that sit in one harmonic place for ten minutes, trusting texture to carry it.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Same artist, with and without a degradation system: what does the physical path actually contribute? Comparing this to entry 08 isolates it — the 78s bring grain, seams, and a found history; the Kirby works must synthesize all three and sound subtly <em>placeless</em> for it. This is the lab's case against emulation, made by the one artist in a position to demonstrate both sides. If both read as the same fog, relisten to one track of each back to back and ask of every blur: earned or applied?</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Leyland+Kirby+Sadly+The+Future+Is+No+Longer+What+It+Was" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Leyland%20Kirby%20Sadly%20the%20Future">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-leyland-kirby-sadly-the-future-is-no-longer-what-it-was.html">lesson</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">10</span>
+        <span class="listen-title">Hainbach — tape-loop &amp; test-equipment studio videos (video)</span>
+        <span class="listen-tag">watch the path being built</span>
+      </summary>
+      <div class="listen-body">
+        <p>Contemporary tape-music practice on camera: loops measured, cut, and spliced; test instruments repurposed; generations bounced between machines — the only entry where you can <em>see</em> every concept in this lab's table handled physically.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The splice being made: razor, block, tape — and then listen for that joint passing the head once per revolution.</li>
+          <li>Level discipline on hardware: watch where he sets record levels and how often the meters are consulted — the gain plan, performed.</li>
+          <li>The bounce moves: material copied deck to deck, and the audible cost of each hop acknowledged and used.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>What surprised you about the physical handling — speed, care, or casualness? Most viewers expect ceremony and see workmanlike speed: tape is a tool, not a relic, and the loss per pass is budgeted exactly the way your ledger will budget it. Before your first pass, steal one concrete habit you watched — a marking system, a calibration tone, a splice technique — and write it into your preflight. If you watched passively, re-watch one loop being assembled and narrate each step aloud; your hands learn the ritual before the deck arrives.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Hainbach+tape+loops" target="_blank" rel="noopener">YouTube</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-hainbach-tape-loop-and-test-equipment-studio-videos-video.html">lesson</a></p>
+      </div>
+    </details>
+  </div>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Requirement</div>
+    <p>Your written hypothesis names <strong>what this piece's lineage is and what rule runs it</strong> — machines as authors, one parent re-pitched into a vocabulary, layers wearing their age as depth, the idea surviving the roughest path, repeats returning more distant each time, a schedule of "play until gone," degradation under performing hands, decay staged as narrative, haze earned versus haze applied, or the workmanlike ritual of the bench itself — and what was stolen from the comparison. The target idea across all ten: <strong>history is audible in the path — every generation is the whole path applied again, and the ledger is the score.</strong> What you steal is a structure, never a sound.</p>
+  </div>
+
+  <h2>1 · The two specs — author them from prompts</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">This is an S3 lab: no filled table arrives. Answer each prompt in one or two written lines in the logbook — the answers <em>are</em> your specs, and you correct them against reality after the build. Lab 014's filled tables are your model for granularity; lab 007's three-path comparison is your model for declaring the analog loop honestly.</p>
+
+  <table class="param-table">
+    <caption>System Spec — prompts (you author every field)</caption>
+    <tr><td>Inputs</td><td>Which of your own recordings becomes G0, and why that one — what does it have to lose (high-frequency detail, dynamics, words)? A strong answer names material whose decline will be <em>legible</em>, not material that already sounds like G6.</td></tr>
+    <tr><td>Transforms</td><td>The path itself, declared exactly: which deck (or the lab 007 analog loop as the interim path — say so), at what speed, with what tape. Is anything else allowed to touch the audio between generations — EQ, level trims — or is the path the only transform? Defend the answer.</td></tr>
+    <tr><td>Feedback / variation</td><td>The variation source <em>is</em> the process. Write the degradation schedule — the D4 rule: when a lineage advances a generation, when lineages layer, when one retires, what happens at the center. The rule must be executable without taste decisions mid-run.</td></tr>
+    <tr><td>Constraints</td><td>Decide now: how many lineages (suggest ≤3 from one G0), the maximum generation number, whether digital processing is permitted at all between passes (suggest: none), and whether the splice is allowed to be inaudible.</td></tr>
+    <tr><td>Human role</td><td>In a D4 lab you author the rule and the path executes it — so what do your hands do per pass? Levels only? Loop assembly? And where, if anywhere, may you override the schedule when the material surprises you? Basinski never did; Jeck always does; choose your point on that line in writing.</td></tr>
+  </table>
+
+  <table class="param-table">
+    <caption>Engineering Spec — prompts (you author every row, then correct it after building)</caption>
+    <tr><td>Signal path</td><td>Draw it: Live out → M4 output → deck record in → tape → deck play out → M4 input → print Gn → repeat. A level at every arrow. If the deck is pending, draw the analog-loop interim path instead — and label it as such; the diagram must show the path you actually ran.</td></tr>
+    <tr><td>Gain plan</td><td>The lab's critical row: what level hits the tape on every pass? Tape has a nominal operating point — its meters speak VU, your DAW speaks dBFS; pick the record level once, write the conversion, and hold it for every pass. Then measure peak and floor at G1, G3, and G10 and write all six numbers in the ledger.</td></tr>
+    <tr><td>Clock / sync</td><td>There is no clock: tape is unclocked, and the loop's period is a physical length that drifts a little every pass. State how the piece accommodates material that owes the grid nothing — the honest answer is that the grid is not invited.</td></tr>
+    <tr><td>Latency</td><td>Nothing is monitored through the path in real time — each pass is print-then-listen. One line confirming this, or your plan if you do monitor the return live.</td></tr>
+    <tr><td>Stereo / phase</td><td>Cassette azimuth smears highs and the stereo image a little more each pass, and the two channels do not decay identically. Plan the mono check per generation — and consider running mono lineages so the decay stays one phenomenon, not two.</td></tr>
+    <tr><td>Noise budget</td><td>This lab <em>is</em> a noise budget: predict the floor's rise per pass in dB before you run, then measure it. Name the contributors (tape hiss, bias, deck electronics, the M4's own floor on the interim path) and the generation at which you predict the floor stops being background.</td></tr>
+    <tr><td>Print strategy</td><td>Non-negotiable here: every generation is printed and named <span class="code">G0…Gn</span> the moment it exists — the tape's state is unrecoverable by definition, and an unprinted generation never happened. State file naming, and which generations the arrangement may use.</td></tr>
+    <tr><td>Failure mode</td><td>Predict one likely failure in path terms — the canonical one: a record level mis-set by a few dB <em>compounds</em>: too low and hiss swamps the lineage by G3; too hot and tape saturation eats the transients, then eats its own mud (faultType: <strong>cumulative degradation</strong>). Name yours and the generation at which you expect to detect it.</td></tr>
+    <tr><td>Safety</td><td>Hardware levels into and out of an unfamiliar deck — test with the calibration tone, not your ears. Long sessions of hiss-heavy material mask loudness creep: phones at the lab 001 mark, sessions in 30-minute spans, and a written stop rule.</td></tr>
+  </table>
+
+  <h2>2 · Bench preflight</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">The block rule at its most literal: <strong>a level written at the input and output of every processor</strong> — and here the processor is run ten times in series, so the calibration happens once, with a tone, before any music is spent on it.</p>
+
+  <div class="signal-flow">
+    <span class="signal-node">G0 print</span>
+    <span class="signal-arrow">→ level out →</span>
+    <span class="signal-node">deck record in · 0 VU?</span>
+    <span class="signal-arrow">→ tape pass →</span>
+    <span class="signal-node">deck play out</span>
+    <span class="signal-arrow">→ level in →</span>
+    <span class="signal-node">print G1</span>
+    <span class="signal-arrow">→ repeat →</span>
+    <span class="signal-node">G3 … G10</span>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Pre-flight — before the first pass</div>
+    </div>
+    <ul>
+      <li>The path declared and physically built: the deck (heads cleaned, a known tape) or the lab 007 analog loop as the stated interim — the diagram shows whichever you actually run</li>
+      <li>Both specs authored from the prompts above and dated in the logbook</li>
+      <li>G0 printed and audited: peak, floor, one sentence of character — the reference every later row is measured against</li>
+      <li>Calibration pass run with a 1 kHz tone: level in, level out, and the path's frequency tilt noted — the machine's own transfer measured before music enters it</li>
+      <li>The generation ledger ruled: one row per pass, columns for peak, floor, high end, drift, and one descriptive sentence</li>
+      <li>The degradation schedule — the D4 rule — written and dated before pass one; mid-run edits get logged as amendments, not made silently</li>
+      <li>Phones at the lab 001 mark; 30-minute session spans — hiss masks creep better than almost any material</li>
+    </ul>
+  </div>
+
+  <h2>3 · Build</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Build the lab in five passes. Each pass produces an artifact, not just a better-sounding session: a written rule, a printed comparison, a fault entry, and a corrected system sentence.</p>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Build recipe · Generation Loss</div>
+      <h3 class="step-title">Make the transformation chain audible</h3>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Do this in order</div>
+      <ol class="rules-list">
+        <li><strong>Print the source.</strong> Record one clean MicroFreak or self-sourced audio phrase into Live at about -12 dBFS. This is SOURCE and never gets overwritten.</li><li><strong>Build the chain.</strong> Duplicate SOURCE to CHAIN. Add only the processor family the lab studies: filter, saturation, grain, slice, or tape/generation loss.</li><li><strong>Level-match the chain.</strong> Put Utility before and after the chain. Pre level drives the processor; post level returns the result to the same apparent loudness.</li><li><strong>Print comparison passes.</strong> Print low, nominal, and hot versions, or first-generation and later-generation versions, as the lab requires.</li><li><strong>Run the fault.</strong> Overdrive the wrong stage or accumulate one bad pass on purpose. Diagnose by walking backward through the chain one stage at a time.</li>
+      </ol>
+    </div>
+    <div class="signal-flow">
+      <span class="signal-node">Live 12</span>
+      <span class="signal-arrow">↔</span>
+      <span class="signal-node">Digitakt II</span>
+      <span class="signal-arrow">+</span>
+      <span class="signal-node">MicroFreak</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">MOTU M4</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">Print + logbook</span>
+    </div>
+  </div>
+
+  <table class="param-table">
+    <caption>Build artifacts</caption>
+    <tr><td>Rule or hypothesis</td><td>one sentence, written before sound</td></tr>
+    <tr><td>System drawing</td><td>audio path and, where relevant, control path</td></tr>
+    <tr><td>Calibration proof</td><td>input level, output level, processor order, and reversibility</td></tr>
+    <tr><td>Printed comparison</td><td>neutral / changed / keeper prints, named and gain matched</td></tr>
+    <tr><td>Fault entry</td><td>symptom → cause → fix → prevention rule</td></tr>
+  </table>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Build exit check</div>
+    <p>The lab can move to diagnosis only when the printed audio proves the written rule. If the rule sounds true only while you explain it, simplify the system and print again.</p>
+  </div>
+
+  <h2>4 · Diagnosis &amp; report</h2>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">The full report bundle — ten items, filed in the logbook</div>
+    </div>
+    <ul>
+      <li>Rendered piece — 24-bit WAV, master peaking −3 dBFS, 15+ minutes</li>
+      <li>Routing diagram — drawn before patching, corrected after, with the calibration tone's in/out levels and the per-pass record level written on the path</li>
+      <li>Recording plan — the generation ledger itself: every pass, every print, dated</li>
+      <li>Patch notes — deck, tape, speed, the VU↔dBFS conversion you held, and the schedule with any logged amendments</li>
+      <li>Session notes — including one sentence per checkpoint: what G1, G3, and G10 each cost, in your own words</li>
+      <li>Reflection answers, including the listening comparison — which work contributed what to the hypothesis</li>
+      <li>One removal decision — what was cut from the finished piece and what cutting it did</li>
+      <li>Fault entry — symptom, cause, fix, prevention rule (faultType: cumulative degradation)</li>
+      <li>Print map — every generation as a named file, which lineages the piece uses, and confirmation that no tape state survives unprinted</li>
+      <li>System diff sentence — “I thought the system worked like X; after building it, I discovered it worked like Y.”</li>
+    </ul>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>The fault ritual:</strong> predict the symptom in writing, then create the fault — run two short parallel lineages beside the calibrated one: one with the record level 10 dB low, one pinned into the red, same G0, same schedule. By G3, observe how each dies — hiss swamping the quiet lineage, compounding saturation muddying the hot one — locate the cause at the record-level stage and nowhere downstream, fix by recalibrating against the tone, and write the rule learned: in a generational path, a small gain error is not a small error.</li>
+      <li><strong>Minimum pass gate:</strong> audible output · routing diagram · fault entry · print map · system diff — plus, in this lab, the authored specs and the complete generation ledger. Without these, the lab is incomplete regardless of audio quality.</li>
+    </ul>
+  </div>
+
+  <div class="final">
+    <div class="final-label">Track-lab principle</div>
+    <p>History is audible in the path: a copy of a copy carries every level decision ever made into it, each pass compounds the last, and the generation ledger — what was lost, when, and at what setting — is the score of the piece.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="lab-016.html">
+      <span class="page-nav-direction">Previous</span>
+      ← Lab 016 / Slice &amp; Reassemble
+    </a>
+    <a href="lab-r4.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      R4 / Rebuild the Decay →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Block 4 · Lab 017</div>
+
+</div>
+
+  <script src="../nav.js"></script>
+</body>
+</html>

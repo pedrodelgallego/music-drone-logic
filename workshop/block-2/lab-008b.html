@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab 008b — Voice as Material</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page-type-lab" id="top">
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu"><span class="hamburger-lines"><span></span><span></span><span></span></span></label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html" class="active"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 2 · Sources</a><span class="breadcrumb-sep">/</span><span>Voice as Material</span></nav>
+
+  <header class="page-header">
+    <div class="eyebrow">Block 2 · Lab 008b · Track lab</div>
+    <h1>Voice as Material</h1>
+    <p class="lede">Make a short piece using only your own voice as raw material — captured with the field kit and then transformed into instrument and texture. No other sound sources allowed. Your voice is the most personal thing you can record, and the hardest to capture cleanly. This lab proves that what you can do with it is decided at the microphone, not in the software.</p>
+  </header>
+  <p class="block-meta">Track lab · S1 · full cycle · builds on the field-recording labs · ties to the extended-vocal listening lineage</p>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l2.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs" class="current">Labs</a><a href="lab-r2.html" data-section="rebuild">Rebuild</a><a href="index.html#capstone" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
+
+  <div class="signal-flow">
+    <span class="signal-node">listen</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">hypothesis</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">capture clean</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">transform ×3+</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">build the piece</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">fault</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">diagnose</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">print</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">delta</span>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Start here</div>
+    </div>
+    <ul>
+      <li>Apply the capture discipline from <a href="lab-006.html">Lab 006</a> and <a href="lab-008.html">Lab 008</a> — mic distance, level, room. Your voice follows the same physics as any field source, just at closer range.</li>
+      <li>Set the field kit on the table: handheld recorder, contact mic, DT 990 Pro for checking takes. Do not monitor live through headphones while you speak.</li>
+      <li>Create a new Live set called <span class="code">LAB-008B-voice</span> and a recordings folder next to it.</li>
+      <li>Use the quietest room you have with the softest surfaces. Recording is the core of this lab — spend at least two-thirds of your time before you open Live.</li>
+      <li>Expected time: one full cycle — a capture session, a transformation session, and a build-and-print session.</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The point</div>
+    <p>Your voice can sound like recognizable speech, like a wordless vocal sound (a <strong>phoneme</strong>), or like pure texture where the source is completely unidentifiable. Where you place each sound on that line is a deliberate choice, not an accident of how much you processed it. This lab removes the option of using other instruments, so the voice has to carry everything. It also proves one rule you will keep forever: no amount of processing rescues a bad recording. Garbage in, garbage forever.</p>
+  </div>
+
+  <h2>1 · Listen first — the extended voice</h2>
+
+  <p>Three artists who turned the voice into an instrument without using any other sound. As you listen to each one, notice <em>where on the continuum</em> they sit — and that they stay there deliberately and consistently.</p>
+
+  <div class="listen-acc">
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">01</span>
+        <span class="listen-title">Meredith Monk — “Gotham Lullaby” / “Dolmen Music”</span>
+        <span class="listen-tag">voice past words</span>
+      </summary>
+      <div class="listen-body">
+        <p>Monk drops lyrics and uses vowels, leaps, and extended vocal technique instead — the voice as a wordless instrument that still carries real feeling. Meaning comes from tone and shape, not from language.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>How far from speech she is — mostly phonemes and pure tone, almost never a recognizable word.</li>
+          <li>That the absence of words takes nothing away. The voice sounds more expressive, not less.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Where on the continuum does she sit — closer to phoneme or closer to pure texture? Mark that position. It is one you can choose for your own piece.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Meredith+Monk+Dolmen+Music" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Meredith%20Monk%20Dolmen%20Music">Spotify</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">02</span>
+        <span class="listen-title">Joan La Barbara — “Voice Is the Original Instrument” / “Circular Song”</span>
+        <span class="listen-tag">breath and multiphonics as material</span>
+      </summary>
+      <div class="listen-body">
+        <p>La Barbara uses breath, multiphonics (producing more than one pitch at once with the voice), and circular breathing as raw material — the mechanics of the body made audible. The "instrument" is everything the throat and mouth can do, including what singers usually hide.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Breath as a musical event — inhale, exhale, the texture of moving air.</li>
+          <li>How a single held vowel grows into a cluster of overtones — texture from one sustained sound.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Name three distinct vocal sources she uses (sung tone, breath, multiphonic, and so on). Those are the kinds of capture your own session needs to gather.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Joan+La+Barbara+Voice+Is+the+Original+Instrument" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Joan%20La%20Barbara">Spotify</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">03</span>
+        <span class="listen-title">Pamela Z — “Bone Music” / live looping works</span>
+        <span class="listen-tag">processing as the second instrument</span>
+      </summary>
+      <div class="listen-body">
+        <p>Z loops, layers, and processes her voice live in real time. Recognizable speech fragments, phonemes, and pure texture all appear in the same piece. The chain of processing tools is itself an instrument she performs.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Intelligible words and pure texture in the <em>same</em> piece — she moves along the continuum deliberately.</li>
+          <li>How a fragment of speech turns into rhythm once it is looped and resampled — repeated and re-recorded — so the words blur into pulse.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Find the exact moment a word stops being a word and becomes a sound. That crossover point is the main compositional tool this lab puts in your hands.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Pamela+Z+Bone+Music" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Pamela%20Z">Spotify</a></p>
+      </div>
+    </details>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The continuum — the lab's central tool</div>
+    <p><strong>Intelligible speech</strong> (the listener understands words) → <strong>phoneme</strong> (recognizably vocal but no meaning — vowels, consonants, breath) → <strong>pure texture</strong> (the source is completely unidentifiable; it is just sound). Every clip you use in the piece sits somewhere on this line. For each clip, decide where — on purpose.</p>
+  </div>
+
+  <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 18px 0 0;">Write one sentence in your logbook before you record anything. Aim for something like: <strong style="color: var(--text);">my piece will live mostly at the phoneme end, with one moment of intelligible speech to give the texture a human reference.</strong> Write it in your own words. The build will test whether you held to it.</p>
+
+  <h2>2 · The two specs</h2>
+
+  <table class="param-table">
+    <caption>System Spec — fill before capture</caption>
+    <tr><td>Inputs</td><td>Your own voice only — sung tone, whispered text, vowel morphs, breath, sibilants, mouth percussion · captured via handheld recorder (air) and contact mic (throat/jaw/chest conduction)</td></tr>
+    <tr><td>Transforms</td><td>At least three distinct, documented: e.g. formant shifting, granular (Live's Granulator / freeze), resampling generations, time-stretch into pads, gating into rhythm · convolution or reverb to place texture</td></tr>
+    <tr><td>Feedback / variation</td><td>Movement along the continuum is the variation — the same captured phrase appearing as speech, then phoneme, then texture · resampling generations as erosion</td></tr>
+    <tr><td>Constraints</td><td>Voice-derived material <em>only</em> — no synth, no drum machine, no melodic-instrument crutch · the only sound sources are your recordings · short piece, 2–4 minutes</td></tr>
+    <tr><td>Human role</td><td>Choose the capture conditions and the continuum position of every clip · perform the source well enough that processing has something to work with</td></tr>
+  </table>
+
+  <table class="param-table">
+    <caption>Engineering Spec — verify, correct after</caption>
+    <tr><td>Signal path</td><td>Handheld recorder (internal mics or contact mic into its input) → 24-bit WAV → import to Live · contact mic alternatively → M4 input 1 for live takes · master → M4 → DT 990 Pro</td></tr>
+    <tr><td>Capture distance</td><td>Sung/spoken tone: <span class="code">15–25 cm</span>, slightly off-axis, to avoid plosive blasts and proximity boom · breath/whisper: closer is fine but use the off-axis angle so air does not slam the capsule · contact mic: pressed firmly, no rustle</td></tr>
+    <tr><td>Gain plan</td><td>Peaks <span class="code">−12 to −6 dBFS</span> set on the <em>loudest</em> syllable you will actually use — sung peaks and plosives read far hotter than the body of speech · leave headroom; you cannot un-clip a vowel</td></tr>
+    <tr><td>Room / noise budget</td><td>Softest room, no HVAC, phone on airplane mode · record 20 s of room silence first as the noise-floor reference · sibilance, plosives, and proximity boom are capture faults — fix them at the mic, never in the box</td></tr>
+    <tr><td>Anti-fault technique</td><td>Off-axis angle + distance kills plosives · a folded cloth or improvised pop screen for any frontal capture · de-ess by <em>backing off and re-taking</em>, not by relying on a de-esser to save a hissy take</td></tr>
+    <tr><td>Print strategy</td><td>Capture generously — many short takes labelled by source type · resample inside Live to fix transformations as audio · render 24-bit WAV</td></tr>
+    <tr><td>Failure mode</td><td>The unrescuable capture — sibilance/plosive/proximity damage baked into the recording that no formant shift, granular, or EQ can remove. Manufactured on purpose in Step 06.</td></tr>
+    <tr><td>Safety</td><td>Do not live-monitor your own voice in closed phones at high level — feedback and startle risk · check takes on phones <em>after</em> recording, at the mark</td></tr>
+  </table>
+
+  <h2>3 · Capture the voice</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Step 01</div>
+      <h3 class="step-title">Gather a vocabulary of sources</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Goal: a labelled library of clean takes that covers the full range of the continuum. You are building a stock of raw material, not performing a finished piece.</p>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <ol>
+        <li>Record <strong>20 s of room silence</strong> first — your noise-floor reference for the whole lab.</li>
+        <li>Capture, as separate labelled takes, at the spec's distance and angle:
+          <ul>
+            <li><strong>Sung tone</strong> — one held vowel, 10–20 s, steady pitch (raw material for pads/drones).</li>
+            <li><strong>Whispered text</strong> — a few sentences, intimate (the speech end of the continuum).</li>
+            <li><strong>Vowel morphs</strong> — slide between <em>ee → ah → oo</em> slowly (formant movement to exploit later).</li>
+            <li><strong>Breath</strong> — inhales, exhales, controlled air (pure texture and rhythm source).</li>
+            <li><strong>Consonants / mouth percussion</strong> — clicks, <em>t</em>/<em>k</em>/<em>p</em>, sibilant <em>sss</em> (transients for rhythm).</li>
+          </ul>
+        </li>
+        <li>Take one source with the <strong>contact mic</strong> on the throat or jaw — a completely different, body-conducted timbre with no room in it.</li>
+        <li>Check each take on phones at the mark before moving on. Log distance, angle, level, and room for each.</li>
+      </ol>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Decision checkpoint</div>
+      <p>Before you process anything: are your peaks in the right range and is the background noise well below the quietest take? If any take has audible plosive thumps (the blast from a "p" or "b" too close to the mic) or harsh sibilance (fizzy "s" sounds), <strong>re-record it now</strong>. This is your only chance to fix it. Everything that follows assumes clean source recordings.</p>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Logbook — capture conditions</div>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">One row per take: source type · mic &amp; distance · angle · peak dBFS · room. This table is part of the pass gate.</p>
+    </div>
+  </div>
+
+  <h2>4 · Transform — at least three distinct moves</h2>
+
+  <div class="callout">
+    <div class="callout-label">Transformation is travel along the continuum</div>
+    <p>Each transformation moves the source toward the texture end of the continuum. Document at least three. The goal is not to use as much processing as possible, but to <em>land each clip at a chosen point on the line</em> — sometimes barely changed, sometimes completely unrecognizable.</p>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Step 02</div>
+      <h3 class="step-title">Three transformation families</h3>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Do at least three of these, and document each</div>
+      <ol>
+        <li><strong>Formant shifting</strong> — take a sung or spoken recording and shift the formants (the resonant peaks that give a voice its character) independently of pitch, using Live's pitch/formant tools or Complex Pro warp + formant. The voice sounds larger-than-human, or impossibly small, while staying recognizably vocal — the phoneme end made strange.</li>
+        <li><strong>Granular</strong> — load a vowel or breath recording into the <strong>Granulator</strong> (or a grain freeze device). Granular processing slices sound into tiny fragments ("grains") and rebuilds them. Hold one grain to make a static pad from a single instant of sound, or scatter many grains for a cloud-like texture. This is the strongest push toward pure texture.</li>
+        <li><strong>Resampling generations</strong> — bounce a transformed clip to audio, reprocess it, then bounce again. Each generation (re-recording your own output) erodes the voice a little more. Count how many generations a clip survives before it stops sounding like a voice at all.</li>
+        <li><strong>Freeze into a pad</strong> — time-stretch a held vowel to many times its original length in Complex Pro, so a 2-second tone becomes a 40-second drone with the formants smeared into something resembling harmony.</li>
+        <li><strong>Gate into rhythm</strong> — run breath or consonant sounds through a rhythmic gate, or slice them into a Drum Rack. Mouth transients become a pulse with no drum machine involved.</li>
+      </ol>
+    </div>
+    <table class="param-table">
+      <caption>Transformation log (copy and fill — minimum three rows)</caption>
+      <tr><td>Transformation</td><td>Source take</td><td>Settings</td><td>Continuum position after</td><td>Role in the piece</td></tr>
+      <tr><td>Formant shift</td><td>___</td><td>___</td><td>speech / phoneme / texture</td><td>___</td></tr>
+      <tr><td>Granular freeze</td><td>___</td><td>___</td><td>speech / phoneme / texture</td><td>___</td></tr>
+      <tr><td>Resampling ×N</td><td>___</td><td>___</td><td>speech / phoneme / texture</td><td>___</td></tr>
+    </table>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Step 03</div>
+      <h3 class="step-title">Build the piece from voice-derived material only</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Goal: a 2–4 minute piece where the bed, the movement, and any rhythm all come from your voice — and the continuum is used as the structure of the piece.</p>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <ol>
+        <li><strong>Bed</strong> — use a frozen or stretched vowel as the sustained foundation, the role a drone would normally play.</li>
+        <li><strong>Movement</strong> — granular clouds or formant sweeps that drift over the bed. Keep them off a strict rhythmic grid.</li>
+        <li><strong>Rhythm (optional)</strong> — gated breath or sliced consonants if the piece wants a pulse. Still voice-only.</li>
+        <li><strong>Anchor</strong> — decide whether one moment of <em>intelligible speech</em> appears to give the listener a human reference point, or whether you stay entirely in texture. Both are valid. The choice is the composition.</li>
+        <li>Mix so the layers do not fight each other (the bed owns the low frequencies, breath owns the highs). Check the mix in mono to make sure the texture survives. Confirm that every track traces back to a voice recording.</li>
+      </ol>
+    </div>
+    <div class="note-block">
+      <ul>
+        <li><strong>The crutch test:</strong> mute everything and bring tracks back one at a time. If any track sounds like a synth pad or a drum machine filling a gap, ask whether it still reads as voice-derived. If you cannot trace it to a recorded take, it does not belong.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>5 · The prescribed fault</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Step 06</div>
+      <h3 class="step-title">Ruin a capture on purpose, then try to save it</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Goal: show yourself that capture faults cannot be undone. Make a bad recording on purpose, then try and fail to fix it in software — so you understand why the microphone matters.</p>
+    <div class="sub-block">
+      <div class="sub-label">Induce the fault</div>
+      <ol>
+        <li>Record a line <strong>too close and on-axis</strong> — mouth nearly on the capsule, no angle. Hit hard plosives (<em>p</em>, <em>b</em>) and a long sibilant (<em>sss</em>). Push the input so the loudest plosive just clips.</li>
+        <li>Now try to save it in Live: use a high-pass filter to cut the plosive thump, a de-esser to tame the sibilance, and formant-shifting to hide the proximity boom.</li>
+        <li>Play the damaged take side-by-side with a clean take of the same line at matched loudness. Document what survived and what did not.</li>
+      </ol>
+    </div>
+    <table class="param-table">
+      <caption>Diagnosis — capture faults trace back to the mic (fill from your A/B)</caption>
+      <tr><td>Fault</td><td>Symptom in the recording</td><td>Cause at capture</td><td>Why processing cannot fix it</td><td>The actual fix (next take)</td></tr>
+      <tr><td>Plosive blast</td><td>Low-frequency thump / clip on <em>p</em>, <em>b</em></td><td>On-axis, too close, no pop screen</td><td>A clipped transient is missing data; HP removes the thump and the body with it</td><td>15–25 cm, off-axis angle, cloth/pop screen, lower input</td></tr>
+      <tr><td>Sibilance</td><td>Harsh, fizzy <em>sss</em>/<em>t</em> that fatigues</td><td>Too close, capsule aimed at the teeth</td><td>De-essing dulls the whole take to tame a peak it cannot isolate cleanly</td><td>Slight off-axis tilt, more distance, re-take the line</td></tr>
+      <tr><td>Proximity boom</td><td>Unnatural bass-heavy, boxy tone</td><td>Proximity effect from being right on the mic</td><td>Cutting the boom thins the voice; the natural balance was never captured</td><td>Back off to the spec distance; let the room give natural body</td></tr>
+      <tr><td>Clipped peak</td><td>Crackle/flat-top on the loudest syllable</td><td>Input gain set on speech body, not on the peak</td><td>Clipping is destroyed samples — no plugin reconstructs them</td><td>Gain-stage on the loudest intended syllable, peaks −12 to −6 dBFS</td></tr>
+    </table>
+    <div class="note-block">
+      <ul>
+        <li><strong>The rule to write down:</strong> garbage in, garbage forever. The quality of the voice recording is decided at the microphone. Software can only shape what you captured; it cannot restore what you did not.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>6 · Pass gate</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Certification</div>
+      <h3 class="step-title">Voice-only piece, conditions logged, three transforms documented</h3>
+    </div>
+    <ol class="rules-list">
+      <li>A short piece (2–4 min) built from <strong>your voice only</strong> — every track traceable to a take, no melodic-instrument crutch.</li>
+      <li>The <strong>capture conditions table</strong> filled: source, mic, distance, angle, level, room for each take used.</li>
+      <li>At least <strong>three distinct transformations documented</strong> with settings and the continuum position each produced.</li>
+      <li>A one-line statement of where on the continuum the piece lives, and why that was a choice.</li>
+    </ol>
+    <div class="decision-check">
+      <div class="decision-check-label">Pass condition</div>
+      <p>A listener can tell the piece is made of voice — even where the voice is pure texture — and you can prove it: every sound traces to a logged take, and all three transformations can be reproduced from your notes. If the piece felt like it needed a synth to be finished, the problem is earlier in the chain. The captures were too thin, not the processing too weak.</p>
+    </div>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Report bundle — filed in the logbook</div>
+    </div>
+    <ul>
+      <li>Rendered piece — 24-bit WAV, 2–4 minutes, voice-derived material only</li>
+      <li>Capture conditions table — one row per take used</li>
+      <li>Transformation log — minimum three, with settings and continuum positions</li>
+      <li>Hypothesis sentence and the continuum-position statement</li>
+      <li>Fault entry — the ruined capture, the failed rescue, the “garbage in” rule</li>
+      <li>System diff sentence — “I thought the piece would be made in the processing; it was made at the microphone.”</li>
+    </ul>
+  </div>
+
+  <table class="param-table">
+    <caption>Pass standard</caption>
+    <tr><td>Minimum pass</td><td>The bundle above is complete: a voice-only piece, capture conditions logged, three transformations documented.</td></tr>
+    <tr><td>Solid pass</td><td>The continuum is used as structure — clips move between speech, phoneme, and texture deliberately — and no track reads as a non-vocal stand-in.</td></tr>
+    <tr><td>Advanced transfer</td><td>You can name the one capture decision that most shaped the piece, and re-capture a source to land a clip at a different continuum position on purpose.</td></tr>
+  </table>
+
+  <ol class="reflection-list">
+    <li>Where on the continuum did the piece end up, and did that match your hypothesis?</li>
+    <li>Which capture decision — distance, angle, room choice, or using the contact mic — mattered most to how the final piece sounds?</li>
+    <li>Which transformation pushed a clip furthest from sounding like a voice? At what point did you lose the human reference, and was that the right call?</li>
+    <li>Did you include any intelligible speech? What did its presence — or absence — do to how a listener relates to the texture around it?</li>
+  </ol>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Worked system diff — the expected granularity</div>
+    <p>”I thought the granular cloud would be the core of the piece. It turned out to be the one whispered line — the texture only meant something because there was recognizable human voice to compare it to.”</p>
+  </div>
+
+  <div class="final">
+    <div class="final-label">Track-lab principle</div>
+    <p>The quality of your voice recordings is decided at the microphone. Capture cleanly, so that every transformation you make is a creative choice — not a desperate repair.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="lab-008.html">
+      <span class="page-nav-direction">Previous</span>
+      ← Lab 008 / The Field Kit
+    </a>
+    <a href="lab-r2.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      R2 / Rebuild the Gesture →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Block 2 · Lab 008b</div>
+
+</div>
+
+  <script src="../nav.js"></script>
+</body>
+</html>

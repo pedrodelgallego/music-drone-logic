@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab 016 — Slice &amp; Reassemble</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page-type-lab" id="top">
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="index.html" class="active"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 4 · Transformation</a><span class="breadcrumb-sep">/</span><span>Slice &amp; Reassemble</span></nav>
+
+  <header class="page-header">
+    <div class="eyebrow">Block 4 · Lab 016 · Track lab</div>
+    <h1>Slice &amp; Reassemble</h1>
+    <p class="lede">A recorded performance, cut at its joints, becomes a vocabulary — and the music moves from the playing to the editing. This lab slices your own recordings on the Digitakt II and in Live, writes a grammar for putting the pieces back in the wrong order on purpose, and builds a breaks piece from the result. The engineering lesson hides in plain sight: a slice is a pointer until you print it, reordering costs nothing — but every per-slice gain decision is a processing stage, and the reassembled loop is not at the parent's level unless you made it so.</p>
+  </header>
+  <p class="block-meta">Track lab · S3 · D3 E3 M4 F2 · breaks · full cycle · new concepts: 6</p>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l4.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs" class="current">Labs</a><a href="lab-r4.html" data-section="rebuild">Rebuild</a><a href="capstone-c3.html" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
+
+  <div class="signal-flow">
+    <span class="signal-node">listen</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">hypothesis</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">draw the path</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">calibrate</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">build</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">fault</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">diagnose</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">print</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">delta</span>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Start here</div>
+    </div>
+    <ul>
+      <li>Choose parent material from your own archive — lab 009's groove takes, a Digitakt drum jam printed as one loop, lab 008's percussive captures. The break you slice must be one you recorded: this lab is M4, your own material reprocessed.</li>
+      <li>Save a new set as <span class="code">LAB-016-slice</span>; you will slice the same parent twice — on the Digitakt II and in Live (Simpler's slice mode, sliced to a Drum Rack).</li>
+      <li>Run the listening accordion and write the hypothesis first.</li>
+      <li>This is an S3 lab: <strong>no filled specs arrive.</strong> You author both from the prompt lists below, before any cutting.</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The point</div>
+    <p>Slicing does not transform the audio — it transforms the <em>address book</em>. Each slice is a start point and a length; reorder them and the parent is untouched, fully recoverable, reversible. The block question lands here at its gentlest setting: this transformation costs nothing — until you re-level a slice, re-pitch it, or print the new order. Know exactly where the free part ends.</p>
+  </div>
+
+  <h2>How this lab works</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3 class="card-title">Cut your own break</h3>
+      <ul class="card-points">
+        <li>One or two of your own drum recordings become the parent breaks — they need internal dynamics (ghost notes, room, flams) to be worth cutting.</li>
+        <li>Slice the same parent two ways: an even grid (16 equal divisions) and transient detection — and keep both slice maps.</li>
+        <li>Compare what each method gets wrong: the grid cuts through hits; transients miss the ghosts. The errors are different vocabularies.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Write the grammar</h3>
+      <ul class="card-points">
+        <li>Before reordering anything, write recombination rules: which slices may follow which, where the snare must land, what a "roll" is allowed to be.</li>
+        <li>Build the piece's sections as grammar changes, not as new material — the same sixteen slices, stricter or wilder rules.</li>
+        <li>6–8 minutes, breaks: the reassembled drums carry the track; one bass or melodic element allowed.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Account for the slices' levels</h3>
+      <ul class="card-points">
+        <li>Per-slice gain is a processing stage: audit the reassembled loop's level against the parent played straight.</li>
+        <li>Normalization per slice is the trap — it erases the break's internal dynamics and hands a hotter sum to everything downstream.</li>
+        <li>Every reassembly that the arrangement depends on gets printed, with level in / level out written at the arrows.</li>
+      </ul>
+    </div>
+  </div>
+
+  <table class="param-table">
+    <caption>Pass standard</caption>
+    <tr><td>Minimum pass</td><td>Audible original piece, routing diagram, fault entry, print map, and system diff exist — plus both specs, authored by you before building.</td></tr>
+    <tr><td>Solid pass</td><td>In a blind A/B of your own renders, you can say which reassembly came from the grid map and which from the transient map — and name which slices were re-leveled, and why.</td></tr>
+    <tr><td>Advanced transfer</td><td>You can hear a sliced record and say how it was cut — grid or transient, and whether the slice levels were left alone or flattened — and defend the guess in path terms.</td></tr>
+  </table>
+
+  <h2>New concepts — in plain words</h2>
+
+  <table>
+    <tr><th>Concept</th><th>In plain words</th></tr>
+    <tr><td><span class="lab-title">The break</span></td><td>A few seconds of recorded drumming treated as a quarry — not a loop to repeat but a vocabulary to cut from. Dance music spent thirty years mining a handful of them; this lab makes you quarry your own.</td></tr>
+    <tr><td><span class="lab-title">Slice</span></td><td>A start point and a length — an address into the parent file, not a new sound. Until you print, a slice weighs nothing and changes nothing; the parent is always one undo away. That is what "non-destructive" actually means.</td></tr>
+    <tr><td><span class="lab-title">Grid vs transient slicing</span></td><td>Two ways to decide where the cuts fall: equal divisions of time (the grid) or detected hits (transients). The grid respects the bar and cuts through drums; transient detection respects the drums and loses the timing. Neither is right — they produce different instruments from the same parent.</td></tr>
+    <tr><td><span class="lab-title">Recombination grammar</span></td><td>The ruleset for reordering: which slice classes exist (kicks, snares, ghosts, tails), what may follow what, where the anchors land. Without a grammar, reordering is shuffling; with one, it is writing. The grammar is the composition — the slices are just its alphabet.</td></tr>
+    <tr><td><span class="lab-title">Per-slice gain</span></td><td>Every slice has its own level handle, which makes the slicer secretly a multiband gain stage. "Normalize slices" sets every hit — including the ghosts — to full level: the break's internal dynamics, the very thing that made it worth sampling, deleted by one checkbox.</td></tr>
+    <tr><td><span class="lab-title">Choke &amp; slice envelope</span></td><td>What happens at each slice's end: cut dead (choked), faded, or left ringing into the next. Chokes make the reassembly gated and mechanical; overlaps keep the room. The joint between two slices is as audible as the slices themselves.</td></tr>
+  </table>
+
+  <div class="tag-row">
+    <span class="tag">the break</span>
+    <span class="tag">slice</span>
+    <span class="tag">grid vs transient</span>
+    <span class="tag">recombination grammar</span>
+    <span class="tag">per-slice gain</span>
+    <span class="tag">choke &amp; envelope</span>
+  </div>
+
+  <h2>Listening — the hypothesis source</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Ten works built by cutting recordings at the joints and reassembling them — from jungle's Amen science to the avant-garde's wounded CDs. The spread is deliberate: slice culture and digital degradation are the same gesture at different intensities. Each gets a brief: what to listen for before you press play, and how to check yourself after.</p>
+
+  <div class="listen-acc">
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">01</span>
+        <span class="listen-title">Photek — “Ni Ten Ichi Ryu”</span>
+        <span class="listen-tag">the break as calligraphy</span>
+      </summary>
+      <div class="listen-body">
+        <p>Drum &amp; bass at its most surgical: single hits placed like brush strokes, every slice chosen, leveled, and timed by hand — the maximal-care end of the slicing axis.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>How few drum events actually sound per bar — the track feels dense, but count the hits: the density is placement, not quantity.</li>
+          <li>The dynamics between hits: ghost strokes sitting far below the snares — per-slice levels preserved, not flattened.</li>
+          <li>The silence between slices: chokes so clean that the gaps become part of the rhythm.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Could this groove come from a loop played straight? No — the hits land in places no drummer's limbs reach, yet each hit sounds like a drummer struck it. That split — performed timbre, impossible placement — is exactly what slicing buys, and the preserved hit-to-hit dynamics are why it still breathes. If it read as a live drummer, relisten to one bar at low volume and map the snare positions against a 4/4 grid: they are written, not played.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Photek+Ni+Ten+Ichi+Ryu" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Photek%20Ni%20Ten%20Ichi%20Ryu">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-photek-ni-ten-ichi-ryu.html">lesson</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">02</span>
+        <span class="listen-title">Source Direct — “A Made Up Sound”</span>
+        <span class="listen-tag">menace by edit placement</span>
+      </summary>
+      <div class="listen-body">
+        <p>Mid-90s darkside jungle where the threat lives in the edits: breaks cut into stalking, asymmetric figures, the reassembly grammar so strict it reads as dread.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The asymmetry: phrases that almost repeat but displace one slice each pass — the grammar permits variation only at chosen joints.</li>
+          <li>Which slices keep their tails and which are choked dead — the alternation is doing the tension.</li>
+          <li>How the atmosphere (pads, foley) is mixed against the break: the drums are the foreground argument; everything else is set-dressing.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Where does the menace come from — the sounds or the order? Mostly the order: the individual slices are ordinary break material, but the recombination withholds resolution, landing hits early or not at all. That is a grammar decision your spec can state in one line. If the track read as merely "dark sounds," relisten to eight bars and predict each snare before it lands — your misses are the composition.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Source+Direct+A+Made+Up+Sound" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Source%20Direct%20A%20Made%20Up%20Sound">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-source-direct-a-made-up-sound.html">lesson</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">03</span>
+        <span class="listen-title">Remarc — “R.I.P.”</span>
+        <span class="listen-tag">the Amen at maximum density</span>
+      </summary>
+      <div class="listen-body">
+        <p>Jungle's chopping science at full speed: the Amen break diced fine and re-sequenced into rolls and stutters that the original drummer could never have played — slicing as virtuosity.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The rolls: one snare slice retriggered at increasing rate — a single address played as a drum fill.</li>
+          <li>Moments where the break plays nearly straight, then shatters — the contrast between parent order and reassembled order, used as arrangement.</li>
+          <li>Pitch jumps on slices: the same hit appearing a fourth up or down, which on a sampler is a slice-level transposition, not a new sample.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>How many distinct source hits did you hear across the busiest section? Far fewer than the event count suggests — most of the density is the same few slices retriggered, re-pitched, and re-placed. That economy is the lab's budget lesson: sixteen slices are enough for a track if the grammar works hard. If it read as endless new material, relisten to one fill and follow a single snare timbre through it — it is the same slice, working overtime.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Remarc+RIP+jungle" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Remarc%20R.I.P.">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-remarc-r-i-p.html">lesson</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">04</span>
+        <span class="listen-title">Dillinja — “The Angels Fell”</span>
+        <span class="listen-tag">slices under a cinematic weight</span>
+      </summary>
+      <div class="listen-body">
+        <p>Breaks engineering with low-end ambition: the chopped drums are tuned, leveled, and staged against a sub so heavy that every slice decision becomes a mix decision.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The relationship between break and bass: the slices are carved to leave room — listen to what is <em>not</em> in the drums when the sub moves.</li>
+          <li>The break's level discipline: hits sit consistently against the bass for minutes at a time — per-slice gain set once, by ear, and trusted.</li>
+          <li>The strings against the chop: long sustained material over fragmented drums, the lab's two time-scales in one mix.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Did the break ever fight the bass? Almost never — and that is not luck: slices were chosen and leveled so their low content steps around the sub. A slice is also a spectrum, and reassembly is also a mix. If they did seem to fight, relisten on phones to one drop and check whether the kick-slice or the sub gives way — one of them always defers, by design.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Dillinja+The+Angels+Fell" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Dillinja%20The%20Angels%20Fell">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-dillinja-the-angels-fell.html">lesson</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">05</span>
+        <span class="listen-title">Squarepusher — “Come On My Selector”</span>
+        <span class="listen-tag">grammar at virtuoso speed</span>
+      </summary>
+      <div class="listen-body">
+        <p>Drill'n'bass as a slicing stress test: edits at a rate where the ear stops hearing drums-reordered and starts hearing a new instrument whose keys are slices.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The moment density crosses over: where reassembled drums stop reading as rhythm-with-edits and become pure texture-with-pitch.</li>
+          <li>The humor: edits as jokes — a fill cut off, a slice repeated once too often. Grammar can have a sense of timing in both meanings.</li>
+          <li>What stays steady underneath: the bassline holds form while the drums fragment — one stable element licenses the chaos above it.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Is this playable in real time? Mostly no — and that is the point: the edit grid is the instrument, and the performance happened in the arrangement, slice by slice. Note the lesson for your D-axis: this is sequenced slicing pushed to where it reads as played. If it sounded like noodling, relisten to thirty seconds and notice how often a phrase resolves exactly on the bar — the wildness is fully supervised.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Squarepusher+Come+On+My+Selector" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Squarepusher%20Come%20On%20My%20Selector">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-squarepusher-come-on-my-selector.html">lesson</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">06</span>
+        <span class="listen-title">Oval — “Do While”</span>
+        <span class="listen-tag">the error becomes the loop</span>
+      </summary>
+      <div class="listen-body">
+        <p>Music made from deliberately damaged CDs: the player's skip-and-stutter becomes the rhythm section, and the "slice points" are wherever the medium fails — cutting decided by the system, not the hand.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The skip as a slice boundary: each glitch is a hard cut with no envelope — the digital equivalent of a choked slice, chosen by physics.</li>
+          <li>The warmth underneath: the source material is lush ambient pop, and its harmony survives the fragmentation intact.</li>
+          <li>Repetition that is almost mechanical but not quite — the error loop drifts, and the drift is the groove.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Who chose the slice points on this record? The damage did — Oval curated the results rather than placing the cuts. That is the opposite pole from Photek: hand-placed versus system-placed slicing, with your lab sitting anywhere between. The worksheet contrast to carry forward: this is <em>error</em>, digital and abrupt — Block 4's other degradation lab works by <em>erosion</em>. If it read as random clicking, relisten to two minutes and find the loop — there always is one, and it always has a downbeat.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Oval+Do+While" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Oval%20Do%20While">Spotify</a></p>
+        <p class="listen-rep"><a href="rep-oval-do-while.html">Replicate it — step-by-step lesson →</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">07</span>
+        <span class="listen-title">Yasunao Tone — “Solo for Wounded CD”</span>
+        <span class="listen-tag">slicing with no grammar at all</span>
+      </summary>
+      <div class="listen-body">
+        <p>The Fluxus answer to the sampler: CDs scarred with tape so the error correction fails continuously — fragmentation with the recombination grammar deliberately surrendered, the control case for this whole lab.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>What remains musical when nothing is chosen: register, density, and the player's own error-correction logic become the only form.</li>
+          <li>The texture of digital failure: not noise, not silence — confidently wrong audio, played at full level.</li>
+          <li>Your own pattern-seeking: the ear builds grammars out of accident within a minute. Notice yourself doing it.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Is this composed? The system was — the wounding, the player, the decision to perform it — but the slice order was not, and you can hear the difference between that and Oval's curated loops. This is the zero-grammar endpoint that makes every other record here legible as a set of choices. If it was unlistenable, that reaction is data: write one sentence on what minimum of grammar your own piece needs before fragmentation reads as music.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Yasunao+Tone+Solo+for+Wounded+CD" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Yasunao%20Tone%20Solo%20for%20Wounded%20CD">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-yasunao-tone-solo-for-wounded-cd.html">lesson</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">08</span>
+        <span class="listen-title">Todd Edwards — “Saved My Life”</span>
+        <span class="listen-tag">syllables as slices</span>
+      </summary>
+      <div class="listen-body">
+        <p>Garage house built from vocal slivers: words cut into syllables and reassembled as melody — the slicing lens applied to voice, and the direct ancestor of the microhouse cut-up logic you met in Akufen's lab 007 lesson.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Syllables doing a synth's job: pitch and rhythm carried by fragments too short to mean anything as words.</li>
+          <li>The stack: multiple vocal slices sounding at once as a chord — each slice leveled into the harmony like an oscillator.</li>
+          <li>What survives of the original singers: breath and grain, no sentences — identity below the word level, as in lab 015's clouds.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Could you reconstruct any source phrase? No — and yet the result is euphoric rather than broken, because the grammar is harmonic: slices were chosen for pitch, not meaning. This is recombination grammar with a key signature, the bridge between break-chopping and the sampled-house cut-up you studied in Block 2. If it read as a normal vocal hook, relisten to the chorus and count the cuts in one bar — there are more joints than notes.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Todd+Edwards+Saved+My+Life" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Todd%20Edwards%20Saved%20My%20Life">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-todd-edwards-saved-my-life.html">lesson</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">09</span>
+        <span class="listen-title">Burial — “Ghost Hardware”</span>
+        <span class="listen-tag">slices left ragged on purpose</span>
+      </summary>
+      <div class="listen-body">
+        <p>Two-step drums and vocal fragments assembled off-grid with the seams showing — from the artist whose “Archangel” anchored lab 007. Here the slicing is audible as craft: crackle bridging the joints, edits placed by ear, nothing snapped clean.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The joints: slice boundaries you can actually hear — small clicks, clipped consonants, hits that enter a hair late. The roughness is kept, not missed.</li>
+          <li>The crackle bed: a continuous noise layer that hides and softens every cut — the anti-choke strategy, the opposite of Photek's silence.</li>
+          <li>Drums that never quite repeat: the same slices, hand-placed slightly differently each bar — reassembly as performance rather than pattern.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Why leave the seams audible? Because the seams carry the feeling: cleaned up and grid-snapped, these slices would be a competent garage beat; ragged, they read as memory. That is a choke-and-envelope decision made aesthetically — your spec must decide whether your joints are hidden or shown. If the track read as sloppy, relisten to one drum bar four times: the "errors" recur exactly, which means they are kept, and kept things are choices.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Burial+Ghost+Hardware" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Burial%20Ghost%20Hardware">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-burial-ghost-hardware.html">lesson</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">10</span>
+        <span class="listen-title">Nate Harrison — “Can I Get An Amen?” (video)</span>
+        <span class="listen-tag">the culture of one break</span>
+      </summary>
+      <div class="listen-body">
+        <p>The 2004 video essay tracing six seconds of Gregory Coleman's drumming through three decades of music — the history of slice culture told through its single most-quarried parent.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The original break played whole, before any cutting: hear the internal dynamics — the ghost notes — that every later genre depended on.</li>
+          <li>How differently the same six seconds behave across hip-hop, hardcore, and jungle: identical parent, different grammars.</li>
+          <li>The economics underneath: who played it, who profited, who was never paid — the ethics row of your spec has a history.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>What did the genres change and what did they keep? They kept the timbre — Coleman's hands, the room, the 1969 signal path — and changed only order, rate, and level: thirty years of music from one address book, re-grammared. That is the strongest possible argument for quarrying your own six seconds well. After watching, play your candidate parent loop once and ask the only question that matters here: does it have ghosts worth stealing from yourself?</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Nate+Harrison+Can+I+Get+An+Amen" target="_blank" rel="noopener">YouTube</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-nate-harrison-can-i-get-an-amen-video.html">lesson</a></p>
+      </div>
+    </details>
+  </div>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Requirement</div>
+    <p>Your written hypothesis names <strong>what this piece's slices are and what grammar reassembles them</strong> — calligraphic placement, menace by withheld resolution, one slice working overtime, slices carved around a sub, density crossing into texture, system-chosen cuts, zero grammar as the control case, syllables as harmony, seams left showing, or one well-quarried parent under many grammars — and what was stolen from the comparison. The target idea across all ten: <strong>a slice is an address, reordering is free — and every level or print decision after that is a transformation with a cost.</strong> What you steal is a structure, never a sound.</p>
+  </div>
+
+  <h2>1 · The two specs — author them from prompts</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">This is an S3 lab: no filled table arrives. Answer each prompt in one or two written lines in the logbook — the answers <em>are</em> your specs, and you correct them against reality after the build. Lab 014's filled tables are your model for granularity.</p>
+
+  <table class="param-table">
+    <caption>System Spec — prompts (you author every field)</caption>
+    <tr><td>Inputs</td><td>Which of your own recordings become break parents, and why those — do they have internal dynamics worth preserving (ghosts, flams, room)? Name the files. A strong answer names one busy parent and one sparse one, not two takes of the same jam.</td></tr>
+    <tr><td>Transforms</td><td>Digitakt II slicing, Live's Simpler slice mode into a Drum Rack, or both — doing what, in what order? Which decisions are <em>composed</em> (the slice maps, the grammar) and which are <em>performed</em> (retriggers, pad playing)? Does per-slice pitch enter, and after which decision?</td></tr>
+    <tr><td>Feedback / variation</td><td>What keeps eight minutes of one break alive — order permutations, probability on slice triggers (lab 010's grammar), per-slice pitch, grammar changes per section? Name the one variation source that runs the whole piece and the one reserved for its center.</td></tr>
+    <tr><td>Constraints</td><td>What is forbidden? Decide now: how many parents (suggest ≤2), the slice-count budget, whether the parent may ever play in original order, and the one non-drum element you are allowed.</td></tr>
+    <tr><td>Human role</td><td>What do your hands do — finger-drummed retriggers on pads, or nothing after the grammar is sequenced? Both are legitimate D3 answers, but the choice must be written, not defaulted into.</td></tr>
+  </table>
+
+  <table class="param-table">
+    <caption>Engineering Spec — prompts (you author every row, then correct it after building)</caption>
+    <tr><td>Signal path</td><td>Draw it: parent file → slicer (Digitakt / Simpler→Drum Rack) → reassembly track → bus → master, including the Digitakt's USB audio path if it slices hardware-side. Where in this path does a slice become audio that can no longer be re-addressed?</td></tr>
+    <tr><td>Gain plan</td><td>The block question, yours to answer with numbers: parent loop peak vs the reassembled loop's peak, played at identical fader positions. Measure with per-slice gains untouched and again after any re-leveling — write both deltas down. This is the lab's critical row.</td></tr>
+    <tr><td>Clock / sync</td><td>Who is master — Live's grid or the Digitakt's sequencer? Do sliced tails obey the new tempo or the parent's? If warp/stretch enters anywhere, name the algorithm and what it costs.</td></tr>
+    <tr><td>Latency</td><td>If you finger-drum slices live against the playing set, which monitoring mode are you in (lab 002's table) and is pad-to-ear delay short enough to perform on? One line.</td></tr>
+    <tr><td>Stereo / phase</td><td>Slice boundaries do not care about stereo content: what happens at a cut where the two channels disagree? Plan the mono check on the reassembled loop, and state your policy on doubled slices (flam risk).</td></tr>
+    <tr><td>Noise budget</td><td>The parent's floor (room, hiss) restarts at every slice boundary — the telltale chop. Where is the noise in your parents, and is the restart kept as an aesthetic (Burial) or crossfaded away (Photek)? Declare it.</td></tr>
+    <tr><td>Print strategy</td><td>Slice maps and orders are patch state, and patch state rots: which reassemblies get printed as audio, and when? A strong answer prints every loop the arrangement depends on and keeps the parents untouched and named.</td></tr>
+    <tr><td>Failure mode</td><td>Predict one likely failure in path terms — the canonical one for this lab: per-slice normalization flattening the break's dynamics while the summed slices run hotter than the parent into everything downstream (faultType: <strong>gain into processing</strong>). Name yours and how you would locate it.</td></tr>
+    <tr><td>Safety</td><td>Transient-dense material at speed invites loudness creep and fatigue. State your phones level (lab 001 mark), session length, and break plan.</td></tr>
+  </table>
+
+  <h2>2 · Bench preflight</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">The block rule: <strong>a level written at the input and output of every processor</strong>. The slicer is a processor whose output level depends on a checkbox and sixteen tiny faders — so the reassembled loop gets measured against its parent before anything downstream hears it.</p>
+
+  <div class="signal-flow">
+    <span class="signal-node">parent break</span>
+    <span class="signal-arrow">→ level in →</span>
+    <span class="signal-node">slicer · grid | transient</span>
+    <span class="signal-arrow">→ per-slice gain →</span>
+    <span class="signal-node">reassembly track</span>
+    <span class="signal-arrow">→ level out →</span>
+    <span class="signal-node">bus</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">master −3 dBFS</span>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Pre-flight — before the first cut</div>
+    </div>
+    <ul>
+      <li>Parents audited: peak level, noise floor, and one sentence on character — including whether the ghosts are worth keeping — filed before any slicing</li>
+      <li>Both specs authored from the prompts above and dated in the logbook</li>
+      <li>The same parent sliced both ways — even grid and transient detection — with both slice maps screenshotted or photographed</li>
+      <li>The slice-gain audit run: parent played straight vs slices replayed in original order, peak levels of both written at the diagram's arrows — any difference is the slicer's doing</li>
+      <li>Recombination grammar written in the logbook before any reordering happens</li>
+      <li>Phones at the lab 001 mark; transient material masks creep — re-check at every session start</li>
+    </ul>
+  </div>
+
+  <h2>3 · Build</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Build the lab in five passes. Each pass produces an artifact, not just a better-sounding session: a written rule, a printed comparison, a fault entry, and a corrected system sentence.</p>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Build recipe · Slice &amp;amp; Reassemble</div>
+      <h3 class="step-title">Make the transformation chain audible</h3>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Do this in order</div>
+      <ol class="rules-list">
+        <li><strong>Print the source.</strong> Record one clean MicroFreak or self-sourced audio phrase into Live at about -12 dBFS. This is SOURCE and never gets overwritten.</li><li><strong>Build the chain.</strong> Duplicate SOURCE to CHAIN. Add only the processor family the lab studies: filter, saturation, grain, slice, or tape/generation loss.</li><li><strong>Level-match the chain.</strong> Put Utility before and after the chain. Pre level drives the processor; post level returns the result to the same apparent loudness.</li><li><strong>Print comparison passes.</strong> Print low, nominal, and hot versions, or first-generation and later-generation versions, as the lab requires.</li><li><strong>Run the fault.</strong> Overdrive the wrong stage or accumulate one bad pass on purpose. Diagnose by walking backward through the chain one stage at a time.</li>
+      </ol>
+    </div>
+    <div class="signal-flow">
+      <span class="signal-node">Live 12</span>
+      <span class="signal-arrow">↔</span>
+      <span class="signal-node">Digitakt II</span>
+      <span class="signal-arrow">+</span>
+      <span class="signal-node">MicroFreak</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">MOTU M4</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">Print + logbook</span>
+    </div>
+  </div>
+
+  <table class="param-table">
+    <caption>Build artifacts</caption>
+    <tr><td>Rule or hypothesis</td><td>one sentence, written before sound</td></tr>
+    <tr><td>System drawing</td><td>audio path and, where relevant, control path</td></tr>
+    <tr><td>Calibration proof</td><td>input level, output level, processor order, and reversibility</td></tr>
+    <tr><td>Printed comparison</td><td>neutral / changed / keeper prints, named and gain matched</td></tr>
+    <tr><td>Fault entry</td><td>symptom → cause → fix → prevention rule</td></tr>
+  </table>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Build exit check</div>
+    <p>The lab can move to diagnosis only when the printed audio proves the written rule. If the rule sounds true only while you explain it, simplify the system and print again.</p>
+  </div>
+
+  <h2>4 · Diagnosis &amp; report</h2>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">The full report bundle — ten items, filed in the logbook</div>
+    </div>
+    <ul>
+      <li>Rendered piece — 24-bit WAV, master peaking −3 dBFS, 6–8 minutes</li>
+      <li>Routing diagram — drawn before patching, corrected after, with the parent-vs-reassembly level deltas written at the slicer</li>
+      <li>Recording plan — which reassemblies were printed, from which slice map, when</li>
+      <li>Patch notes — both slice maps, the grammar per section, per-slice gain and envelope decisions</li>
+      <li>Session notes</li>
+      <li>Reflection answers, including the listening comparison — which work contributed what to the hypothesis</li>
+      <li>One removal decision — what was cut from the finished piece and what cutting it did</li>
+      <li>Fault entry — symptom, cause, fix, prevention rule (faultType: gain into processing)</li>
+      <li>Print map — which reassemblies exist as audio, which orders survive only as patch state, and confirmation the parents remain untouched</li>
+      <li>System diff sentence — “I thought the system worked like X; after building it, I discovered it worked like Y.”</li>
+    </ul>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>The fault ritual:</strong> predict the symptom in writing, then create the fault — switch on per-slice normalization (or push every slice's gain to full) on a reassembly the piece depends on. Observe what happens to the ghost notes and to the bus meter while the parent's level never moves, locate the change at the per-slice gain stage rather than anywhere downstream, fix it by restoring the slice levels — not by padding the bus — and write the rule learned.</li>
+      <li><strong>Minimum pass gate:</strong> audible output · routing diagram · fault entry · print map · system diff — plus, in this lab, the authored specs. Without these, the lab is incomplete regardless of audio quality.</li>
+    </ul>
+  </div>
+
+  <div class="final">
+    <div class="final-label">Track-lab principle</div>
+    <p>A slice is an address, not a sound: reordering the address book is free and reversible — but every per-slice level decision is a processing stage, and the moment you print, the new order starts a history of its own.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="lab-015.html">
+      <span class="page-nav-direction">Previous</span>
+      ← Lab 015 / Granular Reconstruction
+    </a>
+    <a href="lab-017.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      Lab 017 / Generation Loss →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Block 4 · Lab 016</div>
+
+</div>
+
+  <script src="../nav.js"></script>
+</body>
+</html>

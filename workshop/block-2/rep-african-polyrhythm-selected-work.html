@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Replicate: the 12/8 bell timeline</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page-type-rep" id="top">
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu"><span class="hamburger-lines"><span></span><span></span><span></span></span></label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html" class="active"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 2 · Sources</a><span class="breadcrumb-sep">/</span><span>Replicate: the 12/8 bell timeline</span></nav>
+  <header class="page-header">
+    <div class="eyebrow">Block 2 · Replication lesson</div>
+    <h1>Replicate: the 12/8 bell timeline</h1>
+    <p class="lede">Steal one idea from Ewe <em>Agbekor</em>: program one fixed bell pattern as the clock, then add two other parts that deliberately push against it — especially 3-against-2 — so the downbeat feels ambiguous. Build a short take and compare it to the reference at the same loudness.</p>
+  </header>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l2.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs">Labs</a><a href="lab-r2.html" data-section="rebuild">Rebuild</a><a href="index.html#capstone" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep" class="current">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
+
+  <div class="callout">
+    <div class="callout-label">The point</div>
+    <p>You are not copying the drum solos or any specific recording. You are copying the <em>mechanism</em>: one bell timeline on the gankogui (the iron double-bell) that never changes, which every other part uses as its reference point — but none of them line up with it the same way. The friction between parts that share a clock and deliberately disagree is the music. The timeline is the form. Everything else follows from it.</p>
+  </div>
+
+  <table class="param-table">
+    <caption>The system you are replicating</caption>
+    <tr><td>Source record</td><td>Ewe <em>Agbekor</em> (Ghana / Ewe drum-and-dance ensemble) — the standard 12/8 bell timeline on the gankogui</td></tr>
+    <tr><td>The effect</td><td>A groove with no fixed "1" — different listeners feel the downbeat in different places, and the parts seem to pull against each other while the bell holds steady underneath</td></tr>
+    <tr><td>The mechanism</td><td>A fixed, non-isochronous 12-pulse bell timeline is the shared referent; every other part attacks at different points and groups the pulses differently (3-against-2), so accents fall against the bell and the metre stays ambiguous</td></tr>
+  </table>
+
+  <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Ewe+Agbekor+gankogui+bell+pattern" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Ewe%20Agbekor%20Ghana%20drumming">Spotify</a></p>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"></path></svg></div>
+      <div class="checklist-label">Before you start</div>
+    </div>
+    <ul>
+      <li>Digitakt II synced to Live (lab 002's clock setup), with a bright metallic one-shot ready for the bell — a cowbell, woodblock, or struck-metal sample</li>
+      <li>MicroFreak on Live's input for one of the cross-rhythm parts</li>
+      <li>A way to count 12 pulses out loud — say "1 2 3 4 5 6 7 8 9 10 11 12" steadily before you program anything. The whole lesson lives inside a 12-pulse cycle.</li>
+    </ul>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>What you will make:</strong> a 60–90 second loop built on one fixed 12-pulse bell timeline, with two other parts cross-rhythming against it. Focus on this effect: the downbeat is ambiguous and the parts pull against a clock they all share.</li>
+      <li><strong>What you will turn off:</strong> any urge to make the parts line up on a shared "1", any backbeat, any fill that resolves the tension. One fixed timeline, parts that disagree with it.</li>
+      <li><strong>What you will prove:</strong> your version and <span class="code">REF</span> use the same core mechanism: a fixed timeline as referent plus 3:2 cross-rhythm that keeps the metre open.</li>
+      <li><strong>What counts as success:</strong> remaining differences are source choices or rig limits, not missing steps.</li>
+    </ul>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Reference pass · 10 minutes</div>
+      <h3 class="step-title">Listen before you build</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Listen to about two minutes of an <em>Agbekor</em> recording. Find the bell — it is the steady, high, metallic part that repeats unchanged. Write one short answer for each question before you touch the gear.</p>
+    <ol class="rules-list">
+      <li>Tap the bell pattern. Is it evenly spaced, or are the gaps between strokes uneven?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Uneven. The standard 12/8 timeline is <strong>non-isochronous</strong> — meaning the gaps between strokes are not equal. The strokes fall in an asymmetric grouping (long–short, the familiar 2-2-1-2-2-2 shape over 12 pulses), not on every beat. That lopsidedness is what makes it useful as a reference: because the pattern has a clear shape, you can always tell where you are inside the cycle, which lets the other parts find their place against it.</p></div></details>
+      </li>
+      <li>Pick a drum part. Do its accents land on the same pulses as the bell, or against them?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Against them. Each part shares the same 12-pulse cycle but groups it differently — one part feels the 12 as four groups of 3, another as three groups of 4 — so their strong points fall in the bell's gaps. The parts never resolve onto the bell together; the offset is permanent and composed, not a mistake.</p></div></details>
+      </li>
+      <li>Where is "1"? Can you and an imaginary second listener agree on the downbeat?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>You probably cannot agree, and that is the point. The 12-pulse cycle supports several valid feels at once — a "3" feel and a "2" feel running together — so one person hears the downbeat where the bell starts, another where their favourite drum lands. No single part announces the beat, so the ear is free to pick one. The piece never forces a single answer.</p></div></details>
+      </li>
+      <li>What is the relationship between the two strongest layers — how do you describe the cross-rhythm?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>3-against-2 (3:2). Over the same 12 pulses, one layer hits 3 times (every 4 pulses) and another hits 2 times (every 6 pulses). They only land together at the top of the cycle and drift apart everywhere in between. That pattern of "agree, then drift, then agree again" is the engine of the groove — the friction you are trying to steal.</p></div></details>
+      </li>
+    </ol>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Now build the timeline and the cross-rhythm you just described. Do not build from memory of the drum parts — build the structure, not the recording.</p>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Sound target:</strong> one fixed bell timeline in a 12-pulse cycle, plus a "2-side" part (groups of 4) and a "3-side" part (groups of 3) that produce 3:2 against it.</li>
+      <li><strong>The referent:</strong> the bell — bright, dry, unchanging, the same every cycle. It is the clock and it never gets a fill.</li>
+      <li><strong>The 2-side:</strong> a part that attacks every 4 pulses (3 hits across 12) — feels like the "long" pulse.</li>
+      <li><strong>The 3-side:</strong> a part that attacks every 3 pulses (4 hits across 12) — its accents fall against the bell, and against the 2-side, to make the cross-rhythm.</li>
+      <li><strong>The form:</strong> the standing friction between these layers over a fixed clock — no resolution onto a shared downbeat.</li>
+      <li><strong>Scope note:</strong> Block 3 returns to Ewe drumming from a <em>groove / feel</em> angle (how the strokes are timed and weighted to make it dance); <em>this</em> entry is the <em>timeline-as-referent</em> angle (the bell as a fixed clock the other parts disagree with). Same tradition, different mechanism.</li>
+    </ul>
+  </div>
+
+  <h2>Steps</h2>
+
+  <div class="gear-switch"><input type="radio" name="gear" id="gear-hw" class="gear-radio" checked><input type="radio" name="gear" id="gear-sw" class="gear-radio"><input type="radio" name="gear" id="gear-tg" class="gear-radio"><div class="gear-labels"><span class="gear-lead">Your rig</span><label for="gear-hw">MicroFreak + Digitakt II</label><label for="gear-sw">Ableton Live only</label><label for="gear-tg">Analog Rytm MKII · target</label></div><div class="gear-scope"><div class="step">
+    <div class="step-head">
+      <div class="step-num">Phase 1 — ~20 minutes</div>
+      <h3 class="step-title">Lay the fixed bell timeline</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: program the immovable 12-pulse clock first, so every later part has something to disagree with. Compare against <span class="code">REF</span> before moving on.</p>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol class="rules-list">
+        <li><strong>Import the record on a REF track</strong> and gain-match it with a Utility so A/Bs are honest. Loop a stretch where the bell is clearly audible.</li>
+        <li><strong>Set the pattern to a 12-pulse cycle:</strong> give the bell track a 12-step length (a 12/8 feel) so one loop is exactly 12 pulses, not 16. Load the bright metallic one-shot.</li>
+        <li><strong>Place the asymmetric timeline:</strong> program the standard pattern as the non-isochronous 2-2-1-2-2-2 grouping across the 12 steps — strokes on pulses <span class="code">1, 3, 5, 6, 8, 10, 12</span> (count from 1). Hear that the gaps are uneven; that lopsidedness is the feature.</li>
+        <li><strong>Freeze it.</strong> This part never changes for the rest of the lesson — no fills, no variation, no swing experiments. It is the referent.</li>
+        <li>A/B your bell against the record's bell. Same uneven shape, same "you always know where you are" quality?</li>
+      </ol>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Ewe Agbekor (Ghana / Ewe drum-and-dance ensemble) — the standard 12/8 bell timeline on the gankogui and use Live audio/MIDI tracks, Utility, automation, and resampling.</li><li>Build the phase goal — <em>Lay the fixed bell timeline</em> — as the smallest Live set that proves <em>A fixed, non-isochronous 12-pulse bell timeline is the shared referent; every other part attacks at different points and groups the pulses differently (3-against-2), so accents fall against the bell and the metre stays ambiguous</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>A groove with no fixed "1" — different listeners feel the downbeat in different places, and the parts seem to pull against each other while the bell holds steady underneath</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>Lay the fixed bell timeline</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>A fixed, non-isochronous 12-pulse bell timeline is the shared referent; every other part attacks at different points and groups the pulses differently (3-against-2), so accents fall against the bell and the metre stays ambiguous</em>, not just the surface of Ewe Agbekor (Ghana / Ewe drum-and-dance ensemble) — the standard 12/8 bell timeline on the gankogui.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
+    <div class="sub-block">
+      <div class="sub-label">Expected result</div>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A single, dry, unchanging bell loop in a 12-pulse cycle whose asymmetry lets you locate the top of every cycle by ear — and nothing else playing yet.</p>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">If it fails</div>
+      <table>
+        <thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead>
+        <tbody>
+          <tr><td>The bell sounds like a straight, even pulse</td><td>You spaced the strokes evenly, so it isochronous-ised into a click track</td><td>Re-enter the 2-2-1-2-2-2 grouping; the long–short asymmetry is what makes it a referent rather than a metronome</td></tr>
+          <tr><td>The loop fights the record — it drifts in and out</td><td>The pattern is 16 steps, not 12</td><td>Set the track length to 12 so one loop equals one 12-pulse cycle; a 16-step grid cannot hold a 12/8 timeline</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Phase 2 — ~30 minutes</div>
+      <h3 class="step-title">Build the 3-against-2 cross-rhythm</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: add two parts that share the 12-pulse cycle but group it differently, so 3:2 emerges against the fixed bell.</p>
+    <div class="signal-flow">
+      <span class="signal-node">fixed bell timeline (12 pulses)</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">2-side: hits every 4 pulses</span>
+      <span class="signal-arrow">+</span>
+      <span class="signal-node">3-side: hits every 3 pulses</span>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol class="rules-list">
+        <li><strong>Program the 2-side</strong> on a second 12-step track: a low drum or tone attacking every 4 pulses — strokes on <span class="code">1, 5, 9</span>. That is 3 even hits across 12, the "2" side of the cross-rhythm (each hit covers a long span).</li>
+        <li><strong>Program the 3-side</strong> as a short percussive note attacking every 3 pulses — strokes on <span class="code">1, 4, 7, 10</span>. That is 4 even hits across 12, the "3" side. Against the 2-side these two only coincide on pulse 1 and pull apart everywhere else — that is the 3:2.</li>
+        <li>Play all three together. Confirm the 3-side and 2-side accents fall <em>against</em> the bell's strokes, not on top of them. If a part doubles the bell, nudge it off — the parts must disagree.</li>
+        <li>Listen for the recurring "agree on 1, then drift, then agree again" of the cross-rhythm. That cycle of tension and momentary release is the groove engine.</li>
+      </ol>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Ewe Agbekor (Ghana / Ewe drum-and-dance ensemble) — the standard 12/8 bell timeline on the gankogui and use Drum Rack, MIDI clips, Groove Pool, and clip automation.</li><li>Build the phase goal — <em>Build the 3-against-2 cross-rhythm</em> — as the smallest Live set that proves <em>A fixed, non-isochronous 12-pulse bell timeline is the shared referent; every other part attacks at different points and groups the pulses differently (3-against-2), so accents fall against the bell and the metre stays ambiguous</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>A groove with no fixed "1" — different listeners feel the downbeat in different places, and the parts seem to pull against each other while the bell holds steady underneath</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>Build the 3-against-2 cross-rhythm</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>A fixed, non-isochronous 12-pulse bell timeline is the shared referent; every other part attacks at different points and groups the pulses differently (3-against-2), so accents fall against the bell and the metre stays ambiguous</em>, not just the surface of Ewe Agbekor (Ghana / Ewe drum-and-dance ensemble) — the standard 12/8 bell timeline on the gankogui.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
+    <div class="sub-block">
+      <div class="sub-label">Expected result</div>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Three layers over one clock where the 3-side and 2-side audibly cross — a clear 3-against-2 riding on the fixed, unchanging bell.</p>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">If it fails</div>
+      <table>
+        <thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead>
+        <tbody>
+          <tr><td>The parts lock into a single obvious beat — no cross-rhythm</td><td>The 3-side and 2-side hits landed on the same pulses, collapsing 3:2 into unison</td><td>Re-space them: 2-side every 4 pulses (1,5,9), 3-side every 3 pulses (1,4,7,10). They should meet only on pulse 1</td></tr>
+          <tr><td>Everything just sounds busy, not interlocked</td><td>Too many strokes, or parts doubling the bell</td><td>Strip each part to its bare cross-rhythm and make sure none of them copies the bell's stroke positions; the cross-rhythm is in the offset, not the density</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Phase 3 — ~25 minutes</div>
+      <h3 class="step-title">Keep the downbeat ambiguous and record</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: resist resolving the parts onto a shared "1", capture the standing friction, and prove the metre stays open. This is the whole piece.</p>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol class="rules-list">
+        <li><strong>Write down where you privately feel "1"</strong> before recording — note the pulse. You will test later whether a listener feels it elsewhere.</li>
+        <li><strong>Remove anything that forces the metre:</strong> no backbeat snare, no part that lands hard on the bell's first stroke and only there, no fill that "lands" the loop. Each part should still suggest a different downbeat.</li>
+        <li>Vary only the <em>timbre or dynamics</em> of the cross-rhythm parts across the take if you want motion — never their grid positions, and never the bell. The structure stays fixed; the colour can breathe.</li>
+        <li><strong>Record 60–90 seconds in one pass.</strong> Let it loop without ever resolving. Then listen back and check: can you re-hear "1" in two different places at will?</li>
+      </ol>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Ewe Agbekor (Ghana / Ewe drum-and-dance ensemble) — the standard 12/8 bell timeline on the gankogui and use audio clips, Simpler/Sampler, clip envelopes, and resampling.</li><li>Build the phase goal — <em>Keep the downbeat ambiguous and record</em> — as the smallest Live set that proves <em>A fixed, non-isochronous 12-pulse bell timeline is the shared referent; every other part attacks at different points and groups the pulses differently (3-against-2), so accents fall against the bell and the metre stays ambiguous</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>A groove with no fixed "1" — different listeners feel the downbeat in different places, and the parts seem to pull against each other while the bell holds steady underneath</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>Keep the downbeat ambiguous and record</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>A fixed, non-isochronous 12-pulse bell timeline is the shared referent; every other part attacks at different points and groups the pulses differently (3-against-2), so accents fall against the bell and the metre stays ambiguous</em>, not just the surface of Ewe Agbekor (Ghana / Ewe drum-and-dance ensemble) — the standard 12/8 bell timeline on the gankogui.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
+    <div class="sub-block">
+      <div class="sub-label">Expected result</div>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A take whose only events are the fixed bell plus the cross-rhythm, where the downbeat genuinely floats — you can flip your hearing of "1" between the parts and the loop supports both.</p>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">If it fails</div>
+      <table>
+        <thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead>
+        <tbody>
+          <tr><td>The downbeat snaps to one obvious place</td><td>A part is acting as a backbeat or hard-landing on the bell's "1"</td><td>Find the part that announces the metre and re-offset it; ambiguity needs every part to vote for a different "1"</td></tr>
+          <tr><td>The loop wants to "end" every cycle</td><td>You added a fill or a resolving stroke that closes the cross-rhythm</td><td>Delete it. The mechanism is standing friction with no resolution — the loop should feel like it could turn forever</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  </div></div><div class="decision-check">
+    <div class="decision-check-label">Verify against the record</div>
+    <p>A/B your take against a comparable stretch of <em>Agbekor</em> — 10 seconds of yours, 10 of theirs, matched loudness. Then answer two questions in writing.</p>
+    <p><strong>Does your bell hold as a fixed referent the other parts disagree with — or did it become just another drum?</strong></p>
+    <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>It must stay the unchanging clock. Test it: mute the cross-rhythm parts and the bell alone should still tell you where the top of the cycle is, by its uneven shape. Bring the parts back — their accents should fall in the bell's gaps, not on its strokes. If your bell picked up fills or the other parts landed on top of it, you turned the referent into a regular drum. Re-freeze the bell and re-offset the other parts.</p></div></details>
+    <p><strong>Is the downbeat genuinely ambiguous — could a second listener feel "1" somewhere other than you do?</strong></p>
+    <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>That ambiguity proves you built a cross-rhythm and not just a beat. Play it to someone and ask them to tap the downbeat. If they always land where you do, the beat is too fixed — one part is announcing it. In real <em>Agbekor</em>, the 3-against-2 keeps several feels alive at once so listeners disagree about where "1" is. If yours forces a single answer, go back to phase 3 and remove whichever part pushes hardest for one downbeat.</p></div></details>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Logbook — the miss list, three lines:</strong> "Matched: …" · "Missed: … (best guess why)" · "Change next: …"</li>
+      <li>Name the one part that did the most work to keep the downbeat open — the offset that sold the ambiguity.</li>
+      <li>Replica audio stays in the logbook as study evidence; it is not a release, and it never copies a specific recording's drum parts.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav"><a href="listening-l2.html"><span class="page-nav-direction">Back</span>Listening L2</a><a href="index.html" class="next"><span class="page-nav-direction">Block</span>Block 2 index →</a></div>
+  <div class="footer">Experimental Music Workshop — Block 2 · Replication lesson</div>
+</div>
+  <script src="../nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Replicate — A Sound-to-Noise Axis</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page-type-rep" id="top">
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu"><span class="hamburger-lines"><span></span><span></span><span></span></span></label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html" class="active"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 6 · Decision Systems</a><span class="breadcrumb-sep">/</span><span>Replicate: a sound-to-noise axis</span></nav>
+  <header class="page-header">
+    <div class="eyebrow">Block 6 · Replication lesson</div>
+    <h1>Replicate: a sound-to-noise axis</h1>
+    <p class="lede">Copy one mechanism from Kaija Saariaho — <em>Verblendungen</em>: a single controllable axis that drags the whole texture from clean pitched tone toward noise and back, with the axis position over time being the form. Build a short version on the rig and compare it to the reference at the same loudness.</p>
+  </header>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l6.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs">Labs</a><a href="lab-r6.html" data-section="rebuild">Rebuild</a><a href="capstone-c5.html" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep" class="current">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
+
+  <div class="callout">
+    <div class="callout-label">The point</div>
+    <p>This drill teaches the record's core mechanism: there is no melody or pulse to follow — the music slides continuously along one axis from pure tone ("sound") to noise (air, bow-scratch, granular hiss), and that sliding IS the structure. You are stealing the structure (one parameter that moves the whole texture along a sound↔noise continuum), never Saariaho's material.</p>
+  </div>
+
+  <table class="param-table">
+    <caption>The system you are replicating</caption>
+    <tr><td>Source work</td><td>Kaija Saariaho — <em>Verblendungen</em> (1984), for orchestra and tape (alternate: <em>Lichtbogen</em>, 1986, for ensemble and live electronics)</td></tr>
+    <tr><td>The effect</td><td>Texture itself is the structure — the music slides continuously from clean pitched tone to noise and back, with no tune or beat to grab</td></tr>
+    <tr><td>The mechanism</td><td>A single controllable sound↔noise axis as the form's main mover; live electronics drag the texture along that axis, and its position over time is the form</td></tr>
+  </table>
+
+  <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Saariaho+Verblendungen" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Saariaho%20Verblendungen">Spotify</a></p>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"></path></svg></div>
+      <div class="checklist-label">Before you start</div>
+    </div>
+    <ul>
+      <li>Live with one track holding a clean sustained tone and a Macro knob ready to map across several devices at once (noise level, filter, granular dry/wet, distortion)</li>
+      <li>MicroFreak ready to use its noise source, cutoff and resonance (resonance can self-oscillate toward instability); Digitakt II with sampled air/scratch/noise beds and FX sends</li>
+      <li>Pen and paper for the axis-position curve — the form is a planned line, not improvised twists</li>
+    </ul>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>What you will make:</strong> one knob that, turned across its range, moves a clean tone all the way into noise, then a recorded performance of that knob as the whole piece.</li>
+      <li><strong>What you will turn off:</strong> melody, chord changes, pulse, and any separate events — the only thing moving is the axis position.</li>
+      <li><strong>What you will prove:</strong> your version and <span class="code">REF</span> use the same core mechanism: a single continuous parameter slides the whole texture between clean tone and noise, and that motion is the form.</li>
+      <li><strong>What counts as success:</strong> remaining differences are source-sound choices or rig limits, not missing steps.</li>
+    </ul>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Reference pass · 12 minutes</div>
+      <h3 class="step-title">Listen before you build</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Listen to several minutes of <em>Verblendungen</em>. Write one short answer per question before you touch the gear.</p>
+    <ol class="rules-list">
+      <li>Is there a tune or a pulse you could grab, or only changing texture?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Only changing texture. There is no melody to hum and no steady beat to tap. What is being composed is the position of the sound on a continuum, not notes or rhythm — the surface is one slowly morphing band of timbre.</p></div></details>
+      </li>
+      <li>What single parameter would you reach for to recreate the main motion?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>The sound↔noise position. If you had one knob, it would move the whole texture from clean pitched tone toward noise and back. Everything else — pitch, register, density — is secondary to where it sits on that one axis.</p></div></details>
+      </li>
+      <li>Does the noise replace the tone, or sit alongside it as a continuum?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>It is a continuum. The noise is not a separate section that arrives when the tone leaves — the tone gradually becomes noisy, so every middle position is a blend of pitch and air. The clean end and the noisy end are two poles of the same parameter.</p></div></details>
+      </li>
+      <li>Is the live-electronics processing transforming the acoustic source, or adding separate sounds?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Transforming the source. The electronics filter, granulate and roughen the acoustic tone itself rather than playing independent material on top. That is why the morph feels like one body changing state instead of two layers crossfading.</p></div></details>
+      </li>
+    </ol>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Now build the mechanism you described. Do not build from memory of the sounds.</p>
+  </div>
+
+  <h2>Steps</h2>
+
+  <div class="gear-switch"><input type="radio" name="gear" id="gear-hw" class="gear-radio" checked><input type="radio" name="gear" id="gear-sw" class="gear-radio"><input type="radio" name="gear" id="gear-tg" class="gear-radio"><div class="gear-labels"><span class="gear-lead">Your rig</span><label for="gear-hw">MicroFreak + Digitakt II</label><label for="gear-sw">Ableton Live only</label><label for="gear-tg">Octatrack MKII · target</label></div><div class="gear-scope"><div class="step">
+    <div class="step-head">
+      <div class="step-num">Phase 1 — ~30 minutes</div>
+      <h3 class="step-title">Build one macro that drags a clean tone into noise</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: one knob owns the whole sound↔noise axis.</p>
+    <div class="signal-flow">
+      <span class="signal-node">clean sustained tone</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">one Macro → noise level + cutoff + resonance + granular/distortion</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">texture anywhere from clean to noise</span>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol class="rules-list">
+        <li><strong>Set one clean sustained tone</strong> — a held MicroFreak note, a Digitakt II sampled sustain, or a simple Live oscillator. No movement of its own.</li>
+        <li>Put the tone inside one Macro chain and map a single Macro to several things at once: a noise/air layer's level, a filter cutoff, resonance, and granular dry/wet or distortion amount.</li>
+        <li>Route some of the axis onto the hardware too — let the same gesture open MicroFreak's noise source and push its resonance toward self-oscillating instability.</li>
+        <li>Set the mappings so that at 0% the tone is clean and pitched, and at 100% it is noise — one knob, the whole journey.</li>
+      </ol>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from the reference and use audio clips, Simpler/Sampler, clip envelopes, and resampling.</li><li>Build the phase goal — <em>Build one macro that drags a clean tone into noise</em> — as the smallest Live set that proves <em>A single controllable sound↔noise axis as the form's main mover; live electronics drag the texture along that axis, and its position over time is the form</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>Texture itself is the structure — the music slides continuously from clean pitched tone to noise and back, with no tune or beat to grab</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Octatrack MKII for this phase: translate <em>Build one macro that drags a clean tone into noise</em> into Flex/Static machines, slices, recorder buffers, scenes, the crossfader, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>A single controllable sound↔noise axis as the form's main mover; live electronics drag the texture along that axis, and its position over time is the form</em>, not just the surface of the reference.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
+    <div class="sub-block">
+      <div class="sub-label">Expected result</div>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">One Macro that, swept from 0 to 100%, takes a clean sustained tone all the way to noise — no other control needed for the main motion.</p>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">If it fails</div>
+      <table>
+        <thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead>
+        <tbody>
+          <tr><td>The knob jumps from tone to noise near the top only</td><td>All the mapped ranges open at once at the end</td><td>Stagger the mapping ranges so noise creeps in early and the filter/granular keep adding through the middle</td></tr>
+          <tr><td>The noisy end still sounds pitched</td><td>Not enough actual noise content mapped in</td><td>Map a broadband noise layer or self-oscillating resonance to the top of the knob's range</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Phase 2 — ~25 minutes</div>
+      <h3 class="step-title">Prove it is a continuum, not a switch</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: every position between clean and noise must be a usable texture.</p>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol class="rules-list">
+        <li><strong>Stop at five points along the knob</strong> — 0, 25, 50, 75, 100% — and hold each for a few seconds. Listen: is each one a good standalone texture, or are some just ugly transitions?</li>
+        <li>A/B a slow smooth sweep against a hard jump between clean and noise. The sweep should reveal a usable texture at every angle; the jump should sound wrong by comparison.</li>
+        <li>Fix any dead zones — re-curve a mapping or re-stage the resonance so the middle of the knob is as musical as the ends.</li>
+      </ol>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from the reference and use audio clips, Simpler/Sampler, clip envelopes, and resampling.</li><li>Build the phase goal — <em>Prove it is a continuum, not a switch</em> — as the smallest Live set that proves <em>A single controllable sound↔noise axis as the form's main mover; live electronics drag the texture along that axis, and its position over time is the form</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>Texture itself is the structure — the music slides continuously from clean pitched tone to noise and back, with no tune or beat to grab</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Octatrack MKII for this phase: translate <em>Prove it is a continuum, not a switch</em> into Flex/Static machines, slices, recorder buffers, scenes, the crossfader, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>A single controllable sound↔noise axis as the form's main mover; live electronics drag the texture along that axis, and its position over time is the form</em>, not just the surface of the reference.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
+    <div class="sub-block">
+      <div class="sub-label">Expected result</div>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Every position from clean to noise is a texture you would happily sit on — the morph is smooth, a continuum rather than a switch with one ugly gap.</p>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">If it fails</div>
+      <table>
+        <thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead>
+        <tbody>
+          <tr><td>The middle of the sweep sounds like a glitch</td><td>Two mappings fight near the centre and cancel or clash</td><td>Re-curve one mapping so the handoff overlaps gently instead of crossing at the same point</td></tr>
+          <tr><td>It feels like two states with nothing between</td><td>Ranges are too steep — mostly clean, then mostly noise</td><td>Widen the mapped ranges so most of the knob's travel is spent in blended territory</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Phase 3 — ~30 minutes</div>
+      <h3 class="step-title">Perform the axis over a long take as the form</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: the axis curve over time is the whole piece — nothing else happens.</p>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol class="rules-list">
+        <li><strong>Draw the axis-position curve on paper first:</strong> a single line over time — e.g. clean → noisy → half-back → noisy again. That line is the composition.</li>
+        <li>Over a long stretch, move the Macro by hand (or automate it) to follow your drawn curve — slow, deliberate, the only gesture in the take.</li>
+        <li>Record one continuous performance of just that one parameter. No new notes, no extra events, no edits — the knob is the music.</li>
+        <li>If you want grit at the noisy peaks, let it come through the same axis (FX sends rising with the knob), not as a separate layer you add.</li>
+      </ol>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from the reference and use audio clips, Simpler/Sampler, clip envelopes, and resampling.</li><li>Build the phase goal — <em>Perform the axis over a long take as the form</em> — as the smallest Live set that proves <em>A single controllable sound↔noise axis as the form's main mover; live electronics drag the texture along that axis, and its position over time is the form</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>Texture itself is the structure — the music slides continuously from clean pitched tone to noise and back, with no tune or beat to grab</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Octatrack MKII for this phase: translate <em>Perform the axis over a long take as the form</em> into Flex/Static machines, slices, recorder buffers, scenes, the crossfader, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>A single controllable sound↔noise axis as the form's main mover; live electronics drag the texture along that axis, and its position over time is the form</em>, not just the surface of the reference.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
+    <div class="sub-block">
+      <div class="sub-label">Expected result</div>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">One unbroken take whose entire shape is the axis moving between clean and noise — a listener feels a form even though there is no melody, pulse, or separate event in it.</p>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">If it fails</div>
+      <table>
+        <thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead>
+        <tbody>
+          <tr><td>The take feels static and shapeless</td><td>The curve barely moves, or moves too evenly</td><td>Give the line real contour — long approaches, a clear peak, a partial retreat — so the axis position carries the drama</td></tr>
+          <tr><td>You found yourself adding other events to keep interest</td><td>You did not trust the axis to be the form</td><td>Delete the extras and re-record; let the single parameter do all the work, the way the reference does</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  </div></div><div class="decision-check">
+    <div class="decision-check-label">Verify against the work</div>
+    <p>A/B your performance against a stretch of <em>Verblendungen</em> — matched loudness, 15 seconds of yours, 15 of theirs. Then answer two questions in writing.</p>
+    <p><strong>Is your motion a continuum between tone and noise the way theirs is?</strong></p>
+    <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>If yours has a clear moment where tone stops and noise begins but theirs blends across the whole range, your axis is a switch wearing a slow fade. The proof is that any frozen middle position is a real, usable texture — not a transition you would never stop on.</p></div></details>
+    <p><strong>Does the axis position alone carry a sense of form, with nothing else happening?</strong></p>
+    <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Theirs makes a shape out of texture alone — no tune, no beat. If yours only works because you added events, you replicated the surface but not the mechanism. The single moving parameter has to be enough.</p></div></details>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Logbook — the miss list, three lines:</strong> "Matched: …" · "Missed: … (best guess why)" · "Change next: …"</li>
+      <li>Note which mapped device contributed most to the sense of crossing into noise — that is the spine of your axis for the next attempt.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav"><a href="listening-l6.html"><span class="page-nav-direction">Back</span>Listening L6</a><a href="index.html" class="next"><span class="page-nav-direction">Block</span>Block 6 index →</a></div>
+  <div class="footer">Experimental Music Workshop — Block 6 · Replication lesson</div>
+</div>
+  <script src="../nav.js"></script>
+</body>
+</html>

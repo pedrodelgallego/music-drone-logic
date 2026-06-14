@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab 026 — Tuning as System</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page-type-lab" id="top">
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="index.html" class="active"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 6 · Decision Systems</a><span class="breadcrumb-sep">/</span><span>Tuning as System</span></nav>
+
+  <header class="page-header">
+    <div class="eyebrow">Block 6 · Lab 026 · Track lab</div>
+    <h1>Tuning as System</h1>
+    <p class="lede">The quietest decision system in the block: a table of ratios, written before any sound, that decides every interval the piece can ever contain. You compose a tuning, load it into the rig, and build a long-form drone whose only motion is the beating the table itself creates. Nothing performs — the arithmetic does.</p>
+  </header>
+  <p class="block-meta">Track lab · S3 · D3 E2 M1 F3 · microtonal drone · full cycle · new concepts: 5</p>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l6.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs" class="current">Labs</a><a href="lab-r6.html" data-section="rebuild">Rebuild</a><a href="capstone-c5.html" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
+
+  <div class="signal-flow">
+    <span class="signal-node">listen</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">hypothesis</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">draw the path</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">calibrate</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">build</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">fault</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">diagnose</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">print</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">delta</span>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Start here</div>
+    </div>
+    <ul>
+      <li>Run the ten listening references below first; the hypothesis they produce is the start of the build.</li>
+      <li>Save a new set as <span class="code">LAB-026-tuning</span>.</li>
+      <li>This is an S3 lab: both specs are <strong>authored by you</strong> from the prompts below, on paper, before any gear.</li>
+      <li>Declare state, seed, and boundary before the first note — in this lab all three live in one object: the tuning table.</li>
+      <li>You need Live 12’s tuning-system support (a <span class="code">.ascl</span> Scala file you will write) and a tuner you trust; a calculator beats both.</li>
+      <li>This is an F3 long form: the print is 15+ minutes, unbroken. Expected time: one full cycle — two to three weeks of part-time sessions.</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The point</div>
+    <p>Equal temperament is not a fact of nature; it is one table among many — a compromise that makes every interval slightly wrong so that all keys are equally usable. This lab makes you write a different table on purpose. When two voices a pure fifth apart sound <em>still</em>, and two voices a tempered fifth apart visibly throb, you stop hearing tuning as a given and start hearing it as the lowest layer of the decision stack: a system that chose every interval before you played one.</p>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The tool — Scala, not hand-calculation</div>
+    <p>Author the table in <strong>Scala</strong> (Manuel Op de Coul’s free tuning editor): enter ratios and it computes cents and frequencies, checks your scale, and exports the <span class="code">.ascl</span> / <span class="code">.scl</span> file Live 12 loads directly. It is the standard tuning archive — thousands of historical and theoretical scales ship with it — so it doubles as a reference library. Use it to <em>generate</em> the table, not to skip understanding it: you still verify every cents value against the tuner and keep the three-column table in the logbook. The calculator stays nearby for spot-checks; Scala removes the arithmetic, not the responsibility.</p>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Deep dive — where this material goes next</div>
+    <p>This lab is the doorway, not the whole house. A future <strong>Tuning Lab Note</strong> (just intonation and microtonality in depth — limits, lattices, comma pumps, adaptive tuning) extends the table-writing you do here into a full practice, and a <strong>Feedback Lab Note</strong> takes the beating and self-interference you compose with into self-regulating systems. Treat the references below as your reading list for both.</p>
+  </div>
+
+  <h2>How this lab works</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3 class="card-title">Compose the table</h3>
+      <ul class="card-points">
+        <li>Choose a root frequency, then build five to nine pitches as small whole-number ratios — 1/1, 9/8, 5/4, 3/2, 7/4 is a complete world.</li>
+        <li>Convert every ratio to cents and to Hz at the root; the three-column table (ratio · cents · Hz) is the piece’s constitution.</li>
+        <li>Decide what the table sacrifices — no table has every interval pure; name your comma and where you hid it.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Tune the rig to the table</h3>
+      <ul class="card-points">
+        <li>Write the table as a <span class="code">.ascl</span> Scala file and load it as Live 12’s tuning system; tuned Live instruments take it directly.</li>
+        <li>Give the MicroFreak the voices its pitch resolution can honor — its oscillator under MIDI from a tuned track, or fine-tune offsets in cents — and verify every voice against the tuner, not against memory.</li>
+        <li>Verification signal: two voices on the same table pitch must beat at zero. Any beat is a tuning error, in Hz, telling you its own size.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Let beating be the structure</h3>
+      <ul class="card-points">
+        <li>Build the drone from sustained table pitches; the difference between any two frequencies is a beat rate — slow amplitude pulses you can count.</li>
+        <li>Compose with those rates: a 0.5 Hz throb against a 3 Hz shimmer is a rhythm section made of arithmetic.</li>
+        <li>15+ minutes, voices entering and leaving by table position — the form is which ratios sound together, and nothing else moves.</li>
+      </ul>
+    </div>
+  </div>
+
+  <table class="param-table">
+    <caption>Pass standard</caption>
+    <tr><td>Minimum pass</td><td>Audible original long-form piece, audio-path and control-path diagrams (two separate drawings), the tuning table in ratio · cents · Hz, fault entry, print map, and system diff exist.</td></tr>
+    <tr><td>Solid pass</td><td>Every voice verifies against the table on a tuner, and you can point at any audible beating in the print and name the two ratios — and the difference frequency — that produce it.</td></tr>
+    <tr><td>Advanced transfer</td><td>A stranger could rebuild your tuning from the logbook alone, and you can predict the beat rate of an interval from the table before sounding it.</td></tr>
+  </table>
+
+  <h2>New concepts — in plain words</h2>
+
+  <table>
+    <tr><th>Concept</th><th>In plain words</th></tr>
+    <tr><td><span class="lab-title">Tuning table</span></td><td>The lookup that turns “note” into “frequency.” Every instrument has one; most musicians never see theirs. 12-tone equal temperament is a table where every semitone is the same size — convenient, universal, and slightly out of tune everywhere. Change the table and the same gesture becomes different music.</td></tr>
+    <tr><td><span class="lab-title">Just intonation</span></td><td>Building intervals from small whole-number ratios — 3/2 for a fifth, 5/4 for a third — so the waveforms line up and the interval sits still. Pure intervals don’t beat; that stillness is physical, not aesthetic, and you can hear it arrive as you tune toward it.</td></tr>
+    <tr><td><span class="lab-title">Cents</span></td><td>The tuning ruler: 100 cents per tempered semitone, 1200 per octave. Cents are how a tuning is logged, communicated, and rebuilt — “a bit flat” is an opinion; “−14 cents” is a measurement. The just third sits 14 cents under the tempered one, and you can hear that number.</td></tr>
+    <tr><td><span class="lab-title">Beating</span></td><td>Two close frequencies summing into one loudness wave that pulses at their difference: 220 Hz against 221 Hz beats once per second. Beating is the lab’s measurement and its music at once — a tuning error you can count, and a rhythm you can compose by choosing ratios.</td></tr>
+    <tr><td><span class="lab-title">The comma</span></td><td>The small leftover that makes a perfect table impossible: stack pure fifths and you never land exactly on a pure octave. Every tuning system is a decision about where to hide this error — spread it everywhere (equal temperament), or keep some intervals pure and let others howl. The hiding place is the composition.</td></tr>
+  </table>
+
+  <div class="tag-row">
+    <span class="tag">tuning table</span>
+    <span class="tag">just intonation</span>
+    <span class="tag">cents</span>
+    <span class="tag">beating</span>
+    <span class="tag">the comma</span>
+  </div>
+
+  <h2>Listening — the hypothesis source</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Ten works whose deepest decision is a tuning table — pianos retuned over decades, organs in old temperaments, instruments built because no existing one could hold the ratios. Each gets a brief: what to listen for before you press play, and how to check yourself after.</p>
+
+  <div class="listen-acc">
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">01</span>
+        <span class="listen-title">La Monte Young — “The Second Dream of the High-Tension Line Stepdown Transformer”</span>
+        <span class="listen-tag">four ratios, held until they become a place</span>
+      </summary>
+      <div class="listen-body">
+        <p>One chord — four pitches in the frequency ratio 12 : 16 : 17 : 18, Young’s “dream chord” — sustained by muted brass for over an hour. The entire score is the tuning plus rules for entering and leaving it; everything you hear is the interior of those four numbers.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The 16 : 17 : 18 cluster — adjacent tones closer than a tempered semitone that beat steadily instead of clashing, because the ratios were chosen for it.</li>
+          <li>Voices entering and leaving the chord as the only form: the harmony never changes, only its census.</li>
+          <li>Combination tones and shimmer thickening when more voices hold — sound the ensemble is causing but nobody is playing.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>What was the composition? Four ratios and an entrance policy — nothing else; the piece is the tuning table made audible and then inhabited. This is your lab at canonical scale: choose intervals whose interference is worth the duration, then trust them. If an hour of one chord sounds unlistenable in prospect, relisten to ten minutes tracking only how often the sound changes — entrances, exits, beats, phantoms — and count whether any minute was actually still.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=La+Monte+Young+Second+Dream+High-Tension+Line+Stepdown+Transformer" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:La%20Monte%20Young%20The%20Second%20Dream">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-la-monte-young-the-second-dream-of-the-high-tension-line-stepdown-transformer.html">lesson</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">02</span>
+        <span class="listen-title">Catherine Christer Hennix — “The Electric Harpsichord”</span>
+        <span class="listen-tag">one ratio field, total immersion</span>
+      </summary>
+      <div class="listen-body">
+        <p>A just-intonation keyboard drowned in sustain against a tambura drone — twenty-five minutes inside a single tuned field, recorded in 1976 and pointing straight at everything this lab builds: no events, only the psychoacoustics of ratios held open.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The moment your ear stops parsing notes and starts hearing one composite, breathing timbre.</li>
+          <li>Combination tones — phantom pitches below and between what is played, manufactured inside your own hearing by the pure intervals.</li>
+          <li>The tambura as the 1/1: every other sound audibly measured against that root.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Where was the form? In your attention — the sound field barely changes; what develops is how deep into it you have gone, which is the long-form drone’s actual mechanism and why F3 needs fifteen unbroken minutes, not three. The phantom tones you heard are real psychoacoustics, not mixing tricks, and your table can summon them too. If it felt static, relisten on headphones at a fixed, moderate level for ten minutes without doing anything else; the piece happens at minute seven.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Catherine+Christer+Hennix+The+Electric+Harpsichord" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Catherine%20Christer%20Hennix%20The%20Electric%20Harpsichord">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-catherine-christer-hennix-the-electric-harpsichord.html">lesson</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">03</span>
+        <span class="listen-title">Harry Partch — “Castor and Pollux”</span>
+        <span class="listen-tag">the table that demanded its own instruments</span>
+      </summary>
+      <div class="listen-body">
+        <p>Partch’s 43-tone just scale could not live on any existing instrument, so he built an orchestra — kitharas, cloud-chamber bowls, the marimba eroica — and wrote dances for it. The tuning system came first; the organology obeyed.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Intervals that sit “between the keys” yet sound resolved, not out of tune — the table makes them consonant.</li>
+          <li>Timbres chosen for ratio clarity: plucked strings, struck glass, wood — sounds whose partials expose the tuning.</li>
+          <li>The rhythmic vitality — proof that microtonality is a pitch decision, not a tempo of solemnity.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Why did Partch have to build instruments? Because a tuning table is a <em>system requirement</em>: whatever realizes it must resolve its pitches, and twelve fixed keys cannot. Your version of his problem is the spec row asking which of your devices can actually honor your cents values — answer it as honestly as he did. If it sounded merely exotic, relisten to one cadence and notice it resolves <em>harder</em> than equal temperament allows: those are 11-limit ratios doing what tempered intervals approximate.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Harry+Partch+Castor+and+Pollux" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Harry%20Partch%20Castor%20and%20Pollux">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-harry-partch-castor-and-pollux.html">lesson</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">04</span>
+        <span class="listen-title">Ben Johnston — String Quartet No. 4, “Amazing Grace”</span>
+        <span class="listen-tag">a known tune migrating between tables</span>
+      </summary>
+      <div class="listen-body">
+        <p>A hymn everyone knows, set for string quartet and carried through progressively richer just-intonation systems — the same melody re-lit by changing the table underneath it, which makes the tuning itself the audible variable.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The opening statement’s purity — fifths and thirds locking in ways equal-tempered quartets only gesture at.</li>
+          <li>The harmonies growing stranger by degrees as higher-limit ratios enter, while the tune stays the tune.</li>
+          <li>Chords that shimmer with controlled beating — Johnston composes the throb rates, not just the pitches.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>What changed between variations — the music or the table? The table, mostly: holding the melody constant is the experimental control that lets you hear tuning as an independent parameter. This is the cleanest A/B in the microtonal literature and the model for your own calibration step: same material, two tables, ears on the difference. If the later variations sounded “out of tune,” relisten asking <em>out of tune with what</em> — your reference is a table too.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Ben+Johnston+String+Quartet+No.+4+Amazing+Grace" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Ben%20Johnston%20String%20Quartet%20No%204">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-ben-johnston-string-quartet-no-4-amazing-grace.html">lesson</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">05</span>
+        <span class="listen-title">Horatiu Radulescu — “Clepsydra”</span>
+        <span class="listen-tag">the harmonic series as the table</span>
+      </summary>
+      <div class="listen-body">
+        <p>Sixteen “sound icons” — grand pianos turned on their sides, strings bowed directly — tuned toward the harmonic series and played as pure spectrum. The tuning table here is nature’s own: the overtone row, sounded instead of implied.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Sound with no attack and no keyboard identity — bowed piano strings as a choir of partials.</li>
+          <li>Harmony that behaves like timbre: chords built from one fundamental’s overtones fuse into single colors.</li>
+          <li>Slow interference patterns crawling through the texture — beating between near-aligned partials, at architectural speed.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Where does timbre end and harmony begin? In this tuning, nowhere — when pitches are drawn from one harmonic series, a chord <em>is</em> a timbre, which is the spectral movement’s founding observation. Your just-intonation table is a pocket version of the same principle: ratios are relatives of one fundamental. If it read as formless rumble, relisten following the brightest partial you can find; it will lead you up and down the series like a staircase.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Horatiu+Radulescu+Clepsydra" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Horatiu%20Radulescu%20Clepsydra">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-horatiu-radulescu-clepsydra.html">lesson</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">06</span>
+        <span class="listen-title">Arnold Dreyblatt — “Nodal Excitation”</span>
+        <span class="listen-tag">tuning from physics — overtones as the only notes</span>
+      </summary>
+      <div class="listen-body">
+        <p>A modified double bass struck so its string sounds only at natural harmonic nodes — every pitch a whole-number division of one string, every rhythm the excitation itself. Just intonation not loaded from a file but enforced by a piece of wire.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The percussive attack and the ringing harmonic as one event — rhythm and tuning produced by the same gesture.</li>
+          <li>How few pitches there are, and how little that costs — the overtone family is small and completely consonant with itself.</li>
+          <li>Difference tones thickening the texture as harmonics stack — a bass line nobody is playing.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Who tuned this music? The string — nodes sit where physics puts them, so the table was never written down and can never drift. That inversion matters to your build: your rig holds its table as fragile state in files and offsets, and Dreyblatt’s holds it as matter. The gap between those two is exactly what this lab’s fault ritual attacks. If it felt monotonous, relisten counting distinct pitches; then notice how much music the count of seven made.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Arnold+Dreyblatt+Nodal+Excitation" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Arnold%20Dreyblatt%20Nodal%20Excitation">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-arnold-dreyblatt-nodal-excitation.html">lesson</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">07</span>
+        <span class="listen-title">Ellen Arkbro — “For Organ and Brass”</span>
+        <span class="listen-tag">old temperament, slowed to breathing</span>
+      </summary>
+      <div class="listen-body">
+        <p>A Renaissance meantone organ joined by tuned brass, sustaining a handful of intervals at enormous length — a contemporary drone built almost entirely from the decision to use a centuries-old tuning table and hold still inside it.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The meantone thirds: warmer and stiller than any piano third you have heard — the temperament keeps them close to pure.</li>
+          <li>Organ and brass fusing until instrument identity dissolves — shared tuning is the glue.</li>
+          <li>The slow interference where the sustained voices touch: beating as the piece’s only rhythm, exactly this lab’s brief.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>What is the compositional material here? Almost nothing but interval quality — a few chords, chosen because <em>this temperament</em> renders them with that particular glow, held long enough for the rendering to become the content. This is your F3 form in miniature: pick ratios worth fifteen minutes, then trust them for fifteen minutes. If you waited for development, relisten attending only to the seam where brass meets organ — the activity is all there, in tenths of a hertz.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Ellen+Arkbro+For+Organ+and+Brass" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Ellen%20Arkbro%20For%20Organ%20and%20Brass">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-ellen-arkbro-for-organ-and-brass.html">lesson</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">08</span>
+        <span class="listen-title">Duane Pitre — <em>Feel Free</em></span>
+        <span class="listen-tag">improvisation fenced by a table</span>
+      </summary>
+      <div class="listen-body">
+        <p>Just-intonation drone for harmonically tuned strings and electronics: a fixed ratio system, sustained electronic tones as its spine, and players improvising freely — but only on pitches the table allows. Freedom inside the fence, as a tuning.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>How improvisation can never produce a wrong vertical — any two allowed pitches consort, because the table pre-cleared them.</li>
+          <li>The electronic drone as arbiter: every string entry audibly checks itself against it.</li>
+          <li>Density rising and falling while harmonic tension barely moves — the table flattens one axis so the players can work the other.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Where is the boundary declaration in this music? In the tuning: the table is literally “what may the players decide” — order and density are free, pitch set membership is not. It is lab 023’s pitch pool rebuilt at the level of intonation, and the precedent for treating a tuning as a decision system at all. If it sounded loose, relisten asking what never happened in twenty minutes: no semitone clash, no tempered third — absences that precise are design.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Duane+Pitre+Feel+Free" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Duane%20Pitre%20Feel%20Free">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-duane-pitre-feel-free.html">lesson</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">09</span>
+        <span class="listen-title">Kali Malone — “Sacer Profanare”</span>
+        <span class="listen-tag">temperament as counterpoint’s climate</span>
+      </summary>
+      <div class="listen-body">
+        <p>Slow organ canons in which the historical temperament decides which intervals glow and which grind — the same Malone discipline you replicated in Block 2’s <a href="../block-2/rep-no-sun.html">“No Sun to Burn” lesson</a>, now heard from the tuning side: the table is doing half the counterpoint.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Identical interval classes landing differently in different positions — a fifth here is calm, there it stings; that is temperament, not voicing.</li>
+          <li>The pipes’ beating during held dyads — count a slow throb and you are reading the tuning table by ear.</li>
+          <li>How the strict canonic process and the fixed temperament leave almost nothing to taste — and how composed it sounds anyway.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>What decided the emotional weather of each passage? To a degree that should unsettle you, the temperament: Malone routes the same process through positions the table renders sweet or sour, and the “expression” is that routing. Where the Block 2 lesson taught you her subtraction, this teaches the layer beneath it — choose the table, and the table scores the feelings. Relisten to one canon and mark the sourest chord; then ask who put the sourness there. Not the counterpoint.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Kali+Malone+Sacer+Profanare" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Kali%20Malone%20Sacer%20Profanare">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-kali-malone-sacer-profanare.html">lesson</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">10</span>
+        <span class="listen-title">Kyle Gann — <em>Hyperchromatica</em></span>
+        <span class="listen-tag">the documented table — 33 notes, published cents</span>
+      </summary>
+      <div class="listen-body">
+        <p>Three computer-driven pianos retuned to a 33-pitch just-intonation octave, playing music no hands could — and the whole system documented: Gann publishes the ratios and cents, so the table is as public as the score. The reproducibility ideal of this block, applied to tuning.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Familiar piano timbre carrying unfamiliar harmony — the instrument says “normal” while the table says otherwise.</li>
+          <li>Chords sliding by commas: near-identical sonorities a few cents apart, used as voice leading.</li>
+          <li>Passages of three-piano music that are physically unplayable — the control path is code, the audio path is hammers.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Could you rebuild this tuning at your bench? Actually yes — the ratios are published, and loading them into a tuned Live instrument is an afternoon: that is what a fully documented decision system looks like, and your logbook should leave your own table just as rebuildable. The comma slides you heard are the lab’s “beating as structure” promoted to harmonic motion. Relisten to one slow movement asking which moves are <em>between</em> the cracks of your keyboard — then go count your own table’s cracks.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Kyle+Gann+Hyperchromatica" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Kyle%20Gann%20Hyperchromatica">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-kyle-gann-hyperchromatica.html">lesson</a></p>
+      </div>
+    </details>
+  </div>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Requirement</div>
+    <p>Your written hypothesis names <strong>what your tuning table will decide and what its stillness or throb will be made of</strong> — one chord of four ratios inhabited for an hour, one ratio field entered for twenty minutes, a system that demanded its own instruments, a known tune re-lit by new tables, the harmonic series sounded as harmony, physics enforcing the ratios, an old temperament slowed to breathing, improvisation fenced by intonation, temperament scoring the feelings, or a 33-note table published to the cent — and what was stolen from the comparison. The target idea across all ten: <strong>the table decides every interval; the beating is the table made audible; the log makes the table survive you.</strong> What you steal is a structure, never a sound.</p>
+  </div>
+
+  <h2>1 · The two specs — author from prompts</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">This is an S3 lab: no fields are provided. Answer each prompt in writing — your answers <em>are</em> the spec — then correct every row against reality after the build.</p>
+
+  <table class="param-table">
+    <caption>System Spec — author from these prompts</caption>
+    <tr><td>Inputs</td><td>The tuning table itself: root frequency, then every pitch as ratio, cents, and Hz — five to nine pitches, three columns, no blanks. Which voices realize it — tuned Live instruments, the MicroFreak, both? Which voice carries the 1/1?</td></tr>
+    <tr><td>Transforms</td><td>Almost none — and say so: this lab’s system is the table plus sustain. What little processing exists (filtering, slow level moves) must not touch pitch. Name the beat rates you intend to compose: which voice pairs, at what difference frequencies?</td></tr>
+    <tr><td>Feedback / variation</td><td>What moves across 15+ minutes when nothing modulates — voices entering and leaving by table position, register changes along the same ratios, beating rates crossing? Write the entrance/exit plan as a list of times and table positions.</td></tr>
+    <tr><td>Constraints</td><td>Track budget? Pitches outside the table are forbidden — including tempered “defaults” that creep in on untuned devices. Vibrato, chorus, and detune effects are forbidden too: they are unauthorized tuning systems. Where is each prohibition enforced?</td></tr>
+    <tr><td>Human role</td><td>You compose the table, tune the rig, verify, place entrances, and print. Nothing is performed in time except, perhaps, level. Who confirms the verification — you and a tuner, in writing, before the long print starts.</td></tr>
+  </table>
+
+  <table class="param-table">
+    <caption>Engineering Spec — author from these prompts, correct after building</caption>
+    <tr><td>Signal path</td><td>Draw both: sources → recorder and sources → ears. MicroFreak into which M4 input; tuned Live instruments on which tracks; where do the voices sum? The tuning file and offsets appear on the <em>control-path</em> diagram — pitch decisions are decisions.</td></tr>
+    <tr><td>Gain plan</td><td>Sustained sine-heavy voices read quiet on meters and loud in ears; beating doubles peak level when voices align in phase. Set the ceiling for all voices beating <em>in</em>, simultaneously; quote the lab-001 ledger value you are using.</td></tr>
+    <tr><td>Clock / sync</td><td>No tempo clock matters — the clocks here are frequencies themselves. What can drift: analog oscillator warm-up, sample-rate mismatch transposing a voice. Verify tuning after thirty minutes of warm-up, then again before the print.</td></tr>
+    <tr><td>Latency</td><td>Nothing is played in time, so latency is nearly free — except monitoring during tuning verification. Pick one buffer size and leave it; a mid-lab change that resamples or re-pitches anything is a tuning fault you caused yourself.</td></tr>
+    <tr><td>Stereo / phase</td><td>Beating between two voices behaves differently summed in air versus summed electrically: pan two beating voices apart and headphones, speakers, and mono each render a different throb. Choose placements, then run the mono check and write down what changed.</td></tr>
+    <tr><td>Noise budget</td><td>A 15-minute sustained drone is a noise-floor exhibition. Print one minute of the full stack at performance level with all sources idling and write down every hiss and hum that will live under the piece.</td></tr>
+    <tr><td>Print strategy</td><td>One unbroken 15+ minute print, plus the verification takes (each voice against the tuner, solo). Name the files so table version and print pair forever: <span class="code">LAB-026-table-v2-print-1</span>.</td></tr>
+    <tr><td>Failure mode</td><td>Predict one likely failure and how you would see it. This lab’s faultType is <strong>state</strong> — the canonical failure is one voice silently reverting to equal temperament because its tuning lived in device state the set never held.</td></tr>
+    <tr><td>Safety</td><td>Long sustained tones at fixed frequencies fatigue ears faster than music that moves — phones at the lab-001 mark, a timer, and a five-minute silence break every twenty minutes. Re-verify your level judgment after each break, not before.</td></tr>
+  </table>
+
+  <h2>2 · State · seed · boundary — declare before the first note</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">The Block 6 ritual — and here all three rows collapse into one artifact: the tuning table is the state, the seed, and the boundary at once. Declare where it lives, how it is rebuilt, and what it forbids.</p>
+
+  <table class="param-table">
+    <caption>Decision-system declaration — authored, then corrected after the build</caption>
+    <tr><td>State</td><td>Where does the tuning physically live — the <span class="code">.ascl</span> file, per-track tuning devices, MicroFreak fine-tune offsets, master tune? List every location. Which are saved with the set, which live in device memory, and which are knob positions that evaporate? The scattered copies <em>will</em> disagree; declare which one is law.</td></tr>
+    <tr><td>Seed</td><td>Can the result be reproduced? The piece, exactly: a tuning is numbers, and numbers reprint — <em>if</em> the logbook holds the full table (ratio · cents · Hz), the root frequency, and every per-device offset. A stranger rebuilding your tuning from the log alone is this lab’s reproducibility standard.</td></tr>
+    <tr><td>Boundary</td><td>What may the system decide? Every interval — nothing sounding may leave the table. What is forbidden: out-of-table pitches, tempered defaults, vibrato/chorus/detune, and retuning after verification. The table is the entire boundary; its edge cases (which octave, which voice doubles) are yours to close in writing.</td></tr>
+  </table>
+
+  <h2>3 · Bench preflight — two paths, drawn separately</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Block 6 draws every system twice. The audio path here is plain — voices, sum, recorder. The control path carries no events at all: it is the route the tuning travels from paper to oscillator, and every junction on it is a place the table can silently die. That diagram is this lab’s real schematic.</p>
+
+  <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:var(--fs-xs); letter-spacing:0.2em; text-transform:uppercase;">Audio path — what carries sound</h3>
+  <div class="signal-flow">
+    <span class="signal-node">MicroFreak out</span>
+    <span class="signal-arrow">→ TRS →</span>
+    <span class="signal-node">M4 in 1</span>
+    <span class="signal-arrow">→ USB-C →</span>
+    <span class="signal-node">Live: tuned instrument tracks + MF track</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">master + ceiling</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">M4 → DT 990</span>
+  </div>
+
+  <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:var(--fs-xs); letter-spacing:0.2em; text-transform:uppercase;">Control path — what carries the tuning</h3>
+  <div class="signal-flow">
+    <span class="signal-node">tuning table (paper: ratio · cents · Hz)</span>
+    <span class="signal-arrow">→ written as →</span>
+    <span class="signal-node">.ascl Scala file</span>
+    <span class="signal-arrow">→ loaded →</span>
+    <span class="signal-node">Live 12 tuning system → tuned instruments</span>
+    <span class="signal-arrow">→ offsets in cents →</span>
+    <span class="signal-node">MicroFreak voice</span>
+    <span class="signal-arrow">→ verified by →</span>
+    <span class="signal-node">tuner + zero-beat test</span>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Honest rig note:</strong> Live 12’s tuning systems carry <span class="code">.ascl</span> files to its own instruments cleanly; hardware is the weak joint. Check whether your MicroFreak firmware exposes user scales — if it cannot hold your exact cents, give it the 1/1 and the octaves and let Live’s tuned instruments carry the fine ratios, or drive it per-note with pitch-bend offsets you have measured. Third-party plugins ignore the tuning system unless they speak MTS — every device on the audio path must be interrogated, and the answers written on the control diagram.</li>
+      <li><strong>The long print is this lab’s unattended test:</strong> a drone that needs your hand is not what was specified. Once verified, the system sustains the full 15+ minutes alone — level moves excepted if your spec declared them. If pitch needs touching mid-print, the print is void: fix the table or the routing, never the moment.</li>
+    </ul>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Pre-flight — before the long print</div>
+    </div>
+    <ul>
+      <li>Both specs authored on paper from the prompts — this is S3: blank pages, your answers</li>
+      <li>State, seed, and boundary declared — the tuning-location inventory, item by item</li>
+      <li>Both diagrams drawn — audio path, and the control path of the tuning with every junction named</li>
+      <li>The table complete in three columns (ratio · cents · Hz) and the <span class="code">.ascl</span> file written from it, not the other way round</li>
+      <li>Thirty minutes of warm-up, then every voice verified solo against the tuner — readings logged in cents</li>
+      <li>Zero-beat test passed: any two voices on the same table pitch, beat rate zero</li>
+      <li>Gain ledger from lab 001 applied; ceiling set for all voices beating in simultaneously</li>
+      <li>Phones at the lab-001 mark; timer set — silence breaks every twenty minutes</li>
+    </ul>
+  </div>
+
+  <h2>3 · Build</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Build the lab in five passes. Each pass produces an artifact, not just a better-sounding session: a written rule, a printed comparison, a fault entry, and a corrected system sentence.</p>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Build recipe · Tuning as System</div>
+      <h3 class="step-title">Make the decision system audible</h3>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Do this in order</div>
+      <ol class="rules-list">
+        <li><strong>Declare the rule set.</strong> Write state, seed, and boundary before programming. If a row is blank, the system is not ready to run.</li><li><strong>Build the generator.</strong> Use Digitakt II conditions/probability, Live MIDI devices, MicroFreak modulation, or rack limits to make the decision path audible.</li><li><strong>Run unattended.</strong> Record at least ten minutes with hands off. If the system needs rescuing, fix the boundary and run again from zero.</li><li><strong>Print a sibling run.</strong> Change one rule value and record a second run. Compare event distribution, density, range, and forbidden events.</li><li><strong>Run the fault.</strong> Lose the seed, corrupt state, or change one rule mid-run. Diagnose what can be reproduced and what exists only as audio.</li>
+      </ol>
+    </div>
+    <div class="signal-flow">
+      <span class="signal-node">Live 12</span>
+      <span class="signal-arrow">↔</span>
+      <span class="signal-node">Digitakt II</span>
+      <span class="signal-arrow">+</span>
+      <span class="signal-node">MicroFreak</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">MOTU M4</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">Print + logbook</span>
+    </div>
+  </div>
+
+  <table class="param-table">
+    <caption>Build artifacts</caption>
+    <tr><td>Rule or hypothesis</td><td>one sentence, written before sound</td></tr>
+    <tr><td>System drawing</td><td>audio path and, where relevant, control path</td></tr>
+    <tr><td>Calibration proof</td><td>state, seed, boundary, unattended test, and behavior comparison</td></tr>
+    <tr><td>Printed comparison</td><td>neutral / changed / keeper prints, named and gain matched</td></tr>
+    <tr><td>Fault entry</td><td>symptom → cause → fix → prevention rule</td></tr>
+  </table>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Build exit check</div>
+    <p>The lab can move to diagnosis only when the printed audio proves the written rule. If the rule sounds true only while you explain it, simplify the system and print again.</p>
+  </div>
+
+  <h2>5 · Diagnosis &amp; report</h2>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Fault ritual — faultType: state</div>
+    <p>Predict the symptom → create the fault → observe → diagnose → fix → write the rule. The fault: after full verification, reset <em>one</em> voice’s tuning to its factory default — one track’s tuning device bypassed, or the MicroFreak’s offsets zeroed — reload the set, and listen to the drone without looking. Find the traitor by ear: the tempered voice betrays itself by beating against the table at rates your plan never composed. Time how long it takes you to hear it, then to localize it. Diagnose which storage location lost the table (check your state inventory), fix it, and write the prevention rule. The expected lesson: a tuning system is state scattered across devices, and the only trustworthy copy is the one in the logbook — verification is not a setup step but a ritual that precedes every print.</p>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">The full report bundle — ten items, filed in the logbook</div>
+    </div>
+    <ul>
+      <li>Rendered piece — 24-bit WAV, master peaking −3 dBFS, 15+ minutes, one unbroken print</li>
+      <li>Routing diagrams — audio path <em>and</em> the tuning’s control path, drawn before patching, corrected after; the diff is the lesson</li>
+      <li>Recording plan — verification takes plus the long print(s), named by table version</li>
+      <li>Patch notes — the full table (ratio · cents · Hz), root frequency, every per-device offset, and the <span class="code">.ascl</span> file archived beside the audio</li>
+      <li>Session notes — per session: tuner readings before and after, and every beat rate you measured against the one you predicted</li>
+      <li>Reflection answers, including the listening comparison — which reference contributed what to the hypothesis</li>
+      <li>One removal decision — a pitch cut from the table, and what losing it did to the piece</li>
+      <li>Fault entry — symptom, cause, fix, prevention rule (faultType: state)</li>
+      <li>Print map — which prints exist as audio, which table versions as text, and which earlier tunings are gone except as numbers</li>
+      <li>System diff sentence — “I thought the system worked like X; after building it, I discovered it worked like Y.”</li>
+    </ul>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Minimum pass gate:</strong> audible output · routing diagrams (both paths) · fault entry · print map · system diff. Without these five, the lab is incomplete regardless of audio quality — a musically strong piece cannot bypass the engineering spine.</li>
+    </ul>
+  </div>
+
+  <div class="final">
+    <div class="final-label">Track-lab principle</div>
+    <p>The table decides every interval before you play one; the beating is the table made audible; and a tuning survives only as numbers in a logbook — the rig holds a copy, never the original.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="lab-025.html">
+      <span class="page-nav-direction">Previous</span>
+      ← Lab 025 / Chance Operations
+    </a>
+    <a href="lab-r6.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      R6 / Rebuild the Rules →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Block 6 · Lab 026</div>
+
+</div>
+
+  <script src="../nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Replicate — Chance Signal in a Controlled Bed</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page-type-rep" id="top">
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu"><span class="hamburger-lines"><span></span><span></span><span></span></span></label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html" class="active"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 7 · Performance</a><span class="breadcrumb-sep">/</span><span>Replicate: a chance signal in a controlled bed</span></nav>
+  <header class="page-header">
+    <div class="eyebrow">Block 7 · Replication lesson</div>
+    <h1>Replicate: a chance signal in a controlled bed</h1>
+    <p class="lede">Copy one mechanism from Keith Rowe — <em>The Room</em>: build a texture bed you fully control, then route a genuinely uncontrolled signal (a live radio) into it and improvise only the relationship between the two. Build a short version on the rig and compare it to the reference at the same loudness.</p>
+  </header>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l7.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs">Labs</a><a href="lab-r7.html" data-section="rebuild">Rebuild</a><a href="capstone-c6.html" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep" class="current">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
+
+  <div class="callout">
+    <div class="callout-label">The point</div>
+    <p>This drill teaches the record's core mechanism as a real-time decision system: a stable, performer-shaped texture PLUS an autonomous chance source you do not author. The music lives in the interaction — when you let chance through, when you mask it. You are stealing the structure (controlled bed + uncontrolled signal + live response), never Rowe's specific sounds or radio fragments.</p>
+  </div>
+
+  <table class="param-table">
+    <caption>The system you are replicating</caption>
+    <tr><td>Source work</td><td>Keith Rowe — <em>The Room</em> (2007), solo tabletop guitar</td></tr>
+    <tr><td>The effect</td><td>A quiet, slowly evolving sound-world of non-instrumental sounds — scrapes, ebow drones, prepared objects — with fragments of radio speech and music drifting in by chance, uninvited, against the controlled bed</td></tr>
+    <tr><td>The mechanism</td><td>A chance external signal (radio) injected into a controlled texture: the performer shapes the bed entirely but does not choose what the radio does — only how to respond to it in real time (foreground it, bury it, let it collide)</td></tr>
+  </table>
+
+  <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Keith+Rowe+The+Room" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Keith%20Rowe%20The%20Room">Spotify</a></p>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"></path></svg></div>
+      <div class="checklist-label">Before you start</div>
+    </div>
+    <ul>
+      <li>Live open with a controlled texture/drone bed on one or two tracks, plus an empty audio input track armed and monitoring</li>
+      <li>A genuinely uncontrolled chance source ready: a real AM/FM radio into your interface, an internet stream you do not choose the timing of, or a deliberate audio feedback loop</li>
+      <li>MicroFreak set for non-pitched textures (scrapes, ebow-like drones); Digitakt II loaded with object/scrape samples and ready to resample the radio; free VCV Rack if you want an extra texture or feedback path</li>
+      <li>A fader or knob mapped to the radio input level — that one control is the instrument you will actually play</li>
+    </ul>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>What you will make:</strong> a short continuous take. Focus on this effect: a controlled quiet bed with an unpredictable signal drifting in and out of it.</li>
+      <li><strong>What you will turn off:</strong> beats, song form, any plan for what the radio will say or play, and any urge to edit out collisions afterward.</li>
+      <li><strong>What you will prove:</strong> your version and <span class="code">REF</span> use the same core mechanism: a fully controlled bed plus a genuinely uncontrolled source, with the interest in the live relationship between them.</li>
+      <li><strong>What counts as success:</strong> remaining differences are sound-source or rig choices, not a missing chance source or a scripted radio.</li>
+    </ul>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Reference pass · 12 minutes</div>
+      <h3 class="step-title">Listen before you build</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Listen to several minutes of <em>The Room</em>. Write one short answer per question before you touch the gear.</p>
+    <ol class="rules-list">
+      <li>Which sounds were clearly intended, and which were clearly not chosen by the performer?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>The bed — the scrapes, drones and prepared-object textures — is plainly shaped and intended. The radio fragments of speech and music are clearly not chosen: they arrive at the wrong moment, in the wrong key, cut off mid-word. That contrast between authored and unauthored sound is the structure.</p></div></details>
+      </li>
+      <li>Does the radio's content matter, or only its texture and timing?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Mostly its texture and timing. You rarely follow what a voice is saying; what registers is that a human grain or a snatch of melody suddenly intrudes on an abstract bed, and when it does. The meaning is the intrusion itself, not the message.</p></div></details>
+      </li>
+      <li>Does the performer fight the chance signal or fold it in?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Both, deliberately. Sometimes the radio is let through almost naked; sometimes the bed swells to mask it; sometimes they are allowed to collide and clash. The performance is that decision, made live and repeatedly — not a fixed treatment of the radio.</p></div></details>
+      </li>
+      <li>Does anything sound like "guitar," and why not?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Almost nothing. The guitar is laid flat and prepared with objects, ebow and scrapes, so it produces non-instrumental textures rather than strummed or picked notes. The instrument is a sound-source, not a guitar — which is why your MicroFreak and Digitakt II can stand in for it.</p></div></details>
+      </li>
+    </ol>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Now build the mechanism you described. Do not script what the chance source will do.</p>
+  </div>
+
+  <h2>Steps</h2>
+
+  <div class="gear-switch"><input type="radio" name="gear" id="gear-hw" class="gear-radio" checked><input type="radio" name="gear" id="gear-sw" class="gear-radio"><input type="radio" name="gear" id="gear-tg" class="gear-radio"><div class="gear-labels"><span class="gear-lead">Your rig</span><label for="gear-hw">MicroFreak + Digitakt II</label><label for="gear-sw">Ableton Live only</label><label for="gear-tg">Octatrack MKII · target</label></div><div class="gear-scope"><div class="step">
+    <div class="step-head">
+      <div class="step-num">Phase 1 — ~25 minutes</div>
+      <h3 class="step-title">Build a controlled bed you fully shape</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: a slow, non-pitched texture that is entirely yours to control.</p>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol class="rules-list">
+        <li><strong>Make a quiet, non-pitched texture</strong> — an ebow-like sustained drone, a scrape, a filtered noise bed. No melody, no clear pitch you would call a note.</li>
+        <li>Layer one or two sampled object/scrape sounds, looped or held, low in the mix — the equivalent of objects resting on the strings.</li>
+        <li>Set this bed at a low, stable level with slow movement only — gentle filter or volume drift over tens of seconds, nothing that grabs attention.</li>
+        <li>Confirm you can shape every element of it by hand: this is the half of the system you fully author.</li>
+      </ol>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from the reference and use audio clips, Simpler/Sampler, clip envelopes, and resampling.</li><li>Build the phase goal — <em>Build a controlled bed you fully shape</em> — as the smallest Live set that proves <em>A chance external signal (radio) injected into a controlled texture: the performer shapes the bed entirely but does not choose what the radio does — only how to respond to it in real time (foreground it, bury it, let it collide)</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>A quiet, slowly evolving sound-world of non-instrumental sounds — scrapes, ebow drones, prepared objects — with fragments of radio speech and music drifting in by chance, uninvited, against the controlled bed</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Octatrack MKII for this phase: translate <em>Build a controlled bed you fully shape</em> into Flex/Static machines, slices, recorder buffers, scenes, the crossfader, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>A chance external signal (radio) injected into a controlled texture: the performer shapes the bed entirely but does not choose what the radio does — only how to respond to it in real time (foreground it, bury it, let it collide)</em>, not just the surface of the reference.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
+    <div class="sub-block">
+      <div class="sub-label">Expected result</div>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A quiet, slowly evolving texture with no tune and no beat, every part of it under your direct control.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Phase 2 — ~25 minutes</div>
+      <h3 class="step-title">Wire in a genuinely uncontrolled chance signal</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: route in a source you cannot predict — and refuse to tame it.</p>
+    <div class="signal-flow">
+      <span class="signal-node">live radio / web stream / feedback</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">Live audio input track (one fader mapped)</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">into the same space as the bed</span>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol class="rules-list">
+        <li><strong>Pick one truly uncontrolled source</strong> — a physical AM/FM radio into your interface, a live internet stream you do not curate, or an audio feedback loop. It must produce content you did not choose.</li>
+        <li>Route it into an armed audio input track and map its level to one fader or knob. That fader is the only thing you will "play."</li>
+        <li>Optionally resample short fragments of the radio so you can drop unpredictable cut-ups back in later — but never pre-arrange when they land.</li>
+        <li>Do not EQ, gate, or filter the chance signal into something safe. Its unpredictability is the point; treating it as decoration breaks the mechanism.</li>
+      </ol>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from the reference and use audio clips, Simpler/Sampler, clip envelopes, and resampling.</li><li>Build the phase goal — <em>Wire in a genuinely uncontrolled chance signal</em> — as the smallest Live set that proves <em>A chance external signal (radio) injected into a controlled texture: the performer shapes the bed entirely but does not choose what the radio does — only how to respond to it in real time (foreground it, bury it, let it collide)</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>A quiet, slowly evolving sound-world of non-instrumental sounds — scrapes, ebow drones, prepared objects — with fragments of radio speech and music drifting in by chance, uninvited, against the controlled bed</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Octatrack MKII for this phase: translate <em>Wire in a genuinely uncontrolled chance signal</em> into Flex/Static machines, slices, recorder buffers, scenes, the crossfader, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>A chance external signal (radio) injected into a controlled texture: the performer shapes the bed entirely but does not choose what the radio does — only how to respond to it in real time (foreground it, bury it, let it collide)</em>, not just the surface of the reference.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
+    <div class="sub-block">
+      <div class="sub-label">Expected result</div>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A live, unpredictable signal sitting on one fader, able to intrude on the bed whenever you raise it — its content out of your hands.</p>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">If it fails</div>
+      <table>
+        <thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead>
+        <tbody>
+          <tr><td>The "chance" signal is actually a loop you chose</td><td>You loaded a sample or set a stream you control the timing of</td><td>Use a genuinely live source — physical radio static, a broadcast you cannot pause, or feedback you cannot fully predict</td></tr>
+          <tr><td>The radio sounds tamed and pretty</td><td>You filtered or gated it into the bed's aesthetic</td><td>Strip the processing; let its raw grain and wrong-key intrusions through — the clash is the content</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Phase 3 — ~30 minutes</div>
+      <h3 class="step-title">Perform the relationship in one continuous take</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: improvise only when to let chance through and when to mask it — never script the radio, never edit out collisions.</p>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol class="rules-list">
+        <li><strong>Start recording one continuous take</strong> with the bed running and the chance fader down. Decide everything in real time from here.</li>
+        <li>Improvise the relationship: raise the radio to foreground an intrusion, swell the bed to bury it, or let them collide. Respond to what the source actually does, not to a plan.</li>
+        <li>When the radio does something you did not want — a jingle, a clear sentence — react live: fold it in, fight it, or step back. Do not stop the take.</li>
+        <li>Keep the take in one pass and keep every collision in. The unedited interaction between intention and chance is the deliverable.</li>
+      </ol>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from the reference and use audio clips, Simpler/Sampler, clip envelopes, and resampling.</li><li>Build the phase goal — <em>Perform the relationship in one continuous take</em> — as the smallest Live set that proves <em>A chance external signal (radio) injected into a controlled texture: the performer shapes the bed entirely but does not choose what the radio does — only how to respond to it in real time (foreground it, bury it, let it collide)</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>A quiet, slowly evolving sound-world of non-instrumental sounds — scrapes, ebow drones, prepared objects — with fragments of radio speech and music drifting in by chance, uninvited, against the controlled bed</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Octatrack MKII for this phase: translate <em>Perform the relationship in one continuous take</em> into Flex/Static machines, slices, recorder buffers, scenes, the crossfader, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>A chance external signal (radio) injected into a controlled texture: the performer shapes the bed entirely but does not choose what the radio does — only how to respond to it in real time (foreground it, bury it, let it collide)</em>, not just the surface of the reference.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
+    <div class="sub-block">
+      <div class="sub-label">Expected result</div>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">One continuous recording where a controlled bed and an unpredictable signal meet, with audible moments of letting-through, masking and collision that you decided as they happened.</p>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">If it fails</div>
+      <table>
+        <thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead>
+        <tbody>
+          <tr><td>The radio behaves like a planned part</td><td>You cued fragments on the grid or rehearsed its entries</td><td>Hand control back to the live source; only your response to it is allowed to be deliberate</td></tr>
+          <tr><td>The take feels like a bed with sound effects on top</td><td>You only ever foreground the radio, never let it threaten or reshape the bed</td><td>Use all three relationships — bury it and let it collide too, so the chance source can change where the music goes</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  </div></div><div class="decision-check">
+    <div class="decision-check-label">Verify against the work</div>
+    <p>A/B your take against several minutes of <em>The Room</em> — matched loudness, 15 seconds of yours, 15 of theirs. Then answer two questions in writing.</p>
+    <p><strong>Does your chance signal sound genuinely unauthored the way the radio does?</strong></p>
+    <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>If your intrusions land too neatly — on the beat, in key, always at a useful moment — they are not chance, they are parts. Theirs arrive wrong and uninvited. The give-away is convenience: a real chance source is sometimes inconvenient.</p></div></details>
+    <p><strong>Is the interest in the relationship, or only in the bed?</strong></p>
+    <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Theirs keeps your attention on the meeting point of intention and chance. If yours is engaging only as a texture and the radio is mere garnish, you treated chance as decoration instead of a partner — the mechanism is the live negotiation between the two.</p></div></details>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Logbook — the miss list, three lines:</strong> "Matched: …" · "Missed: … (best guess why)" · "Change next: …"</li>
+      <li>Common misses: treated the radio as decoration instead of a partner; pre-chose the chance fragments so nothing was really uncontrolled; only foregrounded, never let the signal threaten the bed.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav"><a href="listening-l7.html"><span class="page-nav-direction">Back</span>Listening L7</a><a href="index.html" class="next"><span class="page-nav-direction">Block</span>Block 7 index →</a></div>
+  <div class="footer">Experimental Music Workshop — Block 7 · Replication lesson</div>
+</div>
+  <script src="../nav.js"></script>
+</body>
+</html>

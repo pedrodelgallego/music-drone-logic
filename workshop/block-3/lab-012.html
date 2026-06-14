@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab 012 — Euclidean Logic</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page-type-lab" id="top">
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="index.html" class="active"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 3 · Time</a><span class="breadcrumb-sep">/</span><span>Euclidean Logic</span></nav>
+
+  <header class="page-header">
+    <div class="eyebrow">Block 3 · Lab 012 · Track lab</div>
+    <h1>Euclidean Logic</h1>
+    <p class="lede">Stop placing steps. Hand each voice three numbers — how many hits, across how many steps, starting where — and let arithmetic deal them out as evenly as it can. The oldest bell patterns on earth and this month’s club records are the same triplets; this lab makes you design the numbers, not the pattern, and prove you can reset the whole machine to zero on demand.</p>
+  </header>
+  <p class="block-meta">Track lab · S2 · D4 E2 M2 F2 · polyrhythm · full cycle · new concepts: 5</p>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l3.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs" class="current">Labs</a><a href="lab-r3.html" data-section="rebuild">Rebuild</a><a href="capstone-c2.html" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
+
+  <div class="signal-flow">
+    <span class="signal-node">listen</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">hypothesis</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">draw the path</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">calibrate</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">build</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">fault</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">diagnose</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">print</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">delta</span>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Start here</div>
+    </div>
+    <ul>
+      <li>Work the ten listening references at the bottom of this page first; the hypothesis they produce is the start of the build.</li>
+      <li>Sample your own hit kit — MicroFreak percussion patches or struck objects through the M4 — into the Digitakt before any sequencing; this is an M2 lab, and the lab-009 kit may be reused or rebuilt.</li>
+      <li>Save a new set as <span class="code">LAB-012-euclid</span>; gain ledger and lab-002 loopback number on the desk.</li>
+      <li>Complete the gaps in both specs — this is an S2 lab: most fields are provided, the blanks are yours.</li>
+      <li>Expected time: one full cycle — two to three weeks of part-time sessions.</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The point</div>
+    <p>A drum pattern is usually a pile of small placement choices; this lab makes it the <em>output of a rule</em>. Each voice is three numbers — hits, steps, rotation — and the distribution writes the steps for you. This is the block’s D4 lab: the depth comes from designing distributions, not patterns, and the music lives in which numbers you choose and when you turn them.</p>
+  </div>
+
+  <h2>How this lab works</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3 class="card-title">Sample a kit, then give it numbers</h3>
+      <ul class="card-points">
+        <li>Six to eight self-sampled one-shot hits — trimmed, normalized per the ledger, named, filed.</li>
+        <li>Every voice gets a written triplet before sequencing: <span class="code">E(hits, steps, rotation)</span> — the Digitakt II’s Euclidean sequencer mode holds the rule.</li>
+        <li>Test: the entire piece’s rhythm fits on an index card as a column of triplets.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Design distributions, not patterns</h3>
+      <ul class="card-points">
+        <li>No hand-placed step survives the first hour — all variation is an edit to <span class="code">k</span>, <span class="code">n</span>, or <span class="code">r</span>, logged as a number.</li>
+        <li>One voice is elected the timeline — the audible bell that never changes — and every other voice rotates against it.</li>
+        <li>Test: a listener can find the timeline inside one minute, even when they cannot count it.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Prove the time, then print</h3>
+      <ul class="card-points">
+        <li>Declare the master clock, predict bar 64, record one drift test — and this lab’s injected fault is the <strong>reset</strong>: prove you can return every rotated voice to state zero.</li>
+        <li>Record long performed takes into Live with rotation changes and mutes as the only moves.</li>
+        <li>6–8 minutes, fully original — the rule is ancient and borrowed, the numbers and the hits are yours.</li>
+      </ul>
+    </div>
+  </div>
+
+  <table class="param-table">
+    <caption>Pass standard</caption>
+    <tr><td>Minimum pass</td><td>Audible original piece, routing + timing diagrams, fault entry, print map, and system diff exist.</td></tr>
+    <tr><td>Solid pass</td><td>Every voice in the piece exists on paper as <span class="code">E(k, n, r)</span>, the 64-bar prediction matches the recording, and a listener finds the timeline voice within a minute — depth that is provably rule-generated, not hand-tweaked.</td></tr>
+    <tr><td>Advanced transfer</td><td>You can hear an unfamiliar polyrhythmic recording and transcribe its timeline as a distribution — and, going the other way, produce a chosen feel on demand by picking <span class="code">k</span>, <span class="code">n</span>, and <span class="code">r</span> before pressing play.</td></tr>
+  </table>
+
+  <h2>New concepts — in plain words</h2>
+
+  <table>
+    <tr><th>Concept</th><th>In plain words</th></tr>
+    <tr><td><span class="lab-title">Euclidean distribution</span></td><td>Spread <span class="code">k</span> hits as evenly as possible across <span class="code">n</span> steps. When they don’t divide cleanly, the leftover lands somewhere — and that necessary unevenness is the groove. E(3,8) is the tresillo; E(5,8) is the cinquillo; the world’s rhythm traditions discovered these by ear millennia before anyone wrote the rule down.</td></tr>
+    <tr><td><span class="lab-title">Rotation</span></td><td>The same distribution started from a different step. E(3,8) rotated by one is a different rhythm to the body and the identical rule on paper — rotation is the cheapest profound move this lab owns, and choosing rotation 0 is also a choice.</td></tr>
+    <tr><td><span class="lab-title">Polyrhythm vs polymeter</span></td><td>Lab 011 was polymeter: same pulse, different lap lengths, downbeats drifting apart. Polyrhythm is the other axis: cycles that share a downbeat but divide the span differently — three against two inside one bar. This lab lives mostly here: distributions of unlike density agreeing about where “one” is.</td></tr>
+    <tr><td><span class="lab-title">Timeline</span></td><td>The asymmetric reference loop every other part hears itself against — the bell in an Ewe drum ensemble, the clave in Cuba. Not the loudest voice but the most trusted one: an audible master clock, which makes it this block’s favorite kind of clock — one you can hear failing.</td></tr>
+    <tr><td><span class="lab-title">Distribution vs pattern</span></td><td>A pattern is a list of decisions; a distribution is one decision that generates the list. The difference is D4 in this workshop’s taxonomy — rule-generated — and it is audible: edits to a rule stay coherent across every voice at once, where edits to steps accumulate into mush.</td></tr>
+  </table>
+
+  <div class="tag-row">
+    <span class="tag">euclidean distribution</span>
+    <span class="tag">rotation</span>
+    <span class="tag">polyrhythm vs polymeter</span>
+    <span class="tag">timeline</span>
+    <span class="tag">distribution vs pattern</span>
+  </div>
+
+  <h2>1 · The two specs — provided, complete the gaps</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">This is an S2 lab: most fields are filled, the <span class="code">___</span> blanks are yours, and every row gets corrected against reality after the build.</p>
+
+  <table class="param-table">
+    <caption>System Spec — complete the blanks, then verify</caption>
+    <tr><td>Inputs</td><td>Six to eight self-sampled one-shot hits — name the kit and its source: <span class="code">___</span> — loaded to Digitakt tracks; each sounding voice declared as a triplet: <span class="code">E(___, ___, ___)</span> per voice, written before sequencing</td></tr>
+    <tr><td>Transforms</td><td>The Euclidean generator is the only step writer — no hand-placed trigs after the first hour; permitted edits are <span class="code">k</span>, <span class="code">n</span>, <span class="code">r</span>, mutes, and one timbral p-lock family per voice (choose and defend: <span class="code">___</span>)</td></tr>
+    <tr><td>Feedback / variation</td><td>A written rotation schedule: which voice rotates, by how much, at which bar — the schedule is the arrangement; the timeline voice appears in the schedule exactly zero times</td></tr>
+    <tr><td>Constraints</td><td>≤5 voices sounding at once · one voice elected timeline and never edited after the first take · all variation expressible as triplet edits · 6–8 minutes · your added constraint: <span class="code">___</span></td></tr>
+    <tr><td>Human role</td><td>Design the distributions, elect the bell, then perform the schedule: rotations and mutes live, logged as numbers — list what is performed vs pre-sequenced: <span class="code">___</span></td></tr>
+  </table>
+
+  <table class="param-table">
+    <caption>Engineering Spec — complete the blanks, then correct after building</caption>
+    <tr><td>Signal path</td><td>Sampling pass: MicroFreak (or object mic) → M4 in 1 → Live → transfer to Digitakt · performance pass: Digitakt main out L/R → M4 in 3/4 → Live (record) → M4 out → phones · draw both before patching</td></tr>
+    <tr><td>Gain plan</td><td>Hits sampled peaking −12 dBFS by the lab-001 ledger · distributions of unlike density coincide on some steps and stack energy there — meter the densest coincidence, not the average bar: <span class="code">___</span> dBFS</td></tr>
+    <tr><td>Clock / sync</td><td><strong>Master clock declared:</strong> Digitakt internal clock is master; Live runs free as a tape recorder, BPM matched but unsynced · the timeline voice is the <em>audible</em> clock — note that the piece therefore has two clocks, one electrical and one musical, and say which one a listener trusts: <span class="code">___</span></td></tr>
+    <tr><td>Latency</td><td>Direct monitoring via M4 during takes — the lab-002 buffer number only matters at the sampling pass · note it anyway: <span class="code">___</span> ms</td></tr>
+    <tr><td>Stereo / phase</td><td>Hits are mono; pan voices to separate positions so each distribution is traceable · one mono check: the polyrhythm must survive the collapse — if it muddies, the numbers are carrying less than the panning was</td></tr>
+    <tr><td>Noise budget</td><td>The Digitakt output is clean; the exposure is the sampling pass — audit thirty seconds of silence on the sampling input before the first hit</td></tr>
+    <tr><td>Print strategy</td><td>Print full performed takes, no loop-clip arranging · keep one render at rotation zero (all <span class="code">r = 0</span>) and one performed render for the A/B · 24-bit WAV</td></tr>
+    <tr><td>Failure mode</td><td>faultType: <strong>reset</strong> — a stop/restart or pattern reload that does not return every rotated, odd-length voice to step 1 together; the piece resumes as a stranger to itself; diagnosed with the reset ritual below</td></tr>
+    <tr><td>Safety</td><td>Repetitive percussive listening at one level for hours — phones at the lab-001 mark, off every fifteen minutes; interlocking rhythm hides loudness creep as effectively as any drone</td></tr>
+  </table>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Block 3 ritual — time, proven</div>
+    <p>Before the build is called done, this lab files five timing artifacts: a <strong>timing diagram</strong> — Digitakt master → Live free, plus every voice drawn as a ring labeled with its <span class="code">E(k, n, r)</span> and its rotation arrows · the <strong>master-clock declaration</strong> above · a <strong>“what happens after 64 bars?” prediction</strong>: a written table of where every voice stands at bar 64 given its length and your rotation schedule (steps into its cycle: <span class="code">___</span> / <span class="code">___</span> / <span class="code">___</span>), and which coincidence beats land in bar 64: <span class="code">___</span> · one <strong>recorded drift test</strong> — 64 bars of the full system against Live’s unsynced grid, offset measured at bar 1 vs bar 64 · and a <strong>reset strategy</strong> — this lab’s fault class lives here: write the exact procedure that returns every voice to step 1 with its programmed rotation intact, then verify it twice; record what a mid-cycle stop/restart actually does to each odd-length, rotated track, and what a pattern reload does to unsaved rotation moves: <span class="code">___</span></p>
+  </div>
+
+  <h2>2 · Bench preflight</h2>
+
+  <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:var(--fs-xs); letter-spacing:0.2em; text-transform:uppercase;">Sampling pass — build the kit</h3>
+  <div class="signal-flow">
+    <span class="signal-node">MicroFreak / object</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">M4 in 1</span>
+    <span class="signal-arrow">→ USB-C →</span>
+    <span class="signal-node">Live (trim, name)</span>
+    <span class="signal-arrow">→ transfer →</span>
+    <span class="signal-node">Digitakt tracks</span>
+  </div>
+
+  <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:var(--fs-xs); letter-spacing:0.2em; text-transform:uppercase;">Performance pass — the rule plays, Live is the tape</h3>
+  <div class="signal-flow">
+    <span class="signal-node">Digitakt main out L/R</span>
+    <span class="signal-arrow">→ 2 × TRS →</span>
+    <span class="signal-node">M4 in 3/4</span>
+    <span class="signal-arrow">→ USB-C →</span>
+    <span class="signal-node">Live (record)</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">M4 out → phones</span>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Pre-flight — before the first take</div>
+    </div>
+    <ul>
+      <li>Gain ledger applied at M4 in 1 (sampling) and in 3/4 (performance) — set by the number, re-checked at the densest coincidence beat</li>
+      <li>Recording plan written: rotation-zero reference take · drift test take (64 bars) · reset test take (stop mid-cycle, restart, compare) · performed takes — in that order</li>
+      <li>The index card exists: every voice’s triplet, the elected timeline marked, the rotation schedule pinned next to it</li>
+      <li>Euclidean mode confirmed per track on the Digitakt — generator on, <span class="code">k</span>/<span class="code">n</span>/<span class="code">r</span> dialed to the card, no stray hand-placed trigs left from experiments</li>
+      <li>Warp OFF on Live’s record tracks; Live’s metronome OFF — its grid is not this piece’s grid, and the bell must not compete with a click</li>
+      <li>Phones at the mark · a break planned every fifteen minutes</li>
+    </ul>
+  </div>
+
+  <h2>3 · Build</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Build the lab in five passes. Each pass produces an artifact, not just a better-sounding session: a written rule, a printed comparison, a fault entry, and a corrected system sentence.</p>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Build recipe · Euclidean Logic</div>
+      <h3 class="step-title">Make the timing rule audible</h3>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Do this in order</div>
+      <ol class="rules-list">
+        <li><strong>Write the time card.</strong> List every voice, its step length or rule, its reset behavior, and what should happen at bar 64 before programming.</li><li><strong>Program the neutral state.</strong> On Digitakt II choose an empty pattern. Use [TRK] + [TRIG 1] for the anchor voice, [TRK] + [TRIG 2] for the contrast voice, and [RECORD] to enter grid recording.</li><li><strong>Add the rule.</strong> Apply the lab rule only: p-lock variation, probability, per-track length, euclidean distribution, or rotation. Do not add fills until the rule is audible.</li><li><strong>Record the proof.</strong> Record a neutral pass and a rule pass into Live through the MOTU M4. Label them PRINT-0 and PRINT-RULE.</li><li><strong>Run the fault.</strong> Create the block fault: drift, flam, or reset failure. Predict the symptom, create it, diagnose it, fix it, and write the prevention rule.</li>
+      </ol>
+    </div>
+    <div class="signal-flow">
+      <span class="signal-node">Live 12</span>
+      <span class="signal-arrow">↔</span>
+      <span class="signal-node">Digitakt II</span>
+      <span class="signal-arrow">+</span>
+      <span class="signal-node">MicroFreak</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">MOTU M4</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">Print + logbook</span>
+    </div>
+  </div>
+
+  <table class="param-table">
+    <caption>Build artifacts</caption>
+    <tr><td>Rule or hypothesis</td><td>one sentence, written before sound</td></tr>
+    <tr><td>System drawing</td><td>audio path and, where relevant, control path</td></tr>
+    <tr><td>Calibration proof</td><td>64-bar prediction, reset strategy, and drift/flam measurement</td></tr>
+    <tr><td>Printed comparison</td><td>neutral / changed / keeper prints, named and gain matched</td></tr>
+    <tr><td>Fault entry</td><td>symptom → cause → fix → prevention rule</td></tr>
+  </table>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Build exit check</div>
+    <p>The lab can move to diagnosis only when the printed audio proves the written rule. If the rule sounds true only while you explain it, simplify the system and print again.</p>
+  </div>
+
+  <h2>4 · Diagnosis &amp; report</h2>
+
+  <table class="param-table">
+    <caption>Symptom → cause → fix</caption>
+    <tr><th>Symptom</th><th>Likely cause</th><th>Fix</th></tr>
+    <tr><td>Everything sounds like one mechanical clave — correct, and dead</td><td>Every voice at the same <span class="code">n</span> with rotation 0 — the distributions all agree, so the rule produces unison instead of conversation</td><td>Differentiate the numbers: unlike densities (<span class="code">k</span>), at least one odd <span class="code">n</span>, rotations staggered so the leftovers land in different places</td></tr>
+    <tr><td>The groove never settles; a listener cannot find “one”</td><td>No timeline elected — every voice is rotating, so there is no fixed loop for the ear to trust</td><td>Elect the bell: one voice, never edited, mixed to be findable; re-run the one-minute listener test before the keeper take</td></tr>
+    <tr><td>After a stop/restart the piece comes back as a stranger — same numbers, wrong feel</td><td>Reset fault: odd-length tracks re-homed but a live rotation move didn’t survive, or a pattern reload silently discarded unsaved <span class="code">r</span> values (this lab’s injected fault)</td><td>Run the reset ritual below; write the verified reset procedure on the index card and save the pattern after every committed rotation</td></tr>
+    <tr><td>The result reads as random rather than ritual</td><td>Densities too high or the rotation schedule too busy — rule edits arriving faster than the ear can re-learn the composite</td><td>Lower <span class="code">k</span> until silence is a hit again; hold each rotation for full cycles, not bars; let the listener finish learning a state before you change it</td></tr>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">The fault ritual — reset, on purpose</div>
+    <p><strong>Predict</strong> what a mid-cycle stop and restart will do to every voice — written per track: re-homes to step 1, resumes offset, or loses its rotation → <strong>create</strong> the fault: stop the Digitakt mid-phrase and restart; separately, reload the pattern while running with unsaved rotation moves in place → <strong>observe</strong> the recorded before/after against the rotation-zero reference — which voices came back identical, which came back wearing a different rhythm → <strong>diagnose</strong> where each voice’s state actually lives: sequencer position, saved pattern data, or only in your hands → <strong>fix</strong> it: write the reset procedure that provably returns state zero, verify it twice in a row → <strong>write the rule learned</strong> in the logbook as one sentence, naming the one piece of state you had wrongly assumed the machine was keeping for you.</p>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">The full report bundle — ten items, filed in the logbook</div>
+    </div>
+    <ul>
+      <li>Rendered piece — 24-bit WAV, master peaking −3 dBFS, 6–8 minutes</li>
+      <li>Routing diagram and timing diagram (triplet rings + rotation schedule) — drawn before, corrected after</li>
+      <li>Recording plan — rotation-zero reference, drift test, reset test, performed takes; what was printed, when</li>
+      <li>Patch notes — the kit list and every voice’s <span class="code">E(k, n, r)</span> history, as numbers, with the timeline marked</li>
+      <li>Session notes — including where the 64-bar prediction and the recording disagreed, and the rotation-zero vs performed A/B verdict</li>
+      <li>Reflection answers, including the listening comparison — which reference contributed what to the hypothesis</li>
+      <li>One removal decision — which voice or rotation was cut and what its absence did to the composite</li>
+      <li>Fault entry — symptom, cause, fix, prevention rule (faultType: reset)</li>
+      <li>Print map — what exists as audio, pattern data, device memory; whether the piece is recoverable from the index card alone</li>
+      <li>System diff sentence — “I thought the system worked like X; after building it, I discovered it worked like Y.”</li>
+    </ul>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Minimum pass gate:</strong> audible output · routing diagram · fault entry · print map · system diff. Without these five, the lab is incomplete regardless of audio quality — a musically strong piece cannot bypass the engineering spine.</li>
+    </ul>
+  </div>
+
+  <h2>Listening — the hypothesis source</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Ten recordings of distributed rhythm, from courtyards and ceremonies to Lisbon bedrooms and Bristol clubs. The arithmetic this lab automates was discovered by ear, centuries before the theorem — these are the ears that found it. Each gets a brief: what to listen for before you press play, and how to check yourself after.</p>
+
+  <div class="listen-acc">
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">01</span>
+        <span class="listen-title">Babatunde Olatunji — “Jin-go-lo-ba”</span>
+        <span class="listen-tag">the gateway record</span>
+      </summary>
+      <div class="listen-body">
+        <p>From <em>Drums of Passion</em> (1959), the record that carried West African drumming into a million living rooms: layered drum and bell cycles under call-and-response voices, dividing one shared pulse three ways and two ways at once.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The bell line — short, asymmetric, never varying; everything else negotiates around it.</li>
+          <li>The three-against-two: tap the slow pulse with one hand, the fast one with the other, and feel where they meet.</li>
+          <li>How the voices ride the composite, phrasing across the drums’ cycle rather than inside it.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Which layer is the clock? Not the loudest drum — the bell: quiet, fixed, and trusted by every other player. That is a timeline, and electing one is this lab’s first spec decision. If you heard the track as one mass, relisten following only the highest metallic voice for a full minute; once the bell separates, the whole ensemble snaps into layers.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Babatunde+Olatunji+Jin-go-lo-ba" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Babatunde%20Olatunji%20Jin-go-lo-ba">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-babatunde-olatunji-jin-go-lo-ba.html">lesson</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">02</span>
+        <span class="listen-title">Ewe Drumming from Ghana — <em>The Soup Which Is Sweet Draws the Chairs in Closer</em></span>
+        <span class="listen-tag">the bell is the master clock</span>
+      </summary>
+      <div class="listen-body">
+        <p>Field recordings of Ewe ensemble drumming: the gankogui bell holds a twelve-step asymmetric loop — the “standard pattern” that the Euclidean rule reproduces as E(7,12) — while shaker, support drums, and a talking master drum interlock around it.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The bell’s twelve-step loop — count it; the gaps are uneven on purpose, and the unevenness is the information.</li>
+          <li>Which parts never change (bell, shaker, support drums) versus the one voice that speaks freely (the master drum).</li>
+          <li>How each support drum locks to a <em>different</em> part of the bell — the same clock read from different angles.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Where is the master clock, electrically speaking? Nowhere — it is musical: an audible loop everyone trusts, which is exactly the role your spec assigns the timeline voice. The most famous distribution in world music was found by ear centuries before anyone wrote E(7,12). If the texture overwhelmed you, relisten locking onto the bell only, then add one drum at a time across repeated passes — the ensemble is built to be learned that way.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Ewe+Drumming+from+Ghana+The+Soup+Which+Is+Sweet" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Ewe%20Drumming%20from%20Ghana">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-ewe-drumming-from-ghana-the-soup-which-is-sweet-draws-the-chairs-in-closer.html">lesson</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">03</span>
+        <span class="listen-title">The Drummers of Burundi — <em>Live at Real World</em></span>
+        <span class="listen-tag">unison as a weapon</span>
+      </summary>
+      <div class="listen-body">
+        <p>A wall of ingoma drums recorded in one room: long stretches of massed unison that suddenly fracture into interlocking parts and snap back — the control case proving that polyrhythm is a choice, not a default.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The transitions: the exact moments the ensemble splits from one rhythm into several, and how the split is cued.</li>
+          <li>Dynamics as form — with one timbre and no melody, loudness and density carry the entire arrangement.</li>
+          <li>What unison does after a stretch of interlock, and interlock after unison — each makes the other land harder.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>What is the structural unit here? The alternation itself — unison and interlock are two states, and the piece is a schedule of switches between them, which is precisely what your rotation schedule is. If it read as one long pummeling, relisten and mark every state change with a tally; the form will surface as a short list of decisions, each held with total commitment.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=The+Drummers+of+Burundi+Live+at+Real+World" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:The%20Drummers%20of%20Burundi">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-the-drummers-of-burundi-live-at-real-world.html">lesson</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">04</span>
+        <span class="listen-title">The Master Musicians of Jajouka — <em>Brian Jones Presents the Pipes of Pan at Joujouka</em></span>
+        <span class="listen-tag">trance held for hours</span>
+      </summary>
+      <div class="listen-body">
+        <p>Moroccan ritual music recorded in the village in 1968: double-reed rhaitas in massed near-unison over drum cycles that lean and cross — music built to hold a ceremony in trance for hours, not to entertain for minutes.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The drum layer under the horns — find its repeating cycle and where its accents fall against the melody’s phrases.</li>
+          <li>The friction inside the “unison” horns: many players, one line, and the smearing between them as a texture in itself.</li>
+          <li>Your own time sense at minute one versus minute eight — what the unbroken cycle does to your attention.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>What sustains trance, mechanically? A cycle regular enough to trust and rough enough to stay alive — fixed distributions executed by breathing bodies. Your sequencer supplies the regularity for free, which means the life must come from your rotation schedule and your hits. If you checked the time while listening, note when; that restlessness is the gap between entertainment listening and ritual listening, and this lab’s 6–8 minutes sit in between.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Brian+Jones+Presents+the+Pipes+of+Pan+at+Joujouka" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Master%20Musicians%20of%20Jajouka%20Brian%20Jones">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-the-master-musicians-of-jajouka-brian-jones-presents-the-pipes-of-pan-at-joujo.html">lesson</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">05</span>
+        <span class="listen-title">Konono Nº1 — “Lufuala Ndonga”</span>
+        <span class="listen-tag">distributed interlock, amplified</span>
+      </summary>
+      <div class="listen-body">
+        <p>Kinshasa: three likembés — bass, medium, treble — through hand-wound pickups and junkyard amplification. Each thumb piano loops its own short cycle; no one plays the melody you hear, because the melody is the interlock.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The three likembé registers — try to isolate each one’s loop, then notice the composite line that none of them is playing.</li>
+          <li>The distortion as glue: how the buzzing amplification fuses three parts into one new instrument.</li>
+          <li>What changes across ten minutes — almost nothing in the parts, everything in your hearing of them.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Who is playing the hook? Nobody — it is an emergent property of three distributions sounding at once, the exact effect your staggered rotations are designed to produce: each voice trivial alone, the composite the actual composition. If you heard one busy instrument instead of three simple ones, relisten following only the bass likembé; once it isolates, the other two fall into place above it.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Konono+No1+Lufuala+Ndonga" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Konono%20N1%20Lufuala%20Ndonga">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-konono-no1-lufuala-ndonga.html">lesson</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">06</span>
+        <span class="listen-title">Midori Takada — “Crossing”</span>
+        <span class="listen-tag">one body, many cycles</span>
+      </summary>
+      <div class="listen-body">
+        <p>From <em>Through the Looking Glass</em> (1983): a lone percussionist overdubs marimba and percussion cycles into an ensemble — African timeline thinking passed through minimalism, performed entirely by one person against the tape machine.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The layering order — which cycle was laid down first as the reference, and how each new layer chooses its relationship to it.</li>
+          <li>Cycles of unlike density sharing one pulse: count two layers against each other and name the ratio.</li>
+          <li>Human micro-timing inside a process piece — the overdubs breathe against each other in a way two sequencer tracks never would.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>What replaces the ensemble’s mutual listening when one person overdubs? The first layer becomes an absolute timeline — tape does not negotiate — and every later cycle is designed against it, which is your workflow exactly: the bell prints first, in trust, and the distributions stack onto it. If the piece floated past you, relisten counting the lowest marimba cycle; the architecture is audible the moment one layer becomes your reference.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Midori+Takada+Crossing" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Midori%20Takada%20Crossing">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-midori-takada-crossing.html">lesson</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">07</span>
+        <span class="listen-title">Jlin — “Carbon 7 (161)”</span>
+        <span class="listen-tag">percussion as total composition</span>
+      </summary>
+      <div class="listen-body">
+        <p>From <em>Black Origami</em> (2017): footwork’s grammar rebuilt as pure percussion architecture — no loops riding on autopilot, every bar a re-dealt distribution of hits and, crucially, of silences.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The silences placed where your body expects a hit — absence used as a drum.</li>
+          <li>Cells that recur rotated or re-dealt rather than repeated — the same material at new angles, bar after bar.</li>
+          <li>Where the pulse lives when no single layer states it — your body keeps a “one” the track never plays.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Is this random? The opposite — every displacement is exact and recurs exactly, which is why it grooves instead of stumbling: irregularity, committed to, is the machine version of ritual. Note the difference from your lab’s long-held states; Jlin turns the rule dial every bar and still keeps the thread. If you lost the pulse, relisten tapping a steady four and feel the track argue with you — the argument is the composition.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Jlin+Carbon+7+161" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Jlin%20Carbon%207">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-jlin-carbon-7-161.html">lesson</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">08</span>
+        <span class="listen-title">Nídia — <em>Nídia É Má, Nídia É Fudida</em></span>
+        <span class="listen-tag">batida — the regional present</span>
+      </summary>
+      <div class="listen-body">
+        <p>Lisbon’s Príncipe label, 2017: batida — kuduro-rooted dance music built from raw drum-machine polyrhythm, short fierce loops, and arrangement by mute. Distributed rhythm as a present-tense regional language, not a museum piece.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>How few elements any track runs on — count them; the polyrhythm does the work a chord progression would do elsewhere.</li>
+          <li>The triplet-against-straight feel in the percussion: two grids sharing one downbeat, the polyrhythm axis of this lab.</li>
+          <li>Arrangement by mute — layers cut and restored in blocks, the rawness of the cuts as part of the voice.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>What makes this unmistakably hers, given stock drum sounds and short loops? The distributions and the cuts — which steps carry hits, which bars carry silence; identity stored entirely in rhythm decisions, not in sound design. That is the strongest possible argument for this lab’s premise. If it felt rough, relisten treating the roughness as chosen — then find one moment where a “wrong” cut creates the groove’s best lurch.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Nidia+Nidia+E+Ma+Nidia+E+Fudida" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Nidia%20E%20Ma%20Nidia%20E%20Fudida">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-nidia-nidia-e-ma-nidia-e-fudida.html">lesson</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">09</span>
+        <span class="listen-title">Sote — <em>Parallel Persia</em></span>
+        <span class="listen-tag">ritual meters, synthesized</span>
+      </summary>
+      <div class="listen-body">
+        <p>Ata Ebtekar’s 2019 statement: Persian classical meters and ornament logic executed in uncompromising synthesis — uneven cycles that Western grids would call odd, treated as home, with acoustic santur and electronics inside one rhythmic frame.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Cycle lengths that refuse four and eight — find a loop, count it, and notice how quickly “odd” starts to feel inevitable.</li>
+          <li>The handoff between santur and synthesis — where the tradition’s rhythm survives translation into electronic timbre, and where it transforms.</li>
+          <li>Ornaments as rhythm: trills and flourishes landing as time events, not decoration.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>What is being preserved and what invented? The meters and phrase logic are traditional; the timbres are radically not — proof that a rhythm system is portable across sound worlds, which is the transfer this lab claims when it moves bell patterns onto a sampler. If the odd cycles kept throwing you, relisten conducting one loop with your hand until your arm learns its length; the body acclimates faster than the counting mind.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Sote+Parallel+Persia" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Sote%20Parallel%20Persia">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-sote-parallel-persia.html">lesson</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">10</span>
+        <span class="listen-title">Batu — <em>Opal</em></span>
+        <span class="listen-tag">the club destination</span>
+      </summary>
+      <div class="listen-body">
+        <p>Bristol, 2022: club techno where the percussion distribution <em>is</em> the track — dry, precise, percussion-led pieces whose hooks are placements rather than riffs. The room this lab’s piece is ultimately aimed at.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The hook of any track — hum it back, then notice you are humming a rhythm placement, not a melody.</li>
+          <li>The dryness: little reverb glue, so every voice’s distribution is exposed and auditable, hit by hit.</li>
+          <li>How variation arrives — a voice’s pattern shifts by what sounds like one parameter at a time, coherently across the kit, the audible signature of rule edits over step edits.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Where does the development live, with so little melody and so much restraint? In re-dealt distributions — the same voices, new numbers, each state held long enough to learn. This is the lab’s D4 thesis functioning at club scale: edits to rules stay coherent; edits to steps turn to mush. If the tracks felt static, relisten to any one of them and log every rhythm-placement change you catch; the list will be longer than the track felt.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Batu+Opal+album" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Batu%20Opal">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-batu-opal.html">lesson</a></p>
+      </div>
+    </details>
+  </div>
+
+  <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 18px 0 0;">Before touching gear, write a one-sentence hypothesis in the logbook naming what you stole from across these ten recordings — the bell elected as clock, the standard pattern as a distribution found by ear, unison and interlock as scheduled states, regularity rough enough to hold trance, the hook nobody plays, the first layer printed in trust, silence dealt as a hit, identity stored in placements and cuts, a meter system surviving translation into new timbre, or rule edits staying coherent at club scale. The target is something like: <strong style="color: var(--text);">a rhythm is three numbers and an elected bell — design the distributions and the depth generates itself.</strong> Your sentence, in your words; the rotation-zero vs performed A/B and the 64-bar prediction are what will test it.</p>
+
+  <div class="final">
+    <div class="final-label">Track-lab principle</div>
+    <p>Patterns are decisions; distributions are decisions about decisions. Choose the numbers, elect the bell, schedule the rotations — and know, provably, how to bring the whole machine back to zero.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="lab-011.html">
+      <span class="page-nav-direction">Previous</span>
+      ← Lab 011 / Polymeter &amp; Phase
+    </a>
+    <a href="lab-r3.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      R3 / Rebuild the Process →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Block 3 · Lab 012</div>
+
+</div>
+
+  <script src="../nav.js"></script>
+</body>
+</html>

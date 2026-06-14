@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab 007b — Reusable Instruments</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page-type-lab" id="top">
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu"><span class="hamburger-lines"><span></span><span></span><span></span></span></label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html" class="active"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 2 · Sources</a><span class="breadcrumb-sep">/</span><span>Reusable Instruments</span></nav>
+
+  <header class="page-header">
+    <div class="eyebrow">Block 2 · Lab 007b · Bench / Étude</div>
+    <h1>Reusable Instruments</h1>
+    <p class="lede">A sound you built once stays a one-off until you decide which knobs control it. This lab packages a built sound into an Ableton <strong>Instrument Rack</strong> (a container that wraps a device chain behind eight named knobs called <strong>Macros</strong>), saves it to the User Library, and proves it travels by reloading it into a fresh project. You go from making sounds to making reusable instruments.</p>
+  </header>
+  <p class="block-meta">Bench / étude · S1 · full cycle · new concept: the Macro as abstraction · introduces the Reload Test</p>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l2.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs" class="current">Labs</a><a href="lab-r2.html" data-section="rebuild">Rebuild</a><a href="index.html#capstone" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
+
+  <div class="signal-flow">
+    <span class="signal-node">listen</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">hypothesis</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">pick the voice</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">wrap in a rack</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">map 8 macros</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">name &amp; save</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">fault</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">diagnose</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">reload test</span>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Start here</div>
+    </div>
+    <ul>
+      <li>Bring one voice you already built — a sampled-and-eroded chain from <a href="lab-007.html">Lab 007</a>, the drone patch resampled in <a href="lab-005b.html">005b</a>, or any device chain in Live you would be sad to lose. If you have none, Step 03 builds a quick one.</li>
+      <li>Save a new set as <span class="code">LAB-007B-rack</span>.</li>
+      <li>Have a second, empty set ready to save as <span class="code">LAB-007B-reload</span> — the Reload Test needs a project that has never seen this sound.</li>
+      <li>Expected time: two sessions of 60–90 minutes — one to map, one to test and document.</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The point</div>
+    <p>A Macro is not just a knob — it is a decision about what matters. When you map eight Macros you are saying: these eight controls are this instrument; everything else stays hidden. Choose them well and the rack works as an instrument in any project. Choose them badly and you have saved a preset with eight knobs that do nothing useful.</p>
+  </div>
+
+  <h2>1 · Listen first — the instrument behind the preset</h2>
+
+  <p>Before mapping anything, listen to three records and ask one question of each: <strong>what are the two or three controls the player is actually moving?</strong> Not the hundreds of parameters that exist — just the few that carry the music forward. A good Macro map is your best guess at that answer, locked in.</p>
+
+  <div class="listen-acc">
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">01</span>
+        <span class="listen-title">Floating Points — “Silhouettes (I, II &amp; III)”</span>
+        <span class="listen-tag">one timbre, many positions</span>
+      </summary>
+      <div class="listen-body">
+        <p>Sam Shepherd plays one synth voice across a huge range of brightness and movement. It is recognizably the same instrument throughout. The core sound stays fixed; two or three controls do all the changing.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Which dimension moves most — brightness (filter), movement-rate (LFO/mod depth), or body (sub level / detune)?</li>
+          <li>What never changes — the core waveform, the character that makes it the same instrument throughout.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Name the two controls you would put under your thumbs to perform this part. Those two are the first two rows of a Macro map.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Floating+Points+Silhouettes" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Floating%20Points%20Silhouettes">Spotify</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">02</span>
+        <span class="listen-title">Caterina Barbieri — “Fantas”</span>
+        <span class="listen-tag">a small set of knobs, performed</span>
+      </summary>
+      <div class="listen-body">
+        <p>The note sequence stays constant while the timbre (the tone quality and color) is performed live — filter, decay, and space opening and closing throughout. The notes are fixed; the few live controls are what make it a composition.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>How few parameters are actually in motion, and how far each one travels.</li>
+          <li>That the <em>range</em> of each control is chosen — the filter never goes fully dark or fully open; it lives in a deliberate window.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Pick one moving control and name its lowest and highest position in the piece. That pair of limits is a Macro's mapped range — the Min and Max you set, not the parameter's full technical sweep.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Caterina+Barbieri+Fantas" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Caterina%20Barbieri%20Fantas">Spotify</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">03</span>
+        <span class="listen-title">Aphex Twin — “Avril 14th”</span>
+        <span class="listen-tag">the instrument is the abstraction</span>
+      </summary>
+      <div class="listen-body">
+        <p>This track uses a "prepared piano" sound — slightly detuned, close-sounding, a little mechanical. That character is fixed throughout. Whatever notes are played, the instrument always sounds like itself. That fixed core is exactly what a Macro map does <em>not</em> expose.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The constant character under every note — the part you would bake in and never put on a Macro.</li>
+          <li>The one or two things that do vary (dynamics, a touch of detune drift) — the parts worth a knob.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Try to split the sound into two lists: "fixed identity" (what stays the same) and "live controls" (what varies). That split is the core design decision behind a reusable instrument.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Aphex+Twin+Avril+14th" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Aphex%20Twin%20Avril%2014th">Spotify</a></p>
+      </div>
+    </details>
+  </div>
+
+  <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 18px 0 0;">Write a one-sentence hypothesis in the logbook before you open Live. Aim for something like: <strong style="color: var(--text);">an instrument is two or three controls that matter plus a fixed identity behind them — my eight Macros are my bet on which controls those are.</strong> Write it in your own words. The Reload Test will check whether you were right.</p>
+
+  <h2>2 · The two specs</h2>
+
+  <table class="param-table">
+    <caption>System Spec — fill before mapping</caption>
+    <tr><td>Inputs</td><td>One built voice — a Live device chain (synth/sampler + effects) you want to keep · its source recording or patch, if it began on hardware and was printed to a Simpler/Sampler</td></tr>
+    <tr><td>Transforms</td><td>Wrap in an Instrument Rack · map 8 Macros, each to one parameter (or one parameter per Macro to start), with a chosen Min/Max range and curve · name, color, and tag the Macros</td></tr>
+    <tr><td>Feedback / variation</td><td>Every Macro must produce an audible, musical change across its full sweep · no two Macros may fight (cancel or mask each other) at any combined position</td></tr>
+    <tr><td>Constraints</td><td>Exactly 8 Macros · each Macro names one musical job (brightness, movement-rate, body, space, drive, etc.) · the rack must reload in a fresh project and sound identical · no reliance on project-level returns or routing</td></tr>
+    <tr><td>Human role</td><td>Decide which 8 knobs are the instrument's real controls and what their ranges are — this is the whole lab; the mapping is mechanical, the <em>choosing</em> is the work</td></tr>
+  </table>
+
+  <table class="param-table">
+    <caption>Engineering Spec — verify, correct after</caption>
+    <tr><td>Signal path</td><td>Source device → effects in series, all <em>inside</em> one Instrument Rack so the whole chain travels as one object · rack output → track → master. Nothing the instrument needs lives outside the rack.</td></tr>
+    <tr><td>Gain plan</td><td>The rack's output should sit at unity-equivalent: a held note peaks ≈ −12 dBFS with all Macros at their default position · a Drive Macro must be output-compensated so the meter does not jump when you sweep it (loudness ≠ a useful change)</td></tr>
+    <tr><td>Mapping mechanics</td><td>Configure Macros → right-click a parameter → <span class="menu">Map to Macro</span> · set each Macro's <span class="menu">Min</span>/<span class="menu">Max</span> in the Map view so the knob's 0–100 % spans only the <em>useful</em> window · use the Macro <span class="menu">Curve</span> where a linear sweep feels wrong (filters often want exponential)</td></tr>
+    <tr><td>Self-containment</td><td>No external return sends (Space must be a reverb/delay <em>inside</em> the rack, not a project A/B return) · no Sidechain from another track · sample-based voices use <span class="menu">Collect All and Save</span> so the audio rides with the preset</td></tr>
+    <tr><td>Naming</td><td>Convention: <span class="code">[Family] [Voice] [vN]</span> — e.g. <span class="code">DRONE Glass v1</span>, <span class="code">VOX Granular Bed v1</span> · rename every Macro to its <em>job</em>, not its parameter (“Brightness”, not “Cutoff”)</td></tr>
+    <tr><td>Library target</td><td>Save into <span class="menu">User Library → Presets → Instruments → Instrument Rack</span> (drag from the title bar, or right-click → save) so it appears in the browser in every project, forever</td></tr>
+    <tr><td>Failure mode</td><td>The dead Macro (mapped to a parameter whose useful range is tiny or off-window, so the sweep does nothing) and the fighting pair (two Macros whose combined motion cancels or masks) — both manufactured on purpose in Step 06</td></tr>
+    <tr><td>Safety</td><td>Macro sweeps can spike level — phones at the mark, sweep slowly the first time, watch the meter before you trust your ears</td></tr>
+  </table>
+
+  <h2>3 · Pick or build the voice</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Step 01</div>
+      <h3 class="step-title">Choose the voice — or build a quick one</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Goal: one device chain on one track that you would be glad to reuse. Reuse value, not novelty, is the criterion.</p>
+    <div class="sub-block">
+      <div class="sub-label">Do this (preferred)</div>
+      <ol>
+        <li>Open a set that contains a voice you built — the eroded sampler chain from <a href="lab-007.html">Lab 007</a> is ideal — and copy that track's full device chain into <span class="code">LAB-007B-rack</span>.</li>
+      </ol>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Do this (if you have no voice yet)</div>
+      <ol>
+        <li>Hold one MicroFreak note, record 4–8 seconds into an audio track, and drag the clip onto a new MIDI track to make a <strong>Sampler</strong> (or Simpler) instrument.</li>
+        <li>Add, in series: an <strong>Auto Filter</strong> (LP), an <strong>LFO</strong> device (or use the filter's own LFO) on the cutoff, a <strong>Saturator</strong>, and a <strong>Reverb</strong>. That is brightness, movement, drive, and space — already the bones of a Macro map.</li>
+        <li>Play it for one minute. If it does not reward reuse, fix the <em>sound</em> now; a rack cannot rescue a voice you do not want.</li>
+      </ol>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Logbook</div>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">One line: what is the voice, where did it come from, and why is it worth keeping?</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Step 02</div>
+      <h3 class="step-title">Wrap it in an Instrument Rack</h3>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <ol>
+        <li>Select every device in the chain (instrument + all effects). <kbd>⌘ G</kbd> to group them into an <strong>Instrument Rack</strong>.</li>
+        <li>Open the rack's <strong>Macro</strong> view (the chain/macro toggle in the title bar). Set the Macro count to <strong>8</strong>.</li>
+        <li>Confirm everything the instrument needs is now <em>inside</em> the rack — if your space came from a project return, move a reverb into the rack so the instrument is self-contained.</li>
+      </ol>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Expected result</div>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">You should now have one rack with eight empty Macro knobs and the entire voice inside it. To check: drag the rack to another track. Everything should move together as one unit. If anything is left behind on the original track, it still needs to go inside the rack.</p>
+    </div>
+  </div>
+
+  <h2>4 · Map the eight Macros</h2>
+
+  <div class="callout">
+    <div class="callout-label">The abstraction, stated plainly</div>
+    <p>Your device chain has hundreds of parameters but you have eight knobs. Each Macro is a one-line brief: “this is what this knob does, and how far it goes.” Mapping is choosing eight of those briefs. The default eight jobs below are a solid starting point for a workshop voice. Adapt them if you need to, but be able to say why.</p>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Step 03</div>
+      <h3 class="step-title">Map, range, and name each Macro</h3>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Do this — for each Macro</div>
+      <ol>
+        <li>Right-click the target parameter → <span class="menu">Map to Macro N</span>.</li>
+        <li>Open <span class="menu">Map</span> view. Set <span class="menu">Min</span> and <span class="menu">Max</span> so the knob from 0–100 % spans only the window where the change is <em>useful and musical</em> — not the parameter's full hardware range.</li>
+        <li>Set the <span class="menu">Curve</span> if linear feels wrong (filters and times usually want exponential).</li>
+        <li>Rename the Macro to its <strong>job</strong> and pick a color. Park it at the default position you would want on first load.</li>
+        <li>Sweep it 0→100 % slowly, eyes on the meter, and confirm it does something worth a knob across the <em>whole</em> sweep.</li>
+      </ol>
+    </div>
+
+    <table class="param-table">
+      <caption>The default 8-Macro kit — a starting map (adapt to your voice)</caption>
+      <tr><td>Macro</td><td>Parameter it drives</td><td>Mapped range (Min → Max)</td><td>Musical job</td></tr>
+      <tr><td>1 · Brightness</td><td>Auto Filter cutoff</td><td>≈ 300 Hz → 8 kHz (exp curve)</td><td>Dark/intimate → open/present, the single most expressive control</td></tr>
+      <tr><td>2 · Movement-rate</td><td>LFO rate on cutoff</td><td>0.05 Hz → 2 Hz</td><td>Stillness → animation; how alive the timbre breathes</td></tr>
+      <tr><td>3 · Movement-depth</td><td>LFO amount</td><td>0 % → 35 %</td><td>How much the movement-rate actually moves — kept modest so it never wobbles into seasickness</td></tr>
+      <tr><td>4 · Body</td><td>Sub / oscillator level or sample low-shelf</td><td>−6 dB → +4 dB</td><td>Weight and foundation without changing pitch</td></tr>
+      <tr><td>5 · Drive</td><td>Saturator drive (output-compensated)</td><td>0 dB → +9 dB, output −0 to −6 dB</td><td>Density and grit at constant loudness — mass, not volume</td></tr>
+      <tr><td>6 · Space</td><td>Reverb dry/wet (reverb inside the rack)</td><td>0 % → 45 %</td><td>Close → distant; the room the instrument sits in</td></tr>
+      <tr><td>7 · Attack</td><td>Amp envelope attack</td><td>2 ms → 1.5 s</td><td>Plucked/percussive → pad/swell; reshapes the same voice's role</td></tr>
+      <tr><td>8 · Tone-tilt</td><td>EQ Eight tilt or high-shelf</td><td>−4 dB → +4 dB shelf</td><td>Warm ↔ airy fine-trim to seat the instrument in any mix</td></tr>
+    </table>
+
+    <div class="note-block">
+      <ul>
+        <li><strong>Why ranges, not full sweeps:</strong> a filter swept fully closed goes silent; fully open goes harsh. Both are extremes you never want to land on by accident. Setting a useful Min and Max means every position of the knob is a position you would actually choose.</li>
+        <li><strong>One Macro, one job:</strong> resist mapping a single Macro to several parameters at once on the first pass. Multi-mapping is powerful, but it is also where conflicting Macros are born. Do the simple one-job map first and let it pass the Reload Test before adding complexity.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision checkpoint</div>
+      <p>For each of the eight Macros: can you name its job in four words, and does it produce an audible, musical change across its whole sweep? Any Macro that fails either test is not done yet. Fix the mapping or the range — not the underlying sound.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Step 04</div>
+      <h3 class="step-title">Name, tag, and save to the User Library</h3>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <ol>
+        <li>Name the rack with the convention: <span class="code">[Family] [Voice] [vN]</span> — e.g. <span class="code">DRONE Glass v1</span>.</li>
+        <li>If the voice uses samples, right-click the rack → <span class="menu">Collect All and Save</span> first, so the audio travels with the preset.</li>
+        <li>Drag the rack's title bar into <span class="menu">User Library → Presets → Instruments → Instrument Rack</span> (or right-click → save). Add a browser tag for the family.</li>
+        <li>Write the Macro map table (below) into the logbook — this is the instrument's documentation, and the Reload Test checks against it.</li>
+      </ol>
+    </div>
+    <table class="param-table">
+      <caption>Macro map — the instrument's documentation (copy and fill)</caption>
+      <tr><td>Macro</td><td>Parameter</td><td>Range</td><td>Musical purpose</td><td>Default</td></tr>
+      <tr><td>1 · Brightness</td><td>___</td><td>___</td><td>___</td><td>___</td></tr>
+      <tr><td>2 · Movement-rate</td><td>___</td><td>___</td><td>___</td><td>___</td></tr>
+      <tr><td>3 · Movement-depth</td><td>___</td><td>___</td><td>___</td><td>___</td></tr>
+      <tr><td>4 · Body</td><td>___</td><td>___</td><td>___</td><td>___</td></tr>
+      <tr><td>5 · Drive</td><td>___</td><td>___</td><td>___</td><td>___</td></tr>
+      <tr><td>6 · Space</td><td>___</td><td>___</td><td>___</td><td>___</td></tr>
+      <tr><td>7 · Attack</td><td>___</td><td>___</td><td>___</td><td>___</td></tr>
+      <tr><td>8 · Tone-tilt</td><td>___</td><td>___</td><td>___</td><td>___</td></tr>
+    </table>
+  </div>
+
+  <h2>5 · The prescribed fault</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Step 06</div>
+      <h3 class="step-title">Break two Macros on purpose, then diagnose</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Goal: manufacture the two ways a Macro map goes dead, so you recognize them when they happen by accident. Make a copy of the rack first; break the copy.</p>
+    <div class="sub-block">
+      <div class="sub-label">Induce fault A — the dead Macro</div>
+      <ol>
+        <li>Remap a Macro to a parameter with almost no audible range — e.g. an LFO <em>phase</em> offset, or set a filter Macro's Min and Max to two nearly-identical values (8.0 kHz → 8.2 kHz).</li>
+        <li>Sweep it 0→100 %. Note what you do and do not hear.</li>
+      </ol>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Induce fault B — the fighting pair</div>
+      <ol>
+        <li>Map Macro 5 (Drive) to add saturation <em>and</em> map Macro 8 (Tone-tilt) to a high-cut so that turning both up cancels: drive adds high harmonics, the cut removes them.</li>
+        <li>Sweep both together. The instrument should sound like nothing changed — work was done and undone.</li>
+      </ol>
+    </div>
+    <table class="param-table">
+      <caption>Diagnosis — Macro faults (fill from your own sweeps)</caption>
+      <tr><td>Fault</td><td>Symptom</td><td>Cause</td><td>Fix</td><td>Prevention rule</td></tr>
+      <tr><td>Dead Macro (off-window)</td><td>Knob turns, nothing audible changes across the sweep</td><td>Range Min/Max crop the parameter to a region where it barely moves, or the parameter is inaudible</td><td>Re-open Map view; widen or relocate the window to where the change is musical; or remap to a parameter that matters</td><td>___</td></tr>
+      <tr><td>Dead Macro (loudness-only)</td><td>“Change” is only level — louder feels like “more” but is not a real timbre move</td><td>Macro drives a gain stage with no compensation</td><td>Output-compensate (Drive output, gain trim) so the meter holds while the timbre changes</td><td>___</td></tr>
+      <tr><td>Fighting pair</td><td>Two Macros up together = no net change</td><td>One adds what the other removes (drive vs high-cut, body vs low-cut)</td><td>Assign non-overlapping spectral jobs; if multi-mapping, set ranges so they reinforce, not cancel</td><td>___</td></tr>
+      <tr><td>Phantom dependency</td><td>Rack sounds wrong only after saving / in a new project</td><td>Instrument relied on a project return, sidechain, or uncollected sample</td><td>Move the effect inside the rack; Collect All and Save; remove external sends</td><td>___</td></tr>
+    </table>
+    <div class="note-block">
+      <ul>
+        <li><strong>Delete the broken copy.</strong> The fault lives in the logbook, not the library. Your saved instrument keeps the working map.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>6 · Pass gate — the Reload Test</h2>
+
+  <div class="callout">
+    <div class="callout-label">A recurring certification</div>
+    <p>An instrument that only works in the project where you built it is not truly reusable. The Reload Test is the proof: load the saved rack into a project that has never seen it, and play it from scratch.</p>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Certification</div>
+      <h3 class="step-title">Reload into a fresh project</h3>
+    </div>
+    <ol class="rules-list">
+      <li>Open the empty <span class="code">LAB-007B-reload</span> set. From the browser, drag your saved rack onto a new MIDI track.</li>
+      <li>Play a held note. It must sound <strong>identical</strong> to the original — no missing reverb, no silent sampler, no broken routing.</li>
+      <li>Sweep all eight Macros. Each must do its documented job across its documented range, exactly as the Macro map says.</li>
+      <li>Hand the Macro map to your future self: with only the eight names, can you perform the instrument without opening the chain? If yes, the abstraction holds.</li>
+    </ol>
+    <div class="decision-check">
+      <div class="decision-check-label">Pass condition</div>
+      <p>The rack loads identically in the fresh project and all eight Macros do their named job across their full range. If something is missing on reload, the cause is a phantom dependency — something the rack relies on that lives outside it, like a project reverb return. Fix it inside the rack and re-save. If a Macro feels useless, the range or the choice is wrong — re-map it. Never fix either problem by changing the underlying sound.</p>
+    </div>
+  </div>
+
+  <h2>7 · Report bundle</h2>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Filed in the logbook</div>
+    </div>
+    <ul>
+      <li>Saved Instrument Rack in the User Library, named by convention, samples collected</li>
+      <li>Macro map table — all 8 rows filled: parameter, range, purpose, default</li>
+      <li>Hypothesis sentence — which controls you bet were the instrument's real ones</li>
+      <li>Fault entry — both prescribed faults, with symptom, cause, fix, and your prevention rule</li>
+      <li>Reload Test result — a one-line confirmation that it loaded identically into the fresh project</li>
+      <li>System diff sentence — “I thought the instrument's controls were X; after mapping, they were Y.”</li>
+    </ul>
+  </div>
+
+  <table class="param-table">
+    <caption>Pass standard</caption>
+    <tr><td>Minimum pass</td><td>A saved rack with a documented 8-Macro map that reloads identically into a fresh project, plus the fault entry.</td></tr>
+    <tr><td>Solid pass</td><td>Every Macro earns its knob — audible, musical, output-compensated — and you can perform the instrument from the map names alone.</td></tr>
+    <tr><td>Advanced transfer</td><td>You can re-map the same eight jobs onto a different voice (a field recording, a different synth) and produce a coherent instrument of the same family.</td></tr>
+  </table>
+
+  <ol class="reflection-list">
+    <li>Which Macro turned out to be the one you reach for first — and was it the one your hypothesis named?</li>
+    <li>Which parameter did you decide to <em>bake in</em> rather than expose, and why does it belong to the fixed identity?</li>
+    <li>Where did you crop a range, and what extreme did cropping protect you from?</li>
+    <li>If you could keep only four Macros, which four — and what does that tell you about the instrument?</li>
+  </ol>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Worked system diff — the expected granularity</div>
+    <p>”I thought brightness and space were the controls that mattered. After mapping, it turned out to be movement-rate and drive — brightness was just where I started. The instrument came alive through how it breathed and how dense it got.”</p>
+  </div>
+
+  <div class="final">
+    <div class="final-label">Bench principle</div>
+    <p>An instrument is the eight knobs you chose to keep. Do less, but make each knob a decision you can defend.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="lab-007.html">
+      <span class="page-nav-direction">Previous</span>
+      ← Lab 007 / The Sampler Eats Itself
+    </a>
+    <a href="lab-008.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      Lab 008 / The Field Kit →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Block 2 · Lab 007b</div>
+
+</div>
+
+  <script src="../nav.js"></script>
+</body>
+</html>

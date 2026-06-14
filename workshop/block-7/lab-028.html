@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab 028 — Live Resampling</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page-type-lab" id="top">
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html" class="active"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 7 · Performance</a><span class="breadcrumb-sep">/</span><span>Live Resampling</span></nav>
+
+  <header class="page-header">
+    <div class="eyebrow">Block 7 · Lab 028 · Track lab</div>
+    <h1>Live Resampling</h1>
+    <p class="lede">The sampler as an instrument. The Digitakt records the performance it is part of, and what it captures goes straight back under your hands — performance becomes material becomes performance, in real time, with no pause to audition.</p>
+  </header>
+  <p class="block-meta">Track lab · S4 · D4 E4 M4 F4 · performance · full cycle · new concepts: 5</p>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l7.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs" class="current">Labs</a><a href="lab-r7.html" data-section="rebuild">Rebuild</a><a href="capstone-c6.html" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
+
+  <div class="signal-flow">
+    <span class="signal-node">listen</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">hypothesis</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">draw the path</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">calibrate</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">build</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">fault</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">diagnose</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">print</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">delta</span>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Start here</div>
+    </div>
+    <ul>
+      <li><strong>Requires lab 027:</strong> the full-take discipline certified there is this lab’s entry condition — a resample of a hesitant performance is a hesitant sample.</li>
+      <li>Work the listening accordion and write the hypothesis before patching the capture loop.</li>
+      <li>Save a new set as <span class="code">LAB-028-resample</span>; the resampling architectures were mapped in lab 007 — internal, USB/DAW, analog loop — and this lab performs them.</li>
+      <li>This is an S4 lab: author both specs from the brief alone — no prompts, no pre-filled rows.</li>
+      <li>The roadmap proposes an Octatrack MKII at this block; the core-rig path is Digitakt II internal resampling plus a Live resample track — the capability is the lab, not the brand.</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The point</div>
+    <p>A sampler that records while it plays closes a loop: every sound you make is also future material, and every capture is a performed decision with no undo. The instrument is not the box — it is the loop between your hands, the output, and the record button.</p>
+  </div>
+
+  <h2>How this lab works</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3 class="card-title">Build the capture loop</h3>
+      <ul class="card-points">
+        <li>Draw the resample path before any sound: where the output is tapped, where the capture lands, and which generation it becomes.</li>
+        <li>Two seed sounds at most enter the system; everything else must be born inside the loop.</li>
+        <li>Each pass re-crosses gain stages — the lab 007 noise and headroom notes become a per-generation budget.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Perform the capture decisions</h3>
+      <ul class="card-points">
+        <li>When to press record is a musical decision made in time, like a drummer’s fill — not an editorial one made afterwards.</li>
+        <li>No auditioning: a capture is redeployed in the same take or abandoned, never browsed.</li>
+        <li>One failure rehearsal: stage a bad capture on purpose and practice playing it into usefulness.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Redeploy and mutate</h3>
+      <ul class="card-points">
+        <li>A declared mangle set — at most four transforms (pitch, slice, reverse, retrig…) — is the whole vocabulary per generation.</li>
+        <li>Generations are labeled as they stack; degradation across them is form, not error.</li>
+        <li>The panic path stays in reach: a loop that feeds itself can run away in level and in density.</li>
+      </ul>
+    </div>
+  </div>
+
+  <table class="param-table">
+    <caption>Pass standard</caption>
+    <tr><td>Minimum pass</td><td>A performed piece in which everything after the opening minute passed through at least one live resample, plus live signal-flow diagram, panic path, fault entry, generation map, and system diff.</td></tr>
+    <tr><td>Solid pass</td><td>Generations are audibly distinct layers of one history, and at least one mis-capture was redeployed musically instead of abandoned.</td></tr>
+    <tr><td>Advanced transfer</td><td>You can re-perform the system tomorrow from different seed sounds and a listener accepts it as the same piece — the loop, not the material, is the identity.</td></tr>
+  </table>
+
+  <h2>New concepts — in plain words</h2>
+
+  <table>
+    <tr><th>Concept</th><th>In plain words</th></tr>
+    <tr><td><span class="lab-title">Live resampling</span></td><td>Recording the system’s own output while it plays, then using that recording as a new sound source — immediately, inside the same performance. The studio version was lab 007; the performed version has no pause button.</td></tr>
+    <tr><td><span class="lab-title">Generation</span></td><td>A copy of a copy. Each pass through the loop stamps the chain’s character — converters, compression, your timing — onto the material, the way a photocopy of a photocopy keeps the smudges. Counting generations is how you keep the history legible.</td></tr>
+    <tr><td><span class="lab-title">Capture decision</span></td><td>The choice of <em>when</em> to press record, made in musical time. It commits whatever is sounding right now — including the flaws — to being material. A capture decision cannot be revised, only answered by the next one.</td></tr>
+    <tr><td><span class="lab-title">Redeployment</span></td><td>Returning a capture to the performance as a playable instrument — pitched, sliced, retriggered — rather than as a recording to admire. The test: within one phrase of capturing, the audience hears it again, changed.</td></tr>
+    <tr><td><span class="lab-title">Mangle set</span></td><td>The small fixed menu of transformations you allow yourself per generation. Like lab 027’s macro budget, it is a cap that turns infinite options into a vocabulary — four transforms you know cold beat forty you have to look for.</td></tr>
+  </table>
+
+  <div class="tag-row">
+    <span class="tag">live resampling</span>
+    <span class="tag">generation</span>
+    <span class="tag">capture decision</span>
+    <span class="tag">redeployment</span>
+    <span class="tag">mangle set</span>
+  </div>
+
+  <h2>Listening — the hypothesis source</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Ten performers whose instrument records itself — from 1979 tape loops crawling between two reel-to-reels to a voice feeding a machine that hands it back as an orchestra. Watch for the capture moment: when does material get committed, and what does the performer do with it in the next ten seconds? Each gets a brief: what to listen for before you press play, and how to check yourself after.</p>
+
+  <div class="listen-acc">
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">01</span>
+        <span class="listen-title">Tim Exile — the Flow Machine (performances &amp; demos)</span>
+        <span class="listen-tag">an instrument built to capture · video</span>
+      </summary>
+      <div class="listen-body">
+        <p>A self-built software instrument whose whole premise is this lab: anything sounding — voice, synth, the room — can be grabbed mid-flight, looped, mangled, and played back as a new instrument without the music stopping.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The capture moments: a phrase sung once, then suddenly polyphonic — where exactly did it get committed?</li>
+          <li>How fast capture turns into redeployment — the gap is seconds, and the seam is part of the show.</li>
+          <li>What stays stable underneath while everything above is being eaten and re-served — the loop needs a floor.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Could any of this have been prepared in advance? The structure could; the material could not — it is audibly born in the room, mistakes included, and the mistakes are immediately material. That is the capture-decision discipline this lab demands. If it read as playback, rewatch one section and track a single sound from its first sounding to its third generation.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Tim+Exile+Flow+Machine+live" target="_blank" rel="noopener">YouTube</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-tim-exile-the-flow-machine-performances-and-demos.html">lesson</a> (complete lesson)</p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">02</span>
+        <span class="listen-title">Colin Benders — modular live sessions</span>
+        <span class="listen-tag">capture inside a patch · video</span>
+      </summary>
+      <div class="listen-body">
+        <p>Long filmed sessions on a wall of modular synthesizer where loops and samples are seized from the patch itself — a system large enough that the performer is also its first listener, deciding live what deserves to persist.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The difference between a voice that is generated and a voice that was captured earlier in the same session — the captured ones carry timing fingerprints.</li>
+          <li>How he builds toward a capture: conditions are arranged so the grab is worth keeping.</li>
+          <li>Recovery when a patch turn goes wrong — the wrong sound is either muted or promoted, never apologized for.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Pick one ten-minute span: how many of its layers existed at the span’s start? Usually fewer than half — the rest were grown and committed during it. The lesson is the ratio of arranging-conditions to pressing-record: long preparation, short decisive captures. If you could not tell grown from generated, relisten following only one repeating figure and ask where it could have come from.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Colin+Benders+modular+live+session" target="_blank" rel="noopener">YouTube</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-colin-benders-modular-live-sessions.html">lesson</a> (complete lesson)</p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">03</span>
+        <span class="listen-title">Araabmuzik — live MPC sets</span>
+        <span class="listen-tag">the sampler as percussion · video</span>
+      </summary>
+      <div class="listen-body">
+        <p>An MPC played at drummer speed — pre-loaded material, but every note placed by hand, live, at a density that erases the line between triggering samples and playing an instrument.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Rolls and retriggers performed on pads — articulation a sequencer would not write.</li>
+          <li>Which hand owns rhythm and which owns sound selection — two jobs on one surface.</li>
+          <li>The moments a phrase is rebuilt from fragments faster than the original could be played back.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Is this playback or performance? Test by listening for repetition: a true playback repeats exactly; these phrases never quite do, because fingers placed every hit. The transfer to your lab: redeployment is a played act — the captured slice earns its place by being performed, not launched. If everything sounded looped, rewatch thirty seconds and count the pad hits against what you hear.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Araabmuzik+live+MPC" target="_blank" rel="noopener">YouTube</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-araabmuzik-live-mpc-sets.html">lesson</a> (complete lesson)</p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">04</span>
+        <span class="listen-title">Jeremy Ellis — finger-drumming performances</span>
+        <span class="listen-tag">technique as vocabulary · video</span>
+      </summary>
+      <div class="listen-body">
+        <p>The most articulate case for pads as an expressive instrument: melody, comping, and drums from sixteen squares, with the dynamics and ornamentation of a hand percussionist.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Velocity as the lead voice — the same pad meaning four different things at four pressures.</li>
+          <li>How few sounds are loaded: the vocabulary is technique, not sample count — a mangle set under his fingers.</li>
+          <li>Phrases that quote what he played a minute ago — memory performed back, the manual version of resampling.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Estimate his sample count for one piece. It is tiny — often a dozen sounds carry everything, because expression lives in how they are struck. That is the argument for this lab’s four-transform cap: depth on a small set beats breadth on a large one. If the playing blurred, rewatch one phrase at reduced speed if you can and watch the velocity work.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Jeremy+Ellis+finger+drumming+performance" target="_blank" rel="noopener">YouTube</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-jeremy-ellis-finger-drumming-performances.html">lesson</a> (complete lesson)</p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">05</span>
+        <span class="listen-title">Beardyman — “The Polyphonic Me” (TED, 2013)</span>
+        <span class="listen-tag">voice in, orchestra out · video</span>
+      </summary>
+      <div class="listen-body">
+        <p>A beatboxer who built a machine — the Beardytron — to capture his voice and hand it back layered, pitched, and mangled in real time, because one mouth could not sing two notes. The seed material is a single human voice; everything else is generations.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The first capture of each section: one vocal phrase that becomes the floor for everything above it.</li>
+          <li>Generation stamps — captured voice re-captured with effects already on it, the smudge audibly deepening.</li>
+          <li>Where the comedy hides the engineering: every laugh line is also a routing decision that worked.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Trace one layer back to the mouth sound it came from. If you can, the generations stayed legible — his system labels them by register and effect. If you cannot, that is also a finding: too many generations without a map turns history into mud, which is exactly why this lab requires the generation map. Relisten to one build-up and count the capture events.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Beardyman+TED+polyphonic+me" target="_blank" rel="noopener">YouTube</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-beardyman-the-polyphonic-me-ted-2013.html">lesson</a> (complete lesson)</p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">06</span>
+        <span class="listen-title">Marc Rebillet — loop-station improvisations</span>
+        <span class="listen-tag">commitment as entertainment · video</span>
+      </summary>
+      <div class="listen-body">
+        <p>Improvised funk built layer by layer on a loop station, in single takes, often from audience-shouted prompts — the rawest public form of the capture decision: every layer is committed in front of witnesses, flaws and all.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The order of layers: what gets committed first, and why that choice constrains everything after.</li>
+          <li>A flubbed layer kept and answered — the recovery is the song.</li>
+          <li>How a loop’s fixed length becomes the form: everything must phrase against the first capture.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>What did the first capture decide? Almost everything — key, tempo, loop length, feel — which is why he spends visible care on it and almost none on later layers. Your version: the first resample in your take is a form decision, not a sound decision. If the layers seemed effortless, relisten to one piece’s opening minute and list what was already irreversible by its end.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Marc+Rebillet+live+loop" target="_blank" rel="noopener">YouTube</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-marc-rebillet-loop-station-improvisations.html">lesson</a> (complete lesson)</p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">07</span>
+        <span class="listen-title">Madlib — <em>Beat Konducta</em> series</span>
+        <span class="listen-tag">the sampler as a listening practice</span>
+      </summary>
+      <div class="listen-body">
+        <p>Hundreds of short pieces made by one person and a sampler — not performed live, but the purest document of sampler-as-instrument thinking: material is heard, seized, and flipped at conversational speed, and the seams are left in.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Edits that land mid-word or mid-note — capture boundaries chosen for rhythm, not tidiness.</li>
+          <li>How short each idea is allowed to live — curation at the speed of attention.</li>
+          <li>The sound of the machine itself: filtering, crunch, and timing that stamp every flip like a generation mark.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Pick one track: what did the sampler <em>add</em> to the source — not what did it take? There is always an answer (a new downbeat, a new loop length, a new register), and naming it is the skill this lab’s redeployments need: a capture must come back changed, or it is a delay, not an instrument. If nothing seemed added, relisten and clap the new downbeat against the borrowed phrase.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Madlib+Beat+Konducta" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Madlib%20Beat%20Konducta">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-madlib-beat-konducta-series.html">lesson</a> (complete lesson)</p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">08</span>
+        <span class="listen-title">Four Tet — <em>Live at Alexandra Palace</em> (London, 2019)</span>
+        <span class="listen-tag">a laptop set that breathes</span>
+      </summary>
+      <div class="listen-body">
+        <p>Two documented nights (8–9 May 2019, released as a live album) where studio tracks are dissolved into stems and loops, re-captured and re-layered live in Ableton — the workshop’s own DAW operated as a performance resampler at arena scale.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Familiar material entering wrong — a known melody arriving at a new length or pitch because it was re-captured, not replayed.</li>
+          <li>Transitions made by layering the next piece’s material into the current one — capture as a crossfade.</li>
+          <li>Long stretches carried by one loop being slowly re-filtered — restraint as the macro budget.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Compare one passage against its studio version. The live one is looser in structure and rougher at the seams — and that difference is the performance: the material was redeployed, not reproduced. If they sounded identical to you, relisten to the live transition into that track and find the bars that exist in no studio version at all.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Four+Tet+live+Alexandra+Palace+2019" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Four%20Tet%20Live%20at%20Alexandra%20Palace">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-four-tet-live-at-alexandra-palace-london-2019.html">lesson</a> (complete lesson)</p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">09</span>
+        <span class="listen-title">Suzanne Ciani — <em>LIVE Quadraphonic</em> (Gray Area, San Francisco, 2016)</span>
+        <span class="listen-tag">the patch remembers</span>
+      </summary>
+      <div class="listen-body">
+        <p>Her first solo Buchla concert in forty years, performed and mixed live on a 200e: sequences are seized, held, and transformed inside the instrument’s memory while the room hears every decision — capture and redeployment a generation before samplers existed as products.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Sequences that return altered — pitch sets captured into the machine’s memory and re-spoken with new timbre.</li>
+          <li>The mix as performance: space and level ridden live, the lab 027 skill inside this lab’s system.</li>
+          <li>Waves and water imagery built from pure synthesis — material identity created by transformation alone.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Where is the boundary between composition and performance here? There mostly is none — the piece is a system of stored gestures redeployed in time, which is this lab’s thesis on different hardware. Note one moment a stored sequence audibly changed role from lead to texture. If you missed it, relisten to any ten minutes and track a single repeating pitch contour through its costume changes.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Suzanne+Ciani+LIVE+Quadraphonic" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Suzanne%20Ciani%20LIVE%20Quadraphonic">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-suzanne-ciani-live-quadraphonic-gray-area-san-francisco-2016.html">lesson</a> (complete lesson)</p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">10</span>
+        <span class="listen-title">Robert Fripp — Frippertronics (<em>Let the Power Fall</em>, 1979 tour loops)</span>
+        <span class="listen-tag">two tape machines, one ancestor</span>
+      </summary>
+      <div class="listen-body">
+        <p>The ancestor system: a guitar fed into two reel-to-reel recorders with the tape strung between them, every note captured into a long loop that returns seconds later to be played against — live resampling at the speed of crawling tape, performed solo in 1979.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The loop period itself — the seconds between playing a note and meeting it again, the same delay-as-form you built in Block 5.</li>
+          <li>Generational fade: older layers dimming and dulling with each tape pass — degradation composing the decay end of the form.</li>
+          <li>How he plays <em>against</em> his accumulated past — every new note is a duet with the previous minute.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Who is the second performer in this solo music? The system — the loop returns his own decisions as a partner he must answer, which is exactly the relationship your capture loop creates. Name one note choice that only makes sense as a reply to the loop. If the layers washed together, relisten to a piece’s first two minutes, where every entry is still countable.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Robert+Fripp+Frippertronics+Let+the+Power+Fall" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Robert%20Fripp%20Let%20the%20Power%20Fall">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-robert-fripp-frippertronics-let-the-power-fall-1979-tour-loops.html">lesson</a> (complete lesson)</p>
+      </div>
+    </details>
+  </div>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Requirement</div>
+    <p>Your written hypothesis names <strong>where this piece’s capture loop lives</strong> — an instrument built to grab, conditions arranged for a seize, pads played at drummer speed, technique over sample count, one voice become an orchestra, the first capture as the form decision, the flip that adds a downbeat, stems re-captured at scale, a patch that remembers, or tape returning your past as a partner — and what was stolen from the comparison. The target idea across all ten: <strong>an instrument that records itself turns performance into material and back — the loop is the instrument.</strong> What you steal is a structure, never a sound.</p>
+  </div>
+
+  <h2>1 · The two specs — yours to author</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">This is an S4 lab: both specs are authored from the brief alone. The frames below are deliberately blank — the granularity standard is lab 003’s worked example.</p>
+
+  <div class="callout">
+    <div class="callout-label">The brief — constraints only</div>
+    <p>A 6–10 minute <strong>performed</strong> original piece in which every sound after the opening minute has passed through at least one <strong>live resample</strong>. At most <strong>two seed sounds</strong> enter the system; the <strong>mangle set</strong> (max four transforms) is declared before the take. Captures are redeployed in the same take or abandoned — no auditioning, no browsing. Generations are labeled in the recording plan as they stack. Full takes only. Required artifacts: live signal-flow diagram with the resample loop marked · written panic path · one failure rehearsal (a staged bad capture, played through) · recording strategy that captures the performance <em>and</em> each generation · generation map · post-performance fault report. <span class="code">faultType: performance failure</span>.</p>
+  </div>
+
+  <table class="param-table">
+    <caption>System Spec — blank (S4: author from the brief alone)</caption>
+    <tr><td>Inputs</td><td><span class="code">___</span></td></tr>
+    <tr><td>Transforms</td><td><span class="code">___</span></td></tr>
+    <tr><td>Feedback / variation</td><td><span class="code">___</span></td></tr>
+    <tr><td>Constraints</td><td><span class="code">___</span></td></tr>
+    <tr><td>Human role</td><td><span class="code">___</span></td></tr>
+  </table>
+
+  <table class="param-table">
+    <caption>Engineering Spec — blank (S4: author, then correct after the take)</caption>
+    <tr><td>Signal path</td><td><span class="code">___</span></td></tr>
+    <tr><td>Gain plan</td><td><span class="code">___</span></td></tr>
+    <tr><td>Clock / sync</td><td><span class="code">___</span></td></tr>
+    <tr><td>Latency</td><td><span class="code">___</span></td></tr>
+    <tr><td>Stereo / phase</td><td><span class="code">___</span></td></tr>
+    <tr><td>Noise budget</td><td><span class="code">___</span></td></tr>
+    <tr><td>Print strategy</td><td><span class="code">___</span></td></tr>
+    <tr><td>Failure mode</td><td><span class="code">___</span></td></tr>
+    <tr><td>Safety</td><td><span class="code">___</span></td></tr>
+  </table>
+
+  <h2>2 · Bench preflight</h2>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Pre-flight — before the first take</div>
+    </div>
+    <ul>
+      <li>Live signal-flow diagram drawn with the resample loop marked in its own color — performer’s eye view, taped in sight</li>
+      <li>Resample path tested with a 10-second dry run on each route you will use (Digitakt internal · Live resample track) — confirm the capture lands where the diagram says</li>
+      <li>Gain ledger extended per generation: each pass re-crosses the same stages, so headroom is budgeted per generation, not per track</li>
+      <li>Mangle set written: at most four transforms, each with its control located and rehearsed</li>
+      <li>Panic path written next to the surface: mute → limiter → bypass → stop → fallback loop, one gesture per line, rehearsed once</li>
+      <li>Failure rehearsal scheduled: one staged bad capture in a throwaway take, redeployed anyway, before the real takes begin</li>
+      <li>Recording strategy armed: the master print <em>and</em> the per-generation captures both verified after a 30-second dry run; phones at the lab-001 mark</li>
+    </ul>
+  </div>
+
+  <h2>3 · Build</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Build the lab in five passes. Each pass produces an artifact, not just a better-sounding session: a written rule, a printed comparison, a fault entry, and a corrected system sentence.</p>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Build recipe · Live Resampling</div>
+      <h3 class="step-title">Make the performance system audible</h3>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Do this in order</div>
+      <ol class="rules-list">
+        <li><strong>Map the hands.</strong> Limit the rig to six reachable controls. Name every control, its safe range, and what it changes in the form.</li><li><strong>Write the panic path.</strong> Before sound, write the one-gesture mute, bypass, stop, monitor-lower, and save procedure. Rehearse it silently.</li><li><strong>Rehearse without repair.</strong> Run the first minute twice without recording. Fix the map, not the take.</li><li><strong>Print the take.</strong> Record one full take in Live. Do not edit automation after the fact; failed takes are performed again.</li><li><strong>Run the fault.</strong> Trigger the performance fault safely: wrong mute, too-hot feedback, lost loop, or missed cue. Recover using the written panic path.</li>
+      </ol>
+    </div>
+    <div class="signal-flow">
+      <span class="signal-node">Live 12</span>
+      <span class="signal-arrow">↔</span>
+      <span class="signal-node">Digitakt II</span>
+      <span class="signal-arrow">+</span>
+      <span class="signal-node">MicroFreak</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">MOTU M4</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">Print + logbook</span>
+    </div>
+  </div>
+
+  <table class="param-table">
+    <caption>Build artifacts</caption>
+    <tr><td>Rule or hypothesis</td><td>one sentence, written before sound</td></tr>
+    <tr><td>System drawing</td><td>audio path and, where relevant, control path</td></tr>
+    <tr><td>Calibration proof</td><td>macro budget, full take, panic path, and post-take fault log</td></tr>
+    <tr><td>Printed comparison</td><td>neutral / changed / keeper prints, named and gain matched</td></tr>
+    <tr><td>Fault entry</td><td>symptom → cause → fix → prevention rule</td></tr>
+  </table>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Build exit check</div>
+    <p>The lab can move to diagnosis only when the printed audio proves the written rule. If the rule sounds true only while you explain it, simplify the system and print again.</p>
+  </div>
+
+  <h2>4 · Diagnosis &amp; report</h2>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">The full report bundle — ten items, filed in the logbook</div>
+    </div>
+    <ul>
+      <li>Rendered piece — 24-bit WAV, master peaking −3 dBFS, 6–10 minutes, performed in one take</li>
+      <li>Routing diagram — the live signal-flow diagram with the resample loop marked, drawn before, corrected after; the diff is the lesson</li>
+      <li>Recording plan — what was printed, when, at what stage, including every per-generation capture</li>
+      <li>Generation map — each capture: its source, its generation number, its mangle, and where it re-entered</li>
+      <li>Patch notes — the mangle set and the settings that mattered</li>
+      <li>Session notes — including which capture decisions were planned and which were seized</li>
+      <li>Reflection answers, including the listening comparison — which document contributed what to the hypothesis</li>
+      <li>One removal decision — a capture abandoned mid-take, and what abandoning it did to the form</li>
+      <li>Fault entry — symptom, cause, fix, prevention rule (faultType: performance failure)</li>
+      <li>System diff sentence — “I thought the system worked like X; after building it, I discovered it worked like Y.”</li>
+    </ul>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Minimum pass gate:</strong> audible output · routing diagram · fault entry · generation map · system diff. Without these five, the lab is incomplete regardless of audio quality — a musically strong piece cannot bypass the engineering spine.</li>
+    </ul>
+  </div>
+
+  <div class="final">
+    <div class="final-label">Track-lab principle</div>
+    <p>An instrument that can hear itself never runs out of material. The discipline is not making sounds — it is choosing, in time, which ones deserve to become the instrument.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="lab-027.html">
+      <span class="page-nav-direction">Previous</span>
+      ← Lab 027 / Printed Movement
+    </a>
+    <a href="lab-029.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      Lab 029 / Audio Feedback Systems →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Block 7 · Lab 028</div>
+
+</div>
+
+  <script src="../nav.js"></script>
+</body>
+</html>

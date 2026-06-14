@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Replicate — A Self-Running Circuit as Engine</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page-type-rep" id="top">
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu"><span class="hamburger-lines"><span></span><span></span><span></span></span></label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html" class="active"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 4 · Transformation</a><span class="breadcrumb-sep">/</span><span>Replicate: a self-running circuit as engine</span></nav>
+
+  <header class="page-header">
+    <div class="eyebrow">Block 4 · Replication lesson</div>
+    <h1>Replicate: a self-running circuit as engine</h1>
+    <p class="lede">Copy one section of Raymond Scott's sequenced electronic music. Build a self-running repeating pattern, vary it only by slow parameter drift, and compare to the reference at the same loudness.</p>
+  </header>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l4.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs">Labs</a><a href="lab-r4.html" data-section="rebuild">Rebuild</a><a href="capstone-c3.html" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep" class="current">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
+  <div class="callout">
+    <div class="callout-label">The point</div>
+    <p>This drill teaches the record's core mechanism: a circuit runs itself, repeating an ostinato indefinitely, and the only changes are slow drifts of one or two parameters. You are not performing the part — you set a system going and let it run. Do only the steps that make that mechanism audible.</p>
+  </div>
+
+  <table class="param-table">
+    <caption>The system you are replicating</caption>
+    <tr><td>Source record</td><td>Raymond Scott — <em>Soothing Sounds for Baby</em> / <em>Manhattan Research</em></td></tr>
+    <tr><td>The effect</td><td>A hypnotic, tireless repetition that feels generated rather than played, drifting almost imperceptibly</td></tr>
+    <tr><td>The mechanism</td><td>An early sequenced ostinato from a self-running circuit; repetition is the engine, varied only by slow drift of a single parameter</td></tr>
+  </table>
+
+  <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Raymond+Scott+Soothing+Sounds+for+Baby" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Raymond%20Scott%20Soothing%20Sounds%20for%20Baby">Spotify</a></p>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"></path></svg></div>
+      <div class="checklist-label">Before you start</div>
+    </div>
+    <ul>
+      <li>Digitakt II synced to Live (lab 002's clock setup), MicroFreak on its input or sequenced by the Digitakt II</li>
+      <li>Pen and paper to write the one or two parameters you will let drift — and how slowly</li>
+    </ul>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>What you will make:</strong> a short replica of a Scott sequenced section. Focus on this effect: a tireless repetition that feels generated, drifting almost imperceptibly.</li>
+      <li><strong>What you will turn off:</strong> the urge to play a melody by hand, add fills, or "perform" — the circuit performs.</li>
+      <li><strong>What you will prove:</strong> your version and <span class="code">REF</span> use the same core mechanism: a self-running repeating circuit as the engine, varied only by slow parameter drift.</li>
+      <li><strong>What counts as success:</strong> remaining differences are the choice of pattern or sound, not added human performance covering for the system.</li>
+    </ul>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Reference pass · 10 minutes</div>
+      <h3 class="step-title">Listen before you build</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Listen to about one minute of a Scott sequenced piece. Choose the clearest repeating section. Write one short answer for each question before you touch the gear.</p>
+    <ol class="rules-list">
+      <li>How long is the loop before it repeats exactly?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Usually short — a one- or two-bar cell that comes back unchanged. The piece is built on that cell repeating far past the point a human player would vary it, which is the tell that a circuit, not a person, is running it.</p></div></details>
+      </li>
+      <li>Does anything change over the minute, and if so, what exactly?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Very little, and slowly — often a filter opening, a tone brightening, or one element fading in or out across many bars. The notes themselves stay fixed; only a parameter or two creeps. That creep is the only variation you are allowed to add.</p></div></details>
+      </li>
+      <li>Could a person play this, or does it sound machine-locked?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>It sounds machine-locked. The timing is too even and the repetition too patient to be hand-played for that long — the inhuman steadiness is part of the hypnosis, and is exactly what your sequencer should reproduce.</p></div></details>
+      </li>
+      <li>What carries the hypnosis — the pattern, the timbre, or the drift?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>The repetition itself does the heavy lifting; the slow drift keeps it from going dead. Take the drift away and it would still hypnotise but feel static; take the repetition away and there is nothing to hypnotise with. The engine is repetition, the life is drift.</p></div></details>
+      </li>
+    </ol>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Now build the section you described. Do not build from memory.</p>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Sound target:</strong> a fixed repeating cell that runs without intervention, with one or two parameters drifting slowly across many bars.</li>
+      <li><strong>Elements:</strong> the ostinato's notes and rhythm, plus the identity of the drifting parameter(s), transcribed by ear.</li>
+      <li><strong>Steadiness:</strong> the repetition is machine-even, like theirs.</li>
+      <li><strong>Drift:</strong> the change is slow enough that you cannot point to the moment it happens.</li>
+    </ul>
+  </div>
+
+  <h2>Steps</h2>
+
+  <div class="note-block control-map">
+    <ul>
+      <li><strong>Button map for the steps below:</strong> use these controls whenever the lesson names the device.</li>
+      <li><strong>Digitakt II:</strong> press <span class="code">[RECORD]</span> for grid recording, the numbered <span class="code">[TRIG]</span> keys to place hits, and <span class="code">[PLAY]</span> to run the pattern. Press <span class="code">[SRC]</span> and turn DATA ENTRY knob D to choose a sample. Use the LFO page to set a very slow LFO onto filter cutoff or sample start for the drift — the LFO is your "self-running" variation source.</li>
+      <li><strong>Live 12:</strong> <kbd>⌘ T</kbd> creates the audio track to record the loop. If you drift a parameter from Live instead, draw one long, slow automation line across the whole section, not a busy curve.</li>
+      <li><strong>MicroFreak:</strong> if it carries the ostinato, set it monophonic and let the Digitakt II sequence it so the part runs itself. Assign the LFO at a slow rate to cutoff for drift; do not turn knobs by hand during the take.</li>
+      <li><strong>Recorder or phone:</strong> set gain before the take and leave it; capture enough repetitions that the slow drift is audible end to end.</li>
+    </ul>
+  </div>
+
+  <div class="gear-switch"><input type="radio" name="gear" id="gear-hw" class="gear-radio" checked><input type="radio" name="gear" id="gear-sw" class="gear-radio"><input type="radio" name="gear" id="gear-tg" class="gear-radio"><div class="gear-labels"><span class="gear-lead">Your rig</span><label for="gear-hw">MicroFreak + Digitakt II</label><label for="gear-sw">Ableton Live only</label><label for="gear-tg">Analog Rytm MKII · target</label></div><div class="gear-scope"><div class="step">
+    <div class="step-head">
+      <div class="step-num">Phase 1 — ~20 minutes</div>
+      <h3 class="step-title">Set the circuit running</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: build a cell that repeats itself with no input from you. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol class="rules-list">
+        <li>Import the record on a REF track, loop the clearest repeating section, and gain-match with a Utility.</li>
+        <li>Transcribe the ostinato cell — its notes and rhythm — onto one track and let it loop. Match the length of their cell exactly.</li>
+        <li>Chase the timbre of the cell, then leave it. Confirm the loop runs with your hands off the gear.</li>
+        <li>A/B the looping cell against the REF — same notes, same steadiness — before adding any drift.</li>
+      </ol>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Raymond Scott — Soothing Sounds for Baby / Manhattan Research and use Live audio/MIDI tracks, Utility, automation, and resampling.</li><li>Build the phase goal — <em>Set the circuit running</em> — as the smallest Live set that proves <em>An early sequenced ostinato from a self-running circuit; repetition is the engine, varied only by slow drift of a single parameter</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>A hypnotic, tireless repetition that feels generated rather than played, drifting almost imperceptibly</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>Set the circuit running</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>An early sequenced ostinato from a self-running circuit; repetition is the engine, varied only by slow drift of a single parameter</em>, not just the surface of Raymond Scott — Soothing Sounds for Baby / Manhattan Research.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
+    <div class="sub-block">
+      <div class="sub-label">Expected result</div>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A fixed cell that loops indefinitely on its own and A/Bs against the record's repetition as the same engine.</p>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">If it fails</div>
+      <table>
+        <thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead>
+        <tbody>
+          <tr><td>Your loop already sounds busier than theirs</td><td>You added notes the cell does not have</td><td>Strip back to exactly the cell you can point to in the REF; the circuit is minimal</td></tr>
+          <tr><td>It sounds hand-played, not machine-locked</td><td>Swing or micro-timing left on, or you triggered it live</td><td>Zero the swing and let the sequencer run it; the inhuman evenness is the point</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Phase 2 — ~20 minutes</div>
+      <h3 class="step-title">Add one slow drift and record it running</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: vary only by slow drift, hands off. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+    <div class="signal-flow">
+      <span class="signal-node">self-running cell (Digitakt II)</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">slow drift on one parameter</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">master</span>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol class="rules-list">
+        <li>Pick the one or two parameters that drift in the REF (filter, tone, a fade) and assign a very slow LFO or one long automation line to them.</li>
+        <li>Set the drift so its full sweep takes many bars — slow enough that you cannot name the moment it changes.</li>
+        <li><strong>Record the section running</strong> for enough repetitions that the drift completes, hands off the gear the whole time.</li>
+        <li>A/B against the REF — does yours drift as patiently as theirs?</li>
+      </ol>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Raymond Scott — Soothing Sounds for Baby / Manhattan Research and use audio clips, Simpler/Sampler, clip envelopes, and resampling.</li><li>Build the phase goal — <em>Add one slow drift and record it running</em> — as the smallest Live set that proves <em>An early sequenced ostinato from a self-running circuit; repetition is the engine, varied only by slow drift of a single parameter</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>A hypnotic, tireless repetition that feels generated rather than played, drifting almost imperceptibly</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>Add one slow drift and record it running</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>An early sequenced ostinato from a self-running circuit; repetition is the engine, varied only by slow drift of a single parameter</em>, not just the surface of Raymond Scott — Soothing Sounds for Baby / Manhattan Research.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
+    <div class="sub-block">
+      <div class="sub-label">Expected result</div>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A captured section where the cell never changes but one parameter creeps so slowly the variation is felt, not seen.</p>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">If it fails</div>
+      <table>
+        <thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead>
+        <tbody>
+          <tr><td>The change is obvious and event-like</td><td>Drift too fast or too deep</td><td>Slow the LFO / stretch the automation until you cannot point to where it moved</td></tr>
+          <tr><td>It feels dead and static</td><td>No drift at all, or drift on an inaudible parameter</td><td>Move the drift onto something the ear tracks — usually filter cutoff or brightness</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Phase 3 — ~15 minutes</div>
+      <h3 class="step-title">A/B at matched loudness, then write the diff</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: verify against the record at honest level. Follow the steps in order.</p>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol class="rules-list">
+        <li><strong>Match loudness</strong> so 10 seconds of yours and 10 of theirs feel equally loud, then switch between them.</li>
+        <li><strong>Write the diff:</strong> whether your repetition feels as machine-locked as theirs, and whether your drift is slower or faster than the record's.</li>
+      </ol>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Raymond Scott — Soothing Sounds for Baby / Manhattan Research and use Live audio/MIDI tracks, Utility, automation, and resampling.</li><li>Build the phase goal — <em>A/B at matched loudness, then write the diff</em> — as the smallest Live set that proves <em>An early sequenced ostinato from a self-running circuit; repetition is the engine, varied only by slow drift of a single parameter</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>A hypnotic, tireless repetition that feels generated rather than played, drifting almost imperceptibly</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>A/B at matched loudness, then write the diff</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>An early sequenced ostinato from a self-running circuit; repetition is the engine, varied only by slow drift of a single parameter</em>, not just the surface of Raymond Scott — Soothing Sounds for Baby / Manhattan Research.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
+    <div class="sub-block">
+      <div class="sub-label">Expected result</div>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A short written diff naming where you performed instead of letting the circuit run, and how your drift rate compares to theirs.</p>
+    </div>
+  </div>
+
+  </div></div><div class="decision-check">
+    <div class="decision-check-label">Verify against the record</div>
+    <p>A/B your section against the same stretch of the Scott piece — 10 seconds of yours, 10 of theirs, matched loudness. Then answer two questions in writing.</p>
+    <p><strong>Does yours feel generated, or do you hear a hand in it?</strong></p>
+    <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>If you hear yourself making decisions — a fill, an accent, a tweak — the circuit is not running the piece, you are, and the drill failed. The mechanism is proven when nothing happens that you did not set going in advance, and the section sustains itself with your hands off.</p></div></details>
+    <p><strong>Is your drift as patient as theirs?</strong></p>
+    <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Almost certainly it is too fast — beginners rush the change because the loop feels like it needs help. Scott trusts the repetition and lets the parameter creep over far more bars than feels safe. If your drift completes in a few bars and theirs takes the whole minute, slow yours down.</p></div></details>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Logbook — the miss list, three lines:</strong> "Matched: …" · "Missed: … (best guess why)" · "Change next: …"</li>
+      <li>These three lines feed the full miss list in <a href="lab-r4.html">replication lab R4</a>.</li>
+      <li>And one more line — which single drifting parameter did the most to keep the loop alive.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="listening-l4.html"><span class="page-nav-direction">Back</span>Listening L4</a>
+    <a href="index.html" class="next"><span class="page-nav-direction">Block</span>Block 4 index →</a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Block 4 · Replication lesson</div>
+
+</div>
+
+  <script src="../nav.js"></script>
+</body>
+</html>

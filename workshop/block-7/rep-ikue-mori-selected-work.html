@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Replicate — Pre-Built Cells, Performed Live</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page-type-rep" id="top">
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu"><span class="hamburger-lines"><span></span><span></span><span></span></span></label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html" class="active"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 7 · Performance</a><span class="breadcrumb-sep">/</span><span>Replicate: a drum machine played as a live voice</span></nav>
+
+  <header class="page-header">
+    <div class="eyebrow">Block 7 · Replication lesson</div>
+    <h1>Replicate: a drum machine played as a live voice</h1>
+    <p class="lede">Copy one mechanism from Ikue Mori — <em>Garden</em>: build a bank of small rhythmic cells in advance, then perform them — triggering, layering, muting and mutating them by hand in real time so the machine answers itself instead of looping. Build a short take on the rig and compare it to the reference at the same loudness.</p>
+  </header>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l7.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs">Labs</a><a href="lab-r7.html" data-section="rebuild">Rebuild</a><a href="capstone-c6.html" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep" class="current">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
+
+  <div class="callout">
+    <div class="callout-label">The point</div>
+    <p>This drill teaches the record's core mechanism: the composition is done in advance, but only as a vocabulary of cells — the music is the live recombination of them. You decide which cell next, when to cut, when to layer, when to mutate, in the moment. You are stealing the structure (pre-built cells, performed live), never Mori's exact rhythms.</p>
+  </div>
+
+  <table class="param-table">
+    <caption>The system you are replicating</caption>
+    <tr><td>Source work</td><td>Ikue Mori — <em>Garden</em> (1996), her drum-machine improvisation work</td></tr>
+    <tr><td>The effect</td><td>A drum machine sounds like a live, responsive voice — intricate non-grooving cells that start, stop, mutate and collide in real time, answering each other rather than running on loop</td></tr>
+    <tr><td>The mechanism</td><td>A bank of short rhythmic and sonic cells is authored offline; the piece is performed by triggering, layering, muting, retriggering and recombining those cells live as an improvised line</td></tr>
+  </table>
+
+  <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Ikue+Mori+Garden" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Ikue%20Mori%20Garden">Spotify</a></p>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"></path></svg></div>
+      <div class="checklist-label">Before you start</div>
+    </div>
+    <ul>
+      <li>Digitakt II as the centerpiece — empty project ready for several short patterns/cells, with pattern chaining, mutes, retrig, conditional trigs and parameter locks all reachable by hand while playing</li>
+      <li>Live open to capture one continuous take (one armed audio track) and to host light processing; MicroFreak ready for a pitched cell accent</li>
+      <li>Free VCV Rack if you want an extra generative cell source; pen and paper to name each cell as a distinct gesture</li>
+    </ul>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>What you will make:</strong> a short live take. Focus on this effect: a machine that recombines pre-built cells in real time, like a voice answering itself.</li>
+      <li><strong>What you will turn off:</strong> a steady groove, a single looping pattern, and any post-take editing of the performance.</li>
+      <li><strong>What you will prove:</strong> your version and <span class="code">REF</span> use the same core mechanism: cells composed in advance, the music made by live recombination decisions.</li>
+      <li><strong>What counts as success:</strong> remaining differences are cell-content choices or rig limits, not missing steps.</li>
+    </ul>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Reference pass · 12 minutes</div>
+      <h3 class="step-title">Listen before you build</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Listen to three to four minutes of <em>Garden</em>. Write one short answer per question before you touch the gear.</p>
+    <ol class="rules-list">
+      <li>Does the material loop, or are patterns being switched and recombined live?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Recombined live. A figure appears, then is dropped, retriggered, or stacked with another — you never hear a bar repeat unchanged for long. The give-away is that returns are never identical; a loop would be.</p></div></details>
+      </li>
+      <li>Is there a steady groove you could nod to, or do cells start and stop unpredictably?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>No steady groove. Cells enter and cut off on their own logic, not on a downbeat you can anticipate. The pulse, where it exists at all, belongs to a single cell, not to the whole piece.</p></div></details>
+      </li>
+      <li>Roughly how many distinct cells can you count?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>A handful — usually five to eight recognizable gestures that keep returning in new orders and combinations. The richness comes from recombining a small vocabulary, not from endless new material.</p></div></details>
+      </li>
+      <li>Does it feel pre-sequenced or decided in the moment — and what tells you?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Decided in the moment. The timing of cuts, overlaps and collisions has the slight unevenness of a hand making choices; a programmed track would place transitions on grid every time. The asymmetry is the tell.</p></div></details>
+      </li>
+    </ol>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Now build the mechanism you described. Do not try to reproduce her actual rhythms.</p>
+  </div>
+
+  <h2>Steps</h2>
+
+  <div class="gear-switch"><input type="radio" name="gear" id="gear-hw" class="gear-radio" checked><input type="radio" name="gear" id="gear-sw" class="gear-radio"><input type="radio" name="gear" id="gear-tg" class="gear-radio"><div class="gear-labels"><span class="gear-lead">Your rig</span><label for="gear-hw">MicroFreak + Digitakt II</label><label for="gear-sw">Ableton Live only</label><label for="gear-tg">Analog Rytm MKII · target</label></div><div class="gear-scope"><div class="step">
+    <div class="step-head">
+      <div class="step-num">Phase 1 — ~25 minutes</div>
+      <h3 class="step-title">Author a bank of small cells offline</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: write the vocabulary — distinct gestures, none of them a finished beat.</p>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol class="rules-list">
+        <li><strong>Build five to eight short patterns,</strong> one cell each — e.g. a stuttered hat figure, a single low knock on odd steps, a metallic ping cluster, a short noise burst. Each is one idea, not a full kit playing.</li>
+        <li>Keep them deliberately incomplete: a cell should sound unfinished alone, so it only becomes music when combined with another.</li>
+        <li>Add one pitched cell — a short melodic or tonal gesture — sampled into the Digitakt II or kept live for an accent.</li>
+        <li>Name each cell on paper as a gesture ("stutter", "knock", "ping", "noise", "ping-pitched"). This named bank is your composition-in-advance.</li>
+      </ol>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from the reference and use Drum Rack, MIDI clips, Groove Pool, and clip automation.</li><li>Build the phase goal — <em>Author a bank of small cells offline</em> — as the smallest Live set that proves <em>A bank of short rhythmic and sonic cells is authored offline; the piece is performed by triggering, layering, muting, retriggering and recombining those cells live as an improvised line</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>A drum machine sounds like a live, responsive voice — intricate non-grooving cells that start, stop, mutate and collide in real time, answering each other rather than running on loop</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>Author a bank of small cells offline</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>A bank of short rhythmic and sonic cells is authored offline; the piece is performed by triggering, layering, muting, retriggering and recombining those cells live as an improvised line</em>, not just the surface of the reference.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
+    <div class="sub-block">
+      <div class="sub-label">Expected result</div>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A bank of five to eight named cells, each a distinct gesture, none of them a self-sufficient loop.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Phase 2 — ~30 minutes</div>
+      <h3 class="step-title">Set up live performance controls</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: make every recombination move doable by hand, in real time, without stopping.</p>
+    <div class="signal-flow">
+      <span class="signal-node">cell bank (Digitakt II patterns)</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">live controls: switch · mute · retrig · p-lock</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">captured take (Live)</span>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol class="rules-list">
+        <li><strong>Set up performance-style pattern switching</strong> so you can jump from any cell to any other on the fly, and chain a couple where useful — but leave the order open, not fixed.</li>
+        <li>Map mutes per track so you can drop and add cell layers instantly, and learn the retrig hold so a cell can stutter on demand.</li>
+        <li>Pick one or two parameters per cell (filter, pitch, sample start) you will p-lock or twist live, so a cell can mutate as you play it.</li>
+        <li>Arm one audio track to capture the whole performance; run a rehearsal pass to confirm every move is reachable without looking down for long.</li>
+      </ol>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from the reference and use Drum Rack, MIDI clips, Groove Pool, and clip automation.</li><li>Build the phase goal — <em>Set up live performance controls</em> — as the smallest Live set that proves <em>A bank of short rhythmic and sonic cells is authored offline; the piece is performed by triggering, layering, muting, retriggering and recombining those cells live as an improvised line</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>A drum machine sounds like a live, responsive voice — intricate non-grooving cells that start, stop, mutate and collide in real time, answering each other rather than running on loop</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>Set up live performance controls</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>A bank of short rhythmic and sonic cells is authored offline; the piece is performed by triggering, layering, muting, retriggering and recombining those cells live as an improvised line</em>, not just the surface of the reference.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
+    <div class="sub-block">
+      <div class="sub-label">Expected result</div>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">A layout where switching, muting, retriggering and mutating any cell is a single hand move — the rig is now an instrument, not a sequencer.</p>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">If it fails</div>
+      <table>
+        <thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead>
+        <tbody>
+          <tr><td>You have to stop to change anything</td><td>Moves buried in menus, not on performance controls</td><td>Pre-assign pattern switch, mutes and one p-lock per cell to surfaces you can hit blind while playing</td></tr>
+          <tr><td>Cells only follow a fixed chain</td><td>You locked the order in advance</td><td>Leave switching free; chaining is a fallback, not the plan — the order must be a live choice</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Phase 3 — ~30 minutes</div>
+      <h3 class="step-title">Perform one continuous take, recombining live</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: improvise the recombination — switch, layer, cut, mutate — responding to what just happened, no editing after.</p>
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol class="rules-list">
+        <li><strong>Hit record and play one cell.</strong> Then make every next move a reaction to the last: answer a stutter with silence, a knock with a ping, a build with a cut.</li>
+        <li>Force yourself to recombine, not settle: never leave one cell looping more than a few bars before switching, muting, layering or mutating it.</li>
+        <li>Let cells collide on purpose — overlap two for a moment, then drop one — and twist a p-lock so a returning cell comes back changed.</li>
+        <li>Run the take to a natural end and keep it whole. Do not edit, quantize or comp afterward — the live decisions are the music.</li>
+      </ol>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from the reference and use Drum Rack, MIDI clips, Groove Pool, and clip automation.</li><li>Build the phase goal — <em>Perform one continuous take, recombining live</em> — as the smallest Live set that proves <em>A bank of short rhythmic and sonic cells is authored offline; the piece is performed by triggering, layering, muting, retriggering and recombining those cells live as an improvised line</em>.</li><li>Keep every source on named tracks, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects <em>A drum machine sounds like a live, responsive voice — intricate non-grooving cells that start, stop, mutate and collide in real time, answering each other rather than running on loop</em>.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Analog Rytm MKII for this phase: translate <em>Perform one continuous take, recombining live</em> into drum voices or samples, trig conditions, parameter locks, scenes, performance macros, and main-out recording.</li><li>Program the pattern, source, or control path so it demonstrates <em>A bank of short rhythmic and sonic cells is authored offline; the piece is performed by triggering, layering, muting, retriggering and recombining those cells live as an improvised line</em>, not just the surface of the reference.</li><li>Keep one clear performance control for the main change in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the same mechanism stays audible.</li></ol></div></div></div></div>
+    <div class="sub-block">
+      <div class="sub-label">Expected result</div>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">One unedited take where a small bank of cells is recombined in real time — no bar repeats unchanged, and the transitions carry the unevenness of a hand deciding.</p>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">If it fails</div>
+      <table>
+        <thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead>
+        <tbody>
+          <tr><td>It settles into a loop and grooves</td><td>You stopped deciding and let a cell run</td><td>Set a hard rule — change something every few bars — and treat any steady groove as a failure to recombine</td></tr>
+          <tr><td>It sounds busy but not responsive</td><td>Moves are random, not answers to the last gesture</td><td>Listen, then react: each move should comment on the previous cell, not just add more on top</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  </div></div><div class="decision-check">
+    <div class="decision-check-label">Verify against the work</div>
+    <p>A/B your take against a few minutes of <em>Garden</em> — matched loudness, 15 seconds of yours, 15 of theirs. Then answer two questions in writing.</p>
+    <p><strong>Does yours recombine live the way theirs does, or does it fall into a loop?</strong></p>
+    <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>If any stretch of yours repeats unchanged while theirs keeps reshaping a small vocabulary, you stopped performing and let the machine run. Live recombination is the proof you played the cells rather than sequenced them.</p></div></details>
+    <p><strong>Do your transitions have the hand-made unevenness theirs has?</strong></p>
+    <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Theirs cuts and overlaps land slightly off-grid because a person decided them; if yours all snap to the downbeat, the take reads as programmed. The asymmetry is the signature of a real-time decision.</p></div></details>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Logbook — the miss list, three lines:</strong> "Matched: …" · "Missed: … (best guess why)" · "Change next: …" — e.g. "Missed: fell into a loop instead of recombining."</li>
+      <li>Note which single cell carried the most weight in the take — that is the one to build the next bank around.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav"><a href="listening-l7.html"><span class="page-nav-direction">Back</span>Listening L7</a><a href="index.html" class="next"><span class="page-nav-direction">Block</span>Block 7 index →</a></div>
+  <div class="footer">Experimental Music Workshop — Block 7 · Replication lesson</div>
+</div>
+  <script src="../nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab 021 — Monitoring &amp; Translation</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page-type-lab" id="top">
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="../block-2/index.html"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="index.html" class="active"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 5 · Space &amp; Mix</a><span class="breadcrumb-sep">/</span><span>Monitoring &amp; Translation</span></nav>
+
+  <header class="page-header">
+    <div class="eyebrow">Block 5 · Lab 021 · Bench</div>
+    <h1>Monitoring &amp; Translation</h1>
+    <p class="lede">Every mix you have made so far was a private agreement between you and the DT 990s. This bench lab breaks the agreement: the same mix is summed to mono, metered for correlation, audited for width, and marched through every speaker you own — and what survives the trip is the mix. Lab 019's single mono check becomes a standing discipline here.</p>
+  </header>
+  <p class="block-meta">Bench lab · S3 · E3 · mix translation studies · full cycle · new concepts: 5</p>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l5.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs" class="current">Labs</a><a href="lab-r5.html" data-section="rebuild">Rebuild</a><a href="capstone-c4.html" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
+
+  <div class="signal-flow">
+    <span class="signal-node">listen</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">hypothesis</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">map the monitors</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">mono ritual</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">meter correlation</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">width audit</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">walk the systems</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">report</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">delta</span>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Start here</div>
+    </div>
+    <ul>
+      <li>Run the ten listening references below first; every one is a mix that survived systems its makers never controlled.</li>
+      <li>Save a new set as <span class="code">LAB-021-translation</span> and load your lab 018, 019, and 020 prints into it — your own recent mixes are this lab's test material.</li>
+      <li>This is an S3 bench lab: the monitoring map and translation spec are authored by you, from the guided prompts below, before any checking begins.</li>
+      <li>Rig: Live 12, the M4, the DT 990 Pros, whatever speakers exist on the bench — and your phone's built-in speaker, which is this lab's most honest critic.</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The point</div>
+    <p>A mix does not live on your headphones; it lives on every system you will never control. Translation — the mix still being itself on all of them — is not luck, it is a set of checkable properties: mono survival, sane correlation, width that was paid for on purpose. This lab installs the checks as ritual.</p>
+  </div>
+
+  <h2>How this lab works</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3 class="card-title">Know your lens</h3>
+      <ul class="card-points">
+        <li>Map every playback path on the bench: DT 990s, speakers if present, laptop, phone speaker.</li>
+        <li>Write what each one lies about — the 990s have no room, the phone has no bass.</li>
+        <li>A monitoring chain is a lens; you cannot judge a mix without knowing the lens's distortion.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">Install the rituals</h3>
+      <ul class="card-points">
+        <li>The mono check ritual — one click, performed at fixed moments, not when curious.</li>
+        <li>Correlation metering — a number watched while the mix plays, logged per section.</li>
+        <li>The width audit — every track asked what is in its sides and what that width cost.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="card-title">File the report</h3>
+      <ul class="card-points">
+        <li>One recent mix walked through every system, element by element.</li>
+        <li>Each element graded per system: survives, changes, vanishes — plus the fix.</li>
+        <li>The translation report format below becomes the exit paperwork for every future mix.</li>
+      </ul>
+    </div>
+  </div>
+
+  <table class="param-table">
+    <caption>Pass standard</caption>
+    <tr><td>Minimum pass</td><td>Monitoring map, completed translation report on one of your own mixes, correlation log, fault entry, and system diff exist.</td></tr>
+    <tr><td>Solid pass</td><td>You can predict, before pressing the mono button, which element of your mix will suffer most — and be right, with the correlation meter explaining why.</td></tr>
+    <tr><td>Advanced transfer</td><td>Handed an unfamiliar mix, you can produce a translation report on it in one sitting and name which monitoring decision its maker skipped.</td></tr>
+  </table>
+
+  <h2>New concepts — in plain words</h2>
+
+  <table>
+    <tr><th>Concept</th><th>In plain words</th></tr>
+    <tr><td><strong>Translation</strong></td><td>A mix's ability to remain itself on systems it was not made on — the club rig, the kitchen radio, the phone on a table. Not "sounding the same," which is impossible, but keeping its balances, its weight, and its point. Translation is the only property of a mix that strangers will ever hear.</td></tr>
+    <tr><td><strong>Mono collapse</strong></td><td>Summing left and right into one channel — which is what phone speakers, many Bluetooth boxes, and most rooms at a distance do anyway. Identical content in both sides adds up; opposite (out-of-phase) content cancels and vanishes. The mono button does not break your mix; it reveals which parts were already broken.</td></tr>
+    <tr><td><strong>Phase &amp; correlation</strong></td><td>Two channels carrying the same wave shifted against each other are "out of phase" — they fight when summed. A correlation meter scores the fight: +1 means the sides agree (dual mono), around 0 means they are independent (wide but at risk), negative means they oppose (mono will cancel them). It is a fuel gauge for how much collapse the mix can afford.</td></tr>
+    <tr><td><strong>Width</strong></td><td>The part of the signal where the sides differ — the side channel, in mid/side terms. Width is not free space; it is content spent on disagreement between the speakers, and mono is the bill collector. Deliberate width survives the audit because you know what is out there and why.</td></tr>
+    <tr><td><strong>Room vs phones</strong></td><td>Headphones remove the room and hand each ear its own channel — no crossfeed, no reflections, width exaggerated, bass honest but placeless. A speaker plays the room as much as the mix: reflections, modes, and the wall behind the woofer all join the band. Neither tells the truth; together they bracket it.</td></tr>
+    <tr><td><strong>Mid/side (M/S)</strong></td><td>The same stereo signal seen as two different channels: the <em>mid</em> is what both speakers share (left plus right — the mono-proof core), the <em>side</em> is what they disagree on (left minus right — the width). Encode to M/S and you can process the centre and the edges separately: tighten the mid for translation, EQ or limit the side without touching the spine. It is the same information as left/right, rotated so that mono survival and width become two knobs instead of one tangle.</td></tr>
+    <tr><td><strong>Haas / precedence effect</strong></td><td>Two copies of a sound a few milliseconds apart fuse into one event that you localise toward whichever copy arrives <em>first</em> — your ears ignore the later copy for direction even when it is equally loud. Up to roughly 30 ms it widens and places; past that it splits into an audible echo. Free width, but bought on credit: a Haas-delayed pair is two channels in near-opposition, so it is the first thing to thin or comb when the mix collapses to mono. Width by timing must pass the same correlation audit as width by level.</td></tr>
+    <tr><td><strong>Multichannel / quad</strong></td><td>Stereo's two channels are not the only destination. Quadraphonic and other multichannel formats place the listener inside a ring of speakers, so panning becomes a position in the room rather than a point on a line — and the mono/stereo translation problem multiplies into "does it survive a fold-down to fewer speakers?" Block 7's performance work features Suzanne Ciani's quadraphonic Buchla sets, where the four-corner field is the instrument; the translation discipline installed here is the prerequisite for thinking in more than two channels there.</td></tr>
+  </table>
+
+  <div class="tag-row">
+    <span class="tag">translation</span>
+    <span class="tag">mono collapse</span>
+    <span class="tag">phase &amp; correlation</span>
+    <span class="tag">width</span>
+    <span class="tag">room vs phones</span>
+    <span class="tag">mid/side</span>
+    <span class="tag">Haas / precedence</span>
+    <span class="tag">multichannel / quad</span>
+  </div>
+
+  <h2>Listening — the hypothesis source</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Ten mixes that are canonical translation benchmarks — records that survive every system on earth because someone checked. Each gets a brief: what to listen for before you press play, and how to check yourself after. Where the brief says "both ways," that means once on the DT 990s and once on the phone speaker — this lab's listening is done twice by design.</p>
+
+  <div class="listen-acc">
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">01</span>
+        <span class="listen-title">Michael Jackson — “Billie Jean”</span>
+        <span class="listen-tag">the small-speaker benchmark</span>
+      </summary>
+      <div class="listen-body">
+        <p>Bruce Swedien mixed it over and over until Quincy Jones was satisfied — and auditioned it on small speakers at low level, because that is where records are actually heard. Four decades later it is still the track engineers reach for to test a system. This is the lab's anchor: translation as a deliberate, checked property.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The bassline staying fully legible on the phone speaker — no sub, and yet nothing missing from the line.</li>
+          <li>How few elements sound at once: kick, bass, hat, voice, one stab — every one separated by register, not by volume war.</li>
+          <li>The space around the voice — a small, controlled room sound that reads identically on every system.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Play it both ways. What changed between the 990s and the phone? Almost nothing that matters: the groove, the balance, and the voice arrive intact, because the mix's information lives in the mids where every speaker works. That is not an accident of the song — it is where Swedien chose to put everything. If the two listenings felt genuinely different, relisten on the phone and ask which element you missed; then find it on the 990s and notice it was an ornament, never a load-bearing wall.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Michael+Jackson+Billie+Jean" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Michael%20Jackson%20Billie%20Jean">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-michael-jackson-billie-jean.html">lesson</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">02</span>
+        <span class="listen-title">Steely Dan — “Babylon Sisters”</span>
+        <span class="listen-tag">engineered to survive anything</span>
+      </summary>
+      <div class="listen-body">
+        <p>Roger Nichols's engineering on <em>Gaucho</em> is a byword for precision: every element placed, every level defended, nothing masking anything. Mastering engineers have used it for decades to audition rooms and monitors — a mix so resolved it exposes the playback system instead of the other way around.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Separation without gaps: a dense arrangement where you can nonetheless follow any single instrument at will.</li>
+          <li>The drum sound's consistency — the same kit, the same weight, on phones, speakers, and phone speaker.</li>
+          <li>Width used conservatively: the power is in the center; the sides carry color, never cargo.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Pick one quiet element — a background vocal, the shaker — and follow it through both listenings. It never disappears, because nothing in the mix is allowed to sit where another element needs to be: translation here is masking control, decided element by element. If the track just read as "smooth," relisten and count how many simultaneous parts you can isolate at one moment — then try that on one of your own mixes and feel the difference the discipline makes.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Steely+Dan+Babylon+Sisters" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Steely%20Dan%20Babylon%20Sisters">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-steely-dan-babylon-sisters.html">lesson</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">03</span>
+        <span class="listen-title">Kraftwerk — <em>Tour de France Soundtracks</em></span>
+        <span class="listen-tag">the system-check record</span>
+      </summary>
+      <div class="listen-body">
+        <p>Kling Klang precision at album length: subs, clicks, voices, and synthetic air balanced so cleanly that the record doubles as test material — electronic music's equivalent of an alignment tape. (Their “Numbers” is homed in Block 3 as a rhythm study; here the lens is the mix.)</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The bottom octave: sub-bass that is felt on the 990s, implied on small speakers, and never muddy on either.</li>
+          <li>Transient detail — clicks and hats with exact edges that survive every system at every level.</li>
+          <li>The stereo image's restraint: wide air, but every rhythmic and melodic anchor planted dead center.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Sum a track to mono in your head's absence — actually do it, through Live with the file playing. What dropped? Air, a little size — and nothing else: no element vanished, no level relationship changed, because the image was built as decoration over a mono-proof skeleton. That skeleton-first architecture is what your width audit looks for. If mono sounded merely "smaller," that is the correct answer — relisten and notice that smaller is the <em>only</em> casualty.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Kraftwerk+Tour+de+France+Soundtracks" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Kraftwerk%20Tour%20de%20France%20Soundtracks">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-kraftwerk-tour-de-france-soundtracks.html">lesson</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">04</span>
+        <span class="listen-title">Marvin Gaye — “I Heard It Through the Grapevine”</span>
+        <span class="listen-tag">depth with no stereo at all</span>
+      </summary>
+      <div class="listen-body">
+        <p>A Motown mono-era single, mixed for one AM radio speaker — and one of the deepest-sounding records ever made. Proof, before the lab asks you to believe it, that depth, drama, and space are level and register decisions, not stereo ones.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>Foreground, middle ground, background — a full sense of near and far with zero left-right information.</li>
+          <li>How the arrangement takes turns: strings, backing voices, and keys entering where the voice leaves gaps in time, not in panorama.</li>
+          <li>The voice riding clearly above an enormous band on a speaker the size of a coin.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Where did the depth come from, with no sides to put anything in? From level, reverb, and register — every element given its own distance from the listener and its own slice of spectrum. This is the mono check ritual's deepest lesson inverted: a mix that has depth in mono can only gain from stereo, while a mix that needs stereo to have depth has none. If it read as simply "old," relisten on the phone speaker — the one playback situation it was literally engineered for — and notice it beats most modern mixes there.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Marvin+Gaye+I+Heard+It+Through+the+Grapevine" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Marvin%20Gaye%20I%20Heard%20It%20Through%20the%20Grapevine">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-marvin-gaye-i-heard-it-through-the-grapevine.html">lesson</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">05</span>
+        <span class="listen-title">Massive Attack — “Angel”</span>
+        <span class="listen-tag">sub that survives its own absence</span>
+      </summary>
+      <div class="listen-body">
+        <p>A bass riff that lives in the sub octave, and a mix whose menace must — and does — survive small speakers that cannot reproduce a single hertz of it. The canonical study in making low end translate by what you stack on top of it.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The bass on the 990s: physical sub weight under the riff. Then the same riff on the phone: no sub, same menace.</li>
+          <li>The harmonics doing the carrying — the grit and mids of the bass tone that small speakers reconstruct the fundamental from.</li>
+          <li>The vast space around the voice that stays vast even when the speaker is tiny.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>What actually transmitted the bassline on the phone speaker? Its overtones — the distortion and mid content riding an octave and more above the fundamental. The sub itself never arrived, and the riff did anyway: low end translates by its upper half, which is why a pure sine sub is the least portable bass on earth. If both listenings felt bass-identical, your phone is better than most — relisten on the laptop instead and watch the same survival trick work again.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Massive+Attack+Angel" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Massive%20Attack%20Angel">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-massive-attack-angel.html">lesson</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">06</span>
+        <span class="listen-title">Portishead — “Roads”</span>
+        <span class="listen-tag">fragility that translates</span>
+      </summary>
+      <div class="listen-body">
+        <p>A whisper-quiet Rhodes, a voice on the edge of breaking, strings, and air — the kind of delicate mix that should die on bad systems, and does not. Quiet intensity engineered to survive, the inverse of loudness-as-insurance.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>How quiet the loudest moment really is — and how big it feels anyway, because the dynamic floor below it is quieter still.</li>
+          <li>The Rhodes tremolo's position: dead center, mid register, untouchable by any system's weaknesses.</li>
+          <li>The hiss and vinyl texture — noise kept deliberately, sitting below the music on every system instead of swallowing it on the bad ones.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Did the song lose its fragility on the phone speaker? It should not have: the dynamics are carried by relationships between levels, and relationships survive any speaker even when absolute weight does not. Fragile mixes fail in translation when their detail lives at the spectral extremes; this one keeps every emotional load-bearing element in the protected middle. If it did thin out for you, relisten and separate what got smaller (the air, the lows) from what got lost (nothing) — that distinction is the translation report's grading scale, learned by ear.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Portishead+Roads" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Portishead%20Roads">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-portishead-roads.html">lesson</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">07</span>
+        <span class="listen-title">Daft Punk — “Get Lucky” (<em>Random Access Memories</em>)</span>
+        <span class="listen-tag">the modern dynamics benchmark</span>
+      </summary>
+      <div class="listen-body">
+        <p>Mixed and mastered against the loudness war on purpose — wide-band, dynamic, and quieter than its chart neighbors — and it translated to every radio, club, and earbud on the planet anyway. The modern proof that headroom is a translation strategy, not a sacrifice.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The drum kit's dynamics: hits that actually get louder and softer, surviving systems that compress everything else into wallpaper.</li>
+          <li>Each layer's discipline — bass, guitar, voice, pads stacked over a groove with no element fighting for the same inch.</li>
+          <li>How the choruses grow by addition and level, not by slamming a limiter — growth that still reads at phone-speaker size.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Compare its apparent loudness with any recent track at matched volume: quieter on the meter, bigger in the ear, because the preserved dynamics give every system something to do. Translation is not only spectral — a mix with headroom survives the bad limiters and tiny amps downstream better than a pre-crushed one. If it simply sounded "expensive," relisten to the drums alone on both systems and count the level changes within one bar; that count is the headroom, audible.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Daft+Punk+Get+Lucky" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Daft%20Punk%20Get%20Lucky">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-daft-punk-get-lucky-random-access-memories.html">lesson</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">08</span>
+        <span class="listen-title">Billie Eilish — “bad guy”</span>
+        <span class="listen-tag">the bedroom that translated</span>
+      </summary>
+      <div class="listen-body">
+        <p>Produced in a bedroom on modest monitoring, built on a sub-bass line and a near-whispered voice — and it translated to every system in the world. The contemporary proof that translation comes from decisions and checking, not from an expensive room.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The sub line on the 990s: enormous, dry, controlled. On the phone: reduced to its click and its pattern — and the groove survives.</li>
+          <li>The whispered vocal's compression and closeness — intelligible at any volume on any speaker, because its dynamics were tamed at the source.</li>
+          <li>How empty the arrangement is: kick, sub, voice, snaps — emptiness as insurance, nothing to mask anything.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>What carries the track when the sub is physically absent? The pattern — the rhythmic placement of the sub notes reads through their attacks alone, so the bassline functions as percussion when it cannot function as bass. Note also what the sparseness buys: with five elements there is nothing to collapse, nothing to cancel, nothing to mask — translation by subtraction, which is lab 022's whole subject arriving early. If the phone listening lost the groove, relisten and tap the bass pattern with a finger; you will find your finger knows it anyway.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Billie+Eilish+bad+guy" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Billie%20Eilish%20bad%20guy">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-billie-eilish-bad-guy.html">lesson</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">09</span>
+        <span class="listen-title">The Knife — “Silent Shout”</span>
+        <span class="listen-tag">club width vs laptop truth</span>
+      </summary>
+      <div class="listen-body">
+        <p>A deep sub pulse under wide, detuned, pitch-shifted voices — a mix that lives twice: as physical pressure on a club system and as an eerie miniature on small speakers. The two lives are different, and both were clearly checked.</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The pulse on the 990s — a sub event with almost no attack. Then on the phone: nearly gone, while the track's dread is not.</li>
+          <li>The doubled voices' width — sides full of detuned content; predict what mono does to them before you test it.</li>
+          <li>The arpeggio's register: placed exactly where every system can carry it, the one element that never changes between worlds.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Now collapse it: play it through Live with a Utility summing to mono. The voices lose their halo but keep their tune — the detuned width sits <em>around</em> a correlated core rather than replacing it, which is exactly the construction the width audit certifies. The sub pulse, meanwhile, simply leaves on small systems, and the track was arranged so that the mids hold the fort alone. If the mono sum surprised you, that surprise is the lab: relisten with the correlation meter showing and watch the chorus pull the needle toward zero without crossing it.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=The+Knife+Silent+Shout" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:The%20Knife%20Silent%20Shout">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-the-knife-silent-shout.html">lesson</a></p>
+      </div>
+    </details>
+    <details class="listen-item">
+      <summary>
+        <span class="listen-num">10</span>
+        <span class="listen-title">Rhythm &amp; Sound — “Carrier”</span>
+        <span class="listen-tag">soundsystem mono discipline</span>
+      </summary>
+      <div class="listen-body">
+        <p>Berlin dub techno cut for vinyl and soundsystems — where bass is summed to mono by the cutting lathe and the club stack whether you like it or not. The discipline of that destination is audible in every choice. (“Mango Drive” is homed in Block 1 and “King in My Empire” in this block's programme; this is the sibling study, listened to for translation.)</p>
+        <div class="sub-label">Listen for</div>
+        <ul>
+          <li>The bass and chord: dead mono, dead center — built for a lathe that would have folded them down anyway.</li>
+          <li>Where the stereo lives: only in the tape hiss, the reverb, and the echo tails — the disposable layer, spent on width because losing it costs nothing.</li>
+          <li>How the mix survives at whisper volume on any speaker — depth from level relationships, as in lab 001's listening, now heard as a translation strategy.</li>
+        </ul>
+        <div class="sub-label">After — verify</div>
+        <p>Run the mono check: almost nothing changes — and that is the signature. The format's constraints (vinyl bass mono below ~150 Hz, club stacks summed) were adopted as aesthetics, so the mix cannot be damaged by the very systems it targets. This is the lab's exit lesson: decide which collapse your music will meet, then build so the collapse has nothing to take. If it seemed merely narrow, relisten on the 990s to the echo tails alone — the width is there, exactly and only where it is free.</p>
+        <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Rhythm+%26+Sound+Carrier" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Rhythm%20%26%20Sound%20Carrier">Spotify</a></p>
+        <p class="listen-rep">Replication lesson — <a href="rep-rhythm-and-sound-carrier.html">lesson</a></p>
+      </div>
+    </details>
+  </div>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Requirement</div>
+    <p>Your written hypothesis names <strong>what makes a mix survive systems its maker never controlled</strong> — mids as the safe deposit box, masking control, a mono-proof skeleton under stereo decoration, depth without sides, bass carried by its overtones, fragility in the protected middle, headroom as insurance, translation by subtraction, width spent only on the disposable layer, or a format's collapse adopted as aesthetic — and what was stolen from the comparison. The target idea across all ten: <strong>translation is a property you check, not a property you hope for.</strong> What you steal is a structure, never a sound.</p>
+  </div>
+
+  <h2>1 · The monitoring map &amp; translation spec — author from prompts</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">This is an S3 bench lab: no spec is provided. Answer each prompt in writing in the logbook — one or two lines per row — before any checking, then correct every row against what the systems actually revealed.</p>
+
+  <table class="param-table">
+    <caption>Monitoring map — prompts (author, then verify)</caption>
+    <tr><td>The systems</td><td>List every playback path you can reach today: DT 990 Pro on the M4, whatever speakers exist on the bench, the laptop's built-ins, the phone's speaker, earbuds if owned. Each becomes a column of the translation report — name them now and fix their levels.</td></tr>
+    <tr><td>Each lens's lie</td><td>For every system, write what it cannot tell you: the 990s have no room and exaggerate width; an untreated room plays its modes louder than your bass; the laptop has no lows and no level; the phone is mono, bandlimited, and merciless. A check on a system whose lie you have not named is not a check.</td></tr>
+    <tr><td>Reference anchors</td><td>Choose two records from the ten above as your calibration material — one dense, one sparse — and play them on every system before judging your own mix on it. The reference does not tell you what your mix should sound like; it tells you what the system does to things you know.</td></tr>
+    <tr><td>The mono path</td><td>Where does mono collapse live on your master — a Utility device, mapped to one key or MIDI control? It must be one gesture, or the ritual will be skipped. Name the control.</td></tr>
+    <tr><td>The meters</td><td>Which correlation/phase meter will you watch (Live's own, or a free analyzer), where does it sit in the chain, and what reading will you treat as an alarm? Decide the threshold in writing before the meter can argue with you.</td></tr>
+  </table>
+
+  <table class="param-table">
+    <caption>Translation spec — prompts (author, then correct after the audit)</caption>
+    <tr><td>Test material</td><td>Which of your own mixes (labs 018–020) walks the gauntlet first, and why that one? Predict in writing, before any playback, its weakest element per system — the predictions become the first column of the report.</td></tr>
+    <tr><td>Mono ritual moments</td><td>Define <em>when</em> the mono check fires from now on: after every print, before every commit, at every section boundary of a mix session. Fixed moments, not moods. Write the rule you will actually keep.</td></tr>
+    <tr><td>Width budget</td><td>Per track of the test mix: what content is in the sides, was it put there on purpose, and what is it worth? Decide which elements are allowed width (tails, air, ornament) and which are forbidden it (kick, bass, lead, anything load-bearing).</td></tr>
+    <tr><td>Level discipline</td><td>All system-to-system comparisons at matched apparent loudness — louder always wins, so the phones stay at the lab-001 mark and every speaker gets a fixed, logged position. How will you match the phone speaker, which has no calibrated anything? (Answer: by a reference track, the same one every time.)</td></tr>
+    <tr><td>Failure prediction</td><td>Predict one translation fault you expect to find in your own mix: a wide pad that vanishes in mono, a sub line with no overtones to survive on, a hat masked by a reverb only audible on the 990s. The audit will check your prediction against reality.</td></tr>
+  </table>
+
+  <h2>2 · Reference — the rituals and the report format</h2>
+
+  <table class="param-table">
+    <caption>The mono check ritual — one gesture, fixed moments</caption>
+    <tr><td>The gesture</td><td>One Utility on the master, <span class="code">Mono</span> enabled by one mapped control — engage, listen for eight bars, release. Never longer; the ritual is a probe, not a mixing mode.</td></tr>
+    <tr><td>When it fires</td><td>After every print · before every commit decision · at every section boundary while arranging · always before declaring a mix done.</td></tr>
+    <tr><td>What you listen for</td><td>Overall level drop (how much did the sum lose?) · vanished elements (what cancelled?) · combing (what turned hollow or phasey?) · balance shifts (what got louder, relatively, when width stopped paying its rent?).</td></tr>
+    <tr><td>What you log</td><td>One line per check: <span class="code">mono: -X dB feel · casualties · verdict</span>. A check that is not logged did not happen.</td></tr>
+  </table>
+
+  <table class="param-table">
+    <caption>Correlation meter — reading the number</caption>
+    <tr><td>≈ +1</td><td>Sides agree — effectively mono. Collapse-proof; also width-free. Correct for bass, kick, and anything load-bearing.</td></tr>
+    <tr><td>≈ +0.5 to +0.9</td><td>Healthy stereo — correlated core with deliberate side content. Most good mixes live here most of the time.</td></tr>
+    <tr><td>≈ 0</td><td>Sides independent — maximally wide, and mono will thin it noticeably. Acceptable for tails and air, briefly; alarming as a resting state.</td></tr>
+    <tr><td>below 0</td><td>Sides oppose — mono actively cancels content. Sustained negative readings are this block's <span class="code">phase</span> fault wearing its meter face: find the device (a widener, a stereo delay, a flipped cable) and decide on purpose.</td></tr>
+  </table>
+
+  <table class="param-table">
+    <caption>The width audit — every track answers three questions</caption>
+    <tr><td>What is in the sides?</td><td>Solo the track, collapse to mono, and listen for what disappears — that difference is the side content. Name it: reverb tail, doubled layer, widener artifact, accident.</td></tr>
+    <tr><td>Who put it there?</td><td>A device you chose, a preset you did not read, or a stereo file you never inspected. "I don't know" is a finding — and the most common one.</td></tr>
+    <tr><td>What does it cost?</td><td>If mono takes it, does the mix still work? Width on ornament costs nothing; width on structure is debt the phone speaker will collect.</td></tr>
+  </table>
+
+  <table class="param-table">
+    <caption>The translation report — the format, one grid per mix</caption>
+    <tr><td>Rows</td><td>Every element of the mix: kick, bass, chord, voice/lead, percussion, space (reverb/delay as one citizen), noise floor.</td></tr>
+    <tr><td>Columns</td><td>Every system from the monitoring map: DT 990 · speakers (if present) · mono sum · laptop · phone speaker.</td></tr>
+    <tr><td>Grades</td><td><strong>survives</strong> (present and doing its job) · <strong>changes</strong> (present but different — note how) · <strong>vanishes</strong> (gone or functionally gone).</td></tr>
+    <tr><td>Verdict line</td><td>Under the grid, one sentence: does this mix translate, and what is the single highest-value fix? Every "vanishes" on a load-bearing element gets an action; every "vanishes" on an ornament gets a shrug, in writing.</td></tr>
+  </table>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Required comparison — this lab's deliverable</div>
+    <p>One of your own mixes, walked through <strong>every system on the monitoring map at matched loudness</strong>, graded element by element in the translation report format — with your written failure prediction checked against what the systems actually did. The report, not the mix, is what this bench lab certifies.</p>
+  </div>
+
+  <h2>3 · Build</h2>
+
+  <p style="max-width: 640px; margin: 0 auto 14px; color: var(--text-muted); text-align: center;">Build the lab in five passes. Each pass produces an artifact, not just a better-sounding session: a written rule, a printed comparison, a fault entry, and a corrected system sentence.</p>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Build recipe · Monitoring &amp;amp; Translation</div>
+      <h3 class="step-title">Make the space and translation path audible</h3>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Do this in order</div>
+      <ol class="rules-list">
+        <li><strong>Separate dry and wet.</strong> Create DRY, SPACE, and PRINT tracks in Live. Keep the dry path audible and route the wet path separately.</li><li><strong>Set the safe level.</strong> Record Digitakt II from MOTU M4 inputs 3/4 and MicroFreak from input 1 around -12 dBFS before adding space.</li><li><strong>Build one space path.</strong> Use one delay, reverb, feedback, width, or subtractive move. Map one control only so the change can be repeated.</li><li><strong>Check collapse.</strong> Use Utility for mono and a second playback system. Write what survives, changes, or vanishes.</li><li><strong>Run the fault.</strong> Create a translation or feedback-path fault on purpose, then repair it with level, routing, or subtraction rather than adding material.</li>
+      </ol>
+    </div>
+    <div class="signal-flow">
+      <span class="signal-node">Live 12</span>
+      <span class="signal-arrow">↔</span>
+      <span class="signal-node">Digitakt II</span>
+      <span class="signal-arrow">+</span>
+      <span class="signal-node">MicroFreak</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">MOTU M4</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">Print + logbook</span>
+    </div>
+  </div>
+
+  <table class="param-table">
+    <caption>Build artifacts</caption>
+    <tr><td>Rule or hypothesis</td><td>one sentence, written before sound</td></tr>
+    <tr><td>System drawing</td><td>audio path and, where relevant, control path</td></tr>
+    <tr><td>Calibration proof</td><td>dry path, wet path, feedback amount, mono check, and translation report</td></tr>
+    <tr><td>Printed comparison</td><td>neutral / changed / keeper prints, named and gain matched</td></tr>
+    <tr><td>Fault entry</td><td>symptom → cause → fix → prevention rule</td></tr>
+  </table>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Build exit check</div>
+    <p>The lab can move to diagnosis only when the printed audio proves the written rule. If the rule sounds true only while you explain it, simplify the system and print again.</p>
+  </div>
+
+  <h2>4 · Reference &amp; diagnosis</h2>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"/></svg></div>
+      <div class="checklist-label">Pass gate — the lab is complete when all exist</div>
+    </div>
+    <ul>
+      <li>Monitoring map — every playback path named, its lie written down, its level fixed and logged</li>
+      <li>Completed translation report — one of your own mixes graded across all systems, verdict and fixes filed</li>
+      <li>Correlation log — meter readings per section of the test mix, with the alarm threshold you set and whether it fired</li>
+      <li>Width audit — every track's three answers, including at least one honest "I don't know who put that there"</li>
+      <li>Fault entry — symptom, cause, fix, prevention rule (faultType: translation)</li>
+      <li>System diff sentence — “I thought my mix sounded like X; on the other systems, I discovered it sounded like Y”</li>
+    </ul>
+  </div>
+
+  <p style="color: var(--text-muted); font-size: var(--fs-md-plus); text-align: center; max-width: 560px; margin: 0 auto;">The rituals installed here are standing law from this lab forward: every print in lab 022, the R5 rebuild, and capstone C4 ships with a translation report — C4's gate explicitly requires the dub-system piece tested across monitors, mono, and a phone.</p>
+
+  <div class="final">
+    <div class="final-label">Bench principle</div>
+    <p>You mix on one system; the world listens on every other one. Check the collapse, meter the disagreement, audit the width — a mix is finished when the worst speaker you own agrees it exists.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="lab-020.html">
+      <span class="page-nav-direction">Previous</span>
+      ← Lab 020 / Feedback Paths
+    </a>
+    <a href="lab-022.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      Lab 022 / Subtractive Arrangement →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Block 5 · Lab 021</div>
+
+</div>
+
+  <script src="../nav.js"></script>
+</body>
+</html>
