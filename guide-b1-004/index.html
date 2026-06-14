@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B1-004 — Metering · Overview</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B1-004<span class="labnote-topic">Metering</span></p>
+  <a href="index.html" class="active"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B1-004</div>
+    <div class="eyebrow">Metering · 01 — Overview</div>
+    <h1>Reading meters &amp; measuring what you hear</h1>
+    <p class="lede">A single-topic deep reference, taught from zero. Your ears are confident and wrong about level and tuning all day long. A meter is not. This Lab Note teaches you to read each of Ableton Live 12's stock meters one at a time, so that "it sounds loud" becomes a number, "it sounds muddy" becomes a frequency, and "it sounds off" becomes a reading you can act on.</p>
+  </header>
+
+  <h2>The one principle</h2>
+
+  <div class="callout">
+    <div class="callout-label">Principle</div>
+    <p>Ears lie about level and tuning; instruments don't. When your impression and the meter disagree, the meter is right and your ears are tired, biased by loudness, or fooled by the room. Trust the reading, then go back and learn what it felt like — that is how the ear is trained.</p>
+  </div>
+
+  <p style="text-align:center; color:var(--text-muted); max-width:640px; margin:24px auto;">Everything in this Lab Note is downstream of that sentence. A peak meter, a loudness meter, a spectrum, a correlation needle, a tuner — each is just a way of turning a vague impression into a number you can write down, compare, and correct. State the number, act on the number, and your judgement stops swinging with your mood.</p>
+
+  <h2>What you'll build</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><line x1="12" y1="8" x2="12" y2="36"/><line x1="22" y1="8" x2="22" y2="36"/><line x1="32" y1="8" x2="32" y2="36"/><rect x="9" y="20" width="6" height="3" rx="0.5" fill="currentColor"/><rect x="19" y="14" width="6" height="3" rx="0.5" fill="currentColor"/><rect x="29" y="26" width="6" height="3" rx="0.5" fill="currentColor"/></svg>
+      </div>
+      <h3 class="card-title">A measurement habit</h3>
+      <ul class="card-points">
+        <li>One loop fully measured — its true-peak, loudness, spectral balance, and mono correlation</li>
+        <li>Read with Ableton Live 12 Suite's stock meters and the MOTU M4 input meters</li>
+        <li>Every corrective move justified by a reading, stated as a number you wrote down</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="24" r="14"/><line x1="22" y1="24" x2="30" y2="16"/><line x1="22" y1="10" x2="22" y2="13"/></svg>
+      </div>
+      <h3 class="card-title">The skills you'll practice</h3>
+      <ul class="card-points">
+        <li>Peak vs RMS vs LUFS — what each measures and when to read which</li>
+        <li>Reading Spectrum for mud, harshness, and resonant peaks</li>
+        <li>Correlation / phase for mono safety; the tuner for pitch</li>
+        <li>Reading gain reduction on a compressor without guessing</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Why measure at all</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M10 24c4-8 8 8 12 0s8-8 12 0"/><circle cx="14" cy="20" r="1.6" fill="currentColor"/><circle cx="30" cy="24" r="1.6" fill="currentColor"/></svg>
+      </div>
+      <h3 class="card-title">The beginner instinct</h3>
+      <ul class="card-points">
+        <li>Turn it up until it "sounds right", then wonder why it clips on someone else's system</li>
+        <li>Chase a muddy mix by ear for an hour without ever naming the frequency</li>
+        <li>Trust a wide, full sound in headphones that vanishes the moment it folds to mono</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><line x1="8" y1="34" x2="38" y2="34"/><line x1="8" y1="34" x2="8" y2="10"/><path d="M8 28 L16 22 L24 26 L32 14 L38 20"/></svg>
+      </div>
+      <h3 class="card-title">The opposite discipline</h3>
+      <ul class="card-points">
+        <li>Put the meter up first, read what healthy looks like, then build toward it</li>
+        <li>Name the fault as a number before you fix it — 250 Hz, −0.6 correlation, −2 dBTP</li>
+        <li>Let measurement lead and hearing verify; never the reverse</li>
+      </ul>
+    </div>
+  </div>
+
+  <p style="text-align:center; color:var(--text-muted); max-width:640px; margin:24px auto;">The skill transfers everywhere. The same instinct — read the instrument, name the number, act on it — carries from a single loop to a full mix, from techno to any genre, from your bedroom to a mastering house. Measurement is the one studio skill that never goes out of fashion.</p>
+
+  <div class="callout">
+    <div class="callout-label">How to read this Lab Note</div>
+    <p>Work the pages in order. <a href="listen.html">Listen</a> pairs what you see on each meter with what you hear. <a href="decisions.html">Decisions</a> sets your loudness target and mono-check policy. <a href="setup.html">Setup</a> builds a measurement channel in Live. <a href="palette.html">Palette</a> lists every meter and the move it informs. <a href="build.html">The build</a> measures one loop end to end. <a href="reflection.html">Reflection</a> turns the result into a carry-forward rule. This is the deep companion to <a href="../workshop/block-1/lab-003b.html">Lab 003b — Measurement Tools</a>.</p>
+  </div>
+
+  <div class="page-nav">
+    <span></span>
+    <a href="listen.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      02 / Listen →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B1-004 — Metering</div>
+
+</div>
+
+</body>
+</html>

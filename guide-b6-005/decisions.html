@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B6-005 — The Score — Decisions</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Lab Note contents">
+  <p class="nav-label labnote-code">Lab Note B6-005<span class="labnote-topic">The Score</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html" class="active"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Score primitives</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B6-005</div>
+    <div class="eyebrow">The Score · 03 — Decisions</div>
+    <h1>Four idioms, and how much to fix versus leave free</h1>
+    <p class="lede">Every choice on this page happens before you touch a sound. First: which idiom does the score take — text, graphic, event-list, or open-form? Second, and harder: for each dimension of the music, do you <em>fix</em> it (determinate) or <em>free</em> it (indeterminate)? Get the idiom and the fix/free split right and the build is almost mechanical. Get them wrong and the two realizations will either be clones or strangers.</p>
+  </header>
+
+  <h2>The core idea: determinacy is a dial, not a switch</h2>
+  <p>Think of every musical dimension — pitch, register, duration, density, order, timbre, dynamics, timing — as having its own dial that runs from <strong>fully fixed</strong> to <strong>fully free</strong>. A score is not "determinate" or "indeterminate"; it sets each dial somewhere. Cage's <em>Music of Changes</em> pins every dial to fixed. Wolff frees almost all of them and fixes only the relationships between events. Most useful scores fix a few dials hard and open a few wide — and the art is choosing <em>which</em>.</p>
+
+  <div class="callout">
+    <div class="callout-label">The one rule that governs the build</div>
+    <p>At least one dial must be fixed hard enough to stamp an identity on every realization, and at least one dial must be opened wide enough that two honest realizations genuinely diverge. Fixed dials become the <strong>sameness</strong> in your delta; free dials become the <strong>difference</strong>. A score with no fixed dial is a permission slip; a score with no free dial is a transcription.</p>
+  </div>
+
+  <h2>The four idioms</h2>
+  <p>The idiom is the <em>form</em> your rules take on the page. It shapes what is easy to fix and easy to leave open — choose it to match where you want the freedom to live.</p>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><line x1="10" y1="14" x2="34" y2="14"/><line x1="10" y1="20" x2="34" y2="20"/><line x1="10" y1="26" x2="34" y2="26"/><line x1="10" y1="32" x2="26" y2="32"/></svg>
+      </div>
+      <h3 class="card-title">Text / verbal</h3>
+      <ul class="card-points">
+        <li>Prose or a numbered rule list — Oliveros, Wolff, much of Fluxus</li>
+        <li>Best when the freedom is conceptual: attention, response, choice of source</li>
+        <li>Easy to fix logic ("after X, do Y"); hard to fix precise pitch or rhythm</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><line x1="8" y1="30" x2="20" y2="14"/><rect x="22" y="18" width="8" height="4" fill="currentColor"/><circle cx="34" cy="26" r="3"/><line x1="8" y1="36" x2="36" y2="36"/></svg>
+      </div>
+      <h3 class="card-title">Graphic</h3>
+      <ul class="card-points">
+        <li>Shapes read as events — Brown, Feldman, Cardew's <em>Treatise</em></li>
+        <li>Best when the freedom is dimensional: register × time × density laid out spatially</li>
+        <li>You decide the key; the page can fix shape while freeing exact pitch</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="8" y="10" width="28" height="6" rx="1"/><rect x="8" y="20" width="28" height="6" rx="1"/><rect x="8" y="30" width="28" height="6" rx="1"/><line x1="14" y1="13" x2="14" y2="13"/></svg>
+      </div>
+      <h3 class="card-title">Event-list</h3>
+      <ul class="card-points">
+        <li>An ordered table — like a recipe: order · what · how long · how loud · which free</li>
+        <li>Best when sequence matters and you want the fix/free split explicit per row</li>
+        <li>Maps cleanly onto a DAW arrangement and onto the delta map you fill later</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="8" y="16" width="8" height="12" rx="1"/><rect x="19" y="16" width="8" height="12" rx="1"/><rect x="30" y="16" width="6" height="12" rx="1"/><path d="M12 12 q11 -6 21 0"/></svg>
+      </div>
+      <h3 class="card-title">Open-form</h3>
+      <ul class="card-points">
+        <li>Fixed modules, free assembly — Lutosławski, Brown's <em>Available Forms</em>, Riley's <em>In C</em></li>
+        <li>Best when you want rich composed material <em>and</em> guaranteed divergence</li>
+        <li>The order, recurrence, or cueing is the free zone; the blocks themselves are fixed</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Choosing the idiom — a decision table</h2>
+  <table class="param-table">
+    <caption>Where do you want the freedom to live?</caption>
+    <tr><td>In how performers <em>respond</em> to each other or to chance</td><td>Text / verbal — encode the contingency as a sentence</td></tr>
+    <tr><td>In <em>which pitch or timbre</em> fills a fixed shape</td><td>Graphic — fix the contour and band, free the exact content</td></tr>
+    <tr><td>In a single named dimension, with everything else pinned</td><td>Event-list — one column flagged free, the rest determinate</td></tr>
+    <tr><td>In the <em>order or recurrence</em> of fully composed chunks</td><td>Open-form — fix the modules, free the sequence</td></tr>
+    <tr><td>You are realizing solo on the rig and want it tractable</td><td>Event-list or open-form — both perform cleanly without a second player</td></tr>
+  </table>
+
+  <h2>The fix/free decision, dimension by dimension</h2>
+  <p>This is the real work. For your chosen idiom, walk each dimension and set its dial. Write <span class="code">D</span> (determinate) or <span class="code">I</span> (indeterminate) against each. The right-hand column is what that choice <em>buys</em> you, and what it costs.</p>
+
+  <table class="param-table">
+    <caption>Dimensions and what fixing vs freeing each one does</caption>
+    <tr><td>Pitch / harmony</td><td>Fix it and the piece has a clear tonal identity across realizations; free it and timbre and gesture carry the recognition instead.</td></tr>
+    <tr><td>Register / band</td><td>A cheap, strong fix — "lowest sound enters last" or "stays in the high band" stamps an identity while leaving exact pitch free.</td></tr>
+    <tr><td>Duration / timing</td><td>Fix it for a tight, comparable shape; free it (gridless) when you want each realization to breathe differently.</td></tr>
+    <tr><td>Order / sequence</td><td>The open-form lever. Fix it and you have through-composition; free it and assembly becomes the variable.</td></tr>
+    <tr><td>Density / count</td><td>"Exactly three events" is one of the most reliable identity-fixers — easy to obey, audible across takes.</td></tr>
+    <tr><td>Timbre / source</td><td>"Choose any source not yet heard" is the classic wide-open <span class="code">I</span> zone — it makes R1 metallic and R2 vocal from one rule.</td></tr>
+    <tr><td>Dynamics</td><td>Often best left free unless the piece is <em>about</em> loudness; fixing it can over-constrain without adding identity.</td></tr>
+    <tr><td>Response logic</td><td>"React to the previous event" is meta — it doesn't fix or free a dimension, it makes the piece depend on its own unfolding.</td></tr>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>A real <span class="code">I</span> has range.</strong> "Choose any unheard source" is a genuine freedom. "Choose C or C#" is barely one — two realizations will sound the same and you'll mistake an over-specified score for a working one.</li>
+      <li><strong>A firm <span class="code">D</span> survives a stranger.</strong> "Begins and ends in silence" reads identically to anyone. "Start quietly" does not — it is ambiguous, and ambiguity is the fault this Lab Note hunts.</li>
+      <li><strong>Fix the cheap dimensions, free the expensive ones.</strong> Register, count, and boundary are cheap to fix and stamp identity hard. Timbre and exact pitch are expensive to fix and usually better left free.</li>
+    </ul>
+  </div>
+
+  <h2>How a score encodes a voice</h2>
+  <p>Two composers given the same instruction-writing assignment produce unmistakably different scores — and not because of the sounds, which they never chose. The <em>voice is in the rule-set</em>: in which dimensions they trust the realizer with, in how tightly they pin the rest, in whether they fix relationships (Wolff) or contours (Brown) or attention (Oliveros). When you decide what to fix and what to free, you are not just engineering a piece — you are declaring what you believe music is <em>for</em>. The build will surface this whether you intend it or not; the reflection asks you to read it back.</p>
+
+  <div class="callout">
+    <div class="callout-label">Indeterminacy is not randomness</div>
+    <p>A randomizer removes a decision; indeterminacy <em>relocates</em> one — from the composer to the realizer, or to a chance procedure the composer chose. Cage's chance was rigorously designed before a coin was tossed. Wolff's freedoms are precisely bounded by listening rules. The freedom in a good score is fenced; that is what separates it from noise.</p>
+  </div>
+
+  <h2>Decision summary — fill this before you write</h2>
+  <div class="decision-check">
+    <div class="decision-check-label">Decision check</div>
+    <ul>
+      <li>Which idiom? (text / graphic / event-list / open-form) — and is the freedom you want naturally expressible in it?</li>
+      <li>Which dimension is your hardest <span class="code">D</span> — the one that stamps identity on every realization?</li>
+      <li>Which dimension is your widest <span class="code">I</span> — the one with real range, that R1 and R2 will diverge on?</li>
+      <li>Where does your indeterminacy live: in <em>generating</em> the score (Cage) or in <em>reading</em> it (Wolff, Brown)? It must be the second.</li>
+      <li>Can you predict, in one written sentence, what the two realizations will share and where they will differ? If not, the score is not yet decided.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="listen.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 02 / Listen
+    </a>
+    <a href="setup.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      04 / Setup →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B6-005 — The Score</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B6-002 — Self-playing Patches — Reflection</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B6-002<span class="labnote-topic">Self-playing Patches</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html" class="active"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B6-002</div>
+    <div class="eyebrow">Self-playing Patches · 07 — Reflection</div>
+    <h1>Criteria &amp; reflection</h1>
+    <p class="lede">Most of the learning happens here, listening back to ten minutes you didn't perform. Answer slowly. Write the answers down. The work was deciding what to fix and what to free; this page is where you check whether you decided well.</p>
+  </header>
+
+  <h2>How you know it worked</h2>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="16"/><polyline points="14 22 20 28 30 16"/></svg>
+      </div>
+      <div class="checklist-label">Success signals</div>
+    </div>
+    <ul>
+      <li>The patch held ten minutes without you touching it.</li>
+      <li>No thirty-second window sounds quite like another.</li>
+      <li>Yet the whole thing clearly comes from one habitat — one pitch world, one timbral family.</li>
+      <li>You cannot find two identical moments.</li>
+      <li>Motion reads as drift and weather, never as wobble or seizure.</li>
+      <li>The system never turned harsh and never went silent.</li>
+      <li>Re-running the patch produces a <em>different</em> ten minutes from the same rules.</li>
+      <li>You can list what you decided and what the system decided, and both lists are non-empty.</li>
+      <li>The rare events, if any, surprised you on the playback.</li>
+      <li>You could leave the room and trust it.</li>
+    </ul>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon">
+        <svg viewBox="0 0 44 44"><polygon points="22 6 40 36 4 36"/><line x1="22" y1="16" x2="22" y2="24"/><circle cx="22" cy="29" r="1.4" fill="currentColor"/></svg>
+      </div>
+      <div class="checklist-label">Failure signals</div>
+    </div>
+    <ul>
+      <li>You had to keep nudging knobs to stop it getting boring — it is an instrument, not a self-player.</li>
+      <li>It settled into a rut within two minutes (rates too close, or too few modulators).</li>
+      <li>It thrashed or ran away (cross-modulation depth too high).</li>
+      <li>It audibly looped (two periods in a simple ratio).</li>
+      <li>It drifted out of key or out of its timbral world (you let pitch move when you should have fixed it).</li>
+      <li>It turned harsh or faded to silence (the range was never clamped).</li>
+      <li>Every LFO was tempo-synced, so the combination repeated on the bar.</li>
+      <li>Your "what I decided" list is empty — the rates were random, so the result is luck, not design.</li>
+    </ul>
+  </div>
+
+  <h2>Eleven reflection questions</h2>
+
+  <ol class="reflection-list">
+    <li>Which modulator created the most musical motion — the filter, the timbre, or the cross-modulation?</li>
+    <li>Which two periods, exactly, did the keeper take use? Were they truly unrelated?</li>
+    <li>Did the cross-modulation (a modulator changing a modulator's rate) earn its place, or could two plain LFOs have done it?</li>
+    <li>What did <em>you</em> decide? List the chord, the range, the rates, the depths.</li>
+    <li>What did the <em>system</em> decide? Name a moment you could not have predicted.</li>
+    <li>How long before the first rut, if any? What caused it?</li>
+    <li>Did the rare event source help, or did it start to feel predictable?</li>
+    <li>Where did you choose the start and end of the ten minutes, and why there?</li>
+    <li>If you re-ran the patch, how different was the second ten minutes?</li>
+    <li>Did you ever feel the urge to touch a knob? What did that urge tell you about the design?</li>
+    <li>What single rate or depth would you change in the next session?</li>
+  </ol>
+
+  <div class="callout">
+    <div class="callout-label">Carry forward</div>
+    <p>The skill you built is not "making drones" — it is splitting a piece into what you fix and what you free. Carry that split into every patch: decide the boundaries deliberately, then let the system find the moments. The next Lab Notes in this block push the same idea into rule-based sequencing, chance, and tuning.</p>
+  </div>
+
+  <div class="final">
+    <div class="final-icon">
+      <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="16"/><circle cx="22" cy="22" r="10"/><circle cx="22" cy="22" r="3" fill="currentColor"/></svg>
+    </div>
+    <div class="final-label">Final principle</div>
+    <p>If you have to babysit the patch to keep it interesting, it is not self-playing — it is an instrument. Design the habitat, set two slow motions at unrelated rates, then leave. The music is whatever lives in what you built.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="build.html">
+      <span class="page-nav-direction">Previous</span>
+      &larr; 06 / The build
+    </a>
+    <a href="../workshop/block-6/index.html" class="next">
+      <span class="page-nav-direction">Back to workshop</span>
+      Block 6 &rarr;
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B6-002 — Self-playing Patches</div>
+
+</div>
+
+</body>
+</html>

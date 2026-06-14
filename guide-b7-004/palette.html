@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B7-004 — Set Structure &amp; Rehearsal — Arc &amp; panic map</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B7-004<span class="labnote-topic">Set Structure &amp; Rehearsal</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html" class="active"><span class="nav-num">05</span>Arc &amp; panic map</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B7-004</div>
+    <div class="eyebrow">Set Structure &amp; Rehearsal · 05 — Arc &amp; panic map</div>
+    <h1>The two maps you tape to the rig</h1>
+    <p class="lede">Memory fails under stage adrenaline. Two written maps do not. The first is the energy arc — section, time, and the single thing that changes. The second is the panic table — symptom, action, and the floor you recover to. Print both, tape them where you glance, and rehearse against them.</p>
+  </header>
+
+  <h2>The 32-minute arc map</h2>
+  <p style="text-align:center; max-width:640px; margin:0 auto 24px; color:var(--text-muted);">Minutes are targets, not a click track. The point is the proportion: a long settle, the longest develop, a peak by opening, a strip that flatters it.</p>
+
+  <div class="signal-flow">
+    <span class="signal-node">Settle</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">Establish</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">Develop</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">Peak</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">Strip</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">Resolve</span>
+  </div>
+
+  <table class="param-table">
+    <caption>Section → time → the one thing that changes</caption>
+    <tr><td>Settle — 0:00–4:00</td><td>Drone + atmosphere only. No kick. Let the room arrive.</td></tr>
+    <tr><td>Establish — 4:00–10:00</td><td>Kick in at 4:00, bass under it by 6:00. Hat unmuted ~8:00, perc ~9:00 — one at a time.</td></tr>
+    <tr><td>Develop — 10:00–18:00</td><td>Bass filter climbs 600 Hz → 2 kHz across the whole span. Resample layer enters ~14:00.</td></tr>
+    <tr><td>Peak — 18:00–23:00</td><td>Filter to 3.5 kHz, reverb send up, feedback near its ceiling. Nothing new enters.</td></tr>
+    <tr><td>Strip — 23:00–28:00</td><td>Perc out at 23:00, hat thinned by 25:00, drum gain down 2 dB. The space returns.</td></tr>
+    <tr><td>Resolve — 28:00–32:00</td><td>Bass out ~28:00, kick out ~30:00. Drone + atmosphere carry the close. Fade the master over the final minute.</td></tr>
+  </table>
+
+  <table class="param-table">
+    <caption>The ride controls across the arc — slower than feels natural</caption>
+    <tr><td>Bass filter cutoff</td><td>Closed through Settle/Establish; climbs across Develop; brightest at Peak; home by Resolve</td></tr>
+    <tr><td>Reverb send (drone)</td><td>Low until Develop; blooms at Peak; recedes through Strip</td></tr>
+    <tr><td>Echo feedback</td><td>40 % default; brief swell to ~65 % into the Peak, then back — never parked high</td></tr>
+    <tr><td>Drum saturation</td><td>+3 dB default; +8 dB through Peak for density without a new element</td></tr>
+    <tr><td>Hands at rest</td><td>Long holds inside Settle and Develop — the map should show where you do nothing</td></tr>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">The mistake the map prevents</div>
+    <p>Peaking early. A set that hits maximum energy at minute ten has thrown away its arc and left twenty minutes with nowhere to climb. The map keeps your hands honest when the room's energy tempts you to spend everything at once.</p>
+  </div>
+
+  <h2>The panic table</h2>
+  <p style="text-align:center; max-width:640px; margin:0 auto 24px; color:var(--text-muted);">Symptom on the left, the action you have rehearsed in the middle, the floor you head for on the right. When something goes wrong you read across one row — you do not invent.</p>
+
+  <table class="param-table">
+    <caption>Symptom → action → recover floor</caption>
+    <tr><td>Digitakt II crashes / freezes</td><td>Mute its channel, lean on MicroFreak + Ableton, reboot it</td></tr>
+    <tr><td>Recover: drone + kick from Ableton/MF, fold Digitakt back on a bar line</td><td>—</td></tr>
+    <tr><td>Laptop / Ableton freezes</td><td>Hardware holds its last state; carry the set on the boxes alone</td></tr>
+    <tr><td>Recover: Digitakt groove + MicroFreak drone until Ableton is back, re-sync on next play</td><td>—</td></tr>
+    <tr><td>Feedback / resample runs away</td><td>Hit the kill pad; limiter is the backstop</td></tr>
+    <tr><td>Recover: silence the path, drop to drone + kick, rebuild slowly</td><td>—</td></tr>
+    <tr><td>A cable dies / synth drops out</td><td>Mute that channel cleanly on the bar so it reads as an arrangement choice</td></tr>
+    <tr><td>Recover: hold the thinned groove, reseat the cable, fold the voice back in</td><td>—</td></tr>
+    <tr><td>Wrong scene / wrong unmute</td><td>Commit to it for a bar, correct on the next downbeat</td></tr>
+    <tr><td>Recover: make it sound intentional; never flinch mid-bar</td><td>—</td></tr>
+    <tr><td>Clock drift (boxes off-tempo)</td><td>Stop transport, restart; hardware re-syncs cleanly</td></tr>
+    <tr><td>Recover: do it during a natural drop, not mid-groove</td><td>—</td></tr>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">The recover floor</div>
+    <p>Every row lands in the same place: drone plus kick at a steady level, everything else muted. One destination, reachable from anywhere. You are never improvising a rescue — you are heading for a room you have stood in a hundred times in rehearsal.</p>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Tape both maps to the rig.</strong> The arc on the left of the controller, the panic table on the right. Under adrenaline you will not remember; you will glance.</li>
+      <li><strong>The panic table is rehearsed, not read.</strong> By show time you should not need to look — but it is there for the night your hands forget and your eyes have to.</li>
+      <li><strong>One floor, many doors.</strong> Whatever fails, the destination is identical. That single shared endpoint is what makes recovery fast enough to be invisible.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="setup.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 04 / Setup
+    </a>
+    <a href="build.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      06 / The build →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B7-004 — Set Structure &amp; Rehearsal</div>
+
+</div>
+
+</body>
+</html>

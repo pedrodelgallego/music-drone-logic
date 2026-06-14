@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B3-001 — Groove · The build</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B3-001<span class="labnote-topic">Groove</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html" class="active"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B3-001</div>
+    <div class="eyebrow">Groove · 06 — The build</div>
+    <h1>Build one groove-driven track, step by step</h1>
+    <p class="lede">Now we touch the gear. Every step is small, every step has a decision checkpoint, every tick value is spelled out. We build a track whose entire interest is feel — a kick that never moves, a hat that leans, a bass dragged into the same pocket by a groove you extract from your own hands. Keep the <a href="setup.html">setup page</a> and the <a href="palette.html">palette</a> open in other tabs.</p>
+  </header>
+
+  <!-- STEP 1 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 14 v20 a2 2 0 0 0 2 2 h28 a2 2 0 0 0 2 -2 v-16 a2 2 0 0 0 -2 -2 h-14 l-4 -4 h-10 a2 2 0 0 0 -2 2 z"/></svg>
+      </div>
+      <div class="step-num">Step 01</div>
+      <h2 class="step-title">Create the project and lock the clock</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">New set</div>
+      <ul>
+        <li><kbd>⌘ N</kbd>, then <kbd>Tab</kbd> to Arrangement view. Tempo <span class="code">124</span>, signature <span class="code">4/4</span>.</li>
+        <li><kbd>⌘ ,</kbd> → <strong>Audio</strong>: device <strong>MOTU M4</strong>, sample rate <span class="code">48000 Hz</span>, buffer <span class="code">256 samples</span>.</li>
+        <li>Input Config: enable mono input <span class="code">1</span> (MicroFreak) and stereo <span class="code">3/4</span> (Digitakt). Rename them in plain language.</li>
+        <li>Save as <span class="code">groove_b3_001.als</span> in a dedicated project folder.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Sync the boxes — exactly one clock master</div>
+      <ul>
+        <li><kbd>⌘ ,</kbd> → <strong>Link, Tempo &amp; MIDI</strong>. On the Digitakt II output row enable <strong>Sync</strong> (clock + transport out). On its input row leave clock <em>send</em> off.</li>
+        <li>Digitakt II: <span class="menu">Settings → MIDI Config → Sync</span> — clock receive ON, transport receive ON, clock send OFF.</li>
+        <li>MicroFreak: <kbd>Shift</kbd> + <kbd>Tempo</kbd> → source <strong>USB</strong>.</li>
+        <li>Press play in Ableton. The Digitakt must start instantly and read <span class="code">124</span>. If not, fix it now — a groove recorded against a drifting clock is worthless.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Measure system latency once</div>
+      <ul>
+        <li>Record 8 bars of a dead-straight Digitakt kick on every downbeat. Zoom into bar 1.</li>
+        <li>If the transient sits a few ms after the grid line, enter that value in <kbd>⌘ ,</kbd> → <strong>Audio</strong> → <span class="menu">Driver Error Compensation</span>, or drag clips left to the grid afterwards.</li>
+        <li>This is non-negotiable for groove work. Until the system offset is zeroed, you cannot tell a <span class="code">+4</span>-tick lean from converter delay.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does the Digitakt's screen read exactly 124 when Ableton plays?</li>
+        <li>Does a recorded straight kick now land on the grid line, not after it?</li>
+        <li>Is exactly one device generating clock?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="14"/><circle cx="22" cy="22" r="5"/></svg>
+      </div>
+      <div class="step-num">Step 02</div>
+      <h2 class="step-title">Lay the reference clock — the locked kick</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Create the Digitakt project</div>
+      <ul>
+        <li>On Digitakt II load or create a project named <span class="code">GROOVE LAB</span>, pattern <span class="code">A01</span>, length 16 steps.</li>
+        <li>Assign four tracks: <span class="code">T1 KICK</span>, <span class="code">T2 HAT</span>, <span class="code">T3 PERC</span>, <span class="code">T4 GHOST</span>. Leave the rest empty.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Program the kick — and only the kick</div>
+      <ul>
+        <li>On <span class="code">T1 KICK</span>, place trigs on steps <span class="code">1, 5, 9, 13</span>. Velocity full and constant.</li>
+        <li><strong>Set micro-timing to 0 on every kick trig.</strong> The kick is the reference clock; it never moves and its level never wavers. Everything else in the track leans against this.</li>
+        <li>Tune the kick's fundamental to A or E so it later agrees with the bass — but tuning is the only thing you touch. No swing reaches the kick (swing only affects even steps; the kick sits on odd steps anyway, but confirm the track's swing is at <span class="code">50 %</span>).</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Listen to the bare clock</div>
+      <ul>
+        <li>Loop the kick alone for one minute. It should feel metronomic and slightly cold — that is correct. A reference clock is not supposed to groove; it is supposed to be the thing the groove is measured against.</li>
+        <li>Record an 8-bar pass to a track named <span class="code">DT KICK</span> (mute T2–T4). This separate kick pass is both your sidechain source and your Extract-Groove anchor later.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Is every kick trig at micro-timing 0 and constant velocity?</li>
+        <li>Does the kick land on the grid in the recorded clip?</li>
+        <li>Have I resisted adding anything else "to make it interesting"? The interest comes next, from the lean — not from the clock.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><line x1="22" y1="8" x2="22" y2="36"/><polyline points="12 16 6 22 12 28"/><polyline points="32 16 38 22 32 28"/></svg>
+      </div>
+      <div class="step-num">Step 03</div>
+      <h2 class="step-title">Build the lean — hats with intentional offset</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Place the offbeat hats</div>
+      <ul>
+        <li>On <span class="code">T2 HAT</span>, load a tight closed hat. High-pass it around <span class="code">500 Hz</span> on the FLTR page — hats carry no useful low end.</li>
+        <li>Place trigs on offbeat steps <span class="code">3, 7, 11, 15</span> — the positions between the kicks, where the groove lives.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Choose your lean mechanism — pick one</div>
+      <table class="param-table">
+        <caption>Two ways to drag the hats — never both at once</caption>
+        <tr><td>Per-trig micro-timing</td><td>Hold each hat trig, turn the micro-timing knob to <span class="code">+4</span> (late). Most control; you can vary individual hits.</td></tr>
+        <tr><td>Per-track swing</td><td>Set swing to <span class="code">55 %</span> on the hat track only. Faster to dial; affects all even steps uniformly.</td></tr>
+      </table>
+      <ul>
+        <li>For Template A, use <strong>per-trig +4 ticks</strong> — it is the more deliberate, more describable choice and it lets you later drag one hat further than the others.</li>
+        <li><strong>Do not stack both.</strong> Swing at 55 % plus a +4 nudge double-counts the lean and pushes you out of the pocket without your noticing.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Couple velocity to timing</div>
+      <ul>
+        <li>P-lock alternating AMP volume: steps 3 and 11 at velocity <span class="code">100</span>, steps 7 and 15 at <span class="code">80</span>. The quieter hats read as ghosts, the louder as accents.</li>
+        <li>The dragged-late hats are now also varied in level — late + soft on the soft ones, which is exactly how a human hat player sits behind a beat.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The worked groove, stated as three numbers</div>
+      <div class="pattern-wrap">
+        <div class="pattern">
+          <div class="pattern-label">Kick</div>
+          <div class="pattern-step on">1</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+          <div class="pattern-step on">5</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+          <div class="pattern-step on">9</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+          <div class="pattern-step on">13</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+
+          <div class="pattern-label">Hat</div>
+          <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step ghost">+4</div><div class="pattern-step"></div>
+          <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step ghost">+4</div><div class="pattern-step"></div>
+          <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step ghost">+4</div><div class="pattern-step"></div>
+          <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step ghost">+4</div><div class="pattern-step"></div>
+
+          <div class="pattern-label">Perc</div>
+          <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step accent">-3</div>
+          <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+          <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step accent">-3</div>
+          <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+        </div>
+      </div>
+      <ul>
+        <li>Kick: micro-timing <span class="code">0</span>, every quarter — the reference clock.</li>
+        <li>Hat offbeats: <span class="code">+4</span> ticks late — the roll.</li>
+        <li>Perc accent (step 4 and 12): <span class="code">−3</span> ticks early — a flick of urgency against the lazy hats.</li>
+        <li>That is the whole groove, stated as three numbers. It reads the same in two minutes as in two seconds, because it is a rule rather than a performance.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Loop kick + hat for two minutes. Does it roll, or does it merely sound late? If it sounds wrong rather than deep, reduce to <span class="code">+3</span>.</li>
+        <li>Can I state the groove in one sentence with three numbers?</li>
+        <li>Did I avoid stacking swing and micro-timing?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="10" cy="22" r="3" fill="currentColor"/><circle cx="20" cy="14" r="3"/><circle cx="30" cy="30" r="3" fill="currentColor"/><circle cx="38" cy="22" r="3"/></svg>
+      </div>
+      <div class="step-num">Step 04</div>
+      <h2 class="step-title">Add the push — percussion ahead of the beat</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Program the perc accent</div>
+      <ul>
+        <li>On <span class="code">T3 PERC</span>, load one rim, click, or conga. Place hits on steps <span class="code">4</span> and <span class="code">12</span> — the lead-ins to beats 2 and 4.</li>
+        <li>Hold each perc trig and set micro-timing to <span class="code">−3</span> (early). Against the dragged hats, this early flick reads as forward urgency: the track leans back and leans forward at the same time, which is what "pocket" means.</li>
+        <li>Velocity ~<span class="code">90</span>. On step 12, add a trig condition of <span class="code">50 %</span> so the second accent only plays half the time — the loop stops being a loop.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Add a probabilistic ghost</div>
+      <ul>
+        <li>On <span class="code">T4 GHOST</span>, place one quiet hit on step <span class="code">14</span>, micro-timing <span class="code">+6</span> (well behind), velocity <span class="code">55</span>.</li>
+        <li>Set its trig condition to <span class="code">1:4</span> — it fires on one pattern cycle in four, a slow heartbeat of variation that never disrupts the pocket.</li>
+        <li>This is the one place a tiny touch of unpredictability is sanctioned, and even here it is a <em>rule</em> (1 in 4), not random jitter.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does the early perc create tension against the late hats, or do they cancel into mush?</li>
+        <li>When the 50 % accent drops out, does the bar breathe?</li>
+        <li>Is every offset still describable as a number? No "I just nudged it til it felt right".</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 5 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 22 q9 -4 18 0 t18 0"/><path d="M6 28 q9 -2 18 0 t18 0"/></svg>
+      </div>
+      <div class="step-num">Step 05</div>
+      <h2 class="step-title">Record the groove and audition the pocket</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Record the full drum pass</div>
+      <ul>
+        <li>Unmute T1–T4 on the Digitakt. Arm <span class="code">DT DRUMS</span> in Ableton (Ext. In <span class="code">3/4</span>), monitor <strong>Auto</strong>.</li>
+        <li>Set the Digitakt main volume so <span class="code">DT DRUMS</span> peaks just below <span class="code">−6 dBFS</span>. <kbd>⌘ ⇧ R</kbd>, record <strong>4 minutes</strong> of the loop untouched.</li>
+        <li>Then record a second 8-bar pass of <span class="code">DT KICK</span> alone (T2–T4 muted) if you didn't in Step 02 — you need a clean kick for both sidechain and groove extraction.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The three-minute test</div>
+      <ul>
+        <li>Loop the recorded drums and listen for a full <strong>three minutes</strong>. Set a timer. A pocket that bores you at 30 seconds and locks you in at 3 minutes is the right one.</li>
+        <li>Flip the hat micro-timing to <span class="code">0</span> on the Digitakt for ten seconds, then back to <span class="code">+4</span>, while the recording loops alongside the live box. The difference between dead and rolling should be obvious — that is the proof your groove is doing the work.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does the loop move without thinking?</li>
+        <li>Does the kick still read as the metronomic truth while everything leans around it?</li>
+        <li>Did the recorded clip preserve the offsets, or did the system latency smear them? (Re-check against the grid.)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 6 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="8" y="10" width="12" height="24" rx="2"/><rect x="24" y="10" width="12" height="24" rx="2"/><line x1="20" y1="22" x2="24" y2="22"/></svg>
+      </div>
+      <div class="step-num">Step 06</div>
+      <h2 class="step-title">Extract the groove into a portable template</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Get one bar of drums to MIDI</div>
+      <ul>
+        <li>Select the recorded <span class="code">DT DRUMS</span> clip. Crop to one clean bar (<kbd>⌘ E</kbd> at the bar lines, keep the middle).</li>
+        <li>Right-click the clip → <span class="menu">Slice to New MIDI Track</span>, or transcribe by hand onto a MIDI track named <span class="code">GROOVE REF</span>. The point is to capture the transient positions — your <span class="code">+4</span> hats and <span class="code">−3</span> perc — as MIDI note timing.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Extract Groove</div>
+      <ul>
+        <li>Right-click the <span class="code">GROOVE REF</span> clip → <span class="menu">Extract Groove</span>. Ableton reads your hand-nudged micro-timing and writes it into the <strong>Groove Pool</strong> as a reusable file. Name it <span class="code">B3-001 POCKET</span>.</li>
+        <li>Open the Groove Pool (wave icon, bottom-left). Set <strong>Base</strong> to <span class="code">1/16</span>, <strong>Quantize</strong> <span class="code">0 %</span>, <strong>Timing</strong> <span class="code">100 %</span>, <strong>Random</strong> <span class="code">0 %</span>.</li>
+        <li>You now own your pocket as an object you can drop onto any clip in the project.</li>
+      </ul>
+    </div>
+
+    <div class="signal-flow">
+      <span class="signal-node">Hand-nudged DT pattern</span>
+      <span class="signal-arrow">→ record →</span>
+      <span class="signal-node">DT DRUMS audio</span>
+      <span class="signal-arrow">→ slice →</span>
+      <span class="signal-node">GROOVE REF MIDI</span>
+      <span class="signal-arrow">→ Extract Groove →</span>
+      <span class="signal-node">B3-001 POCKET</span>
+      <span class="signal-arrow">→ apply →</span>
+      <span class="signal-node">Bass + tonal parts</span>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does the extracted groove's offset list roughly match my stated numbers (+4 on offbeats, −3 on the perc steps)?</li>
+        <li>Is there exactly one groove file, or did I create competing duplicates?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 7 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="14" width="32" height="16" rx="2"/><line x1="14" y1="14" x2="14" y2="30"/><line x1="22" y1="14" x2="22" y2="30"/><line x1="30" y1="14" x2="30" y2="30"/></svg>
+      </div>
+      <div class="step-num">Step 07</div>
+      <h2 class="step-title">Bend the bass into the same pocket</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Record a deliberately straight bass</div>
+      <ul>
+        <li>On the MicroFreak, init a patch: <strong>Wavetable</strong>, Wave ~30 %, Cutoff 11 o'clock, Attack 0, short Decay. Root <span class="note">A1</span>, A natural minor, 3–5 notes, root on step 1.</li>
+        <li>Program the sequence dead straight — no swing, no glide gymnastics. You want a clean, unswung bass so that all of its feel comes from the extracted groove, not from a second, slightly-different lean.</li>
+        <li>Arm <span class="code">MF BASS</span> (Ext. In <span class="code">1</span>, mono), monitor Auto, record 4 minutes. Then transcribe or warp the take so its notes live as MIDI you can groove, or record the MicroFreak sequence as MIDI directly.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Apply the groove</div>
+      <ul>
+        <li>Select the bass clip. In its clip view, set the <strong>Groove</strong> chooser to <span class="code">B3-001 POCKET</span>. The bass notes are pulled toward the exact lean of the drums.</li>
+        <li>In the Groove Pool: <strong>Timing</strong> <span class="code">100 %</span> (full shared offset), <strong>Velocity</strong> <span class="code">0–30 %</span> (keep the bass's own dynamics), <strong>Random</strong> <span class="code">0 %</span>.</li>
+        <li>Solo bass + drums. The two now share one pocket instead of two slightly different feels. If the bass feels over-dragged, drop Timing to <span class="code">75 %</span>.</li>
+        <li>When certain, hit <span class="menu">Commit Groove</span> on the bass clip to bake the offsets into the note positions — only once you're sure, because it's permanent.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Sidechain to the locked kick</div>
+      <ul>
+        <li>Compressor on <span class="code">MF BASS</span>, Sidechain on, source <span class="code">DT KICK</span> (the clean pass), <strong>Pre FX</strong>.</li>
+        <li>Ratio <span class="code">4:1</span>, Attack <span class="code">1 ms</span>, Release <span class="code">120 ms</span>, threshold down to ~<span class="code">−3 dB</span> gain reduction per kick.</li>
+        <li>The pump now locks to the reference clock, reinforcing the kick-as-truth relationship the whole groove depends on.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Do bass and drums feel like one performance, not two machines?</li>
+        <li>Is the sidechain locked to the kick (steady ~3 dB dips), reinforcing the anchor?</li>
+        <li>If I A/B the bass with groove on vs off, is the "on" version clearly deeper?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 8 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><line x1="12" y1="8" x2="12" y2="36"/><line x1="22" y1="8" x2="22" y2="36"/><line x1="32" y1="8" x2="32" y2="36"/><rect x="9" y="18" width="6" height="3" rx="0.5" fill="currentColor"/><rect x="19" y="24" width="6" height="3" rx="0.5" fill="currentColor"/><rect x="29" y="14" width="6" height="3" rx="0.5" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Step 08</div>
+      <h2 class="step-title">Evolve the groove over the arrangement</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Make the same loop feel different — by feel, not by addition</div>
+      <ul>
+        <li>This is the thesis of the genre and of this Lab Note: the loop barely changes, but the <em>feel</em> moves. Use Digitakt pattern copies to stage the groove arc.</li>
+        <li>Copy <span class="code">A01</span> to <span class="code">A02</span> and <span class="code">A03</span>. Keep notes identical; change only the lean.</li>
+      </ul>
+      <table class="param-table">
+        <caption>Three patterns, one set of notes, three feels</caption>
+        <tr><td><span class="code">A01</span> — intro / verse</td><td>Hat micro-timing <span class="code">+4</span>, perc <span class="code">−3</span>. Template A, the home pocket.</td></tr>
+        <tr><td><span class="code">A02</span> — deepening</td><td>Hat <span class="code">+6</span>, ghost (T4) condition raised to <span class="code">1:2</span>. The track sinks back without a single new sound — Template B territory.</td></tr>
+        <tr><td><span class="code">A03</span> — peak</td><td>Perc <span class="code">−5</span>, off-accent on step 7 added at <span class="code">−6</span>, hat back to <span class="code">+2</span>. The pocket pushes forward — Template C — and the section feels urgent though nothing was layered on.</td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Record the arc as one performance</div>
+      <ul>
+        <li>Rehearse switching A01 → A02 → A03 on bar lines using the Digitakt pattern chain or manual pattern change. Prepare the change before releasing it so it lands cleanly.</li>
+        <li>Arm <span class="code">DT DRUMS</span> and record a single 8-minute pass while you move through the patterns. The groove evolution is now printed as audio.</li>
+        <li>If a transition feels abrupt, the fix is a slower hand on the pattern change, not a crossfade — the listener should feel the pocket shift, never hear a seam.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Play 0:30 against 4:00 blind. Do they feel different even though the notes are identical?</li>
+        <li>Is the change of feel the <em>only</em> thing carrying the section, or did I sneak in a new element?</li>
+        <li>Does the kick stay locked through every pattern? If the anchor ever moved, the whole illusion collapses.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 9 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><line x1="12" y1="8" x2="12" y2="36"/><line x1="22" y1="8" x2="22" y2="36"/><line x1="32" y1="8" x2="32" y2="36"/><rect x="9" y="18" width="6" height="3" rx="0.5" fill="currentColor"/><rect x="19" y="24" width="6" height="3" rx="0.5" fill="currentColor"/><rect x="29" y="14" width="6" height="3" rx="0.5" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Step 09</div>
+      <h2 class="step-title">Place clips and verify the pocket survives the mix</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Edit on kick downbeats only</div>
+      <ul>
+        <li>Make every cut on a kick downbeat — the one position guaranteed to be on the grid. <kbd>⌘ E</kbd> at the playhead, grid snap on.</li>
+        <li>Where two takes meet, overlap by one bar with a 4-beat crossfade. A hard butt-join mid-groove clicks and lurches.</li>
+        <li>When a section is final, <kbd>⌘ J</kbd> consolidate to one clean clip per section.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Mix without flattening the feel</div>
+      <table class="param-table">
+        <caption>Processing that respects the groove</caption>
+        <tr><td>Drum bus compressor</td><td>Light glue only, Attack <span class="code">10 ms+</span> so it never clamps the transients that carry the timing. Fast attack here kills the pocket.</td></tr>
+        <tr><td>DT DRUMS EQ</td><td>HP <span class="code">25–30 Hz</span>; small dip <span class="code">7–10 kHz</span> if hats are harsh on the DT 990 — cut less than your ears ask for.</td></tr>
+        <tr><td>Saturator on drums</td><td>+1 to +3 dB Soft Sine. Adds density without touching timing.</td></tr>
+        <tr><td>Master</td><td>Spectrum + Utility only. No limiter — a brick-wall limiter pumps on the transients and can drag the perceived timing.</td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Verification passes</div>
+      <ul>
+        <li><strong>Transient check:</strong> bypass the drum-bus compressor for ten seconds. If the groove suddenly feels deeper, your attack time is too fast — raise it.</li>
+        <li><strong>Quiet check:</strong> listen once at low volume. The pocket should still pull; if it vanishes, a fast compressor or limiter is flattening it.</li>
+        <li><strong>Mono check:</strong> the timing must survive in mono — flip Utility width to 0 % and confirm the lean is intact.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does any dynamics processor flatten the pocket when engaged? Slow its attack or remove it.</li>
+        <li>Are all edits on kick downbeats, so no cut introduced a phantom timing artifact?</li>
+        <li>Does the groove still read at low volume and in mono?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 10 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><polyline points="14 18 22 26 30 18"/><line x1="22" y1="8" x2="22" y2="26"/><line x1="8" y1="34" x2="36" y2="34"/></svg>
+      </div>
+      <div class="step-num">Step 10</div>
+      <h2 class="step-title">Export and listen away from the grid</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Render</div>
+      <ul>
+        <li>Select <span class="code">0:00</span> to <span class="code">8:00</span>. <span class="menu">File → Export Audio / Video</span>. WAV, <span class="code">48000 Hz</span>, 24-bit, Normalize OFF. Filename <span class="code">groove_b3_001_v1.wav</span>.</li>
+        <li><span class="menu">File → Collect All and Save</span>. Save the Digitakt project, the MicroFreak patch, and the <span class="code">B3-001 POCKET</span> groove file — your feel now exists as a reusable object across projects.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Listen away from the visual grid</div>
+      <ul>
+        <li>Copy to phone. Listen walking, in a car, on laptop speakers — anywhere you cannot see the timeline. The grid is the very thing that lies to you about feel; remove it and judge with the body.</li>
+        <li><span class="code">groove_b3_001_notes.txt</span>, max 10 lines, timestamped: <span class="code">2:10 hats feel too straight here</span>, not "mix feels off".</li>
+        <li>Wait a day. Change <strong>one offset</strong>. Render <span class="code">v2</span>. Compare. The discipline of changing one tick at a time is how you learn what a tick is worth.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Final decision check</div>
+      <ul>
+        <li>Played away from the screen, does the track breathe like a body rather than tick like a clock?</li>
+        <li>Can I still state the whole groove as a handful of numbers?</li>
+        <li>Is the feel doing the work that a beginner would have done with extra parts?</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-nav">
+    <a href="palette.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 05 / Palette
+    </a>
+    <a href="reflection.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      07 / Reflection →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B3-001 — Groove</div>
+
+</div>
+
+</body>
+</html>

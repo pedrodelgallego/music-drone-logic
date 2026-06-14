@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B3-004 — Euclidean — Decisions</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B3-004<span class="labnote-topic">Euclidean</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html" class="active"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Pattern palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B3-004</div>
+    <div class="eyebrow">Euclidean · 03 — Decisions</div>
+    <h1>The theory, and the choices it forces</h1>
+    <p class="lede">Distribute N hits across M steps as evenly as the integers allow. You choose N and M; the spacing is computed. Before you build, you need to understand what the algorithm actually does, where its patterns come from, what rotation changes, and which decisions are yours to make.</p>
+  </header>
+
+  <h2>The idea in one rule</h2>
+
+  <div class="callout">
+    <div class="callout-label">Principle</div>
+    <p>Place N hits across M steps so the gaps between them are as equal as the numbers permit. When M does not divide cleanly by N, the algorithm interleaves the long and short gaps in the smoothest possible order. You set two numbers; the rhythm falls out.</p>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="14"/><circle cx="22" cy="8" r="2.5" fill="currentColor"/><circle cx="34" cy="29" r="2.5" fill="currentColor"/><circle cx="10" cy="29" r="2.5" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Concept 01</div>
+      <h2 class="step-title">Bjorklund's algorithm — even distribution</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Where it comes from</div>
+      <ul>
+        <li>In 2004, Godfried Toussaint showed that the routine Euclid wrote for the greatest common divisor (around 300 BC) — when used to space hits across steps — produces the most even possible distribution. The same algorithm, attributed to E. Bjorklund, had already been used to time the firing of spallation-neutron-source pulses.</li>
+        <li>Notation: <span class="code">E(N, M)</span> means N hits spread over M steps. The hits are placed so the gaps are as equal as the integers permit.</li>
+        <li>You do not compute it by hand in performance — you set two numbers and the generator fills the steps. The point is to <em>think in N and M</em> instead of in individual taps.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">How the algorithm actually runs — E(3,8) by hand</div>
+      <ul>
+        <li>Start by writing N "hit" buckets and (M−N) "rest" buckets as two groups. For E(3,8): three hits <span class="code">[x][x][x]</span> and five rests <span class="code">[.][.][.][.][.]</span>.</li>
+        <li>Repeatedly pair each item in the larger group onto an item in the smaller group — like Euclid's subtraction — folding remainders in until you cannot pair any further. Each "hit" bucket gathers rests behind it.</li>
+        <li>The buckets, read left to right, become the pattern. For E(3,8) you get <span class="code">x . . x . . x .</span> — three hits with gaps of 3, 3, 2. That string is the Cuban <em>tresillo</em>.</li>
+        <li>The maths guarantees you cannot make the gaps more equal than the algorithm does. That is what "maximal evenness" means, and it is why so many independent traditions land on the same strings.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Reading a Euclidean pattern</div>
+      <div class="pattern-wrap">
+        <div class="pattern">
+          <div class="pattern-label">E(4,16)</div>
+          <div class="pattern-step on">x</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+          <div class="pattern-step on">x</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+          <div class="pattern-step on">x</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+          <div class="pattern-step on">x</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+
+          <div class="pattern-label">E(5,16)</div>
+          <div class="pattern-step on">x</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step on">x</div>
+          <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step on">x</div><div class="pattern-step"></div>
+          <div class="pattern-step"></div><div class="pattern-step on">x</div><div class="pattern-step"></div><div class="pattern-step"></div>
+          <div class="pattern-step on">x</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+
+          <div class="pattern-label">E(7,16)</div>
+          <div class="pattern-step on">x</div><div class="pattern-step"></div><div class="pattern-step on">x</div><div class="pattern-step"></div>
+          <div class="pattern-step on">x</div><div class="pattern-step"></div><div class="pattern-step on">x</div><div class="pattern-step"></div>
+          <div class="pattern-step on">x</div><div class="pattern-step"></div><div class="pattern-step on">x</div><div class="pattern-step"></div>
+          <div class="pattern-step on">x</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+        </div>
+      </div>
+      <ul>
+        <li><span class="code">E(4,16)</span> is four-on-the-floor — the trivial even case where 4 divides 16 cleanly, all gaps equal.</li>
+        <li><span class="code">E(5,16)</span> spreads five hits with mixed gaps of 3 and 4 steps — a syncopated, restless pulse.</li>
+        <li><span class="code">E(7,16)</span> packs seven hits into sixteen — busy but still even, the gaps alternating 2 and 3.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Three facts worth memorising</div>
+      <table class="param-table">
+        <caption>Properties of E(N,M)</caption>
+        <tr><td>Density</td><td>N/M is the density. E(5,16) ≈ 31 % full; E(7,16) ≈ 44 %. Pick density by ear, then let the algorithm place it.</td></tr>
+        <tr><td>Complement</td><td>E(N,M) and E(M−N,M) are mirror images — the rests of one are the near-hits of the other. Useful for call-and-response between two voices.</td></tr>
+        <tr><td>Trivial cases</td><td>When N divides M (E(4,16), E(2,8), E(3,12)) every gap is equal — you get a plain even pulse with no syncopation. Reach for non-dividing pairs when you want life.</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <h2>Where these patterns come from</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="15"/><path d="M22 7v30M7 22h30"/></svg>
+      </div>
+      <div class="step-num">Concept 02</div>
+      <h2 class="step-title">Euclidean rhythms in world music</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The same numbers, found everywhere</div>
+      <table class="param-table">
+        <caption>Toussaint's catalogue — where each Euclidean string already lives</caption>
+        <tr><td>E(2,3)</td><td>A common West-African and Latin cell; the smallest interesting case.</td></tr>
+        <tr><td>E(3,4)</td><td>The Cumbia, and a Calypso rhythm.</td></tr>
+        <tr><td>E(3,8)</td><td>The Cuban <em>tresillo</em> (x . . x . . x .) — also the Tunisian <em>karatchi</em>.</td></tr>
+        <tr><td>E(5,8)</td><td>The Cuban <em>cinquillo</em>; a West African bell pattern.</td></tr>
+        <tr><td>E(5,16)</td><td>The Brazilian <em>bossa-nova</em> clave (rotated).</td></tr>
+        <tr><td>E(7,16)</td><td>A Brazilian <em>samba</em> bell pattern.</td></tr>
+        <tr><td>E(5,12)</td><td>The South-African <em>venda</em> and a common West-African bell line.</td></tr>
+        <tr><td>E(7,12)</td><td>A West-African bell pattern; the Ewe "standard pattern" relatives.</td></tr>
+        <tr><td>E(4,9)</td><td>The Turkish <em>aksak</em> and a Greek rhythm.</td></tr>
+        <tr><td>E(2,5) / E(3,7)</td><td>Persian and Balkan <em>aksak</em> "limping" meters.</td></tr>
+      </table>
+      <ul>
+        <li>The insight that made this famous: rhythms developed independently across continents over centuries land on the <em>same</em> mathematically-even distributions. The maximal-evenness rule appears to be something the ear seeks out on its own.</li>
+        <li>Practically, this means a Euclidean generator is not producing "computer rhythms" — it is producing the deep grammar traditional music already discovered. Trust the unfamiliar ones; they have ancestors.</li>
+        <li>The terms worth knowing: <strong>tresillo</strong> (the 3-in-8 cell underpinning much Latin music), <strong>clave</strong> (the two-bar timeline key of Afro-Cuban music), and <strong>aksak</strong> (Balkan/Turkish "limping" meters of unequal beats). All are Euclidean strings or rotations of them.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Rotation — the second dial</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M30 14a12 12 0 1 0 4 9"/><polyline points="34 11 34 19 26 19"/></svg>
+      </div>
+      <div class="step-num">Concept 03</div>
+      <h2 class="step-title">Spinning the pattern to a new start</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">What rotation does</div>
+      <ul>
+        <li>Once N and M are fixed, the <strong>rotation</strong> control shifts which step the pattern starts on — like spinning a necklace of beads so a different bead sits at the top.</li>
+        <li>The gaps stay identical; only the phase relative to the downbeat changes. <span class="code">E(5,8)</span> rotated by one step is a different-feeling groove with the same DNA — and is often exactly how one traditional clave relates to another.</li>
+        <li>Use rotation to decide whether your line leads <em>with</em> the kick or pushes <em>against</em> it. Rotating a hit off step 1 instantly makes a part feel syncopated without changing N or M.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Rotation in pictures — E(5,8)</div>
+      <div class="pattern-wrap">
+        <div class="pattern">
+          <div class="pattern-label">rot 0</div>
+          <div class="pattern-step on">x</div><div class="pattern-step on">x</div><div class="pattern-step"></div><div class="pattern-step on">x</div>
+          <div class="pattern-step on">x</div><div class="pattern-step"></div><div class="pattern-step on">x</div><div class="pattern-step"></div>
+
+          <div class="pattern-label">rot 1</div>
+          <div class="pattern-step on">x</div><div class="pattern-step"></div><div class="pattern-step on">x</div><div class="pattern-step on">x</div>
+          <div class="pattern-step"></div><div class="pattern-step on">x</div><div class="pattern-step"></div><div class="pattern-step on">x</div>
+
+          <div class="pattern-label">rot 2</div>
+          <div class="pattern-step on">x</div><div class="pattern-step on">x</div><div class="pattern-step"></div><div class="pattern-step on">x</div>
+          <div class="pattern-step"></div><div class="pattern-step on">x</div><div class="pattern-step on">x</div><div class="pattern-step"></div>
+        </div>
+      </div>
+      <ul>
+        <li>All three rows are the <em>same</em> five-hit distribution — only the starting point moved. Yet each feels like a distinct groove against a downbeat on step 1.</li>
+        <li>This is why rotation is a composition tool, not a tuning detail: it is how you convert one Euclidean string into a family of related parts.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Euclidean as rule-based placement</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><circle cx="12" cy="14" r="1.6" fill="currentColor"/><circle cx="28" cy="20" r="1.6" fill="currentColor"/><circle cx="18" cy="30" r="1.6" fill="currentColor"/><circle cx="34" cy="32" r="1.6" fill="currentColor"/></svg>
+      </div>
+      <h3 class="card-title">Tapping by feel</h3>
+      <ul class="card-points">
+        <li>You place each hit by ear and habit</li>
+        <li>Tends toward patterns you already know</li>
+        <li>Hard to vary systematically</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="13"/><circle cx="22" cy="9" r="2" fill="currentColor"/><circle cx="33" cy="17" r="2" fill="currentColor"/><circle cx="29" cy="33" r="2" fill="currentColor"/><circle cx="15" cy="33" r="2" fill="currentColor"/><circle cx="11" cy="17" r="2" fill="currentColor"/></svg>
+      </div>
+      <h3 class="card-title">Setting a rule</h3>
+      <ul class="card-points">
+        <li>You choose two numbers and a rotation</li>
+        <li>The placement is even by construction</li>
+        <li>Vary the whole groove by changing one integer</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>The power move:</strong> run a different M per voice. Kick on <span class="code">E(4,16)</span>, hat on <span class="code">E(7,16)</span>, perc on <span class="code">E(3,11)</span>. The 11-step perc is now both Euclidean <em>and</em> a polymeter against the 16-step grid — two rules stacked on one part, generating a long evolving groove from three pairs of numbers.</li>
+    </ul>
+  </div>
+
+  <h2>The decisions that are yours</h2>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Decision check — before you touch the rig</div>
+    <ul>
+      <li>What is the <strong>length M</strong> of my master grid? 16 is safe; 12 invites triplet-feel ancestors; 15 or 11 force polymeter against a 16-step kick.</li>
+      <li>Which voice is the <strong>"bell"</strong> — the unchanging rule everything answers to — and which voices are allowed to evolve?</li>
+      <li>For each voice, what <strong>density</strong> (N/M) do I want, and have I picked a non-dividing pair so it is actually syncopated?</li>
+      <li>What <strong>rotation</strong> puts each line in the right relationship to the kick — leading, answering, or pushing against it?</li>
+      <li>Am I changing <em>one</em> integer over time to evolve the track, or am I tempted to add new elements? (Change the integer.)</li>
+    </ul>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon">
+        <svg viewBox="0 0 44 44"><polyline points="10 22 18 30 34 12"/></svg>
+      </div>
+      <div class="checklist-label">Before you move on</div>
+    </div>
+    <ul>
+      <li>I can read E(N,M) and know the difference between hits, steps, and rotation.</li>
+      <li>I can run E(3,8) by hand and recognise it as the tresillo.</li>
+      <li>I know what density, complement, and trivial cases mean.</li>
+      <li>I know which traditional rhythm my chosen pattern echoes — it has an ancestor.</li>
+      <li>I decided which voice is the unchanging "bell" of my track.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="listen.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 02 / Listen
+    </a>
+    <a href="setup.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      04 / Setup →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B3-004 — Euclidean</div>
+
+</div>
+
+</body>
+</html>

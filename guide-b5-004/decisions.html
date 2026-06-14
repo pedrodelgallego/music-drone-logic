@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B5-004 — Translation &amp; Subtraction · Decisions</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B5-004<span class="labnote-topic">Translation &amp; Subtraction</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html" class="active"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B5-004</div>
+    <div class="eyebrow">Translation &amp; Subtraction · 03 — Decisions</div>
+    <h1>The theory you decide with</h1>
+    <p class="lede">All that space you build has to survive leaving your room. A phone speaker sums to mono and rolls off the lows; a club PA exposes width as phase. Translation is the discipline of making the track read everywhere — and subtraction is the method, because most of what wrecks translation is content you should have removed. This page is the why; the build page is the how.</p>
+  </header>
+
+  <h2>Mono compatibility — the test that catches everything</h2>
+
+  <p style="text-align:center; max-width:660px; margin:0 auto 24px; color:var(--text-muted);">A huge amount of playback is mono or near-mono: phone speakers, club subs, Bluetooth pills, a laptop, a corner-fill speaker in a bar. When stereo folds to mono, anything that exists only as a <em>difference</em> between left and right can cancel. The wide reverb that sounded vast can simply disappear, and the bass that felt huge can lose half its level.</p>
+
+  <table class="param-table">
+    <caption>What collapses in mono, and why</caption>
+    <tr><td>Hard-panned ping-pong delay</td><td>Repeats live in the sides; the centre is empty. In mono they comb-filter or vanish entirely.</td></tr>
+    <tr><td>Over-widened stereo (Utility &gt; 130&nbsp;%)</td><td>Width above unity is built from out-of-phase content; mono sums it toward zero.</td></tr>
+    <tr><td>Stereo chorus / wide reverb on the bass</td><td>Low-frequency phase differences cancel hardest — the bass loses level and punch in mono.</td></tr>
+    <tr><td>A genuinely mono-safe element</td><td>Centred, in-phase content (kick, bass, lead) is unchanged by the fold. Build the foundation here.</td></tr>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">Make the test automatic</div>
+    <p>Put a Utility on the master with a key command or mapped button bound to its Mono switch. Flip to mono every few minutes while you work. If the energy drops or a part disappears, you found a phase problem before it shipped — not after. The producers in the listen page mixed for systems they would never hear; the mono button is how you do the same.</p>
+  </div>
+
+  <h2>Phase &amp; correlation — reading the meter</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><line x1="8" y1="22" x2="36" y2="22"/><path d="M8 22q7-12 14 0t14 0"/></svg>
+      </div>
+      <h3 class="card-title">Correlation = +1</h3>
+      <ul class="card-points">
+        <li>L and R fully in phase — effectively mono</li>
+        <li>Folds to mono with no loss; perfectly safe</li>
+        <li>Narrow, but bulletproof everywhere</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M8 14q7 12 14 0t14 0"/><path d="M8 30q7-12 14 0t14 0"/></svg>
+      </div>
+      <h3 class="card-title">Correlation = -1</h3>
+      <ul class="card-points">
+        <li>L and R inverted — the danger zone</li>
+        <li>Sounds wide on headphones, cancels to silence in mono</li>
+        <li>Anything dipping toward -1 needs investigating, not shipping</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Read the correlation meter</strong> (in Ableton's Spectrum/utility metering, or any stereo meter): hovering around <span class="code">+0.3 to +0.8</span> is a healthy wide mix. Sustained dips below <span class="code">0</span> mean phase cancellation is waiting to bite you in mono.</li>
+      <li><strong>Brief dips are fine.</strong> A reverb tail or a wide cymbal can flick the meter down for a moment without consequence. It is the <em>sustained</em> negative reading on a load-bearing element — the bass, the main stab — that you chase down.</li>
+      <li><strong>Frequency matters.</strong> A correlation problem in the highs is mostly cosmetic; the same problem under 150&nbsp;Hz is structural, because that is where most of the energy and the mono summing live.</li>
+    </ul>
+  </div>
+
+  <h2>Width &amp; M/S — width you can control and undo</h2>
+
+  <table class="param-table">
+    <caption>Building width that survives the fold</caption>
+    <tr><td>Utility Width</td><td>Simple stereo widen/narrow. Above ~130&nbsp;% you trade mono level for apparent width — usually a bad deal.</td></tr>
+    <tr><td>Mono the lows</td><td>Utility's <span class="code">Bass Mono</span> (or a low-band M/S split) forces everything below ~120&nbsp;Hz to centre — bass stays solid in mono, width lives in the mids and highs where it is safe.</td></tr>
+    <tr><td>Mid/Side EQ</td><td>EQ the Side channel only: widen by boosting side highs, or remove width in a band by cutting the side. Surgical, reversible.</td></tr>
+    <tr><td>Width from real sources</td><td>The honest path: two takes panned, or a mono source plus a stereo reverb. Reads as width <em>and</em> survives mono, because it isn't built from phase tricks.</td></tr>
+  </table>
+
+  <div class="signal-flow">
+    <span class="signal-node">Stereo bus</span>
+    <span class="signal-arrow">→ M/S split →</span>
+    <span class="signal-node">Mid (kick, bass)</span>
+    <span class="signal-arrow">+</span>
+    <span class="signal-node">Side (reverb, width)</span>
+    <span class="signal-arrow">→ recombine →</span>
+    <span class="signal-node">Output</span>
+  </div>
+
+  <p style="text-align:center; max-width:660px; margin:24px auto; color:var(--text-muted);">The mid/side mental model is the whole decision: the <strong>Mid</strong> is everything common to both channels — your mono-safe core — and the <strong>Side</strong> is the difference, the part that vanishes in the fold. Put load-bearing content in the Mid. Put decoration in the Side, and treat anything in the Side as optional by definition.</p>
+
+  <h2>Room vs headphones vs phone — three judges, no appeal</h2>
+
+  <div class="cards three">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="8" y="14" width="12" height="16" rx="1.5"/><rect x="24" y="14" width="12" height="16" rx="1.5"/><circle cx="14" cy="22" r="3"/><circle cx="30" cy="22" r="3"/></svg>
+      </div>
+      <h3 class="card-title">Monitors / room</h3>
+      <ul class="card-points">
+        <li>Shows the real low end and depth — but the room lies about bass</li>
+        <li>Where width and reverb depth are decided</li>
+        <li>Trust it for balance, distrust it for absolute low-end level</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M10 24v-2a12 12 0 0 1 24 0v2"/><rect x="8" y="24" width="6" height="10" rx="2"/><rect x="30" y="24" width="6" height="10" rx="2"/></svg>
+      </div>
+      <h3 class="card-title">Headphones</h3>
+      <ul class="card-points">
+        <li>Brutally honest about detail, noise, and stereo placement</li>
+        <li>Exaggerate width — everything sounds wider than on speakers</li>
+        <li>Where you catch clicks, edits, and phase artefacts</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="14" y="6" width="16" height="32" rx="2"/><line x1="19" y1="33" x2="25" y2="33"/></svg>
+      </div>
+      <h3 class="card-title">Phone / laptop</h3>
+      <ul class="card-points">
+        <li>Near-mono, no real lows — the harshest translation test there is</li>
+        <li>If the groove reads here, it reads anywhere</li>
+        <li>Exposes a mix that only worked because of bass and width</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The cross-system pass</div>
+    <p>Render, then listen on all three before changing anything. A mix that survives a phone speaker, a pair of headphones, and a real room is finished. One that needs a particular system to sound good is not done — it is hiding. Mix for the worst of the three, and the others take care of themselves.</p>
+  </div>
+
+  <h2>Mixing by removal — the subtractive method</h2>
+
+  <p style="text-align:center; max-width:660px; margin:0 auto 24px; color:var(--text-muted);">The instinct is to add: more EQ boost, more width, another layer to "fill it out." Subtraction is the opposite reflex, and it is the one that translates. Most clarity comes from taking things away — frequencies, elements, and stereo content that were fighting each other in the first place.</p>
+
+  <table class="param-table">
+    <caption>Remove, don't add</caption>
+    <tr><td>EQ by cutting</td><td>Carve the muddy band out of the part that is masking, instead of boosting the part being masked. Cuts are cleaner than boosts and add no level to fight the limiter later.</td></tr>
+    <tr><td>Remove a layer</td><td>If two elements share a job, mute one for two minutes. If nothing is lost, it stays muted. Fewer parts translate better.</td></tr>
+    <tr><td>Narrow before you widen</td><td>Pull width back until the mix nearly collapses, then add only what it needs. Width earned this way survives mono.</td></tr>
+    <tr><td>Subtractive arrangement</td><td>Build the peak by <em>removing</em> on the way out — strip a part and the previous fullness reads as bigger in hindsight. The drop is a subtraction, not an addition.</td></tr>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Masking is the real enemy, not level.</strong> When a part feels weak, the usual cause is another part occupying the same band, not a fader set too low. Find the masker and cut it, and the weak part returns for free — with no extra energy added to the mix.</li>
+      <li><strong>Subtraction protects headroom.</strong> Every boost eats into the ceiling and every cut gives some back. A mix built from cuts arrives at the master bus with room to breathe, which is itself a translation advantage.</li>
+      <li><strong>The arrangement is a mix decision.</strong> Removing an element at the peak is both an arrangement move and the cleanest possible "mix" — there is nothing to balance if it is not playing.</li>
+    </ul>
+  </div>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Decision check</div>
+    <ul>
+      <li>Flip to mono: does the energy hold, or does a part vanish? Track down anything that disappears.</li>
+      <li>Is everything below ~120&nbsp;Hz mono? If the bass loses punch in the fold, it isn't.</li>
+      <li>Have you decided which elements live in the Mid (load-bearing) and which in the Side (optional)?</li>
+      <li>Have you heard it on a phone, headphones, and a room — and made it work on the worst of the three?</li>
+      <li>What did you <em>remove</em> in this pass? If the answer is "nothing, I added," you mixed in the wrong direction.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="listen.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 02 / Listen
+    </a>
+    <a href="setup.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      04 / Setup →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B5-004 — Translation &amp; Subtraction</div>
+
+</div>
+
+</body>
+</html>

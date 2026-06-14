@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B6-004 — Tuning · Decisions</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B6-004<span class="labnote-topic">Tuning</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html" class="active"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B6-004</div>
+    <div class="eyebrow">Tuning · 03 — Decisions</div>
+    <h1>The grid is a decision someone already made</h1>
+    <p class="lede">Every melody you have ever written sat on a pitch grid you never chose: twelve equal steps per octave. That grid is not nature and it is not neutral — it is a system, with authors and a history and a precise list of compromises. This page is the theory you need before you build anything: where pitch comes from, what just intonation and 12-TET each are, how cents let you measure the gap between them, and the decisions you will make about root, ratios, and how far from the keyboard you are willing to travel.</p>
+  </header>
+
+  <h2>The harmonic series — where pitch comes from</h2>
+
+  <p style="text-align:center; max-width:660px; margin:0 auto 24px; color:var(--text-muted);">A vibrating string, column of air, or struck bar does not produce one frequency. It produces a fundamental plus a stack of overtones at whole-number multiples of it: 1×, 2×, 3×, 4×, 5× and on up. Those whole-number ratios are the raw material of consonance. The ear evolved listening to them, and it hears simple ratios as restful and complex ones as tense. Every tuning system ever built is a different answer to one question: which of these ratios do we keep, and how do we fit them into a usable scale?</p>
+
+  <div class="signal-flow">
+    <span class="signal-node">f &middot; 1:1</span>
+    <span class="signal-arrow">2:1 octave</span>
+    <span class="signal-node">2f</span>
+    <span class="signal-arrow">3:2 fifth</span>
+    <span class="signal-node">3f</span>
+    <span class="signal-arrow">4:3 fourth</span>
+    <span class="signal-node">4f</span>
+    <span class="signal-arrow">5:4 third</span>
+    <span class="signal-node">5f</span>
+    <span class="signal-arrow">6:5</span>
+    <span class="signal-node">6f</span>
+    <span class="signal-arrow">7:4</span>
+    <span class="signal-node">7f</span>
+  </div>
+
+  <table class="param-table">
+    <caption>The first harmonics of a fundamental, and the interval each one makes with the one below it</caption>
+    <tr><td>1st (1f) — the fundamental</td><td>The note you name. Everything above is colour folded into it.</td></tr>
+    <tr><td>2nd (2f) — ratio 2:1</td><td>The octave. The most consonant interval there is; the ear treats it as the "same note."</td></tr>
+    <tr><td>3rd (3f) — ratio 3:2 above the octave</td><td>The perfect fifth. After the octave, the strongest, most stable interval.</td></tr>
+    <tr><td>4th (4f) — ratio 4:3</td><td>The perfect fourth. The fifth inverted.</td></tr>
+    <tr><td>5th (5f) — ratio 5:4</td><td>The just major third. Calm and glassy — nothing like the tempered third you know.</td></tr>
+    <tr><td>6th (6f) — ratio 6:5</td><td>The just minor third.</td></tr>
+    <tr><td>7th (7f) — ratio 7:4</td><td>The harmonic seventh. Flat, bluesy, "wrong" to a trained 12-TET ear — and dead in tune.</td></tr>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Why this matters for drones:</strong> a sustained tone is its harmonic series, laid bare. Hold two notes whose fundamentals are in a simple ratio and their overtones line up — partials coincide instead of clashing, and the chord locks. Hold two notes in a complex or impure ratio and the near-misses between partials beat against each other. A fast melody hides this; a held chord is nothing but this. That is why this Lab Note is about tuning and not, say, melody.</li>
+    </ul>
+  </div>
+
+  <h2>Two systems, two philosophies</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M8 22h4M14 22h4M20 22h4M26 22h4M32 22h4"/><path d="M8 16v12M18 13v18M28 16v12M36 19v6"/></svg>
+      </div>
+      <h3 class="card-title">Just intonation (JI)</h3>
+      <ul class="card-points">
+        <li>Every interval is an exact small-integer ratio: 3:2, 5:4, 7:4, 9:8</li>
+        <li>Chords are beatless — the harmonic series made directly audible</li>
+        <li>Anchored to a chosen root; does not transpose freely</li>
+        <li>The tuning of the entire drone lineage in this block</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><line x1="8" y1="28" x2="36" y2="28"/><line x1="10" y1="16" x2="10" y2="28"/><line x1="16" y1="16" x2="16" y2="28"/><line x1="22" y1="16" x2="22" y2="28"/><line x1="28" y1="16" x2="28" y2="28"/><line x1="34" y1="16" x2="34" y2="28"/></svg>
+      </div>
+      <h3 class="card-title">12-tone equal temperament (12-TET)</h3>
+      <ul class="card-points">
+        <li>The octave split into twelve <em>equal</em> ratios, each 2^(1/12) ≈ 1.0595</li>
+        <li>Every interval slightly out of tune, but identical in every key</li>
+        <li>A deliberate compromise for transposition and keyboards</li>
+        <li>What your DAW, MicroFreak, and Digitakt default to</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The key idea</div>
+    <p>12-TET is not "in tune." It is a <em>system</em> that trades away pure intervals in exchange for being able to play in any key on one fixed keyboard. Recognising it as a choice is what gives you permission to choose differently.</p>
+  </div>
+
+  <h2>Cents — the ruler for pitch</h2>
+
+  <p style="text-align:center; max-width:660px; margin:0 auto 24px; color:var(--text-muted);">To compare tunings you need a unit finer than the semitone. The <strong>cent</strong> is it: one 12-TET semitone is divided into exactly 100 cents, so an octave is 1200 cents. Cents are logarithmic, which matches how the ear hears pitch, and they let you say precisely how far a just interval sits from its tempered neighbour. Most listeners notice a mistuning of about 5–6 cents on a sustained tone; trained ears hear less.</p>
+
+  <table class="param-table">
+    <caption>Just intervals vs 12-TET, measured in cents</caption>
+    <tr><td>Just perfect fifth (3:2)</td><td>702.0 cents — beatless, the interval the string actually wants</td></tr>
+    <tr><td>12-TET fifth</td><td>700.0 cents — only 2 cents flat; close enough that we stopped noticing</td></tr>
+    <tr><td>Just perfect fourth (4:3)</td><td>498.0 cents</td></tr>
+    <tr><td>12-TET fourth</td><td>500.0 cents — 2 cents sharp, the mirror of the fifth's error</td></tr>
+    <tr><td>Just major third (5:4)</td><td>386.3 cents — calm, glassy</td></tr>
+    <tr><td>12-TET major third</td><td>400.0 cents — nearly <strong>14 cents sharp</strong>; the famously "buzzy" tempered third</td></tr>
+    <tr><td>Just minor third (6:5)</td><td>315.6 cents</td></tr>
+    <tr><td>12-TET minor third</td><td>300.0 cents — about 16 cents flat of just</td></tr>
+    <tr><td>Just harmonic seventh (7:4)</td><td>968.8 cents — has <em>no</em> 12-TET equivalent; the grid simply cannot say it</td></tr>
+    <tr><td>Just whole tone (9:8)</td><td>203.9 cents — vs 200.0 in 12-TET</td></tr>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>The fifth is cheap, the third is expensive.</strong> 12-TET's fifth is off by only 2 cents — inaudible on most material. Its major third is off by nearly 14 cents, which is exactly why tempered chords have that faint restless buzz and just chords do not. If you build on fifths and fourths, 12-TET is nearly free; the moment you sustain a third or a seventh, the cost becomes audible. Drones live on sustain. That is the whole argument.</li>
+    </ul>
+  </div>
+
+  <h2>Why 12-TET exists at all</h2>
+
+  <p style="text-align:center; max-width:660px; margin:0 auto 24px; color:var(--text-muted);">Just intonation has a fatal practical flaw on a fixed keyboard: it is anchored. A scale tuned pure in C is out of tune in F♯, because the pure ratios from C land on different frequencies than the pure ratios from F♯ would. Stack twelve pure fifths and you do not arrive back at a pure octave — you overshoot by a small interval called the Pythagorean comma (about 23.5 cents). Something has to give. 12-TET's answer is brutal and elegant: spread the error evenly across all twelve fifths so no key is worse than any other, and every key is equally, slightly wrong. It made the piano and free modulation possible. It is a magnificent engineering compromise — and a compromise is exactly what it is.</p>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="15"/><line x1="22" y1="22" x2="22" y2="9"/><line x1="22" y1="22" x2="33" y2="28"/></svg>
+      </div>
+      <h3 class="card-title">What 12-TET buys</h3>
+      <ul class="card-points">
+        <li>Play in any key on one keyboard with no retuning</li>
+        <li>Modulate freely; no key sounds worse than another</li>
+        <li>A shared standard every instrument and DAW agrees on</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><line x1="8" y1="22" x2="36" y2="22"/><path d="M14 16 l-6 6 l6 6"/><path d="M30 16 l6 6 l-6 6"/></svg>
+      </div>
+      <h3 class="card-title">What 12-TET costs</h3>
+      <ul class="card-points">
+        <li>Every third and sixth is audibly tempered, never pure</li>
+        <li>The 7th, 11th, 13th harmonics are unreachable — the grid can't name them</li>
+        <li>Sustained chords shimmer slightly and never fully come to rest</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Your decisions for this piece</h2>
+
+  <table class="param-table">
+    <caption>Decide these before you open a synth — they shape everything downstream</caption>
+    <tr><td>Root pitch</td><td>JI is anchored, so the root is a real decision. Pick a fundamental low enough to sit under a drone but not so low your monitoring can't reproduce it — somewhere around A1–A2 / 55–110 Hz is a safe home. Write down the exact frequency.</td></tr>
+    <tr><td>How far from 12-TET</td><td>A 5-limit scale (ratios using only 2, 3, 5) stays familiar. Adding the 7th harmonic (7-limit) brings the bluesy harmonic seventh and starts to sound genuinely other. Decide how strange you want it.</td></tr>
+    <tr><td>How many notes</td><td>A drone piece needs very few. A sparse set — root, fifth, third, seventh, octave — is plenty. Resist a full chromatic just scale; you are composing with a chord, not a keyboard.</td></tr>
+    <tr><td>Fixed or free pitch</td><td>The MicroFreak and a soft-synth can be retuned to a fixed grid. A bowed or sung source can play any ratio freely, like the Johnston quartet. This Lab Note uses the fixed-grid route; note the limit so you know what you are giving up.</td></tr>
+    <tr><td>What stays 12-TET</td><td>Percussion is usually atonal enough to leave in standard tuning. Decide consciously rather than by default — a tuned kick should agree with your root.</td></tr>
+  </table>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Decision check</div>
+    <ul>
+      <li>Can you state, in one sentence, what 12-TET trades away and what it buys?</li>
+      <li>Do you know the exact frequency of your chosen root, not just its note name?</li>
+      <li>Have you decided which harmonics you are reaching for — and therefore which ratios your scale must contain?</li>
+      <li>Can you separate what the tuning system decides (the exact pitches) from what you decide (which ratios to include)?</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Carry forward</div>
+    <p>The pitch grid is the most invisible decision in your music, precisely because someone made it for you centuries ago. Author one scale by hand and you will never again hear 12-TET as neutral.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="listen.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 02 / Listen
+    </a>
+    <a href="setup.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      04 / Setup →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B6-004 — Tuning</div>
+
+</div>
+
+</body>
+</html>

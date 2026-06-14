@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B3-003 — Polymeter &amp; Phase — Length palette</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B3-003<span class="labnote-topic">Polymeter &amp; Phase</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen first</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Rig &amp; setup</a>
+  <a href="palette.html" class="active"><span class="nav-num">05</span>Length palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B3-003</div>
+    <div class="eyebrow">Polymeter &amp; Phase · 05 — Length palette</div>
+    <h1>Length pairs &amp; drift rates</h1>
+    <p class="lede">A working sound palette for this study is a set of <em>numbers</em>, not timbres. These tables give you length pairings with their realignment cycles, the character each produces, and the phase drift rates that land cleanly back in unison. Choose from here and you skip the trial-and-error.</p>
+  </header>
+
+  <h2>Polymeter length pairs</h2>
+
+  <p style="text-align:center; max-width:660px; margin:0 auto 18px; color:var(--text-muted);">All against a fixed 16-step kick on a 16th-note grid. Realignment in bars = LCM(16, n) ÷ 16. Pick the cycle length that matches how patient your track wants to be.</p>
+
+  <table class="param-table">
+    <caption>Second track length vs the 16-step kick</caption>
+    <tr><td>n = 12</td><td>Realigns every <strong>3 bars</strong>. Tight 3-against-4 lean. The most danceable, least wandering — a foundation, not a headline.</td></tr>
+    <tr><td>n = 14</td><td>Realigns every <strong>7 bars</strong>. A gentle periodic sway; lands on a musically friendly odd bar count.</td></tr>
+    <tr><td>n = 13</td><td>Realigns every <strong>13 bars</strong>. Coprime and prime — restless, the parts almost never agree until the big return.</td></tr>
+    <tr><td>n = 15</td><td>Realigns every <strong>15 bars</strong>. The signature setting: near-static, slowly rotating, hypnotic. The recommended headline drift.</td></tr>
+    <tr><td>n = 11</td><td>Realigns every <strong>11 bars</strong>. Short odd loop, busier and more insistent than 15.</td></tr>
+    <tr><td>n = 9</td><td>Realigns every <strong>9 bars</strong>. Quick odd rotation; good for a hat or click that should feel jittery.</td></tr>
+    <tr><td>n = 7</td><td>Realigns every <strong>7 bars</strong> (LCM 112). Very short cycle, very fast rotation — almost a polyrhythmic flicker.</td></tr>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">How to read character</div>
+    <p>Coprime-with-16 lengths (15, 13, 11, 9, 7) give the longest, most "rotating" drift. Lengths sharing a factor with 16 (12, 14) realign sooner and feel more periodic. Longer cycle = more hypnotic; shorter = more groove.</p>
+  </div>
+
+  <h2>Stacking three lengths</h2>
+
+  <p style="text-align:center; max-width:660px; margin:0 auto 18px; color:var(--text-muted);">When more than two parts disagree, the full realignment is the LCM of all the lengths together — and it grows fast. Use this to engineer a track whose every element only agrees once, near the end.</p>
+
+  <table class="param-table">
+    <caption>Three-way realignment (everything realigns at the listed bar)</caption>
+    <tr><td>16 · 12 · 8</td><td>All share factors → LCM 48 steps = <strong>3 bars</strong>. Tight, locked; the three feel like one groove with internal motion.</td></tr>
+    <tr><td>16 · 15 · 14</td><td>LCM 1680 steps = <strong>105 bars</strong> (~3:23 at 124). Practically never fully agrees — a whole-track-length super-cycle.</td></tr>
+    <tr><td>16 · 12 · 15</td><td>LCM 240 steps = <strong>15 bars</strong>. The 12 realigns often; the 15 sets the headline cycle. A two-speed drift.</td></tr>
+    <tr><td>16 · 14 · 7</td><td>LCM 112 steps = <strong>7 bars</strong>. 7 is a factor of 14, so they collapse onto the 14's cycle.</td></tr>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Pairwise vs full realignment.</strong> Even when all three only agree at bar 105, each <em>pair</em> agrees much sooner (16&amp;15 at 15, 16&amp;14 at 7). Those pairwise meetings are smaller structural events you can also use — partial clearings between the big return.</li>
+    </ul>
+  </div>
+
+  <h2>Phase drift rates</h2>
+
+  <p style="text-align:center; max-width:660px; margin:0 auto 18px; color:var(--text-muted);">For phase, choose how long the drifting copy takes to travel one full pattern-length ahead and return to unison. That span is your structural unit. The BPM offset below is the copy's clip tempo against a 124 BPM project for a one-cycle-per-span drift on a 1-bar (16-step) figure.</p>
+
+  <table class="param-table">
+    <caption>Drift span → required tempo offset (1-bar figure, 124 BPM project)</caption>
+    <tr><td>16-bar cycle</td><td>Copy ≈ <span class="code">116.5 BPM</span> (−6.25%). Fast, clearly audible motion — for a single dramatic phase event.</td></tr>
+    <tr><td>32-bar cycle</td><td>Copy ≈ <span class="code">120.1 BPM</span> (−3.1%). The recommended default — felt, not heard happening.</td></tr>
+    <tr><td>48-bar cycle</td><td>Copy ≈ <span class="code">121.4 BPM</span> (−2.1%). Slow, meditative; one cycle spans a whole section.</td></tr>
+    <tr><td>64-bar cycle</td><td>Copy ≈ <span class="code">122.1 BPM</span> (−1.5%). The most Reich-like — the drift is barely perceptible as motion.</td></tr>
+  </table>
+
+  <div class="reveal">
+    <details>
+      <summary>The math behind the offset</summary>
+      <p>One full phase cycle means the copy gains exactly one pattern-length (1 bar) over the chosen span. To gain 1 bar over <span class="code">N</span> bars, the copy must play <span class="code">N+1</span> bars in the time the original plays <span class="code">N</span> — so its tempo is the project tempo × <span class="code">N ÷ (N+1)</span>. For a 32-bar cycle: 124 × 32/33 ≈ 120.2 BPM. Use the precise figure and the copy lands back in unison on the bar, giving you a clean structural turn.</p>
+    </details>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Drift direction</div>
+    <p>Slowing the copy (lower BPM) makes it fall <em>behind</em>; speeding it makes it run <em>ahead</em>. Either works — Reich's player sped up. Behind tends to read as "the echo lagging", ahead as "anticipation". Pick by feel; keep it consistent within a section.</p>
+  </div>
+
+  <h2>A worked palette for the build</h2>
+
+  <p style="text-align:center; max-width:660px; margin:0 auto 18px; color:var(--text-muted);">If you want a ready-made set to take straight into the build, use this. It pairs a polymeter drum layer with a phased melodic figure so both engines appear in one track.</p>
+
+  <table class="param-table">
+    <caption>Recommended starting numbers</caption>
+    <tr><td>Kick</td><td>16 steps, fixed. The reference clock.</td></tr>
+    <tr><td>Hat</td><td>16 steps, fixed. Backbone.</td></tr>
+    <tr><td>Perc</td><td>15 steps. Realigns with the kick every 15 bars — the polymeter headline.</td></tr>
+    <tr><td>Texture</td><td>14 steps. Secondary drift, realigns every 7 bars.</td></tr>
+    <tr><td>MicroFreak figure</td><td>1-bar loop, duplicated. Phase copy at 120.1 BPM → 32-bar phase cycle.</td></tr>
+    <tr><td>Drone</td><td>No length; a held bed that makes all the drift legible.</td></tr>
+  </table>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon">
+        <svg viewBox="0 0 44 44"><polyline points="10 22 18 30 34 12"/></svg>
+      </div>
+      <div class="checklist-label">Before you move on</div>
+    </div>
+    <ul>
+      <li>I chose my length pair (or trio) and wrote down its realignment bar count.</li>
+      <li>If using phase, I chose a drift span and the exact BPM offset that lands it in unison.</li>
+      <li>My longest cycle is at least 7 bars — long enough to feel, not a quick flicker.</li>
+      <li>The kick is the one fixed reference; nothing else stays put.</li>
+      <li>The numbers are mine; I'm not transcribing a reference track's pattern.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="setup.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 04 / Rig &amp; setup
+    </a>
+    <a href="build.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      06 / The build →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B3-003 — Polymeter &amp; Phase</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B3-003 — Polymeter &amp; Phase — Rig &amp; setup</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B3-003<span class="labnote-topic">Polymeter &amp; Phase</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen first</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html" class="active"><span class="nav-num">04</span>Rig &amp; setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Length palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B3-003</div>
+    <div class="eyebrow">Polymeter &amp; Phase · 04 — Rig &amp; setup</div>
+    <h1>The rig for disagreeing clocks</h1>
+    <p class="lede">Polymeter and phase put unusual demands on the signal path. The Digitakt II is the polymeter engine — its per-track length is the single feature this whole study leans on. Ableton is the phase engine, achieved by duplicating a clip and detuning one copy's tempo. This page wires both, and is the reference the build assumes.</p>
+  </header>
+
+  <h2>Who does what</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="8" width="32" height="28" rx="2"/><rect x="10" y="12" width="10" height="7" rx="1"/><circle cx="29" cy="15.5" r="3"/><rect x="10" y="24" width="4" height="4" rx="0.7"/><rect x="17" y="24" width="4" height="4" rx="0.7"/><rect x="24" y="24" width="4" height="4" rx="0.7"/><rect x="31" y="24" width="4" height="4" rx="0.7"/></svg>
+      </div>
+      <h3 class="card-title">Digitakt II — polymeter engine</h3>
+      <ul class="card-points">
+        <li>PER TRACK scale mode: each track its own length</li>
+        <li>Kick stays 16; perc/texture set to 15, 14, 13…</li>
+        <li>The disagreement is internal; Ableton just records it</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="10" width="32" height="20" rx="2"/><line x1="16" y1="36" x2="28" y2="36"/><line x1="22" y1="30" x2="22" y2="36"/></svg>
+      </div>
+      <h3 class="card-title">Ableton Live — phase engine</h3>
+      <ul class="card-points">
+        <li>Duplicate a clip to two tracks, drift one's tempo</li>
+        <li>The clock master for both hardware boxes</li>
+        <li>Records the Digitakt polymeter as evolving audio</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The division of labour</div>
+    <p>Polymeter happens <em>inside</em> the Digitakt, locked to Ableton's one clock. Phase happens <em>inside</em> Ableton, after recording, by drifting a duplicated copy. Never try to phase the hardware live against the clock — you would only be fighting the sync you carefully set up.</p>
+  </div>
+
+  <h2>The signal path</h2>
+
+  <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:11px; letter-spacing:0.2em; text-transform:uppercase;">Audio path</h3>
+  <div class="signal-flow">
+    <span class="signal-node">Digitakt II Main L/R</span>
+    <span class="signal-arrow">→ 2 × TRS →</span>
+    <span class="signal-node">M4 In 3/4</span>
+    <span class="signal-arrow">+</span>
+    <span class="signal-node">MicroFreak Out</span>
+    <span class="signal-arrow">→ TS →</span>
+    <span class="signal-node">M4 In 1</span>
+    <span class="signal-arrow">→ USB-C →</span>
+    <span class="signal-node">Ableton</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">DT 990 Pro</span>
+  </div>
+
+  <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:11px; letter-spacing:0.2em; text-transform:uppercase;">Control + clock path</h3>
+  <div class="signal-flow">
+    <span class="signal-node">Ableton</span>
+    <span class="signal-arrow">→ MIDI clock + transport →</span>
+    <span class="signal-node">Digitakt II</span>
+    <span class="signal-arrow">+</span>
+    <span class="signal-node">MicroFreak</span>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">One clock to rule them all</div>
+    <p>Exactly one device generates tempo: Ableton. The polymeter is a property of <em>track lengths</em>, not of multiple clocks — both Digitakt tracks run at the same 16th-note pulse, they simply wrap at different counts. If you ever see a second clock master, the realignment math breaks.</p>
+  </div>
+
+  <h2>Configuring the Digitakt II for per-track length</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="14" width="22" height="7" rx="1.5"/><rect x="6" y="24" width="32" height="7" rx="1.5"/></svg>
+      </div>
+      <div class="step-num">Setup 01</div>
+      <h2 class="step-title">PER TRACK scale mode</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Find the setting</div>
+      <ul>
+        <li>Press <span class="menu">FUNC + PAGE</span> to reach the <span class="menu">SCALE</span> menu (the page that controls pattern length and speed).</li>
+        <li>At the top, switch the mode from <strong>PER PATTERN</strong> to <strong>PER TRACK</strong>. This is the switch the whole Lab Note depends on: it lets every track carry its own <span class="code">LEN</span> independently.</li>
+        <li>In PER TRACK mode the SCALE page now shows the <em>selected</em> track's length. Select a track first, then set its <span class="code">LEN</span>.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Set the lengths</div>
+      <table class="param-table">
+        <caption>A worked polymeter assignment</caption>
+        <tr><td>T1 KICK</td><td><span class="code">LEN 16</span> — the fixed reference clock. Never changes.</td></tr>
+        <tr><td>T2 HAT</td><td><span class="code">LEN 16</span> — also locked to the kick, for a stable backbone.</td></tr>
+        <tr><td>T3 PERC</td><td><span class="code">LEN 15</span> — the drifting voice. Realigns with the kick every 15 bars.</td></tr>
+        <tr><td>T4 TEXTURE</td><td><span class="code">LEN 14</span> — a second, faster drift (7-bar realignment with the kick).</td></tr>
+      </table>
+      <ul>
+        <li>The <span class="code">CHNG</span> (change length) parameter governs after how many steps the <em>pattern</em> advances to the next — leave it long or off so a short track simply loops within the pattern rather than triggering a pattern change.</li>
+        <li>Each track also has a <strong>SPD</strong> (speed) value. Leave every track at <span class="code">1×</span> for true polymeter. Changing speed turns it into something closer to polyrhythm — powerful, but a different study.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Verify before moving on</div>
+      <ul>
+        <li>Press play in Ableton: the Digitakt starts, shows the project tempo, and stops on command.</li>
+        <li>Watch the step LEDs: T1 wraps at 16, T3 visibly wraps at 15 — its loop point walks left relative to T1 each bar.</li>
+        <li>If every track wraps together, you are still in PER PATTERN mode. Go back and switch to PER TRACK.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Configuring Ableton for clip phasing</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="12" width="14" height="8" rx="1.5"/><rect x="6" y="24" width="14" height="8" rx="1.5"/><path d="M24 16 h12" /><path d="M24 28 h14"/><polyline points="33 13 37 16 33 19"/><polyline points="35 25 39 28 35 31"/></svg>
+      </div>
+      <div class="step-num">Setup 02</div>
+      <h2 class="step-title">Phasing a duplicated clip</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The principle</div>
+      <ul>
+        <li>Record one short, looping figure to a clip. Duplicate it to a second track with <kbd>⌘ D</kbd> so both tracks hold the same audio.</li>
+        <li>Make the copy run at a fractionally different effective rate so it slides ahead of the original — by the end of a long span it has travelled one full pattern-length and rejoined unison. That slide is the phase.</li>
+        <li>The original stays warped to the grid (the anchor). The copy is the one you drift.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Three ways to create the drift</div>
+      <table class="param-table">
+        <caption>Pick one — they trade control for smoothness</caption>
+        <tr><td>Warp-marker nudge</td><td>On the copy, switch Warp <strong>off</strong> for analog-style sliding, or place two warp markers and drag the end one slightly later. The clip plays a hair slow and creeps behind. Most "Reich-like".</td></tr>
+        <tr><td>Automated micro-delay</td><td>A Delay/Echo on the copy with feedback at 0, automate its delay time from <span class="code">0 ms</span> to one pattern-length-in-ms over your chosen span. Precise and undoable.</td></tr>
+        <tr><td>Clip BPM offset</td><td>Set the copy's clip BPM field a tiny fraction below the project tempo (e.g. <span class="code">123.7</span> against <span class="code">124</span>). It drifts continuously. Easiest to set, hardest to land back in unison exactly.</td></tr>
+      </table>
+      <ul>
+        <li>Keep the drift slow: a full phase cycle over <strong>32–64 bars</strong>. If a listener can tell it's "speeding up", it is too fast — they should only notice the texture thickened and then cleared.</li>
+        <li>High-pass the drifting copy a little so it sits behind the anchor rather than doubling its weight; two identical low-ends phasing turns to mud.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Verify before moving on</div>
+      <ul>
+        <li>Played together at the start, the two clips sound like one (true unison, no flam).</li>
+        <li>Halfway through the span the copy is audibly displaced and emergent patterns appear.</li>
+        <li>At the end of the span the two return to unison — if they don't, your drift rate doesn't divide the span evenly; adjust it on the palette page's table.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Track layout for this study</h2>
+
+  <table class="param-table">
+    <caption>Ableton tracks</caption>
+    <tr><td>DT DRUMS</td><td>Digitakt II stereo via Ext. In 3/4 — carries the polymeter performance as recorded audio</td></tr>
+    <tr><td>MF FIGURE</td><td>MicroFreak mono via Ext. In 1 — the short figure you will later duplicate and phase</td></tr>
+    <tr><td>MF FIGURE (phase)</td><td>Duplicate of the above; the drifting copy</td></tr>
+    <tr><td>MF DRONE</td><td>MicroFreak mono — the steady bed under the drift</td></tr>
+    <tr><td>Return A / B</td><td>Reverb / Echo</td></tr>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Record long, edit later.</strong> Polymeter only reveals itself over many bars and phase over tens of bars — a 16-bar take shows you nothing. Record 4-minute passes so the full realignment cycle is captured as audio you can then cut on its natural seams.</li>
+      <li><strong>Don't quantise the recorded polymeter.</strong> Auto-warp would try to snap the drifting part back to the grid, destroying the very thing you recorded. Keep Auto-Warp off, as in the studio reference.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="decisions.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 03 / Decisions
+    </a>
+    <a href="palette.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      05 / Length palette →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B3-003 — Polymeter &amp; Phase</div>
+
+</div>
+
+</body>
+</html>

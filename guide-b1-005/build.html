@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B1-005 — Subtractive · The build</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B1-005<span class="labnote-topic">Subtractive</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html" class="active"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B1-005</div>
+    <div class="eyebrow">Subtractive · 06 — The build</div>
+    <h1>Build one evolving voice, then remove the clock</h1>
+    <p class="lede">Now we touch the gear. Every step is small, every step moves one control at a time, every step has a decision checkpoint. We start from a true init patch, add the oscillator, then the filter, then the envelope, then one modulator — hearing each alone — until a single voice evolves on its own. Then we take the clock away and make it a self-sustaining drone. Keep the <a href="setup.html">setup page</a> and the <a href="palette.html">palette</a> open in other tabs.</p>
+  </header>
+
+  <!-- STEP 1 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="14"/><line x1="22" y1="22" x2="22" y2="12"/><line x1="22" y1="22" x2="30" y2="26"/></svg>
+      </div>
+      <div class="step-num">Step 01</div>
+      <h2 class="step-title">Reach a true init patch</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Clear the bench and the patch</div>
+      <ul>
+        <li>On the bench: MicroFreak, M4, headphones, Live — nothing else. Physically set aside any second synth or drum machine. The constraint starts at the wall.</li>
+        <li>New Live set saved as <span class="code">B1-005-subtractive</span>. One audio track, <span class="menu">Audio From → Ext. In → 1</span>, mono. No effects on the track.</li>
+        <li>On the MicroFreak, follow the init checklist from <a href="setup.html">Setup</a>: one engine, filter wide open, neutral envelope, no modulation, no glide, paraphonic off.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Confirm you hear the raw oscillator alone</div>
+      <ul>
+        <li>Hold one low note. You should hear a steady, unshaped buzzing tone — no movement, no brightness sweep, no shaping.</li>
+        <li>If anything moves on its own, a routing is still live. Clear the Matrix and zero the LFO and Cycling Envelope until the tone is dead still.</li>
+        <li>Set the M4 gain on this steady tone by your <a href="../guide-b1-002/index.html">B1-002</a> / <a href="../guide-b1-003/index.html">B1-003</a> method. Peak target <span class="code">−15 dBFS</span> or lower, read on the body of the tone.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Do I hear only a raw, still oscillator — nothing moving, nothing shaping?</li>
+        <li>Is the Matrix empty and every modulator at zero?</li>
+        <li>Is the gain set on the settled tone, with headroom to spare?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 22 q5 -12 10 0 t10 0 t10 0"/></svg>
+      </div>
+      <div class="step-num">Step 02</div>
+      <h2 class="step-title">The oscillator — choose one raw tone</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Pick one engine and commit</div>
+      <ul>
+        <li>Audition a few engines briefly, then choose one and write its name in your log. After this step the engine knob does not move again.</li>
+        <li>Choose by how much there is to carve: a saw or bright virtual-analog engine if you want the filter to have work to do; a triangle or soft engine if you want a gentle tone the filter barely touches.</li>
+        <li>Set <span class="code">Wave</span> and <span class="code">Timbre</span> to a plain mid position. You want a clean raw tone to start carving — not an already-shaped one.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Hear pitch and register</div>
+      <ul>
+        <li>Play the same note an octave low, then mid, then high. This one tone must work as a bass low and as a lead high. If it only works in one register, adjust <span class="code">Wave</span> until both read.</li>
+        <li>Do not touch the filter yet. You are judging the raw oscillator alone — the rest of the build is what you remove from it.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Have I committed to one engine and logged its name?</li>
+        <li>Does the raw tone read as bass low and lead high?</li>
+        <li>Is the filter still wide open — am I truly hearing the oscillator alone?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 16 h18 l8 14"/><line x1="6" y1="16" x2="6" y2="30"/></svg>
+      </div>
+      <div class="step-num">Step 03</div>
+      <h2 class="step-title">The filter — cutoff, then resonance, then type</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Cutoff alone — hear the subtraction</div>
+      <ul>
+        <li>Hold one note. Sweep <strong>only</strong> the cutoff from fully open down to nearly closed and back. Hear the top harmonics being removed and returned. Say out loud "I am subtracting the highs."</li>
+        <li>Park the cutoff where the tone is warm but not muffled — around <span class="code">11 o'clock</span> for Patch A. This is your resting timbre.</li>
+        <li>Move nothing else. If a second thing changed, your hand drifted — reset the cutoff and sweep again.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Resonance alone — add the ring</div>
+      <ul>
+        <li>Cutoff parked, raise <strong>only</strong> resonance from zero. A whistle appears at the cutoff and grows. Stop where it adds character without screaming — around <span class="code">15 %</span> for a pad.</li>
+        <li>For curiosity, push resonance near maximum and sweep the cutoff: hear it sing its own note. Then return to your chosen low value. You now know both ends.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Filter type alone — choose the survivor</div>
+      <table class="param-table">
+        <caption>Switch the mode and hold each — pick one</caption>
+        <tr><td>Low-pass (LP)</td><td>Keeps the lows. Warm, the default. Choose this unless you have a reason not to.</td></tr>
+        <tr><td>Band-pass (BP)</td><td>Keeps a middle slice. Small, focused, telephone-like.</td></tr>
+        <tr><td>High-pass (HP)</td><td>Keeps the highs. Thin and airy; removes weight.</td></tr>
+      </table>
+      <ul>
+        <li>Switch mode, hold a note in each, and commit to one. For this note, <strong>LP</strong> unless you are deliberately building an airy voice. Once chosen, do not switch mid-voice — that is changing instruments.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Can I sweep cutoff and hear only the highs leaving and returning?</li>
+        <li>Is resonance set for character, not for a scream I can't sit with for two minutes?</li>
+        <li>Have I committed to one filter mode?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><polyline points="6 34 14 10 22 20 30 20 38 34"/></svg>
+      </div>
+      <div class="step-num">Step 04</div>
+      <h2 class="step-title">The amp envelope — shape the note in time</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Attack alone, then release alone</div>
+      <ul>
+        <li>Play short repeated notes. Lengthen <strong>only</strong> the attack: the note goes from a sharp start to a gradual fade-in. Set it where the start suits your voice — fast for a pluck, slow for a pad.</li>
+        <li>Now lengthen <strong>only</strong> the release: after you let go, the note fades instead of cutting off. Set it so the note leaves cleanly with no click.</li>
+        <li>Each of attack and release changes one edge of the note. Hear them separately so you own the difference between a stab and a drone.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Decay and sustain — the body</div>
+      <ul>
+        <li>For a sustained pad: <strong>Sustain</strong> high (~70 %), <strong>Decay</strong> medium — the note holds while you hold the key.</li>
+        <li>For a stab: <strong>Sustain</strong> 0, <strong>Decay</strong> short — the note falls away even while held. This is Patch B.</li>
+        <li>Decide now which this voice is. The rest of the build assumes a sustained voice heading toward a drone; if you are building the stab, keep that envelope and follow along.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does the note arrive the way I want — sharp or gradual — from attack alone?</li>
+        <li>Does it leave cleanly with no click, from release alone?</li>
+        <li>Have I decided stab or sustained, and set decay/sustain to match?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 5 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><polyline points="6 30 16 14 24 22 38 18"/><line x1="6" y1="30" x2="6" y2="14"/></svg>
+      </div>
+      <div class="step-num">Step 05</div>
+      <h2 class="step-title">Route the envelope to the filter — a moving timbre</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The single most useful routing</div>
+      <ul>
+        <li>Lower the resting cutoff a little. In the <strong>Matrix</strong>, route the filter envelope to <span class="code">Cutoff</span> and raise the amount.</li>
+        <li>Now each note opens the filter on its attack and closes it on its decay — the note is bright at its start and darker as it falls. The timbre moves with every note, from one envelope, with no second sound.</li>
+        <li>Sweep <strong>only</strong> the envelope amount and hear the depth of the bloom change. This is the core of the plucked-stab voice and a powerful move on a pad too.</li>
+      </ul>
+    </div>
+
+    <div class="signal-flow">
+      <span class="signal-node">Oscillator</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">Filter (cutoff low)</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">Amp</span>
+      <span class="signal-arrow">▲ envelope opens cutoff ▲</span>
+      <span class="signal-node">Filter envelope</span>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does each note bloom bright then close, from the filter envelope alone?</li>
+        <li>Can I change the depth of that bloom with one knob — the envelope amount?</li>
+        <li>Is this still one voice, with no second oscillator added?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 6 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 22 q8 -14 16 0 t16 0"/></svg>
+      </div>
+      <div class="step-num">Step 06</div>
+      <h2 class="step-title">One LFO — give the voice life with no hands</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Add one slow LFO to cutoff</div>
+      <ul>
+        <li>In the Matrix, route <strong>one</strong> LFO to <span class="code">Cutoff</span>. Set the depth small at first.</li>
+        <li>Sweep <strong>only</strong> the LFO rate: slow makes a long drift, fast makes a shimmer. For this note, set it <strong>very slow</strong> — one cycle over several seconds — so it reads as the tone breathing, not as a tremolo.</li>
+        <li>Sweep <strong>only</strong> the LFO depth: this sets how far the cutoff travels. Wide enough to be felt, never so wide it pumps.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Hold the two-minute test</div>
+      <ul>
+        <li>Hold one note for two full minutes with the LFO running. Set a timer. The voice should stay alive the whole time because the cutoff is always drifting — something is always changing.</li>
+        <li>Zero the LFO depth for ten seconds and hold the note: it dies, the ear stops tracking it. Return the depth. The difference between dead and alive is your one modulator doing the work.</li>
+        <li>If you used the filter envelope as your modulator in Step 5, an LFO here is optional — but for the drone half you will want the LFO, because the envelope only fires when a note is struck.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does the held note stay interesting for two minutes with the LFO on?</li>
+        <li>Did it clearly go dead when I zeroed the LFO depth?</li>
+        <li>Is the rate slow enough to read as breathing, not tremolo?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 7 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 14 v20 a2 2 0 0 0 2 2 h28 a2 2 0 0 0 2 -2 v-16 a2 2 0 0 0 -2 -2 h-14 l-4 -4 h-10 a2 2 0 0 0 -2 2 z"/></svg>
+      </div>
+      <div class="step-num">Step 07</div>
+      <h2 class="step-title">Record the evolving voice in three roles</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Print the voice low, mid, high</div>
+      <ul>
+        <li>Arm the audio track, monitor <strong>Auto</strong>. Confirm the gain still peaks at <span class="code">−15 dBFS</span> or lower on the body of the tone.</li>
+        <li>Record three passes of the same voice: one low (bass role), one mid, one high (lead role). Same patch every time — only the register changes.</li>
+        <li>Let the LFO run untouched through each pass. The point is that the same voice plays more than one role because register and the moving cutoff changed — not because anything was added.</li>
+        <li>Rename the clips <span class="code">PASS-LOW</span>, <span class="code">PASS-MID</span>, <span class="code">PASS-HIGH</span>.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Find the percussion in the same patch (optional)</div>
+      <ul>
+        <li>Raise resonance to <span class="code">~85 %</span>, set Attack 0, Decay very short, Sustain 0. Play staccato low notes — clicks and thumps from the same voice.</li>
+        <li>Record a short pass of this if you want rhythm in the sequenced half. Log both settings groups so you can switch back to the pad quickly.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Do the three passes sound like one voice playing three roles?</li>
+        <li>Did the gain hold — no clipping as the LFO pushed the level up?</li>
+        <li>If I made the percussion, can I switch the patch to it and back from memory?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 8 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="14"/><line x1="14" y1="14" x2="30" y2="30"/></svg>
+      </div>
+      <div class="step-num">Step 08</div>
+      <h2 class="step-title">Remove the clock — slow every edge</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Turn the voice into a drone</div>
+      <ul>
+        <li>Stop the transport. There is no sequencer and no MIDI clip from here on — notes are held by hand or by the MicroFreak's <span class="code">Hold</span> button.</li>
+        <li>Lengthen the <strong>attack</strong> to <span class="code">2 s</span> or more, <strong>sustain</strong> to full, <strong>release</strong> long. The note must fade in gradually and never click on or off.</li>
+        <li>Free the LFO: set it <strong>unsynced</strong>, one cycle per <span class="code">15–20 seconds</span>, small depth. With the clock gone, this slow drift is the only motion the tone has — it must keep moving on its own.</li>
+        <li>Hold a note for two minutes and confirm the tone keeps evolving with your hands off. If it sits still, widen the LFO depth or slow it further until the drift is felt.</li>
+      </ul>
+    </div>
+
+    <div class="callout">
+      <div class="callout-label">The thesis, made literal</div>
+      <p>Do less, but make the one element evolve. With the clock gone there is nowhere to hide. If the voice does not move on its own — beating, slow drift, a swell — the piece is silence with a tone in it. Every minute of interest now comes from inside the patch.</p>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does the note fade in with no click and never cut off sharply?</li>
+        <li>Is the LFO free-running and slow enough to drift over tens of seconds?</li>
+        <li>Does the tone keep evolving for two minutes with my hands off?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 9 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 22 q9 -4 18 0 t18 0"/><path d="M6 28 q9 -2 18 0 t18 0"/></svg>
+      </div>
+      <div class="step-num">Step 09</div>
+      <h2 class="step-title">Build the rhythm from beating — no grid</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Detune a second held pass</div>
+      <ul>
+        <li>Record a held drone pass at your root note. Then play it back through the monitors and record a <strong>second</strong> held pass a few cents detuned from the first.</li>
+        <li>Nudge the MicroFreak's fine-tune until you hear a slow beating pulse — two near-identical pitches pushing in and out of phase. Aim for roughly one pulse per <span class="code">1–3 seconds</span>.</li>
+        <li>Write the beat rate down in cycles per second. The detune amount <em>is</em> the rate: tones 1 Hz apart beat once per second. This pulse is the drone's rhythm, made with no clock at all.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Set the gain on the body, again</div>
+      <ul>
+        <li>Re-check the gain on the settled sustain, not the swell-in. Two held tones together are hotter than one — confirm the pair still peaks at <span class="code">−15 dBFS</span> or lower.</li>
+        <li>Take your headphones off for a moment. Sustained tones tire your ears fast; judge the beating with fresh ears, not after twenty minutes of staring at it.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Do the two detuned passes beat at a slow, musical rate I can name?</li>
+        <li>Is the gain set on the body of the combined tone, with headroom?</li>
+        <li>Is the rhythm coming from beating, not from any hidden grid?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 10 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><line x1="12" y1="8" x2="12" y2="36"/><line x1="22" y1="8" x2="22" y2="36"/><line x1="32" y1="8" x2="32" y2="36"/><rect x="9" y="18" width="6" height="3" rx="0.5" fill="currentColor"/><rect x="19" y="24" width="6" height="3" rx="0.5" fill="currentColor"/><rect x="29" y="14" width="6" height="3" rx="0.5" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Step 10</div>
+      <h2 class="step-title">Compose two minutes with level alone</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Plan the volume story on paper first</div>
+      <ul>
+        <li>With no clock and one voice, structure comes from raising and lowering level — no cuts, no mutes, no new sounds. Write the arc before you ride a single fader.</li>
+        <li>A starting shape: low drone alone → low + mid detuned, beating surfaces → high pass blooms over the top → back down to the low alone. Every move spans at least <span class="code">30 seconds</span>.</li>
+        <li>Ride or draw the fades in Live. Nothing faster than thirty seconds — a fast fade reads as an edit, and there are no edits in a drone.</li>
+      </ul>
+    </div>
+
+    <table class="param-table">
+      <caption>A two-minute drone shape — a starting point, not a rule</caption>
+      <tr><td>0:00–0:30</td><td>Low drone alone, fading in. The LFO drifts the cutoff.</td></tr>
+      <tr><td>0:30–1:00</td><td>Mid detuned pass rises under it — the beating pulse appears.</td></tr>
+      <tr><td>1:00–1:30</td><td>High pass blooms over the top; the voice is at its fullest.</td></tr>
+      <tr><td>1:30–2:00</td><td>Level falls away one pass at a time, back to the low alone, then out.</td></tr>
+    </table>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Is every change a level move, with no cut and no new element?</li>
+        <li>Does each fade span at least thirty seconds?</li>
+        <li>Do the three things carrying time — beating, slow drift, level — all read?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 11 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><polyline points="14 18 22 26 30 18"/><line x1="22" y1="8" x2="22" y2="26"/><line x1="8" y1="34" x2="36" y2="34"/></svg>
+      </div>
+      <div class="step-num">Step 11</div>
+      <h2 class="step-title">Render and listen away from the screen</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Render both versions</div>
+      <ul>
+        <li>If you built the sequenced evolving voice too, render it as <span class="code">B1-005-sequenced.wav</span>. Render the drone as <span class="code">B1-005-drone.wav</span>. WAV, 24-bit, Normalize OFF.</li>
+        <li><span class="menu">File → Collect All and Save</span>. Save the MicroFreak patch and your log of every control position — the voice now exists as a patch you can recall and rebuild.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">A/B the two kinds of time</div>
+      <ul>
+        <li>Play the sequenced version and the drone back to back at matched loudness. The difference between them is exactly what the clock had been doing for you.</li>
+        <li>Write three sentences: what the grid gave the sequenced version, and what beating, drift, and level had to replace it in the drone.</li>
+        <li>Listen to the drone away from the timeline — on a phone, walking, anywhere you cannot see the screen. A held tone reveals its faults when you stop watching the waveform.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Final decision check</div>
+      <ul>
+        <li>Does the drone hold two minutes with one voice and no clock?</li>
+        <li>Can I name every control doing the work, from the engine to the LFO rate?</li>
+        <li>Did I make the one element evolve, instead of reaching for a second?</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-nav">
+    <a href="palette.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 05 / Palette
+    </a>
+    <a href="reflection.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      07 / Reflection →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B1-005 — Subtractive</div>
+
+</div>
+
+</body>
+</html>

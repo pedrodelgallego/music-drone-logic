@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B7-004 — Set Structure &amp; Rehearsal — The build</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B7-004<span class="labnote-topic">Set Structure &amp; Rehearsal</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Arc &amp; panic map</a>
+  <a href="build.html" class="active"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B7-004</div>
+    <div class="eyebrow">Set Structure &amp; Rehearsal · 06 — The build</div>
+    <h1>Assemble the set, script the joins, rehearse the failure</h1>
+    <p class="lede">This is the long page. You will lay out the set as one arc, script every transition as a gesture rather than a button press, drill the discipline of doing nothing, then deliberately break the rig and recover until recovery is reflex. Keep the <a href="setup.html">setup page</a> and the <a href="palette.html">arc &amp; panic map</a> open — this page assumes both. Each step has a decision checkpoint; do not advance until it passes.</p>
+  </header>
+
+  <!-- STEP 1 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="12" width="32" height="20" rx="2"/><line x1="6" y1="20" x2="38" y2="20"/><line x1="14" y1="20" x2="14" y2="32"/><line x1="22" y1="20" x2="22" y2="32"/><line x1="30" y1="20" x2="30" y2="32"/></svg>
+      </div>
+      <div class="step-num">Step 01</div>
+      <h2 class="step-title">Lay out the set as one arc</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Build the spine in Ableton</div>
+      <ul>
+        <li>Open the set you will perform from. Tempo <span class="code">124</span>, time signature <span class="code">4/4</span>. Set the time ruler to <span class="menu">Time Ruler Format → Time</span> so the arc reads in minutes, the way the map on page 05 is written.</li>
+        <li>Confirm one clock: Ableton sends clock + transport; the Digitakt II and MicroFreak receive. Press play — both boxes start and read <span class="code">124</span>. If not, stop and fix it; the whole set hangs on this.</li>
+        <li>The set is performed live, so the Arrangement spine is sparse on purpose — it carries the drone bed, the return effects, the limiter, and your locators. The groove and most movement come from the boxes and your hands.</li>
+        <li>Resist the temptation to pre-arrange the whole set in clips. A set that is fully drawn in advance is a tape, not a performance — it cannot respond to the room, cannot hold a state a minute longer when the floor is locked in, cannot recover by leaning on what is still alive. Leave the spine open enough that you are deciding in real time, against the map.</li>
+        <li>Build the return effects you will ride: a reverb with a long decay you can bloom, an echo whose feedback you can swell. These are the rides that glue your transitions — wire them before you script a single join.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Place the six locators</div>
+      <ul>
+        <li>Right-click the scrub area → <span class="menu">Add Locator</span> at each section boundary. Name them <span class="code">SETTLE</span>, <span class="code">ESTABLISH</span>, <span class="code">DEVELOP</span>, <span class="code">PEAK</span>, <span class="code">STRIP</span>, <span class="code">RESOLVE</span>.</li>
+        <li>The locators turn the abstract arc into physical targets you can navigate to in rehearsal and glance at live.</li>
+      </ul>
+      <table class="param-table">
+        <caption>Locator → time → bar at 124 BPM</caption>
+        <tr><td>SETTLE — 0:00</td><td>Bar 1</td></tr>
+        <tr><td>ESTABLISH — 4:00</td><td>Bar 125</td></tr>
+        <tr><td>DEVELOP — 10:00</td><td>Bar 311</td></tr>
+        <tr><td>PEAK — 18:00</td><td>Bar 559</td></tr>
+        <tr><td>STRIP — 23:00</td><td>Bar 714</td></tr>
+        <tr><td>RESOLVE — 28:00</td><td>Bar 869</td></tr>
+        <tr><td>END — 32:00</td><td>Bar 993</td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Decide the one change per section</div>
+      <ul>
+        <li>Write, in one line per section, the single thing that moves: in Develop it is the bass filter climbing; in Peak it is the reverb blooming. One sentence each — if you need two, the section is doing too much.</li>
+        <li>This list <em>is</em> your set. Everything else is holding a state. Tape it to the rig beside the arc map.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Is the whole layout one arc, or six loops queued in a row?</li>
+        <li>Can I state the single change in each section in one sentence?</li>
+        <li>Is the Settle long enough to feel risky? If it feels safe, it is too short.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 34 Q22 4 38 14"/><circle cx="6" cy="34" r="2.5" fill="currentColor"/><circle cx="38" cy="14" r="2.5" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Step 02</div>
+      <h2 class="step-title">Shape the settle and establish</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The settle — the courage of the empty opening</div>
+      <ul>
+        <li>Start with drone and atmosphere only — no kick for the first four minutes. The MicroFreak drone, held with synced internal modulation, plus the resampled atmosphere bed underneath at roughly <span class="code">-22 dB</span>.</li>
+        <li>Your hands are off the rig. The only motion is the internal LFOs breathing. Resist every urge to bring the kick in early; the patience here is the entire bet of the long form.</li>
+        <li>Watch the room without serving it. The settle is where the audience decides to trust the set — give them the space to.</li>
+        <li>A practical fear to name: the empty opening feels like the rig is broken, like you forgot to start. It is not. Trust the map. The four minutes that feel longest to you are the four minutes that make the kick, when it lands, feel inevitable rather than impatient.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Establish — commit the groove, one element at a time</div>
+      <ul>
+        <li>At the ESTABLISH locator, unmute the kick on a bar line. Let it run alone for sixteen bars before anything joins it — the kick has to own the room before it shares it.</li>
+        <li>Bring the bass in under the drone around 6:00 with a short fade so it surfaces rather than arrives. The sidechain to the kick gives it the breathing pump.</li>
+        <li>Unmute the hat near 8:00, the perc near 9:00 — never together. Each new voice gets time to register before the next one lands.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Did the kick arrive cleanly on a bar, or did it stumble in mid-phrase?</li>
+        <li>Is each new voice given room to register before the next enters?</li>
+        <li>Could I hold the settle a minute longer than feels comfortable? If yes, do.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 22 q9 -12 18 0 t18 0"/><circle cx="24" cy="22" r="2.5" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Step 03</div>
+      <h2 class="step-title">Script the transitions as gestures</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Overlap, never cut</div>
+      <ul>
+        <li>Every section boundary is an overlap, not an edit. Bring the next element in under the current one for eight to sixteen bars before the current one leaves. The listener should feel they arrived somewhere, not that a section ended.</li>
+        <li>Reserve the hard cut for at most one moment in the whole set, where the silence itself is the gesture. If you cut more than you overlap, you are queuing tracks, not shaping one statement.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Use the rides as glue</div>
+      <ul>
+        <li>A filter opening across a join hides the seam in motion. Begin the bass-filter climb a few bars <em>before</em> the DEVELOP locator so the ear is already moving when the section turns over.</li>
+        <li>An echo feedback swell carries the ear over a mute change — let the echoes bloom as the perc drops, and the removal reads as a tide going out, not a switch.</li>
+        <li>The transition is a gesture, not a button press. Write each one as a verb: "open the filter," "bloom the reverb," "let the echo carry," not "launch scene 3."</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The develop span — earn the length</div>
+      <ul>
+        <li>This is the longest section: eight minutes from 10:00 to 18:00. The bass filter climbs from roughly <span class="code">600 Hz</span> to <span class="code">2 kHz</span> across the <em>entire</em> span — spread the ramp so slowly that no single move is audible as an event.</li>
+        <li>Introduce one resampled layer around 14:00 — a captured fragment of your own drone or groove, folded back in. One layer, not a wall.</li>
+        <li>Most of these eight minutes, your hands are still. Development is patience made audible, not a knob marathon.</li>
+        <li>If the develop section bores <em>you</em>, that is not a signal to add — it is a signal that you are too close to it. The performer hears every repetition; the listener, arriving fresh and moving through a room, hears a slow, deepening lock. Trust the difference between your fatigue and their immersion.</li>
+        <li>The one resampled layer is the exception that proves the rule. Capture it live from material already in the set — a phrase of your own drone, a fragment of the groove — so it carries the set's own DNA back into itself rather than introducing something foreign. Fold it in under the existing texture, never on top of it.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The peak — by opening, never by adding</div>
+      <ul>
+        <li>From 18:00 to 23:00, take the filter to its brightest (~<span class="code">3.5 kHz</span>), bloom the reverb send, push echo feedback briefly toward its ceiling, and lift the drum saturation. <strong>Nothing new enters.</strong></li>
+        <li>Every gesture is opening something already running. This is the thesis of the form in one section: the high point is the sound you already had, finally let all the way open.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The strip and resolve — make the peak bigger in hindsight</div>
+      <ul>
+        <li>At STRIP, drop the perc on a bar line, thin the hat, pull the drum gain down 2 dB. The returning space makes the peak feel retroactively enormous.</li>
+        <li>At RESOLVE, fade the bass out around 28:00, the kick around 30:00. Drone and atmosphere carry the exit; draw a slow master fade over the final minute. End near where you opened — close the circle.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Play any boundary blind: can you tell exactly where the section changed? If yes, the overlap is too short.</li>
+        <li>Does the peak come from opening, or did a new layer sneak in? If a layer entered, remove it and open something instead.</li>
+        <li>Is every transition written as a gesture verb, not a scene number?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="14"/><line x1="16" y1="22" x2="28" y2="22"/></svg>
+      </div>
+      <div class="step-num">Step 04</div>
+      <h2 class="step-title">Drill the discipline of doing nothing</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Let the system run</div>
+      <ul>
+        <li>The internal LFOs and Digitakt trig conditions are already producing variation. For long stretches the most musical move is to let them — your job is to watch, not to intervene.</li>
+        <li>Resist the urge to justify your presence by touching a knob. A nervous performer riding everything flattens the very evolution they programmed.</li>
+        <li>Hold a state long enough that the room locks in, then change one thing. The change lands precisely because you made it wait.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The two-minute test</div>
+      <ul>
+        <li>In rehearsal, set a timer and take your hands fully off the rig for two minutes mid-set. Listen.</li>
+        <li>If the set stays alive — the modulation keeps it breathing — the system works. If it dies the moment you stop, you built a set that needs babysitting. Go back and add internal movement until it survives your absence.</li>
+      </ul>
+    </div>
+
+    <div class="callout">
+      <div class="callout-label">The test of restraint</div>
+      <p>Hands off for two minutes and the set still breathes: that is the proof the system is doing the work. Your presence should be the rare, decisive move — not constant maintenance.</p>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Did the two-minute test pass without my hands?</li>
+        <li>Are there marked stretches on the map where the instruction is "do nothing"?</li>
+        <li>When I do move, is it one decisive change — or fidgeting?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 5 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="14"/><path d="M22 14v8l6 4"/></svg>
+      </div>
+      <div class="step-num">Step 05</div>
+      <h2 class="step-title">The full run-through</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Once, end to end, recorded</div>
+      <ul>
+        <li>Play the entire 30-plus minutes without stopping. A set rehearsed only in fragments is a set you have never actually performed. Stamina, attention, and pacing only reveal themselves across the whole length.</li>
+        <li>Record it to a single take. The recording is the proof of the structure, not your memory of how it felt — adrenaline lies about pacing.</li>
+        <li>Listen back the next day for the joins that did not land and the stretches where you fidgeted instead of holding. Mark them on the map and fix them before the next run.</li>
+        <li>Only after a clean full run do you move on to breaking it.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Have I played the whole set in one take, without stopping?</li>
+        <li>On the recording, does the arc match the map — or did I peak early?</li>
+        <li>Where did I fidget? Those stretches need more internal movement, not more of me.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 6 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M22 8l16 28H6z"/><line x1="22" y1="18" x2="22" y2="26"/><circle cx="22" cy="31" r="1.6" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Step 06</div>
+      <h2 class="step-title">The failure rehearsal</h2>
+    </div>
+
+    <p style="color:var(--text-muted);">The set will fail at some point in its life. The only question is whether the first time happens in rehearsal, where it is data, or on stage, where it is a crisis. Cause every failure yourself, in order, until the recovery is reflex.</p>
+
+    <div class="sub-block">
+      <div class="sub-label">Failure 01 — the Digitakt crashes</div>
+      <ul>
+        <li>Mid-groove, pull the Digitakt's clock or power. Watch what the rest of the rig does without it.</li>
+        <li>Practice the recovery sequence below until you can run it without looking at the boxes. Fold the Digitakt back in on a bar line as if it were a planned re-entry.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Failure 02 — the laptop freezes</div>
+      <ul>
+        <li>Because Ableton is the clock, the hardware keeps its last received state when Ableton hangs. The Digitakt groove and MicroFreak drone keep running.</li>
+        <li>Drill carrying the set on the boxes alone — riding the Digitakt mutes and MicroFreak filter — until Ableton is back, then re-sync on the next transport start during a natural drop.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Failure 03 — feedback runs away</div>
+      <ul>
+        <li>Drive the resample/feedback path toward its ceiling on purpose, then hit the kill pad. The limiter is the backstop if your hand is a beat slow.</li>
+        <li>Repeat until your hand finds the kill pad without looking. Speed here is a reflex you build, not a calm you summon.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Failure 04 — a cable dies</div>
+      <ul>
+        <li>Unplug a synth mid-set. Practice muting its channel cleanly on the bar so the drop reads as an arrangement choice, not an accident.</li>
+        <li>Reseat the cable while the thinned groove holds, then fold the voice back in on a downbeat.</li>
+        <li>The lesson generalises: any element that vanishes can be made to read as a deliberate strip. The audience has no idea your set "should" have that synth right now — they only hear what is there. A clean mute turns an accident into an arrangement choice, every time.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Failure 05 — the wrong move</div>
+      <ul>
+        <li>Launch the wrong scene or unmute the wrong track on purpose. Practice making it sound intentional: commit to the mistake for one bar, then correct on the next downbeat. The flinch is what the audience hears, not the wrong note.</li>
+      </ul>
+    </div>
+
+    <div class="callout">
+      <div class="callout-label">The standard</div>
+      <p>The recovery no one noticed is the goal. A failure the audience never registers as a failure is a performance skill — rehearsed, not summoned.</p>
+    </div>
+  </div>
+
+  <!-- STEP 7 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M30 14a10 10 0 1 0 4 8"/><path d="M30 8v8h-8"/></svg>
+      </div>
+      <div class="step-num">Step 07</div>
+      <h2 class="step-title">The recovery sequence</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">In order, every time — mute, floor, reboot, fold back</div>
+      <ul>
+        <li><strong>Mute the dead channel first,</strong> so a half-crashed device cannot emit garbage into the PA. This is the single most important reflex — silence the failure before you diagnose it.</li>
+        <li><strong>Head for the recover floor</strong> — drone plus kick at a steady level, everything else muted. Lean on the rig that is still alive. The set thins; that is fine — a thinned set is a musical state you rehearsed in Step 04.</li>
+        <li><strong>Reboot the device</strong> while the rest carries. One hand on the problem, the set running on the others. Do not touch anything else.</li>
+        <li><strong>Fold it back in</strong> on a bar line, quantised, as if it were a planned re-entry. The audience hears a return, not a rescue.</li>
+      </ul>
+    </div>
+
+    <div class="signal-flow">
+      <span class="signal-node">Mute dead channel</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">Recover floor</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">Reboot device</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">Fold back on bar line</span>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Make the floor a destination, not an improvisation</div>
+      <ul>
+        <li>Every failure mode on the panic table lands here: drone + kick. One shared endpoint is what makes recovery fast enough to be invisible.</li>
+        <li>Rehearse <em>reaching</em> the floor from each section of the set — from the empty settle, from the full peak, from the thinned strip. The route differs; the destination never does.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Can I run mute → floor → reboot → fold-back without looking at the rig?</li>
+        <li>Is the recover floor reachable from anywhere in the set, in any failure?</li>
+        <li>Has every failure on the panic table been triggered on purpose and recovered cleanly?</li>
+        <li>When I fold a device back in, does it land on a bar line like a planned return?</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>The build, certified</h2>
+  <div class="checklist">
+    <ul>
+      <li>The set is one arc, locators placed, one change written per section.</li>
+      <li>The settle holds long enough to feel risky; voices enter one at a time.</li>
+      <li>Every transition overlaps and is scripted as a gesture, not a button press.</li>
+      <li>The peak comes from opening what exists, not from adding layers.</li>
+      <li>The two-minute hands-off test passes — the system breathes alone.</li>
+      <li>The whole set has been played end to end, in one take, and recorded.</li>
+      <li>Every failure mode has been triggered on purpose and recovered from.</li>
+      <li>Mute → floor → reboot → fold-back is reflex, runnable blind.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="palette.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 05 / Arc &amp; panic map
+    </a>
+    <a href="reflection.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      07 / Reflection →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B7-004 — Set Structure &amp; Rehearsal</div>
+
+</div>
+
+</body>
+</html>

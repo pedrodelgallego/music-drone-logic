@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B4-001 — Resonance — Palette</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Lab Note contents">
+  <p class="nav-label labnote-code">Lab Note B4-001<span class="labnote-topic">Resonance</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html" class="active"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B4-001</div>
+    <div class="eyebrow">Resonance · 05 — Palette</div>
+    <h1>Resonant patch recipes</h1>
+    <p class="lede">Concrete starting points for every resonant voice the build needs: the lead filter ride, the excited-resonance pluck, the self-oscillating sine, the key-tracked acid line, and the supporting parts that stay out of the filter's way. Dial these, save them, then mutate. Numbers are starting positions, not laws — but start exactly here.</p>
+  </header>
+
+  <h2>Recipe 1 — The lead: excited resonance acid line (MicroFreak)</h2>
+  <p style="text-align:center; max-width:620px; margin:0 auto 24px; color:var(--text-muted);">This is the voice that carries the track. A bright, short source excites a high-Q filter; the cutoff is the melody. Key-tracking keeps it in tune as you play notes; the sequencer or your hand moves the cutoff between frets.</p>
+
+  <table class="param-table">
+    <caption>MF LEAD — oscillator</caption>
+    <tr><td>Engine</td><td><span class="code">Wavetable</span> — rich partials give the peak something to grab</td></tr>
+    <tr><td>Wave</td><td>~ 55 % — bright; the brighter the excitation, the clearer the ping</td></tr>
+    <tr><td>Timbre / Shape</td><td>50 / 45</td></tr>
+    <tr><td>Paraphonic</td><td><strong>Off</strong> — strictly monophonic, like a 303</td></tr>
+    <tr><td>Glide</td><td>8 – 15 % — the acid slide, audible only on slid steps</td></tr>
+  </table>
+  <table class="param-table">
+    <caption>MF LEAD — filter (the instrument)</caption>
+    <tr><td>Type</td><td>Low-pass, state-variable analog filter</td></tr>
+    <tr><td>Resonance</td><td>~ 75 – 85 % — rung four: peak dominates, transients ping, no constant scream</td></tr>
+    <tr><td>Cutoff</td><td>Start at a fret in your scale (see the fret table below); this is the pitch knob now</td></tr>
+    <tr><td>Keyboard tracking</td><td><strong>On, full</strong> — the peak tracks the played note so the line stays in tune across the range</td></tr>
+    <tr><td>Filter envelope amount</td><td>~ +30 — each note blooms the cutoff upward then settles: the acid "wow"</td></tr>
+    <tr><td>ENV — Attack / Decay / Sustain / Release</td><td>0 / 35 / 15 / 25 — fast pluck, short body, silence between</td></tr>
+  </table>
+  <div class="note-block">
+    <ul>
+      <li><strong>The bloom is the sound.</strong> Envelope-to-cutoff plus high resonance is the entire acid voice. If it sounds flat, the envelope amount is too low; if it screeches, the resonance is too high or the decay too long.</li>
+    </ul>
+  </div>
+
+  <h2>Recipe 2 — The self-oscillating sine (MicroFreak, for the peak)</h2>
+
+  <table class="param-table">
+    <caption>MF SING — the filter as a tuned sine generator</caption>
+    <tr><td>Oscillator level</td><td>Low to zero — at full self-oscillation the input is only excitation, and you may want pure sine</td></tr>
+    <tr><td>Resonance</td><td>Past ~3 o'clock until a steady tone appears with no note held — self-oscillation engaged</td></tr>
+    <tr><td>Cutoff</td><td>Now the pitch control — tune it to a scale tone by ear against the sub</td></tr>
+    <tr><td>Keyboard tracking</td><td><strong>On</strong> — so the sine plays in tune when you sequence notes</td></tr>
+    <tr><td>Cycling envelope → cutoff</td><td>Loop mode, slow rise/fall, small depth — the sine glides between two pitches forever, theremin-like</td></tr>
+    <tr><td>Level discipline</td><td>This can be the loudest thing in the mix. Pull the patch volume and meter the peak per the <a href="setup.html">setup page</a>.</td></tr>
+  </table>
+
+  <h2>Recipe 3 — The slow arc: Auto Filter on a flat source (Ableton)</h2>
+
+  <table class="param-table">
+    <caption>ARC — resonant filter as the long-form journey</caption>
+    <tr><td>Source</td><td>A flat, partial-rich printed clip: filtered noise, a sustained drone, recorded room hum. Print it <em>before</em> filtering.</td></tr>
+    <tr><td>Auto Filter — type</td><td>Low-pass, 24 dB. Try the analog-style model for grit, Clean for a politer self-oscillation.</td></tr>
+    <tr><td>Resonance</td><td>~ 60 – 70 % for the arc; it should add pitch without stealing the lead's job</td></tr>
+    <tr><td>Frequency</td><td>The automated parameter — draw it on a scale-quantized lane over many bars</td></tr>
+    <tr><td>LFO → Frequency</td><td>Very slow, small depth — a sub-audible drift so the arc never sits perfectly still</td></tr>
+  </table>
+
+  <h2>The fret table — cutoff positions that land on A minor</h2>
+  <p style="text-align:center; max-width:620px; margin:0 auto 24px; color:var(--text-muted);">A resonant peak's pitch equals its cutoff frequency. These are the approximate frequencies where the peak lands on tones of A natural minor across the lead's working range. Sweep slowly, confirm the peak matches the note by ear against your sub, and note the knob position — those are your frets.</p>
+
+  <table class="param-table">
+    <caption>Resonant peak frequency → scale tone (A natural minor)</caption>
+    <tr><td>~ 220 Hz</td><td>A3 — root, low fret</td></tr>
+    <tr><td>~ 262 Hz</td><td>C4 — minor third</td></tr>
+    <tr><td>~ 294 Hz</td><td>D4 — fourth</td></tr>
+    <tr><td>~ 330 Hz</td><td>E4 — fifth, the tension fret</td></tr>
+    <tr><td>~ 392 Hz</td><td>G4 — minor seventh</td></tr>
+    <tr><td>~ 440 Hz</td><td>A4 — octave root, the resolve</td></tr>
+    <tr><td>~ 523 Hz</td><td>C5 — high color, use sparingly</td></tr>
+    <tr><td>~ 659 Hz</td><td>E5 — peak-section reach, the brightest fret</td></tr>
+  </table>
+  <div class="callout">
+    <div class="callout-label">Tuning the frets</div>
+    <p>These frequencies are a guide; the actual cutoff position that produces a given pitch depends on the filter model and key-tracking. The reliable method: hold the root on your sub, sweep the lead's cutoff until the resonant peak beats against it and then locks in tune, and mark that spot. Repeat for each scale tone. Now your cutoff automation has real targets, not guesses.</p>
+  </div>
+
+  <h2>Recipe 4 — Digitakt resonant rhythm (per-track filter)</h2>
+
+  <table class="param-table">
+    <caption>DT TEXTURE — a filter melody from one drum track</caption>
+    <tr><td>Sample</td><td>A short noise burst or resampled MicroFreak fragment — flat, no inherent pitch</td></tr>
+    <tr><td>FLTR — Resonance</td><td>High enough that the peak has pitch (40–70 % region on the source)</td></tr>
+    <tr><td>FLTR Freq — p-locks</td><td>Hold each trig, set FLTR Freq to a different fret — a 3–4 note filter line locked to the sequence</td></tr>
+    <tr><td>FLTR envelope depth</td><td>Per-step depth so only chosen trigs ping; others stay dull</td></tr>
+    <tr><td>Sound lock</td><td>Lock alternate cutoff values per step for a sung two-note counter-line</td></tr>
+  </table>
+
+  <h2>The supporting parts — staying out of the filter's way</h2>
+
+  <table class="param-table">
+    <caption>MF SUB — clean low anchor</caption>
+    <tr><td>Engine</td><td>Wavetable or Harmo, Wave low for a near-sine</td></tr>
+    <tr><td>Filter resonance</td><td><strong>Low</strong> — the sub has no business resonating; that is the lead's job</td></tr>
+    <tr><td>Cutoff</td><td>Closed; the sub is felt, not heard. Root on every kick or held under the line</td></tr>
+    <tr><td>Role</td><td>Gives the filter ride a tonal floor to be in tune against. Sidechain it to the kick.</td></tr>
+  </table>
+
+  <table class="param-table">
+    <caption>DT DRUMS — dry, restrained foundation</caption>
+    <tr><td>Kick</td><td>Short, dark, tuned to A or E; no FX sends — a dry kick is the hypnotic signature</td></tr>
+    <tr><td>Hat</td><td>Tight, high-passed ~ 500 Hz; offbeat, p-locked velocity so it breathes</td></tr>
+    <tr><td>Perc</td><td>One sparse hit with a probability condition; gives space, not a fill</td></tr>
+    <tr><td>Resonance discipline</td><td>Keep drum filters low-Q. Only the lead and the arc are allowed to ring.</td></tr>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">The one-resonance rule</div>
+    <p>At most two voices in the whole track should have audible resonance: the lead and, briefly, the arc. Everything else stays low-Q. Two singing filters at once is a duet; three is a mess. Restraint is what lets the lead read as the lead.</p>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Save every patch before you change it:</strong> <span class="code">MF LEAD</span>, <span class="code">MF SING</span>, <span class="code">MF SUB</span>. The build re-uses them and you will not want to re-dial a high-Q sweet spot from memory.</li>
+      <li><strong>Carry forward:</strong> note the level each resonant patch peaks at — that number is the input to saturation, sidechain, and the master. Resonance and gain-staging are one decision.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="setup.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 04 / Setup
+    </a>
+    <a href="build.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      06 / The build →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B4-001 — Resonance</div>
+
+</div>
+
+</body>
+</html>

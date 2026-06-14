@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B7-001 — Parameter Riding — Overview</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B7-001<span class="labnote-topic">Parameter Riding</span></p>
+  <a href="index.html" class="active"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup &amp; rig</a>
+  <a href="palette.html"><span class="nav-num">05</span>Ride map</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B7-001</div>
+    <div class="eyebrow">Parameter Riding · 01 — Overview</div>
+    <h1>Riding the few parameters that matter, live</h1>
+    <p class="lede">A deep reference for performing a hypnotic techno track in real time — choosing the four or five controls you hold under your hands, mapping them to a hardware surface, deciding what to ride and what to leave fixed, and rehearsing a take you can actually play. Inspired by the discipline of live techno, not by any one set. Your performance must be your own.</p>
+  </header>
+
+  <h2>The goal</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M8 30h28"/><circle cx="14" cy="30" r="3"/><circle cx="30" cy="30" r="3"/><line x1="14" y1="27" x2="14" y2="12"/><line x1="30" y1="27" x2="30" y2="18"/></svg>
+      </div>
+      <h3 class="card-title">A performed take, not a render</h3>
+      <ul class="card-points">
+        <li>The same track from Lab Note B1-001, but its energy arc played by hand instead of drawn</li>
+        <li>Four mapped continuous controls plus mutes — nothing more under your fingers</li>
+        <li>A recorded ride you could repeat in front of a room, captured as Arrangement audio</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><line x1="14" y1="14" x2="34" y2="14"/><line x1="14" y1="22" x2="34" y2="22"/><line x1="14" y1="30" x2="30" y2="30"/><circle cx="9" cy="14" r="1.4" fill="currentColor"/><circle cx="9" cy="22" r="1.4" fill="currentColor"/><circle cx="9" cy="30" r="1.4" fill="currentColor"/></svg>
+      </div>
+      <h3 class="card-title">Skills you'll practice</h3>
+      <ul class="card-points">
+        <li>MIDI-mapping a FaderFox EC4, Push, or Launchpad to the controls that carry the arc</li>
+        <li>Setting Min/Max ranges so a mapped value never reaches a sound that hurts</li>
+        <li>Hands versus automation: when to ride by feel, when to delegate to a curve</li>
+        <li>Rehearsing gestures slow enough that the room feels change without hearing it</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Core objective</div>
+    <p>Understand that a performance is a system you ride — and that control comes from mapping few things well, not from reaching for everything at once.</p>
+  </div>
+
+  <h2>Why this exercise matters</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><line x1="22" y1="6" x2="22" y2="10"/><line x1="34" y1="10" x2="31" y2="13"/><line x1="38" y1="22" x2="34" y2="22"/><line x1="10" y1="22" x2="6" y2="22"/><line x1="13" y1="13" x2="10" y2="10"/><circle cx="22" cy="22" r="10"/><line x1="22" y1="32" x2="22" y2="38"/></svg>
+      </div>
+      <h3 class="card-title">The beginner instinct</h3>
+      <ul class="card-points">
+        <li>Map every knob within reach, so nothing is ever out of control</li>
+        <li>Ride everything at once, twisting controls because they are there</li>
+        <li>Treat the master and the kick as performance toys</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M10 22 a12 12 0 0 1 21 -8"/><polyline points="25 8 31 14 26 18"/><path d="M34 22 a12 12 0 0 1 -21 8"/><polyline points="19 36 13 30 18 26"/></svg>
+      </div>
+      <h3 class="card-title">The opposite discipline</h3>
+      <ul class="card-points">
+        <li>Map four controls you can watch, recover, and name from memory</li>
+        <li>Ride slower than feels natural; let the machines run their own drift</li>
+        <li>Leave the dangerous things — master, kick — fixed on purpose</li>
+      </ul>
+    </div>
+  </div>
+
+  <p style="text-align: center; color: var(--text-muted); max-width: 640px; margin: 24px auto;">The skills transfer. The same instincts apply to ambient sets, modular jams, dub-techno performances, generative patches, and any live electronic music where your hands shape a system that is already running. You are not learning a controller — you are learning what is worth touching.</p>
+
+  <div class="callout">
+    <div class="callout-label">Principle</div>
+    <p>If a move must change with the room, ride it. If it must be the same every time, automate it. Riding everything is not control — it is panic with extra steps.</p>
+  </div>
+
+  <h2>How this note is laid out</h2>
+
+  <table class="param-table">
+    <caption>Seven pages, read in sequence</caption>
+    <tr><td>01 — Overview</td><td>The goal, the instinct to fight, the riding principle (this page)</td></tr>
+    <tr><td>02 — Listen</td><td>Three performances that teach hands-on control, and what to steal from each</td></tr>
+    <tr><td>03 — Decisions</td><td>What to map, what ranges, the theory of a gesture, what to leave fixed</td></tr>
+    <tr><td>04 — Setup &amp; rig</td><td>The signal path, controller mapping in Live, building the ride map</td></tr>
+    <tr><td>05 — Ride map</td><td>The four-control map with Min/Max ranges and what each one does</td></tr>
+    <tr><td>06 — The build</td><td>Step-by-step: a performable arrangement and a recorded ride take</td></tr>
+    <tr><td>07 — Reflection</td><td>Fault, carry-forward, principle — then on to the block-7 workshop</td></tr>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>This note assumes Lab Note B1-001's track exists.</strong> You are not building sounds from scratch here — you are learning to perform material you have already recorded. Have a project with a bass, a drone, drums, and an atmosphere layer ready.</li>
+      <li><strong>The originality constraint still holds.</strong> The gestures are yours. Borrow the <em>discipline</em> of the performers on the next page, never their set, their build, or their signature move.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <span></span>
+    <a href="listen.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      02 / Listen →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B7-001 — Parameter Riding</div>
+
+</div>
+
+</body>
+</html>

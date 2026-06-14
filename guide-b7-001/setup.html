@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B7-001 — Parameter Riding — Setup &amp; rig</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B7-001<span class="labnote-topic">Parameter Riding</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html" class="active"><span class="nav-num">04</span>Setup &amp; rig</a>
+  <a href="palette.html"><span class="nav-num">05</span>Ride map</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B7-001</div>
+    <div class="eyebrow">Parameter Riding · 04 — Setup &amp; rig</div>
+    <h1>The rig, the signal path, and the controller mapping</h1>
+    <p class="lede">The decisions from page 03 now become a physical rig and a set of mappings inside Live. This page wires the control surface, sets up the four maps with their ranges, and builds a layout you can play without looking at the screen. Keep the <a href="palette.html">ride map page</a> open alongside it — that is the reference card this setup produces.</p>
+  </header>
+
+  <h2>The performance rig</h2>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="8" width="32" height="28" rx="2"/><circle cx="13" cy="15" r="2.5"/><circle cx="22" cy="15" r="2.5"/><circle cx="31" cy="15" r="2.5"/><circle cx="13" cy="24" r="2.5"/><circle cx="22" cy="24" r="2.5"/><circle cx="31" cy="24" r="2.5"/></svg>
+      </div>
+      <h3 class="card-title">FaderFox EC4</h3>
+      <ul class="card-points">
+        <li>16 endless encoders with displays — the rides</li>
+        <li>Encoders pick up; values never snap when touched</li>
+        <li>Per-encoder labels you read at a glance</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="7" y="7" width="7" height="7" rx="1"/><rect x="18.5" y="7" width="7" height="7" rx="1"/><rect x="30" y="7" width="7" height="7" rx="1"/><rect x="7" y="18.5" width="7" height="7" rx="1"/><rect x="18.5" y="18.5" width="7" height="7" rx="1"/><rect x="30" y="18.5" width="7" height="7" rx="1"/><rect x="7" y="30" width="7" height="7" rx="1"/><rect x="18.5" y="30" width="7" height="7" rx="1"/><rect x="30" y="30" width="7" height="7" rx="1"/></svg>
+      </div>
+      <h3 class="card-title">Launchpad Pro MK3</h3>
+      <ul class="card-points">
+        <li>Grid of pads — mutes and section edits</li>
+        <li>Quantised clip / scene launching</li>
+        <li>The discrete-move surface, not the filter hand</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="8" width="32" height="28" rx="2"/><rect x="10" y="12" width="24" height="9" rx="1"/><rect x="10" y="25" width="5" height="5" rx="0.7"/><rect x="17" y="25" width="5" height="5" rx="0.7"/><rect x="24" y="25" width="5" height="5" rx="0.7"/><rect x="31" y="25" width="3" height="5" rx="0.7"/></svg>
+      </div>
+      <h3 class="card-title">Ableton Push (alternative)</h3>
+      <ul class="card-points">
+        <li>Touch strip + pressure pads + labelled encoders</li>
+        <li>One expressive hand plus clip duties together</li>
+        <li>Use instead of EC4+Launchpad if you own one box</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="10" width="32" height="20" rx="2"/><line x1="16" y1="36" x2="28" y2="36"/><line x1="22" y1="30" x2="22" y2="36"/></svg>
+      </div>
+      <h3 class="card-title">Ableton Live 12 Suite</h3>
+      <ul class="card-points">
+        <li>Hosts the recorded takes from Lab Note B1-001</li>
+        <li>Receives the maps; records the performed ride</li>
+        <li>The only MIDI clock master for the rig</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Two rigs, same map</div>
+    <p>The cleanest split is EC4 for the four continuous rides and Launchpad for mutes — one surface per kind of gesture. If you only own a Push, put the four rides on its encoders and the mutes on its pads; the mapping logic below is identical.</p>
+  </div>
+
+  <h2>The signal path</h2>
+  <p style="text-align:center; max-width:620px; margin:0 auto 24px; color:var(--text-muted);">Two flows, exactly as in the studio note: audio out to your ears, control in from your hands. Nothing about the audio path changes for performance — what changes is that control data now drives the parameters live instead of being drawn after the fact.</p>
+
+  <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:11px; letter-spacing:0.2em; text-transform:uppercase;">Control path</h3>
+  <div class="signal-flow">
+    <span class="signal-node">FaderFox EC4</span>
+    <span class="signal-arrow">→ USB CC →</span>
+    <span class="signal-node">Ableton MIDI map</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">Auto Filter / Send / Echo</span>
+    <span class="signal-arrow">+</span>
+    <span class="signal-node">Launchpad</span>
+    <span class="signal-arrow">→ quantised →</span>
+    <span class="signal-node">Track mutes</span>
+  </div>
+
+  <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:11px; letter-spacing:0.2em; text-transform:uppercase;">Audio path</h3>
+  <div class="signal-flow">
+    <span class="signal-node">Recorded takes</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">Track devices (filter, sends)</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">Master</span>
+    <span class="signal-arrow">→ M4 →</span>
+    <span class="signal-node">DT 990 Pro / PA</span>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>The EC4 sends CC, not notes.</strong> Each encoder transmits a continuous controller number on a fixed channel. You map those CCs to parameters in Live — nothing about the encoder itself knows what it controls.</li>
+      <li><strong>Plug controllers into the computer directly,</strong> not through an unpowered hub, so control data stays tight and the audio clock stays clean.</li>
+      <li><strong>The master stays off every surface.</strong> The only level near a performance hand is the four mapped rides; the master lives on Live's master fader or the venue mixer, untouched.</li>
+    </ul>
+  </div>
+
+  <h2>Enable the control surfaces in Live</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="14"/><path d="M22 14v8l6 4"/></svg>
+      </div>
+      <div class="step-num">Setup 01</div>
+      <h2 class="step-title">Connect the EC4 as a generic MIDI controller</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">In Preferences</div>
+      <ul>
+        <li>Plug the EC4 in via USB. Open <kbd>⌘ ,</kbd> → <strong>Link, Tempo &amp; MIDI</strong>.</li>
+        <li>Leave Control Surface set to <span class="code">None</span> for the EC4 — you want raw CCs, not a scripted surface that grabs control of devices.</li>
+        <li>Find the EC4's MIDI input row. Enable <strong>Remote</strong> (this is what lets its CCs drive mapped parameters). Leave Track off.</li>
+        <li>On the EC4 itself, confirm a setup/group where the four encoders you'll use send distinct CC numbers on one channel. Note them — you'll see them appear in Live's MIDI map.</li>
+      </ul>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Add the Launchpad for mutes</div>
+      <ul>
+        <li>Plug the Launchpad in. Control Surface: <span class="code">Launchpad Pro MK3</span>, Input/Output: <span class="code">LPProMK3 DAW</span>.</li>
+        <li>Press <kbd>Session</kbd> on the Launchpad — pads light up confirming the link to Live's Session view, where your clips and mutes live.</li>
+        <li>If you prefer mutes on the Digitakt's own mute mode instead, you can skip the Launchpad entirely; the box handles its own track mutes.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="8" y="12" width="28" height="20" rx="2"/><line x1="14" y1="22" x2="30" y2="22"/><circle cx="14" cy="22" r="2" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Setup 02</div>
+      <h2 class="step-title">Place the four devices the rides will touch</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">On the tracks</div>
+      <ul>
+        <li><span class="code">MF BASS</span>: drop an <strong>Auto Filter</strong> (low-pass, 24 dB). Its Cutoff is ride 01.</li>
+        <li><span class="code">Return B — ECHO</span>: confirm the <strong>Echo</strong> device is present. Its Feedback is ride 02.</li>
+        <li><span class="code">MF DRONE</span>: the track's <strong>Send to Return A (Reverb)</strong> is ride 03. No new device — the send knob already exists in the mixer.</li>
+        <li>Mutes: ride 04 targets the <span class="code">DT DRUMS</span> sub-mutes (or the Digitakt's per-track mutes). If your drums are one consolidated clip, split them into kick / hat / perc lanes first so each can mute independently.</li>
+      </ul>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Pre-set the safe starting positions</div>
+      <ul>
+        <li>Bass Auto Filter Cutoff to its closed value (~600 Hz) — the set starts dark and opens.</li>
+        <li>Echo Feedback to its floor (~35 %) — never start a set with the tension valve already cracked open.</li>
+        <li>Drone reverb send to its dry end (~-12 dB) — space arrives later, it is not the opening state.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M10 22h24"/><path d="M28 16l6 6-6 6"/><circle cx="10" cy="22" r="2.5" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Setup 03</div>
+      <h2 class="step-title">MIDI-map the four controls with their ranges</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Map mode</div>
+      <ul>
+        <li><kbd>⌘ M</kbd> to enter MIDI map mode — mappable parameters turn blue.</li>
+        <li>For each ride: click the parameter once (e.g. the bass Auto Filter Cutoff), then turn the EC4 encoder you've assigned to it. Live captures the CC and creates the map.</li>
+        <li>The new mapping appears in the <strong>MIDI Mappings</strong> browser on the left, each row showing the CC, the target, and editable <strong>Min</strong> and <strong>Max</strong> fields.</li>
+      </ul>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Set Min/Max — this is the whole job</div>
+      <table class="param-table">
+        <caption>Type these into the mapping's Min/Max columns</caption>
+        <tr><td>Bass Auto Filter — Cutoff</td><td>Min <span class="code">600 Hz</span> · Max <span class="code">3.5 kHz</span></td></tr>
+        <tr><td>Echo (Return B) — Feedback</td><td>Min <span class="code">35 %</span> · Max <span class="code">70 %</span></td></tr>
+        <tr><td>MF Drone — Send A (Reverb)</td><td>Min <span class="code">-12 dB</span> · Max <span class="code">-3 dB</span></td></tr>
+        <tr><td>Mute pads (Launchpad)</td><td>Binary — map each pad to a track's mute; no Min/Max, but quantise the pad's clip launch to <span class="code">1 Bar</span></td></tr>
+      </table>
+      <ul>
+        <li>The encoder's full physical travel now covers exactly the musical range. A careless turn can no longer reach a value that hurts — the safety lives in the map, not in your restraint.</li>
+        <li><kbd>⌘ M</kbd> again to exit map mode and test each one. Turn an encoder; watch its parameter move only within the window you set.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="8" y="10" width="28" height="24" rx="2"/><line x1="8" y1="18" x2="36" y2="18"/><line x1="16" y1="26" x2="28" y2="26"/></svg>
+      </div>
+      <div class="step-num">Setup 04</div>
+      <h2 class="step-title">Label the surface so you can play blind</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">On the EC4</div>
+      <ul>
+        <li>Name each encoder in the EC4's own display: <span class="code">BASS FLT</span>, <span class="code">FEEDBK</span>, <span class="code">VERB</span>. The display name is your in-the-dark reference.</li>
+        <li>Put a strip of tape under each encoder with the same name and an arrow for "darker/brighter." In a dim room the tape beats the screen.</li>
+      </ul>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">On the Launchpad</div>
+      <ul>
+        <li>Colour the mute pads by track family — kick one colour, hats another, perc another — so a glance tells you the state of the groove.</li>
+        <li>Group the four ride encoders physically together on the EC4 (top-left bank) so your hand finds them without searching.</li>
+      </ul>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Can I turn each encoder with my eyes closed and know what it does? If I have to look at the screen, the labels aren't doing their job.</li>
+        <li>Does every continuous map move only inside its musical range? Push each encoder to both stops and confirm.</li>
+        <li>Do the mute pads land changes on the bar, not the instant I press? If a mute lurches mid-bar, fix the launch quantise.</li>
+        <li>Is the master truly off every surface? Wiggle every control and confirm the master fader never moves.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Fast troubleshooting</h2>
+  <table class="param-table">
+    <caption>Symptom → check</caption>
+    <tr><td>Encoder does nothing</td><td>EC4 input has Remote enabled; the right CC was learned; map mode was exited</td></tr>
+    <tr><td>Parameter snaps when touched</td><td>You mapped a fader/absolute control, not an endless encoder — re-map to an EC4 encoder set to relative</td></tr>
+    <tr><td>Ride reaches a harsh value</td><td>Min/Max not set, or set too wide — type the musical range into the mapping row</td></tr>
+    <tr><td>Mute lands off the bar</td><td>Clip/scene launch quantise not set to 1 Bar in Live</td></tr>
+    <tr><td>Master jumps unexpectedly</td><td>An encoder was accidentally mapped to master — delete that mapping immediately</td></tr>
+    <tr><td>Two encoders move one parameter</td><td>Duplicate map — remove the stray row in the MIDI Mappings browser</td></tr>
+  </table>
+
+  <div class="page-nav">
+    <a href="decisions.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 03 / Decisions
+    </a>
+    <a href="palette.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      05 / Ride map →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B7-001 — Parameter Riding</div>
+
+</div>
+
+</body>
+</html>

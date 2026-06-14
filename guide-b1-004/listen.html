@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B1-004 — Metering · Listen</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B1-004<span class="labnote-topic">Metering</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html" class="active"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B1-004</div>
+    <div class="eyebrow">Metering · 02 — Listen</div>
+    <h1>Pair what you see with what you hear</h1>
+    <p class="lede">A meter is useless until its reading means something in your body. Before you measure anything of your own, train the link both ways: make a deliberate fault, look at how it reads, and listen to what that reading sounds like. Do this once for each meter and a number stops being abstract — it becomes a sound you recognise.</p>
+  </header>
+
+  <h2>The four pairings</h2>
+
+  <p style="text-align:center; color:var(--text-muted); max-width:640px; margin:0 auto 24px;">Each exercise creates a known fault on purpose, then asks you to connect the meter's behaviour to the sound. Use a finished reference track you trust and one simple test source — a synth pad or a one-bar loop. Loop, don't scrub; readings settle across repetitions.</p>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><line x1="12" y1="8" x2="12" y2="36"/><line x1="22" y1="8" x2="22" y2="36"/><line x1="32" y1="8" x2="32" y2="36"/><rect x="9" y="14" width="6" height="3" rx="0.5" fill="currentColor"/><rect x="19" y="11" width="6" height="3" rx="0.5" fill="currentColor"/><rect x="29" y="20" width="6" height="3" rx="0.5" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Pairing 01</div>
+      <h2 class="step-title">A clipped peak — see the red, hear the crackle</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Make the fault, then read it</div>
+      <ul>
+        <li>Play your loop and raise a track's gain with a Utility until the channel meter's tip lights <strong>red</strong> and holds at the top.</li>
+        <li>That red is the peak indicator saying you crossed <span class="code">0 dBFS</span> — the digital ceiling. There is no headroom above it; the signal is being squared off.</li>
+        <li>Now listen. The sound gains a brittle crackle or a hard edge on the loudest hits. That edge <em>is</em> the clip you can see — distortion born the moment the meter went red.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">What you learned</div>
+      <ul>
+        <li>Red on the channel meter is not "a bit hot" — it is a fault you can hear. Pull the gain back until the tip never reaches the top and the crackle is gone.</li>
+        <li>The fix is provable: the red disappears, the crackle disappears, both at the same level. The meter led; your ear confirmed.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 30 q6 -16 12 0 t12 -4 t8 4"/><line x1="20" y1="34" x2="20" y2="8"/></svg>
+      </div>
+      <div class="step-num">Pairing 02</div>
+      <h2 class="step-title">A 100 Hz boost — see the hump, hear the mud</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Make the fault, then read it</div>
+      <ul>
+        <li>Put Live's <strong>Spectrum</strong> on the master. Play the loop and learn its resting shape — a gentle downward tilt, lows on the left, highs on the right.</li>
+        <li>Add an EQ Eight and push a wide <span class="code">+6 dB</span> bell at <span class="code">100 Hz</span> (or sweep up to <span class="code">250 Hz</span> for low-mid mud). Watch a broad hump rise on Spectrum exactly where you boosted.</li>
+        <li>Listen: the loop thickens, gets boomy or muddy, loses clarity. The hump you see and the thickness you hear are the same event.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">What you learned</div>
+      <ul>
+        <li>"Sounds muddy" now has an address. You can point at the frequency on Spectrum, not just feel it.</li>
+        <li>Sweep a narrow boost slowly and a resonant ring will leap out as a tall thin spike — the same trick finds harshness up at <span class="code">2–4 kHz</span>. The spike is the sound that hurts; cut there and it eases.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="24" r="14"/><line x1="22" y1="24" x2="14" y2="16"/><line x1="8" y1="24" x2="11" y2="24"/><line x1="33" y1="24" x2="36" y2="24"/></svg>
+      </div>
+      <div class="step-num">Pairing 03</div>
+      <h2 class="step-title">A phase-cancelled fold — see the dip, hear it vanish</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Make the fault, then read it</div>
+      <ul>
+        <li>On a stereo pad, push a heavy stereo widener hard, or duplicate it, detune the copy a few cents, and pan the pair hard left and right. Watch the correlation needle plunge below <span class="code">0</span> toward <span class="code">−1</span>.</li>
+        <li>Negative correlation means left and right are turning into mirror-opposites — content that <em>cancels</em> when summed.</li>
+        <li>Collapse to mono with a Utility at <span class="code">Width 0 %</span>. The widened element thins or disappears, and Spectrum drops into regular comb-shaped dips. The needle warned you; the mono fold proved it.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">What you learned</div>
+      <ul>
+        <li>This is the one fault headphones hide completely: huge and wide in stereo, gone on a phone or a club's mono sub. Only the meter and the mono switch catch it.</li>
+        <li>Fix it — remove the widener, mono the low end — and the needle climbs back above <span class="code">0</span>, the element survives the fold. Recovery on the meter is the proof, not "it sounds fine to me".</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><line x1="22" y1="8" x2="22" y2="36"/><path d="M14 16 a10 10 0 0 0 0 16"/><path d="M30 16 a10 10 0 0 1 0 16"/></svg>
+      </div>
+      <div class="step-num">Pairing 04</div>
+      <h2 class="step-title">A drifting drone — see the cents, hear the beating</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Make the fault, then read it</div>
+      <ul>
+        <li>Play a sustained MicroFreak drone through Live's <strong>Tuner</strong>. Detune it slowly until the tuner reads <span class="code">−15 cents</span> flat of its target note.</li>
+        <li>Stack a second voice in tune at the same note. Listen for a slow <em>wah-wah-wah</em> pulse — beating — as the two pitches fight.</li>
+        <li>The tuner shows the gap in cents; the beating is that gap made audible. Pull the drift back to <span class="code">0</span> cents and the beating slows, then stops.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">What you learned</div>
+      <ul>
+        <li>Tuning is a measurement too. A drone that "feels uneasy" is often just a few cents out, and the tuner names it instantly.</li>
+        <li>Beating speed and the cents reading move together. Once you've paired them, you can tune two oscillators by ear and confirm on the tuner — or the reverse.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Listen on the rig you'll measure on.</strong> The DT 990 Pro is honest about harshness and width, but headphones exaggerate stereo. When the needle and your ears disagree about width, trust the needle.</li>
+      <li><strong>Write each pairing down.</strong> One line: the reading, then the sound it made. A meter you can't connect to a sound is a meter you can't act on.</li>
+      <li><strong>Match loudness when you compare.</strong> Louder always sounds and looks better. An unmatched A/B lies on every meter and every ear.</li>
+    </ul>
+  </div>
+
+  <h2>The one stolen principle</h2>
+
+  <div class="callout">
+    <div class="callout-label">Carry this into the build</div>
+    <p>Across all four pairings the same thing is true: the meter saw the fault before — or more reliably than — your ears. A red tip, a hump, a needle below zero, a cents reading. None of them is a matter of taste; each is a fact you can act on and then confirm. That is the only principle you are stealing — read the instrument first, then let your ears agree.</p>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon">
+        <svg viewBox="0 0 44 44"><polyline points="10 22 18 30 34 12"/></svg>
+      </div>
+      <div class="checklist-label">Before you move on</div>
+    </div>
+    <ul>
+      <li>I can recognise a clipped peak both as red on the meter and as crackle in the sound.</li>
+      <li>I can point at a low-mid hump on Spectrum and name it as mud I hear.</li>
+      <li>I have watched the correlation needle predict a mono collapse my ears missed.</li>
+      <li>I can read a drone's drift in cents and hear it as beating against an in-tune voice.</li>
+      <li>I have one written sentence: the reading I trust most over my ears is ___.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="index.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 01 / Overview
+    </a>
+    <a href="decisions.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      03 / Decisions →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B1-004 — Metering</div>
+
+</div>
+
+</body>
+</html>

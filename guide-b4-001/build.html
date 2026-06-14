@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B4-001 — Resonance — The Build</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Lab Note contents">
+  <p class="nav-label labnote-code">Lab Note B4-001<span class="labnote-topic">Resonance</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html" class="active"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B4-001</div>
+    <div class="eyebrow">Resonance · 06 — The build</div>
+    <h1>Build a track the filter carries</h1>
+    <p class="lede">An exhaustive, step-by-step build of an original track whose lead voice is a resonant filter ride. Every step is small, has a decision checkpoint, and spells out exact values. Keep the <a href="setup.html">setup page</a> open for the wiring and the <a href="palette.html">palette</a> open for the patches — this page assumes both. The sequence: foundation first, then the filter voice, then tune it, then make it a melody, then build the arc, then mix the peak, then arrange.</p>
+  </header>
+
+  <div class="signal-flow">
+    <span class="signal-node">dry source</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">high-Q filter</span>
+    <span class="signal-arrow">cutoff = pitch</span>
+    <span class="signal-node">resonant tone</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">sequenced cutoff</span>
+    <span class="signal-arrow">=</span>
+    <span class="signal-node">the lead line</span>
+  </div>
+
+  <!-- STEP 1 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 14 v20 a2 2 0 0 0 2 2 h28 a2 2 0 0 0 2 -2 v-16 a2 2 0 0 0 -2 -2 h-14 l-4 -4 h-10 a2 2 0 0 0 -2 2 z"/></svg>
+      </div>
+      <div class="step-num">Step 01</div>
+      <h2 class="step-title">Set the project and the bare foundation</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Open the set</div>
+      <ul>
+        <li><kbd>⌘ N</kbd>, <kbd>Tab</kbd> to <strong>Arrangement</strong>. Tempo <span class="code">126</span>, <span class="code">4/4</span>. Set the time ruler to <span class="code">m:ss</span> (right-click the ruler → <span class="menu">Time Ruler Format → Time</span>).</li>
+        <li>Audio: MOTU M4 in/out, <span class="code">48000 Hz</span>, buffer <span class="code">256</span>. Enable mono input <span class="code">1</span> (MicroFreak) and stereo <span class="code">3/4</span> (Digitakt II).</li>
+        <li>Confirm clock: Ableton is the only master; Digitakt II and MicroFreak receive clock + transport over USB. Press play — Digitakt should start and read <span class="code">126</span>. Fix this before anything else.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Create the tracks</div>
+      <ul>
+        <li><kbd>⌘ T</kbd> for audio tracks: <span class="code">MF FILTER</span> (the lead), <span class="code">ARC SOURCE</span>, <span class="code">DT DRUMS</span>, <span class="code">MF SUB</span>.</li>
+        <li><kbd>⌘ ⌥ T</kbd> for returns: <span class="code">A — REVERB</span> (Hybrid Reverb, decay <span class="code">3 s</span>, HP the input at <span class="code">400 Hz</span>) and <span class="code">B — ECHO</span> (Echo, <span class="code">3/16</span> ping-pong, feedback <span class="code">38 %</span>, HP <span class="code">300 Hz</span>).</li>
+        <li>Save as <span class="code">resonance_lab_b4001.als</span> in a dedicated project folder. Color the lead track distinctly — you will be staring at it for hours.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Why foundation before filter</div>
+      <ul>
+        <li>The filter ride must be in tune <em>against something</em>. Build a minimal kick + sub first so you have a tonal reference to tune the resonant peak to. Without it you will tune the filter to silence and it will float.</li>
+        <li>Program the Digitakt II foundation: <span class="code">T1 KICK</span> on steps <span class="code">1, 5, 9, 13</span>, tuned to A. <span class="code">T2 HAT</span> offbeat, high-passed. One sparse <span class="code">T3 PERC</span> hit with a <span class="code">35 %</span> probability condition. Keep it dry — no FX sends on the kick.</li>
+        <li>MicroFreak <span class="code">MF SUB</span> patch (palette Recipe: supporting): near-sine, low resonance, cutoff closed, root <span class="note">A1</span> held or struck on each kick.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Is the foundation deliberately boring? It should be. The filter is the star; the foundation is the stage.</li>
+        <li>Is the kick dry and the sub low-Q? Any resonance down here will fight the lead later.</li>
+        <li>Can you hold the root sub and clearly hear its pitch? That is your tuning reference for every step that follows.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 22 q9 -16 18 0 t18 0"/></svg>
+      </div>
+      <div class="step-num">Step 02</div>
+      <h2 class="step-title">Dial the resonant lead voice</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Initialise and build MF LEAD</div>
+      <ul>
+        <li><kbd>Shift</kbd> + press Type to init a fresh patch — never sculpt on a factory preset. Engine <span class="code">Wavetable</span>, Wave <span class="code">55 %</span>, Paraphonic <strong>off</strong>.</li>
+        <li>Filter: low-pass. Set the ENV → cutoff amount to <span class="code">+30</span> and the amp/filter envelope to <span class="code">A 0 / D 35 / S 15 / R 25</span> — fast pluck, short body.</li>
+        <li>Now bring resonance up <em>slowly</em> while striking the root. Stop at the moment a clear ping appears on each note but before a constant scream: about <span class="code">75 %</span>. That is rung four.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Engage key-tracking</div>
+      <ul>
+        <li>In the filter section enable <strong>keyboard tracking, full</strong>. Play the root, then an octave up. The resonant character should stay the same — the peak follows the note. If the high note sounds thin and the low note muffled, tracking is off; fix it now.</li>
+        <li>Key-tracking is what makes the next step (tuning) hold across the range. Skip it and the line drifts out of tune the moment you change notes.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Climb the ladder on purpose</div>
+      <table class="param-table">
+        <caption>Audition each rung against the held sub — do not skip to the top</caption>
+        <tr><td>40 – 70 %</td><td>Confirm you can <em>hum</em> the peak. If you can't, the filter isn't a voice yet.</td></tr>
+        <tr><td>70 – 85 %</td><td>The working home for the lead. Peak dominates, transients ping clearly, source still present.</td></tr>
+        <tr><td>Near self-osc</td><td>Reserve this for the peak section in Step 06. Note the knob position so you can return to it.</td></tr>
+      </table>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>On a single struck note, do you hear a clear "wow" bloom — envelope pushing the cutoff up then settling? That bloom is the acid voice. No bloom = raise envelope amount.</li>
+        <li>Does the same patch sound in tune on a low note and a high note? If not, key-tracking is wrong.</li>
+        <li>Save the patch as <span class="code">MF LEAD</span> before touching anything else.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M8 30 L8 14 L16 14"/><path d="M20 30 L20 10 L28 10"/><path d="M32 30 L32 18 L40 18"/></svg>
+      </div>
+      <div class="step-num">Step 03</div>
+      <h2 class="step-title">Find the frets — tune the peak to the scale</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Sweep and lock</div>
+      <ul>
+        <li>Hold the root sub (<span class="note">A1</span>) so you have a constant pitch reference. On <span class="code">MF LEAD</span>, hold a note and slowly sweep the cutoff.</li>
+        <li>Listen for the beating between the resonant peak and the sub. As the peak approaches a scale tone the beating slows, then locks. Mark that cutoff position. That is a fret.</li>
+        <li>Work through the scale tones from the <a href="palette.html">palette fret table</a>: A, C, D, E, G, A-octave. Note each knob position physically — masking tape on the panel is not beneath you.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Confirm the line is singable</div>
+      <ul>
+        <li>Play your intended 3–5 note line by hand, hitting only the frets you marked. Record a quick scratch pass and listen back.</li>
+        <li>If it doesn't sound like a melody, it isn't one yet — simplify to fewer notes, or widen the intervals so the ear can track the movement.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Can you sing the line the filter is playing? If not, the resonance is too low — it is still timbre, not pitch.</li>
+        <li>Does the resonant peak stay in tune across the range, or drift? If it drifts, you need key-tracking, not more automation points.</li>
+        <li>Are all your cutoff targets on frets, or are some between notes? Between-note cutoffs are out-of-tune notes — move them.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="10" cy="22" r="3" fill="currentColor"/><circle cx="20" cy="14" r="3"/><circle cx="30" cy="30" r="3" fill="currentColor"/><circle cx="38" cy="22" r="3"/></svg>
+      </div>
+      <div class="step-num">Step 04</div>
+      <h2 class="step-title">Sequence the filter into a melody</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Program the note sequence</div>
+      <ul>
+        <li>MicroFreak sequencer: 16 steps, scale A natural minor, root <span class="note">A2</span> for the lead (an octave above the sub). 3–5 notes, root on step 1, gaps left open.</li>
+        <li>A starting shape: <span class="code">A2 . . A2(ghost) . . C3 . . . G2 . . E3(slide) . .</span> — the slide into the high tension note gives one acid gesture per bar.</li>
+        <li>Set <strong>Glide</strong> on the slid step only. The slide makes the cutoff <em>portamento</em> between frets — the most recognizable acid move.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Two ways to move the cutoff — pick the phrasing layer</div>
+      <ul>
+        <li><strong>Let key-tracking do it:</strong> because tracking is on, each sequenced note moves the resonant peak to that note's fret automatically. The sequence <em>is</em> the filter melody. This is the cleanest method — start here.</li>
+        <li><strong>Add a hand ride on top:</strong> over the sequenced notes, also move the cutoff knob by hand for the accent gesture — small, per-bar, the "talking" of the line. This is printed movement; it cannot be undone, so keep it subtle.</li>
+        <li>Wire one mod route for life: <span class="code">Cycling Env (loop, slow) → cutoff</span> at depth <span class="code">~ 12</span>. Two slow movements at different rates never repeat exactly — the hypnosis mechanism inside the lead itself.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Record the lead take</div>
+      <ul>
+        <li>Arm <span class="code">MF FILTER</span>, Monitor <strong>Auto</strong>. Drop a Limiter at <span class="code">-6 dBFS</span> ceiling on the track as the peak safety net (setup page).</li>
+        <li>Loop and listen for at least <strong>3 minutes</strong> before committing — the line that bores you at 30 seconds and locks you in at 3 minutes is the right one.</li>
+        <li><kbd>⌘ ⇧ R</kbd>, record <strong>4 minutes</strong>. Keep the resonance and the note sequence static for this take; the long-form cutoff arc comes later as drawn automation. A static melodic core can be reshaped forever.</li>
+        <li>Re-save the patch as <span class="code">MF LEAD</span> in case you nudged anything while performing.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Is the line genuinely a melody, or just rhythmic ticking? Hum it back without the track — if you can't, it failed.</li>
+        <li>Does it create tension instead of resolving every bar? If it lands "finished" on the root each bar, displace a note.</li>
+        <li>Is the resonant peak clipping the Limiter on the loud notes? If the safety net is working hard, the take is too hot — pull the MicroFreak volume and re-record.</li>
+        <li>Is any step decorative? Delete it, listen two minutes — if nothing is lost, it stays deleted.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 5 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 22 q9 -4 18 0 t18 0"/><path d="M6 28 q9 -2 18 0 t18 0"/></svg>
+      </div>
+      <div class="step-num">Step 05</div>
+      <h2 class="step-title">Build the slow arc with a second resonant filter</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Print a flat source</div>
+      <ul>
+        <li>On <span class="code">ARC SOURCE</span>, record a flat, partial-rich source: MicroFreak <span class="code">Noise</span> engine, or a sustained low-resonance drone holding the root and fifth. Record <strong>60 s</strong>, print it flat — no filtering yet. Loop the clip across the arrangement.</li>
+        <li>The richer the source, the more the resonant peak has to grab onto. Print it dry so the filter does the melodic work, not a pre-pitched sample.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Auto Filter as the journey</div>
+      <ul>
+        <li>Drop an <strong>Auto Filter</strong> on <span class="code">ARC SOURCE</span>: low-pass 24 dB, resonance <span class="code">~ 65 %</span> — enough to add pitch, not enough to compete with the lead.</li>
+        <li>Add a slow <strong>LFO → Frequency</strong>, small depth, so even when the automation is flat the arc drifts a few cents — never perfectly still.</li>
+        <li>This is the layer the whole long-form journey hangs on. The lead is the melody; the arc is the tide under it.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Scale-quantize the cutoff lane</div>
+      <ul>
+        <li><kbd>A</kbd> to show automation, click Auto Filter Frequency, draw breakpoints. Snap each to a fret frequency from the palette table so the arc, too, plays in tune.</li>
+        <li>Keep ramps long: no movement shorter than <strong>8 bars</strong>; most are 16–48. Bend the ramps to S-curves (right-click segment → <span class="menu">Curve</span>) so they read as intention, not a ruler line.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does the arc sit <em>under</em> the lead, or does it compete? If two filters are fighting for "the melody", pull the arc's resonance and level down — one lead only.</li>
+        <li>Is the arc in the same key as the lead and sub? A resonant peak on a non-scale frequency is an out-of-tune drone.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 6 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 34 Q22 6 38 14"/><circle cx="6" cy="34" r="2.5" fill="currentColor"/><circle cx="38" cy="14" r="2.5" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Step 06</div>
+      <h2 class="step-title">Mix the resonance — tame the peak, ride it for the climax</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Carve the lead so the peak fits</div>
+      <table class="param-table">
+        <caption>Effects chain on MF FILTER — in this order</caption>
+        <tr><td>1 — EQ Eight HP</td><td><span class="code">90 Hz</span>, 24 dB/oct — clear the sub's territory so the lead and sub don't blur</td></tr>
+        <tr><td>2 — Dynamic EQ / de-esser on the peak band</td><td>A narrow node that ducks only when the resonant peak spikes — catches the harsh overshoot without dulling the whole line</td></tr>
+        <tr><td>3 — Saturator</td><td>Soft Sine, drive <span class="code">+3 dB</span> — the hot resonant peak drives saturation hard; this is where resonance and nonlinearity fuse (the acid grit)</td></tr>
+        <tr><td>4 — Limiter</td><td>Ceiling <span class="code">-6 dBFS</span>, catching only rare peaks — the safety net, not a sound</td></tr>
+      </table>
+      <ul>
+        <li>The level <em>leaving</em> a resonant filter is not the level that entered it. The saturator sees the 12–18 dB peak, so a "gentle" +3 dB drive is plenty — push more and the line turns to fizz.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Reverb and delay without the whistle</div>
+      <ul>
+        <li>Send the lead to <span class="code">B — ECHO</span> at <span class="code">-12 dB</span> — the dotted-eighth echoes turn single pings into a rolling phrase. This is the acid space.</li>
+        <li>Send to <span class="code">A — REVERB</span> sparingly (<span class="code">-18 dB</span>), and only because the reverb input is high-passed at 400 Hz. A high-Q peak into a long reverb tail will ring at one frequency forever; keep decay short (3 s) and the send low.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Sidechain so the filter breathes</div>
+      <ul>
+        <li>Compressor on <span class="code">MF SUB</span>: sidechain from the kick (Pre FX), ratio <span class="code">4:1</span>, attack <span class="code">1 ms</span>, release <span class="code">120 ms</span>, ~ <span class="code">-3 dB</span> reduction per kick. The sub pumps so the kick and resonant lead both have room.</li>
+        <li>Tune the release by ear: the sub should swell back between kicks like breathing.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The climax — ride the resonance, add nothing</div>
+      <table class="param-table">
+        <caption>Peak-section automation (times → bars at 126 BPM)</caption>
+        <tr><td>Lead resonance @ 4:00 – 4:45</td><td><span class="code">75 % → 92 %</span> over 24 bars — the peak narrows and screams; this is the only fast-ish gesture and even it spans bars</td></tr>
+        <tr><td>Lead cutoff @ 4:00 – 4:45</td><td>Climb the frets upward toward <span class="code">E5</span> — the brightest, highest tension note</td></tr>
+        <tr><td>Arc resonance @ 4:30</td><td>Brief bump to near self-oscillation, then back — the tide rises with the lead</td></tr>
+        <tr><td>Echo feedback @ 4:30</td><td><span class="code">38 % → 60 % → 38 %</span> — the pings briefly self-regenerate</td></tr>
+        <tr><td>Saturator drive @ 4:30</td><td><span class="code">+3 → +6 → +3 dB</span> — density without a new element</td></tr>
+        <tr><td>All values @ 5:15</td><td>Back toward home — the release that makes the climb worth it</td></tr>
+      </table>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>At the climax, did energy come from the filter <em>opening and ringing harder</em>, not from new parts entering? That is the thesis of this Lab Note.</li>
+        <li>Does the resonant peak ever clip the master? Watch the master meter through the whole peak section — the narrow spike is sneaky.</li>
+        <li>Is the reverb whistling on one note? High-pass harder or shorten the decay.</li>
+        <li>Flip the master to mono for ten seconds — does the lead survive? A resonant peak is mono-strong, so it should.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 7 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="4" y="14" width="10" height="6" rx="1"/><rect x="16" y="14" width="14" height="6" rx="1"/><rect x="32" y="14" width="8" height="6" rx="1"/><rect x="8" y="24" width="16" height="6" rx="1"/><rect x="26" y="24" width="12" height="6" rx="1"/></svg>
+      </div>
+      <div class="step-num">Step 07</div>
+      <h2 class="step-title">Arrange the ride into a journey</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Mark the map first</div>
+      <ul>
+        <li>Right-click the scrub area → <span class="menu">Add Locator</span> at each boundary: <span class="code">INTRO</span>, <span class="code">FILTER IN</span>, <span class="code">FULL</span>, <span class="code">PEAK</span>, <span class="code">STRIP</span>, <span class="code">OUTRO</span>.</li>
+      </ul>
+      <table class="param-table">
+        <caption>Section → time → bar at 126 BPM</caption>
+        <tr><td>INTRO — 0:00</td><td>Bar 1 — sub + dry kick only, no resonance audible</td></tr>
+        <tr><td>FILTER IN — 1:00</td><td>Bar 33 — lead enters low and closed; the filter wakes up</td></tr>
+        <tr><td>FULL — 2:30</td><td>Bar 80 — arc joins, cutoff climbing, the ride is established</td></tr>
+        <tr><td>PEAK — 4:00</td><td>Bar 126 — resonance and cutoff rides from Step 06; nothing new enters</td></tr>
+        <tr><td>STRIP — 5:15</td><td>Bar 166 — resonance pulled back, lead thinned; the climb made retroactively big</td></tr>
+        <tr><td>OUTRO — 6:15</td><td>Bar 197 — lead closes down, sub + kick carry the exit, slow fade</td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Place clips against the map</div>
+      <ul>
+        <li><strong>INTRO</strong> — sub + kick. The resonant lead is silent; the listener settles before the voice arrives.</li>
+        <li><strong>FILTER IN</strong> — lead clip from bar 33 with cutoff low (closed end of its range). Draw a fade-in on the first 4 bars so it surfaces rather than arrives.</li>
+        <li><strong>FULL</strong> — arc source enters; the lead's cutoff arc begins its long climb. The track is now two resonant voices and a foundation, nothing more.</li>
+        <li><strong>PEAK</strong> — <em>no new clips</em>. Energy is entirely the Step 06 resonance/cutoff rides.</li>
+        <li><strong>STRIP</strong> — pull lead resonance back to ~ 55 %, drop the arc, thin the hats. The filter goes quiet so its return lands harder.</li>
+        <li><strong>OUTRO</strong> — cut the lead around 7:00, sub + kick fade over the final 30–45 s via master volume.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Perform the ride live, then simplify</div>
+      <ul>
+        <li><kbd>⌘ M</kbd> MIDI map: map a Launchpad control to Auto Filter Frequency, another to lead resonance. Set Min/Max to your fret range so the full control travel stays musical and never overshoots into screech.</li>
+        <li><kbd>F9</kbd> Arrangement Record. Play all ~7 minutes and ride the mapped controls <em>slower than feels natural</em>. Two takes; keep the calmer one.</li>
+        <li>Right-click each lane → <span class="menu">Simplify Envelope</span> to thin breakpoints while keeping the shape.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Play 4:00–4:45 blind: does the peak arrive because the filter <em>opened and rang</em>, not because parts were added? That is the whole test.</li>
+        <li>If you can hear a cutoff move as an "event" outside the peak section, it is too fast.</li>
+        <li>Can you remove the arc lane without weakening the journey? If yes, remove it — the lead alone may be enough.</li>
+        <li>Does the strip section make the earlier fullness feel bigger in hindsight? If not, strip more.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Carry forward:</strong> you have proven a resonant filter can be a lead, a melody, and a climax mechanism. The level leaving that peak drove every downstream stage — saturation, sidechain, master. Resonance was never an isolated tone choice; it was the gain-staging, the arrangement, and the hook at once. Keep both the <span class="code">MF LEAD</span> patch and the marked fret positions — they are the seed of the next track.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="palette.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 05 / Palette
+    </a>
+    <a href="reflection.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      07 / Reflection →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B4-001 — Resonance</div>
+
+</div>
+
+</body>
+</html>

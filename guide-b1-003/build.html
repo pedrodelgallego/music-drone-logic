@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B1-003 — Lock · The build</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B1-003<span class="labnote-topic">Lock</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html" class="active"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B1-003</div>
+    <div class="eyebrow">Lock · 06 — The build</div>
+    <h1>Bring a two-device rig into lock, step by step</h1>
+    <p class="lede">Now we touch the gear. Every step is small, has a decision checkpoint, and produces something you can hear or measure. We make Live the clock master, lock the Digitakt to it with no drift, measure the round trip, and prove a single clean monitor path — then deliberately break it once, so you own the fix. Keep the <a href="setup.html">setup page</a> and the <a href="palette.html">palette</a> open in other tabs.</p>
+  </header>
+
+  <!-- STEP 1 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 14 v20 a2 2 0 0 0 2 2 h28 a2 2 0 0 0 2 -2 v-16 a2 2 0 0 0 -2 -2 h-14 l-4 -4 h-10 a2 2 0 0 0 -2 2 z"/></svg>
+      </div>
+      <div class="step-num">Step 01</div>
+      <h2 class="step-title">Create the project and set the audio device</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">New set</div>
+      <ul>
+        <li><kbd>⌘ N</kbd>, then <kbd>Tab</kbd> to Arrangement view. Tempo <span class="code">124</span>, signature <span class="code">4/4</span>.</li>
+        <li><kbd>⌘ ,</kbd> → <strong>Audio</strong>: device <strong>MOTU M4</strong> as <em>both</em> input and output, sample rate <span class="code">48000 Hz</span>, buffer <span class="code">256 samples</span>.</li>
+        <li>Input Config: enable mono input <span class="code">1</span> (MicroFreak), stereo <span class="code">3/4</span> (Digitakt), and mono <span class="code">3</span> (for the loopback). Output Config: enable mono output <span class="code">3</span>.</li>
+        <li>Check the <span class="menu">Options</span> menu: <strong>Reduced Latency When Monitoring</strong> stays <strong>OFF</strong> for this entire build, so every number is taken under the same conditions.</li>
+        <li>Save as <span class="code">lock_b1_003.als</span> in a dedicated project folder.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Is the M4 selected as both input and output, at 48 kHz / 256?</li>
+        <li>Are inputs 1, 3, 3/4 and output 3 all enabled?</li>
+        <li>Is Reduced Latency When Monitoring off?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="14"/><circle cx="22" cy="22" r="5"/></svg>
+      </div>
+      <div class="step-num">Step 02</div>
+      <h2 class="step-title">Name the clock master and lock the Digitakt to it</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Make Live the only clock master</div>
+      <ul>
+        <li><kbd>⌘ ,</kbd> → <strong>Link, Tempo &amp; MIDI</strong> → <strong>MIDI Ports</strong>. On the Digitakt II <em>output</em> port row, enable <strong>Sync</strong> (this sends clock + transport). Leave the Digitakt <em>input</em> port's Sync off — you are not letting the box drive Live.</li>
+        <li>On the Digitakt: <span class="menu">Settings → MIDI Config → Sync</span> — <strong>clock receive ON</strong>, <strong>transport receive ON</strong>, <strong>clock send OFF</strong>.</li>
+        <li>MicroFreak: <kbd>Shift</kbd> + <kbd>Tempo</kbd> → source <strong>USB</strong>.</li>
+        <li>Say it out loud: "Live is master. The Digitakt and MicroFreak follow." Exactly one device is sending clock.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Confirm the lock</div>
+      <ul>
+        <li>Program a Digitakt kick on quarter notes, one bar, nothing else. Press play in Live.</li>
+        <li>The Digitakt must start instantly and its screen must read <span class="code">124</span>. If the tempo display disagrees, or it doesn't start, sync is broken — fix it before doing anything else.</li>
+        <li>Stop and start Live a few times. The Digitakt should start cleanly on bar one every time. A device that follows tempo but starts on the wrong bar has transport receive off.</li>
+      </ul>
+    </div>
+
+    <div class="signal-flow">
+      <span class="signal-node">Live (master)</span>
+      <span class="signal-arrow">→ clock + transport →</span>
+      <span class="signal-node">USB</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">Digitakt (follower)</span>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does the Digitakt's screen read exactly 124 when Live plays?</li>
+        <li>Does it start on bar one every time you restart the transport?</li>
+        <li>Is exactly one device generating clock?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="8" y="14" width="6" height="16" rx="1"/><rect x="16" y="14" width="6" height="16" rx="1"/><rect x="24" y="14" width="6" height="16" rx="1"/><rect x="32" y="14" width="6" height="16" rx="1"/></svg>
+      </div>
+      <div class="step-num">Step 03</div>
+      <h2 class="step-title">Feel the buffer before you measure it</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The buffer experiment</div>
+      <ul>
+        <li>Create one audio track, input <span class="code">Ext. In 1</span> (MicroFreak), Monitor <strong>In</strong> — software monitoring, so the signal makes the full round trip before you hear it. Turn the M4 monitor-mix knob fully toward <strong>playback</strong> so you hear only Live's path.</li>
+        <li>Set the buffer to <span class="code">1024</span>. Play a fast line of short, separated notes. Then repeat at <span class="code">256</span>, <span class="code">128</span>, <span class="code">64</span>. At each size, write what the delay feels like in your own words.</li>
+        <li>Note the buffer at which the synth stops feeling like an instrument and starts feeling like a remote control. Set the buffer back to <span class="code">256</span> — the working size.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">What you should find</div>
+      <ul>
+        <li>At 1024 the lag is obvious — you hear the note clearly after your finger. Somewhere between 256 and 64 your hands stop noticing. That point is personal: it is your playable threshold.</li>
+        <li>If 64 causes crackles, your computer has hit its limit there — write that down. The number you live at is the largest buffer you can comfortably play through.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Can I name, in my own words, what each buffer size feels like?</li>
+        <li>Do I know my playable threshold in samples?</li>
+        <li>Am I back at 256 for the rest of the build?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="14" cy="22" r="3" fill="currentColor"/><line x1="17" y1="22" x2="30" y2="22"/><circle cx="33" cy="22" r="3"/></svg>
+      </div>
+      <div class="step-num">Step 04</div>
+      <h2 class="step-title">Measure the round trip with a loopback</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Patch and send</div>
+      <ul>
+        <li>Mute or lower the monitors; keep the phones knob at its mark. Patch the ¼″ TS cable: M4 rear <span class="code">Out 3</span> → M4 rear <span class="code">In 3</span>. The signal leaves the computer, passes both converters, and returns.</li>
+        <li>Make a click track: a one-bar MIDI clip, quarter notes, driving a sharp click sample (attack at zero). Open its routing with <kbd>⌘ ⌥ I</kbd> and set <strong>Audio To</strong> to <span class="code">Ext. Out 3</span> only — <strong>not</strong> Master. The loopback chain must never touch Master, or it can feed back.</li>
+        <li>Create an audio track: Audio From <span class="code">Ext. In 3</span>, Monitor <strong>Off</strong>, armed. Record eight bars of the click.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Measure and compensate</div>
+      <ul>
+        <li>Right-click the ruler → switch to <strong>minutes : seconds : milliseconds</strong>. Zoom to maximum on the first recorded click. Drag-select from the grid line to the click's first edge and read the length in ms. Convert if you like: <span class="code">samples = ms × 48</span>.</li>
+        <li>Compare against Live's reported input + output latency in <kbd>⌘ ,</kbd> → <strong>Audio</strong> → <strong>Latency</strong>. The shortfall is your driver error — the part the interface's report missed.</li>
+        <li>Enter that difference in <span class="menu">Driver Error Compensation</span> (greyed out unless the external device is selected). Re-record and re-measure until the click sits on the grid line. Unpatch the cable.</li>
+      </ul>
+    </div>
+
+    <table class="param-table">
+      <caption>Loopback results — at 256 samples / 48 kHz</caption>
+      <tr><td>Recorded offset</td><td>___ samples = ___ ms</td></tr>
+      <tr><td>Live's reported input + output latency</td><td>___ ms</td></tr>
+      <tr><td>Driver error compensation entered</td><td>___ ms</td></tr>
+      <tr><td>Offset after compensation</td><td>___ samples (should be near zero)</td></tr>
+    </table>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Is my measured round trip in the low-to-mid teens of ms (the minimum at 256 is ≈ 10.7 ms)?</li>
+        <li>Did entering compensation pull the click onto the grid?</li>
+        <li>Did I record the configuration alongside the number, so it's reusable?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 5 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M10 24a12 12 0 0 1 24 0"/><rect x="6" y="22" width="8" height="12" rx="2"/><rect x="30" y="22" width="8" height="12" rx="2"/></svg>
+      </div>
+      <div class="step-num">Step 05</div>
+      <h2 class="step-title">Try the three monitor paths and prove what prints</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Walk each path</div>
+      <ul>
+        <li><strong>Path (a) — M4 direct:</strong> monitor-mix knob toward <strong>input</strong>, the MicroFreak track's Monitor <strong>Off</strong>. Play. Immediate, dry, no effects. This is the now under your hands.</li>
+        <li><strong>Path (b) — Live software:</strong> knob toward <strong>playback</strong>, Monitor <strong>In</strong>, drop one obvious effect (a delay or saturator) on the track. Play. Processed, but late by your Step 04 number.</li>
+        <li><strong>Path (c) — Digitakt's own outs:</strong> knob toward input, run a Digitakt pattern, arm a stereo track on <span class="code">Ext. In 3/4</span> with Monitor <strong>Off</strong>. You hear the box directly; a USB copy records silently behind your back.</li>
+        <li>After each, write one line: what was instant, what was late, what was processed.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Prove heard vs printed</div>
+      <ul>
+        <li>For each path, record four bars and listen back. Compare the playback to what you remember hearing while you played.</li>
+        <li>Path (a): the recording matches your hands, but you never heard the FX. Path (b): you performed against a late copy — any drag is baked in. Path (c): what you heard is not the signal that recorded; the USB copy must be auditioned separately.</li>
+      </ul>
+    </div>
+
+    <table>
+      <thead><tr><th>Path</th><th>What you hear</th><th>What gets printed</th></tr></thead>
+      <tbody>
+        <tr><td>(a) M4 direct</td><td>Input straight from the interface, near-zero delay, dry</td><td>The dry signal, on the grid once compensation is set</td></tr>
+        <tr><td>(b) Live software</td><td>The signal through Live's chain, full round-trip late</td><td>The dry input; FX live on playback, printed only if you resample</td></tr>
+        <tr><td>(c) Digitakt outs</td><td>The box itself, no added delay</td><td>The armed copy — verify it separately</td></tr>
+      </tbody>
+    </table>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Can I name, from memory, the heard-vs-printed difference for each path?</li>
+        <li>Is exactly one path open in each test — never two?</li>
+        <li>Have I chosen a default path for designing and one for tracking with FX?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 6 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><line x1="8" y1="16" x2="36" y2="16"/><line x1="8" y1="28" x2="34" y2="28"/><line x1="8" y1="16" x2="8" y2="28"/><line x1="36" y1="16" x2="34" y2="28"/></svg>
+      </div>
+      <div class="step-num">Step 06</div>
+      <h2 class="step-title">The 64-bar drift test — is it latency or drift?</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Set up the measurement</div>
+      <ul>
+        <li>Build a reference click in Live: a one-bar MIDI clip on quarter notes, frozen or rendered to an audio track named <span class="code">REF CLICK</span>. This copy never leaves the computer, so its timing is exact.</li>
+        <li>With the Digitakt locked as a follower (Step 02), program a kick on quarters and route its mains to <span class="code">Ext. In 3/4</span>.</li>
+        <li>Record the Digitakt's audio for <strong>64 bars</strong> alongside the reference click, Monitor <strong>Off</strong>.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Measure at both ends</div>
+      <ul>
+        <li>Using the Step 04 technique — ms ruler, maximum zoom — measure the gap between click and kick at <strong>bar 1</strong> and again at <strong>bar 64</strong>.</li>
+        <li>A fixed small offset is <strong>latency</strong>: you can measure and compensate it. If the offset at bar 64 is larger than at bar 1, that is <strong>drift</strong> — and no setting fixes it. Drift means the clock setup is wrong: two masters, a bad hub, or an old driver.</li>
+      </ul>
+    </div>
+
+    <table class="param-table">
+      <caption>Drift measurement</caption>
+      <tr><td>Offset at bar 1</td><td>___ ms</td></tr>
+      <tr><td>Offset at bar 64</td><td>___ ms</td></tr>
+      <tr><td>Latency (fixed) or drift (growing)?</td><td>___</td></tr>
+    </table>
+
+    <div class="note-block">
+      <ul>
+        <li><strong>Reset rule:</strong> stopping and restarting Live's transport realigns the follower to bar one. Write it as a rule — <em>restart the transport before any take that matters.</em></li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Is the offset fixed (latency) or growing (drift)?</li>
+        <li>If it drifts, did I confirm only one master and a direct USB port?</li>
+        <li>Have I written the reset rule into my logbook?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 7 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><line x1="16" y1="10" x2="16" y2="34"/><line x1="20" y1="10" x2="20" y2="34"/></svg>
+      </div>
+      <div class="step-num">Step 07</div>
+      <h2 class="step-title">The fault ritual — make doubled monitoring on purpose</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Cause the fault</div>
+      <ul>
+        <li>Arm the MicroFreak track. Set Live's Monitor to <strong>In</strong> <em>and</em> turn the M4 monitor-mix knob toward <strong>input</strong> at the same time. Now the synth reaches your ears twice — once direct, once through Live, a few ms apart.</li>
+        <li>Play a sustained note and slowly sweep the filter. Listen to the hollow, phasey, tin-can colour move. That is comb filtering — the same cancellation you heard in dub doubles, but here it is unwanted.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Fix it and hear the snap</div>
+      <ul>
+        <li>Close one path: either turn the M4 knob fully to <strong>playback</strong>, or set Live's Monitor to <strong>Off</strong>. The sound snaps solid the instant the second copy disappears.</li>
+        <li>Do it a few times — open, hollow; close, solid. The contrast is the lesson. You will now catch this in a second when it happens by accident.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Can I produce the hollow comb-filter sound at will?</li>
+        <li>Can I name which two paths were open?</li>
+        <li>Can I make the sound snap solid by closing exactly one of them?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 8 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><polyline points="14 18 22 26 30 18"/><line x1="22" y1="8" x2="22" y2="26"/><line x1="8" y1="34" x2="36" y2="34"/></svg>
+      </div>
+      <div class="step-num">Step 08</div>
+      <h2 class="step-title">Record one locked, cleanly-monitored take</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Put it all together</div>
+      <ul>
+        <li>Clock: Live master, Digitakt follower, confirmed reading 124 and starting on bar one. Restart the transport once for a clean start.</li>
+        <li>Latency: compensation entered, recorded transients land on the grid.</li>
+        <li>Monitor: exactly one path. For a dry hardware take, M4 direct with Live Monitor Off. For a take with Live FX, Live Auto with the M4 knob to playback. Confirm only one is open.</li>
+        <li>Record a short pass — the Digitakt drums plus a MicroFreak line over them. Set the Digitakt main volume so the input peaks just below <span class="code">−6 dBFS</span>.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Verify the take is in lock</div>
+      <ul>
+        <li>Zoom into the recorded drums — the kick transients sit on the grid, not after it. No flam, one clean hit each.</li>
+        <li>Solo the MicroFreak take and listen: solid, not hollow. If it's phasey, a second monitor path was open while recording — though the print itself is dry, the lesson is to check before the take, not after.</li>
+        <li>Play 0:00 against the end of the pass — the Digitakt and Live are in the same relationship throughout. No drift.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Do the recorded transients land on the grid?</li>
+        <li>Is the take free of flam and comb-filter hollowness?</li>
+        <li>Did the rig hold lock from the first bar to the last?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 9 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="8" y="8" width="28" height="28" rx="3"/><path d="M16 22l4 4 8-8"/></svg>
+      </div>
+      <div class="step-num">Step 09</div>
+      <h2 class="step-title">Write the lock report and save the configuration</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The three numbers, written down</div>
+      <ul>
+        <li>In your logbook, record the three decisions as a single line: <em>clock master = Live; buffer = 256 @ 48 kHz; monitor path = M4 direct (design) / Live Auto (FX takes).</em></li>
+        <li>Add the loopback table and the drift verdict (latency or drift). A compensation value without its configuration is a future problem — write the configuration next to the number.</li>
+        <li><span class="menu">File → Collect All and Save</span>. Save the set as a template so the next track starts already in lock instead of from scratch.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Final decision check</div>
+      <ul>
+        <li>Can I name my clock master, buffer size, and monitor path without looking?</li>
+        <li>Is the loopback number stored alongside the configuration it belongs to?</li>
+        <li>Could I rebuild this lock on a fresh set in under five minutes?</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-nav">
+    <a href="palette.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 05 / Palette
+    </a>
+    <a href="reflection.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      07 / Reflection →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B1-003 — Lock</div>
+
+</div>
+
+</body>
+</html>

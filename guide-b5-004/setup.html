@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B5-004 — Translation &amp; Subtraction · Setup</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B5-004<span class="labnote-topic">Translation &amp; Subtraction</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html" class="active"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B5-004</div>
+    <div class="eyebrow">Translation &amp; Subtraction · 04 — Setup</div>
+    <h1>The rig that lets you hear the fold</h1>
+    <p class="lede">Translation is a measurement discipline, so the setup is about instrumentation, not new instruments. You need three things wired and ready before the build: a master metering chain that shows mono, correlation, and spectrum at a glance; a one-button mono switch; and a reference playback chain that gets the render onto a phone and into a room with no friction.</p>
+  </header>
+
+  <h2>The signal path you are auditing</h2>
+  <p style="text-align:center; max-width:620px; margin:0 auto 24px; color:var(--text-muted);">Everything funnels to one stereo master, and the master is where translation is judged. Build the metering on the master bus once, leave it there, and read it constantly.</p>
+
+  <div class="signal-flow">
+    <span class="signal-node">All tracks</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">Group buses</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">Master</span>
+    <span class="signal-arrow">→ Utility (mono switch) →</span>
+    <span class="signal-node">Spectrum + correlation</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">M4 Phones / monitors</span>
+  </div>
+
+  <h2>Master metering chain — build it once</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><line x1="12" y1="8" x2="12" y2="36"/><line x1="22" y1="8" x2="22" y2="36"/><line x1="32" y1="8" x2="32" y2="36"/><rect x="9" y="18" width="6" height="3" rx="0.5" fill="currentColor"/><rect x="19" y="24" width="6" height="3" rx="0.5" fill="currentColor"/><rect x="29" y="14" width="6" height="3" rx="0.5" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Setup 01</div>
+      <h2 class="step-title">Utility + Spectrum on the master</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Drop the devices, in this order</div>
+      <ul>
+        <li>Select the Master track. Add a <strong>Utility</strong> first, then a <strong>Spectrum</strong> after it. Nothing else — no limiter, no EQ on the master for this exercise.</li>
+        <li>The Utility is your monitoring tool, not a processor: leave Gain at <span class="code">0 dB</span> and Width at <span class="code">100 %</span> by default. You will only ever touch its <strong>Mono</strong> switch.</li>
+        <li>Spectrum after Utility so the analyser shows exactly what leaves the master — including whatever the mono switch does to it.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Map the mono switch to one button</div>
+      <ul>
+        <li><kbd>⌘ M</kbd> for MIDI map mode. Click the Utility's <strong>Mono</strong> button, then tap one pad on the Launchpad Pro MK3. Exit map mode.</li>
+        <li>No controller? Right-click the Mono button → <span class="menu">Edit MIDI Map</span>, or bind it to a key with the Key map (<kbd>⌘ K</kbd>) — any single key you can hit without looking.</li>
+        <li>The goal is a reflex: one button, mono on, listen, button off. If checking mono takes more than a finger, you will stop doing it.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Read the correlation</div>
+      <ul>
+        <li>In Spectrum, enable the stereo/correlation display if your version shows it; otherwise add a dedicated correlation meter (any free phase meter, or Ableton's metering view) after Spectrum.</li>
+        <li>Position the meter where you can see it while your hands are on the faders — a translation problem you cannot see is a translation problem you will ship.</li>
+        <li>Healthy target: the needle living around <span class="code">+0.3 to +0.8</span>, dipping briefly on reverb tails, never parking below <span class="code">0</span> on a load-bearing part.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Can you toggle mono with one button without taking your eyes off the meters?</li>
+        <li>Is the master chain monitoring-only — no limiter, no master EQ baked in?</li>
+        <li>Can you see correlation and spectrum at the same time as the mix?</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Per-channel translation tools</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="14" cy="22" r="6"/><circle cx="30" cy="22" r="6"/><line x1="20" y1="22" x2="24" y2="22"/></svg>
+      </div>
+      <div class="step-num">Setup 02</div>
+      <h2 class="step-title">Mono the lows, M/S where it counts</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Utility Bass Mono on the low-end bus</div>
+      <ul>
+        <li>On the group that carries kick and bass, add a <strong>Utility</strong> and enable <strong>Bass Mono</strong> (the "mono frequency" control). Set the crossover around <span class="code">120 Hz</span>.</li>
+        <li>Everything below the crossover is forced to centre; everything above keeps its stereo image. The bass survives the fold while the mids stay wide.</li>
+        <li>This is a set-and-forget insurance device. You are not mixing with it — you are removing the possibility of a low-end phase problem.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">EQ Eight in M/S mode for surgical width</div>
+      <table class="param-table">
+        <caption>Where M/S EQ earns its place</caption>
+        <tr><td>Side, low shelf cut</td><td>Pull side energy below ~200 Hz to zero even if Bass Mono is already doing the job — belt and braces on the most fragile band.</td></tr>
+        <tr><td>Side, high shelf boost</td><td>Add air and width up top where phase problems are inaudible — the safe place to widen.</td></tr>
+        <tr><td>Mid, narrow cut</td><td>Carve a masking band out of the centred core without touching the width.</td></tr>
+      </table>
+      <ul>
+        <li>In EQ Eight, switch the editing mode chooser from Stereo (L/R) to <strong>M/S</strong>, then pick Mid or Side per band. Reversible, surgical, and exactly the tool the decisions page argued for.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>The reference playback chain</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="14" y="6" width="16" height="32" rx="2"/><line x1="19" y1="33" x2="25" y2="33"/><path d="M6 18 a8 8 0 0 0 0 8" /></svg>
+      </div>
+      <div class="step-num">Setup 03</div>
+      <h2 class="step-title">Make cross-system listening frictionless</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The three judges, ready to hand</div>
+      <table class="param-table">
+        <caption>Reference playback chain</caption>
+        <tr><td>Headphones</td><td>Your open-back studio set (DT 990 Pro) on the M4 phones out — the detail and phase judge.</td></tr>
+        <tr><td>Phone speaker</td><td>An AirDrop / cable transfer folder so the render lands on your phone in seconds. The single mono speaker is your harshest judge.</td></tr>
+        <tr><td>Room</td><td>Monitors, or a small Bluetooth speaker in another room — the depth and balance judge, distrusted for absolute bass.</td></tr>
+      </table>
+      <ul>
+        <li>Have a known commercial reference loaded on all three too. You are checking your track against records that already translate — not against silence.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Render settings that protect the test</div>
+      <table class="param-table">
+        <caption>Export for translation listening</caption>
+        <tr><td>File Type / Sample Rate / Bit Depth</td><td>WAV, <span class="code">48000 Hz</span>, <span class="code">24-bit</span></td></tr>
+        <tr><td>Normalize</td><td><strong>OFF</strong> — the headroom you protected by cutting is part of the result</td></tr>
+        <tr><td>Convert to Mono</td><td><strong>OFF</strong> — fold to mono with the Utility switch, not the renderer, so you keep one stereo file</td></tr>
+        <tr><td>Limiter on master</td><td><strong>None</strong> — loudness is a distribution problem; this exercise is about translation, not level</td></tr>
+      </table>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Can a fresh render reach your phone and a second room in under a minute? If not, you will skip the test under deadline.</li>
+        <li>Is there a commercial reference cued on each system to A/B against?</li>
+        <li>Is the master clean — no normalize, no limiter — so what you hear is the mix, not a processor hiding its faults?</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Set the listening level once.</strong> Translation judgements drift with volume. Pick a comfortable monitoring level on the M4 phones knob and leave it; ride the mix faders, never the listening level.</li>
+      <li><strong>One clock, one master, one mono button.</strong> The whole rig exists so that the only variable you change between systems is the system — never the file, never the gain.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="decisions.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 03 / Decisions
+    </a>
+    <a href="palette.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      05 / Palette →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B5-004 — Translation &amp; Subtraction</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B1-003 — Lock · Setup</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B1-003<span class="labnote-topic">Lock</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html" class="active"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B1-003</div>
+    <div class="eyebrow">Lock · 04 — Setup</div>
+    <h1>The rig, wired for lock</h1>
+    <p class="lede">Two flows run in parallel through this rig: audio, and control + clock. Lock lives in both. This page wires the Digitakt, Live, and the M4 so that one clock drives everything and one monitor path carries every input — and explains every cable, every sync setting, and the one trap that doubles your sound if you skip it.</p>
+  </header>
+
+  <div class="cards three">
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="10" width="32" height="20" rx="2"/><line x1="16" y1="36" x2="28" y2="36"/><line x1="22" y1="30" x2="22" y2="36"/></svg>
+      </div>
+      <h3 class="card-title">Ableton Live 12 Suite</h3>
+      <ul class="card-points">
+        <li>The only clock master — sends MIDI clock + transport</li>
+        <li>Holds the buffer setting and driver-error compensation</li>
+        <li>Records the Digitakt's audio and any synth input</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="8" width="32" height="28" rx="2"/><rect x="10" y="12" width="10" height="7" rx="1"/><circle cx="29" cy="15.5" r="3"/><rect x="10" y="24" width="4" height="4" rx="0.7"/><rect x="17" y="24" width="4" height="4" rx="0.7"/><rect x="24" y="24" width="4" height="4" rx="0.7"/><rect x="31" y="24" width="4" height="4" rx="0.7"/></svg>
+      </div>
+      <h3 class="card-title">Elektron Digitakt II</h3>
+      <ul class="card-points">
+        <li>Clock + transport receiver — runs at Live's tempo</li>
+        <li>Stereo main outs into the M4's line inputs 3/4</li>
+        <li>Its own tempo display must read Live's number</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="14" width="32" height="16" rx="2"/><circle cx="14" cy="22" r="2.5"/><circle cx="22" cy="22" r="2.5"/><circle cx="30" cy="22" r="2.5"/></svg>
+      </div>
+      <h3 class="card-title">MOTU M4</h3>
+      <ul class="card-points">
+        <li>4-in / 4-out USB-C interface — the single audio device</li>
+        <li>Monitor-mix knob blends direct input against playback</li>
+        <li>Low, stable round-trip latency at 256 samples</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="14" width="32" height="16" rx="2"/><line x1="14" y1="14" x2="14" y2="30"/><line x1="22" y1="14" x2="22" y2="30"/><line x1="30" y1="14" x2="30" y2="30"/></svg>
+      </div>
+      <h3 class="card-title">Arturia MicroFreak</h3>
+      <ul class="card-points">
+        <li>The live input you'll monitor and prove a path for</li>
+        <li>Mono out into M4 input 1; synced LFO follows Live</li>
+        <li>Used here to test direct vs software monitoring</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M10 24 a12 12 0 0 1 24 0"/><rect x="6" y="22" width="8" height="12" rx="2"/><rect x="30" y="22" width="8" height="12" rx="2"/></svg>
+      </div>
+      <h3 class="card-title">Beyerdynamic DT 990 Pro</h3>
+      <ul class="card-points">
+        <li>Open-back, 250 Ω — wide stage makes flam legible</li>
+        <li>Honest about doubling and comb-filter hollowness</li>
+        <li>Your entire monitoring world during this work</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><line x1="22" y1="8" x2="22" y2="36"/><line x1="14" y1="22" x2="30" y2="22"/><circle cx="22" cy="22" r="3" fill="currentColor"/></svg>
+      </div>
+      <h3 class="card-title">One ¼″ TS patch cable</h3>
+      <ul class="card-points">
+        <li>The loopback cable for measuring round-trip latency</li>
+        <li>Out 3 → In 3 on the M4 rear, for the latency ritual</li>
+        <li>Keep it on the desk — hunting for it breaks the measurement</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <h2>Why clock discipline is the whole game</h2>
+  <p style="text-align:center; max-width:620px; margin:0 auto 24px; color:var(--text-muted);">If the clock jitters or two devices both try to lead, the rig drifts and no compensation fixes it. If two monitor paths are open at once, every input doubles. Lock both first — one clock, one path — and every later decision is one you actually made.</p>
+
+  <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:11px; letter-spacing:0.2em; text-transform:uppercase;">Control + MIDI clock</h3>
+  <div class="signal-flow">
+    <span class="signal-node">Ableton Live</span>
+    <span class="signal-arrow">→ MIDI clock + transport →</span>
+    <span class="signal-node">USB</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">Digitakt II</span>
+    <span class="signal-arrow">+</span>
+    <span class="signal-node">MicroFreak</span>
+  </div>
+
+  <table>
+    <thead><tr><th>Device</th><th>Clock role</th><th>Transport</th><th>Port / setting</th></tr></thead>
+    <tbody>
+      <tr><td>Ableton Live</td><td><strong>The only clock master</strong></td><td>Play / stop originates here</td><td><kbd>⌘ ,</kbd> → <strong>Link, Tempo &amp; MIDI</strong> → enable <strong>Sync</strong> on the Digitakt <em>output</em> port row</td></tr>
+      <tr><td>Digitakt II</td><td>Receives clock — its sequencer runs at Live's tempo</td><td>Receives start / stop</td><td><span class="menu">Settings → MIDI Config → Sync</span>: clock receive ON, transport receive ON, clock send OFF</td></tr>
+      <tr><td>MicroFreak</td><td>Receives clock — synced LFO follows Live</td><td>Sequencer starts on incoming clock</td><td>USB (<kbd>Shift</kbd> + <kbd>Tempo</kbd> → source <strong>USB</strong>)</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">One clock to rule them all</div>
+    <p>Exactly one device generates tempo; everything else listens. If the Digitakt's screen shows a tempo different from Live's, sync is broken — stop and fix it before recording, because a take recorded against a drifting clock cannot be repaired.</p>
+  </div>
+
+  <h2>Audio path</h2>
+  <div class="signal-flow">
+    <span class="signal-node">MicroFreak Out</span>
+    <span class="signal-arrow">→ TS →</span>
+    <span class="signal-node">M4 In 1</span>
+    <span class="signal-arrow">+</span>
+    <span class="signal-node">Digitakt II Main L/R</span>
+    <span class="signal-arrow">→ 2 × TRS →</span>
+    <span class="signal-node">M4 In 3/4</span>
+    <span class="signal-arrow">→ USB-C →</span>
+    <span class="signal-node">Ableton</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">M4 Phones</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">DT 990 Pro</span>
+  </div>
+
+  <table>
+    <thead><tr><th>From</th><th>To</th><th>Cable</th><th>Carries</th></tr></thead>
+    <tbody>
+      <tr><td>MicroFreak <span class="code">Audio Out</span> (mono, unbalanced)</td><td>M4 <span class="code">Input 1</span> (front combo jack)</td><td>1 × 1/4" TS</td><td>Mono synth audio — the input you'll test monitor paths on</td></tr>
+      <tr><td>Digitakt II <span class="code">Main Out L</span></td><td>M4 <span class="code">Input 3</span> (rear line in)</td><td>1 × 1/4" TRS</td><td>Left half of the stereo drum mix</td></tr>
+      <tr><td>Digitakt II <span class="code">Main Out R</span></td><td>M4 <span class="code">Input 4</span> (rear line in)</td><td>1 × 1/4" TRS</td><td>Right half of the stereo drum mix</td></tr>
+      <tr><td>M4 <span class="code">Phones</span></td><td>DT 990 Pro</td><td>1/4" headphone plug</td><td>Your entire monitoring world</td></tr>
+      <tr><td>M4 / Digitakt II / MicroFreak <span class="code">USB</span></td><td>Computer (direct, no hub)</td><td>USB-C / USB</td><td>Audio + MIDI clock — direct ports keep jitter sub-millisecond</td></tr>
+    </tbody>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>No unpowered hubs for the clock.</strong> USB clock jitter is inaudible on a direct port and can become audible through a cheap hub. Plug the Digitakt and MicroFreak straight into the computer.</li>
+      <li><strong>One audio device.</strong> Set the M4 as <em>both</em> the input and output device in Live. One device, one clock, no aggregate-device complexity.</li>
+      <li><strong>Avoid the doubled-audio trap.</strong> If the Digitakt is connected by both analog cables and USB audio, decide which path Live records — recording both at once causes comb filtering. For this work, record the Digitakt from <span class="code">M4 In 3/4</span> and use USB for MIDI clock only.</li>
+    </ul>
+  </div>
+
+  <h2>The monitor path — exactly one open at a time</h2>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Avoid doubled monitoring</div>
+    <ul>
+      <li>If a channel's M4 monitor mix is toward <strong>input</strong> <em>and</em> the Live track Monitor is In/Auto with the track armed, you hear that input twice — a few ms apart. That is comb filtering.</li>
+      <li>Pick one: M4 direct (knob toward input, Live Monitor <strong>Off</strong>) for instant, dry feel — or Live software (Live Monitor <strong>Auto</strong>, M4 knob toward playback) to hear effects, late by the round trip.</li>
+      <li>The fastest check: play a sustained note and sweep the filter. If the sound is hollow and phasey, two paths are open — kill one.</li>
+    </ul>
+  </div>
+
+  <table>
+    <thead><tr><th>Situation</th><th>Monitor through</th><th>Why</th></tr></thead>
+    <tbody>
+      <tr><td>Designing sounds, jamming, sequencing hardware</td><td>M4 direct monitoring, Live track Monitor <strong>Off</strong></td><td>Zero latency — knob moves feel instant</td></tr>
+      <tr><td>Recording a take with Live FX</td><td>Live track Monitor <strong>Auto</strong>, M4 direct <strong>off</strong> for that channel</td><td>You hear exactly what is printed, including FX. Never both at once.</td></tr>
+      <tr><td>Editing, arranging, mixing</td><td>Live playback only</td><td>The hardware is silent; latency is irrelevant</td></tr>
+    </tbody>
+  </table>
+
+  <h2>The latency measurement you cannot skip</h2>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Measure the round trip once, before any recording</div>
+    <ul>
+      <li>Set Live to buffer <span class="code">256 samples</span> at <span class="code">48 kHz</span>, M4 as input and output device. Keep the phones knob at its mark.</li>
+      <li>Patch the ¼″ TS cable: M4 rear <span class="code">Out 3</span> → M4 rear <span class="code">In 3</span>. The signal leaves the computer, passes both converters, and returns.</li>
+      <li>Send a sharp click out <span class="code">Ext. Out 3</span> only (not Master), record it on a track from <span class="code">Ext. In 3</span> with Monitor <strong>Off</strong>. Zoom to maximum, measure the gap from grid line to the click's first edge in ms.</li>
+      <li>Compare against Live's reported input + output latency. The shortfall is your driver error — enter it in <kbd>⌘ ,</kbd> → <strong>Audio</strong> → <span class="menu">Driver Error Compensation</span>. Re-record until the click lands on the grid.</li>
+    </ul>
+  </div>
+
+  <table class="param-table">
+    <caption>Buffer size at 48 kHz — pick per task</caption>
+    <tr><td>128 samples</td><td>~ 2.7 ms each way. Use if software monitoring feels laggy under your hands.</td></tr>
+    <tr><td>256 samples</td><td>~ 5.3 ms each way, ~ 12–15 ms round trip. The default for recording and playing.</td></tr>
+    <tr><td>512+ samples</td><td>Mix and export only. Latency no longer matters; CPU headroom does.</td></tr>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>The loopback never touches Master.</strong> Route the click to <span class="code">Ext. Out 3</span> only and keep the recording track's Monitor Off, or the returned click feeds back on itself and howls.</li>
+      <li><strong>One configuration, one number.</strong> The compensation value is only valid at the buffer and sample rate it was measured on. Change either and re-measure from scratch.</li>
+    </ul>
+  </div>
+
+  <h2>Track layout for lock work</h2>
+
+  <table>
+    <thead><tr><th>Track</th><th>Source</th><th>Role</th></tr></thead>
+    <tbody>
+      <tr><td>REF CLICK</td><td>Live MIDI clip, sharp click on quarters, frozen to audio</td><td>The exact in-computer reference you measure drift and latency against</td></tr>
+      <tr><td>DT DRUMS</td><td>Digitakt II main L/R (stereo audio, Ext. In 3/4)</td><td>The follower whose offset you measure at bar 1 and bar 64</td></tr>
+      <tr><td>LOOPBACK</td><td>Ext. In 3 (the patch cable return), Monitor Off</td><td>Carries the click round trip for the latency measurement</td></tr>
+      <tr><td>MF SYNTH</td><td>MicroFreak (mono audio, Ext. In 1)</td><td>The live input you prove a single monitor path for</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Tempo &amp; settings</h2>
+  <p style="text-align:center; color:var(--text-muted);">Recommended tempo: <span class="code">122–126 BPM</span>. Start at <strong>124 BPM</strong>, buffer <span class="code">256</span>, sample rate <span class="code">48 kHz</span>. <strong>Reduced Latency When Monitoring</strong> stays <strong>off</strong> so every measurement is taken under the same conditions.</p>
+
+  <div class="tag-row">
+    <span class="tag">one clock</span>
+    <span class="tag">live as master</span>
+    <span class="tag">256 buffer</span>
+    <span class="tag">driver error comp</span>
+    <span class="tag">one monitor path</span>
+    <span class="tag">no doubling</span>
+    <span class="tag">no drift</span>
+  </div>
+
+  <div class="page-nav">
+    <a href="decisions.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 03 / Decisions
+    </a>
+    <a href="palette.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      05 / Palette →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B1-003 — Lock</div>
+
+</div>
+
+</body>
+</html>

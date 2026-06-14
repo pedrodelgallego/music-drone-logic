@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B1-005 — Subtractive · Palette</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B1-005<span class="labnote-topic">Subtractive</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html" class="active"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B1-005</div>
+    <div class="eyebrow">Subtractive · 05 — Palette</div>
+    <h1>The small set of moves on one voice</h1>
+    <p class="lede">Three init-patch starting points, the exact control positions for each, and the handful of moves that make one voice evolve — cutoff, resonance, envelope amount, LFO rate and depth. Steal a starting patch, then move one control at a time. Start from real positions, not from "it sounded good".</p>
+  </header>
+
+  <h2>Reading the positions</h2>
+
+  <div class="callout">
+    <div class="callout-label">Convention used on this page</div>
+    <p>Knob positions are given as clock positions or percentages — <span class="code">9 o'clock</span> is low, <span class="code">12 o'clock</span> is middle, <span class="code">3 o'clock</span> is high. These are starting points to hear, not laws. The discipline is to set them, then move <em>one</em> at a time and listen to only that one.</p>
+  </div>
+
+  <h2>The five moves — the whole vocabulary on one voice</h2>
+
+  <table class="param-table">
+    <caption>Every move you make in this note, and what each one does</caption>
+    <tr><td>Cutoff</td><td>Open or close the filter. Brighter ↔ darker. The most-used move; subtraction itself.</td></tr>
+    <tr><td>Resonance</td><td>Add or remove ring at the cutoff. Character ↔ restraint; at the extreme, a click.</td></tr>
+    <tr><td>Envelope amount (→ filter)</td><td>How far each note's envelope opens the cutoff. A still timbre ↔ a moving one.</td></tr>
+    <tr><td>LFO rate</td><td>How fast the automatic wobble cycles. Slow drift ↔ fast shimmer.</td></tr>
+    <tr><td>LFO depth</td><td>How far the wobble travels. Barely-there ↔ wide sweep.</td></tr>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>That is the entire palette.</strong> Five moves on three blocks. Everything in the build — bass, lead, drone, the percussion hiding in the patch — is some combination of these five, plus the choice of note and octave. If you ever want a sixth move, the answer is almost always a deeper use of one of these five.</li>
+    </ul>
+  </div>
+
+  <h2>Patch A — The evolving pad (the default)</h2>
+  <p style="text-align:center; color:var(--text-muted); max-width:640px; margin:0 auto 18px;">A warm tone with a slow filter LFO for life. The all-purpose starting voice — works as bass low, lead high, and holds two minutes on its own. Start here.</p>
+
+  <table class="param-table">
+    <caption>Patch A — control positions from init</caption>
+    <tr><td>Engine / wave</td><td>Saw or a bright virtual-analog engine · <span class="code">Wave</span> ~30 %</td></tr>
+    <tr><td>Filter</td><td>LP · <span class="code">Cutoff 11 o'clock</span> · <span class="code">Resonance 15 %</span></td></tr>
+    <tr><td>Amp envelope</td><td>Attack fast · Decay medium · Sustain ~70 % · Release medium</td></tr>
+    <tr><td>Modulator</td><td>One LFO → Cutoff · <span class="code">rate very slow</span> (one cycle per several seconds) · <span class="code">depth small</span></td></tr>
+    <tr><td>Glide / Paraphonic</td><td><span class="code">0</span> · <span class="code">OFF</span></td></tr>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>One sentence:</strong> "Saw into a half-open low-pass, a touch of resonance, with one slow LFO breathing the cutoff." If you can say that, it is a patch you own, not one you found.</li>
+    </ul>
+  </div>
+
+  <h2>Patch B — The plucked stab</h2>
+  <p style="text-align:center; color:var(--text-muted); max-width:640px; margin:0 auto 18px;">The same blocks, shaped to a short, bright attack that darkens. The filter envelope does the work — each note blooms open and closes. Good as a sequenced bass or a rhythmic lead.</p>
+
+  <table class="param-table">
+    <caption>Patch B — control positions from init</caption>
+    <tr><td>Engine / wave</td><td>Saw or square · <span class="code">Wave</span> to taste</td></tr>
+    <tr><td>Filter</td><td>LP · <span class="code">Cutoff 9 o'clock</span> (low at rest) · <span class="code">Resonance 30 %</span></td></tr>
+    <tr><td>Amp envelope</td><td>Attack 0 · Decay short · Sustain 0 · Release short — a stab</td></tr>
+    <tr><td>Modulator</td><td>Filter envelope → Cutoff · <span class="code">amount high</span> · each note opens bright then closes</td></tr>
+    <tr><td>Movement</td><td>Optional one LFO → Cutoff at low depth for slow drift between stabs</td></tr>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>The move that defines it:</strong> the filter envelope amount. With the cutoff low at rest and the envelope opening it on each note, every stab is bright at its start and dark by its end — a moving timbre from one envelope, no second sound.</li>
+    </ul>
+  </div>
+
+  <h2>Patch C — The free-running drone (no clock)</h2>
+  <p style="text-align:center; color:var(--text-muted); max-width:640px; margin:0 auto 18px;">The same voice with every edge removed and the clock gone. A slow swell that never clicks on or off, kept alive by a free LFO and by beating against a second held note. This is the Lab 004b voice.</p>
+
+  <table class="param-table">
+    <caption>Patch C — control positions from init</caption>
+    <tr><td>Engine / wave</td><td>Triangle or soft saw · gentle raw tone</td></tr>
+    <tr><td>Filter</td><td>LP · <span class="code">Cutoff 12 o'clock</span> · <span class="code">Resonance 10 %</span> — restraint, no scream over two minutes</td></tr>
+    <tr><td>Amp envelope</td><td>Attack <span class="code">2 s+</span> · Sustain full · Release long — fades in, never clicks off</td></tr>
+    <tr><td>Modulator</td><td>One <strong>free</strong> (unsynced) LFO → Cutoff or Timbre · <span class="code">one cycle per 15–20 s</span> · small depth</td></tr>
+    <tr><td>Beating</td><td>Record a second held pass tuned a few cents away · slow pulse at roughly one per 1–3 seconds</td></tr>
+    <tr><td>Held by</td><td><span class="code">Hold</span> button or hand — no sequencer, no grid</td></tr>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">The drone's three replacements for the clock</div>
+    <p>With no grid, three things carry time: <strong>beating</strong> (two detuned tones pulsing — the rhythm), <strong>slow movement</strong> (the free LFO drifting the timbre), and <strong>volume</strong> (the swell and any fader ride). If the drone bores you, one of these three is missing. Name which.</p>
+  </div>
+
+  <h2>The percussion hiding in the same patch</h2>
+
+  <table class="param-table">
+    <caption>One voice, turned into a click or thump</caption>
+    <tr><td>Resonance</td><td><span class="code">~85 %</span> — the filter rings hard at the cutoff</td></tr>
+    <tr><td>Amp envelope</td><td>Attack 0 · Decay very short · Sustain 0 — a single tick of sound</td></tr>
+    <tr><td>Cutoff</td><td>Becomes the drum's pitch — tune it to taste</td></tr>
+    <tr><td>How to play it</td><td>Staccato low notes give thumps; higher notes give clicks</td></tr>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>This is not an exception — it is proof.</strong> The same three blocks that make a pad make a percussion hit, with only resonance and the envelope changed. If you can switch your voice between Patch A and this in a few moves, you have proven you understand what each control does.</li>
+    </ul>
+  </div>
+
+  <h2>The move-by-move cheat-sheet</h2>
+
+  <table class="param-table">
+    <caption>What to reach for when the voice needs something</caption>
+    <tr><td>Feels dull</td><td>Open the <strong>cutoff</strong> a little, or raise the filter <strong>envelope amount</strong>. Do not add an oscillator.</td></tr>
+    <tr><td>Feels lifeless / static</td><td>Add or widen the <strong>LFO depth</strong>, or slow the <strong>LFO rate</strong> so the drift is felt. Movement, not a new part.</td></tr>
+    <tr><td>Feels harsh / whistling</td><td>Lower the <strong>resonance</strong>. The ring was screaming, not singing.</td></tr>
+    <tr><td>Feels too sharp at the start</td><td>Lengthen the <strong>attack</strong>. The note was clicking on.</td></tr>
+    <tr><td>Feels like it stops dead</td><td>Lengthen the <strong>release</strong>. The note was clicking off.</td></tr>
+    <tr><td>Needs rhythm with no clock</td><td>Detune a second held tone for <strong>beating</strong>. Rhythm without a grid.</td></tr>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">The palette rule</div>
+    <p>Pick one patch and commit. Mutating it — Patch A into Patch C by slowing the envelope and freeing the LFO — is composition. Hopping between patches because none "feels right" is the indecision this Lab Note exists to cure. One voice, five moves, two minutes.</p>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon">
+        <svg viewBox="0 0 44 44"><polyline points="10 22 18 30 34 12"/></svg>
+      </div>
+      <div class="checklist-label">Before the build</div>
+    </div>
+    <ul>
+      <li>I have chosen one starting patch (A, B, or C).</li>
+      <li>I have written the position of every control from init.</li>
+      <li>I know my five moves and that everything comes from them.</li>
+      <li>I can name my one modulation source — filter envelope or one LFO.</li>
+      <li>I know how to turn the same patch into a percussion hit, and back.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="setup.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 04 / Setup
+    </a>
+    <a href="build.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      06 / The build →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B1-005 — Subtractive</div>
+
+</div>
+
+</body>
+</html>

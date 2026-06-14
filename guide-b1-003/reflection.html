@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B1-003 — Lock · Reflection</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B1-003<span class="labnote-topic">Lock</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html" class="active"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B1-003</div>
+    <div class="eyebrow">Lock · 07 — Reflection</div>
+    <h1>Fault, carry-forward, principle</h1>
+    <p class="lede">Most of the learning happens here, not while plugging cables. Answer slowly, write the answers down, and turn the result into one usable rule you can take into every future session — because lock is the foundation under everything else in the course.</p>
+  </header>
+
+  <h2>How you know it worked</h2>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="16"/><polyline points="14 22 20 28 30 16"/></svg>
+      </div>
+      <div class="checklist-label">Success signals</div>
+    </div>
+    <ul>
+      <li>Live and the Digitakt start and stop together, on the same bar one, every time.</li>
+      <li>The offset between them is fixed — it does not grow over 64 bars.</li>
+      <li>You can name your clock master, buffer size, and monitor path without looking.</li>
+      <li>A recorded transient lands on the grid line, because compensation is entered.</li>
+      <li>A live input reaches your ears by exactly one path — no hollow comb filtering.</li>
+      <li>You can produce drift, flam, and doubled monitoring on purpose, then remove each.</li>
+      <li>You can say, before pressing record, what will be heard versus what will be printed.</li>
+      <li>The whole lock can be rebuilt on a fresh set in a few minutes from a template.</li>
+    </ul>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon">
+        <svg viewBox="0 0 44 44"><polygon points="22 6 40 36 4 36"/><line x1="22" y1="16" x2="22" y2="24"/><circle cx="22" cy="29" r="1.4" fill="currentColor"/></svg>
+      </div>
+      <div class="checklist-label">Failure signals — the faults to name</div>
+    </div>
+    <ul>
+      <li>Two devices both generated clock, so the rig drifted and no setting fixed it.</li>
+      <li>The Digitakt followed tempo but started on the wrong bar — transport receive was off.</li>
+      <li>You left both monitor paths open and recorded against a hollow, comb-filtered sound.</li>
+      <li>You never measured the round trip, so recorded transients sat after the grid.</li>
+      <li>You entered a compensation value but changed the buffer and never re-measured.</li>
+      <li>You rode the monitor-mix knob while setting gain and lost your level judgement.</li>
+      <li>You called an unplanned flam "character" instead of diagnosing the doubled copy.</li>
+      <li>You used an unpowered hub and the clock jitter turned audible.</li>
+    </ul>
+  </div>
+
+  <h2>Reflection questions</h2>
+
+  <ol class="reflection-list">
+    <li>Which device is your clock master, and what is the one reason only it may send clock?</li>
+    <li>Did the 64-bar test show fixed latency or growing drift? If drift, what caused it?</li>
+    <li>What is your round-trip number at 256 samples, and does it match the 2 × buffer ÷ rate minimum plus overhead?</li>
+    <li>Which monitor path is your default for designing, and which for tracking with FX?</li>
+    <li>Can you describe the heard-vs-printed difference for each of the three paths from memory?</li>
+    <li>When you made doubled monitoring on purpose, which two paths were open?</li>
+    <li>Does raising the buffer change the recording compensation, the felt delay, or both?</li>
+    <li>What is your reset rule, and before which kinds of take do you apply it?</li>
+    <li>Where were you tempted to leave a second monitor path open, and did discipline hold?</li>
+    <li>If you moved to a different interface tomorrow, which numbers would you have to re-measure?</li>
+  </ol>
+
+  <h2>Carry-forward</h2>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Keep the locked template.</strong> Your saved set is now a reusable object — every future track starts in lock instead of from scratch. Re-measure only when the buffer, sample rate, or interface changes.</li>
+      <li><strong>The system-diff sentence:</strong> "I thought the timing problem was ___; after testing, I found it was actually ___." Most of the time the answer is a fixed latency mistaken for drift, or a second monitor path mistaken for a bad sound.</li>
+      <li><strong>Next in the course:</strong> lock is the floor under groove, sources, space, and performance. With the clock and monitor path settled, every later decision — a 4-tick lean, a synced delay, a live mute — is one you actually made, not one the rig made for you. See <a href="../guide-b1-001/index.html">Lab Note B1-001</a> and the workshop's <a href="../workshop/block-1/lab-002.html">Lab 002</a>.</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Proof gate — the one assessable outcome</div>
+    <p>Lock the Digitakt and Live to a single clock, start and stop in sync with no drift across 64 bars, and monitor a live input through exactly one path with no doubling or audible latency — and name your clock master, buffer size, and monitor path. If you can do all of that and say the three numbers without looking, you have lock.</p>
+  </div>
+
+  <div class="final">
+    <div class="final-icon">
+      <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="14"/><circle cx="22" cy="22" r="5"/></svg>
+    </div>
+    <div class="final-label">Final principle</div>
+    <p>Lock is not something you hear when it works — it is the silence of nothing going wrong. One clock everyone follows, one path for every input, three numbers you can name. Get it right once, save it, and it stops being a question for the rest of the course.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="build.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 06 / The build
+    </a>
+    <a href="../workshop/block-1/lab-002.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      Block 1 · Lab 002 →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B1-003 — Lock</div>
+
+</div>
+
+</body>
+</html>

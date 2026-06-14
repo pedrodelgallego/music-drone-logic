@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B1-002 — Unity · Setup</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B1-002<span class="labnote-topic">Unity</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html" class="active"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B1-002</div>
+    <div class="eyebrow">Unity · 04 — Setup</div>
+    <h1>The rig, wired for clean gain</h1>
+    <p class="lede">A clean gain structure starts with clean wiring. This page sets up the MOTU M4 and a Live template where every stage begins at unity, so the only level you set is the one you mean to. Get this right and the build page becomes a matter of turning one knob and reading one meter.</p>
+  </header>
+
+  <div class="cards three">
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="10" width="32" height="20" rx="2"/><line x1="16" y1="36" x2="28" y2="36"/><line x1="22" y1="30" x2="22" y2="36"/></svg>
+      </div>
+      <h3 class="card-title">Ableton Live 12 Suite</h3>
+      <ul class="card-points">
+        <li>The whole digital side of the path lives here</li>
+        <li>Meters in dBFS, clip gain, Utility, faders, master</li>
+        <li>Every downstream stage starts at unity in the template</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="14" width="32" height="16" rx="2"/><circle cx="14" cy="22" r="2.5"/><circle cx="22" cy="22" r="2.5"/><circle cx="30" cy="22" r="2.5"/></svg>
+      </div>
+      <h3 class="card-title">MOTU M4</h3>
+      <ul class="card-points">
+        <li>The boundary between analog and digital — and the one trim that matters</li>
+        <li>MicroFreak mono into input 1; Digitakt stereo into 3/4</li>
+        <li>Per-input clip LEDs warn before the converter overs</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="14" width="32" height="16" rx="2"/><line x1="14" y1="14" x2="14" y2="30"/><line x1="22" y1="14" x2="22" y2="30"/><line x1="30" y1="14" x2="30" y2="30"/></svg>
+      </div>
+      <h3 class="card-title">Arturia MicroFreak</h3>
+      <ul class="card-points">
+        <li>The mono source we route from zero to master</li>
+        <li>Its own master volume is the first stage in the path</li>
+        <li>One cable, one trim, one meter — the simplest case to learn on</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="8" width="32" height="28" rx="2"/><rect x="10" y="12" width="10" height="7" rx="1"/><circle cx="29" cy="15.5" r="3"/><rect x="10" y="24" width="4" height="4" rx="0.7"/><rect x="17" y="24" width="4" height="4" rx="0.7"/><rect x="24" y="24" width="4" height="4" rx="0.7"/><rect x="31" y="24" width="4" height="4" rx="0.7"/></svg>
+      </div>
+      <h3 class="card-title">Elektron Digitakt II</h3>
+      <ul class="card-points">
+        <li>The stereo source — already a mix, so a pair of inputs</li>
+        <li>Its Main Volume is the one control over both channels</li>
+        <li>Used to practise gain-staging a stereo bus</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M10 24 a12 12 0 0 1 24 0"/><rect x="6" y="22" width="8" height="12" rx="2"/><rect x="30" y="22" width="8" height="12" rx="2"/></svg>
+      </div>
+      <h3 class="card-title">Beyerdynamic DT 990 Pro</h3>
+      <ul class="card-points">
+        <li>Open-back, 250 Ω — honest about hiss and harshness</li>
+        <li>Shows the noise floor and clipping laptop speakers hide</li>
+        <li>Fed only from the M4 phones jack, at one marked level</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><line x1="8" y1="22" x2="36" y2="22"/><line x1="12" y1="16" x2="12" y2="28"/><line x1="22" y1="14" x2="22" y2="30"/><line x1="32" y1="18" x2="32" y2="26"/></svg>
+      </div>
+      <h3 class="card-title">The monitor knob</h3>
+      <ul class="card-points">
+        <li>The M4 phones knob — volume to your ears only</li>
+        <li>Marked at one position; never changes the recording</li>
+        <li>Monitoring discipline made physical</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <h2>Why clean wiring is the whole game</h2>
+  <p style="text-align:center; max-width:620px; margin:0 auto 24px; color:var(--text-muted);">A gain fault and a wiring fault sound the same — both are "it's noisy" or "one side is missing." If the wiring is right and every digital stage starts at unity, then any level problem can only be the one trim you set. Wire it clean, start at unity, and the bench stops lying to you.</p>
+
+  <h2>Audio path</h2>
+  <div class="signal-flow">
+    <span class="signal-node">MicroFreak Out</span>
+    <span class="signal-arrow">→ TS →</span>
+    <span class="signal-node">M4 In 1</span>
+    <span class="signal-arrow">+</span>
+    <span class="signal-node">Digitakt II Main L/R</span>
+    <span class="signal-arrow">→ 2 × TRS →</span>
+    <span class="signal-node">M4 In 3/4</span>
+    <span class="signal-arrow">→ USB-C →</span>
+    <span class="signal-node">Ableton</span>
+    <span class="signal-arrow">→ Phones →</span>
+    <span class="signal-node">DT 990 Pro</span>
+  </div>
+
+  <table>
+    <thead><tr><th>From</th><th>To</th><th>Cable</th><th>Carries</th></tr></thead>
+    <tbody>
+      <tr><td>MicroFreak <span class="code">Audio Out</span> (mono, unbalanced)</td><td>M4 <span class="code">Input 1</span> (front combo jack)</td><td>1 × ¼″ TS</td><td>Mono synth audio — the source we gain-stage from zero</td></tr>
+      <tr><td>Digitakt II <span class="code">Main Out L</span></td><td>M4 <span class="code">Input 3</span> (rear line in)</td><td>1 × ¼″ TRS</td><td>Left half of the stereo drum mix</td></tr>
+      <tr><td>Digitakt II <span class="code">Main Out R</span></td><td>M4 <span class="code">Input 4</span> (rear line in)</td><td>1 × ¼″ TRS</td><td>Right half of the stereo drum mix</td></tr>
+      <tr><td>M4 <span class="code">Phones</span> (front, own knob)</td><td>DT 990 Pro</td><td>¼″ headphone plug</td><td>Your entire monitoring world — never the recording</td></tr>
+      <tr><td>M4 <span class="code">USB-C</span></td><td>Computer (direct port, no hub)</td><td>USB-C</td><td>4 channels of audio each way</td></tr>
+    </tbody>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>TS vs TRS.</strong> The MicroFreak output is unbalanced, so a plain TS cable is correct. The Digitakt main outs are impedance-balanced — TRS cables there reject hum picked up along the wire, which keeps the noise floor low and your gain decisions honest.</li>
+      <li><strong>Mono for the MicroFreak.</strong> One signal, one input. This is the simplest case to learn gain staging on: one trim, one meter, one number to aim.</li>
+      <li><strong>Keep audio and power apart.</strong> A faint whine later is almost always an audio cable lying across a power supply or USB hub — a wiring fault dressed up as a gain fault.</li>
+      <li><strong>If your gear differs:</strong> keep the roles, not the names. One mono source, one stereo source, one interface, one headphone path, one DAW.</li>
+    </ul>
+  </div>
+
+  <h2>The M4 front panel, knob by knob</h2>
+
+  <table>
+    <thead><tr><th>Control</th><th>What it does</th><th>Where to start it</th></tr></thead>
+    <tbody>
+      <tr><td>Input 1 / 2 <span class="code">trim</span></td><td>Gain — amplifies the analog signal before the converter. The single most important knob in the chain.</td><td>Fully down, then raised on purpose while watching the meter</td></tr>
+      <tr><td>Input <span class="code">clip LED</span></td><td>Lights red when that input is too hot for the converter — your analog-clip warning</td><td>Must stay dark while playing the loudest part</td></tr>
+      <tr><td><span class="code">Monitor / mix</span> knob</td><td>Blends the interface's direct input against computer playback in your phones</td><td>Fully to <strong>computer playback</strong> — one listening path only</td></tr>
+      <tr><td><span class="code">Phones</span> knob</td><td>Volume to your ears. Changes what you hear, never what is recorded.</td><td>Near minimum, then marked at one comfortable level</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">One listening path only</div>
+    <p>Turn the M4's monitor blend fully to computer playback. If you hear both the direct input <em>and</em> the playback, you get a doubling or flange and you cannot trust what you're hearing. You monitor through Live, through one path, full stop.</p>
+  </div>
+
+  <h2>The Live template — everything at unity</h2>
+
+  <p style="text-align:center; color:var(--text-muted); max-width:640px; margin:0 auto 18px;">Build this once and save it as a template. Every digital stage starts at unity so that the recording's level is entirely owned by the M4 trim.</p>
+
+  <table>
+    <thead><tr><th>Stage</th><th>Setting</th><th>Why</th></tr></thead>
+    <tbody>
+      <tr><td>Audio device</td><td>MOTU M4 in and out, <span class="code">48 kHz</span>, <span class="code">256</span> samples</td><td>One box owns all audio</td></tr>
+      <tr><td>Input Config</td><td>Mono <span class="code">1</span> on, stereo <span class="code">3/4</span> on</td><td>MicroFreak mono, Digitakt stereo</td></tr>
+      <tr><td>Audio track faders</td><td><span class="code">0 dB</span> (unity)</td><td>Untouched until you balance parts</td></tr>
+      <tr><td>Clip gain</td><td><span class="code">0 dB</span></td><td>No level made up after recording</td></tr>
+      <tr><td>Group fader</td><td><span class="code">0 dB</span></td><td>Summing without adding gain</td></tr>
+      <tr><td>Master fader</td><td><span class="code">0 dB</span></td><td>The level mastering inherits</td></tr>
+      <tr><td>Master chain</td><td>One metering plug-in only, no limiter yet</td><td>You watch headroom; you don't squash it</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Track layout for this lab</h2>
+
+  <table>
+    <thead><tr><th>Track</th><th>Source</th><th>Role in the path</th></tr></thead>
+    <tbody>
+      <tr><td>MF SOURCE</td><td>MicroFreak (mono, M4 In 1)</td><td>The one instrument we route from source to master</td></tr>
+      <tr><td>DT DRUMS</td><td>Digitakt II (stereo, M4 In 3/4)</td><td>The stereo case — practise gain-staging a pair</td></tr>
+      <tr><td>SYNTHS (group)</td><td>MF SOURCE routed in</td><td>The bus stage — one fader over the synth channel</td></tr>
+      <tr><td>Master</td><td>Everything summed</td><td>Where you confirm ≥ 6 dB of headroom</td></tr>
+    </tbody>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>No limiter on the master yet.</strong> A limiter hides clipping by catching it for you, which defeats the lesson. You want to <em>see</em> the level and leave the headroom yourself. The limiter is a Block 5 conversation.</li>
+      <li><strong>Put a meter where you'll look.</strong> A metering plug-in on the master, set to show peaks, is the dashboard for the whole build. You will glance at it after every stage.</li>
+    </ul>
+  </div>
+
+  <div class="tag-row">
+    <span class="tag">unity</span>
+    <span class="tag">headroom</span>
+    <span class="tag">input trim</span>
+    <span class="tag">−12 dBFS</span>
+    <span class="tag">one listening path</span>
+    <span class="tag">clean wiring</span>
+    <span class="tag">signal path</span>
+  </div>
+
+  <div class="page-nav">
+    <a href="decisions.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 03 / Decisions
+    </a>
+    <a href="palette.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      05 / Palette →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B1-002 — Unity</div>
+
+</div>
+
+</body>
+</html>

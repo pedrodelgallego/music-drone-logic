@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B8-003 — Decisions</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Lab Note contents">
+  <p class="nav-label labnote-code">Lab Note B8-003<span class="labnote-topic">Teaching the Method</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html" class="active"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html"><span class="nav-num">06</span>Build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B8-003</div>
+    <div class="eyebrow">Teaching the Method · 03 — Decisions</div>
+    <h1>What makes a method teachable</h1>
+    <p class="lede">Before you write a single step, settle the decisions that shape the whole note. What separates a teachable method from a habit? What is the line between an intention and a recipe? What does reproducible actually require? And what is honestly lost the moment a practice becomes a document? Decide these now — they are the spine of the build.</p>
+  </header>
+
+  <h2>Decision 1 — Method or habit?</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="15"/><polyline points="14 22 20 28 30 16"/></svg>
+      </div>
+      <h3 class="card-title">A method</h3>
+      <ul class="card-points">
+        <li>You can state its goal before you touch anything</li>
+        <li>The same inputs reliably give the same kind of result</li>
+        <li>You can name <em>why</em> each step is there</li>
+        <li>It survives being written down for someone else</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="15"/><line x1="14" y1="22" x2="30" y2="22"/></svg>
+      </div>
+      <h3 class="card-title">A habit</h3>
+      <ul class="card-points">
+        <li>You do it the same way but cannot say why</li>
+        <li>Results vary and you blame "the mood"</li>
+        <li>Steps exist because that is how you learned it</li>
+        <li>When you write it down, half of it goes missing</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The test</div>
+    <p>Try to teach it. The act of writing it for a stranger is the only reliable way to tell a method from a habit. A habit collapses into "and then you just feel it." A method has a reason at every fork — and the reasons are what you write down.</p>
+  </div>
+
+  <h2>Decision 2 — Intention vs recipe</h2>
+
+  <p style="text-align:center; max-width:660px; margin:0 auto 24px; color:var(--text-muted);">A recipe lists actions. An intention explains the result those actions serve. A note that is all recipe produces a copy that works once and cannot adapt. A note that is all intention produces a vague gesture the reader cannot reproduce. You need both, in order.</p>
+
+  <table class="param-table">
+    <caption>The same step, three ways</caption>
+    <tr><td>Pure intention</td><td>"Make the bass breathe under the kick." — true, but the reader cannot act on it.</td></tr>
+    <tr><td>Pure recipe</td><td>"Compressor, sidechain from kick, 4:1, attack 1&nbsp;ms, release 120&nbsp;ms." — reproducible, but the reader has no idea what they are listening for.</td></tr>
+    <tr><td>Intention then recipe</td><td>"Make the bass swell back between kicks like breathing — sidechain it to the kick at 4:1, release 120&nbsp;ms, then tune the release by ear until the swell is audible." — teachable.</td></tr>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Lead with intention.</strong> The reader must know what they are aiming at before a knob is named, or the recipe is just superstition.</li>
+      <li><strong>Close with a checkable result.</strong> Pair every recipe step with what the reader should hear or see, so they can confirm they hit the intention — not just that they performed the actions.</li>
+    </ul>
+  </div>
+
+  <h2>Decision 3 — What reproducibility actually requires</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M22 6 v6 M22 32 v6 M6 22 h6 M32 22 h6"/><circle cx="22" cy="22" r="9"/></svg>
+      </div>
+      <div class="step-num">Decision 3</div>
+      <h2 class="step-title">Spell out what you skip by instinct</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The four things strangers always get wrong</div>
+      <table class="param-table">
+        <caption>Write these down even when they feel obvious</caption>
+        <tr><td>The clock master</td><td>Which device runs the timing. You stopped noticing; the stranger has two devices both trying to be master and nothing locks.</td></tr>
+        <tr><td>The signal path</td><td>What plugs into what, in what order. "Route it to the bus" assumes a routing the reader has not built.</td></tr>
+        <tr><td>The ranges</td><td>"Open the filter" is a habit. "Open from 600&nbsp;Hz to 3.5&nbsp;kHz over 40 bars" is teachable. A number can be reproduced; a vibe cannot.</td></tr>
+        <tr><td>The order of operations</td><td>"EQ before reverb" matters and you do it without thinking. Written out, it stops being luck.</td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Ranges, not vibes</div>
+      <ul>
+        <li>Replace every "until it sounds right" with a number, a range, or a checkable observation. "Until the gain-reduction meter shows about 3&nbsp;dB per kick" is reproducible; "until it pumps nicely" is not.</li>
+        <li>Where a value genuinely must be judged by ear, say so explicitly and give the reader the listening test that tells them they are done. Do not disguise a judgement as a fixed number, and do not disguise a fixed number as a judgement.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Have I named the clock master and the full signal path in writing?</li>
+        <li>Is every "open it / turn it up / make it bigger" replaced by a range or a checkable result?</li>
+        <li>Where order matters, did I say so — and say why?</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Decision 4 — What is lost in documentation</h2>
+
+  <p style="text-align:center; max-width:660px; margin:0 auto 24px; color:var(--text-muted);">Be honest about the limit. A lab note transfers the system completely and the voice only partly. Knowing the difference — and writing the difference into the note — is the last piece of mastery.</p>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M22 8 L36 14 V30 L22 36 L8 30 V14 Z"/><line x1="8" y1="14" x2="22" y2="20"/><line x1="36" y1="14" x2="22" y2="20"/><line x1="22" y1="20" x2="22" y2="36"/></svg>
+      </div>
+      <h3 class="card-title">What survives</h3>
+      <ul class="card-points">
+        <li>The constraints, the routing, the parameter ranges</li>
+        <li>The order of operations and the decision checks</li>
+        <li>The refusals, which travel cleanly as written rules</li>
+        <li>The reproducible mechanism at the core</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="15"/><path d="M16 16 l12 12 M28 16 l-12 12" /></svg>
+      </div>
+      <h3 class="card-title">What is lost</h3>
+      <ul class="card-points">
+        <li>The years of ear that hear a sweep is a hair too fast</li>
+        <li>The taste that chose this constraint over a hundred others</li>
+        <li>The accidents you kept because they felt right</li>
+        <li>The in-the-moment call of "this take, not that one"</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Reframe</div>
+    <p>What is lost is not a failure. A note that transferred everything would clone you; a note that transfers the system invites the reader's voice into the gap. That gap is where their authorship begins. Your job is not to close it — it is to mark it honestly so the reader knows it is theirs to fill.</p>
+  </div>
+
+  <h2>Decision 5 — Who is the stranger?</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="14" r="6"/><path d="M10 38c2-10 22-10 24 0"/><line x1="6" y1="6" x2="12" y2="12"/></svg>
+      </div>
+      <div class="step-num">Decision 5</div>
+      <h2 class="step-title">Define the reader before you write a word</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Name the reader's floor and ceiling</div>
+      <ul>
+        <li><strong>Floor:</strong> what can you assume they already know? "Knows their DAW's transport and how to arm a track" is fair. "Knows my exact sidechain trick" is not — that is the thing you are teaching.</li>
+        <li><strong>Ceiling:</strong> what must you not assume? They do not share your room, your monitors, your ear, or your history with this gear. Every place you lean on shared context is a place the note will break.</li>
+        <li>Write the reader profile at the top of your note as one sentence. It governs every later decision about what to spell out.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Have I picked a method that is genuinely a method, not a habit?</li>
+        <li>Does my plan lead with intention and close every step with a checkable result?</li>
+        <li>Have I committed to writing down the clock, the path, the ranges, and the order?</li>
+        <li>Can I state, in one sentence, who the stranger is and what they cannot be assumed to know?</li>
+        <li>Have I decided what the note honestly cannot transfer — and am I at peace with marking that gap rather than faking it?</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-nav">
+    <a href="listen.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 02 / Listen
+    </a>
+    <a href="setup.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      04 / Setup →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B8-003 — Teaching the Method</div>
+
+</div>
+
+</body>
+</html>

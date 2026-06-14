@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B6-004 — Tuning · Setup</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B6-004<span class="labnote-topic">Tuning</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html" class="active"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B6-004</div>
+    <div class="eyebrow">Tuning · 04 — Setup</div>
+    <h1>From ratios to a playable grid</h1>
+    <p class="lede">This page wires the rig for tuning work and walks the whole tooling path: design a scale in Scala, export it as a tuning file, load it into Live 12 as a tuning system that every soft-synth obeys, and understand exactly how far the MicroFreak can follow you off the 12-TET grid. The discipline of the whole Lab Note is here in one rule — tune the drone first, and prove it locked by ear before you build anything on top of it.</p>
+  </header>
+
+  <h2>The rig and the signal path</h2>
+
+  <p style="text-align:center; max-width:660px; margin:0 auto 24px; color:var(--text-muted);">Two flows run in parallel: audio, and the tuning information that decides what pitch each note actually sounds. The tuning flow is the new thing here. It lives entirely in the control path — a tuning file applied in Live, sent on as MIDI — and never touches the audio. Knowing where the tuning is applied tells you which sound sources you can retune and which you cannot.</p>
+
+  <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:11px; letter-spacing:0.2em; text-transform:uppercase;">Tuning path</h3>
+  <div class="signal-flow">
+    <span class="signal-node">Scala — ratios</span>
+    <span class="signal-arrow">export .scl / .ascl</span>
+    <span class="signal-node">Live 12 Tuning System</span>
+    <span class="signal-arrow">retunes soft-synths in-box</span>
+    <span class="signal-node">Ableton instruments</span>
+    <span class="signal-arrow">MIDI out (MPE / pitch bend)</span>
+    <span class="signal-node">MicroFreak</span>
+  </div>
+
+  <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:11px; letter-spacing:0.2em; text-transform:uppercase;">Audio path</h3>
+  <div class="signal-flow">
+    <span class="signal-node">MicroFreak Out</span>
+    <span class="signal-arrow">→ TS →</span>
+    <span class="signal-node">M4 In 1</span>
+    <span class="signal-arrow">+</span>
+    <span class="signal-node">Ableton soft-synth (drone)</span>
+    <span class="signal-arrow">→ in-box →</span>
+    <span class="signal-node">Ableton</span>
+    <span class="signal-arrow">→ USB-C →</span>
+    <span class="signal-node">M4 Phones</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">DT 990 Pro</span>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Where tuning is applied</div>
+    <p>Live's Tuning System retunes <em>soft-synths inside Ableton</em> directly. For the <strong>MicroFreak</strong>, the tuning must be sent out as MIDI — and that path is limited. The most reliable, beat-tight drone in your tuning will come from a soft-synth in Ableton; use the MicroFreak for the parts where its limits don't matter, or retune it on the device itself.</p>
+  </div>
+
+  <h2>Design the scale in Scala</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="8" y="8" width="28" height="28" rx="3"/><line x1="8" y1="18" x2="36" y2="18"/><line x1="18" y1="18" x2="18" y2="36"/></svg>
+      </div>
+      <div class="step-num">Setup 01</div>
+      <h2 class="step-title">Author the tuning file</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Build the scale</div>
+      <ul>
+        <li>Download and open <strong>Scala</strong> — the free, decades-old standard tool for designing tunings. It runs on macOS, Windows, and Linux.</li>
+        <li>Enter your scale as ratios, one degree per line, ending at the octave <span class="code">2/1</span>. For this Lab Note's worked piece, enter the sparse 7-limit drone set: <span class="code">1/1  9/8  5/4  3/2  7/4  2/1</span>.</li>
+        <li>Scala does the arithmetic for you: it converts every ratio to cents, checks the octave closes at exactly 1200 cents, and warns you if a degree is out of order.</li>
+        <li>The file <em>is</em> the tuning system — portable, human-readable, and version-controllable. You can open a <span class="code">.scl</span> in a text editor and read the ratios.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Export the right format</div>
+      <table class="param-table">
+        <caption>File formats and what Live 12 wants</caption>
+        <tr><td><span class="code">.scl</span></td><td>The classic Scala scale file: ratios/cents only, no reference pitch. Live 12 reads it but will ask you to set the root and reference frequency on import.</td></tr>
+        <tr><td><span class="code">.ascl</span></td><td>Scala's newer "advanced" format. Carries the scale <em>plus</em> a note-name mapping and a reference frequency, so Live can place the root on a specific MIDI note automatically. Prefer this for a clean, repeatable load.</td></tr>
+        <tr><td>Reference frequency</td><td>Set it to your chosen root from the Decisions page — e.g. <span class="code">A1 = 55 Hz</span>. This is the anchor the whole just scale hangs from.</td></tr>
+      </table>
+      <ul>
+        <li>Export, name the file for the piece (e.g. <span class="code">b6_drone_7limit.ascl</span>), and save it where Live can reach it.</li>
+        <li>Keep the source ratios in your notes too — the file is the artifact, but the ratios are the decision.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Load the tuning in Live 12</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 14 v20 a2 2 0 0 0 2 2 h28 a2 2 0 0 0 2 -2 v-16 a2 2 0 0 0 -2 -2 h-14 l-4 -4 h-10 a2 2 0 0 0 -2 2 z"/></svg>
+      </div>
+      <div class="step-num">Setup 02</div>
+      <h2 class="step-title">Apply the tuning system</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Import the file</div>
+      <ul>
+        <li>Open a new Live Set. In the title bar, click the <strong>tuning</strong> chooser (the small tuning-fork control beside the key/scale area).</li>
+        <li>Choose <span class="menu">Import...</span> and select your <span class="code">.ascl</span> file. It now appears in the tuning chooser by name.</li>
+        <li>Confirm the reference: the root should land where your <span class="code">.ascl</span> said — e.g. MIDI note for A1 sounding 55 Hz. If you exported a plain <span class="code">.scl</span>, set the root note and reference frequency here by hand.</li>
+        <li>The tuning is now <strong>global</strong>: every Ableton instrument in the set plays your ratios instead of 12-TET.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Prove it took</div>
+      <ul>
+        <li>Drop a simple soft-synth (Operator or Wavetable) on a MIDI track. Play the root, then the degree your scale maps to the fifth. Watch a tuner plugin: the fifth should read <strong>+2 cents</strong> relative to a 12-TET fifth, because a just 3:2 is 702 cents.</li>
+        <li>Play the major-third degree. The tuner should read about <strong>−14 cents</strong> against 12-TET — that is the just 5:4 (386 cents) sitting where it belongs.</li>
+        <li>If every note reads as plain 12-TET, the tuning didn't apply: re-check the chooser shows your file's name, not "12-TET / Default."</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does the tuning chooser display your file's name, and does the root sound at the exact frequency you set?</li>
+        <li>Do the third and fifth read the cent offsets you predicted from the ratios? If not, the file or the reference is wrong — fix it here, before you make sound you'll have to redo.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>The MicroFreak's microtuning — and its limits</h2>
+
+  <p style="text-align:center; max-width:660px; margin:0 auto 24px; color:var(--text-muted);">The MicroFreak can play in tunings other than 12-TET, but the path is narrower than Live's, and knowing the limits up front stops you from fighting the instrument. There are two routes, and they don't combine cleanly.</p>
+
+  <table class="param-table">
+    <caption>Routes to a retuned MicroFreak</caption>
+    <tr><td>On-device microtuning</td><td>The MicroFreak has built-in microtuning slots loadable over MIDI (via the MIDI Control Center / SysEx). It can hold scale tables, so its own keyboard and sequencer play your tuning directly — independent of Live. Best when the MicroFreak is the sound source and you want it self-contained.</td></tr>
+    <tr><td>Live retunes it over MIDI</td><td>Live's Tuning System can express microtuning to external gear only through per-note pitch information — pitch bend or MPE. The MicroFreak is <strong>paraphonic, not fully polyphonic per-voice</strong>, and its MPE support is limited, so per-note retuning of a held chord is unreliable: a single channel-wide pitch bend cannot set two held notes to two different offsets at once.</td></tr>
+    <tr><td>Practical consequence</td><td>For a <em>monophonic</em> line (one note at a time), Live can pitch-bend the MicroFreak to any ratio cleanly. For a <em>held two-note drone</em> in just intonation, load the tuning onto the MicroFreak itself, or play that part with an Ableton soft-synth where per-voice tuning is exact.</td></tr>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>The honest recommendation:</strong> make the locked just-intonation drone with an Ableton soft-synth (Operator or Wavetable) under Live's global tuning, where every voice is tuned exactly. Use the MicroFreak for a single retuned monophonic line, or load a microtuning table onto the device so its own keyboard plays your scale. Don't try to hold a pure two-note interval on the MicroFreak driven by Live's pitch bend — that is the one path that will quietly let you down.</li>
+      <li><strong>Digitakt percussion:</strong> leave drums in 12-TET. If a kick is tuned, tune its sample's pitch so its fundamental agrees with your root frequency — that is a single sample-tune, not a scale.</li>
+    </ul>
+  </div>
+
+  <h2>Tune the drone first</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 22 q9 -8 18 0 t18 0"/><path d="M6 28 q9 -4 18 0 t18 0"/></svg>
+      </div>
+      <div class="step-num">Setup 03</div>
+      <h2 class="step-title">Prove the lock by ear</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The test</div>
+      <ul>
+        <li>On the soft-synth under your tuning, hold the root and the fifth together. Use a slow attack and long release so the tone sustains cleanly.</li>
+        <li>Listen for <strong>beating</strong>. In your just tuning it should be absent or extremely slow — the interval sits dead still.</li>
+        <li>Now switch the set's tuning back to <strong>12-TET</strong> for ten seconds. The same fifth now shimmers faintly. That audible difference is the entire reason this Lab Note exists. Switch back.</li>
+        <li>Repeat with the root and the major third. The just third (5:4) will sound startlingly calm next to the 12-TET third's restless buzz.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does a sustained chord in your tuning sit still where 12-TET shimmered? If not, your ratios aren't pure — recheck the Scala file and the reference frequency.</li>
+        <li>Did you tune and lock the drone <em>before</em> building anything on top of it? Everything later assumes a settled foundation.</li>
+        <li>Can you switch between your tuning and 12-TET on demand to A/B the difference? Keep both available — you'll use the comparison throughout the build.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Setup rule</div>
+    <p>The tuning is decided in software before a single sustained note is recorded. Lock the drone, A/B it against 12-TET, and only then move on. A take recorded against the wrong tuning cannot be re-tuned afterwards — it can only be re-recorded.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="decisions.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 03 / Decisions
+    </a>
+    <a href="palette.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      05 / Palette →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B6-004 — Tuning</div>
+
+</div>
+
+</body>
+</html>

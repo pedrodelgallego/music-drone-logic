@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B4-001 — Resonance — Reflection</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Lab Note contents">
+  <p class="nav-label labnote-code">Lab Note B4-001<span class="labnote-topic">Resonance</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html" class="active"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B4-001</div>
+    <div class="eyebrow">Resonance · 07 — Reflection</div>
+    <h1>Faults, carry-forward, principle</h1>
+    <p class="lede">Most of the learning happens here, not while making the track. The filter ride is unforgiving — it exposes tuning, gain-staging, and restraint all at once. Answer slowly. Write the answers down.</p>
+  </header>
+
+  <h2>How you know it worked</h2>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="16"/><polyline points="14 22 20 28 30 16"/></svg>
+      </div>
+      <div class="checklist-label">Success signals</div>
+    </div>
+    <ul>
+      <li>You can hum the filter line — the resonance crossed from color into pitch.</li>
+      <li>The track has no second melodic instrument; the filter carries the lead alone.</li>
+      <li>The peak section gets its energy from the filter opening and ringing, not from new parts.</li>
+      <li>The resonant peak stays in tune across its whole range (key-tracking is working).</li>
+      <li>Only the lead — and briefly the arc — has audible resonance; everything else is low-Q.</li>
+      <li>The hot resonant peak drives saturation without ever clipping the master.</li>
+      <li>Reverb and delay enrich the pings without whistling on one note.</li>
+      <li>The strip section makes the earlier fullness feel bigger in hindsight.</li>
+      <li>The cutoff only ever rests on a fret — every note is in tune.</li>
+      <li>You can explain why each resonance value and each cutoff target was chosen.</li>
+    </ul>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon">
+        <svg viewBox="0 0 44 44"><polygon points="22 6 40 36 4 36"/><line x1="22" y1="16" x2="22" y2="24"/><circle cx="22" cy="29" r="1.4" fill="currentColor"/></svg>
+      </div>
+      <div class="checklist-label">Failure signals</div>
+    </div>
+    <ul>
+      <li>The "lead" is just rhythmic ticking — resonance too low, never became a note.</li>
+      <li>The filter line is out of tune on high or low notes — key-tracking was off.</li>
+      <li>You wrote a separate synth lead because the filter "wasn't enough".</li>
+      <li>The resonant peak clips the master on the loud notes.</li>
+      <li>The reverb rings forever on a single frequency — high-Q peak into a long tail.</li>
+      <li>Two or three filters all resonate at once and the mix is a screech.</li>
+      <li>You jumped straight to self-oscillation for drama and the ear fatigued in 30 seconds.</li>
+      <li>The cutoff automation moves too fast — you can hear it as an "event" outside the peak.</li>
+      <li>Remove the filter and there is still a whole track — the filter wasn't actually the lead.</li>
+    </ul>
+  </div>
+
+  <h2>Ten reflection questions</h2>
+
+  <ol class="reflection-list">
+    <li>At what resonance value did the filter stop being a color and become a note?</li>
+    <li>Could you hum the line without the rest of the track playing?</li>
+    <li>Did key-tracking hold the tuning across the full range, or did you patch it with automation?</li>
+    <li>Which gesture carried the climax: cutoff rising, resonance narrowing, or both?</li>
+    <li>How hot was the peak leaving the filter, and what did that do to your saturation?</li>
+    <li>Did you resist a second melodic instrument? If not, why did the filter feel insufficient?</li>
+    <li>Where did the reverb or delay whistle, and how did you fix it?</li>
+    <li>Was the slow arc filter worth keeping, or did the lead carry the track alone?</li>
+    <li>Did the strip-back make the return of the resonance land harder?</li>
+    <li>What would you do differently to make the filter sing more clearly next time?</li>
+  </ol>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Carry forward:</strong> a resonant filter is a complete instrument — pitch, timbre, dynamics, and a built-in nonlinearity that fuses with saturation. The level leaving the peak is a mix decision, the cutoff targets are a tuning decision, and the ride is the arrangement. Keep the <span class="code">MF LEAD</span> patch and your marked frets. The next resonant idea starts where this one ended.</li>
+    </ul>
+  </div>
+
+  <div class="final">
+    <div class="final-icon">
+      <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="16"/><circle cx="22" cy="22" r="10"/><circle cx="22" cy="22" r="3" fill="currentColor"/></svg>
+    </div>
+    <div class="final-label">Final principle</div>
+    <p>Push the resonance until the filter sings — then tune it, key-track it, and let it lead. The most expressive voice in the track was never a new instrument; it was the one knob you usually use to remove things, used to make them.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="build.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 06 / The build
+    </a>
+    <a href="../workshop/block-4/index.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      Block 4 workshop →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B4-001 — Resonance</div>
+
+</div>
+
+</body>
+</html>

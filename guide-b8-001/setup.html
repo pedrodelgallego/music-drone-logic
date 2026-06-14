@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B8-001 — Spec &amp; Voice — Setup</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Lab Note contents">
+  <p class="nav-label labnote-code">Lab Note B8-001<span class="labnote-topic">Spec &amp; Voice</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html" class="active"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B8-001</div>
+    <div class="eyebrow">Spec &amp; Voice · 04 — Setup</div>
+    <h1>From spec to session template</h1>
+    <p class="lede">A spec that never reaches the rig is a wish. This page is the bridge: how each line of the Engineering Spec becomes a concrete object in the workshop session — a track, a return, a clock setting, a mapped control. Build the template once, and every future piece in this voice starts from a session that already obeys the rules.</p>
+  </header>
+
+  <h2>The workshop rig, named once</h2>
+
+  <p style="text-align:center; max-width:640px; margin:0 auto 24px; color:var(--text-muted);">The Engineering Spec names the rig so a stranger could rebuild it. This is that rig. The System Spec does not mention any of it.</p>
+
+  <table class="param-table">
+    <caption>The rig the Engineering Spec assumes</caption>
+    <tr><td>DAW</td><td>Ableton Live 12 Suite — Arrangement view</td></tr>
+    <tr><td>Synth voice</td><td>Arturia MicroFreak</td></tr>
+    <tr><td>Sampler / sequencer</td><td>Elektron Digitakt II</td></tr>
+    <tr><td>Interface</td><td>MOTU M4</td></tr>
+    <tr><td>Controller</td><td>Launchpad Pro MK3</td></tr>
+    <tr><td>Monitoring</td><td>DT 990 Pro (250 Ω)</td></tr>
+  </table>
+
+  <h2>The signal path is the spec made physical</h2>
+
+  <div class="signal-flow">
+    <span class="signal-node">Constraint</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">Engineering line</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">Track / return / map</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">Template .als</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">Every future piece</span>
+  </div>
+
+  <p style="text-align:center; max-width:660px; margin:6px auto 0; color:var(--text-muted);">If the template can violate a constraint, the constraint is not yet enforced. The work of this page is to make the rules structural — built into the session, not held in your memory.</p>
+
+  <h2>Mapping the spec onto the session</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 14 v20 a2 2 0 0 0 2 2 h28 a2 2 0 0 0 2 -2 v-16 a2 2 0 0 0 -2 -2 h-14 l-4 -4 h-10 a2 2 0 0 0 -2 2 z"/></svg>
+      </div>
+      <div class="step-num">Map 01</div>
+      <h2 class="step-title">Element budget → track count</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Build only the tracks the budget allows</div>
+      <ul>
+        <li>If the constraint reads "no more than five sounding elements," create exactly five audio tracks and stop. The empty space below them in the session is the constraint, visible.</li>
+        <li>Name them after their <em>role in the spec</em>, not their gear: <span class="code">FOUNDATION</span>, <span class="code">VOICE</span>, <span class="code">SPACE</span>, <span class="code">TEXTURE</span>, <span class="code">ACCENT</span>. A track named <span class="code">MicroFreak</span> is engineering leaking into intention.</li>
+        <li>Resist the sixth track. Adding it is the precise moment the spec is broken — and the template should make that addition feel like a deliberate transgression, not a convenience.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Returns are part of the budget too</div>
+      <ul>
+        <li><kbd>⌘ ⌥ T</kbd> for return tracks: <span class="code">A — REVERB</span> (Hybrid Reverb, 100&nbsp;% wet) and <span class="code">B — ECHO</span> (Echo, high-passed at <span class="code">250 Hz</span>).</li>
+        <li>If the spec says "stock effects only," the return chain is your proof: nothing on it that did not ship with Live. Write the device list into the Engineering Spec so the ban is auditable.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="14"/><line x1="22" y1="22" x2="22" y2="12"/><line x1="22" y1="22" x2="29" y2="26"/></svg>
+      </div>
+      <div class="step-num">Map 02</div>
+      <h2 class="step-title">"One clock, one truth" → sync settings</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Declare the master, enforce it in MIDI prefs</div>
+      <ul>
+        <li>The Engineering Spec names exactly one clock master. On the workshop rig that is Ableton.</li>
+        <li><kbd>⌘ ,</kbd> → <strong>Link, Tempo &amp; MIDI</strong>. Enable <strong>Sync</strong> on the Digitakt II and MicroFreak <em>output</em> rows so Ableton sends clock and transport out.</li>
+        <li>On Digitakt II: <span class="menu">Settings → MIDI Config → Sync</span> — receive clock and transport, <strong>disable clock send</strong>. On MicroFreak: <kbd>Shift</kbd> + <kbd>Tempo</kbd> → source <strong>USB</strong>.</li>
+        <li><strong>Verify:</strong> press play; both boxes start instantly and read the session tempo. Two clock masters is the most common silent violation of a spec — fix it before anything else.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><line x1="12" y1="8" x2="12" y2="36"/><line x1="22" y1="8" x2="22" y2="36"/><line x1="32" y1="8" x2="32" y2="36"/><rect x="9" y="18" width="6" height="3" rx="0.5" fill="currentColor"/><rect x="19" y="24" width="6" height="3" rx="0.5" fill="currentColor"/><rect x="29" y="14" width="6" height="3" rx="0.5" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Map 03</div>
+      <h2 class="step-title">Parameter ranges → mapped controls</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">A range in the spec becomes a Min/Max on a map</div>
+      <ul>
+        <li>The Engineering Spec specifies ranges, not just parameters. "Bass filter rides 600&nbsp;Hz–3.5&nbsp;kHz" becomes a literal Min/Max on a mapped Launchpad control.</li>
+        <li><kbd>⌘ M</kbd> for MIDI map mode. Click the device parameter, tap the Launchpad control, then type the range into the mapping's <strong>Min</strong> and <strong>Max</strong> fields.</li>
+        <li>Now the controller physically cannot overshoot into harshness. The constraint is enforced by the instrument, not by your willpower at the peak.</li>
+        <li>Map only the controls the spec permits — usually four: the load-bearing filter, its resonance, one send, one feedback. More maps than that and "all change is modulation" quietly becomes "all change is whatever I grab."</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 22 Q22 6 38 22"/><path d="M6 22 Q22 38 38 22"/><circle cx="22" cy="22" r="4"/></svg>
+      </div>
+      <div class="step-num">Map 04</div>
+      <h2 class="step-title">"Movement is modulation" → a recording discipline</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Printed vs drawn movement, decided in the template</div>
+      <ul>
+        <li><strong>Printed movement</strong> lives inside recorded audio — MicroFreak knob rides, Digitakt p-locks and LFOs. <strong>Drawn movement</strong> is Ableton automation on devices sitting on top.</li>
+        <li>If the spec bans new elements after a point, the template should hold <em>long static takes</em> plus automation lanes — and forbid duplicating a clip into a fresh section to fake an arrival.</li>
+        <li>Set record preferences once: <kbd>⌘ ,</kbd> → <strong>Record, Warp &amp; Launch</strong>, WAV / 24-bit, and turn <strong>off</strong> Auto-Warp Long Samples so clock-synced takes stay untouched.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Save the template, not just the set</div>
+      <ul>
+        <li><span class="menu">File → Save Live Set As</span>, then <span class="menu">File → Save Live Set as Default Set</span> only if this voice is your main practice — otherwise keep it as <span class="code">spec_template.als</span> in a dedicated folder.</li>
+        <li>The template is the Engineering Spec compiled. When the spec changes, you edit the template; when the gear changes, you edit both — and the System Spec stays untouched, which is the whole point.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>The mapping at a glance</h2>
+
+  <table class="param-table">
+    <caption>Spec line → session object</caption>
+    <tr><td>"Five elements maximum"</td><td>Five named audio tracks; no sixth</td></tr>
+    <tr><td>"Stock effects only"</td><td>Return + track device list, all native to Live</td></tr>
+    <tr><td>"One clock master"</td><td>Ableton sends sync; boxes receive only</td></tr>
+    <tr><td>"Filter rides 600 Hz–3.5 kHz"</td><td>Mapped control Min/Max set to that range</td></tr>
+    <tr><td>"No element enters after 3:00"</td><td>Long static takes + automation; no duplicated clips</td></tr>
+    <tr><td>"No transition under eight bars"</td><td>Grid snap on; automation ramps drawn 8 bars or longer</td></tr>
+  </table>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Decision check</div>
+    <ul>
+      <li>Does every line of my Engineering Spec correspond to a concrete object in the template?</li>
+      <li>Is there exactly one clock master, verified by pressing play?</li>
+      <li>Can the template physically violate any constraint? If yes, enforce it structurally before building.</li>
+      <li>Are my tracks named after roles in the spec, or after gear?</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="decisions.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 03 / Decisions
+    </a>
+    <a href="palette.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      05 / Palette →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B8-001 — Spec &amp; Voice</div>
+
+</div>
+
+</body>
+</html>

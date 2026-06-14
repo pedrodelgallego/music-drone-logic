@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B2-002 — Concrète — The Build</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Lab Note contents">
+  <p class="nav-label labnote-code">Lab Note B2-002<span class="labnote-topic">Concrète</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html" class="active"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B2-002</div>
+    <div class="eyebrow">Concrète · 06 — The build</div>
+    <h1>Step-by-step: from capture to finished acousmatic piece</h1>
+    <p class="lede">The full method, in order: capture, classify, transform, montage, gesture, mix, finish. Each step is small and ends in a decision checkpoint. Keep the <a href="setup.html">setup page</a> open for the rig and the session, and the <a href="palette.html">palette</a> open for your catalogue — this page assumes both.</p>
+  </header>
+
+  <!-- STEP 1 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="12" y="6" width="20" height="32" rx="3"/><circle cx="22" cy="14" r="4"/><rect x="16" y="22" width="12" height="3" rx="1"/></svg>
+      </div>
+      <div class="step-num">Step 01</div>
+      <h2 class="step-title">Capture the field — ambiences and scenes</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Plan the hunt before you leave the desk</div>
+      <ul>
+        <li>Write the spine sentence from the Decisions page on a card. Every recording you make should help travel that axis — e.g. "noisy → pitched" sends you hunting for both broadband fields and resonant objects.</li>
+        <li>Target <strong>3–5 textures</strong> on this pass: a broadband ambience, a low rumble, a moving water/granular bed, and one quiet "room tone" you can hide under everything.</li>
+        <li>Fit the windshield. Wind is the single biggest killer of usable field takes, and it is unfixable after the fact.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Record long, record still</div>
+      <ul>
+        <li>Set the recorder to <span class="code">24-bit / 48 kHz</span>, gain so peaks sit near <span class="code">-12 dBFS</span>. Monitor on headphones — you cannot fix what you didn't hear at the source.</li>
+        <li>Record each texture for at least <strong>90 seconds</strong> unbroken. A texture needs length so you can later find the calmest, most loopable 8 seconds inside it.</li>
+        <li>Hold the recorder dead still, or rest it on a stable surface. Handling noise is low-frequency rumble that contaminates the whole take.</li>
+        <li>Slate each take: say the location and intent quietly at the head. <em>"Vent drone, pipe, take one."</em> Future-you will not remember.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does each texture survive being played in isolation for 20 seconds without a distracting event (a car horn, a voice)? If not, re-record or earmark the clean section.</li>
+        <li>Do your textures cover both ends of the spine — at least one noisy, at least one pitched/resonant?</li>
+        <li>Is the noise floor low enough that you can raise the file 12 dB without hiss taking over? Concrète is often quiet; the floor matters.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="16" r="9"/><circle cx="22" cy="16" r="3" fill="currentColor"/><path d="M22 25v9M16 38h12"/></svg>
+      </div>
+      <div class="step-num">Step 02</div>
+      <h2 class="step-title">Capture objects — the contact-mic session</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Set up Route B</div>
+      <ul>
+        <li>Contact mic → M4 <strong>Input 1</strong> (Hi-Z / instrument input if available), one short TS cable. Tape the cable down so handling noise stays out.</li>
+        <li>In Ableton, arm a track set to <strong>Ext. In 1 (mono)</strong>, Monitor <strong>In</strong> while auditioning, <strong>Auto</strong> when recording. Buffer <span class="code">256</span>.</li>
+        <li>Raise M4 Input 1 until taps peak into amber. Piezos are low-output — this knob goes higher than for a normal mic.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Play every object three ways</div>
+      <ul>
+        <li>For each object, capture it <strong>struck</strong> (tap), <strong>scraped</strong> (drag), and <strong>sustained</strong> (bow, rub, or excite continuously). One object becomes three morphologies.</li>
+        <li>Press the mic against metal, wood, glass, a stretched membrane, a wire. Each surface resonates differently — the contact mic is hearing the body, not the air.</li>
+        <li>Record one continuous take per object family, leaving a clear gap of silence between hits. Gaps are where you'll cut.</li>
+        <li>Target <strong>15–25 short objects</strong>. Quantity now buys freedom in the montage.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Capture targets</div>
+      <table class="param-table">
+        <caption>Object families and what each buys you</caption>
+        <tr><td>Struck metal</td><td>Pitched gestures with long ringing tails — bridges toward the pitched end of the spine</td></tr>
+        <tr><td>Wood / box knocks</td><td>Dry, mid-axis impulses — clean punctuation with no tail</td></tr>
+        <tr><td>Scrapes &amp; friction</td><td>Rising/falling moving gestures — your transition material</td></tr>
+        <tr><td>Glass / ceramic</td><td>Bright ticks and pure-ish sustained tones — the pitched anchor</td></tr>
+        <tr><td>Granular surfaces (gravel, paper)</td><td>Rough iterative grain — feeds the noisy end and the texture lanes</td></tr>
+      </table>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Listen back: is there handling rumble under the good hits? If yes, you'll high-pass it later — but note it now so you don't mistake it for content.</li>
+        <li>Do you have at least one strong gesture for each station on your spine, not just the two ends?</li>
+        <li>Did you capture enough <em>silence</em> around each object to cut it clean? If hits run together, re-record with bigger gaps.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="10" width="32" height="24" rx="2"/><path d="M14 10v24M22 10v24M30 10v24" stroke-dasharray="2 3"/></svg>
+      </div>
+      <div class="step-num">Step 03</div>
+      <h2 class="step-title">Import, slice, and classify</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Get the files in cleanly</div>
+      <ul>
+        <li>Copy every WAV into the project's <span class="code">Samples/Imported</span> folder first — never work off the SD card or desktop.</li>
+        <li>Drag the source files onto the <span class="code">RAW IMPORT</span> track. Confirm <strong>Warp is OFF</strong> on each clip (clip view → Warp button dark). A warped object is a smeared object.</li>
+        <li>Set the timeline ruler to <span class="code">m:ss</span> — this piece is measured in seconds.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Slice into objects</div>
+      <ul>
+        <li>Play through each long take. At every clean silence, <kbd>⌘ E</kbd> to split, isolating one object per clip.</li>
+        <li>Trim each clip tight to the object: zoom in, drag the clip start to just before the attack, the end to where the tail meets the noise floor. Tight edges are what let objects be recombined freely.</li>
+        <li>Draw short fades (<span class="code">3–10 ms</span>) on both clip ends with the clip-corner handles. This removes the click that a hard cut on a non-zero sample always produces.</li>
+        <li><strong>Rename every clip</strong> with <kbd>⌘ R</kbd> to its catalogue Object ID — <span class="code">OBJ-dull-thud</span>, not <span class="code">ZOOM0042</span>.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Classify by reduced listening</div>
+      <ul>
+        <li>For each object, listen <em>three times</em> and fill its palette row: mass, grain, attack, motion, role, axis position. Forbid yourself the source word.</li>
+        <li>Drag each classified object onto its role lane: short directional sounds to <span class="code">GESTURES</span>, sustained beds to <span class="code">TEXTURE A/B</span>.</li>
+        <li>Park anything ambiguous on <span class="code">TRANSFORM</span> — it may become an object once processed (Step 04).</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Can you now find any object by its qualities in under five seconds? If names are vague, re-name — the build speed depends on this.</li>
+        <li>Did classifying reveal a gap on the spine — a station with no object? Note it; Step 04 can manufacture one by transformation.</li>
+        <li>Are the clip edges genuinely click-free? Solo one and loop it; a tick at the seam means the fade is too short or on the wrong sample.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M8 22h28M22 8v28" stroke-dasharray="3 3"/><circle cx="22" cy="22" r="6"/></svg>
+      </div>
+      <div class="step-num">Step 04</div>
+      <h2 class="step-title">Transform — turn objects into new objects</h2>
+    </div>
+
+    <p style="color:var(--text-muted);">Transformation is how concrète moves a sound away from its source — and how you fill gaps on the spine. Apply on the <span class="code">TRANSFORM</span> lane, then <strong>resample the result to audio</strong> (Audio From → Resampling, record the pass) so each transformed object becomes a real, classifiable file. Use one or two transforms per object, not a stack.</p>
+
+    <div class="sub-block">
+      <div class="sub-label">The core transformations</div>
+      <table class="param-table">
+        <caption>Each transform and what it changes</caption>
+        <tr><td>Reverse (clip view → <span class="menu">Reverse</span>)</td><td>Swaps attack for swell — a struck object becomes a rising gesture. The cheapest way to make anticipation.</td></tr>
+        <tr><td>Speed / transposition (clip Warp <strong>off</strong>, change clip sample rate, or use a pitch device)</td><td>Slowing pulls grain apart and deepens mass; speeding tightens it. Octave-down a metal strike and it becomes a cavernous texture.</td></tr>
+        <tr><td>Granular (Grain Delay, or a granular instrument)</td><td>Freezes a moment into a cloud — turns any short object into a sustained texture. The classic gap-filler for the middle of the spine.</td></tr>
+        <tr><td>Spectral (Spectral Resonator / Spectral Time)</td><td>Imposes pitch on noise (toward the pitched end) or freezes/smears spectra into drones.</td></tr>
+        <tr><td>Filtering (EQ Eight, Auto Filter)</td><td>Narrows mass — a band-passed noise becomes a tonic-ish object; high-passing removes handling rumble.</td></tr>
+        <tr><td>Looping a tail</td><td>Loop the decay of a ring to make an endless pitched bed from a single hit.</td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Manufacture the objects your spine is missing</div>
+      <ul>
+        <li>Missing a pitched anchor? Spectral-Resonate the grey hiss onto a fixed note until noise becomes tone.</li>
+        <li>Missing a mid-axis texture? Granular-freeze a wood knock into a soft cloud.</li>
+        <li>Missing a transition? Reverse a scrape so it swells into the next section instead of away from it.</li>
+        <li>Resample each keeper, rename it (<span class="code">OBJ-strike-rev</span>, <span class="code">TEX-knock-cloud</span>), and add a palette row. A transformed object is a first-class object.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>After transforming, is the source <em>less</em> nameable? That's usually the goal. If you can still say "reversed metal", push one more transform — unless legibility is the point of that moment.</li>
+        <li>Did you keep the untouched original on <span class="code">RAW IMPORT</span>? Always transform a copy.</li>
+        <li>Does each transformed object now occupy a station the raw captures didn't? If it just duplicates an existing one, cut it.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 5 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="4" y="14" width="10" height="6" rx="1"/><rect x="16" y="14" width="14" height="6" rx="1"/><rect x="32" y="14" width="8" height="6" rx="1"/><rect x="8" y="24" width="16" height="6" rx="1"/><rect x="26" y="24" width="12" height="6" rx="1"/></svg>
+      </div>
+      <div class="step-num">Step 05</div>
+      <h2 class="step-title">Lay the texture bed</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Find the loop, then extend it</div>
+      <ul>
+        <li>Open your chosen opening texture. Hunt for the calmest 6–10 seconds with no distinct event — that's your loop core.</li>
+        <li>Split it out, then duplicate (<kbd>⌘ D</kbd>) end-to-end to fill the planned length. Overlap copies by <strong>1–2 seconds</strong> and crossfade the seam (drag the clip fade handles over each other) so the join is inaudible.</li>
+        <li>Lay the bed across <span class="code">TEXTURE A</span> for the whole piece's duration — it is the room everything else lives in.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Stack a second texture for depth</div>
+      <ul>
+        <li>Put a contrasting bed (e.g. <span class="code">TEX-low-rumble</span> under <span class="code">TEX-grey-hiss</span>) on <span class="code">TEXTURE B</span>.</li>
+        <li>EQ them apart: high-pass the bright bed around <span class="code">300 Hz</span>, low-pass the rumble around <span class="code">400 Hz</span>. They interlock instead of masking.</li>
+        <li>The two beds will <em>crossfade</em> across the piece as you travel the spine — one fading out as the other rises. Draw that with clip-gain or track-volume automation in Step 07.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Loop the bed for two minutes. Can you hear the seam? If a pulse or a click recurs, lengthen the crossfade or pick a calmer loop core.</li>
+        <li>Does the bed sound like a place, or like a sample on repeat? If it loops obviously, it's too short or too eventful.</li>
+        <li>Flip to mono for ten seconds — does the bed survive? If it hollows out, your two textures are phase-cancelling; nudge one.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 6 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 30l8-16 6 12 4-6 12 14"/><circle cx="6" cy="30" r="2" fill="currentColor"/><circle cx="36" cy="34" r="2" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Step 06</div>
+      <h2 class="step-title">Montage — place gestures on the timeline</h2>
+    </div>
+
+    <p style="color:var(--text-muted);">This is composition itself. You are placing gestures across the texture bed so the piece travels your spine. Work in silence-respecting time: a sound-object needs room around it to be <em>heard as an object</em> rather than as part of a stream.</p>
+
+    <div class="sub-block">
+      <div class="sub-label">Mark the journey first</div>
+      <ul>
+        <li>Right-click the scrub area → <span class="menu">Add Locator</span> at each station of the spine. For a noisy→pitched piece: <span class="code">NOISE FIELD</span>, <span class="code">FIRST EVENTS</span>, <span class="code">TURN</span>, <span class="code">PITCH EMERGES</span>, <span class="code">RESOLUTION</span>.</li>
+        <li>Locators turn your one-sentence spine into physical targets you drag objects against. Aim for a <span class="code">3–5 minute</span> total.</li>
+      </ul>
+      <table class="param-table">
+        <caption>A worked 4-minute arc (noisy → pitched)</caption>
+        <tr><td>0:00 – 0:45 / NOISE FIELD</td><td>Texture bed alone. One or two distant gestures, low. Establish the room.</td></tr>
+        <tr><td>0:45 – 1:30 / FIRST EVENTS</td><td>Dry impulses enter — <span class="code">wood-knock</span>, <span class="code">bright-tick</span> — sparse, with silence between.</td></tr>
+        <tr><td>1:30 – 2:15 / TURN</td><td>Moving gestures (<span class="code">scrape-up</span> / <span class="code">zip-fall</span>) raise activity. Bright bed begins fading toward rumble.</td></tr>
+        <tr><td>2:15 – 3:15 / PITCH EMERGES</td><td>Pitched objects (<span class="code">metal-strike</span>, <span class="code">bowed-rise</span>) recur; <span class="code">TEX-pure-tone</span> rises underneath.</td></tr>
+        <tr><td>3:15 – 4:00 / RESOLUTION</td><td>Activity thins. A single held tone remains, then a final gesture, then silence.</td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Place gestures with the grammar of montage</div>
+      <ul>
+        <li><strong>Juxtapose</strong> for contrast: a sharp <span class="code">bright-tick</span> over the flat bed reads as an event because the ground is still.</li>
+        <li><strong>Chain</strong> for continuity: end one gesture's tail exactly where the next begins, so a struck object flows into a swell (<span class="code">metal-strike</span> → reversed <span class="code">bowed-rise</span>).</li>
+        <li><strong>Echo a motif:</strong> reuse one object three times across the piece, each time slightly transformed. Recurrence is how a concrète piece earns coherence without melody.</li>
+        <li><strong>Respect silence.</strong> Leave real gaps. A gesture surrounded by space has weight; a gesture in a stream is wallpaper.</li>
+        <li>Make cuts at zero-crossings or under a fade. Loop any suspicious seam with <kbd>⌘ L</kbd> and audition it three times before accepting.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Vary rather than repeat</div>
+      <ul>
+        <li>When an object returns, change <em>one</em> thing: its level, its pan, its transposition, or its reverb send. Identical repeats expose the loop; varied repeats build a motif.</li>
+        <li>Pan gestures deliberately across the field — concrète is spatial music. Spread events left-to-right so the listener's attention moves through the room.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Play the whole montage. Does it travel the spine, or does it sit in one place? If it doesn't move, your objects aren't spaced along the axis — re-order.</li>
+        <li>Remove any single gesture. Is the piece weaker? If nothing is lost, leave it removed.</li>
+        <li>Is there at least one passage of near-silence that makes you lean in? If everything is full, the loud moments have nothing to be loud against.</li>
+        <li>Can a listener follow a thread — a recurring object — through the piece? If every sound is new, it's a sound-effects reel, not a composition.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 7 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 34 Q22 6 38 14"/><circle cx="6" cy="34" r="2.5" fill="currentColor"/><circle cx="38" cy="14" r="2.5" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Step 07</div>
+      <h2 class="step-title">Shape the gesture — automation as performance</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Two kinds of movement</div>
+      <ul>
+        <li><strong>Printed movement</strong> lives inside the recorded object — its own attack, grain, and decay. Fixed; only re-recordable.</li>
+        <li><strong>Drawn movement</strong> is automation on top: volume swells, filter sweeps, pan trajectories, reverb blooms. This is where the acousmatic gesture is shaped.</li>
+        <li>In concrète, drawn movement is not decoration — it is how an object acquires <em>trajectory</em> in space, the thing Bayle's tradition is built on.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Draw the spatial and dynamic arc</div>
+      <ul>
+        <li><kbd>A</kbd> shows automation lanes; pencil (<kbd>B</kbd>) draws. Bend ramps into S-curves (right-click segment → <span class="menu">Curve</span>) so they read as intention, not as a ruler.</li>
+        <li><strong>Texture crossfade:</strong> automate <span class="code">TEXTURE A</span> volume down and <span class="code">TEXTURE B</span> up across the TURN, so the bed itself travels the spine.</li>
+        <li><strong>Gesture trajectory:</strong> automate <strong>Pan</strong> on a moving gesture so a scrape physically crosses the stereo field as it rises. Automate its <strong>reverb send</strong> upward as it ends so it dissolves into space.</li>
+        <li><strong>The bloom:</strong> at PITCH EMERGES, ramp Return A (reverb) send up — space opens exactly as pitch arrives. The brightest spatial moment is the climax.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Performed gesture (optional but worth it)</div>
+      <ul>
+        <li><kbd>⌘ M</kbd> for MIDI map mode. Map a filter cutoff or a reverb send to a hardware control, set Min/Max to the musical range, and <em>perform</em> a gesture's shape in real time while recording automation. A hand-drawn swell breathes in a way a straight ramp never will.</li>
+        <li>After: right-click each lane → <span class="menu">Simplify Envelope</span> to thin breakpoints while keeping the shape.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does each shaped gesture now have a direction — does it go somewhere? A flat object placed in a flat bed is inert.</li>
+        <li>Play 2:15 – 3:15 blind: does pitch arrive because the piece <em>opened toward</em> it, not because you stacked more objects?</li>
+        <li>If you can hear an automation move as a sudden "event", it's too fast. Slow it across more time — unless the jolt is the gesture you intend.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 8 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><line x1="12" y1="8" x2="12" y2="36"/><line x1="22" y1="8" x2="22" y2="36"/><line x1="32" y1="8" x2="32" y2="36"/><rect x="9" y="18" width="6" height="3" rx="0.5" fill="currentColor"/><rect x="19" y="24" width="6" height="3" rx="0.5" fill="currentColor"/><rect x="29" y="14" width="6" height="3" rx="0.5" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Step 08</div>
+      <h2 class="step-title">Place everything in one room — the mix</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Unify the space</div>
+      <ul>
+        <li>Disparate captures — a desk object, a street ambience — betray themselves by their different rooms. Put a single convolution reverb on <strong>Return A</strong> (a real space impulse, decay <span class="code">2–4 s</span>) and send <em>everything</em> a touch to it. One shared room makes a collage sound composed.</li>
+        <li>Use <strong>Return B</strong> (Echo, high-passed around <span class="code">250 Hz</span>) to extend gestures into trajectories, not to thicken the bed.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Frequency separation</div>
+      <ul>
+        <li><strong>Bed:</strong> high-pass the bright texture (<span class="code">~300 Hz</span>), low-pass the rumble (<span class="code">~400 Hz</span>) so they occupy different bands.</li>
+        <li><strong>Gestures:</strong> high-pass each contact-mic object to remove handling rumble below its real content — often <span class="code">60–120 Hz</span>.</li>
+        <li><strong>Pitched anchor:</strong> let <span class="code">TEX-pure-tone</span> own its narrow band; carve a small dip in the bed there so the tone reads clearly when it arrives.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Verification passes</div>
+      <table class="param-table">
+        <caption>Check before you call it done</caption>
+        <tr><td>Mono check</td><td>Flip a Utility to mono on the master. Anything vanishing means over-wide panning or phasey textures — pull them in.</td></tr>
+        <tr><td>Quiet check</td><td>Listen once quietly. The real balance shows — if a gesture disappears or the bed swamps events, fix that first.</td></tr>
+        <tr><td>Phone-speaker check</td><td>Bounce a rough and play it on a phone. Which objects survive a bad speaker are the ones carrying the piece.</td></tr>
+        <tr><td>Headroom check</td><td>Peaks ≤ <span class="code">-3 dBFS</span> across the whole piece, including the reverb bloom at the climax.</td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Master bus</div>
+      <ul>
+        <li>Spectrum + Utility on the master. No limiter — concrète lives on dynamics, and a limiter flattens the silence that gives gestures their weight.</li>
+        <li>Take the DT 990s off every 15 minutes. Their 7–10 kHz lift will have you cutting highs and hiss that were never wrong.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Do all the objects sound like they share one space, or like a folder of clips? If they don't cohere, raise the shared reverb send.</li>
+        <li>Is the dynamic range intact — are the quiet passages genuinely quiet? If everything is the same loudness, you've over-compressed the life out of it.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 9 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><polyline points="14 18 22 26 30 18"/><line x1="22" y1="8" x2="22" y2="26"/><line x1="8" y1="34" x2="36" y2="34"/></svg>
+      </div>
+      <div class="step-num">Step 09</div>
+      <h2 class="step-title">Finish, export, and step away</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Consolidate and render</div>
+      <ul>
+        <li>When sections are final, select their clips and <kbd>⌘ J</kbd> consolidate — one clean clip per section keeps the timeline legible.</li>
+        <li>Select the full span (<span class="code">0:00</span> to the end). <span class="menu">File → Export Audio / Video</span>.</li>
+      </ul>
+      <table class="param-table">
+        <caption>Render settings</caption>
+        <tr><td>Rendered Track</td><td>Master</td></tr>
+        <tr><td>File Type</td><td>WAV</td></tr>
+        <tr><td>Sample Rate</td><td>48000 Hz</td></tr>
+        <tr><td>Bit Depth</td><td>24-bit</td></tr>
+        <tr><td>Normalize</td><td>OFF — the headroom and the silence are part of the sound</td></tr>
+        <tr><td>Filename</td><td><span class="code">concrete_b2_002_v1.wav</span></td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Archive the work</div>
+      <ul>
+        <li><span class="menu">File → Collect All and Save</span> — the project folder now holds every source file. Concrète projects break the instant one capture goes missing.</li>
+        <li>Keep the renamed source WAVs and the palette catalogue together. The catalogue is reusable material for the next piece.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Listen elsewhere, then revise once</div>
+      <ul>
+        <li>Copy to phone. Listen in different rooms, on laptop speakers — brutally honest about mids.</li>
+        <li>Write up to 10 timestamped notes: <span class="code">1:48 second tick lands too soon</span>, not <span class="code">middle feels off</span>.</li>
+        <li>Wait a day. Change <strong>one thing</strong>. Render <span class="code">v2</span>. Compare.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Final decision check</div>
+      <ul>
+        <li>Does the piece travel its one-sentence spine from first second to last?</li>
+        <li>Could a listener describe it in morphological terms — "noise resolving into a tone" — without naming a single source?</li>
+        <li>Is every object earning its place, or is something there because you recorded it and felt attached?</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-nav">
+    <a href="palette.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 05 / Palette
+    </a>
+    <a href="reflection.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      07 / Reflection →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B2-002 — Concrète</div>
+
+</div>
+
+</body>
+</html>

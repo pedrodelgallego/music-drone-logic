@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B1-004 — Metering · Palette</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B1-004<span class="labnote-topic">Metering</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html" class="active"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B1-004</div>
+    <div class="eyebrow">Metering · 05 — Palette</div>
+    <h1>Every meter, and the move it informs</h1>
+    <p class="lede">The complete bench, one meter at a time. For each: what it measures, the healthy reading to aim for, and the exact corrective move a bad reading should trigger. Read a meter, find its row, make the move. No guessing.</p>
+  </header>
+
+  <h2>The whole bench at a glance</h2>
+
+  <table class="param-table">
+    <caption>Each meter, what it tells you, and the move it informs</caption>
+    <tr><td><strong>Channel / peak meter</strong></td><td>The highest sample level in <span class="code">dBFS</span>. Reads clipping risk. <strong>Move:</strong> if the tip hits red / <span class="code">0</span>, pull gain down until it never reaches the top.</td></tr>
+    <tr><td><strong>True-peak (dBTP)</strong></td><td>The real waveform's peak between samples. <strong>Move:</strong> if above <span class="code">−1 dBTP</span>, lower output or add a true-peak limiter ceiling at <span class="code">−1</span>.</td></tr>
+    <tr><td><strong>RMS / average</strong></td><td>Short-window energy — how big it feels. <strong>Move:</strong> use it to balance two parts by body, not by their spiky peaks.</td></tr>
+    <tr><td><strong>LUFS — integrated</strong></td><td>Overall perceived loudness of the whole piece. <strong>Move:</strong> adjust master gain until it hits your target (<span class="code">−14 LUFS</span>).</td></tr>
+    <tr><td><strong>LUFS — short-term</strong></td><td>Loudness over the last <span class="code">3 s</span>. <strong>Move:</strong> watch it to keep sections even — a chorus shouldn't jump <span class="code">4 LU</span> over a verse unless you meant it.</td></tr>
+    <tr><td><strong>LUFS — momentary</strong></td><td>Loudness over the last <span class="code">400 ms</span>. <strong>Move:</strong> spot a single too-loud hit and tame it.</td></tr>
+    <tr><td><strong>Spectrum</strong></td><td>Frequency balance, tilt, resonant peaks. <strong>Move:</strong> a hump → EQ cut at that frequency; a spike → narrow notch; a thin top → gentle high shelf.</td></tr>
+    <tr><td><strong>Correlation / phase</strong></td><td>Mono safety, <span class="code">+1…−1</span>. <strong>Move:</strong> below <span class="code">0</span> → reduce width, mono the low end, find the offending element.</td></tr>
+    <tr><td><strong>Tuner</strong></td><td>Pitch in note + cents. <strong>Move:</strong> off by more than a few cents → retune the oscillator / drone to <span class="code">0</span>.</td></tr>
+    <tr><td><strong>Gain-reduction meter</strong></td><td>How many dB a compressor is removing. <strong>Move:</strong> read it, don't set it blind — too much GR (<span class="code">&gt;6 dB</span> steady) → raise threshold or lower ratio.</td></tr>
+    <tr><td><strong>M4 input meter + clip LED</strong></td><td>Hardware level at the converter. <strong>Move:</strong> clip LED lights → lower the M4 input gain, never the level in Live.</td></tr>
+  </table>
+
+  <h2>Level meters — the three numbers in detail</h2>
+
+  <table class="param-table">
+    <caption>Peak vs RMS vs LUFS — when to read which</caption>
+    <tr><td>Peak (<span class="code">dBFS</span>)</td><td>Reads one instant. Use it only to answer "am I clipping?" Never use it to judge loudness — a sharp drum can peak high yet feel quiet.</td></tr>
+    <tr><td>True peak (<span class="code">dBTP</span>)</td><td>Reads the reconstructed waveform. Use it on the master before export. Ceiling <span class="code">−1 dBTP</span>.</td></tr>
+    <tr><td>RMS</td><td>Reads average energy. Use it to match the perceived size of two sustained parts when balancing a mix.</td></tr>
+    <tr><td>Integrated LUFS</td><td>Reads the whole piece, ear-weighted. Use it as your one loudness target. The number that matters at export.</td></tr>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">Sign convention used on this page</div>
+    <p>All level readings are negative below the ceiling. <span class="code">0 dBFS</span> is the top; <span class="code">−14 LUFS</span> is quieter than <span class="code">−9 LUFS</span>. "Hotter" means closer to zero. Your true-peak ceiling is <span class="code">−1 dBTP</span> no matter how loud the LUFS target.</p>
+  </div>
+
+  <h2>Spectrum — what each shape means</h2>
+
+  <table class="param-table">
+    <caption>Reading Live's Spectrum</caption>
+    <tr><td>Gentle downward tilt</td><td>Healthy. Strong lows, falling highs. The target shape for most finished music.</td></tr>
+    <tr><td>Broad hump at <span class="code">200–500 Hz</span></td><td>Mud. Everything sounds thick and unclear. Cut a wide few dB there.</td></tr>
+    <tr><td>Tall narrow spike</td><td>A resonance — one frequency ringing. Narrow notch at the spike's frequency.</td></tr>
+    <tr><td>Hump at <span class="code">2–5 kHz</span></td><td>Harshness / fatigue. A wide gentle cut eases it.</td></tr>
+    <tr><td>Flat or rising tilt</td><td>Thin, brittle. Often too little low end or too much top.</td></tr>
+    <tr><td>Steep downward tilt</td><td>Dull, muffled. Lacking air and presence up top.</td></tr>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Read the broad shape, not the dancing detail.</strong> Spectrum flickers constantly; judge the standing features and the overall tilt, not a single instantaneous frame. Use a slower averaging so the display settles.</li>
+      <li><strong>FFT in one plain line:</strong> Spectrum chops the sound into frequency bins and measures the energy in each. More bins (higher FFT size) means finer frequency detail but a slower, laggier display. The default is fine; you are reading shape, not surgical detail.</li>
+    </ul>
+  </div>
+
+  <h2>Correlation — where the needle should live</h2>
+
+  <table class="param-table">
+    <caption>Reading the phase / correlation meter</caption>
+    <tr><td><span class="code">+1</span></td><td>Mono. Left and right identical. Perfectly safe; where the low end belongs.</td></tr>
+    <tr><td><span class="code">+0.3 … +0.9</span></td><td>The healthy working band. Width with safety.</td></tr>
+    <tr><td><span class="code">0</span></td><td>Fully decorrelated. Maximum safe width. Still survives mono.</td></tr>
+    <tr><td>below <span class="code">0</span></td><td>Warning. Channels turning into opposites; partial cancellation in mono.</td></tr>
+    <tr><td><span class="code">−1</span></td><td>Total cancellation. Disappears entirely when summed to mono.</td></tr>
+  </table>
+
+  <h2>The tuner — pitch as a number</h2>
+
+  <table class="param-table">
+    <caption>Reading Live's Tuner</caption>
+    <tr><td>Note name + <span class="code">0</span> cents</td><td>In tune. The needle centred. The target for every drone and oscillator.</td></tr>
+    <tr><td><span class="code">±5</span> cents</td><td>Close enough for most material; the ear rarely flags it alone.</td></tr>
+    <tr><td><span class="code">±10–20</span> cents</td><td>Audibly off, especially in a sustained drone or a stacked unison. Retune.</td></tr>
+    <tr><td>Slow beating against a reference</td><td>Two pitches a few cents apart. The beating speed is the size of the gap. Tune until it slows to a stop.</td></tr>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Set your reference first.</strong> Confirm the tuner is at <span class="code">A = 440 Hz</span> (or whatever your project uses). Everything is measured against that anchor; tune the kick, bass, and drone to one shared root so the low end agrees.</li>
+    </ul>
+  </div>
+
+  <h2>Gain reduction — reading, not setting</h2>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>What the GR meter shows.</strong> On a compressor, a small meter that falls as the compressor turns the signal down. A dip of <span class="code">−3 dB</span> means it removed 3 dB at that instant. At rest it reads <span class="code">0</span>.</li>
+      <li><strong>Read it to confirm intent.</strong> Gentle glue is <span class="code">1–3 dB</span> on the loudest moments. Obvious pumping is <span class="code">4–6 dB+</span>. If the meter is pinned down constantly, you're crushing — raise the threshold or lower the ratio.</li>
+      <li><strong>Light touch only here.</strong> This Lab Note teaches you to <em>read</em> the GR meter, not to dial a compressor. The full treatment of compression lives elsewhere in Block 4 — here you only confirm a number matches your intent.</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The palette rule</div>
+    <p>For any fault, name it on the meter first, then make the single move that row prescribes — and re-read to confirm the move worked. One reading, one move, one confirmation. Chasing a sound by ear across three plugins is the indecision this Lab Note exists to cure.</p>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon">
+        <svg viewBox="0 0 44 44"><polyline points="10 22 18 30 34 12"/></svg>
+      </div>
+      <div class="checklist-label">Before the build</div>
+    </div>
+    <ul>
+      <li>I can say what each meter measures and the move a bad reading triggers.</li>
+      <li>I know peak is for clipping and LUFS is for loudness — never swapped.</li>
+      <li>I can name the healthy Spectrum shape and the three faults it reveals.</li>
+      <li>I know the correlation needle should live above <span class="code">0</span>.</li>
+      <li>I can read the tuner in cents and the GR meter in dB removed.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="setup.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 04 / Setup
+    </a>
+    <a href="build.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      06 / The build →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B1-004 — Metering</div>
+
+</div>
+
+</body>
+</html>

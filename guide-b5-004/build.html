@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B5-004 — Translation &amp; Subtraction · The build</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B5-004<span class="labnote-topic">Translation &amp; Subtraction</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html" class="active"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B5-004</div>
+    <div class="eyebrow">Translation &amp; Subtraction · 06 — The build</div>
+    <h1>Build a track that survives every system, by taking away</h1>
+    <p class="lede">A complete, ordered build for one short original piece, mixed for translation and arranged by removal. Every step has a subtraction in it and a translation check at the end. Keep the <a href="setup.html">setup page</a> open — it is the metering reference this page assumes — and keep the master mono button under one finger throughout.</p>
+  </header>
+
+  <!-- STEP 1 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 14 v20 a2 2 0 0 0 2 2 h28 a2 2 0 0 0 2 -2 v-16 a2 2 0 0 0 -2 -2 h-14 l-4 -4 h-10 a2 2 0 0 0 -2 2 z"/></svg>
+      </div>
+      <div class="step-num">Step 01</div>
+      <h2 class="step-title">Set the project up to judge translation</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Project basics</div>
+      <ul>
+        <li><kbd>⌘ N</kbd> for a new Live Set, <kbd>Tab</kbd> to Arrangement view. Tempo <span class="code">124</span>, <span class="code">4/4</span>.</li>
+        <li>Right-click the timeline ruler → <span class="menu">Time Ruler Format → Time</span> so the arrangement reads in <span class="code">m:ss</span>.</li>
+        <li><kbd>⌘ ,</kbd> → <strong>Audio</strong>: MOTU M4 in and out, <span class="code">48000 Hz</span>, buffer <span class="code">512</span> — this is a mixing session, latency is irrelevant and CPU headroom is free.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Build the master metering chain first</div>
+      <ul>
+        <li>On the Master: <strong>Utility</strong> then <strong>Spectrum</strong>, in that order. No limiter, no master EQ — this exercise judges translation, not loudness, and a limiter would hide the faults you are trying to find.</li>
+        <li>Leave the Utility's Gain at <span class="code">0 dB</span> and Width at <span class="code">100 %</span>. It is a monitoring tool here, not a processor; the only control you will touch is its <strong>Mono</strong> switch.</li>
+        <li>Map the Utility <strong>Mono</strong> button to a single Launchpad pad (<kbd>⌘ M</kbd>, click Mono, tap pad, exit). This is the most important control in the whole session — if checking mono takes more than one finger, you will stop doing it.</li>
+        <li>Enable the correlation display so you can see it while mixing. Park the meter where your eyes already are, on the master track or a docked view.</li>
+        <li><kbd>⌘ S</kbd> → save as <span class="code">b5_004_translation.als</span> in a dedicated project folder. <span class="menu">File → Collect All and Save</span> at the end of every session so the project is self-contained.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">What the meters mean before you trust them</div>
+      <table class="param-table">
+        <caption>Reading the master chain</caption>
+        <tr><td>Correlation near <span class="code">+1</span></td><td>Effectively mono — bulletproof but narrow. Fine for the foundation, dull for everything.</td></tr>
+        <tr><td>Correlation <span class="code">+0.3 to +0.8</span></td><td>A healthy wide mix. Brief dips on tails are normal; sustained dips are not.</td></tr>
+        <tr><td>Correlation below <span class="code">0</span> (sustained)</td><td>Phase cancellation waiting to bite in mono. Investigate, do not ship.</td></tr>
+        <tr><td>Spectrum after Utility</td><td>Shows exactly what leaves the master, including whatever the mono switch does. Watch the sub for build-up.</td></tr>
+      </table>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>One button collapses the whole mix to mono without taking your hands off the faders?</li>
+        <li>The master is monitoring-only — nothing is processing the sound?</li>
+        <li>Correlation and spectrum are both visible at a glance?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="14"/><circle cx="22" cy="22" r="5"/></svg>
+      </div>
+      <div class="step-num">Step 02</div>
+      <h2 class="step-title">Lay the mono-safe foundation</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Build the core dead centre</div>
+      <ul>
+        <li>Create tracks <span class="code">KICK</span>, <span class="code">BASS</span>, <span class="code">STAB</span>, <span class="code">PAD</span>, <span class="code">PERC</span>, plus returns <span class="code">A — REVERB</span> and <span class="code">B — ECHO</span>. Record or program your own material — the patterns must be original.</li>
+        <li>Pan <span class="code">KICK</span> and <span class="code">BASS</span> hard centre and leave them there. The kick owns 40–80 Hz, the bass owns 80–180 Hz, and nothing else is allowed below 180 Hz.</li>
+        <li>Keep the <span class="code">STAB</span> — the single chord that will carry the track — centred and dry at this stage. Its width comes later, from the reverb return, never from the source.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Lock the low end to mono now</div>
+      <ul>
+        <li>Group <span class="code">KICK</span> + <span class="code">BASS</span> → <kbd>⌘ G</kbd> → <span class="code">LOW</span>. Add a <strong>Utility</strong> on the group and enable <strong>Bass Mono</strong> with the crossover at <span class="code">120 Hz</span>.</li>
+        <li>This is insurance, not mixing: it removes the possibility of low-frequency phase cancellation before you can introduce one by accident. Everything below 120 Hz is now forced to centre; everything above keeps whatever image it has.</li>
+        <li><span class="code">KICK</span>: EQ Eight high-pass at <span class="code">28 Hz</span>, 24 dB/oct, to strip sub-rumble that only steals headroom.</li>
+        <li><span class="code">BASS</span>: high-pass at <span class="code">35 Hz</span>; a narrow bell cut at <span class="code">200–300 Hz</span> if it is woolly. Cut, don't boost.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The low-end pecking order</div>
+      <table class="param-table">
+        <caption>One owner per band, below 180 Hz</caption>
+        <tr><td>Sub — below 40 Hz</td><td>High-pass <em>everything</em> here except the kick body. Inaudible rumble eats headroom and smears the fold.</td></tr>
+        <tr><td>Kick band — 40–80 Hz</td><td>The kick owns this. Tune its fundamental to the root so it agrees with the bass.</td></tr>
+        <tr><td>Bass band — 80–180 Hz</td><td>The bass owns this. If the kick and bass fight, sidechain the bass to the kick rather than fader-war them.</td></tr>
+        <tr><td>Above 180 Hz</td><td>Open to other parts — but force the whole region below 120 Hz mono so nothing leaks width into it.</td></tr>
+      </table>
+      <ul>
+        <li>Every low-end translation problem traces back to a violation of this table. Fix the ownership before you touch a fader.</li>
+      </ul>
+    </div>
+
+    <div class="signal-flow">
+      <span class="signal-node">Kick (centre)</span>
+      <span class="signal-arrow">+</span>
+      <span class="signal-node">Bass (centre)</span>
+      <span class="signal-arrow">→ LOW group →</span>
+      <span class="signal-node">Utility Bass Mono</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">Mono-safe foundation</span>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Hit mono: do kick and bass hold their level exactly? They must be unchanged by the fold.</li>
+        <li>Is exactly one element in the kick band and one in the bass band — no third party below 180 Hz?</li>
+        <li>Is the stab still centred and dry, with nothing widening it yet?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 22 q9 -4 18 0 t18 0"/><path d="M6 28 q9 -2 18 0 t18 0"/></svg>
+      </div>
+      <div class="step-num">Step 03</div>
+      <h2 class="step-title">Earn width honestly</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Width from a real source — the reverb return</div>
+      <ul>
+        <li>Return A: <strong>Hybrid Reverb</strong>, Plate or Hall, decay <span class="code">4–6 s</span>, Dry/Wet <span class="code">100 %</span> (returns are always fully wet; the send is the mix control).</li>
+        <li>Send the <em>mono, centred</em> stab into Return A. The stereo decay of the reverb is now the width — a real source, not a phase trick. The dry stab stays in the Mid; the wet tail lives in the Side.</li>
+        <li>EQ the return before it returns: high-pass the reverb at <span class="code">250 Hz</span> so the tail never adds wide low-frequency content. Width belongs above the mud zone.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">M/S EQ to widen only where it is safe</div>
+      <table class="param-table">
+        <caption>EQ Eight in M/S mode on the STAB or its group</caption>
+        <tr><td>Side — low shelf cut</td><td>Pull side content below <span class="code">200 Hz</span> to zero. The width should not exist down there.</td></tr>
+        <tr><td>Side — high shelf, gentle boost</td><td>+1 to +2 dB above <span class="code">6 kHz</span> — air and width in the band where phase problems are inaudible.</td></tr>
+        <tr><td>Mid — narrow cut</td><td>Carve any masking band out of the centred core; leave the Side untouched.</td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The honest-width test</div>
+      <ul>
+        <li>Solo the stab + its reverb. Watch correlation: it should sit positive, dipping only on the tail.</li>
+        <li>Hit mono. The dry stab must stay solid; the reverb tail will narrow — that is correct, the tail is meant to be optional.</li>
+        <li>If the whole thing thins out in mono, your "width" was a phase trick. Pull any Utility Width back below <span class="code">120 %</span> and re-earn it from the reverb.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Is every wide thing wide because of a reverb, two takes, or side-only high EQ — never an extreme widener?</li>
+        <li>In mono, does the dry core survive while only the tails narrow?</li>
+        <li>Is there any width below 200 Hz? There should be none.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><line x1="8" y1="30" x2="36" y2="30"/><path d="M8 30 L16 14 L24 26 L32 12"/></svg>
+      </div>
+      <div class="step-num">Step 04</div>
+      <h2 class="step-title">Mix by removal — find and cut the maskers</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Set a static balance first</div>
+      <ul>
+        <li>Pull all faders to <span class="code">-inf</span>. Bring up one at a time, 30 s apart: kick, then bass against it, then stab, then pad, then perc, then returns. Each element earns its place against what is already there.</li>
+        <li>Starting balance: kick <span class="code">-9 dB</span>, bass <span class="code">-12 dB</span>, stab <span class="code">-12 dB</span>, pad <span class="code">-18 dB</span>, perc <span class="code">-16 dB</span>, reverb return <span class="code">-9 dB</span>, echo return <span class="code">-12 dB</span>. Master peaks <span class="code">≤ -3 dBFS</span>.</li>
+        <li>If a fader wants to drift more than 4 dB from here, the real problem is masking or width, not level. Fix the cause, not the symptom.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The masking hunt — cut, never boost</div>
+      <ul>
+        <li>Masking, not level, is the usual reason a part feels weak. When two parts occupy the same band, one buries the other no matter where the faders sit.</li>
+        <li>The technique: on the part that is <em>masking</em>, sweep a narrow EQ Eight boost until the clutter jumps out, then flip that boost into a <strong>cut</strong>. The masked part returns with no energy added to the mix and no headroom spent.</li>
+      </ul>
+      <table class="param-table">
+        <caption>Find the masker, carve a narrow dip in it</caption>
+        <tr><td>Stab feels buried</td><td>Find the pad or bass tail sharing its band (often <span class="code">300–600 Hz</span>); cut a narrow dip there. The stab returns with no added level.</td></tr>
+        <tr><td>Bass feels woolly</td><td>Cut <span class="code">200–300 Hz</span> on the pad, not a boost on the bass. The mud zone clears for free.</td></tr>
+        <tr><td>Mix sounds cluttered</td><td>Sweep a narrow boost to find the offending band, then turn it into a <em>cut</em> on the part that owns it least.</td></tr>
+        <tr><td>Highs feel harsh</td><td>Dip <span class="code">7–10 kHz</span> — but less than the DT 990 begs for. Confirm on the phone before committing.</td></tr>
+      </table>
+      <ul>
+        <li>Cuts are cleaner than boosts and add no level to fight the master ceiling later. A mix built from cuts arrives at the master with headroom to spare — itself a translation advantage.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Remove the duplicate</div>
+      <ul>
+        <li>Pad and stab both filling the mids? Mute the pad for two minutes. If the track still breathes, it stays muted — fewer parts always translate better.</li>
+        <li>Perc and hat hits competing in the same range? Keep the one with more rhythmic purpose, mute the other, and let the space it leaves be part of the groove.</li>
+        <li>Write down what you removed. A pass where you added nothing and removed something is a pass in the right direction.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>For every part that felt weak, did you cut a masker or mute a duplicate rather than boost it?</li>
+        <li>Listen once <em>quietly</em>: does the balance hold? Low-volume listening reveals the real balance and the masking you missed.</li>
+        <li>What did you remove this pass? "Nothing, I added" means you mixed the wrong direction.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 5 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 34 Q22 6 38 14"/><circle cx="6" cy="34" r="2.5" fill="currentColor"/><circle cx="38" cy="14" r="2.5" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Step 05</div>
+      <h2 class="step-title">Arrange subtractively — build the peak by removing</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Mark the map</div>
+      <ul>
+        <li>Add locators at each boundary: <span class="code">INTRO</span>, <span class="code">GROOVE</span>, <span class="code">FULL</span>, <span class="code">STRIP</span>, <span class="code">PEAK</span>, <span class="code">OUTRO</span>.</li>
+        <li>Counter-intuitively, <span class="code">PEAK</span> comes <em>after</em> <span class="code">STRIP</span>. The peak is felt because something was removed just before it, not because something was added at it.</li>
+      </ul>
+      <table class="param-table">
+        <caption>Section → time → bar at 124 BPM</caption>
+        <tr><td>INTRO — 0:00</td><td>Bar 1 — stab + reverb only, the room before the rhythm</td></tr>
+        <tr><td>GROOVE — 1:00</td><td>Bar 32 — kick and perc enter, bass surfaces</td></tr>
+        <tr><td>FULL — 2:00</td><td>Bar 63 — every element present, the densest the track gets</td></tr>
+        <tr><td>STRIP — 3:00</td><td>Bar 94 — remove the pad and perc; only kick, bass, stab remain</td></tr>
+        <tr><td>PEAK — 3:45</td><td>Bar 117 — the stripped groove plus a single reverb bloom; the past now reads as huge</td></tr>
+        <tr><td>OUTRO — 4:30</td><td>Bar 140 — cut bass, then kick; stab + reverb carry the exit and fade</td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The subtractive drop</div>
+      <ul>
+        <li>At <span class="code">STRIP</span>, remove parts on a kick downbeat — <kbd>⌘ E</kbd> to split, then delete the pad and perc clips. The sudden space is the event.</li>
+        <li>At <span class="code">PEAK</span>, add <em>nothing new</em>. Bloom Return A's send up by <span class="code">6 dB</span> for a few bars so the existing stab fills the room the removal just opened. Density without a single new element.</li>
+        <li>Make every cut on a downbeat; crossfade any seam between clips by a beat (drag the clip fade handles) so nothing clicks.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Drawn movement, not new material</div>
+      <table class="param-table">
+        <caption>Automation that opens space — times at 124 BPM</caption>
+        <tr><td>Reverb send @ STRIP→PEAK</td><td><span class="code">-9 dB → -3 dB</span> over 8 bars — the room blooms exactly as parts leave</td></tr>
+        <tr><td>Stab filter @ FULL→PEAK</td><td>Slowly open a low-pass so the one surviving part brightens; no ramp shorter than 8 bars</td></tr>
+        <tr><td>Echo feedback @ OUTRO</td><td><span class="code">40 % → 60 % → 40 %</span> — the tails self-regenerate briefly, then recede</td></tr>
+        <tr><td>Master volume @ final 30 s</td><td>A slow fade — the only place the master is touched</td></tr>
+      </table>
+      <ul>
+        <li>If you can hear an automation move as an "event", it is too fast. The listener should notice things are <em>different</em>, never that they <em>changed</em>. Right-click a lane → <span class="menu">Simplify Envelope</span> to thin breakpoint clutter while keeping the shape.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Editing craft</div>
+      <ul>
+        <li>Every cut lands on a kick downbeat. <kbd>⌘ E</kbd> at the playhead with grid snap on.</li>
+        <li>Where two clips of one part meet, overlap by a beat and crossfade the seam — hard butt-joins click and lurch, and headphones will expose them even when the room hides them.</li>
+        <li>Loop a suspicious seam with <kbd>⌘ L</kbd> and listen three times before deciding it passes.</li>
+        <li>When a section's edits are final, <kbd>⌘ J</kbd> to consolidate — one clean clip per section keeps the timeline legible.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Play <span class="code">FULL → STRIP → PEAK</span> blind: does the peak land because things <em>opened</em>, not because things were added?</li>
+        <li>Did the drop remove a part rather than stack one?</li>
+        <li>Can you remove one more element across the whole arrangement without weakening it? If yes, remove it.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 6 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="14" cy="22" r="6"/><circle cx="30" cy="22" r="6"/><line x1="20" y1="22" x2="24" y2="22"/></svg>
+      </div>
+      <div class="step-num">Step 06</div>
+      <h2 class="step-title">The mono pass — fold the whole mix down</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Live in mono for a while</div>
+      <ul>
+        <li>Hit the mono button and <em>leave it on</em>. Mix a full pass entirely in mono. If the groove works folded, the width you add back later is pure bonus.</li>
+        <li>Walk the correlation meter through the whole arrangement. Any sustained dip below <span class="code">0</span> on a load-bearing part is a fault to chase, not a flavour to keep.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Hunt the disappearing parts</div>
+      <table class="param-table">
+        <caption>Toggle mono on/off and watch what changes</caption>
+        <tr><td>Reverb tail vanishes</td><td>Expected and fine — the tail is meant to be optional Side content.</td></tr>
+        <tr><td>Bass loses level/punch</td><td>Low-frequency width leaked in. Re-check Bass Mono crossover and any stereo effect on the bass.</td></tr>
+        <tr><td>Stab thins out</td><td>You widened the source instead of the return. Narrow the source; widen only the wet path.</td></tr>
+        <tr><td>Whole mix drops in level</td><td>Phase cancellation across multiple parts. Pull every Utility Width back to 100 % and re-earn width one part at a time.</td></tr>
+      </table>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Toggling mono on and off: does the energy hold, or does a load-bearing part vanish?</li>
+        <li>Does the correlation needle stay positive on the foundation through every section?</li>
+        <li>Could you ship the mono fold as-is and still have a groove? That is the bar.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 7 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="14" y="6" width="16" height="32" rx="2"/><line x1="19" y1="33" x2="25" y2="33"/></svg>
+      </div>
+      <div class="step-num">Step 07</div>
+      <h2 class="step-title">The cross-system pass — three judges</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Render and listen everywhere before changing anything</div>
+      <ul>
+        <li>Export: WAV, <span class="code">48 kHz</span>, 24-bit, <strong>Normalize OFF</strong>, <strong>Convert to Mono OFF</strong>, no limiter. Filename <span class="code">b5_004_v1.wav</span>.</li>
+        <li>Get it onto the phone, into a second room, and onto the headphones. A/B against a commercial reference you already trust on each system.</li>
+        <li>Mix for the <strong>worst</strong> of the three. If the phone fails, fix that first — a phone-proof groove is a finished groove.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">What each judge tells you</div>
+      <table class="param-table">
+        <caption>Translate the complaints into fixes</caption>
+        <tr><td>Phone: groove gone</td><td>You leaned on lows and width. Re-balance so the centred core drives, then re-test.</td></tr>
+        <tr><td>Headphones: clicks / edits audible</td><td>Crossfade the seams; the room and phone hid them, headphones won't.</td></tr>
+        <tr><td>Room: bass too big or too small</td><td>Trust the phone and headphones for the <em>relative</em> bass; the room lies about absolute low-end level.</td></tr>
+        <tr><td>All three agree something is wrong</td><td>That is a real fault, not a system quirk. Fix it.</td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Run it as a fixed routine</div>
+      <ul>
+        <li>Set one comfortable listening level on the M4 phones knob and leave it. Translation judgements drift with volume — the only variable you change between systems must be the system.</li>
+        <li>Listen to the same 60-second span on each judge, in the same order, every time. A repeatable routine catches regressions a casual listen misses.</li>
+        <li>Keep a commercial reference cued on all three. You are checking your track against records that already translate, not against silence.</li>
+        <li>Note the fault in one concrete line per system before touching anything. Then fix the worst-system fault first.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does the track read the same on the phone, the headphones, and the room?</li>
+        <li>Did you make it work on the worst of the three rather than the best?</li>
+        <li>Is there any system on which it needs to sound good and currently doesn't? Then it is not done — it is hiding.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 8 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><polyline points="14 18 22 26 30 18"/><line x1="22" y1="8" x2="22" y2="26"/><line x1="8" y1="34" x2="36" y2="34"/></svg>
+      </div>
+      <div class="step-num">Step 08</div>
+      <h2 class="step-title">Final removal pass, then export and step away</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">One last subtraction</div>
+      <ul>
+        <li>Take everything you learned from the three judges and make it a <em>removal</em>: cut a masking band, mute a part that only worked in the room, narrow a width that only flattered the headphones.</li>
+        <li>Confirm the master still peaks <span class="code">≤ -3 dBFS</span> across the whole piece, including the PEAK bloom. Cuts will have given you headroom back — keep it.</li>
+        <li>Re-run the mono toggle one final time. Nothing load-bearing should move.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Export and archive</div>
+      <ul>
+        <li>Render the full span as <span class="code">b5_004_v2.wav</span> with the same settings. <span class="menu">File → Collect All and Save</span>.</li>
+        <li>Write <span class="code">b5_004_notes.txt</span> next to the WAV — max 10 lines, timestamped and concrete: <span class="code">3:00 strip needs another beat of space</span>, not <span class="code">peak feels off</span>.</li>
+        <li>Wait a day. Listen on all three systems. Change <strong>one thing</strong> — ideally a removal — render <span class="code">v3</span>, compare.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Was your last move a removal? If it was an addition, ask whether the addition is really needed.</li>
+        <li>Does the final render survive the fold and all three systems with nothing hiding?</li>
+        <li>Could the track lose one more element and still be itself? If so, you know what v3 starts with.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-nav">
+    <a href="palette.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 05 / Palette
+    </a>
+    <a href="reflection.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      07 / Reflection →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B5-004 — Translation &amp; Subtraction</div>
+
+</div>
+
+</body>
+</html>

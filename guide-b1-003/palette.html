@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B1-003 — Lock · Palette</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B1-003<span class="labnote-topic">Lock</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html" class="active"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B1-003</div>
+    <div class="eyebrow">Lock · 05 — Palette</div>
+    <h1>The moves that build lock</h1>
+    <p class="lede">Lock has a small vocabulary. There are four moves — swap the clock master, set the buffer, choose the monitor source, blend the direct monitor — and a handful of reference numbers. This page lays each one out with concrete values and the exact menu it lives in, so the build is a matter of choosing, not hunting.</p>
+  </header>
+
+  <h2>The reference numbers</h2>
+
+  <table class="param-table">
+    <caption>What the timing path costs, at 48 kHz</caption>
+    <tr><td>Round-trip minimum</td><td><span class="code">2 × buffer ÷ 48</span> ms — one buffer in, one out</td></tr>
+    <tr><td>128 samples</td><td>~ 2.7 ms each way, ~ 5.3 ms + overhead round trip</td></tr>
+    <tr><td>256 samples</td><td>~ 5.3 ms each way, ~ 10.7 ms minimum + overhead (low-to-mid teens)</td></tr>
+    <tr><td>512 samples</td><td>~ 10.7 ms each way — mix and export only</td></tr>
+    <tr><td>Samples ↔ ms</td><td><span class="code">samples = ms × 48</span> at 48 kHz</td></tr>
+    <tr><td>MIDI-clock jitter, direct port</td><td>Well under 1 ms — inaudible for this music</td></tr>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">The frame for this page</div>
+    <p>Every move here serves one of the two promises: a tighter <em>clock</em> or a cleaner <em>monitor path</em>. Before you change anything, say which promise the change serves. A move you can't justify against one of the two promises is fiddling, not lock.</p>
+  </div>
+
+  <h2>Move 1 — clock master swap</h2>
+  <p style="text-align:center; color:var(--text-muted); max-width:640px; margin:0 auto 18px;">Choosing who leads. Exactly one device may send clock; everything else receives. The default for this course is Live as master.</p>
+
+  <table class="param-table">
+    <caption>Clock master — the two configurations</caption>
+    <tr><td><strong>Live as master</strong> (default)</td><td>Live: <span class="menu">Link, Tempo &amp; MIDI</span> → Sync ON for the Digitakt output port. Digitakt: clock + transport receive ON, send OFF. MicroFreak: source USB. Live's tempo rules.</td></tr>
+    <tr><td><strong>Digitakt as master</strong></td><td>Digitakt: clock + transport <em>send</em> ON. Live: enable <strong>Sync</strong> on the Digitakt <em>input</em> port; Live's tempo now follows the box. Use only when composing hands-on at the hardware.</td></tr>
+    <tr><td><strong>Forbidden</strong></td><td>Both devices sending clock. This is two free-running tempos — guaranteed drift, no fix.</td></tr>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>One sentence to confirm the swap:</strong> "Live is master; the Digitakt's screen reads Live's tempo and it starts on Live's bar one." If you can say that, the clock is locked. If the screens disagree, sync is broken.</li>
+    </ul>
+  </div>
+
+  <h2>Move 2 — buffer size</h2>
+  <p style="text-align:center; color:var(--text-muted); max-width:640px; margin:0 auto 18px;">The single knob that trades delay against CPU. Lives in <kbd>⌘ ,</kbd> → <strong>Audio</strong> → <span class="menu">Buffer Size</span>. Change it per task, not per song.</p>
+
+  <table class="param-table">
+    <caption>Buffer size — pick per task</caption>
+    <tr><td><span class="code">128</span></td><td>Designing or playing a synth live through Live's FX, when 256 feels laggy. Watch for crackles — if they appear, your CPU has hit its limit.</td></tr>
+    <tr><td><span class="code">256</span></td><td>The default. Programming, recording, jamming. Stable and low enough to play against.</td></tr>
+    <tr><td><span class="code">512</span> or higher</td><td>Mixing and exporting. The takes are printed; latency no longer matters and the CPU wants the headroom.</td></tr>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Re-measure after every change.</strong> The driver-error compensation value is only valid at the buffer it was measured on. Change the buffer, re-run the loopback, enter the new number.</li>
+      <li><strong>Compensation ≠ feel.</strong> Raising the buffer makes the recording compensation different <em>and</em> makes the input feel later under your hands. Two effects, one knob — remember which you're chasing.</li>
+    </ul>
+  </div>
+
+  <h2>Move 3 — monitor source</h2>
+  <p style="text-align:center; color:var(--text-muted); max-width:640px; margin:0 auto 18px;">Choosing which single path carries the input to your ears. Exactly one open at a time, always.</p>
+
+  <table class="param-table">
+    <caption>The three monitor sources — never two at once</caption>
+    <tr><td>M4 direct monitoring</td><td>Knob toward input, Live track Monitor <span class="code">Off</span>. Near-zero delay, dry. For designing and jamming.</td></tr>
+    <tr><td>Live software monitoring</td><td>Live track Monitor <span class="code">Auto</span> or <span class="code">In</span>, M4 knob toward playback. Hears Live's FX, late by the round trip. For tracking when FX are part of the sound.</td></tr>
+    <tr><td>Digitakt's own outs</td><td>Analog L/R into M4 in 3/4, Live Monitor <span class="code">Off</span>. You hear the box directly while a USB copy records silently — verify the printed copy after.</td></tr>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">The one forbidden combination</div>
+    <p>M4 direct <em>and</em> Live software, both open on the same input, is the doubled-monitoring trap — comb filtering, the hollow phasey colour. There is no task it helps. One path, every time.</p>
+  </div>
+
+  <h2>Move 4 — direct-monitor blend</h2>
+  <p style="text-align:center; color:var(--text-muted); max-width:640px; margin:0 auto 18px;">The M4's monitor-mix knob sets how much live input you hear against the computer playback. It is the cue/main balance for hardware monitoring.</p>
+
+  <table class="param-table">
+    <caption>Where to set the monitor-mix knob</caption>
+    <tr><td>Fully toward <strong>input</strong></td><td>You hear only the live hardware, zero delay, no track. For sound design where the synth is the whole world.</td></tr>
+    <tr><td>Centred</td><td>Cue: live input balanced against the track. For jamming a part over an existing loop.</td></tr>
+    <tr><td>Fully toward <strong>playback</strong></td><td>You hear only the computer — required when software-monitoring, so the only input you hear is Live's processed copy.</td></tr>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>The knob is listening level, not record level.</strong> It changes what you hear, never what is printed. Riding it while setting gain wrecks your level judgement — set it once, comfortable, and leave it.</li>
+      <li><strong>When software-monitoring, go full playback.</strong> If any direct input bleeds through while Live also monitors, you've reopened the doubling trap.</li>
+    </ul>
+  </div>
+
+  <h2>The diagnostic moves — when something is wrong</h2>
+
+  <table>
+    <thead><tr><th>Symptom</th><th>Likely cause</th><th>Move</th></tr></thead>
+    <tbody>
+      <tr><td>Devices start together, slide apart by bar 64</td><td>Drift — two clocks, or a flaky hub</td><td>Confirm only one master; plug hardware direct; restart the transport before takes</td></tr>
+      <tr><td>Hollow, phasey input</td><td>Doubled monitoring</td><td>Close one path: M4 knob to playback, or Live Monitor Off</td></tr>
+      <tr><td>Recorded transient lands after the grid</td><td>Uncompensated latency</td><td>Re-run loopback, enter Driver Error Compensation</td></tr>
+      <tr><td>Synth feels rubbery under the hands</td><td>Buffer too large for software monitoring</td><td>Drop buffer to 128, or switch to M4 direct</td></tr>
+      <tr><td>Digitakt ignores Live's play</td><td>Sync or transport receive off, wrong port</td><td>Enable Sync on the right port; clock + transport receive ON on the box</td></tr>
+      <tr><td>Crackles and dropouts</td><td>Buffer too small for the CPU</td><td>Raise the buffer until they stop</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">The palette rule</div>
+    <p>Change one move at a time and re-listen. Lock problems compound — swap the clock master and the buffer and the monitor source all at once and you will never know which fixed it. One change, one check, then the next.</p>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon">
+        <svg viewBox="0 0 44 44"><polyline points="10 22 18 30 34 12"/></svg>
+      </div>
+      <div class="checklist-label">Before the build</div>
+    </div>
+    <ul>
+      <li>I have chosen my clock master and can name the port it sends on.</li>
+      <li>I know my buffer size and the round-trip number it gives.</li>
+      <li>I have a default monitor source and know when I switch it.</li>
+      <li>I know the monitor-mix knob is listening level, not record level.</li>
+      <li>I can match each of the four faults to the move that fixes it.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="setup.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 04 / Setup
+    </a>
+    <a href="build.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      06 / The build →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B1-003 — Lock</div>
+
+</div>
+
+</body>
+</html>

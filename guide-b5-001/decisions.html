@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B5-001 — Delay as Architecture · Decisions</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B5-001<span class="labnote-topic">Delay</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html" class="active"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Delay recipes</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B5-001</div>
+    <div class="eyebrow">Delay · 03 — Decisions</div>
+    <h1>Routing decides the sound</h1>
+    <p class="lede">A delay is not a knob you turn up. It is a path you build: where the signal leaves, how much comes back, where the repeats sit in stereo, and what they sound like by the time you hear them again. Decide the routing first — the sound is downstream of the route.</p>
+  </header>
+
+  <h2>Insert vs send — the decision that defines everything</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 22h32"/><rect x="16" y="14" width="12" height="16" rx="1.5"/></svg>
+      </div>
+      <h3 class="card-title">Delay as an insert</h3>
+      <ul class="card-points">
+        <li>The whole track passes <em>through</em> the device; Dry/Wet sets the blend</li>
+        <li>One source, one delay — the repeats inherit that source's EQ and dynamics</li>
+        <li>Use when the delay is part of the instrument's identity — a dubbed-out stab, a slap on a vocal</li>
+        <li>Cheap on routing, expensive on flexibility — you cannot feed two sources into it</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 16h32"/><path d="M16 16v8a4 4 0 0 0 4 4h18"/><circle cx="16" cy="16" r="2" fill="currentColor"/></svg>
+      </div>
+      <h3 class="card-title">Delay on a send / return</h3>
+      <ul class="card-points">
+        <li>A copy is tapped off and routed to a return track running 100&nbsp;% wet</li>
+        <li>Many sources share one space; the send knob is the per-track mix control</li>
+        <li>The return is a printable bus — you can EQ, saturate, and automate the repeats alone</li>
+        <li>This is the dub mixer model: the throw lives on the send, the colour lives on the return</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The rule</div>
+    <p>On a return, the device is always 100&nbsp;% wet — the send amount is the mix. The instant you find yourself riding Dry/Wet on a return, you have confused an insert with a send.</p>
+  </div>
+
+  <table class="param-table">
+    <caption>Which route, when — for this dub track</caption>
+    <tr><td>Main echo (the architecture)</td><td>Send / return. Every part can throw into it; you perform the sends; you can print and process the tail.</td></tr>
+    <tr><td>A slap that defines one sound</td><td>Insert. The short doubling is part of that instrument and never needs to be shared.</td></tr>
+    <tr><td>A second, contrasting space</td><td>Second return. A long ping-pong on B, a tight mono slap on C — sources choose by sending to one, both, or neither.</td></tr>
+    <tr><td>Hardware throw on Digitakt II</td><td>The Digitakt's delay is effectively a per-track send; p-lock the send amount on chosen trigs — that <em>is</em> the throw, baked in.</td></tr>
+  </table>
+
+  <h2>Feedback amount vs return level — two knobs that both get "louder"</h2>
+
+  <p style="text-align:center; max-width:640px; margin:0 auto 24px; color:var(--text-muted);">This is the single most common delay mistake. Beginners reach for one knob when they mean the other. They are not the same control and they fail in opposite ways.</p>
+
+  <table class="param-table">
+    <caption>Two ways to make a delay "more"</caption>
+    <tr><td>Feedback amount</td><td>How many times a repeat re-enters the line. Controls <em>length of the tail</em> and density. Past ~100&nbsp;% it self-oscillates and runs away.</td></tr>
+    <tr><td>Return level (or send level)</td><td>How loud the wet path sits in the mix. Controls <em>presence</em>, not length. Turning it up never causes runaway.</td></tr>
+    <tr><td>Symptom of confusion</td><td>You want longer trails, so you raise the return — and the mix drowns in echoes that never decay, when what you wanted was more <em>repeats</em>, not more <em>level</em>.</td></tr>
+    <tr><td>The opposite confusion</td><td>You want the echo more present, so you crank feedback — and now it never stops, smearing every later bar, when all you wanted was to <em>hear</em> the few repeats you already had.</td></tr>
+    <tr><td>The fix</td><td>Set feedback for the tail length you want, then set return level for how present that tail is. Two passes, two knobs, in that order.</td></tr>
+  </table>
+
+  <div class="signal-flow">
+    <span class="signal-node">Source</span>
+    <span class="signal-arrow">→ send →</span>
+    <span class="signal-node">Return: Echo 100% wet</span>
+    <span class="signal-arrow">↺ feedback</span>
+    <span class="signal-node">Return fader</span>
+    <span class="signal-arrow">→ mix →</span>
+    <span class="signal-node">Master</span>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>A mental model.</strong> Feedback is "how long does the ball keep bouncing." Return level is "how close is the ball to the microphone." You can have a long bounce that is quiet, or a short bounce that is loud — they are independent, and confusing them is what muddies mixes.</li>
+    </ul>
+  </div>
+
+  <h2>Sync'd vs free — clocked rhythm or analog drift</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="14"/><line x1="22" y1="22" x2="22" y2="12"/><line x1="22" y1="22" x2="30" y2="22"/></svg>
+      </div>
+      <h3 class="card-title">Sync'd (note divisions)</h3>
+      <ul class="card-points">
+        <li>Echo's <span class="code">Sync</span> on, times in <span class="code">1/4</span>, <span class="code">3/16</span>, dotted-eighth</li>
+        <li><span class="code">3/16</span> and dotted-1/8 are the dub staples — they pull <em>against</em> the kick instead of doubling it</li>
+        <li>Locks the repeats to the groove; the delay becomes a rhythm part</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M8 30c8-16 20-16 28 0"/><path d="M8 30h28" stroke-dasharray="3 3"/></svg>
+      </div>
+      <h3 class="card-title">Free (milliseconds)</h3>
+      <ul class="card-points">
+        <li>Time set in ms; nudging it slightly off the grid is a deliberate effect</li>
+        <li>Modulating delay time creates pitch wobble — analog tape and BBD character</li>
+        <li>Echo's <span class="code">Modulation</span> + <span class="code">Wobble</span> sections add this drift; small amounts only</li>
+      </ul>
+    </div>
+  </div>
+
+  <table class="param-table">
+    <caption>Dub-useful sync divisions at 124 BPM (1 bar = 1935 ms)</caption>
+    <tr><td><span class="code">1/4</span></td><td>484 ms — the echo doubles the beat; safe but obvious</td></tr>
+    <tr><td><span class="code">3/16</span></td><td>363 ms — the classic dub throw; lands just before each beat and tumbles forward</td></tr>
+    <tr><td>dotted <span class="code">1/8</span></td><td>363 ms — same arithmetic as 3/16, framed as a dotted note; the rolling stagger</td></tr>
+    <tr><td><span class="code">1/8</span></td><td>242 ms — busy; better as a slap than a long throw</td></tr>
+    <tr><td>dotted <span class="code">1/4</span></td><td>726 ms — long, spacious; good for melodica-style answers between phrases</td></tr>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>The lurch trap.</strong> Changing a sync'd delay time while it rings causes a pitch jump on the in-flight repeats. If you automate delay time, do it during a silence in the source, or switch Echo to a fixed time and crossfade between two returns instead.</li>
+      <li><strong>When to go free.</strong> Choose ms time when you <em>want</em> the echo to drift off the grid — a hair fast or slow makes it breathe. The cost is that it no longer locks to the kick, so keep free-time delays sparse or on non-rhythmic material.</li>
+    </ul>
+  </div>
+
+  <h2>Ping-pong &amp; width — stereo from a mono source</h2>
+
+  <table class="param-table">
+    <caption>Echo stereo behaviour</caption>
+    <tr><td>Stereo mode = Ping-Pong</td><td>Repeats alternate hard L / R. Wide and hypnotic, but it is the first thing to collapse in mono.</td></tr>
+    <tr><td>L/R offset</td><td>Different delay times per side — looser, more analog than strict ping-pong; still mono-risky.</td></tr>
+    <tr><td>Width control</td><td>Pull width down on the return to keep some stereo movement without an empty centre in mono.</td></tr>
+    <tr><td>Mono-safe alternative</td><td>A single-tap mono delay panned slightly, with a short reverb for width — survives the mono fold every time (see page 05).</td></tr>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">Test it now, not at the mix</div>
+    <p>Drop a Utility after the delay return and flip it to mono for ten seconds. If the ping-pong vanishes or comb-filters into a thin whoosh, the width was decorative. Decide whether you can afford it before it is load-bearing.</p>
+  </div>
+
+  <h2>Filtered feedback — why dub delays decay instead of piling up</h2>
+
+  <p style="text-align:center; max-width:640px; margin:0 auto 24px; color:var(--text-muted);">A delay with flat feedback accumulates energy and turns to mud. The trick is to remove a little band on every pass, so each repeat is darker and thinner than the last — the tail dissolves instead of clogging.</p>
+
+  <div class="signal-flow">
+    <span class="signal-node">Repeat in</span>
+    <span class="signal-arrow">→ HP 250&nbsp;Hz →</span>
+    <span class="signal-node">delay line</span>
+    <span class="signal-arrow">→ LP 4&nbsp;kHz →</span>
+    <span class="signal-node">repeat out</span>
+    <span class="signal-arrow">↺ each pass</span>
+  </div>
+
+  <table class="param-table">
+    <caption>Echo feedback filtering on the return</caption>
+    <tr><td>High-pass in the feedback path</td><td><span class="code">200–300 Hz</span> — keeps low end out of the repeats so the kick and bass stay defined</td></tr>
+    <tr><td>Low-pass in the feedback path</td><td><span class="code">3–5 kHz</span> — each repeat loses highs, fading into a warm blur instead of a hissing pile</td></tr>
+    <tr><td>Echo's Filter section</td><td>Engage the in-loop HP/LP — not just an EQ after the device, which filters once; this filters every pass</td></tr>
+    <tr><td>Saturation in the loop</td><td>A touch of drive makes loud repeats compress and dirty as they regenerate — the tape-echo character that keeps feedback musical</td></tr>
+  </table>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Decision check</div>
+    <ul>
+      <li>Is this delay an insert (part of one instrument) or a send (a shared, printable space)? Can you state which, and why?</li>
+      <li>When you wanted "more delay," did you reach for feedback (length) or return level (presence) — and was that the right knob?</li>
+      <li>Sync'd or free? If sync'd, are you on a division that pulls against the kick (3/16, dotted-1/8) rather than doubling it (1/4)?</li>
+      <li>Does the feedback path filter on every pass, so the tail darkens and dies? Or does it pile up flat and muddy?</li>
+      <li>Flip the delay return to mono: does anything important disappear? If yes, is that width worth losing on a phone speaker?</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="listen.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 02 / Listen
+    </a>
+    <a href="setup.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      04 / Setup →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B5-001 — Delay as Architecture</div>
+
+</div>
+
+</body>
+</html>

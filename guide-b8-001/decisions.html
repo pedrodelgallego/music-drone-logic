@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B8-001 — Spec &amp; Voice — Decisions</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Lab Note contents">
+  <p class="nav-label labnote-code">Lab Note B8-001<span class="labnote-topic">Spec &amp; Voice</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html" class="active"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B8-001</div>
+    <div class="eyebrow">Spec &amp; Voice · 03 — Decisions</div>
+    <h1>What a spec is, and how it encodes a voice</h1>
+    <p class="lede">A spec is not a description written after the fact — it is a contract you sign before you start. This page sorts the theory: the two altitudes of a spec, constraint design from nothing, the role of refusal, and the claim that a voice lives in a document rather than in a pair of hands. Everything here becomes a worksheet on page 05 and an action on page 06.</p>
+  </header>
+
+  <h2>Two documents, two altitudes</h2>
+
+  <p style="text-align:center; max-width:640px; margin:0 auto 24px; color:var(--text-muted);">Every system you author splits into two layers. Keep them in separate files. The day they blur is the day the work loses its spine.</p>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M22 6 L36 14 V30 L22 38 L8 30 V14 Z"/><path d="M22 22 L36 14"/><path d="M22 22 V38"/><path d="M22 22 L8 14"/></svg>
+      </div>
+      <h3 class="card-title">The System Spec — what it is</h3>
+      <ul class="card-points">
+        <li>The intention. Why this work exists and what it refuses to be</li>
+        <li>The thesis sentence, the constraints, the felt result you chase</li>
+        <li>Tool-agnostic — it would survive a change of rig</li>
+        <li>Written in plain language a non-musician could argue with</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><circle cx="14" cy="14" r="5"/><circle cx="30" cy="30" r="5"/><line x1="18" y1="14" x2="30" y2="14"/><line x1="30" y1="14" x2="30" y2="25"/><line x1="14" y1="19" x2="14" y2="30"/><line x1="14" y1="30" x2="25" y2="30"/></svg>
+      </div>
+      <h3 class="card-title">The Engineering Spec — how it runs</h3>
+      <ul class="card-points">
+        <li>The mechanism. Signal flow, clock master, parameter ranges, mute logic</li>
+        <li>Names the rig, the routings, the recorded versus drawn movement</li>
+        <li>Reproducible — a stranger could rebuild the patch from it</li>
+        <li>Changes when the gear changes; the System Spec does not</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The rule that keeps them honest</div>
+    <p>The System Spec says what must be true of the result. The Engineering Spec says what you will do to the rig. "The peak must arrive by opening, never by adding" is system. "Open the bass filter from 600&nbsp;Hz to 3.5&nbsp;kHz over 40 bars" is engineering. Sort every line into one file or the other.</p>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Why two files and not one.</strong> The System Spec is the part you defend for years; the Engineering Spec is the part you rewrite when you buy a new box. Merge them and a gear change silently rewrites your intentions.</li>
+      <li><strong>The test of altitude.</strong> If a line stops being true the moment you sell the MicroFreak, it was engineering. If it stays true on any rig, it was system.</li>
+      <li><strong>A spec is dated, signed, and falsifiable.</strong> It is a snapshot of taste you can hold yourself to and later catch yourself betraying. That is the whole value.</li>
+    </ul>
+  </div>
+
+  <h2>Designing a constraint system from nothing</h2>
+
+  <p style="text-align:center; max-width:660px; margin:0 auto 24px; color:var(--text-muted);">Earlier blocks handed you the constraints — four elements, one clock, stock effects only. Now you invent them. A constraint is not a limit you tolerate; it is a generator you choose because it makes a specific kind of work inevitable.</p>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><line x1="8" y1="22" x2="36" y2="22"/><line x1="14" y1="14" x2="14" y2="30"/><line x1="30" y1="14" x2="30" y2="30"/></svg>
+      </div>
+      <div class="step-num">Idea 01</div>
+      <h2 class="step-title">Name the felt result before the method</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Start at the listener, not the rig</div>
+      <ul>
+        <li>Write one sentence describing what should happen <em>in the body of someone listening</em> — "time should feel like it slows," "the room should feel larger than the speakers."</li>
+        <li>Do not name a single piece of gear yet. If you cannot describe the result without the MicroFreak, you are designing a patch, not a system.</li>
+        <li>This sentence is the seed of the thesis you sharpen below and on page 06.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Pick the one variable that carries the work</div>
+      <ul>
+        <li>Across the seven layers — Material, Signal, Control, Time, Decision, Human, Archive — choose the single layer that does the heavy lifting for this system.</li>
+        <li>A hypnotic-techno system lives in <strong>Time</strong> and <strong>Control</strong>: long-form evolution from slow modulation. A musique-concrète system lives in <strong>Material</strong>. A live-performance system lives in <strong>Human</strong> and <strong>Decision</strong>.</li>
+        <li>Everything else becomes a constraint in service of that one variable. A system with three load-bearing variables is three half-systems.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="8" y="8" width="28" height="28" rx="3"/><line x1="8" y1="18" x2="36" y2="18"/><line x1="18" y1="18" x2="18" y2="36"/></svg>
+      </div>
+      <div class="step-num">Idea 02</div>
+      <h2 class="step-title">Write the constraints as a budget</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">A constraint is a number or a refusal, never a vibe</div>
+      <table class="param-table">
+        <caption>Turn intentions into countable rules</caption>
+        <tr><td>Element budget</td><td>"No more than five sounding elements at any instant." A ceiling forces the deepen-don't-widen discipline.</td></tr>
+        <tr><td>Movement source</td><td>"All change is modulation or automation; no element enters after minute three." Forbids the beginner reflex of adding.</td></tr>
+        <tr><td>Palette</td><td>"One synth voice, one sampler, stock effects only." Closing the toolbox forces depth on what remains.</td></tr>
+        <tr><td>Time floor</td><td>"No transition shorter than eight bars." Bans the dramatic cut you will be tempted by at 2&nbsp;a.m.</td></tr>
+        <tr><td>Refusal list</td><td>"No risers, no white-noise sweeps, no key change, no drop." Name what is off-limits as explicitly as what is allowed.</td></tr>
+      </table>
+      <ul>
+        <li>A good constraint is one you can be caught breaking. "Make it hypnotic" cannot be broken; "five elements maximum" can. Write only rules with teeth.</li>
+        <li>Three to six constraints is a system. Twelve is a cage — you will resent it and abandon it by the second piece.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">A test for whether a constraint is generative</div>
+      <table class="param-table">
+        <caption>For each rule, ask what it forces you toward</caption>
+        <tr><td>Bans the sample library</td><td>→ forces you to record the world; field recording becomes the signature</td></tr>
+        <tr><td>Bans new elements after 3:00</td><td>→ forces movement out of modulation; the arc becomes a sculpting problem</td></tr>
+        <tr><td>Caps at five elements</td><td>→ forces each element to evolve; restraint becomes the subject</td></tr>
+        <tr><td>Bans transitions under eight bars</td><td>→ forces patience; the listener's sense of time becomes the material</td></tr>
+      </table>
+      <ul>
+        <li>If a constraint forbids without forcing anything, it is a rule about taste, not a generator. Cut it or rewrite it until it points somewhere.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M10 34 V20 L22 10 L34 20 V34"/><line x1="10" y1="34" x2="34" y2="34"/><line x1="18" y1="34" x2="18" y2="24"/><line x1="26" y1="34" x2="26" y2="24"/></svg>
+      </div>
+      <div class="step-num">Idea 03</div>
+      <h2 class="step-title">Translate to the Engineering Spec</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Each system rule maps to a mechanism</div>
+      <ul>
+        <li>"Five elements maximum" becomes a track list and a routing diagram. "All change is modulation" becomes a list of mod sources and automation lanes — and a ban on duplicating clips into new sections.</li>
+        <li>Declare the clock master once, in writing. One clock, one truth — the rest of the rig follows it.</li>
+        <li>Specify parameter ranges, not just parameters: "bass filter rides 600&nbsp;Hz–3.5&nbsp;kHz" so a mapped controller can never overshoot into harshness.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The signal flow is the spec made physical</div>
+      <div class="signal-flow">
+        <span class="signal-node">System Spec</span>
+        <span class="signal-arrow">→</span>
+        <span class="signal-node">Constraints</span>
+        <span class="signal-arrow">→</span>
+        <span class="signal-node">Engineering Spec</span>
+        <span class="signal-arrow">→</span>
+        <span class="signal-node">Rig &amp; routing</span>
+        <span class="signal-arrow">→</span>
+        <span class="signal-node">The piece</span>
+      </div>
+      <ul>
+        <li>Read this chain backward when something feels wrong in the piece: the fault is almost always a constraint you wrote loosely, not a knob you set wrong.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>The voice is in the archive, not the next idea</h2>
+
+  <p style="text-align:center; max-width:660px; margin:0 auto 24px; color:var(--text-muted);">A voice is not a sound you like. It is the system that keeps reappearing in your work whether you intend it or not — plus the intentions and refusals behind it. You do not invent a voice. You notice one, then decide to mean it.</p>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><circle cx="20" cy="20" r="11"/><line x1="28" y1="28" x2="38" y2="38"/></svg>
+      </div>
+      <h3 class="card-title">Habit</h3>
+      <ul class="card-points">
+        <li>A move you make unconsciously</li>
+        <li>Sometimes well, sometimes lazily</li>
+        <li>Never examined, never withheld</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M14 22 l6 6 l12 -14"/><circle cx="22" cy="22" r="16"/></svg>
+      </div>
+      <h3 class="card-title">Signature</h3>
+      <ul class="card-points">
+        <li>The same move, now named</li>
+        <li>Defended and applied on purpose</li>
+        <li>Withheld on purpose, too</li>
+      </ul>
+    </div>
+  </div>
+
+  <p style="text-align:center; max-width:660px; margin:24px auto 0; color:var(--text-muted);">The work of finding a voice is this conversion: turning the habit you caught yourself doing into a signature you choose every time. A signature you cannot withhold is a tic.</p>
+
+  <h2>What you are refusing</h2>
+
+  <p style="text-align:center; max-width:660px; margin:0 auto 24px; color:var(--text-muted);">A voice is defined at its edges. What you will not do shapes the work more than what you reach for. The refusals are not negativity — they are the walls that give the room its acoustics.</p>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="15"/><line x1="12" y1="12" x2="32" y2="32"/></svg>
+      </div>
+      <h3 class="card-title">Refusals of technique</h3>
+      <ul class="card-points">
+        <li>No drop, no riser, no key change — whatever the genre treats as mandatory</li>
+        <li>No new element after a certain point in the piece</li>
+        <li>No effect you cannot explain the purpose of</li>
+        <li>Each refusal closes a door so the open ones matter more</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M22 8 C14 8 10 14 10 20 C10 30 22 36 22 36 C22 36 34 30 34 20 C34 14 30 8 22 8 Z"/><line x1="13" y1="13" x2="31" y2="31"/></svg>
+      </div>
+      <h3 class="card-title">Refusals of intent</h3>
+      <ul class="card-points">
+        <li>Not chasing the floor, the algorithm, or the trend</li>
+        <li>Not resolving tension the listener expects resolved</li>
+        <li>Not explaining the work in the work itself</li>
+        <li>These say who the music is for, and who it is not for</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Why refusals come first</div>
+    <p>Anyone can list influences. A voice becomes specific only when you can name what you turn down that others take for granted. Write your refusals before your aspirations — they are harder to fake and they cost you something, which is exactly why they are evidence.</p>
+  </div>
+
+  <h2>The thesis sentence</h2>
+
+  <p style="text-align:center; max-width:660px; margin:0 auto 24px; color:var(--text-muted);">One sentence that, if a stranger held it, would let them recognise your work in a blind listen. It is the System Spec compressed to a single claim — and it must be falsifiable.</p>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><line x1="10" y1="16" x2="34" y2="16"/><line x1="10" y1="24" x2="28" y2="24"/><line x1="10" y1="32" x2="22" y2="32"/></svg>
+      </div>
+      <div class="step-num">Idea 04</div>
+      <h2 class="step-title">Compress until it can be wrong</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The shape of a working thesis</div>
+      <ul>
+        <li>Form: <em>"I make [kind of work] in which [the one variable] does the work, while refusing [the thing others rely on]."</em></li>
+        <li>Example: <em>"I make long-form techno where time slows because a few elements evolve, refusing every dramatic event the genre expects."</em></li>
+        <li>Test it: could a piece <em>fail</em> the thesis? If a track with a big drop would obviously violate it, the sentence is doing its job. A thesis nothing can violate is a slogan.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">From recurring habit to deliberate signature</div>
+      <div class="signal-flow">
+        <span class="signal-node">Recurring habit</span>
+        <span class="signal-arrow">→</span>
+        <span class="signal-node">Name it</span>
+        <span class="signal-arrow">→</span>
+        <span class="signal-node">Refuse its opposite</span>
+        <span class="signal-arrow">→</span>
+        <span class="signal-node">Thesis sentence</span>
+        <span class="signal-arrow">→</span>
+        <span class="signal-node">Signature</span>
+      </div>
+      <ul>
+        <li>The conversion is complete when you can apply the move deliberately to a brand-new piece and also choose, deliberately, to withhold it.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Inclusions reveal what you value.</strong> A spec that budgets a full minute of intro before anything rhythmic enters is telling you the author values patience over impact.</li>
+      <li><strong>Refusals reveal it more.</strong> What you ban is sharper evidence than what you allow — the no-drop rule says more about you than any synth patch.</li>
+      <li><strong>The ranges reveal restraint.</strong> A voice lives in numbers: a 40-bar filter sweep and a 4-bar one are different artists, even with identical gear.</li>
+      <li><strong>A spec you can hand to a stranger</strong> who then makes something recognisably "yours" is proof the voice is in the system, not in your hands.</li>
+    </ul>
+  </div>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Decision check</div>
+    <ul>
+      <li>Can I sort every line of my spec cleanly into System or Engineering?</li>
+      <li>Could a constraint of mine be caught being broken, or is it just a mood?</li>
+      <li>Does my refusal list exist, and does it cost me something I would otherwise reach for?</li>
+      <li>If I lost my whole rig tomorrow, would the System Spec still stand on a different one?</li>
+      <li>Is my thesis sentence falsifiable — can I describe a piece that would betray it?</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="listen.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 02 / Listen
+    </a>
+    <a href="setup.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      04 / Setup →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B8-001 — Spec &amp; Voice</div>
+
+</div>
+
+</body>
+</html>

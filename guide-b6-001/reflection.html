@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B6-001 — Rule-based Sequencing — Reflection</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Lab Note contents">
+  <p class="nav-label labnote-code">Lab Note B6-001<span class="labnote-topic">Rule-based Sequencing</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Rule vocabulary</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html" class="active"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B6-001</div>
+    <div class="eyebrow">Rule-based Sequencing · 07 — Reflection</div>
+    <h1>Fault, carry-forward, principle</h1>
+    <p class="lede">Most of the learning happens here, not while making the track. The defining question of rule-based work: can you still separate what the system decided from what you decided in advance? Answer slowly, and write the answers down.</p>
+  </header>
+
+  <h2>How you know it worked</h2>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="16"/><polyline points="14 22 20 28 30 16"/></svg>
+      </div>
+      <div class="checklist-label">Success signals</div>
+    </div>
+    <ul>
+      <li>You can recite the whole rule-set from memory in under five sentences.</li>
+      <li>The spine stayed unconditional, and the listener can lock to it.</li>
+      <li>Variation reads as intended, not as accidental — surprise has a fence behind it.</li>
+      <li>There is exactly one chance condition, and the piece would survive without it.</li>
+      <li>The long-form motion comes from drift, not from new elements entering.</li>
+      <li>You recorded more than you kept and curated by a criterion you can name.</li>
+      <li>You can point at any kept moment and say what the rule decided versus what you decided.</li>
+      <li>The rules.txt alone would let someone recreate the piece's behaviour.</li>
+    </ul>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon">
+        <svg viewBox="0 0 44 44"><polygon points="22 6 40 36 4 36"/><line x1="22" y1="16" x2="22" y2="24"/><circle cx="22" cy="29" r="1.4" fill="currentColor"/></svg>
+      </div>
+      <div class="checklist-label">Failure signals — and the fault behind each</div>
+    </div>
+    <ul>
+      <li>It sounds arbitrary — <strong>fault:</strong> a rule with no fence, or too many coins. Bound it or cut it.</li>
+      <li>You can't predict anything — <strong>fault:</strong> probability used where a counted rule belonged.</li>
+      <li>The spine wobbles — <strong>fault:</strong> a condition crept onto the kick or the offbeat hat.</li>
+      <li>It sounds the same at ten seconds and ten minutes — <strong>fault:</strong> no drift rule; the system loops instead of evolving.</li>
+      <li>You kept the first take — <strong>fault:</strong> no curation pass; you recorded too little to hear the system's habits.</li>
+      <li>You can't say what the rule did versus what you did — <strong>fault:</strong> a decision got baked into audio before it was authored in the control path.</li>
+    </ul>
+  </div>
+
+  <h2>Eleven reflection questions</h2>
+
+  <ol class="reflection-list">
+    <li>Which rule produced the most musical surprise — and was it a counted rule or the coin?</li>
+    <li>Which rule could you remove without weakening the piece?</li>
+    <li>Did the <span class="code">PRE</span> chain actually read as cause and effect, or did it sound like coincidence?</li>
+    <li>Did the bounded-choice bass ever find a phrase you would not have written by hand?</li>
+    <li>Was the single coin earning its place, or was it decoration you should have muted?</li>
+    <li>Did the drift carry the long form, or did you reach for new elements anyway?</li>
+    <li>How long did you record, and did that reveal habits a short take would have hidden?</li>
+    <li>What was your reject criterion during curation — and did you actually honour it?</li>
+    <li>For your favourite moment: what did the system decide, and what did you decide by keeping it?</li>
+    <li>Did keeping the audio path and control path separate help, or did you fuse them too early?</li>
+    <li>If you handed someone only the rules.txt, what would they get right — and what would be lost?</li>
+  </ol>
+
+  <h2>Carry-forward</h2>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Carry the fence, not the values.</strong> The specific notes {A1, C2, E2} are disposable; the habit of writing a pitch / rhythm / dynamic fence around every chance is the transferable skill.</li>
+      <li><strong>Carry the order of reaching.</strong> Deterministic, then counted/logical, then chance — last and once. Next time, notice how often you want to start at chance and don't.</li>
+      <li><strong>Carry the long record.</strong> Run any future generative system longer than feels necessary, then curate. The first take is rarely the system at its best.</li>
+      <li><strong>Carry it into code.</strong> The same six sentences are a <code>Pbind</code>, a Pd patch, a Tidal one-liner, a VCV rack. The discipline outlives any one box.</li>
+    </ul>
+  </div>
+
+  <div class="final">
+    <div class="final-icon">
+      <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="16"/><circle cx="22" cy="22" r="9"/><circle cx="22" cy="22" r="2.5" fill="currentColor"/></svg>
+    </div>
+    <div class="final-label">Final principle</div>
+    <p>Randomness without boundaries is drift. Boundaries without randomness is a loop. Rule-based music is the narrow band between them — and the composer's real work is drawing the band, then being honest about which side of it each sound came from.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="build.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 06 / The build
+    </a>
+    <a href="../workshop/block-6/index.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      Block 6 workshop →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B6-001 — Rule-based Sequencing</div>
+
+</div>
+
+</body>
+</html>

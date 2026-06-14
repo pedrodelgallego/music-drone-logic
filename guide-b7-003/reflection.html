@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B7-003 — Feedback Safety — Reflection</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B7-003<span class="labnote-topic">Feedback Safety</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Feedback states</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html" class="active"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B7-003</div>
+    <div class="eyebrow">Feedback Safety · 07 — Reflection</div>
+    <h1>Fault, carry-forward, principle</h1>
+    <p class="lede">Most of the learning happens here, away from the loop. A feedback instrument teaches a lesson the rest of the rig cannot: that the boldest performance is the one with the most disciplined boundaries. Answer slowly. Write the answers down.</p>
+  </header>
+
+  <h2>How you know it worked</h2>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="16"/><polyline points="14 22 20 28 30 16"/></svg>
+      </div>
+      <div class="checklist-label">Success signals</div>
+    </div>
+    <ul>
+      <li>The limiter and panic path were built and tested before the loop ever oscillated.</li>
+      <li>You could kill the loop blind, from any state, without thinking.</li>
+      <li>The held tone (S2) sat on a pitch you chose, not wherever the gear screamed.</li>
+      <li>The swell into the brink felt controlled — tension you rode, not luck you survived.</li>
+      <li>You never raised the limiter ceiling or the encoder cap once they were set.</li>
+      <li>Everything was built and performed on speakers, never headphones.</li>
+      <li>The recorded take is musical raw material, not a wall of squeal.</li>
+      <li>You felt free to push toward the edge <em>because</em> the exit was one reflex move away.</li>
+    </ul>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon">
+        <svg viewBox="0 0 44 44"><polygon points="22 6 40 36 4 36"/><line x1="22" y1="16" x2="22" y2="24"/><circle cx="22" cy="29" r="1.4" fill="currentColor"/></svg>
+      </div>
+      <div class="checklist-label">Failure signals</div>
+    </div>
+    <ul>
+      <li>You raised the gain first and reached for safety only after it screamed.</li>
+      <li>You built or tested any of it in headphones.</li>
+      <li>The panic path was somewhere you had to look for, or worked only when you were calm.</li>
+      <li>You raised the limiter or cap mid-session "just to hear it louder".</li>
+      <li>The tone shrieked at an arbitrary frequency instead of singing a chosen note.</li>
+      <li>The take is a single loud event rather than a journey through states.</li>
+      <li>You were afraid of the instrument instead of in command of it — a sign the boundaries were not trusted.</li>
+    </ul>
+  </div>
+
+  <h2>The fault to name</h2>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Where did the loop nearly get away from you?</strong> Name the exact moment — a Q nudge, a slow drift, a swell pushed one nudge too far. That moment is the fault, and naming it is how it stops being a surprise next time.</li>
+      <li><strong>Was the recovery musical or panicked?</strong> If you stabbed the kill, that is a success of safety and a failure of margin — the cap or the approach was too aggressive. Adjust the margin, not your nerve.</li>
+      <li><strong>Did any boundary tempt you?</strong> If you wanted to raise the ceiling or the cap, write down why. The temptation is the fault; the discipline is refusing it.</li>
+    </ul>
+  </div>
+
+  <h2>Eight reflection questions</h2>
+
+  <ol class="reflection-list">
+    <li>Did I build the safety devices before the sound, every time, or did I cut a corner under impatience?</li>
+    <li>Which of the three players — Nakamura, Tudor, Sachiko — taught me the most, and what exactly did I take?</li>
+    <li>Where did unity gain actually sit, and how narrow was the playable edge?</li>
+    <li>Could I find and hold S2 on a chosen pitch, or did the tone choose itself?</li>
+    <li>Was the swell into S3 a controlled musical event or a near-miss?</li>
+    <li>How many times did I have to use the panic path, and was each one a recovery or a save?</li>
+    <li>Did the fixed boundaries make me bolder or more timid — and what does that tell me?</li>
+    <li>Is this rig ready to leave the studio, honestly?</li>
+  </ol>
+
+  <h2>Carry-forward</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M22 6l14 6v8c0 9-6 15-14 18-8-3-14-9-14-18v-8z"/></svg>
+      </div>
+      <h3 class="card-title">Into every live system</h3>
+      <ul class="card-points">
+        <li>Build the panic path first, on any rig — modular, dub, generative</li>
+        <li>Cap dangerous ranges structurally, not with willpower</li>
+        <li>The exit being reflexive is what makes the risk-taking possible</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 22h8l4-12 6 24 4-12h10"/></svg>
+      </div>
+      <h3 class="card-title">Into the music</h3>
+      <ul class="card-points">
+        <li>A tuned feedback tone is a drone, a swell, a transition — usable raw material</li>
+        <li>Tension lives at the brink; the music is in not crossing it</li>
+        <li>Restraint reads as command, the same lesson as the whole workshop</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="final">
+    <div class="final-icon">
+      <svg viewBox="0 0 44 44"><path d="M22 6l14 6v8c0 9-6 15-14 18-8-3-14-9-14-18v-8z"/><polyline points="16 22 20 26 28 17"/></svg>
+    </div>
+    <div class="final-label">Final principle</div>
+    <p>The feedback path has no ceiling of its own — the ceiling is the one you build, and you build it first. You are never more than one move from silence, and that is exactly what lets you live at the edge. Boldness is not the absence of boundaries; it is trusting the boundaries enough to push against them.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="build.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 06 / The build
+    </a>
+    <a href="../workshop/block-7/index.html" class="next">
+      <span class="page-nav-direction">Back to the workshop</span>
+      Block 7 →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B7-003 — Feedback Safety</div>
+
+</div>
+
+</body>
+</html>

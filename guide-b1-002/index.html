@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B1-002 — Unity · Overview</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B1-002<span class="labnote-topic">Unity</span></p>
+  <a href="index.html" class="active"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B1-002</div>
+    <div class="eyebrow">Unity · 01 — Overview</div>
+    <h1>Gain structure and the signal path, taught from zero</h1>
+    <p class="lede">Between the moment a sound is made and the moment it reaches your ears, its volume is changed in about ten different places. This Lab Note names every one of those places, teaches you what to set it to, and gives you one word — <em>unity</em> — to hang the whole chain on. It is the slow companion to <a href="../workshop/block-1/lab-001.html">Lab 001 — Signal Path &amp; Gain Staging</a>.</p>
+  </header>
+
+  <h2>The one principle</h2>
+
+  <div class="callout">
+    <div class="callout-label">Principle</div>
+    <p>Every stage in the signal path either changes the level or leaves it alone. Set every stage you do not need to change to <strong>unity</strong> — change nothing — and then the only places the level moves are the places you chose. A chain you can read is a chain you can fix.</p>
+  </div>
+
+  <p style="text-align:center; color:var(--text-muted); max-width:640px; margin:24px auto;">That is the spine of the whole note. Unity is the "I left this alone" setting. When everything you did not touch is at unity, a problem can only live in the one or two places you did touch — and that is what turns "it sounds bad somewhere" into "the input trim is too hot."</p>
+
+  <h2>What you'll build</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><line x1="8" y1="30" x2="36" y2="30"/><path d="M10 30 L18 18 L26 24 L34 12"/></svg>
+      </div>
+      <h3 class="card-title">A clean signal path</h3>
+      <ul class="card-points">
+        <li>One instrument routed source → interface → Live → group → master with every stage justified</li>
+        <li>Built on the MOTU M4 + Ableton Live 12, fed by the MicroFreak and Digitakt II</li>
+        <li>≥ 6 dB of headroom at the master and no clip anywhere in the chain</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="10" y="8" width="6" height="28" rx="1"/><rect x="28" y="8" width="6" height="28" rx="1"/><line x1="7" y1="18" x2="19" y2="18"/><line x1="25" y1="26" x2="37" y2="26"/></svg>
+      </div>
+      <h3 class="card-title">The skills you'll practice</h3>
+      <ul class="card-points">
+        <li>Setting the M4 input trim correctly — not too hot, not too cold</li>
+        <li>Knowing the difference between gain, volume, and level</li>
+        <li>Telling analog input clip apart from digital 0 dBFS overs</li>
+        <li>Keeping a working level around −12 dBFS so mastering has room</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Why a level, not a sound</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><line x1="8" y1="34" x2="36" y2="34"/><rect x="10" y="10" width="6" height="24"/><rect x="19" y="6" width="6" height="28"/><rect x="28" y="14" width="6" height="20"/></svg>
+      </div>
+      <h3 class="card-title">The beginner instinct</h3>
+      <ul class="card-points">
+        <li>Record everything as loud as possible "so it's strong"</li>
+        <li>Fix a quiet track by pushing the fader, not the source</li>
+        <li>Treat the red light as a single warning, not as four different problems in four different places</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="15"/><line x1="22" y1="22" x2="22" y2="11"/><line x1="22" y1="22" x2="30" y2="26"/></svg>
+      </div>
+      <h3 class="card-title">The opposite discipline</h3>
+      <ul class="card-points">
+        <li>Decide one working level and aim every stage at it</li>
+        <li>Leave deliberate room at the top — headroom is not wasted space</li>
+        <li>Fix level at the stage that owns it: trim at the interface, gain in the box, fader only for balance</li>
+      </ul>
+    </div>
+  </div>
+
+  <p style="text-align:center; color:var(--text-muted); max-width:640px; margin:24px auto;">The skill transfers to every track you ever make. A clean gain structure is invisible when it works and is the cause of half of all "my mix sounds amateur" problems when it does not. Get it right once, here, on one instrument, and you carry it into the whole workshop. Do less, but make each stage deliberate.</p>
+
+  <div class="callout">
+    <div class="callout-label">How to read this Lab Note</div>
+    <p>Work the pages in order. <a href="listen.html">Listen</a> trains your ear on what clean and broken gain sound like. <a href="decisions.html">Decisions</a> is the theory — gain vs volume vs level, unity, headroom, clipping. <a href="setup.html">Setup</a> wires the M4 rig for clean gain. <a href="palette.html">Palette</a> hands you the five "moves" for changing level. <a href="build.html">The build</a> is the long, exact, step-by-step from one source to the master. <a href="reflection.html">Reflection</a> turns the result into one carry-forward rule and one proof gate.</p>
+  </div>
+
+  <div class="page-nav">
+    <span></span>
+    <a href="listen.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      02 / Listen →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B1-002 — Unity</div>
+
+</div>
+
+</body>
+</html>

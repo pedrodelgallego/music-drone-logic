@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B3-004 — Euclidean — Pattern palette</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B3-004<span class="labnote-topic">Euclidean</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html" class="active"><span class="nav-num">05</span>Pattern palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B3-004</div>
+    <div class="eyebrow">Euclidean · 05 — Pattern palette</div>
+    <h1>A working table of E(n,m) patterns</h1>
+    <p class="lede">A reference you can keep open while building. Each row gives the string, its ancestor, and the job it does best in a track. Steal a pair, place it, and only then decide whether to rotate it.</p>
+  </header>
+
+  <h2>The short, dividing cases — even pulses</h2>
+
+  <table class="param-table">
+    <caption>Trivial E(N,M): every gap equal — use for anchors, not for life</caption>
+    <tr><td>E(4,16) — <span class="code">x...x...x...x...</span></td><td>Four-on-the-floor kick. The unmoving anchor everything answers.</td></tr>
+    <tr><td>E(2,8) — <span class="code">x...x...</span></td><td>Half-bar pulse. Clap or rim on the backbeat feel.</td></tr>
+    <tr><td>E(8,16) — <span class="code">x.x.x.x.x.x.x.x.</span></td><td>Straight eighths. A driving closed-hat bed; deliberately dull, by design.</td></tr>
+    <tr><td>E(3,12) — <span class="code">x...x...x...</span></td><td>Even in a 12-grid — a triplet-feel pulse for swung or 6/8 sections.</td></tr>
+  </table>
+
+  <h2>The classic syncopated cells — the workhorses</h2>
+
+  <table class="param-table">
+    <caption>Non-dividing E(N,M): even-but-uneven — this is where grooves live</caption>
+    <tr><td>E(3,8) — <span class="code">x..x..x.</span></td><td>The <em>tresillo</em>. The single most useful cell — bass, clap, or perc. Instantly Latin/African weight.</td></tr>
+    <tr><td>E(5,8) — <span class="code">x.xx.x.x</span></td><td>The Cuban <em>cinquillo</em> / West-African bell. Busy but rolling; great for a shaker or conga line.</td></tr>
+    <tr><td>E(5,16) — <span class="code">x..x..x..x..x...</span></td><td>Bossa-nova clave family. The default hypnotic bassline distribution — sparse, restless, never resolving.</td></tr>
+    <tr><td>E(7,16) — <span class="code">x.x.x.x.x.x.x...</span></td><td>Samba bell. A full, even offbeat hat or ride that still leaves a breath at the end of the bar.</td></tr>
+    <tr><td>E(9,16) — <span class="code">x.xx.x.x.xx.x.x.</span></td><td>Dense driving layer. Use sparingly — close to a wall of hits; thin it with velocity.</td></tr>
+    <tr><td>E(6,16) — <span class="code">x..x.x..x..x.x..</span></td><td>A loping perc line; sits between tresillo sparseness and a full hat.</td></tr>
+  </table>
+
+  <h2>The 12-grid family — triplet and 6/8 ancestors</h2>
+
+  <table class="param-table">
+    <caption>E(N,12): the West-African / Afro-Cuban bell world</caption>
+    <tr><td>E(5,12) — <span class="code">x..x.x..x.x.</span></td><td>The <em>venda</em> / West-African bell line. A timekeeper that implies 6/8 swing inside a steady cycle.</td></tr>
+    <tr><td>E(7,12) — <span class="code">x.xx.x.xx.x.</span></td><td>The "standard pattern" relatives — the densest common bell. A full, rolling ride for a 12-step feel.</td></tr>
+    <tr><td>E(4,12) — <span class="code">x..x..x..x..</span></td><td>Even quarter-pulse in 12 — a calm kick or downbeat marker for triplet sections.</td></tr>
+    <tr><td>E(2,12) — <span class="code">x.....x.....</span></td><td>A sparse half-cycle accent; good for a low tom or sub stab.</td></tr>
+  </table>
+
+  <h2>The odd-length engines — for polymeter</h2>
+
+  <table class="param-table">
+    <caption>E(N,M) where M ≠ 16: place on a track of its own length to drift against the kick</caption>
+    <tr><td>E(3,11) — <span class="code">x..x..x....</span></td><td>An 11-step perc against a 16-step kick. Phases every bar, realigns slowly — drift without new material.</td></tr>
+    <tr><td>E(4,9) — <span class="code">x.x.x.x..</span></td><td>The Turkish <em>aksak</em>. A 9-step part that limps beautifully against straight 16.</td></tr>
+    <tr><td>E(5,13) — <span class="code">x..x.x..x.x..</span></td><td>A prime-length texture that effectively never repeats its phase against 16 within a normal track.</td></tr>
+    <tr><td>E(2,5) — <span class="code">x..x.</span></td><td>The smallest <em>aksak</em> cell. A tiny 5-step motif for a blip or click that wanders.</td></tr>
+    <tr><td>E(7,15) — <span class="code">x.x.x.x.x.x.x..</span></td><td>Near-full 15-step ride that slips one step early of the 16-grid each bar.</td></tr>
+  </table>
+
+  <h2>How to choose a pair</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="14"/><path d="M22 8v14l9 5"/></svg>
+      </div>
+      <h3 class="card-title">Pick density first</h3>
+      <ul class="card-points">
+        <li>Sparse anchor: N/M around a quarter (E(3,16), E(5,16))</li>
+        <li>Rolling layer: around a half (E(7,16), E(5,12))</li>
+        <li>Driving bed: above half (E(9,16)) — thin with velocity</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M30 14a12 12 0 1 0 4 9"/><polyline points="34 11 34 19 26 19"/></svg>
+      </div>
+      <h3 class="card-title">Then choose length M</h3>
+      <ul class="card-points">
+        <li>M = 16 to lock with the grid</li>
+        <li>M = 12 for a triplet / 6-8 ancestor</li>
+        <li>M = 11, 13, 15 to force polymeter drift</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Stacking recipe to start from:</strong> kick E(4,16), hat E(7,16), perc E(3,11), bass E(5,16) rotated by 2. Four pairs of numbers; one of the four lengths is odd, so the whole groove evolves for free.</li>
+      <li><strong>Complement trick:</strong> if a voice is E(5,16), a second voice on its complement E(11,16) fills exactly the gaps — instant interlock, used carefully so it does not become a wall.</li>
+    </ul>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon">
+        <svg viewBox="0 0 44 44"><polyline points="10 22 18 30 34 12"/></svg>
+      </div>
+      <div class="checklist-label">Before you move on</div>
+    </div>
+    <ul>
+      <li>I chose a sparse anchor pair and a busier answering pair.</li>
+      <li>At least one of my pairs has an odd M for polymeter drift.</li>
+      <li>I know the ancestor of each pattern I picked.</li>
+      <li>I have not stacked so many dense pairs that the groove is a wall.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="setup.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 04 / Setup
+    </a>
+    <a href="build.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      06 / The build →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B3-004 — Euclidean</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B8-002 — The Release — Reflection</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B8-002<span class="labnote-topic">The Release</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup &amp; rig</a>
+  <a href="palette.html"><span class="nav-num">05</span>Delivery targets</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html" class="active"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B8-002</div>
+    <div class="eyebrow">The Release · 07 — Reflection</div>
+    <h1>Fault, carry-forward, principle</h1>
+    <p class="lede">Most of the learning in the finish happens here, after the files are exported. Answer slowly, with the metering log open. Write the answers down beside the release — they are part of the archive.</p>
+  </header>
+
+  <h2>How you know the release worked</h2>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="16"/><polyline points="14 22 20 28 30 16"/></svg>
+      </div>
+      <div class="checklist-label">Success signals</div>
+    </div>
+    <ul>
+      <li>Every track lands at the named integrated-LUFS target within ± 0.5 LU.</li>
+      <li>No track exceeds −1.0 dBTP anywhere across its length.</li>
+      <li>The master holds its shape on monitors, phone, car, and in mono.</li>
+      <li>The master kept its dynamics — it breathes; it was not crushed to win loudness.</li>
+      <li>Dither was applied exactly once, only on the 16-bit delivery.</li>
+      <li>The 24-bit un-dithered source exists as the source of truth.</li>
+      <li>The EP plays as one statement, confirmed in a full sitting more than once.</li>
+      <li>The artist statement names the intention and the refusals, not the gear.</li>
+      <li>The archive holds masters, sessions, statement, and log, dated and named.</li>
+      <li>You can explain why every master move was made.</li>
+    </ul>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon">
+        <svg viewBox="0 0 44 44"><polygon points="22 6 40 36 4 36"/><line x1="22" y1="16" x2="22" y2="24"/><circle cx="22" cy="29" r="1.4" fill="currentColor"/></svg>
+      </div>
+      <div class="checklist-label">Failure signals</div>
+    </div>
+    <ul>
+      <li>The master was pushed past the target and arrives squashed once the platform normalises.</li>
+      <li>Loudness was judged by ear against an un-level-matched reference.</li>
+      <li>True-peak was checked on a sample-peak meter and clips on lossy encode.</li>
+      <li>The low end vanishes on a phone or cancels in mono.</li>
+      <li>Dither was applied twice, or applied to the 24-bit source.</li>
+      <li>The EP reads as a folder of singles rather than one arc.</li>
+      <li>Tracks jump in loudness, sending the listener for the volume.</li>
+      <li>The statement lists gear instead of naming intention.</li>
+      <li>The release shipped with no archive — it can be defended only once.</li>
+    </ul>
+  </div>
+
+  <h2>Name the fault, the carry-forward, the principle</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><polygon points="22 6 40 36 4 36"/><line x1="22" y1="16" x2="22" y2="24"/><circle cx="22" cy="29" r="1.4" fill="currentColor"/></svg>
+      </div>
+      <h3 class="card-title">The fault</h3>
+      <ul class="card-points">
+        <li>Where did chasing loudness cost the music dynamics?</li>
+        <li>Which translation system exposed a problem the studio hid?</li>
+        <li>Where did a master EQ move paper over a mix fault that should have been fixed upstream?</li>
+        <li>Did the running order ever feel like a list, and why?</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M8 22 h22"/><polyline points="24 14 32 22 24 30"/><line x1="34" y1="10" x2="34" y2="34"/></svg>
+      </div>
+      <h3 class="card-title">The carry-forward</h3>
+      <ul class="card-points">
+        <li>One metering habit to start at the mix stage, not the master</li>
+        <li>The reference whose balance you will keep on hand next time</li>
+        <li>The one translation check that caught the most</li>
+        <li>The archive structure you will reuse for every release</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Eleven reflection questions</h2>
+
+  <ol class="reflection-list">
+    <li>Did chasing the loudness target cost the music anything I can hear?</li>
+    <li>Which meter — LUFS, true-peak, or correlation — caught a fault I would have missed by ear?</li>
+    <li>How far did my unprocessed mix sit from the target, and was that gap healthy?</li>
+    <li>Which translation system was the harshest, and what did it reveal?</li>
+    <li>Did any master EQ move secretly fix a mix problem I should have fixed upstream?</li>
+    <li>Did the EP read as one statement, or as separate tracks in a folder?</li>
+    <li>Which sequencing decision — opener, signature placement, gap, closer — mattered most?</li>
+    <li>Were the tracks consistent in loudness, or did the listener have to reach for the volume?</li>
+    <li>Did I dither exactly once, and is the un-dithered source safe?</li>
+    <li>Does the artist statement name intention and refusal, or does it list gear?</li>
+    <li>Could a stranger reopen this archive in three years and understand every decision?</li>
+  </ol>
+
+  <div class="final">
+    <div class="final-icon">
+      <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="16"/><circle cx="22" cy="22" r="10"/><circle cx="22" cy="22" r="3" fill="currentColor"/></svg>
+    </div>
+    <div class="final-label">Final principle</div>
+    <p>A release is finished not when the files upload, but when the master holds its shape everywhere, the sequence reads as one statement, and the archive lets you defend every decision twice. Loudness is a number with a meter behind it; the finish is a series of refusals you can name.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="build.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 06 / The build
+    </a>
+    <a href="../workshop/block-8/index.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      Block 8 workshop →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B8-002 — The Release</div>
+
+</div>
+
+</body>
+</html>

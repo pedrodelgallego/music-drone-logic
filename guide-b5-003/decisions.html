@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feedback — Decisions</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B5-003<span class="labnote-topic">Feedback</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html" class="active"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B5-003</div>
+    <div class="eyebrow">Feedback · 03 — Decisions</div>
+    <h1>Theory, discipline, and the choices that matter</h1>
+    <p class="lede">A feedback loop has exactly one parameter that decides whether it is music or disaster: loop gain. Everything else — filters, saturation, ceilings — exists to shape <em>where</em> and <em>how fast</em> that gain acts. Understand the mechanism, then make the small number of decisions that define your track before you touch a knob.</p>
+  </header>
+
+  <h2>Musical feedback vs runaway — the same mechanism, two outcomes</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M22 8a14 14 0 1 1-13 9"/><polyline points="8 8 9 17 18 16"/></svg>
+      </div>
+      <h3 class="card-title">Musical feedback</h3>
+      <ul class="card-points">
+        <li>Loop gain just below unity — energy decays a little on each pass</li>
+        <li>A filter in the loop removes a band per cycle, so the tail evolves and dies</li>
+        <li>Repeats build to a peak, then recede on their own</li>
+        <li>You can let go of the knob and the sound resolves</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><polygon points="22 6 40 36 4 36"/><line x1="22" y1="16" x2="22" y2="25"/><circle cx="22" cy="30" r="1.6" fill="currentColor"/></svg>
+      </div>
+      <h3 class="card-title">Runaway</h3>
+      <ul class="card-points">
+        <li>Loop gain at or above unity — energy <em>grows</em> on each pass</li>
+        <li>No filtering, so a resonant frequency compounds without limit</li>
+        <li>Climbs to full-scale and stays there until you intervene</li>
+        <li>Let go of the knob and it gets worse, not better</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>The single dividing line is loop gain.</strong> Loop gain is the product of every gain in the round-trip path: send level, return level, any Utility trim, the wet/dry of the device, and the self-send amount. Below unity (net energy lost per pass) it is music. At or above unity (net energy gained per pass) it is runaway.</li>
+      <li><strong>Filtering lowers the effective gain in specific bands.</strong> A filter in the loop removes energy from the bands it attenuates, so those bands can never compound — which is why filtered feedback stays musical at settings that would otherwise scream. Resonance is the opposite: it <em>adds</em> gain at one frequency, which is exactly why a resonant peak is the first thing to run away.</li>
+      <li><strong>Time only sets the rhythm, not the safety.</strong> Delay time decides whether repeats are slap, eighth-note, or a long swell. It does not change whether the loop is stable — that is gain alone.</li>
+    </ul>
+  </div>
+
+  <h2>The safety discipline — non-negotiable, set every time</h2>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="16"/><polyline points="14 22 20 28 30 16"/></svg>
+      </div>
+      <div class="checklist-label">Build the ceilings before you open the loop</div>
+    </div>
+    <ul>
+      <li>Limiter on the master with a hard ceiling at <span class="code">-3 dBFS</span> — the backstop, not the sound.</li>
+      <li>Monitor level down before you start; bring it up only once the loop is stable.</li>
+      <li>A filter in the feedback path (HP <span class="code">200 Hz</span>, LP <span class="code">4 kHz</span>) so no single band can compound unchecked.</li>
+      <li>A Utility with a negative trim inside the loop — a guaranteed decay even if other knobs creep up.</li>
+      <li>One mapped knob or fader for loop gain, and you know which direction is "down."</li>
+      <li>A kill route you can hit instantly: mute the return, or a master mute on the controller.</li>
+      <li>Headphones off or low for the first test — never audition a fresh loop at performance volume.</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Why this is safety-critical, not just good practice</div>
+    <p>A loop crossing unity doesn't get gradually louder — it climbs exponentially, often to full-scale in under a second, and it does not stop on its own. Through near-field monitors or headphones that is a genuine hearing-damage event. Every ceiling below is a layer that buys you time to reach the kill.</p>
+  </div>
+
+  <h2>The decisions that define your track</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M22 6v32M6 22h32"/><circle cx="22" cy="22" r="4" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Decision 01</div>
+      <h2 class="step-title">What is the seed?</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">The source that feeds the loop</div>
+      <ul>
+        <li>A dub-techno track usually feeds the loop from a <strong>sparse</strong> source: a single chord stab, a rimshot, or a filtered bass note every few bars. The loop fills the rest.</li>
+        <li>Choose a seed with a clear onset and a short body — the loop will do the sustaining. A pad fed into a loop just turns to mud.</li>
+        <li>Decision: one seed, played rarely. Resist the urge to feed a busy part into the loop; the repeats need silence to bloom into.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="14" cy="22" r="6"/><circle cx="30" cy="22" r="6"/><line x1="20" y1="22" x2="24" y2="22"/></svg>
+      </div>
+      <div class="step-num">Decision 02</div>
+      <h2 class="step-title">Where does the loop live?</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Send-into-itself, in software or hardware</div>
+      <table class="param-table">
+        <caption>Pick one home for the loop</caption>
+        <tr><td>Ableton return self-send</td><td>Recommended. A return holding Echo + Reverb sends back into its own input. Fully recallable, every gain on a mapped control.</td></tr>
+        <tr><td>Compact-mixer aux loop</td><td>The original dub patch — aux return trimmed back to the aux send. Tactile, but no undo and no recall. Higher stakes.</td></tr>
+        <tr><td>Digitakt II internal delay feedback</td><td>Self-contained and rhythmic, but the feedback maxes below true unity by design — safe, less wild.</td></tr>
+        <tr><td>MicroFreak filter self-oscillation</td><td>A different kind of feedback — the filter resonating into a sine. Useful as a seed, not as the main loop.</td></tr>
+      </table>
+      <ul>
+        <li>Decision for this build: the Ableton return self-send, because recall and a mapped safety fader matter more than hardware feel while you're learning the edge.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 22h6l4-12 6 24 4-12h12"/></svg>
+      </div>
+      <div class="step-num">Decision 03</div>
+      <h2 class="step-title">What is in the loop, and in what order?</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">The processing decides the character</div>
+      <ul>
+        <li><strong>Filter placement:</strong> a band-limiting filter (HP + LP) keeps the loop from compounding sub and air. Put it <em>early</em> in the loop so every pass is band-limited before anything else acts.</li>
+        <li><strong>Saturation:</strong> a saturator with an output ceiling turns loud repeats into compression and dirt rather than climb — soft-clipping is its own limiter. This is what makes the dub wash sound aged.</li>
+        <li><strong>Resonance / character:</strong> a touch of resonant filtering gives the howl; keep it modest, because resonance is gain.</li>
+        <li>Decision: HP/LP filter → saturator with ceiling → delay+reverb → Utility trim, in that order, before the loop closes.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 34 Q22 6 38 14"/><circle cx="6" cy="34" r="2.5" fill="currentColor"/><circle cx="38" cy="14" r="2.5" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Decision 04</div>
+      <h2 class="step-title">How close to unity do you live?</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">The gain target, decided in advance</div>
+      <ul>
+        <li>Find unity by ear: raise loop gain until repeats <em>stop decaying</em>. Mark that knob position. Then back off about <span class="code">10 %</span> — that is your home.</li>
+        <li>The performance gesture is a brief, hands-on push toward unity at the track's peak, then an immediate pull back. Decide where in the arrangement that gesture lands before you record.</li>
+        <li>Decision: home at ~90 % of unity; one scripted bloom toward ~98 % at the peak, never holding at or above 100 %.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The performance, not the accident</div>
+    <p>The thrilling part of feedback is touching unity for a moment — letting the loop bloom right to the edge, then pulling it back. That is a deliberate gesture on a control you trust. Building toward that edge by accident, with no ceiling and no kill, is the failure this whole note exists to prevent.</p>
+  </div>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Decision check</div>
+    <ul>
+      <li>Can you state your seed, your loop's home, your processing chain, and where the bloom lands — in one sentence each, before patching?</li>
+      <li>Is there a filter in the loop so no single band can compound? A loop without filtering is a loop waiting to scream.</li>
+      <li>If you let go of every control, does the sound decay to silence on its own? If not, you are above unity.</li>
+      <li>Is loop gain on a fader you can pull down instantly, or are you steering a runaway with a mouse?</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="listen.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 02 / Listen
+    </a>
+    <a href="setup.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      04 / Setup →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B5-003 — Feedback</div>
+
+</div>
+
+</body>
+</html>

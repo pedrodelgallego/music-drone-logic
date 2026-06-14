@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B3-002 — Probability — Decisions</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B3-002<span class="labnote-topic">Probability</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html" class="active"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B3-002</div>
+    <div class="eyebrow">Probability · 03 — Decisions</div>
+    <h1>The theory of conditional events, and the choices it forces</h1>
+    <p class="lede">Probability is a compositional decision before it is a knob. This page is the conceptual core: what kinds of uncertainty exist, how they differ, and where the small budget for surprise should be spent so a loop stays coherent.</p>
+  </header>
+
+  <h2>Two kinds of uncertainty</h2>
+
+  <div class="callout">
+    <div class="callout-label">Principle</div>
+    <p>Every conditional event is either <em>independent</em> (decided fresh each pass, with memory of nothing) or <em>periodic</em> (decided by a schedule, with perfect memory of the count). Knowing which one you want is the first decision.</p>
+  </div>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><circle cx="13" cy="14" r="3" fill="currentColor"/><circle cx="31" cy="14" r="3"/><circle cx="13" cy="30" r="3"/><circle cx="31" cy="30" r="3" fill="currentColor"/></svg>
+      </div>
+      <h3 class="card-title">Independent — true probability</h3>
+      <ul class="card-points">
+        <li>Each pass is a fresh coin flip; the past does not constrain the future</li>
+        <li>You can never say "it will play next bar" — only "about half the time"</li>
+        <li>This is the % condition; it produces genuine, non-repeating surprise</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="14"/><path d="M22 8v14l10 5"/><circle cx="22" cy="22" r="2" fill="currentColor"/></svg>
+      </div>
+      <h3 class="card-title">Periodic — deterministic phrasing</h3>
+      <ul class="card-points">
+        <li>A perfectly regular clock layered over the loop: every Nth pass</li>
+        <li>You can predict it exactly, yet it still breaks the bar-to-bar sameness</li>
+        <li>This is the A:B condition; it writes a multi-bar phrase from one pattern</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Why the distinction is load-bearing:</strong> independent events give <em>texture</em> — a loop that feels improvised. Periodic events give <em>form</em> — a loop that feels arranged. A great conditional pattern uses both: periodic conditions sketch a phrase you could notate, while a couple of independent conditions keep that phrase from ever printing the same way twice.</li>
+    </ul>
+  </div>
+
+  <h2>Bounded vs. unbounded randomness</h2>
+
+  <div class="callout">
+    <div class="callout-label">The trap to avoid</div>
+    <p>Unbounded randomness — randomising pitch, sample, timing, and presence all at once — destroys identity. The pattern stops being a thing and becomes a cloud. Bounded randomness changes <em>one</em> dimension of <em>one</em> hit within a fixed range.</p>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="8" y="8" width="28" height="28" rx="3"/><circle cx="22" cy="22" r="2.5" fill="currentColor"/><circle cx="15" cy="15" r="2"/><circle cx="29" cy="29" r="2"/></svg>
+      </div>
+      <div class="step-num">Decision 01</div>
+      <h2 class="step-title">Which dimension is allowed to vary</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Pick one axis of freedom per hit</div>
+      <ul>
+        <li><strong>Presence</strong> — whether the hit plays at all (the % condition). The safest place to start; it never alters the sound, only its appearance.</li>
+        <li><strong>Velocity / volume</strong> — the hit always plays but at a varying level. A ghost note that occasionally surfaces.</li>
+        <li><strong>Micro-timing</strong> — the hit always plays, on time, but nudged a few ticks. Bounded to a few percent of a step.</li>
+        <li><strong>Sample / pitch</strong> — the most dangerous axis; vary it only on a hit that is already rare, and only between two or three pre-chosen options.</li>
+      </ul>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">The compounding rule</div>
+      <ul>
+        <li>One hit may carry several rules at once — a 25 % presence, a low velocity-lock, and a small timing nudge — and still read as a single human gesture.</li>
+        <li>But across the whole pattern, keep the count of <em>uncertain hits</em> tiny: two or three. The skeleton must dominate.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Where to spend the uncertainty budget</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 30h32M10 30V18M18 30V12M26 30V20M34 30V16"/></svg>
+      </div>
+      <div class="step-num">Decision 02</div>
+      <h2 class="step-title">Protect the strong beats, vary the weak ones</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">The placement logic</div>
+      <table class="param-table">
+        <caption>Where conditions belong</caption>
+        <tr><td>Downbeats (kick)</td><td>Never conditional. The pulse is the anchor everything else surprises against.</td></tr>
+        <tr><td>Backbeat / main hat</td><td>Mostly fixed. A high-probability condition (65&ndash;80 %) at most, so its rare <em>absence</em> becomes the event.</td></tr>
+        <tr><td>Offbeat ghosts</td><td>The home of independent probability. 25&ndash;50 % perc, rim, or hat hits.</td></tr>
+        <tr><td>Phrase markers</td><td>Periodic A:B conditions — a hit every 4th or 8th cycle that signals a turn without a new sound.</td></tr>
+      </table>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Reading probability musically</div>
+      <table class="param-table">
+        <caption>What each percentage feels like</caption>
+        <tr><td>10&ndash;25 %</td><td>Rare sparkle. A hit you forget exists until it lands and re-colours the bar.</td></tr>
+        <tr><td>35&ndash;50 %</td><td>The workhorse. Present enough to feel intended, absent enough to surprise.</td></tr>
+        <tr><td>65&ndash;80 %</td><td>Mostly there. Its absence becomes the event &mdash; a hole where a hit should be.</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <h2>Coherence without repetition</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="15"/><path d="M22 12a10 10 0 0 1 0 20z" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Decision 03</div>
+      <h2 class="step-title">Use dependency to keep surprise from sounding loose</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Chains make randomness sound intentional</div>
+      <ul>
+        <li>A lone random hit can sound like a glitch. The same hit, followed by a dependent (PRE) tail, sounds like a phrase that either arrives whole or not at all.</li>
+        <li>Dependency converts a pile of independent dice rolls into a small rule system &mdash; cause and effect the ear can follow.</li>
+        <li>The decision: for each uncertain hit, ask whether it should be free-standing or the trigger for something else. A track of only free-standing probabilities feels twitchy; a track with one or two chains feels composed.</li>
+      </ul>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Have I named, for every uncertain hit, whether it is independent or periodic?</li>
+        <li>Is each uncertain hit varying exactly one dimension, within a bounded range?</li>
+        <li>Is the skeleton large enough that I could hum the pattern from one bar?</li>
+        <li>Is at least one surprise <em>dependent</em> on another, so the randomness reads as logic?</li>
+        <li>If I removed every condition, would a solid, playable loop remain? (It must.)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Principle</div>
+    <p>Decide the rules before you hear them. A condition chosen on purpose is composition; a condition added until it "sounds random enough" is noise with extra steps.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="listen.html">
+      <span class="page-nav-direction">Previous</span>
+      &larr; 02 / Listen
+    </a>
+    <a href="setup.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      04 / Setup &rarr;
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B3-002 — Probability</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B4-002 — Saturation · Reflection</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B4-002<span class="labnote-topic">Saturation</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup &amp; signal path</a>
+  <a href="palette.html"><span class="nav-num">05</span>Saturation palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html" class="active"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B4-002</div>
+    <div class="eyebrow">Saturation · 07 — Reflection</div>
+    <h1>Fault-finding, carry-forward, principle</h1>
+    <p class="lede">Most of the learning happens here, not while pushing the drive knob. Answer slowly, at equal loudness, and write the answers down next to the render.</p>
+  </header>
+
+  <h2>How you know it worked</h2>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="16"/><polyline points="14 22 20 28 30 16"/></svg>
+      </div>
+      <div class="checklist-label">Success signals</div>
+    </div>
+    <ul>
+      <li>Saturation sits at distinct, named stages — source, bus, master — not one box at the end.</li>
+      <li>Every nonlinear stage has a written input level and a level-matched output.</li>
+      <li>The intensity arc is built from drive automation, not new elements.</li>
+      <li>The PEAK section contains the same clips as FULL; only the drive differs.</li>
+      <li>The drone stayed linear and acts as the still reference for the growth.</li>
+      <li>The sub is clean — nothing below ~60 Hz was sent into a hard stage.</li>
+      <li>Bypassing each stage at matched loudness thins the track without breaking it.</li>
+      <li>You chose odd vs even, soft vs hard, on purpose for each voice.</li>
+      <li>The order of every chain is deliberate, and you can say what swapping it would do.</li>
+      <li>You can explain why each saturation decision was made, in dB.</li>
+    </ul>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon">
+        <svg viewBox="0 0 44 44"><polygon points="22 6 40 36 4 36"/><line x1="22" y1="16" x2="22" y2="24"/><circle cx="22" cy="29" r="1.4" fill="currentColor"/></svg>
+    </div>
+      <div class="checklist-label">Failure signals — and the fault behind each</div>
+    </div>
+    <ul>
+      <li>The track only sounds "better" with saturation when it is also louder — output was never level-matched.</li>
+      <li>The low end is fizzy or smeared — a curve was fed un-filtered sub, or HP sat after the Saturator.</li>
+      <li>The peak needed a new element to land — the drive arc was too weak to carry it.</li>
+      <li>The grit masks the kick — the bass sidechain sat before the saturation instead of after.</li>
+      <li>Everything sounds equally crushed — too much master-stage drive, or three stages all pushed hard instead of staged gently.</li>
+      <li>The mix is harsh on every system — decisions were made on the DT 990 without a second-source check.</li>
+      <li>A sound is wrong and can't be fixed — grit was baked too hard at the Digitakt or MicroFreak, with no clean take to fall back on.</li>
+      <li>The drone grew with everything else — the still reference was lost, so nothing reads as "growing".</li>
+    </ul>
+  </div>
+
+  <h2>Ten reflection questions</h2>
+
+  <ol class="reflection-list">
+    <li>Which stage — source, bus, or master — contributed the most to the track's character?</li>
+    <li>Did level-matching ever change a decision you would otherwise have made?</li>
+    <li>Where is the irreversible point in your chain, and did committing there help or hurt?</li>
+    <li>Which voice carried the intensity arc, and could drive alone really sustain it?</li>
+    <li>Did the order-swap experiment on the bass change the sound? What did that teach you?</li>
+    <li>Was the drone genuinely kept linear, and did its stillness make the growth audible?</li>
+    <li>Odd or even — did you choose each voice's harmonic flavour on purpose?</li>
+    <li>Did any stage turn out redundant on the bypass test? Why did you add it?</li>
+    <li>Was the sub protected end to end, or did a curve chew it somewhere?</li>
+    <li>What single stage would you change in the next session, and why?</li>
+  </ol>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Carry forward:</strong> saturation is the first stage where you must commit, so decide where the irreversible point lives <em>before</em> you cross it. Soft drive is reversible by ear; a clipped peak is gone. Stage gently and often rather than hard and once — two modest curves give more control than one extreme one. And the order of a chain around a nonlinear stage is the recipe, not a detail.</li>
+    </ul>
+  </div>
+
+  <div class="final">
+    <div class="final-icon">
+      <svg viewBox="0 0 44 44"><path d="M8 36 C20 36 20 8 36 8"/><circle cx="22" cy="22" r="3" fill="currentColor"/></svg>
+    </div>
+    <div class="final-label">Final principle</div>
+    <p>The moment a stage stops being linear, level becomes timbre. Decide what hits the curve, choose the curve on purpose, match the level back — and let intensity grow by driving harder, not by adding more.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="build.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 06 / The build
+    </a>
+    <a href="../workshop/block-4/index.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      Block 4 workshop →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B4-002 — Saturation</div>
+
+</div>
+
+</body>
+</html>

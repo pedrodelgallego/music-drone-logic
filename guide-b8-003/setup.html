@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B8-003 — Setup</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Lab Note contents">
+  <p class="nav-label labnote-code">Lab Note B8-003<span class="labnote-topic">Teaching the Method</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html" class="active"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html"><span class="nav-num">06</span>Build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B8-003</div>
+    <div class="eyebrow">Teaching the Method · 04 — Setup</div>
+    <h1>The rig you document, and the template you write into</h1>
+    <p class="lede">Two setups matter here. The first is the studio your method runs on — the same rig as the rest of these notes — because you must describe it precisely enough for a stranger to map onto their own. The second is the writing setup: the teaching-artifact template, and the discipline of capturing a method <em>as you run it</em> so nothing is lost to memory.</p>
+  </header>
+
+  <h2>The rig you are documenting</h2>
+
+  <div class="sub-block">
+    <div class="sub-label">The reference signal path</div>
+    <div class="signal-flow">
+      <span class="signal-node">MicroFreak</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">MOTU M4 in 1</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">Ableton</span>
+      <span class="signal-arrow">←</span>
+      <span class="signal-node">Digitakt II in 3/4</span>
+    </div>
+    <ul>
+      <li>This is the rig the whole course assumes: <strong>Ableton Live 12 Suite</strong> as the clock master and recorder, <strong>Arturia MicroFreak</strong> mono into M4 input&nbsp;1, <strong>Elektron Digitakt II</strong> main L/R into M4 inputs&nbsp;3/4, monitored on DT&nbsp;990 Pro.</li>
+      <li>Ableton sends MIDI clock and transport out; the Digitakt and MicroFreak receive. <strong>Exactly one clock master</strong> — this is the single fact a stranger most often gets wrong, so it is the first thing your note must state.</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Why the rig matters to a teaching note</div>
+    <p>A method written against a specific rig is reproducible; a method written against "your setup" is not. But the reader's rig will differ. So you describe the rig in two layers: the <em>exact</em> path you used, and the <em>role</em> each piece plays — "the clock master," "the mono synth source," "the sampler." The role survives a gear change; the exact model does not.</p>
+  </div>
+
+  <table class="param-table">
+    <caption>Describe each role so a stranger can substitute their own gear</caption>
+    <tr><td>Clock master</td><td>Ableton — sends clock + transport. Role: the one device everything else follows.</td></tr>
+    <tr><td>Mono synth source</td><td>MicroFreak → M4 in&nbsp;1. Role: monophonic raw material, recorded as static audio.</td></tr>
+    <tr><td>Sampler / drum source</td><td>Digitakt II → M4 in&nbsp;3/4. Role: clocked drums and resampling, performed live.</td></tr>
+    <tr><td>Recorder / arranger</td><td>Ableton Arrangement. Role: where audio is captured, edited, and automated.</td></tr>
+    <tr><td>Monitoring</td><td>DT&nbsp;990 Pro. Role: a known reference — and a known liar at 7–10&nbsp;kHz, which the note must warn about.</td></tr>
+  </table>
+
+  <h2>The teaching-artifact template</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="9" y="6" width="26" height="32" rx="2"/><line x1="14" y1="14" x2="30" y2="14"/><line x1="14" y1="20" x2="30" y2="20"/><line x1="14" y1="26" x2="24" y2="26"/></svg>
+      </div>
+      <div class="step-num">Template</div>
+      <h2 class="step-title">The seven blocks of a teachable lab note</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The fixed order</div>
+      <table class="param-table">
+        <caption>Write them in this sequence — the order is the teaching</caption>
+        <tr><td>1 — Thesis</td><td>One sentence: the felt result the method produces. The reader's target.</td></tr>
+        <tr><td>2 — Reader profile</td><td>One sentence: who the stranger is, what they may assume, what they may not.</td></tr>
+        <tr><td>3 — Refusals</td><td>What the method does <em>not</em> do. Stated as plainly as the instructions.</td></tr>
+        <tr><td>4 — Rig &amp; roles</td><td>The exact path, then the role of each piece so it can be substituted.</td></tr>
+        <tr><td>5 — Mechanism</td><td>The core reproducible move, with ranges, orders, and the clock named.</td></tr>
+        <tr><td>6 — Steps + decision checks</td><td>Each step ends with a check the reader answers without you.</td></tr>
+        <tr><td>7 — What is lost</td><td>An honest note of what the document cannot carry.</td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Why this order, not another</div>
+      <ul>
+        <li><strong>Thesis before gear</strong> because "how" is meaningless before "why." A reader who does not know the target cannot judge their own result.</li>
+        <li><strong>Refusals before steps</strong> because what to avoid is as much the method as what to do. "Do not add a riser" is an instruction, not a footnote.</li>
+        <li><strong>What is lost, last</strong> because the reader needs the whole method in hand before they can understand which part of it is theirs to supply.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>How to capture a method as you run it</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="15"/><polyline points="22 13 22 22 29 26"/></svg>
+      </div>
+      <div class="step-num">Capture</div>
+      <h2 class="step-title">Document live, because memory rewrites the method</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The capture discipline</div>
+      <ul>
+        <li>Run your method once with a notebook or a text file open beside the DAW. Every time your hand moves, write what it did and the value — <span class="code">sidechain release 120 ms</span>, not "set the release." The instinct you do not record is the instinct the stranger will miss.</li>
+        <li>Capture the <em>order</em> as it happens, even when it surprises you. If you EQ before reverb without thinking, that ordering is a step.</li>
+        <li>Mark every moment you "judged by ear." Those are the spots that need a listening test in the final note, or an honest flag that the reader must supply their own judgement.</li>
+        <li>Screen-record or photograph the routing and the device chain. A picture of the signal path settles a dozen questions a stranger would otherwise ask.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Two capture files, kept separate</div>
+      <table class="param-table">
+        <caption>What goes where</caption>
+        <tr><td><span class="code">method_raw.txt</span></td><td>The unedited live log — every move, value, and order, written as it happened. Messy on purpose.</td></tr>
+        <tr><td><span class="code">method_note.html</span></td><td>The clean teaching artifact, written <em>from</em> the raw log into the seven-block template.</td></tr>
+      </table>
+      <ul>
+        <li>Keep the raw log. When the stranger's rebuild breaks, you compare their result against the raw log to find which instinct never made it into the clean note.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Have I described my rig as both an exact path and a set of roles a stranger can substitute?</li>
+        <li>Do I have the seven-block template ready, in order, before I start writing?</li>
+        <li>Did I capture the method live — every value, every order, every by-ear moment — rather than from memory?</li>
+        <li>Are my raw log and my clean note separate files, so I can trace any break back to its source?</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-nav">
+    <a href="decisions.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 03 / Decisions
+    </a>
+    <a href="palette.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      05 / Palette →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B8-003 — Teaching the Method</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B2-001 — Overview</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Lab Note contents">
+  <p class="nav-label labnote-code">Lab Note B2-001<span class="labnote-topic">Synthesis from Zero</span></p>
+  <a href="index.html" class="active"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html"><span class="nav-num">06</span>Build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B2-001</div>
+    <div class="eyebrow">Synthesis from Zero · 01 — Overview</div>
+    <h1>Build a finished piece where every sound is synthesized from zero</h1>
+    <p class="lede">No samples anywhere — not even the drums. Oscillators, noise, and envelopes are the only raw material. By the end you will be able to look at a patch and predict its spectrum before you hear it, and to defend every millisecond of every envelope. This is a deep-reference companion to <a href="../workshop/block-2/index.html">Block 2 · Sources</a>.</p>
+  </header>
+
+  <h2>The one principle</h2>
+
+  <div class="callout">
+    <div class="callout-label">Principle</div>
+    <p>Sound is built, not picked. A sample is a decision someone else already made and froze. A synthesized sound is a decision you keep making — adjustable to the millisecond, tunable to the bassline, predictable from the patch.</p>
+  </div>
+
+  <p style="text-align: center; color: var(--text-muted); max-width: 640px; margin: 24px auto;">A drum is not a recording. It is a volume shape wrapped around a frequency that moves. A bell is not a found object — it is a ratio between two oscillators. A pad is not a preset — it is a stack of partials you chose. Once you internalise that every sound is a small machine you assemble, the sample library stops being the menu and becomes a fallback.</p>
+
+  <h2>What you'll make</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="16"/><circle cx="22" cy="22" r="10"/><circle cx="22" cy="22" r="3" fill="currentColor"/></svg>
+      </div>
+      <h3 class="card-title">A 4–6 minute all-synthesized piece</h3>
+      <ul class="card-points">
+        <li>Kick, hat, clap built from oscillators and noise — no sampled drums</li>
+        <li>Bass, lead, pad, and a drone, each from a named method</li>
+        <li>Five synthesis methods covered: subtractive, FM, additive, noise shaping, west-coast</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><line x1="6" y1="34" x2="6" y2="22"/><line x1="14" y1="34" x2="14" y2="14"/><line x1="22" y1="34" x2="22" y2="8"/><line x1="30" y1="34" x2="30" y2="16"/><line x1="38" y1="34" x2="38" y2="26"/></svg>
+      </div>
+      <h3 class="card-title">A spectrum you can predict</h3>
+      <ul class="card-points">
+        <li>Integer ratio → harmonic · non-integer → inharmonic</li>
+        <li>White noise + high-pass → hat · band-pass → clap</li>
+        <li>Fold a sine → harmonics that bloom with level; gate it → bongo decay</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Core objective</div>
+    <p>Understand each synthesis method well enough to choose it on purpose — and to draw the signal flow of any sound in the finished track from memory.</p>
+  </div>
+
+  <h2>Why it matters</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="10" width="32" height="24" rx="2"/><line x1="12" y1="18" x2="32" y2="18"/><line x1="12" y1="24" x2="28" y2="24"/><line x1="12" y1="30" x2="24" y2="30"/></svg>
+      </div>
+      <h3 class="card-title">The sample-library instinct</h3>
+      <ul class="card-points">
+        <li>Browse for "a better kick" for an hour, audition nothing in context</li>
+        <li>Accept whatever attack, pitch, and tail the file came with</li>
+        <li>Fight the result with EQ instead of fixing it at the source</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M8 30 a8 8 0 0 1 0 -16"/><path d="M36 14 a8 8 0 0 1 0 16"/><line x1="14" y1="22" x2="30" y2="22"/><circle cx="22" cy="22" r="3" fill="currentColor"/></svg>
+      </div>
+      <h3 class="card-title">The synthesis discipline</h3>
+      <ul class="card-points">
+        <li>Decide where the click ends and the body begins</li>
+        <li>Tune the kick's fundamental to the bass so the low end is one decision</li>
+        <li>Make a part evolve by enveloping a synthesis parameter, not by adding tracks</li>
+      </ul>
+    </div>
+  </div>
+
+  <p style="text-align: center; color: var(--text-muted); max-width: 640px; margin: 24px auto;">The skill transfers everywhere — techno, ambient, sound design, scoring, generative systems. You are not learning presets. You are learning that every sound is a system with inputs you control, and that the cheapest way to make a track sound like yours is to manufacture its sounds instead of borrowing them.</p>
+
+  <div class="callout">
+    <div class="callout-label">Originality constraint</div>
+    <p>Replicas stay in the logbook. You may study any reference and steal a single principle from it, but the piece you print must be assembled from your own patches — not a clone of a record.</p>
+  </div>
+
+  <div class="page-nav">
+    <span></span>
+    <a href="listen.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      02 / Listen →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B2-001 — Synthesis from Zero</div>
+
+</div>
+
+</body>
+</html>

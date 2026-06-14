@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B3-004 — Euclidean — Setup</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B3-004<span class="labnote-topic">Euclidean</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html" class="active"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Pattern palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B3-004</div>
+    <div class="eyebrow">Euclidean · 04 — Setup</div>
+    <h1>The rig that generates the rule</h1>
+    <p class="lede">There are two honest ways to make Euclidean patterns in this studio: place the computed string by hand on the Digitakt II and exploit per-track length, or let an Ableton Euclidean MIDI generator compute it and drive the MicroFreak. This page wires both, and the clock that keeps them locked.</p>
+  </header>
+
+  <h2>The two engines</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="8" width="32" height="28" rx="2"/><rect x="10" y="24" width="4" height="4" rx="0.7"/><rect x="17" y="24" width="4" height="4" rx="0.7"/><rect x="24" y="24" width="4" height="4" rx="0.7"/><rect x="31" y="24" width="4" height="4" rx="0.7"/></svg>
+      </div>
+      <h3 class="card-title">Digitakt II — length is the trick</h3>
+      <ul class="card-points">
+        <li>No dedicated Euclidean mode</li>
+        <li>You place the computed string by hand, once</li>
+        <li>Per-track length makes each track its own M — Euclidean and polymeter at once</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="10" width="32" height="20" rx="2"/><line x1="16" y1="36" x2="28" y2="36"/><line x1="22" y1="30" x2="22" y2="36"/></svg>
+      </div>
+      <h3 class="card-title">Ableton — the generator computes it</h3>
+      <ul class="card-points">
+        <li>Live 12 MIDI Generators include a Euclidean Generator</li>
+        <li>Set steps, pulses/fills, and rotation as live values</li>
+        <li>The MIDI clip drives the MicroFreak so the bass inherits the rule</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Where the Euclidean tools live</h2>
+
+  <table class="param-table">
+    <caption>Generating Euclidean patterns with what you have</caption>
+    <tr><td>Ableton — Generate</td><td>Live 12's MIDI Generators include a <strong>Euclidean Generator</strong>. In a MIDI clip, open the Generate panel and choose Euclidean: set <span class="code">Steps</span> (M), <span class="code">Fills</span>/<span class="code">Pulses</span> (N), and <span class="code">Rotation</span>. It writes the notes into the clip.</td></tr>
+    <tr><td>Ableton — Max for Live</td><td>Several free M4L Euclidean sequencers give you hits, steps, and rotation as live knobs you can map and automate — useful when you want the integer itself to move over the arrangement.</td></tr>
+    <tr><td>Digitakt II</td><td>No Euclidean mode. You read the computed string off page 05 and place trigs by hand, then exploit <strong>per-track length</strong> (TRK LEN / pattern scale page) so each track is its own E(N,M) of a different M.</td></tr>
+    <tr><td>MicroFreak</td><td>Drive its sound from an Ableton Euclidean MIDI clip over USB, so the bass inherits the same rule as the drums. Its onboard arp/sequencer can also be triggered, but the cleanest path is the Ableton clip.</td></tr>
+  </table>
+
+  <h2>Signal &amp; control path</h2>
+
+  <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:11px; letter-spacing:0.2em; text-transform:uppercase;">Control — where the rule is computed and sent</h3>
+  <div class="signal-flow">
+    <span class="signal-node">Ableton Euclidean Generator</span>
+    <span class="signal-arrow">→ MIDI clip →</span>
+    <span class="signal-node">MIDI track</span>
+    <span class="signal-arrow">→ USB →</span>
+    <span class="signal-node">MicroFreak (bass voice)</span>
+    <span class="signal-arrow">+ clock →</span>
+    <span class="signal-node">Digitakt II (hand-placed strings)</span>
+  </div>
+
+  <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:11px; letter-spacing:0.2em; text-transform:uppercase;">Audio — where the sound is recorded</h3>
+  <div class="signal-flow">
+    <span class="signal-node">MicroFreak Out</span>
+    <span class="signal-arrow">→ TS →</span>
+    <span class="signal-node">M4 In 1</span>
+    <span class="signal-arrow">+</span>
+    <span class="signal-node">Digitakt II Main L/R</span>
+    <span class="signal-arrow">→ 2 × TRS →</span>
+    <span class="signal-node">M4 In 3/4</span>
+    <span class="signal-arrow">→ USB-C →</span>
+    <span class="signal-node">Ableton</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">DT 990 Pro</span>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">One clock to rule them all</div>
+    <p>Ableton is the only clock master. The Digitakt II receives clock and transport; the MicroFreak receives clock and the Euclidean MIDI clip. If the Digitakt's tempo display disagrees with Ableton, stop and fix sync before recording — a pattern recorded against a drifting clock cannot be repaired.</p>
+  </div>
+
+  <h2>Set up the Ableton Euclidean MIDI track</h2>
+
+  <table class="param-table">
+    <caption>MicroFreak bass driven by the generator</caption>
+    <tr><td>1 — Create a MIDI track</td><td><kbd>⌘ ⇧ T</kbd>. Name it <span class="code">MF EUCLID</span>. MIDI To → <strong>MicroFreak</strong>, channel <span class="code">1</span>.</td></tr>
+    <tr><td>2 — Make a 1-bar clip</td><td>Double-click an empty clip slot to create an empty MIDI clip, 1 bar long.</td></tr>
+    <tr><td>3 — Generate</td><td>Open the clip, click <span class="menu">Generate → Euclidean</span>. Set <span class="code">Steps 16</span>, <span class="code">Pulses 5</span>, <span class="code">Rotation 0</span>. One note pitch for a bass.</td></tr>
+    <tr><td>4 — Verify the string</td><td>The clip should show hits matching E(5,16) on page 05. If it does not, your Pulses/Steps are swapped.</td></tr>
+    <tr><td>5 — Clock the MicroFreak</td><td>On the MicroFreak: <kbd>Shift</kbd> + <kbd>Tempo</kbd> → source <strong>USB</strong>. Press play in Ableton; the bass note should fire on the E(5,16) steps.</td></tr>
+  </table>
+
+  <h2>Set up the Digitakt II per-track lengths</h2>
+
+  <table class="param-table">
+    <caption>Each track its own M — the polymeter superpower</caption>
+    <tr><td>T1 KICK</td><td>Length <span class="code">16</span>. Hand-place E(4,16) — trigs on 1, 5, 9, 13. The anchor; do not vary it.</td></tr>
+    <tr><td>T2 HAT</td><td>Length <span class="code">16</span>. Hand-place E(7,16) from page 05 — the busy, even offbeat layer.</td></tr>
+    <tr><td>T3 PERC</td><td>Length <span class="code">11</span>. Hand-place E(3,11). At 11 steps it phases against the 16-step kick and realigns every 176 steps — Euclidean and polymeter on one track.</td></tr>
+    <tr><td>T4 TEXTURE</td><td>Length <span class="code">12</span>. Hand-place E(5,12) — a West-African bell ancestor, drifting against the 16-grid.</td></tr>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Per-track length on Digitakt II:</strong> on the relevant track, open the pattern length / scale settings and switch from per-pattern to per-track scaling, then set that track's step count. This is what lets T3 run 11 steps while T1 runs 16.</li>
+      <li><strong>Place the string, then forget it.</strong> Once a Euclidean line is entered by hand, treat the trigs as fixed. Evolution comes from changing one length or rotation later, not from nudging individual trigs.</li>
+    </ul>
+  </div>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Avoid the common setup traps</div>
+    <ul>
+      <li>Generator wrote the wrong rhythm → Pulses (N) and Steps (M) are swapped, or Rotation is non-zero when you expected 0.</li>
+      <li>Digitakt track will not change its length → still in per-pattern scale mode; switch to per-track first.</li>
+      <li>MicroFreak ignores the clip → clock source not set to USB, or MIDI To is pointed at the wrong port/channel.</li>
+      <li>Polymeter never drifts → all tracks are still 16 steps; the drift only exists when M differs per track.</li>
+    </ul>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon">
+        <svg viewBox="0 0 44 44"><polyline points="10 22 18 30 34 12"/></svg>
+      </div>
+      <div class="checklist-label">Before you move on</div>
+    </div>
+    <ul>
+      <li>The Ableton Euclidean Generator writes the string I expect and the MicroFreak plays it.</li>
+      <li>Ableton is the sole clock master; the Digitakt II follows its tempo and transport.</li>
+      <li>At least one Digitakt track has a length other than 16, so polymeter is live.</li>
+      <li>Audio is recorded once through the M4; I am not monitoring two paths at once.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="decisions.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 03 / Decisions
+    </a>
+    <a href="palette.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      05 / Pattern palette →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B3-004 — Euclidean</div>
+
+</div>
+
+</body>
+</html>

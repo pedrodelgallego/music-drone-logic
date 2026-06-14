@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B5-001 — Delay as Architecture · Reflection</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B5-001<span class="labnote-topic">Delay</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Delay recipes</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html" class="active"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B5-001</div>
+    <div class="eyebrow">Delay · 07 — Reflection</div>
+    <h1>Did the delay become the architecture?</h1>
+    <p class="lede">The test of this note is not whether the track has delay on it — every track does. The test is whether the delay is <em>load-bearing</em>: whether the music would collapse without it. Answer slowly. Write the answers down.</p>
+  </header>
+
+  <h2>How you know it worked</h2>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="16"/><polyline points="14 22 20 28 30 16"/></svg>
+      </div>
+      <div class="checklist-label">Success signals</div>
+    </div>
+    <ul>
+      <li>Muting the delay returns removes more than half the track.</li>
+      <li>The dry parts are sparse; the space between them is full of echo.</li>
+      <li>Throws are gestures — they enter and leave, they are not a constant wash.</li>
+      <li>Every tail darkens and dies; nothing piles into mud.</li>
+      <li>You can name which delay owns each sound, and why.</li>
+      <li>Feedback set the tail length; the return fader set the presence — and you never confused them.</li>
+      <li>The breakdown feels bigger because the drums left and the echo remained.</li>
+      <li>The mix survives the mono fold; the ping-pong was insured by a mono slap.</li>
+      <li>No kick or sub leaked into any repeat.</li>
+      <li>You can defend the timeline of throws as a composition.</li>
+    </ul>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon">
+        <svg viewBox="0 0 44 44"><polygon points="22 6 40 36 4 36"/><line x1="22" y1="16" x2="22" y2="24"/><circle cx="22" cy="29" r="1.4" fill="currentColor"/></svg>
+      </div>
+      <div class="checklist-label">Failure signals</div>
+    </div>
+    <ul>
+      <li>The delay is decoration — muting it changes little.</li>
+      <li>The echoes run constantly, so no single throw lands.</li>
+      <li>Tails pile up flat and bright; the mix is muddy by the second minute.</li>
+      <li>You raised the return fader hoping for a longer tail (you wanted feedback).</li>
+      <li>You cranked feedback hoping to hear the echo better (you wanted return level).</li>
+      <li>The ping-pong vanishes in mono and nothing replaces it.</li>
+      <li>Kick or sub energy is smeared through the repeats.</li>
+      <li>You automated a sync'd delay's time mid-ring and got a pitch lurch.</li>
+      <li>The dry parts are so busy the echo has no room to speak.</li>
+    </ul>
+  </div>
+
+  <h2>The fault</h2>
+  <div class="callout">
+    <div class="callout-label">The most likely fault</div>
+    <p>The delay never became architecture — it stayed an insert in disguise. The symptom: you find a moment where you reached for the return fader to make the tail longer, or for feedback to make the echo louder. That single confusion is what keeps a delay decorative. Name the moment it happened in your track, and re-do it with the right knob: feedback for length, return level for presence.</p>
+  </div>
+
+  <h2>Ten reflection questions</h2>
+  <ol class="reflection-list">
+    <li>If you muted Returns A and C, how much of the track would survive — honestly?</li>
+    <li>Which throw was the most musical, and what made it land — the timing, the silence around it, or the source?</li>
+    <li>Did you ever confuse feedback amount with return level? Where, and how did you catch it?</li>
+    <li>Did the feedback filtering darken the tails, or did you let them pile up?</li>
+    <li>Was the breakdown's power from subtraction (drums out, echo alone) or did you cheat by adding something?</li>
+    <li>Did the melodica truly duet with its echo, or did it play over its own repeats?</li>
+    <li>What collapsed in mono, and did your mono slap save it?</li>
+    <li>Which was right for this track: sync'd repeats locked to the groove, or free-time drift?</li>
+    <li>Did any low frequency leak into the delays? How did you keep the kick and bass clean?</li>
+    <li>If you had to remove a third of the throws, which would go — and would the track be better for it?</li>
+  </ol>
+
+  <h2>Carry forward</h2>
+  <div class="note-block">
+    <ul>
+      <li><strong>Into reverb (block-5, next note).</strong> Reverb is delay's sibling — dense, smeared repeats with no discrete taps. Everything you learned about send vs insert, 100&nbsp;% wet returns, and filtering the wet path applies directly. The slap-into-space pairing you used on the melodica is the bridge.</li>
+      <li><strong>Into feedback as a system.</strong> The Recipe 4 swell was feedback used as a riser. Feedback networks — delays feeding reverbs feeding delays — are the next depth. You now know why filtering the loop is non-negotiable before you let signal regenerate.</li>
+      <li><strong>Into every future mix.</strong> The two-knob discipline — feedback for length, level for presence — never stops paying. Carry the habit of stating, for every delay, whether it is an insert or a send, and why.</li>
+    </ul>
+  </div>
+
+  <div class="final">
+    <div class="final-icon">
+      <svg viewBox="0 0 44 44"><path d="M6 30 Q22 4 38 12"/><circle cx="6" cy="30" r="2.5" fill="currentColor"/><circle cx="20" cy="20" r="2" fill="currentColor" opacity="0.6"/><circle cx="30" cy="15" r="1.5" fill="currentColor" opacity="0.35"/><circle cx="38" cy="12" r="1" fill="currentColor" opacity="0.2"/></svg>
+    </div>
+    <div class="final-label">Final principle</div>
+    <p>A delay is a path you build, not a knob you turn up. When the dry signal is sparse enough, the echo stops being an effect and becomes the architecture — and the silence you left is what gave it room to build.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="build.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 06 / The build
+    </a>
+    <a href="../workshop/block-5/index.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      Block 5 workshop →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B5-001 — Delay as Architecture</div>
+
+</div>
+
+</body>
+</html>

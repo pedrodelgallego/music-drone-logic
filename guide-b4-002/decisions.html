@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B4-002 — Saturation · Decisions</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B4-002<span class="labnote-topic">Saturation</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html" class="active"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup &amp; signal path</a>
+  <a href="palette.html"><span class="nav-num">05</span>Saturation palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B4-002</div>
+    <div class="eyebrow">Saturation · 03 — Decisions</div>
+    <h1>The theory you decide with</h1>
+    <p class="lede">Saturation is the first transformation where the level you feed in <em>is</em> the sound design. A linear stage treats every level the same; a nonlinear stage changes character with input. This page builds the mental model — linear vs nonlinear, what bending a wave produces, soft vs hard, and why the order of the chain stops being cosmetic the moment a stage goes nonlinear.</p>
+  </header>
+
+  <h2>Linear vs nonlinear — the distinction everything rests on</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><line x1="8" y1="36" x2="36" y2="8"/></svg>
+      </div>
+      <h3 class="card-title">Linear stage</h3>
+      <ul class="card-points">
+        <li>Output is a straight-line scaling of the input</li>
+        <li>Double the input, double the output — no new frequencies</li>
+        <li>Gain, faders, EQ (in level terms), panning, delay, reverb mix</li>
+        <li>Order between two linear stages rarely changes the result</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M8 36 C20 36 20 8 36 8"/></svg>
+      </div>
+      <h3 class="card-title">Nonlinear stage</h3>
+      <ul class="card-points">
+        <li>The transfer curve bends — louder inputs are treated differently</li>
+        <li>Bending the waveform <em>generates new harmonics</em> that weren't in the source</li>
+        <li>Saturation, clipping, compression, tape, valves, transformers</li>
+        <li>Input level chooses how much of the curve you use, so level = timbre</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The core fact</div>
+    <p>Because a nonlinear stage responds to level, the <em>gain before it</em> is a sound-design control, not a housekeeping one. Two people with the same Saturator and different input gains get two different sounds. Decide the input level on purpose, write it down, and keep it.</p>
+  </div>
+
+  <p style="text-align:center; max-width:640px; margin:0 auto 24px; color:var(--text-muted);">A useful picture: the transfer curve is a graph of output-vs-input. A linear stage is a straight diagonal line. A nonlinear stage is that line bent into an S or a flat-topped plateau. A quiet signal only travels along the near-straight middle of the curve and barely distorts; a loud signal climbs into the bent ends, where the bending rewrites its harmonic content.</p>
+
+  <h2>Harmonic generation — what bending the wave produces</h2>
+
+  <table class="param-table">
+    <caption>Curve shape → harmonic signature</caption>
+    <tr><td>Symmetric soft clip</td><td>Mostly <strong>odd</strong> harmonics (3rd, 5th). Hollow, reedy, "warm" overdrive. Both halves of the wave clip the same way.</td></tr>
+    <tr><td>Asymmetric / tube</td><td>Adds <strong>even</strong> harmonics (2nd, 4th). Fuller, sweeter, more "analog". One half of the wave clips more than the other.</td></tr>
+    <tr><td>Hard clip</td><td>Strong high-order odd harmonics. Buzzy, aggressive, digital. The transfer curve has a sharp corner.</td></tr>
+    <tr><td>Wavefolding</td><td>Folds the peak back on itself — dense, metallic, inharmonic clusters. Far beyond simple clipping.</td></tr>
+  </table>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><line x1="8" y1="36" x2="20" y2="14"/><line x1="20" y1="14" x2="22" y2="10"/><line x1="22" y1="10" x2="24" y2="10"/><line x1="24" y1="10" x2="36" y2="8"/></svg>
+      </div>
+      <h3 class="card-title">Even harmonics — sweetness</h3>
+      <ul class="card-points">
+        <li>2nd, 4th, 6th — octaves and octave-fifths above the fundamental</li>
+        <li>Musically consonant; reads as "fuller", "rounder", "fatter"</li>
+        <li>Comes from asymmetric curves — tube, transformer, tape</li>
+        <li>Use on bass and drone where you want body without grit</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><line x1="8" y1="22" x2="36" y2="22"/><line x1="14" y1="22" x2="14" y2="12"/><line x1="22" y1="22" x2="22" y2="8"/><line x1="30" y1="22" x2="30" y2="14"/></svg>
+      </div>
+      <h3 class="card-title">Odd harmonics — grit</h3>
+      <ul class="card-points">
+        <li>3rd, 5th, 7th — fifths and beyond, increasingly dissonant</li>
+        <li>Reads as "hollow", "reedy", "aggressive", "square-wave-ish"</li>
+        <li>Comes from symmetric clipping — most digital saturators by default</li>
+        <li>Use on drums and stabs where you want bite and presence</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 22 q5 -14 10 0 t10 0 t10 0"/><path d="M6 16 h32" stroke-dasharray="2 3"/><path d="M6 28 h32" stroke-dasharray="2 3"/></svg>
+      </div>
+      <h3 class="card-title">Soft clip</h3>
+      <ul class="card-points">
+        <li>The curve bends gradually toward a ceiling — no sharp corner</li>
+        <li>Harmonics rise smoothly as you push harder; forgiving and musical</li>
+        <li>Adds density and "glue" before it ever sounds distorted</li>
+        <li>Reversible-feeling: back the drive off and it returns to clean</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 16 h10 v12 h12 v-12 h10"/></svg>
+      </div>
+      <h3 class="card-title">Hard clip</h3>
+      <ul class="card-points">
+        <li>The curve hits a wall — peaks are sliced flat</li>
+        <li>High-order harmonics appear suddenly and harshly</li>
+        <li>Aliasing risk on digital sources; can sound brittle</li>
+        <li>Once you clip a peak off, that peak is <em>gone</em> — irreversible</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Reversibility note</div>
+    <p>Soft saturation at modest drive is effectively reversible by ear — pull the drive back and the timbre returns. Hard clipping is <strong>cumulative and one-way</strong>: the energy above the ceiling is discarded and cannot be recovered. Treat clipping like cutting, not like seasoning.</p>
+  </div>
+
+  <h2>Level-in / level-out discipline</h2>
+  <p style="text-align:center; max-width:620px; margin:0 auto 24px; color:var(--text-muted);">A nonlinear stage has three controls that interact: input gain (how hard you hit the curve), the curve itself (drive/amount), and output gain (matching level back). Confusing the three is the most common saturation mistake.</p>
+
+  <table class="param-table">
+    <caption>The three gains and what each does</caption>
+    <tr><td>Input gain</td><td>Chooses <em>how much of the nonlinear curve</em> the signal reaches. This is the real timbre control. More input = more harmonics, regardless of the output knob.</td></tr>
+    <tr><td>Drive / amount</td><td>Steepens or scales the curve itself. Often interacts with input — read the manual for which one your plugin uses.</td></tr>
+    <tr><td>Output gain</td><td>Linear make-up after the curve. Use it to <strong>level-match</strong> so you judge timbre, not loudness.</td></tr>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">Loudness deception</div>
+    <p>Saturation almost always makes things louder, and louder almost always sounds better for the first few seconds. Always trim the output to match the bypassed level before deciding. If it still sounds better at equal loudness, the saturation earned its place. If not, you were fooled by level.</p>
+  </div>
+
+  <h2>Why order matters — A→B is not B→A</h2>
+
+  <div class="signal-flow">
+    <span class="signal-node">source</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">EQ boost</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">Saturator</span>
+    <span class="signal-arrow">vs.</span>
+    <span class="signal-node">Saturator</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">EQ boost</span>
+  </div>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 28 q9 -12 18 0 t18 0"/><circle cx="34" cy="14" r="3" fill="currentColor"/></svg>
+      </div>
+      <h3 class="card-title">EQ before saturation</h3>
+      <ul class="card-points">
+        <li>The boosted band is now the loudest part hitting the curve</li>
+        <li>So that band drives the harmonic generation hardest</li>
+        <li>Boost the low-mids first → a fat, harmonically thick saturation</li>
+        <li>You are choosing <em>what</em> distorts by choosing what is loudest going in</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 16 h10 v12 h12 v-12 h10"/><circle cx="22" cy="36" r="2.5" fill="currentColor"/></svg>
+      </div>
+      <h3 class="card-title">EQ after saturation</h3>
+      <ul class="card-points">
+        <li>The curve sees the flat source; harmonics are generated evenly</li>
+        <li>The EQ then sculpts the already-distorted tone</li>
+        <li>Boost the highs after → you lift the harmonics, not redirect them</li>
+        <li>Same two devices, audibly different result — that is non-commutativity</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The rule of thumb</div>
+    <p>Anything you do <em>before</em> a nonlinear stage changes what the stage distorts. Anything you do <em>after</em> only shapes the distortion that already happened. Filter-then-saturate sounds different from saturate-then-filter — and a resonant filter peak placed before a Saturator drives the saturation hardest at the resonant pitch.</p>
+  </div>
+
+  <h2>The order-of-chain decisions you will actually make</h2>
+
+  <table class="param-table">
+    <caption>Common slots and what each one does to the sound</caption>
+    <tr><td>HP filter → Saturator</td><td>Remove sub <em>before</em> the curve so the bass doesn't dominate the harmonic generation. The single most useful pre-saturation move for a clean low end.</td></tr>
+    <tr><td>Saturator → HP filter</td><td>Let the full-range signal distort, then clean up the rumble the distortion added. Fatter, but riskier for mono sub.</td></tr>
+    <tr><td>Compressor → Saturator</td><td>Even out dynamics first, so the curve is hit at a consistent level — a controlled, predictable grit.</td></tr>
+    <tr><td>Saturator → Compressor</td><td>Generate harmonics first, then glue them. The compressor reacts to the new high-end energy.</td></tr>
+    <tr><td>Saturator → Saturator</td><td>Staging: a gentle even-harmonic stage feeding a harder odd stage stacks two flavours. The order decides which flavour dominates.</td></tr>
+    <tr><td>Sidechain after saturation</td><td>Pump the already-distorted bass against the kick, so the harmonics duck too — keeps the grit from masking the kick.</td></tr>
+  </table>
+
+  <h2>The choices for this track</h2>
+
+  <table class="param-table">
+    <caption>Decisions locked before the build</caption>
+    <tr><td>Drum source flavour</td><td><strong>Hard, odd</strong> — Digitakt per-track Drive baked at the sample, plus a hard-clip stage in Ableton. Industrial bite.</td></tr>
+    <tr><td>Bass flavour</td><td><strong>Even then odd</strong> — analog grit from overdriving the MicroFreak filter (even), then a soft Saturator stage (rising odd) for the build.</td></tr>
+    <tr><td>Drone flavour</td><td><strong>Mostly clean</strong> — one gentle even-harmonic stage for body only. The drone is the element kept linear by design.</td></tr>
+    <tr><td>Where the irreversible point is</td><td>The Digitakt sample drive and the recorded analog grit. Everything in Ableton stays revisable until the final render.</td></tr>
+    <tr><td>What carries the intensity arc</td><td>Drive automation on the drum bus and bass, not new elements. This is the thesis of the build page.</td></tr>
+    <tr><td>What stays protected</td><td>The sub below ~60 Hz and the reverb tail — never sent into a hard stage.</td></tr>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Carry forward:</strong> saturation is the first stage where you must commit. Soft drive is reversible by ear; hard clipping is not. Before every stage in the build, you will ask one question — is this the slot where I want to commit, and at what level?</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="listen.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 02 / Listen
+    </a>
+    <a href="setup.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      04 / Setup &amp; signal path →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B4-002 — Saturation</div>
+
+</div>
+
+</body>
+</html>

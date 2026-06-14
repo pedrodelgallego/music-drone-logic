@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B1-004 — Metering · Reflection</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B1-004<span class="labnote-topic">Metering</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html" class="active"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B1-004</div>
+    <div class="eyebrow">Metering · 07 — Reflection</div>
+    <h1>Fault, carry-forward, principle</h1>
+    <p class="lede">Most of the learning happens here, not while reading needles. Answer slowly, write the answers down, and turn the result into one usable rule you can take into the next track and into the rest of Block 1.</p>
+  </header>
+
+  <h2>How you know it worked</h2>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="16"/><polyline points="14 22 20 28 30 16"/></svg>
+      </div>
+      <div class="checklist-label">Success signals</div>
+    </div>
+    <ul>
+      <li>You can state your loop's peak, true peak, integrated loudness, tilt, correlation, and tuning as numbers.</li>
+      <li>Every corrective move you made points back to a reading, with a before and an after.</li>
+      <li>You set record level by the M4 clip LED, before Live ever saw the signal.</li>
+      <li>Your loudness landed near your written target with true peak under <span class="code">−1 dBTP</span>.</li>
+      <li>The mix survives mono — the correlation needle stayed above <span class="code">0</span> and nothing vanished in the fold.</li>
+      <li>The drone tunes to <span class="code">0</span> cents and the low end shares one root.</li>
+      <li>You read the gain-reduction meter as a number rather than dialling it blind.</li>
+      <li>When your ears and a meter disagreed on a technical point, you let the meter win.</li>
+    </ul>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon">
+        <svg viewBox="0 0 44 44"><polygon points="22 6 40 36 4 36"/><line x1="22" y1="16" x2="22" y2="24"/><circle cx="22" cy="29" r="1.4" fill="currentColor"/></svg>
+      </div>
+      <div class="checklist-label">Failure signals — the faults to name</div>
+    </div>
+    <ul>
+      <li>You turned it up until it "sounded loud" instead of mixing to a written LUFS target.</li>
+      <li>You judged loudness on the peak meter, or clipping on the LUFS meter — the wrong tool for the job.</li>
+      <li>The mix read fine in stereo and collapsed in mono because you never folded it.</li>
+      <li>Your meters sat before a level or width device, so they read a balance you no longer had.</li>
+      <li>You cut frequencies by ear without ever naming the frequency on Spectrum.</li>
+      <li>You compared two versions at different volumes and the louder one always "won".</li>
+      <li>The drone felt uneasy and you never checked it was a few cents out.</li>
+      <li>A loudness boost pushed true peak over <span class="code">−1 dBTP</span> and you didn't re-check.</li>
+    </ul>
+  </div>
+
+  <h2>Reflection questions</h2>
+
+  <ol class="reflection-list">
+    <li>Which single reading was furthest out of bounds, and what one move fixed it?</li>
+    <li>Where did a meter disagree with your ears — and did you trust the meter?</li>
+    <li>Did the mono fold lose anything your headphones had hidden from you?</li>
+    <li>How far was your integrated loudness from target before you corrected it?</li>
+    <li>Which meter did you reach for last, and should it have been first?</li>
+    <li>Was the drone in tune when you measured it, or did the tuner surprise you?</li>
+    <li>Did fixing one reading ever knock another out of bounds? Which pair fought?</li>
+    <li>What does "−14 LUFS, −1 dBTP" now feel like, having built toward it once?</li>
+    <li>What is the smallest single reading you'd check first on the next track?</li>
+    <li>Of the four listening pairings, which reading do you now trust over your ears?</li>
+  </ol>
+
+  <h2>Carry-forward</h2>
+
+  <div class="callout">
+    <div class="callout-label">Write your carry-forward rule</div>
+    <p>Finish this sentence in your logbook and reuse it next time: "Before I trust my ears on level, phase, or tuning, I will read the meter and write the number down." A carry-forward rule is a fault turned into a reflex.</p>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Keep the measurement template.</strong> Your master chain — Spectrum, loudness, correlation, Utility — is now a reusable object. Every new project should open with it already on the master.</li>
+      <li><strong>The system-diff sentence:</strong> "I thought my mix was ___; the meter showed it was ___." Most of the time the answer is "louder / wider / in tune" turning into a number that proved otherwise.</li>
+      <li><strong>Next in Block 1:</strong> metering is the companion to <a href="../workshop/block-1/lab-003b.html">Lab 003b — Measurement Tools</a> and rests on the gain discipline of <a href="../guide-b1-002/index.html">Lab Note B1-002 — Unity / gain</a>. The whole bench is sequenced in <a href="../guide-b1-001/index.html">Lab Note B1-001</a> and the Block 1 hub.</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Proof gate</div>
+    <p>Measure a finished loop's <strong>true-peak, integrated LUFS, spectral balance, and mono correlation</strong>, then make <strong>one corrective move justified by a reading</strong> — and state every number. "It sounds better now" does not pass. "True peak was <span class="code">+0.3 dBTP</span>, integrated <span class="code">−18.4 LUFS</span>, a <span class="code">3 dB</span> hump at <span class="code">300 Hz</span>, correlation dipping to <span class="code">−0.4</span>; I cut <span class="code">3 dB</span> at <span class="code">300 Hz</span> and the hump flattened" passes.</p>
+  </div>
+
+  <div class="final">
+    <div class="final-icon">
+      <svg viewBox="0 0 44 44"><line x1="6" y1="34" x2="38" y2="34"/><line x1="6" y1="34" x2="6" y2="10"/><path d="M6 28 L16 22 L24 26 L32 14 L38 20"/></svg>
+    </div>
+    <div class="final-label">Final principle</div>
+    <p>A problem you can measure is a problem you can fix in seconds. Read the instrument first, name the number, make one move, and confirm it on the meter — and your judgement stops swinging with your mood.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="build.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 06 / The build
+    </a>
+    <a href="../workshop/block-1/index.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      Block 1 · The Bench →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B1-004 — Metering</div>
+
+</div>
+
+</body>
+</html>

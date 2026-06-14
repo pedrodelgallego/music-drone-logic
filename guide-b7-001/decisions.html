@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B7-001 — Parameter Riding — Decisions</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B7-001<span class="labnote-topic">Parameter Riding</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html" class="active"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup &amp; rig</a>
+  <a href="palette.html"><span class="nav-num">05</span>Ride map</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B7-001</div>
+    <div class="eyebrow">Parameter Riding · 03 — Decisions</div>
+    <h1>What to map, what to fix, and how a gesture works</h1>
+    <p class="lede">Riding starts with a hard decision made before the set, not during it: of the hundreds of parameters in the rig, which four or five do you hold under your hands, and which do you leave fixed or let the machines run on their own? This page is the theory. The next two turn it into a rig and a map.</p>
+  </header>
+
+  <h2>What riding is, and what it is not</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M8 30h28"/><circle cx="14" cy="30" r="3"/><circle cx="30" cy="30" r="3"/><line x1="14" y1="27" x2="14" y2="12"/><line x1="30" y1="27" x2="30" y2="18"/></svg>
+      </div>
+      <h3 class="card-title">Hands</h3>
+      <ul class="card-points">
+        <li>A few continuous controls you ride by feel, reacting to the room</li>
+        <li>Gestures that respond to a moment you cannot predict in advance</li>
+        <li>The places where your judgement beats any drawn curve</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 34 Q22 6 38 14"/><circle cx="6" cy="34" r="2.5" fill="currentColor"/><circle cx="38" cy="14" r="2.5" fill="currentColor"/></svg>
+      </div>
+      <h3 class="card-title">Automation curves</h3>
+      <ul class="card-points">
+        <li>Movement that must be identical every time — LFOs, p-locks, clips</li>
+        <li>Anything too slow to hold for minutes without your hand cramping</li>
+        <li>The work you delegate to the machine so your attention stays free</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Core distinction</div>
+    <p>If a move must change with the room, ride it. If it must be the same every time, automate it. Riding everything is not control — it is panic with extra steps.</p>
+  </div>
+
+  <h2>The theory of a gesture</h2>
+  <p style="text-align:center; max-width:640px; margin:0 auto 24px; color:var(--text-muted);">A ride is not "turning a knob." It is a shape over time, with a start, a target, a speed, and a return. Knowing the anatomy of a good gesture is what lets you rehearse one instead of fidgeting.</p>
+
+  <table class="param-table">
+    <caption>Anatomy of a ride</caption>
+    <tr><td>Origin</td><td>Where the value sits when you reach for it. With endless encoders this is wherever the parameter already is — the control picks up, it does not jump.</td></tr>
+    <tr><td>Target</td><td>The musical value you are heading toward. Defined by the mapping's Max, so you cannot overshoot into a sound that hurts.</td></tr>
+    <tr><td>Duration</td><td>How long the move takes. In this genre, almost always 8–48 bars. If the room hears the move as an event, it was too short.</td></tr>
+    <tr><td>Curve</td><td>The acceleration. Hands naturally ease in and out — that is an S-curve, which reads as intention. A linear sweep reads as a ruler.</td></tr>
+    <tr><td>Return</td><td>What happens after. A gesture that goes up and stays up spends the parameter forever. A gesture that returns can be used again.</td></tr>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">The speed rule</div>
+    <p>Ride everything slower than feels natural. Your sense of time is compressed while performing — what feels glacial to your hand is usually still too fast for the room. When in doubt, halve the speed.</p>
+  </div>
+
+  <h2>What to map — and why these four</h2>
+  <p style="text-align:center; max-width:640px; margin:0 auto 24px; color:var(--text-muted);">Four continuous controls plus mutes. Each earns its place because it is the cheapest way to make a big perceptual change, and because it is a move you genuinely want to vary with the room.</p>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="14"/><line x1="22" y1="22" x2="22" y2="10"/></svg>
+      </div>
+      <div class="step-num">Map 01</div>
+      <h2 class="step-title">The bass filter — your main arc</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">The decision</div>
+      <ul>
+        <li>The whole energy arc hangs on one lane: the cutoff of an Auto Filter on the bass. Opening it brightens the track; closing it pulls everything underwater.</li>
+        <li>You ride this rather than automate it because the <em>right</em> moment to open up depends on the room — on the night, the volume, the energy already present. A drawn curve commits to a clock; a hand commits to the moment.</li>
+        <li>You will spend more time on this one control than all the others combined. Treat it as the instrument and the rest as accompaniment.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 22 q9 -10 18 0 t18 0"/></svg>
+      </div>
+      <div class="step-num">Map 02</div>
+      <h2 class="step-title">Echo feedback — the tension valve</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">The decision</div>
+      <ul>
+        <li>Feedback on the echo return is your transition tool: push it for four to eight bars so the echoes pile, then pull it back as the next section lands.</li>
+        <li>This is the most dangerous control on the surface. Past a point the echo self-regenerates toward runaway — a wall of noise you cannot mix your way out of live. The ceiling is set deliberately below that point.</li>
+        <li>You ride it because the perfect amount of pile depends on what is already happening. Automating it would either undershoot the tension or risk the runaway on a night the system is already loud.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M14 28 a6 6 0 0 1 0 -12 a8 8 0 0 1 15 -2 a6 6 0 0 1 1 14 z"/></svg>
+      </div>
+      <div class="step-num">Map 03</div>
+      <h2 class="step-title">Reverb send — depth and scale</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">The decision</div>
+      <ul>
+        <li>The drone's reverb send controls how large the room feels. At the peak it blooms; at the strip-back it recedes and the track feels intimate again.</li>
+        <li>Pair it conceptually with the bass filter: when the filter opens to its brightest, the send is at its wettest. Two slow gestures moving together read as one swell — the listener feels scale, not two knob moves.</li>
+        <li>You ride it because the right amount of space is a room judgement — a dry club wants more, a reverberant warehouse wants less.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="8" y="10" width="8" height="24" rx="1"/><rect x="28" y="10" width="8" height="24" rx="1"/></svg>
+      </div>
+      <div class="step-num">Map 04</div>
+      <h2 class="step-title">The mutes — your section edits</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">The decision</div>
+      <ul>
+        <li>Mutes are the discrete moves: dropping the hat, bringing the perc back, stripping to the kick. This is arrangement performed live.</li>
+        <li>They are not continuous, so they live on pads (or the Digitakt's own mute mode), not encoders. Quantise the launch so a mute lands on the bar, not wherever your finger happened to fall.</li>
+        <li>You perform these rather than fix them because the order and timing of section changes is the part of a set most worth reacting with.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>The range decision — why Min/Max matters more than the mapping</h2>
+  <p style="text-align:center; max-width:640px; margin:0 auto 24px; color:var(--text-muted);">A mapped control with the default 0–127 range is a trap: most of its travel lands on values that are useless or actively bad. Setting a musical Min/Max is what turns a generic mapping into an instrument you can play blind.</p>
+
+  <table class="param-table">
+    <caption>Why each range is shaped the way it is</caption>
+    <tr><td>Bass cutoff <span class="code">600 Hz → 3.5 kHz</span></td><td>Below 600 Hz the bass disappears under the kick; above ~3.5 kHz it turns harsh and thin. The full encoder travel covers exactly the usable arc, so even a careless turn stays musical.</td></tr>
+    <tr><td>Echo feedback <span class="code">35 % → 70 %</span></td><td>Below 35 % the echo barely tails; above 70 % it heads toward runaway. The ceiling is a hard safety limit, baked into the map so your hand cannot find the danger zone.</td></tr>
+    <tr><td>Reverb send <span class="code">-12 dB → -3 dB</span></td><td>Below -12 dB the bloom is inaudible; above -3 dB the drone washes out the mix. The window is the entire useful range of "more space."</td></tr>
+    <tr><td>Mute (binary)</td><td>No range to set — but quantise the launch to 1 bar so the discrete move lands clean.</td></tr>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">Why endless encoders, not faders, for the rides</div>
+    <p>An absolute fader jumps the parameter to the fader's physical position the instant you touch it — a brutal click mid-set. Endless encoders (the EC4) pick up from wherever the value already sits. For anything you ride live, that pickup behaviour is the whole reason to prefer them.</p>
+  </div>
+
+  <h2>What to leave fixed — on purpose</h2>
+
+  <table class="param-table">
+    <caption>Fixed, on purpose — do not map these</caption>
+    <tr><td>Kick level &amp; tuning</td><td>Set in rehearsal and frozen. A kick you ride is a kick you will eventually ride wrong in front of people, and the whole floor will feel it.</td></tr>
+    <tr><td>Master output</td><td>Never on a performance encoder. The only hand near the master is the mixer's, and only to recover from a problem.</td></tr>
+    <tr><td>MicroFreak internal LFOs</td><td>Let them run. Their slow, unsynced drift is movement you do not have to think about — delegating it is the entire point.</td></tr>
+    <tr><td>Digitakt p-locks &amp; conditions</td><td>Printed into the pattern. They are your automation curves; touching them live only flattens variation you already programmed.</td></tr>
+    <tr><td>Bass &amp; drone tuning</td><td>Decided in the studio. Live re-tuning of a held drone is a fast route to a sour chord no filter ride can rescue.</td></tr>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">The attention budget</div>
+    <p>Every mapped control is something you must monitor for the whole set. Four controls you can watch and recover. Twelve controls is a system you are no longer riding — it is riding you.</p>
+  </div>
+
+  <h2>Hands versus curves — the decision table</h2>
+  <table class="param-table">
+    <caption>Sort every moment of movement into one column</caption>
+    <tr><td>Ride it by hand</td><td>Must respond to the room · the peak's exact timing · transition tension · how wet the space feels · which section drops next</td></tr>
+    <tr><td>Print it as a curve</td><td>Must be identical every play · per-step p-locks · synced and unsynced LFOs · slow drone morphs longer than your patience · anything that would cramp your hand</td></tr>
+  </table>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Decision check</div>
+    <ul>
+      <li>Can I name, from memory, what every mapped control does and where its safe zone ends? If not, I have mapped too many things.</li>
+      <li>Is anything dangerous (master, kick) under a performance hand? Remove it now.</li>
+      <li>For each ride: does this genuinely need to change with the room, or am I riding it just because I can? Demote the ones you can't justify to automation.</li>
+      <li>Could a stranger sit at my rig and, from the labels alone, understand the four moves? If not, the map is in my head, not on the surface.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="listen.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 02 / Listen
+    </a>
+    <a href="setup.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      04 / Setup &amp; rig →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B7-001 — Parameter Riding</div>
+
+</div>
+
+</body>
+</html>

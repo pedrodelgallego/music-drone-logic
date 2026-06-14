@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B1-002 — Unity · Decisions</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B1-002<span class="labnote-topic">Unity</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html" class="active"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B1-002</div>
+    <div class="eyebrow">Unity · 03 — Decisions</div>
+    <h1>The theory of gain, and the choices it forces</h1>
+    <p class="lede">Before a cable is plugged in, you need a small vocabulary and a few decisions. What a signal path is, the difference between gain and volume and level, what unity means, how much headroom to leave, and where clipping happens. Every term here is taught from zero, one idea at a time.</p>
+  </header>
+
+  <h2>What a signal path is</h2>
+
+  <p style="text-align:center; color:var(--text-muted); max-width:680px; margin:0 auto 18px;">A signal path is the route a sound travels from where it is made to where you hear it. At every stage along the way, something can change its level. Here is the whole path for one instrument on this rig:</p>
+
+  <div class="signal-flow">
+    <span class="signal-node">sound source</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">instrument output</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">M4 input trim</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">Live audio channel</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">group / bus</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">master</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">monitor out</span>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Sound source.</strong> The oscillator in the MicroFreak, or the sample playing back in the Digitakt II. This is where level begins.</li>
+      <li><strong>Instrument output.</strong> The synth's own master volume — the analog signal leaving the box on a cable.</li>
+      <li><strong>M4 input trim.</strong> The gain knob on the interface. It amplifies the incoming analog signal so the converter sees a healthy level. This is the most important knob in the chain.</li>
+      <li><strong>Live audio channel.</strong> Inside the computer now. Clip gain, insert effects, and the track fader all live here.</li>
+      <li><strong>Group / bus.</strong> Several channels summed together — drums to one group, synths to another. The group has its own fader.</li>
+      <li><strong>Master.</strong> Everything summed to one stereo pair. The last level inside Live, and the one mastering needs room on.</li>
+      <li><strong>Monitor out.</strong> Back to analog, out the M4's phones or main outs, to your ears. This level changes what you <em>hear</em> but never what is recorded.</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Why the path matters</div>
+    <p>Counting the stages is the whole skill. There are about ten places the level can change between the oscillator and your ear. If you know where each one is, "it sounds bad" becomes "stage three is too hot." If you don't, every problem looks identical and you guess.</p>
+  </div>
+
+  <h2>Gain vs volume vs level</h2>
+
+  <p style="text-align:center; color:var(--text-muted); max-width:680px; margin:0 auto 18px;">Three words people use loosely. They are not the same thing, and the difference is the difference between fixing a problem at the right stage and the wrong one.</p>
+
+  <div class="cards three">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="13"/><line x1="22" y1="22" x2="22" y2="11"/><line x1="22" y1="9" x2="22" y2="13"/></svg>
+      </div>
+      <h3 class="card-title">Gain — input side</h3>
+      <ul class="card-points">
+        <li>How much a stage amplifies what comes <em>in</em></li>
+        <li>The M4 trim is gain; a Utility's "Gain" is gain</li>
+        <li>Sets how hard the next stage is driven</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="18" y="8" width="8" height="28" rx="1"/><line x1="14" y1="20" x2="30" y2="20"/></svg>
+      </div>
+      <h3 class="card-title">Volume — output side</h3>
+      <ul class="card-points">
+        <li>How loud a stage sends what comes <em>out</em></li>
+        <li>The track fader and the phones knob are volume</li>
+        <li>For balance and monitoring, not for feeding the next stage</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><line x1="8" y1="30" x2="36" y2="30"/><line x1="12" y1="30" x2="12" y2="20"/><line x1="22" y1="30" x2="22" y2="12"/><line x1="32" y1="30" x2="32" y2="24"/></svg>
+      </div>
+      <h3 class="card-title">Level — what's there</h3>
+      <ul class="card-points">
+        <li>How big the signal actually is, right now, at a point</li>
+        <li>Read on a meter in dBFS — the thing gain and volume change</li>
+        <li>The number you aim, not a knob you turn</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>The plain version.</strong> <em>Gain</em> is a knob at the input that decides how hard you drive the next thing. <em>Volume</em> is a knob at the output that decides how loud it leaves. <em>Level</em> is the actual size of the signal, the number on the meter, that both of them move.</li>
+      <li><strong>Why it matters.</strong> If a recording is quiet, you fix the <em>gain</em> at the interface so the level arrives correct — you do not push the <em>volume</em> fader to make up for it, because that also amplifies the noise. Same apparent loudness, completely different cleanliness.</li>
+    </ul>
+  </div>
+
+  <h2>Unity gain — the spine</h2>
+
+  <div class="callout">
+    <div class="callout-label">The reference this whole note hangs on</div>
+    <p>Unity is the "change nothing" setting: the signal leaves a stage at exactly the same level it arrived. A fader at <span class="code">0 dB</span> is at unity. A Utility's Gain at <span class="code">0 dB</span> is at unity. Start every stage you don't need to change at unity, and then any stage that is <em>not</em> at unity is one a person deliberately changed.</p>
+  </div>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="18" y="8" width="8" height="28" rx="1"/><line x1="10" y1="22" x2="34" y2="22" stroke-width="2"/><text x="22" y="22"></text></svg>
+      </div>
+      <h3 class="card-title">Why start at unity</h3>
+      <ul class="card-points">
+        <li>A forgotten knob does not stay neutral — it sits wherever it was last left</li>
+        <li>Unity makes "untouched" visible, so the chain is readable</li>
+        <li>Faults can only live where you changed something</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><line x1="8" y1="34" x2="36" y2="34"/><path d="M10 30 L18 20 L26 26 L34 14"/></svg>
+      </div>
+      <h3 class="card-title">Where unity lives in Live</h3>
+      <ul class="card-points">
+        <li>Track fader at <span class="code">0 dB</span></li>
+        <li>Clip gain at <span class="code">0 dB</span></li>
+        <li>Group and master faders at <span class="code">0 dB</span></li>
+        <li>Utility Gain at <span class="code">0 dB</span> until you choose otherwise</li>
+      </ul>
+    </div>
+  </div>
+
+  <p style="text-align:center; color:var(--text-muted); max-width:640px; margin:24px auto;">If a recording is too quiet with everything at unity, the fix is <em>upstream</em> — at the source or the interface trim — never at the fader. The fader is for balancing one part against another, not for making up gain you should have set at the input. That single rule prevents most noisy mixes.</p>
+
+  <h2>Headroom — the room you leave on purpose</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><line x1="8" y1="10" x2="36" y2="10"/><line x1="8" y1="34" x2="36" y2="34"/><rect x="14" y="18" width="16" height="16"/><line x1="22" y1="10" x2="22" y2="18" stroke-dasharray="2 2"/></svg>
+      </div>
+      <div class="step-num">Concept 01</div>
+      <h2 class="step-title">The gap between your signal and the ceiling</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">What headroom is</div>
+      <ul>
+        <li>In the digital world the ceiling is fixed: <span class="code">0 dBFS</span> (decibels full scale) is the loudest number the system can hold. There is nothing above it — go past and the peaks are clipped off.</li>
+        <li>Headroom is the gap you deliberately leave between your working level and that ceiling. Work around <span class="code">−12 dBFS</span> and you have 12 dB of room.</li>
+        <li>That room is not wasted. It is where saturation adds harmonics, where reverb tails pile up, where two parts sum louder than either alone — all without touching the ceiling.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Why around −12 to −6 dBFS</div>
+      <table class="param-table">
+        <caption>Working level targets and why</caption>
+        <tr><td>Peaks ≈ <span class="code">−12 dBFS</span></td><td>The working target while tracking and building. Plenty of room above for everything to sum and breathe.</td></tr>
+        <tr><td>Ceiling <span class="code">−6 dBFS</span></td><td>The line a single part should never cross while you work. Cross it and the master has no room left.</td></tr>
+        <tr><td><span class="code">0 dBFS</span></td><td>The hard wall. Touch it and you clip. Nothing while tracking or mixing should reach here.</td></tr>
+      </table>
+      <ul>
+        <li><strong>Why mastering needs the room.</strong> Mastering raises the whole track to a competitive loudness with a limiter. A limiter can only do that cleanly if you handed it a mix with headroom. A mix already pinned at 0 dBFS gives the limiter nothing to work with, so it squashes the dynamics instead — the third fault from the listen page.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Decision 1 — your working level</div>
+    <p>Choose now: peaks around <span class="code">−12 dBFS</span>, never above <span class="code">−6 dBFS</span> on any single part, and a master that finishes with at least <span class="code">6 dB</span> of headroom. Write it in the logbook. This number is what "too hot" and "too cold" will mean for the rest of the workshop.</p>
+  </div>
+
+  <h2>Clipping vs distortion — same light, different damage</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 22 L14 22 L14 12 L22 12 L22 32 L30 32 L30 22 L38 22"/></svg>
+      </div>
+      <h3 class="card-title">Analog input clip — at the M4</h3>
+      <ul class="card-points">
+        <li>The signal is too hot for the interface's input before it becomes numbers</li>
+        <li>The M4's red <strong>clip LED</strong> lights — this is the warning</li>
+        <li>Permanent: the peaks are cut off and recorded that way. No fader can restore them.</li>
+        <li>Fix: turn the M4 input trim <em>down</em>, or the source's output down</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><line x1="6" y1="12" x2="38" y2="12"/><path d="M6 26 Q14 16 22 26 T38 26"/><line x1="6" y1="12" x2="6" y2="34"/></svg>
+      </div>
+      <h3 class="card-title">Digital 0 dBFS overs — inside Live</h3>
+      <ul class="card-points">
+        <li>A signal already in the computer pushed past <span class="code">0 dBFS</span></li>
+        <li>Live's meter goes red at the top of a channel or the master</li>
+        <li>Often recoverable: pull a fader or clip gain down and the wave returns intact, because float math kept the numbers</li>
+        <li>Fix: lower the gain stage that caused it — trim, clip gain, or fader</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>The trap.</strong> Both light up red. They look identical on a meter and are completely different problems. An analog input clip is scissors cutting paper — permanent damage baked into the recording. A digital over inside Live is usually a big number that a fader pull restores, like a calculator.</li>
+      <li><strong>Clipping vs distortion as a choice.</strong> Distortion is clipping used <em>on purpose</em> — driven consistently to add harmonics and character (the SOPHIE and Sunn O))) records from Lab 001). Accidental clipping wanders and sounds cheap; deliberate distortion is repeatable and sounds designed. The skill is to never clip by accident, so that when you distort, it is always a decision.</li>
+    </ul>
+  </div>
+
+  <h2>Metering for level — just enough to set gain</h2>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Peak vs RMS, in one line.</strong> A <em>peak</em> meter shows the single highest instant — what matters for not clipping. An <em>RMS</em> (or loudness) meter shows the average energy — what matters for how loud it <em>feels</em>. For gain staging you watch peaks; for loudness you watch RMS.</li>
+      <li><strong>Reading Live's meters.</strong> Each channel shows a moving bar in dBFS with a small number that holds the loudest recent peak. Set gain so that peak number sits around <span class="code">−12</span> and never reaches <span class="code">0</span>. That is all the metering you need to gain-stage cleanly.</li>
+      <li><strong>Measurement lives elsewhere.</strong> This page keeps metering light on purpose. The deep treatment — peak vs true-peak, RMS vs LUFS, calibrating what you trust — is the job of <a href="../guide-b1-004/index.html">Lab Note B1-004 — Metering</a>. Here you only need enough to aim a level.</li>
+    </ul>
+  </div>
+
+  <h2>Decision 2 — mono or stereo input on the M4</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><line x1="22" y1="10" x2="22" y2="34"/><circle cx="22" cy="22" r="4"/></svg>
+      </div>
+      <h3 class="card-title">MicroFreak — mono, one input</h3>
+      <ul class="card-points">
+        <li>One signal, so one mono input (M4 In 1)</li>
+        <li>Width comes later, deliberately, with effects — not from a stray second cable</li>
+        <li>One trim to set, one meter to read</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><line x1="14" y1="10" x2="14" y2="34"/><line x1="30" y1="10" x2="30" y2="34"/><circle cx="14" cy="22" r="3"/><circle cx="30" cy="22" r="3"/></svg>
+      </div>
+      <h3 class="card-title">Digitakt II — stereo, a pair</h3>
+      <ul class="card-points">
+        <li>The drum mix is already stereo, so a stereo pair (M4 In 3/4)</li>
+        <li>Two inputs, but set from the Digitakt's one Main Volume so L and R stay matched</li>
+        <li>Confirm both sides meter equally — a mismatch means a half-seated cable</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Decision 3 — where to gain-stage</div>
+    <p>Set the level <em>once, at the earliest stage that owns it.</em> Trim at the M4 input so the recording arrives at <span class="code">−12 dBFS</span> with everything downstream at unity. Only use clip gain and the fader for what they are for — clip gain to match takes, the fader to balance parts. Never to rescue a level you should have set at the trim.</p>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon">
+        <svg viewBox="0 0 44 44"><polyline points="10 22 18 30 34 12"/></svg>
+      </div>
+      <div class="checklist-label">Decisions locked before setup</div>
+    </div>
+    <ul>
+      <li>I can name every stage of the signal path in order.</li>
+      <li>I can say the difference between gain, volume, and level.</li>
+      <li>Unity is <span class="code">0 dB</span>, my "change nothing" setting, and everything downstream starts there.</li>
+      <li>My working level is peaks ≈ −12 dBFS, ceiling −6, master with ≥ 6 dB headroom.</li>
+      <li>I know analog input clip (M4 LED, permanent) from digital overs (Live, recoverable).</li>
+      <li>MicroFreak goes mono into one input; Digitakt stereo into a pair.</li>
+      <li>I set level once, at the trim, and fix quiet recordings upstream, never at the fader.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="listen.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 02 / Listen
+    </a>
+    <a href="setup.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      04 / Setup →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B1-002 — Unity</div>
+
+</div>
+
+</body>
+</html>

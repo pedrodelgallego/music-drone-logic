@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B2-002 — Concrète — Setup</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Lab Note contents">
+  <p class="nav-label labnote-code">Lab Note B2-002<span class="labnote-topic">Concrète</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html" class="active"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B2-002</div>
+    <div class="eyebrow">Concrète · 04 — Setup</div>
+    <h1>Capture rig &amp; editing session</h1>
+    <p class="lede">Two halves of one workflow: a capture rig that gets clean material into files, and an Ableton session built to dissect those files into sound-objects. Every gain stage and every track is spelled out — get this right and the build page is pure listening.</p>
+  </header>
+
+  <div class="cards">
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="12" y="6" width="20" height="32" rx="3"/><circle cx="22" cy="14" r="4"/><rect x="16" y="22" width="12" height="3" rx="1"/><rect x="16" y="28" width="12" height="3" rx="1"/></svg>
+      </div>
+      <h3 class="card-title">Handheld field recorder</h3>
+      <ul class="card-points">
+        <li>Stereo built-in mics for ambiences and field captures</li>
+        <li>Records 24-bit / 48 kHz WAV to card — your portable rig</li>
+        <li>Line/mic input for the contact mic when away from the desk</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="16" r="9"/><circle cx="22" cy="16" r="3" fill="currentColor"/><path d="M22 25v9M16 38h12"/></svg>
+      </div>
+      <h3 class="card-title">Contact (piezo) mic</h3>
+      <ul class="card-points">
+        <li>Hears vibration through solid objects, not air</li>
+        <li>Turns any object into a sound-source — metal, wood, glass</li>
+        <li>High output impedance; needs a preamp or recorder line in</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="10" width="32" height="20" rx="2"/><line x1="16" y1="36" x2="28" y2="36"/><line x1="22" y1="30" x2="22" y2="36"/></svg>
+      </div>
+      <h3 class="card-title">Ableton Live 12 Suite</h3>
+      <ul class="card-points">
+        <li>The editing brain — imports, slices, classifies, montages</li>
+        <li>Warp off; this is sample-accurate audio surgery</li>
+        <li>Granular, spectral, and convolution tools for transformation</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="14" width="32" height="16" rx="2"/><circle cx="14" cy="22" r="2.5"/><circle cx="22" cy="22" r="2.5"/><circle cx="30" cy="22" r="2.5"/></svg>
+      </div>
+      <h3 class="card-title">MOTU M4</h3>
+      <ul class="card-points">
+        <li>4-in / 4-out USB-C interface for desk captures</li>
+        <li>Input 1: front combo preamp with gain — the contact mic lands here</li>
+        <li>48 V phantom available for a condenser if you have one</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M10 24 a12 12 0 0 1 24 0"/><rect x="6" y="22" width="8" height="12" rx="2"/><rect x="30" y="22" width="8" height="12" rx="2"/></svg>
+      </div>
+      <h3 class="card-title">Beyerdynamic DT 990 Pro</h3>
+      <ul class="card-points">
+        <li>Open-back, 250 Ω — reveals grain and room tone</li>
+        <li>Honest about detail; the 7–10 kHz lift exaggerates hiss</li>
+        <li>Your editing monitor — check decisions on a phone speaker too</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="14"/><path d="M22 12v10l7 4"/></svg>
+      </div>
+      <h3 class="card-title">Wind protection + a quiet hour</h3>
+      <ul class="card-points">
+        <li>A foam or fur windshield — wind ruins more field takes than anything</li>
+        <li>A genuinely quiet recording window for low-level objects</li>
+        <li>Headphones on the recorder so you monitor while capturing</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <h2>The capture signal path</h2>
+  <p style="text-align:center; max-width:620px; margin:0 auto 24px; color:var(--text-muted);">Two capture routes, one destination: clean 24-bit WAVs in a project folder. Field captures go through the recorder; desk captures go through the M4. Decide which route a sound needs before you raise a level.</p>
+
+  <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:11px; letter-spacing:0.2em; text-transform:uppercase;">Route A — field / portable</h3>
+  <div class="signal-flow">
+    <span class="signal-node">Source</span>
+    <span class="signal-arrow">→ air →</span>
+    <span class="signal-node">Recorder stereo mics</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">SD card (WAV)</span>
+    <span class="signal-arrow">→ copy →</span>
+    <span class="signal-node">Ableton project</span>
+  </div>
+
+  <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:11px; letter-spacing:0.2em; text-transform:uppercase;">Route B — desk / contact mic</h3>
+  <div class="signal-flow">
+    <span class="signal-node">Object</span>
+    <span class="signal-arrow">→ vibration →</span>
+    <span class="signal-node">Contact mic</span>
+    <span class="signal-arrow">→ TS →</span>
+    <span class="signal-node">M4 In 1</span>
+    <span class="signal-arrow">→ USB-C →</span>
+    <span class="signal-node">Ableton (record)</span>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Recommended approach</div>
+    <p>Capture <em>everything</em> to disk first, transform later. Never process a sound on the way in — no recorder EQ, no reverb, no "scene" presets. A flat, clean, slightly-too-quiet recording is infinitely more useful than a coloured one. You can always add character; you can't remove it.</p>
+  </div>
+
+  <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:11px; letter-spacing:0.2em; text-transform:uppercase;">The gain chain — where level is set, in order</h3>
+  <table>
+    <thead><tr><th>Stage</th><th>Control</th><th>Set it to</th><th>Its one job</th></tr></thead>
+    <tbody>
+      <tr><td>1 — Source</td><td>The object / scene itself</td><td>Get the mic close; move the mic, not the gain</td><td>Proximity is your best signal-to-noise tool. A contact mic 2 cm closer beats 6 dB of gain that also lifts the noise floor.</td></tr>
+      <tr><td>2a — Recorder gain (Route A)</td><td>Recorder input level</td><td>Peaks around <span class="code">-12 dBFS</span>, never near 0</td><td>24-bit gives you enormous headroom; record conservatively and normalise later. A clipped field take cannot be re-shot.</td></tr>
+      <tr><td>2b — M4 Input 1 gain (Route B)</td><td>M4 preamp knob</td><td>Meter green, peaks into amber</td><td>Match the contact mic to the converter. Piezos are low-output — expect to turn this up further than a normal mic.</td></tr>
+      <tr><td>3 — Ableton input meter</td><td>Armed track meter</td><td>Peaks <span class="code">-18 to -10 dBFS</span></td><td>Confirm what's written to disk. Concrète material is often quiet and dynamic — leave room for the loud transient you didn't expect.</td></tr>
+      <tr><td>4 — Phones</td><td>Recorder / M4 phones knob</td><td>Loud enough to hear the noise floor</td><td>Monitoring only. With concrète you must hear hiss, hum, and handling noise <em>while capturing</em>, or you discover them too late.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">The golden rule of capture</div>
+    <p>Record quiet, in 24-bit, with the mic close. Headroom is free; a re-shoot of a once-only sound is not.</p>
+  </div>
+
+  <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:11px; letter-spacing:0.2em; text-transform:uppercase;">Contact mic, jack by jack</h3>
+  <table>
+    <thead><tr><th>From</th><th>To</th><th>Cable</th><th>Carries</th></tr></thead>
+    <tbody>
+      <tr><td>Contact mic element</td><td>1/4" jack / preamp</td><td>Shielded, kept short</td><td>Vibration picked up through the object's body</td></tr>
+      <tr><td>Contact mic <span class="code">out</span></td><td>M4 <span class="code">Input 1</span> (front combo, Instrument/Hi-Z if available)</td><td>1 × 1/4" TS</td><td>Mono object audio — scrapes, taps, resonances</td></tr>
+      <tr><td>M4 <span class="code">USB-C</span></td><td>Computer</td><td>USB-C</td><td>Recorded audio into Ableton + monitoring back out</td></tr>
+      <tr><td>M4 <span class="code">Phones</span></td><td>DT 990 Pro</td><td>1/4" headphone plug</td><td>Your monitoring world while capturing at the desk</td></tr>
+    </tbody>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Contact mics hear only what touches them.</strong> They reject the room almost entirely — which is why a quiet, isolated object recorded by contact can be cut clean with no background to fight. Press, tap, scrape, bow; every contact is a different object.</li>
+      <li><strong>Handling noise is the enemy.</strong> The cable transmits every bump straight into the element. Tape the cable down and keep your hands off it during a take.</li>
+      <li><strong>Mind the input type.</strong> A bare piezo into a low-impedance mic input sounds thin and harsh — use a Hi-Z / instrument input or a buffer pedal so the low end survives.</li>
+    </ul>
+  </div>
+
+  <h2>The editing session</h2>
+  <p style="text-align:center; max-width:640px; margin:0 auto 18px; color:var(--text-muted);">Build the Ableton set once, before importing anything. This session is a workbench, not a song — it is organised by the <em>role</em> a sound plays, not by instrument.</p>
+
+  <table class="param-table">
+    <caption>Ableton preferences for concrète editing</caption>
+    <tr><td>Sample Rate</td><td><span class="code">48000 Hz</span> — match your recorder so nothing resamples on import</td></tr>
+    <tr><td>Bit Depth (record)</td><td><span class="code">24-bit</span> WAV</td></tr>
+    <tr><td>Buffer Size</td><td><span class="code">256</span> for editing; <span class="code">512</span> for the mix pass</td></tr>
+    <tr><td>Warp default</td><td><strong>OFF</strong> — Auto-Warp would time-stretch objects and smear their attacks</td></tr>
+    <tr><td>Auto-Warp Long Samples</td><td><strong>OFF</strong> — a sound-object's real duration is part of its identity</td></tr>
+    <tr><td>Time Ruler Format</td><td>Time (<span class="code">m:ss</span>) — the piece is shaped in seconds, not bars</td></tr>
+  </table>
+
+  <table>
+    <thead><tr><th>Track</th><th>Holds</th><th>Why it's separate</th></tr></thead>
+    <tbody>
+      <tr><td>RAW IMPORT</td><td>Untouched source files, dragged in whole</td><td>The archive lane — you slice <em>copies</em> from here and never edit the originals</td></tr>
+      <tr><td>GESTURES</td><td>Short, directional objects: hits, sweeps, attacks</td><td>The foreground — the events the listener tracks</td></tr>
+      <tr><td>TEXTURE A / B</td><td>Sustained fields: drones, hiss, rumble</td><td>The ground — two lanes so beds can overlap and crossfade</td></tr>
+      <tr><td>TRANSFORM</td><td>Objects being granular-/spectral-/speed-processed</td><td>Keeps experiments out of the clean montage until they earn a place</td></tr>
+      <tr><td>Return A — Reverb</td><td>Hybrid Reverb (convolution space)</td><td>Places disparate objects in one believable room</td></tr>
+      <tr><td>Return B — Echo/Delay</td><td>Echo, high-passed</td><td>Extends gestures into trajectories</td></tr>
+    </tbody>
+  </table>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Before you import a single file</div>
+    <ul>
+      <li>Is Warp off by default? Confirm — one warped object will undo the sample-accuracy the whole method depends on.</li>
+      <li>Is the project saved into a dedicated folder, with <span class="menu">Collect All and Save</span> planned for session end? Concrète projects scatter dozens of source files; lose one and the montage breaks.</li>
+      <li>Is every track named by <em>role</em>, not by source? You are organising by what a sound <em>does</em>, never by what made it.</li>
+    </ul>
+  </div>
+
+  <h2>Capture targets &amp; texture</h2>
+  <p style="text-align:center; color:var(--text-muted);">Aim to come back with <span class="code">15–25</span> short objects and <span class="code">3–5</span> longer textures. More is fine; fewer than that starves the montage.</p>
+
+  <div class="tag-row">
+    <span class="tag">metallic</span>
+    <span class="tag">granular</span>
+    <span class="tag">resonant</span>
+    <span class="tag">watery</span>
+    <span class="tag">dry</span>
+    <span class="tag">rough</span>
+    <span class="tag">sustained</span>
+    <span class="tag">impulsive</span>
+  </div>
+
+  <div class="page-nav">
+    <a href="decisions.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 03 / Decisions
+    </a>
+    <a href="palette.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      05 / Palette →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B2-002 — Concrète</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B3-001 — Groove · Reflection</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B3-001<span class="labnote-topic">Groove</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html" class="active"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B3-001</div>
+    <div class="eyebrow">Groove · 07 — Reflection</div>
+    <h1>Fault, carry-forward, principle</h1>
+    <p class="lede">Most of the learning happens here, not while programming. Answer slowly, write the answers down, and turn the result into one usable rule you can take into the next track and into Block 3.</p>
+  </header>
+
+  <h2>How you know it worked</h2>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="16"/><polyline points="14 22 20 28 30 16"/></svg>
+      </div>
+      <div class="checklist-label">Success signals</div>
+    </div>
+    <ul>
+      <li>The track holds attention with almost no new elements — the feel carries it.</li>
+      <li>The kick stays a metronomic reference; everything else leans against it.</li>
+      <li>You can state the whole groove as a small set of named tick offsets.</li>
+      <li>Bass and drums share one pocket, not two slightly different feels.</li>
+      <li>The same loop feels different across sections because the lean moved, not because parts were added.</li>
+      <li>The groove survives a change of samples — you stole a mechanism, not a sound.</li>
+      <li>The pocket still pulls at low volume and in mono.</li>
+      <li>Any randomness is under 5 % and never carries the feel alone.</li>
+    </ul>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon">
+        <svg viewBox="0 0 44 44"><polygon points="22 6 40 36 4 36"/><line x1="22" y1="16" x2="22" y2="24"/><circle cx="22" cy="29" r="1.4" fill="currentColor"/></svg>
+      </div>
+      <div class="checklist-label">Failure signals — the faults to name</div>
+    </div>
+    <ul>
+      <li>The groove can only be described as "it feels good" — it was an accident, not a decision.</li>
+      <li>You stacked swing <em>and</em> per-trig micro-timing and pushed past the pocket without noticing.</li>
+      <li>The kick wandered — the reference clock moved and the whole illusion collapsed.</li>
+      <li>A fast compressor or limiter flattened the transients and killed the lean in the mix.</li>
+      <li>You reached for a "humanize" button and got blur instead of body.</li>
+      <li>Bass and drums fight because they were quantized to two different feels.</li>
+      <li>System latency was never measured, so your offsets were never what you thought.</li>
+      <li>The track needed extra parts to stay interesting, because the feel wasn't doing the work.</li>
+    </ul>
+  </div>
+
+  <h2>Reflection questions</h2>
+
+  <ol class="reflection-list">
+    <li>Which single offset (a tick value on one part) did the most for the feel?</li>
+    <li>Did the kick stay locked the whole time? If it ever moved, where and why?</li>
+    <li>Was your lean systematic (swing) or per-hit (micro-timing) — and did you accidentally use both?</li>
+    <li>Did extracting and sharing one groove make bass and drums agree, or did they still fight?</li>
+    <li>Which section's feel-change worked without adding a part, and which one needed a crutch?</li>
+    <li>Did anything in the mix flatten the pocket? What was it and how did you fix it?</li>
+    <li>Could the groove survive a full change of samples? Did you test it?</li>
+    <li>Where were you tempted to add a part, and did restraint hold?</li>
+    <li>What is the smallest change (one tick, one velocity) that would most improve the next version?</li>
+    <li>Of the four reference grooves you studied, which mechanism did your track actually use?</li>
+  </ol>
+
+  <h2>Carry-forward</h2>
+
+  <div class="callout">
+    <div class="callout-label">Write your carry-forward rule</div>
+    <p>Finish this sentence in your logbook and reuse it next time: "If a loop feels dead, I will name one offset to change before I add a single new part." A carry-forward rule is a fault turned into a reflex.</p>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Keep the groove file.</strong> <span class="code">B3-001 POCKET</span> is now a reusable object. Drop it onto the first clip of your next track and you start from a known, describable feel instead of from scratch.</li>
+      <li><strong>The system-diff sentence:</strong> "I thought the feel came from ___; after building it, I found the feel actually came from ___." Most of the time the answer is a single part's tick offset and its coupling to velocity.</li>
+      <li><strong>Next in Block 3:</strong> groove is one of several time systems. Probability, polymeter, and Euclidean rhythm all build on the same idea — a rule producing events — and the Block 3 hub sequences them.</li>
+    </ul>
+  </div>
+
+  <div class="final">
+    <div class="final-icon">
+      <svg viewBox="0 0 44 44"><line x1="8" y1="30" x2="8" y2="14"/><line x1="20" y1="30" x2="20" y2="18"/><line x1="32" y1="30" x2="32" y2="14"/><path d="M8 14 Q20 10 32 14"/></svg>
+    </div>
+    <div class="final-label">Final principle</div>
+    <p>The best groove is not the most movement. It is the clearest, most repeatable deviation — a feel you can write as numbers, share across every part, and trust to carry a whole track on its own.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="build.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 06 / The build
+    </a>
+    <a href="../workshop/block-3/index.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      Block 3 · Time →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B3-001 — Groove</div>
+
+</div>
+
+</body>
+</html>

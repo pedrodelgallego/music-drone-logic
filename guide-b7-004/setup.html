@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B7-004 — Set Structure &amp; Rehearsal — Setup</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B7-004<span class="labnote-topic">Set Structure &amp; Rehearsal</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html" class="active"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Arc &amp; panic map</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B7-004</div>
+    <div class="eyebrow">Set Structure &amp; Rehearsal · 04 — Setup</div>
+    <h1>The performance rig, certified</h1>
+    <p class="lede">A studio rig records; a performance rig has to survive a room, a clock, and your own adrenaline. This page lays out the live signal path, the single-clock rule, and the certification you run before any musical rehearsal — plus the physical mapping of the panic-path controls you will drill on page 06.</p>
+  </header>
+
+  <h2>The performance rig</h2>
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="10" width="32" height="20" rx="2"/><line x1="16" y1="36" x2="28" y2="36"/><line x1="22" y1="30" x2="22" y2="36"/></svg>
+      </div>
+      <h3 class="card-title">Ableton Live 12 Suite</h3>
+      <ul class="card-points">
+        <li>The clock master and the arrangement spine</li>
+        <li>Holds the set map, return effects, the limiter</li>
+        <li>If it freezes, the hardware keeps its last state</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="8" width="32" height="28" rx="2"/><rect x="10" y="12" width="10" height="7" rx="1"/><circle cx="29" cy="15.5" r="3"/><rect x="10" y="24" width="4" height="4" rx="0.7"/><rect x="17" y="24" width="4" height="4" rx="0.7"/><rect x="24" y="24" width="4" height="4" rx="0.7"/><rect x="31" y="24" width="4" height="4" rx="0.7"/></svg>
+      </div>
+      <h3 class="card-title">Elektron Digitakt II</h3>
+      <ul class="card-points">
+        <li>The groove engine — kick, hats, perc, texture</li>
+        <li>Mutes and pattern changes are your fastest live moves</li>
+        <li>Most likely to need a mid-set reboot; drill it</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="14" width="32" height="16" rx="2"/><line x1="14" y1="14" x2="14" y2="30"/><line x1="22" y1="14" x2="22" y2="30"/><line x1="30" y1="14" x2="30" y2="30"/></svg>
+      </div>
+      <h3 class="card-title">Arturia MicroFreak</h3>
+      <ul class="card-points">
+        <li>Bass, drone, and texture voices</li>
+        <li>Synced LFOs do the slow work while your hands rest</li>
+        <li>A single mono cable — easy to lose, easy to mute cleanly</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="7" y="7" width="7" height="7" rx="1"/><rect x="18.5" y="7" width="7" height="7" rx="1"/><rect x="30" y="7" width="7" height="7" rx="1"/><rect x="7" y="18.5" width="7" height="7" rx="1"/><rect x="18.5" y="18.5" width="7" height="7" rx="1"/><rect x="30" y="18.5" width="7" height="7" rx="1"/><rect x="7" y="30" width="7" height="7" rx="1"/><rect x="18.5" y="30" width="7" height="7" rx="1"/><rect x="30" y="30" width="7" height="7" rx="1"/></svg>
+      </div>
+      <h3 class="card-title">Launchpad Pro MK3</h3>
+      <ul class="card-points">
+        <li>Mutes, scene launches, and the mapped ride controls</li>
+        <li>Holds the mute / kill / recover surface</li>
+        <li>Layout is muscle memory — never rearrange it before a show</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="14" width="32" height="16" rx="2"/><circle cx="14" cy="22" r="2.5"/><circle cx="22" cy="22" r="2.5"/><circle cx="30" cy="22" r="2.5"/></svg>
+      </div>
+      <h3 class="card-title">MOTU M4</h3>
+      <ul class="card-points">
+        <li>The single audio device in and out of Ableton</li>
+        <li>Feeds the house via balanced outs 1/2</li>
+        <li>Carries the resampling round-trip you certify nightly</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M10 24 a12 12 0 0 1 24 0"/><rect x="6" y="22" width="8" height="12" rx="2"/><rect x="30" y="22" width="8" height="12" rx="2"/></svg>
+      </div>
+      <h3 class="card-title">Monitoring</h3>
+      <ul class="card-points">
+        <li>DT 990 Pro for cueing; stage wedge or IEM for the room</li>
+        <li>Know which one tells the truth about low end tonight</li>
+        <li>Cue feedback before it reaches the house, not after</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>The live audio path</h2>
+  <div class="signal-flow">
+    <span class="signal-node">MicroFreak Out</span>
+    <span class="signal-arrow">→ TS →</span>
+    <span class="signal-node">M4 In 1</span>
+    <span class="signal-arrow">+</span>
+    <span class="signal-node">Digitakt II L/R</span>
+    <span class="signal-arrow">→ TRS →</span>
+    <span class="signal-node">M4 In 3/4</span>
+    <span class="signal-arrow">→ USB →</span>
+    <span class="signal-node">Ableton (limiter)</span>
+    <span class="signal-arrow">→ USB →</span>
+    <span class="signal-node">M4 Out 1/2</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">House PA</span>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">One clock to rule them all</div>
+    <p>Exactly one device generates tempo — Ableton. The Digitakt II and MicroFreak receive clock and transport; nothing else sends. If the Digitakt's screen shows a tempo different from Ableton's, sync is broken — fix it before the doors open, never during the set.</p>
+  </div>
+
+  <h2>The control + clock path</h2>
+  <div class="signal-flow">
+    <span class="signal-node">Launchpad Pro MK3</span>
+    <span class="signal-arrow">↔ USB ↔</span>
+    <span class="signal-node">Ableton</span>
+    <span class="signal-arrow">→ clock + transport →</span>
+    <span class="signal-node">Digitakt II</span>
+    <span class="signal-arrow">+</span>
+    <span class="signal-node">MicroFreak</span>
+  </div>
+
+  <h2>The master limiter — the safety net before the room</h2>
+  <div class="note-block">
+    <ul>
+      <li><strong>A limiter sits last on the Ableton master,</strong> ceiling around <span class="code">-0.3 dBFS</span>. It is not a mixing tool here — it is the wall between a runaway feedback path and the house system.</li>
+      <li><strong>Set its ceiling once and freeze it.</strong> The limiter must catch the worst case you can produce, including the kill path failing to engage in time.</li>
+      <li><strong>Every mapped ride control has a Min/Max range</strong> so the dangerous values are physically unreachable from the pad. The encoder cannot send the filter into a scream because you defined the scream out of its travel.</li>
+    </ul>
+  </div>
+
+  <h2>Rig certification — prove it before you play it</h2>
+  <p style="text-align:center; max-width:640px; margin:0 auto 24px; color:var(--text-muted);">A rig diagram is a claim. Certification is checking reality against the claim, cable by cable, before any musical rehearsal.</p>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M10 22l8 8 16-18"/></svg>
+      </div>
+      <div class="step-num">Cert 01</div>
+      <h2 class="step-title">Signal &amp; clock pass</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Prove every path in isolation</div>
+      <ul>
+        <li>One master clock only. Press play in Ableton; confirm the Digitakt II and MicroFreak each start, stop, and read the set tempo. Stop transport; confirm both stop.</li>
+        <li>Trace audio end to end: MicroFreak alone to the PA, Digitakt L/R alone, the resample return alone. Hear each in isolation before hearing them together.</li>
+        <li>Confirm the resampling round-trip latency holds with tonight's cabling — a longer cable run or a different interface buffer changes it.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="14" width="32" height="16" rx="2"/><line x1="14" y1="14" x2="14" y2="30"/><line x1="22" y1="14" x2="22" y2="30"/><line x1="30" y1="14" x2="30" y2="30"/></svg>
+      </div>
+      <div class="step-num">Cert 02</div>
+      <h2 class="step-title">Gain staging &amp; ceilings</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Set the limits, then freeze them</div>
+      <ul>
+        <li>Play the busiest moment of the set — full groove, peak filter, wettest send — and set gain so it peaks with headroom into the limiter, not at the rail.</li>
+        <li>Confirm the limiter ceiling and every encoder's Min/Max range. The danger values must be unreachable from the hardware.</li>
+        <li>Once set, gain staging is frozen. Re-checking it live is not a thing you do — riding the master during a set destroys your level judgement.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="14"/><path d="M22 14v8l6 4"/></svg>
+      </div>
+      <div class="step-num">Cert 03</div>
+      <h2 class="step-title">Panic-path mapping</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Fix the three controls and find them blind</div>
+      <ul>
+        <li><strong>Mute:</strong> the per-track mute pads on the Launchpad. Memorise the position of each voice's pad so you can drop any element without looking.</li>
+        <li><strong>Kill:</strong> one dedicated pad mapped to the feedback / resample channel mute, plus the master limiter as the backstop. This is the instant-silence path.</li>
+        <li><strong>Recover:</strong> one pad or scene that lands the rig on the drone-and-kick floor. Map it, label it, and reach for it in the dark until it is reflex.</li>
+        <li>Close your eyes and find all three. If your hand hunts, move the controls until it does not.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Panic-path control map</h2>
+  <table class="param-table">
+    <caption>Where each emergency control lives — fixed, never rearranged before a show</caption>
+    <tr><td>Mute — per voice</td><td>Launchpad mute row: kick, hat, perc, bass, drone, atmos — one pad each</td></tr>
+    <tr><td>Kill — runaway path</td><td>Dedicated Launchpad pad → resample/feedback channel mute, instant</td></tr>
+    <tr><td>Kill — backstop</td><td>Ableton master limiter, ceiling frozen at <span class="code">-0.3 dBFS</span></td></tr>
+    <tr><td>Recover — the floor</td><td>One pad/scene → drone + kick at a steady level, everything else muted</td></tr>
+    <tr><td>Clock reset</td><td>Ableton transport stop/start; hardware re-syncs on the next play</td></tr>
+  </table>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Certification check</div>
+    <ul>
+      <li>Is there exactly one clock master, confirmed starting and stopping both boxes?</li>
+      <li>Did I hear every audio path in isolation, then together?</li>
+      <li>Is the limiter ceiling frozen and every encoder range bounded away from danger?</li>
+      <li>Can I find mute, kill, and recover with my eyes shut?</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="decisions.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 03 / Decisions
+    </a>
+    <a href="palette.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      05 / Arc &amp; panic map →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B7-004 — Set Structure &amp; Rehearsal</div>
+
+</div>
+
+</body>
+</html>

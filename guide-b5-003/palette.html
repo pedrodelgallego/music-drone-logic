@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feedback — Palette</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B5-003<span class="labnote-topic">Feedback</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html" class="active"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B5-003</div>
+    <div class="eyebrow">Feedback · 05 — Palette</div>
+    <h1>Feedback recipes with safe ranges</h1>
+    <p class="lede">Three loop characters, each a different relationship to unity. The dub wash lives well below it and just thickens; the resonant howl flirts with it; the filtered tail rides toward it and back. Every recipe assumes the master limiter at <span class="code">-3 dBFS</span> and the in-loop filter from Setup are already in place. The ranges are deliberately conservative — start at the low end and creep up.</p>
+  </header>
+
+  <div class="callout">
+    <div class="callout-label">Read the ranges as ceilings, not targets</div>
+    <p>Every number below is the point past which the loop gets unpredictable. Start lower. The interesting sound almost always lives at 60–80 % of the listed maximum, with the top of the range reserved for a brief, hands-on gesture.</p>
+  </div>
+
+  <h2>Recipe 1 — the dub wash</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 22 q9 -4 18 0 t18 0"/><path d="M6 28 q9 -2 18 0 t18 0"/></svg>
+      </div>
+      <div class="step-num">Recipe 1</div>
+      <h2 class="step-title">A thick, evolving smear that never climbs</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Character</div>
+      <ul>
+        <li>The Basic Channel / Rhythm &amp; Sound space: a chord stab fed into a loop that lives far below unity, so repeats just thicken and blur into a wash, then fade.</li>
+        <li>Safe by design — at these settings you can take your hand off and it always resolves.</li>
+      </ul>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Settings &amp; safe ranges</div>
+      <table class="param-table">
+        <caption>Loop home well below unity</caption>
+        <tr><td>Self-send / feedback</td><td>~ <span class="code">40–55 %</span> of unity. Repeats thicken but always decay.</td></tr>
+        <tr><td>In-loop Utility trim</td><td><span class="code">-6 to -4 dB</span> — strong guaranteed decay</td></tr>
+        <tr><td>Echo time</td><td><span class="code">3/16</span> dotted feel, sync on</td></tr>
+        <tr><td>In-loop filter</td><td>HP <span class="code">200 Hz</span>, LP <span class="code">3.5–4 kHz</span></td></tr>
+        <tr><td>Reverb decay</td><td><span class="code">3–4 s</span>, 100 % wet</td></tr>
+        <tr><td>Saturator drive</td><td><span class="code">+2 to +4 dB</span>, Soft Sine — adds age, not climb</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <h2>Recipe 2 — the resonant howl</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M8 22h6l3-12 4 24 4-20 3 14 4-6h6"/></svg>
+      </div>
+      <div class="step-num">Recipe 2</div>
+      <h2 class="step-title">A singing resonant peak just shy of self-oscillation</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Character</div>
+      <ul>
+        <li>A resonant filter in the loop adds gain at one frequency, so a pitched howl emerges and sustains. The most expressive recipe — and the most dangerous, because resonance <em>is</em> gain.</li>
+        <li>This is the one where the safety fader earns its keep. Live conservatively; the howl wants to run.</li>
+      </ul>
+    </div>
+    <div class="callout">
+      <div class="callout-label">Highest-risk recipe</div>
+      <p>Resonance adds energy at a single frequency, which is exactly the band that runs away first. Keep resonance modest, keep the LP filter active above the howl, and keep your hand on the gain fader the entire time. Never combine high resonance with self-send above ~70 % of unity.</p>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Settings &amp; safe ranges</div>
+      <table class="param-table">
+        <caption>Resonance and gain held apart</caption>
+        <tr><td>Self-send / feedback</td><td>~ <span class="code">50–65 %</span> of unity — lower than the wash, because resonance adds the rest</td></tr>
+        <tr><td>In-loop filter resonance</td><td><span class="code">35–55 %</span>. Above this it self-oscillates; treat 55 % as a hard ceiling.</td></tr>
+        <tr><td>Filter type</td><td>Band-pass or low-pass with resonance; sweep cutoff slowly to "play" the howl's pitch</td></tr>
+        <tr><td>In-loop Utility trim</td><td><span class="code">-6 dB</span> — keep the strongest decay of any recipe</td></tr>
+        <tr><td>Saturator</td><td>Output ceiling on, drive <span class="code">+3 dB</span> — caps the howl's peak</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <h2>Recipe 3 — the filtered tail</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 14h32M10 22h24M16 30h12"/></svg>
+      </div>
+      <div class="step-num">Recipe 3</div>
+      <h2 class="step-title">Repeats that darken and hollow as they die</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Character</div>
+      <ul>
+        <li>The classic dub-echo tail: each pass loses high end, so the repeats get progressively darker and more distant before they vanish. This is the recipe that rides closest to unity safely, because the filter guarantees the decay.</li>
+        <li>Automate the in-loop LP cutoff downward as repeats build — the tail "tunnels" away.</li>
+      </ul>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Settings &amp; safe ranges</div>
+      <table class="param-table">
+        <caption>Filter does the limiting, so gain can sit higher</caption>
+        <tr><td>Self-send / feedback</td><td>~ <span class="code">70–85 %</span> of unity — the bloom recipe. Reserve the top for the scripted peak gesture.</td></tr>
+        <tr><td>In-loop LP cutoff</td><td>Start <span class="code">4 kHz</span>, automate down to <span class="code">800 Hz</span> over the bloom — each pass darker</td></tr>
+        <tr><td>In-loop HP</td><td><span class="code">200 Hz</span> fixed — repeats never thicken the low end</td></tr>
+        <tr><td>In-loop Utility trim</td><td><span class="code">-4 dB</span></td></tr>
+        <tr><td>Echo time</td><td><span class="code">1/8</span> or <span class="code">3/16</span>; longer time = more audible per-pass darkening</td></tr>
+        <tr><td>Saturator</td><td>Drive <span class="code">+4 dB</span>, ceiling on — dirt accumulates as the tail decays</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <h2>Quick comparison</h2>
+
+  <table class="param-table">
+    <caption>How close each recipe lives to the edge</caption>
+    <tr><td>Dub wash</td><td>Far below unity (40–55 %). Hands-off safe. Thickens, never climbs.</td></tr>
+    <tr><td>Resonant howl</td><td>Moderate gain (50–65 %) + resonance. Highest risk. Hand on fader always.</td></tr>
+    <tr><td>Filtered tail</td><td>Closest to unity (70–85 %), but the filter guarantees decay. The bloom recipe.</td></tr>
+  </table>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Decision check</div>
+    <ul>
+      <li>Did you start each recipe at the <em>low</em> end of its range and creep up, or jump to the maximum?</li>
+      <li>For the resonant howl: is resonance below 55 % and your hand on the gain fader?</li>
+      <li>For the filtered tail: is the HP at 200 Hz so the repeats never compound sub?</li>
+      <li>If you removed the in-loop filter right now, which recipe would run away first? (The howl — never run it unfiltered.)</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="setup.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 04 / Setup
+    </a>
+    <a href="build.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      06 / The build →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B5-003 — Feedback</div>
+
+</div>
+
+</body>
+</html>

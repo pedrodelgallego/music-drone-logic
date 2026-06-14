@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B1-002 — Unity · Palette</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B1-002<span class="labnote-topic">Unity</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html" class="active"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B1-002</div>
+    <div class="eyebrow">Unity · 05 — Palette</div>
+    <h1>The five moves for changing level</h1>
+    <p class="lede">There are exactly five places you change level in this chain, each with a job it is good at and a job it is wrong for. This page names all five, gives the starting number for each, and tells you when to reach for which. Use the right move for the right reason and the chain stays clean.</p>
+  </header>
+
+  <h2>The reference numbers</h2>
+
+  <table class="param-table">
+    <caption>The targets every move aims at</caption>
+    <tr><td>Working level</td><td>peaks ≈ <span class="code">−12 dBFS</span></td></tr>
+    <tr><td>Single-part ceiling</td><td>never above <span class="code">−6 dBFS</span></td></tr>
+    <tr><td>Master headroom at the end</td><td>≥ <span class="code">6 dB</span> below <span class="code">0 dBFS</span></td></tr>
+    <tr><td>The hard wall</td><td><span class="code">0 dBFS</span> — never touched while tracking or mixing</td></tr>
+    <tr><td>Unity</td><td><span class="code">0 dB</span> of gain — "change nothing"</td></tr>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">The order they appear in the path</div>
+    <p>Trim → clip gain → utility gain → fader → sends. They run left to right down the signal path. Each one owns a different job. The discipline is to fix a level at the <em>earliest</em> move that owns it, and leave the rest at unity.</p>
+  </div>
+
+  <h2>Move 1 — the M4 input trim</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="13"/><line x1="22" y1="22" x2="22" y2="11"/></svg>
+      </div>
+      <div class="step-num">Move 01</div>
+      <h2 class="step-title">Gain at the boundary — set the recorded level</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">What it is for</div>
+      <ul>
+        <li>The only move that sets the level actually <em>recorded</em>. Everything else just rebalances what the trim captured.</li>
+        <li>Turn it up until the loudest part of the source peaks around <span class="code">−12 dBFS</span> on Live's input meter, and the M4's clip LED never lights.</li>
+        <li>Too cold (trim too low) and you'll be tempted to make it up downstream — that raises the noise floor. Too hot and you clip the converter permanently.</li>
+      </ul>
+      <table class="param-table">
+        <caption>Trim — what each setting feels like</caption>
+        <tr><td>Clip LED flickers</td><td>Too hot. Permanent damage on the peaks. Turn down now.</td></tr>
+        <tr><td>Peaks ≈ <span class="code">−12 dBFS</span></td><td>Correct. Healthy level, plenty of headroom, clip LED dark.</td></tr>
+        <tr><td>Peaks ≈ <span class="code">−40 dBFS</span></td><td>Too cold. You'll amplify hiss to use it. Turn up at the trim.</td></tr>
+      </table>
+    </div>
+
+    <div class="note-block">
+      <ul>
+        <li><strong>The one rule:</strong> the trim is the only place you make a quiet source louder. If a recording is weak, fix it here, not at the fader.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Move 2 — clip gain</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="8" y="12" width="28" height="20" rx="2"/><path d="M12 26 L18 18 L24 24 L32 16"/></svg>
+      </div>
+      <h3 class="card-title">What it is for</h3>
+      <ul class="card-points">
+        <li>A per-clip level offset, applied <em>before</em> the track's effects</li>
+        <li>Matching two takes recorded at slightly different levels</li>
+        <li>Trimming an already-recorded clip toward −12 without touching the fader</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><line x1="8" y1="22" x2="36" y2="22" stroke-dasharray="3 3"/><circle cx="22" cy="22" r="3" fill="currentColor"/></svg>
+      </div>
+      <h3 class="card-title">Starting value &amp; when</h3>
+      <ul class="card-points">
+        <li>Starts at <span class="code">0 dB</span> (unity) — change only with a reason</li>
+        <li>Use it to fix the recording you already have</li>
+        <li>Not for live balance — that's the fader's job</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Move 3 — Utility gain</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="8" y="10" width="28" height="24" rx="2"/><line x1="14" y1="22" x2="30" y2="22"/><circle cx="22" cy="22" r="2.5" fill="currentColor"/></svg>
+      </div>
+      <h3 class="card-title">What it is for</h3>
+      <ul class="card-points">
+        <li>A Utility device dropped on a track to add or remove gain anywhere in the effect chain</li>
+        <li>Driving the next effect harder or softer without moving the fader</li>
+        <li>Mono-ing a signal or controlling width while you're there</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><line x1="8" y1="30" x2="8" y2="14"/><line x1="22" y1="30" x2="22" y2="18"/><line x1="36" y1="30" x2="36" y2="10"/></svg>
+      </div>
+      <h3 class="card-title">Starting value &amp; when</h3>
+      <ul class="card-points">
+        <li>Gain at <span class="code">0 dB</span> (unity) by default</li>
+        <li>Place one <em>before</em> a saturator to set how hard you drive it</li>
+        <li>Place one <em>after</em> to bring the level back to unity, so the effect changes tone, not loudness</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>The "trim in, trim out" trick.</strong> Utility before an effect to drive it, Utility after to restore the level — now you can A/B the effect honestly, because it isn't just louder. This is how you keep gain staging clean <em>inside</em> a track, not only at the input.</li>
+    </ul>
+  </div>
+
+  <h2>Move 4 — the track fader</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><line x1="22" y1="8" x2="22" y2="36"/><rect x="16" y="18" width="12" height="6" rx="1" fill="currentColor"/></svg>
+      </div>
+      <h3 class="card-title">What it is for</h3>
+      <ul class="card-points">
+        <li>Volume out of the channel — balancing one part against another</li>
+        <li>Riding a level over time as automation</li>
+        <li>The <em>last</em> stage on a channel, after all effects</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><line x1="8" y1="22" x2="36" y2="22" stroke-width="2"/><line x1="22" y1="14" x2="22" y2="30" stroke-dasharray="2 2"/></svg>
+      </div>
+      <h3 class="card-title">Starting value &amp; when</h3>
+      <ul class="card-points">
+        <li>Starts at <span class="code">0 dB</span> (unity)</li>
+        <li>Move it to balance parts, never to rescue a cold recording</li>
+        <li>If you're pulling every fader way down, the master is too hot upstream</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The fader's one forbidden job</div>
+    <p>Never use the fader to make a too-quiet recording louder. Pushing the fader up amplifies the signal <em>and</em> its noise floor together — the hiss from the listen page. A quiet recording is fixed at the trim, upstream, where the noise hasn't been added yet.</p>
+  </div>
+
+  <h2>Move 5 — send levels</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><circle cx="14" cy="22" r="4"/><line x1="18" y1="22" x2="34" y2="22"/><polyline points="28 16 34 22 28 28"/></svg>
+      </div>
+      <h3 class="card-title">What it is for</h3>
+      <ul class="card-points">
+        <li>How much of a track is sent to a return (reverb, delay)</li>
+        <li>Setting the amount of effect without changing the dry track's level</li>
+        <li>Sharing one reverb across many tracks at different amounts</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><line x1="12" y1="34" x2="12" y2="16"/><line x1="22" y1="34" x2="22" y2="22"/><line x1="32" y1="34" x2="32" y2="12"/></svg>
+      </div>
+      <h3 class="card-title">Starting value &amp; when</h3>
+      <ul class="card-points">
+        <li>Starts at <span class="code">−∞</span> (off) and is raised to taste</li>
+        <li>Pre- or post-fader changes whether the send follows the fader</li>
+        <li>Watch the return's own meter — reverb tails eat headroom too</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Sends are gain too.</strong> A return channel sums every send into it and can clip just like any other. Reverb and delay tails pile up in your headroom — meter the returns, not just the tracks.</li>
+      <li><strong>Post-fader by default.</strong> Post-fader means the send follows the track fader, so pulling a part down also pulls its reverb down — usually what you want.</li>
+    </ul>
+  </div>
+
+  <h2>The five moves, side by side</h2>
+
+  <table class="param-table">
+    <caption>Which move owns which job</caption>
+    <tr><td>M4 trim</td><td>Sets the <strong>recorded</strong> level. The only place to make a source louder. Aim −12 dBFS.</td></tr>
+    <tr><td>Clip gain</td><td>Matches and trims an <strong>already-recorded</strong> clip, pre-effects. Unity until needed.</td></tr>
+    <tr><td>Utility gain</td><td>Drives effects <em>inside</em> a track. Trim in, trim out. Unity until needed.</td></tr>
+    <tr><td>Fader</td><td><strong>Balance</strong> parts and ride automation. Never to rescue a cold recording.</td></tr>
+    <tr><td>Sends</td><td>Amount of effect to a return. Off, then raised. Meter the returns.</td></tr>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">The palette rule</div>
+    <p>Each move has one job. Set the recorded level at the trim; match clips with clip gain; drive effects with Utility; balance with the fader; add effect with sends. Reach for the wrong move — the fader to fix a cold take, the trim to balance a part — and you trade a clean problem for a noisy one.</p>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon">
+        <svg viewBox="0 0 44 44"><polyline points="10 22 18 30 34 12"/></svg>
+      </div>
+      <div class="checklist-label">Before the build</div>
+    </div>
+    <ul>
+      <li>I can name all five moves and the one job each owns.</li>
+      <li>I know the trim is the only place to make a source louder.</li>
+      <li>I'd use clip gain to match takes, not the fader.</li>
+      <li>I'd trim into a saturator with Utility and trim back out after.</li>
+      <li>I'd never push a fader to rescue a cold recording.</li>
+      <li>I know sends feed returns that can clip, and I'd meter them too.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="setup.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 04 / Setup
+    </a>
+    <a href="build.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      06 / The build →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B1-002 — Unity</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B1-005 — Subtractive · Decisions</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B1-005<span class="labnote-topic">Subtractive</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html" class="active"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B1-005</div>
+    <div class="eyebrow">Subtractive · 03 — Decisions</div>
+    <h1>The theory of subtractive synthesis, and the choices it forces</h1>
+    <p class="lede">Subtractive synthesis is a chain of three blocks and a handful of movers, and every one of them is a decision you can name. This page is the theory: what an oscillator, a filter, an envelope, and an LFO actually do — explained one block at a time — and the discipline of choosing few. Every decision here is made before a single cable is plugged in.</p>
+  </header>
+
+  <h2>The whole instrument in one line</h2>
+
+  <p style="text-align:center; color:var(--text-muted); max-width:660px; margin:0 auto 18px;">This is the signal flow shared by almost every synth ever made. A raw tone is generated, a filter removes part of it, and an amplifier shapes how loud it is over time. Everything else just moves these three.</p>
+
+  <div class="signal-flow">
+    <span class="signal-node">Oscillator</span>
+    <span class="signal-arrow">→ raw tone →</span>
+    <span class="signal-node">Filter</span>
+    <span class="signal-arrow">→ harmonics removed →</span>
+    <span class="signal-node">Amp</span>
+    <span class="signal-arrow">→ shaped in time →</span>
+    <span class="signal-node">Output</span>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Principle</div>
+    <p>Subtractive synthesis takes a harmonically rich raw tone and removes from it. You never add harmonics — you only ever carve. So the decisions are: what raw tone do I start from, what do I take away, and what shapes the result over time.</p>
+  </div>
+
+  <h2>The init patch — why you start from nothing</h2>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>What an init patch is.</strong> The plainest possible state: one oscillator running, the filter wide open so it removes nothing, no resonance, the amp envelope set so a note simply turns on and off, no LFO, no modulation routed anywhere. You hear the raw oscillator and nothing else.</li>
+      <li><strong>Why start there.</strong> If you start from a preset, you are hearing dozens of decisions someone else made, stacked on top of each other. You cannot tell which knob does what because they are all already turned. From init, every change you hear is a change <em>you</em> made — which is the only way to learn what each control does.</li>
+      <li><strong>The discipline it builds.</strong> Starting from init forces you to add only what you can justify. A patch built from init is a patch you can describe in full and rebuild from zero. That is the difference between owning a sound and stumbling onto one.</li>
+    </ul>
+  </div>
+
+  <h2>Block 1 — the oscillator</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 22 q5 -12 10 0 t10 0 t10 0"/></svg>
+      </div>
+      <div class="step-num">Concept 01</div>
+      <h2 class="step-title">The raw tone, and its harmonics</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">What an oscillator is</div>
+      <ul>
+        <li>An oscillator is the part that makes the raw sound — a tone that repeats hundreds or thousands of times a second. The rate of repetition is the <strong>pitch</strong>; the shape of each repetition is the <strong>waveform</strong>.</li>
+        <li>Before any filter or shaping, this is all you have: a steady, buzzing tone. Everything downstream only takes away from it or shapes when you hear it.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Waveforms and what they start you with</div>
+      <table class="param-table">
+        <caption>The classic waveforms, by how much there is to carve</caption>
+        <tr><td>Sawtooth</td><td>The brightest, fullest of harmonics — every harmonic present. The default raw material for subtractive work because there is the most to subtract.</td></tr>
+        <tr><td>Square / pulse</td><td>Hollow and reedy — only odd harmonics. A narrower pulse sounds thinner and nasal. Good for clarinet-like and acid tones.</td></tr>
+        <tr><td>Triangle</td><td>Soft and nearly pure — a few quiet harmonics. Little to subtract, so it stays gentle however you filter it.</td></tr>
+        <tr><td>Sine</td><td>No harmonics at all — a single pure tone. The filter has nothing to remove; use it for sub-bass and pure beating tones.</td></tr>
+      </table>
+      <ul>
+        <li><strong>The decision:</strong> choose a saw or square when you want the filter to have something to work on; choose a triangle or sine when you want a soft tone the filter barely touches.</li>
+        <li>On the MicroFreak the "oscillator" is one of many <strong>engines</strong> — different kinds of raw tone, some classic waveforms, some more exotic. Pick one engine and commit to it for the whole voice.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Block 2 — the filter, one control at a time</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 16 h18 l8 14"/><line x1="6" y1="16" x2="6" y2="30"/></svg>
+      </div>
+      <div class="step-num">Concept 02</div>
+      <h2 class="step-title">Cutoff, then resonance, then type</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Cutoff — the meaning of "subtractive"</div>
+      <ul>
+        <li>The cutoff is the frequency where the filter starts removing sound. On a low-pass filter, everything <em>above</em> the cutoff is taken away; everything below passes through.</li>
+        <li>Sweep cutoff down and the tone gets darker and more muffled, because you are removing the top harmonics one by one. Sweep it up and the brightness returns. This single sweep is what the word "subtractive" names.</li>
+        <li><strong>The decision:</strong> where does the cutoff sit at rest, and does it stay still or move? A still cutoff is a fixed timbre; a moving cutoff is a living one. Most of this note's life comes from cutoff that moves.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Resonance — emphasis at the cutoff</div>
+      <ul>
+        <li>Resonance boosts the frequencies right at the cutoff point, making the filter ring there. A little adds focus and a vocal, characterful edge. A lot makes the filter whistle its own tone over the sound.</li>
+        <li>Pushed near maximum with a very short envelope, the resonant ring becomes a click or a thump — this is where percussion hides inside a single subtractive voice.</li>
+        <li><strong>The decision:</strong> how much character versus how much restraint. High resonance is exciting but narrows the sound and can scream; choose a level you can hold for two minutes without fatigue.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Filter type — choosing the survivor</div>
+      <table class="param-table">
+        <caption>What each filter mode keeps</caption>
+        <tr><td>Low-pass (LP)</td><td>Keeps the lows, removes the highs. The workhorse — warm, the default for bass and most pads.</td></tr>
+        <tr><td>High-pass (HP)</td><td>Keeps the highs, removes the lows. Thins a sound, makes it airy; useful for taking weight away.</td></tr>
+        <tr><td>Band-pass (BP)</td><td>Keeps a slice in the middle, removes both extremes. Narrow, telephone-like, focused — good for a voice that should sit small.</td></tr>
+      </table>
+      <ul>
+        <li><strong>The decision:</strong> pick one mode and stay. The MicroFreak's analog filter offers LP, BP, and HP — switching mode mid-voice is changing instruments. Choose the survivor on purpose.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Block 3 — the amp envelope (A·D·S·R)</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><polyline points="6 34 14 10 22 20 30 20 38 34"/></svg>
+      </div>
+      <div class="step-num">Concept 03</div>
+      <h2 class="step-title">The shape of a note over time</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The four stages, one at a time</div>
+      <table class="param-table">
+        <caption>What each stage of the envelope controls</caption>
+        <tr><td>Attack</td><td>How long the note takes to reach full level after you press the key. Fast = a sharp start; slow = a gradual fade-in.</td></tr>
+        <tr><td>Decay</td><td>How long it takes to fall from full level down to the sustain level, while the key is still held.</td></tr>
+        <tr><td>Sustain</td><td>The level the note holds at while the key stays down. This is a level, not a time.</td></tr>
+        <tr><td>Release</td><td>How long the note takes to fade to silence after you let the key go.</td></tr>
+      </table>
+      <ul>
+        <li>The amp envelope shapes loudness over time. The same oscillator and filter become a sharp stab (fast attack, short decay, zero sustain) or a slow pad (slow attack, full sustain, long release) — the only difference is this shape.</li>
+        <li><strong>The decision:</strong> is this voice a stab or a drone? A stab is short attack and a quick fall; a drone is a slow swell that never clicks on or off. This note ends on the drone, so its envelope is slow at both ends.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Block 4 — the movers: envelope-to-filter and one LFO</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><polyline points="6 30 16 14 24 22 38 18"/><line x1="6" y1="30" x2="6" y2="14"/></svg>
+      </div>
+      <h3 class="card-title">Envelope → filter</h3>
+      <ul class="card-points">
+        <li>Route an envelope to the cutoff so the filter opens and closes on its own with each note</li>
+        <li>A note can now start bright and darken, or start dark and bloom open — a moving timbre, not a still one</li>
+        <li>The single most useful routing in subtractive synthesis: it gives every note a shape in tone, not just in volume</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 22 q8 -14 16 0 t16 0"/></svg>
+      </div>
+      <h3 class="card-title">One LFO</h3>
+      <ul class="card-points">
+        <li>A slow, automatic mover that repeats forever — a hand on a knob you never have to touch</li>
+        <li>Route it to cutoff for a slow wobble of brightness, or to pitch for a slow wow or vibrato</li>
+        <li>This is where a static voice gains life with no hands and no clock</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The distinction that decides everything</div>
+    <p>An envelope fires <em>once per note</em> — it is a one-shot shape triggered when you press a key. An LFO <em>repeats forever</em> at its own rate, whether you play or not. Envelope = a shape per note; LFO = an endless cycle. Confuse them and you will reach for the wrong tool; know the difference and you can ask precisely for "moving with each note" or "moving on its own forever".</p>
+  </div>
+
+  <h2>Block 5 — the free-running drone (no clock)</h2>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>What changes when the clock goes.</strong> With no sequencer and no transport, three things must replace the grid: <strong>beating</strong> (two slightly detuned tones pulsing slowly against each other — rhythm with no clock), <strong>slow movement inside the tone</strong> (a free, unsynced LFO with a cycle tens of seconds long), and <strong>volume rides</strong> (structure made by raising and lowering level alone).</li>
+      <li><strong>Why a held tone is different.</strong> A sustained tone delivers far more energy than a spiky kick at the same peak meter reading, and it tires your ears faster — so a drone needs more headroom and scheduled ear breaks. This is the lesson of <a href="../workshop/block-1/lab-004b.html">One Voice, No Clock</a>.</li>
+      <li><strong>The thesis, made literal.</strong> Do less, but make the one element evolve. With the clock gone there is nowhere to hide — if the voice does not move on its own, the piece is silence with a tone in it.</li>
+    </ul>
+  </div>
+
+  <h2>The discipline of choosing few</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><circle cx="12" cy="16" r="1.6" fill="currentColor"/><circle cx="20" cy="28" r="1.6" fill="currentColor"/><circle cx="28" cy="14" r="1.6" fill="currentColor"/><circle cx="34" cy="24" r="1.6" fill="currentColor"/><circle cx="16" cy="32" r="1.6" fill="currentColor"/></svg>
+      </div>
+      <h3 class="card-title">More choices — avoid</h3>
+      <ul class="card-points">
+        <li>Two oscillators, two filters, three modulators "for richness"</li>
+        <li>Every change reaches for a new block instead of a deeper use of one</li>
+        <li>A patch you cannot describe and cannot rebuild</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><line x1="22" y1="8" x2="22" y2="36"/><circle cx="22" cy="22" r="4"/></svg>
+      </div>
+      <h3 class="card-title">Fewer choices — use</h3>
+      <ul class="card-points">
+        <li>One waveform, one filter mode, one modulation source — chosen, not defaulted</li>
+        <li>Every change is a deeper use of the blocks already present</li>
+        <li>A patch you can name in full, in one breath</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The three decisions to lock now</div>
+    <p>Before setup, choose: (1) <strong>one waveform / engine</strong> — the raw tone you will carve; (2) <strong>one filter mode</strong> — LP, BP, or HP, the survivor; (3) <strong>one modulation source</strong> — the single thing that makes the voice evolve, an envelope on the filter or one slow LFO. Three choices. Write them down. You do not get a fourth.</p>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon">
+        <svg viewBox="0 0 44 44"><polyline points="10 22 18 30 34 12"/></svg>
+      </div>
+      <div class="checklist-label">Decisions locked before setup</div>
+    </div>
+    <ul>
+      <li>I can say what an oscillator, filter, and amp envelope each do, in one sentence each.</li>
+      <li>I know the difference between an envelope (once per note) and an LFO (forever).</li>
+      <li>I have chosen one waveform / engine to start from.</li>
+      <li>I have chosen one filter mode and will not switch it mid-voice.</li>
+      <li>I have chosen one modulation source as the thing that makes the voice evolve.</li>
+      <li>I know what must replace the clock when I remove it: beating, slow movement, volume.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="listen.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 02 / Listen
+    </a>
+    <a href="setup.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      04 / Setup →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B1-005 — Subtractive</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B1-004 — Metering · Decisions</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B1-004<span class="labnote-topic">Metering</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html" class="active"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B1-004</div>
+    <div class="eyebrow">Metering · 03 — Decisions</div>
+    <h1>The theory of metering, and the choices it forces</h1>
+    <p class="lede">A meter only helps if you know what it measures and which one to trust for a given job. This page teaches each meter from zero, one at a time, and ends in three decisions you make before you measure: your loudness target, your mono-check policy, and which reading wins when two disagree.</p>
+  </header>
+
+  <h2>Why three different level meters exist</h2>
+
+  <div class="cards three">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><line x1="12" y1="36" x2="12" y2="10"/><line x1="22" y1="36" x2="22" y2="18"/><line x1="32" y1="36" x2="32" y2="14"/><polyline points="10 12 12 8 14 12"/></svg>
+      </div>
+      <h3 class="card-title">Peak — the highest sample</h3>
+      <ul class="card-points">
+        <li>The single loudest instant in the signal</li>
+        <li>Tells you about clipping, not loudness</li>
+        <li>Measured in <span class="code">dBFS</span>, ceiling at <span class="code">0</span></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M8 24 q7 -8 14 0 t14 0"/><line x1="8" y1="30" x2="36" y2="30"/></svg>
+      </div>
+      <h3 class="card-title">RMS — the average</h3>
+      <ul class="card-points">
+        <li>Energy averaged over a short window</li>
+        <li>Tracks body and sustain, ignores spikes</li>
+        <li>Closer to "how big does this feel"</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="14"/><path d="M14 22 a8 8 0 0 1 16 0"/><line x1="22" y1="22" x2="28" y2="16"/></svg>
+      </div>
+      <h3 class="card-title">LUFS — perceived loudness</h3>
+      <ul class="card-points">
+        <li>Average weighted for how the ear hears</li>
+        <li>The number streaming platforms judge you by</li>
+        <li>Your real loudness target</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Principle</div>
+    <p>Peak protects you from clipping. RMS and LUFS tell you how loud it actually feels. A track can peak at <span class="code">−0.1 dBFS</span> and still feel quiet, because peak measures one instant and loudness measures the whole. You need both meters because they answer different questions.</p>
+  </div>
+
+  <h2>The unit you measure in: dBFS, dBTP, and LUFS</h2>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>dBFS — decibels full scale.</strong> The digital scale. <span class="code">0 dBFS</span> is the hard ceiling; everything below is negative. <span class="code">−6 dBFS</span> is half the ceiling's voltage, <span class="code">−12</span> a comfortable working level. You never want a sustained signal kissing <span class="code">0</span>.</li>
+      <li><strong>dBTP — true peak.</strong> A sample meter reads the dots; the real analogue waveform <em>between</em> the dots can rise higher when reconstructed. A true-peak meter predicts that overshoot. A file that reads <span class="code">−0.1 dBFS</span> on samples can be <span class="code">+0.4 dBTP</span> in the real world — and clip a converter or a lossy encoder. Aim for <span class="code">−1 dBTP</span> as a safe ceiling.</li>
+      <li><strong>LUFS — loudness units full scale.</strong> A loudness average designed to match human hearing. <strong>Momentary</strong> covers the last <span class="code">400 ms</span>, <strong>short-term</strong> the last <span class="code">3 s</span>, and <strong>integrated</strong> the whole measured span. Integrated LUFS is the one number that says how loud your finished piece is overall.</li>
+    </ul>
+  </div>
+
+  <h2>Decision 1 — your loudness target</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="14"/><circle cx="22" cy="22" r="5"/><line x1="22" y1="8" x2="22" y2="12"/></svg>
+      </div>
+      <div class="step-num">Concept 01</div>
+      <h2 class="step-title">Choosing a number to build toward</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The mechanism</div>
+      <ul>
+        <li>Streaming platforms normalise everything to roughly <span class="code">−14 LUFS</span> integrated. Push louder than that and they simply turn you down — so the extra crushing buys nothing but lost dynamics.</li>
+        <li>For a working mixdown before any mastering, aim lower: around <span class="code">−16 to −14 LUFS</span> integrated with true peak under <span class="code">−1 dBTP</span>. That leaves headroom for a mastering stage to do its job.</li>
+        <li>Club and DJ-pool techno often sits hotter and more dynamic, but the discipline is identical: <em>pick a number first</em>, then mix toward it, rather than turning up until it feels loud.</li>
+      </ul>
+      <table class="param-table">
+        <caption>Loudness targets and what they're for</caption>
+        <tr><td><span class="code">−16 LUFS</span></td><td>Dynamic working mix. Plenty of room for mastering.</td></tr>
+        <tr><td><span class="code">−14 LUFS</span></td><td>The streaming reference. A sensible finished-track target.</td></tr>
+        <tr><td><span class="code">−9 to −7 LUFS</span></td><td>Loud club master. Hot, dense, far less dynamic range.</td></tr>
+        <tr><td>True peak</td><td><span class="code">−1 dBTP</span> ceiling regardless of loudness target.</td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The decision</div>
+      <ul>
+        <li>Write your integrated-LUFS target down before you touch a fader. For this Lab Note: <strong><span class="code">−14 LUFS</span> integrated, <span class="code">−1 dBTP</span> ceiling</strong>.</li>
+        <li>A target you wrote down is a destination. "As loud as it'll go" is not a target — it is the absence of one.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Decision 2 — your mono-check policy</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><line x1="22" y1="8" x2="22" y2="36"/><circle cx="13" cy="22" r="4"/><circle cx="31" cy="22" r="4"/></svg>
+      </div>
+      <h3 class="card-title">Correlation near +1</h3>
+      <ul class="card-points">
+        <li>Left and right are nearly identical</li>
+        <li>Mono-safe — survives any fold</li>
+        <li>Where the low end must always live</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><line x1="22" y1="8" x2="22" y2="36"/><path d="M13 14 a10 10 0 0 0 0 16"/><path d="M31 14 a10 10 0 0 1 0 16"/><line x1="8" y1="34" x2="36" y2="10"/></svg>
+      </div>
+      <h3 class="card-title">Correlation below 0</h3>
+      <ul class="card-points">
+        <li>Left and right turning into opposites</li>
+        <li>Cancels on mono sum — disappears on a phone</li>
+        <li>A fault to find before it ships, not after</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>The correlation meter in one line:</strong> a needle scoring how alike the two channels are. <span class="code">+1</span> identical and mono-safe; <span class="code">0</span> unrelated and still safe; <span class="code">−1</span> mirror-opposites that cancel to silence in mono.</li>
+      <li><strong>The policy to decide now:</strong> check mono on every wide element <em>as you place it</em>, not at the end. Keep everything below roughly <span class="code">120 Hz</span> mono. The needle should live above <span class="code">0</span> and never park below it.</li>
+      <li><strong>Why this is non-negotiable for techno:</strong> club PAs sum the sub to mono. A bass spread wide in headphones can lose half its power on the floor. The correlation meter is the only thing that warns you in advance.</li>
+    </ul>
+  </div>
+
+  <h2>Decision 3 — which reading wins when two disagree</h2>
+
+  <div class="callout">
+    <div class="callout-label">The distinction that decides everything</div>
+    <p>Your ears, a peak meter, a loudness meter, and a spectrum can all point at the same moment and say different things. Decide in advance who has the final word for each job — and it is almost never your ears, because your ears are the thing the meters exist to correct.</p>
+  </div>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M10 22a12 12 0 0 1 24 0"/><circle cx="22" cy="22" r="3" fill="currentColor"/></svg>
+      </div>
+      <h3 class="card-title">Trust your ears for</h3>
+      <ul class="card-points">
+        <li>Whether a sound is musically right</li>
+        <li>Arrangement, groove, emotional weight</li>
+        <li>The final yes / no on taste</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><line x1="12" y1="36" x2="12" y2="12"/><line x1="22" y1="36" x2="22" y2="20"/><line x1="32" y1="36" x2="32" y2="16"/></svg>
+      </div>
+      <h3 class="card-title">Trust the meter for</h3>
+      <ul class="card-points">
+        <li>Level, clipping, and loudness — always</li>
+        <li>Mono safety and phase — always</li>
+        <li>Tuning and spectral balance — when in doubt</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>The rule:</strong> measurement leads, hearing verifies. Read the instrument, form a hypothesis, then listen to confirm. When the two clash on anything technical — level, phase, tuning — the meter wins and you go re-train your ear against it.</li>
+      <li><strong>The one trap:</strong> matched loudness. An A/B at different volumes makes the louder side win on every meter and every ear. Level-match first, then judge — otherwise both your ears and your meters are lying to you. See <a href="../guide-b1-002/index.html">Lab Note B1-002 — Unity / gain</a> for the gain discipline this rests on.</li>
+    </ul>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon">
+        <svg viewBox="0 0 44 44"><polyline points="10 22 18 30 34 12"/></svg>
+      </div>
+      <div class="checklist-label">Decisions locked before setup</div>
+    </div>
+    <ul>
+      <li>I know peak, RMS, and LUFS measure three different things.</li>
+      <li>My integrated-loudness target is written down: <span class="code">−14 LUFS</span>, <span class="code">−1 dBTP</span> ceiling.</li>
+      <li>My mono-check policy is "every wide element as I place it; low end stays mono".</li>
+      <li>I have decided the meter wins over my ears on level, phase, and tuning.</li>
+      <li>I will only ever compare at matched loudness.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="listen.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 02 / Listen
+    </a>
+    <a href="setup.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      04 / Setup →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B1-004 — Metering</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B7-002 — Live Resampling — Overview</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B7-002<span class="labnote-topic">Live Resampling</span></p>
+  <a href="index.html" class="active"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Capture palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B7-002</div>
+    <div class="eyebrow">Live Resampling · 01 — Overview</div>
+    <h1>Build a set section that feeds on itself</h1>
+    <p class="lede">A deep reference for the on-stage resampling loop: capturing a few bars of your own output mid-performance and replaying them as new material — quantised capture, transforms, round-trip latency, clock alignment, and a gain ceiling on the loop. Inspired by the practice of live resampling, not by any one performer's set. Your section must be fully original.</p>
+  </header>
+
+  <h2>The goal</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M10 22 a12 12 0 0 1 21 -8"/><polyline points="25 8 31 14 26 18"/><path d="M34 22 a12 12 0 0 1 -21 8"/><polyline points="19 36 13 30 18 26"/></svg>
+      </div>
+      <h3 class="card-title">A self-feeding section</h3>
+      <ul class="card-points">
+        <li>4–8 bars of your live mix, captured quantised to the bar</li>
+        <li>Replayed transformed — reversed, pitched, chopped, frozen</li>
+        <li>Folded back into the mix as a new voice that could never clash</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><line x1="14" y1="14" x2="34" y2="14"/><line x1="14" y1="22" x2="34" y2="22"/><line x1="14" y1="30" x2="30" y2="30"/><circle cx="9" cy="14" r="1.4" fill="currentColor"/><circle cx="9" cy="22" r="1.4" fill="currentColor"/><circle cx="9" cy="30" r="1.4" fill="currentColor"/></svg>
+      </div>
+      <h3 class="card-title">Fundamentals you'll practice</h3>
+      <ul class="card-points">
+        <li>Quantised capture, one capture engine, committed routing</li>
+        <li>Transforms that make a capture read as new, not as a doubled mix</li>
+        <li>Round-trip latency compensation, clock alignment, gain discipline</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Core objective</div>
+    <p>Understand how the output of a performance can become its own next input — and how to keep that loop musical instead of letting it run away.</p>
+  </div>
+
+  <h2>Why this exercise matters</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><line x1="22" y1="6" x2="22" y2="10"/><line x1="34" y1="10" x2="31" y2="13"/><line x1="38" y1="22" x2="34" y2="22"/><line x1="10" y1="22" x2="6" y2="22"/><line x1="13" y1="13" x2="10" y2="10"/><circle cx="22" cy="22" r="10"/><line x1="22" y1="32" x2="22" y2="38"/></svg>
+      </div>
+      <h3 class="card-title">The beginner instinct</h3>
+      <ul class="card-points">
+        <li>Capture whatever, whenever the hand is free</li>
+        <li>Replay it raw, on top of the source, at full level</li>
+        <li>Stack capture on capture until the mix turns to mud</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M30 14a10 10 0 1 0 4 8"/><path d="M30 8v8h-8"/></svg>
+      </div>
+      <h3 class="card-title">The opposite discipline</h3>
+      <ul class="card-points">
+        <li>Arm early, trigger on the bar, capture the densest moment</li>
+        <li>One deliberate transform per capture; one capture engine per set</li>
+        <li>A measured latency offset and a gain ceiling that holds the loop down</li>
+      </ul>
+    </div>
+  </div>
+
+  <p style="text-align: center; color: var(--text-muted); max-width: 640px; margin: 24px auto;">The skill transfers. The same loop — capture, transform, return, manage the gain — underpins live looping, generative systems, dub mixing, granular performance, and no-input feedback. You are not learning a trick; you are learning to operate a system that listens to itself.</p>
+
+  <div class="callout">
+    <div class="callout-label">Principle</div>
+    <p>The output becomes the input. Transform it, time it, and cap its gain — or the loop stops being music and becomes feedback.</p>
+  </div>
+
+  <div class="page-nav">
+    <span></span>
+    <a href="listen.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      02 / Listen →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B7-002 — Live Resampling</div>
+
+</div>
+
+</body>
+</html>

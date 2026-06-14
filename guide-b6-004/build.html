@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B6-004 — Tuning · The build</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B6-004<span class="labnote-topic">Tuning</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html" class="active"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B6-004</div>
+    <div class="eyebrow">Tuning · 06 — The build</div>
+    <h1>Step-by-step — a piece composed in a tuning you authored</h1>
+    <p class="lede">This is the long page. We build a 6–8 minute drone piece entirely inside the 7-limit scale from the <a href="palette.html">palette</a>, applied through Live 12's tuning system from the <a href="setup.html">setup</a>. Every step is small, every step has a decision checkpoint, and the central craft — tuning two notes by listening to the rate at which they beat — is spelled out as a procedure you can repeat. Keep the setup and palette pages open in other tabs; this page assumes the tuning is already loaded and the drone already proved still.</p>
+  </header>
+
+  <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:11px; letter-spacing:0.2em; text-transform:uppercase;">The build, end to end</h3>
+  <div class="signal-flow">
+    <span class="signal-node">Load tuning</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">Lock the drone</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">Add the fifth</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">Voice the triad</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">The seventh</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">Arrange</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">Print &amp; check</span>
+  </div>
+
+  <!-- STEP 1 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 14 v20 a2 2 0 0 0 2 2 h28 a2 2 0 0 0 2 -2 v-16 a2 2 0 0 0 -2 -2 h-14 l-4 -4 h-10 a2 2 0 0 0 -2 2 z"/></svg>
+      </div>
+      <div class="step-num">Step 01</div>
+      <h2 class="step-title">Prepare the set and confirm the tuning</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Open and verify</div>
+      <ul>
+        <li><kbd>⌘ N</kbd> for a new Live Set. <kbd>Tab</kbd> to Arrangement view — the whole piece lives here. Tempo is almost irrelevant for a drone; set <span class="code">60</span> so bar lines fall on convenient seconds.</li>
+        <li>Confirm the tuning chooser in the title bar shows your file's name (<span class="code">b6_drone_7limit.ascl</span>), <em>not</em> "12-TET / Default." If it reads default, re-import per the <a href="setup.html">setup page</a> before doing anything else.</li>
+        <li>Confirm the root: a soft-synth playing the root degree should read <span class="code">55.00 Hz</span> on a tuner. This is the anchor; nothing downstream is right if this is wrong.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Create the tracks</div>
+      <ul>
+        <li><kbd>⌘ ⇧ T</kbd> for MIDI tracks: <span class="code">DRONE ROOT</span>, <span class="code">DRONE FIFTH</span>, <span class="code">DRONE THIRD</span>, <span class="code">DRONE SEVENTH</span>. One pitch per track keeps each voice independently tunable, audible, and mutable.</li>
+        <li>Add one audio track <span class="code">PERC</span> for an optional 12-TET percussive pulse, recorded or sampled later.</li>
+        <li><kbd>⌘ ⌥ T</kbd> for one return: <span class="code">A — REVERB</span>. Drop in Hybrid Reverb, decay <span class="code">8–12 s</span>, Dry/Wet <span class="code">100 %</span>. Reverb adds space without bending pitch — the only large effect this piece wants.</li>
+        <li><kbd>⌘ S</kbd> → save as <span class="code">b6_tuning_001.als</span> in a dedicated project folder. Drop a copy of the <span class="code">.ascl</span> into the project folder so the tuning travels with the set.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Load the drone instrument</div>
+      <table class="param-table">
+        <caption>Operator on each DRONE track — a clean tone that exposes tuning</caption>
+        <tr><td>Oscillator</td><td>A single sine, or sine + a quiet low partial. Sine tones make beating obvious; rich tones can mask it. Start clean.</td></tr>
+        <tr><td>Amp envelope</td><td>Long attack (1–3 s), full sustain, long release (3–6 s). The drone swells and never clicks.</td></tr>
+        <tr><td>Voices</td><td>Set to 1 per track — one held note per track. The chord is built across tracks, not within one.</td></tr>
+        <tr><td>Filter</td><td>Gentle low-pass, well open. Movement comes from slow filter rides, never from pitch.</td></tr>
+      </table>
+      <ul>
+        <li>Copy the same instrument to all four DRONE tracks. Identical timbres make the tuning, not the sound design, the variable.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does the tuning chooser show your file, and does the root read 55.00 Hz?</li>
+        <li>Is each drone voice a clean, sustaining tone with no vibrato, chorus, or detune anywhere in its chain?</li>
+        <li>Is the reverb the only big effect, and is it 100 % wet on a return so the send is the mix control?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><line x1="8" y1="22" x2="36" y2="22"/><line x1="8" y1="16" x2="36" y2="16"/><line x1="8" y1="28" x2="36" y2="28"/></svg>
+      </div>
+      <div class="step-num">Step 02</div>
+      <h2 class="step-title">Lock the root drone</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Sound the root and leave it</div>
+      <ul>
+        <li>On <span class="code">DRONE ROOT</span>, draw one long MIDI note on the root degree, spanning the full intended length of the piece (say 8 minutes). One note. It will not change pitch — it is the floor.</li>
+        <li>Play it solo. Confirm by tuner: <span class="code">55.00 Hz</span>. Let it sustain for a full minute and listen. A single tone has nothing to beat against, so it should be perfectly steady. If you hear pulsing, the cause is the synth (two slightly detuned oscillators) — fix it in the patch, not the tuning.</li>
+        <li>This take is your reference pitch for everything that follows. Do not touch it again.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Is the root a single, dead-steady tone at exactly the root frequency?</li>
+        <li>Is any pulsing you hear coming from the patch's own oscillators rather than the tuning? Reduce to one oscillator if unsure.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M8 22 q9 -10 18 0 t18 0"/><path d="M8 26 q9 -6 18 0 t18 0"/></svg>
+      </div>
+      <div class="step-num">Step 03</div>
+      <h2 class="step-title">Add the fifth — and learn to hear beating</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The interval the whole piece rests on</div>
+      <ul>
+        <li>On <span class="code">DRONE FIFTH</span>, draw a long note on the fifth degree (3/2 above the root = 82.50 Hz). Play it together with the root.</li>
+        <li>In your just tuning the two should lock: their partials coincide and the combined tone sits utterly still. This is the foundation chord, the 1/1 + 3/2 from the palette.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Beating rate — the craftsman's tuning method</div>
+      <p style="color:var(--text-muted);">Beating is the slow pulse in loudness you hear when two tones are <em>almost</em> the same frequency. The pulse rate equals the difference between the two frequencies. Tuners use this directly: bring two notes together and the beating slows; when it stops, they are identical. We use the same physics one level up — on the partials of an interval — to verify and to deliberately set the tuning.</p>
+      <table class="param-table">
+        <caption>Reading the beat rate as a frequency difference</caption>
+        <tr><td>Two tones 1 Hz apart</td><td>One beat (one swell-and-fade) per second — slow, easy to count</td></tr>
+        <tr><td>Two tones 2 Hz apart</td><td>Two beats per second</td></tr>
+        <tr><td>Beating stops entirely</td><td>The two frequencies are identical — the interval is locked</td></tr>
+        <tr><td>Beating speeds up as you detune</td><td>You moved the wrong way; reverse</td></tr>
+      </table>
+      <ul>
+        <li><strong>For the fifth:</strong> the strong test is the coincidence near the 3rd harmonic of the root (≈ 165 Hz) and the 2nd harmonic of the fifth (≈ 165 Hz). In a pure 3:2 these land on exactly the same frequency and there is no beat. Detune the fifth a hair sharp and you will hear a slow pulse appear: that pulse <em>is</em> the mistuning, in Hz.</li>
+        <li><strong>The exercise:</strong> temporarily nudge the fifth's pitch up by a few cents (Operator's coarse/fine tune, or a Pitch device). Listen to the beat appear and count its rate. Pull it back to the just value and the beat slows to nothing. You have just tuned by ear — the skill the entire drone lineage rests on.</li>
+        <li>Return the fifth to the exact scale degree and confirm: silent beating, dead-still chord.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">A/B against 12-TET</div>
+      <ul>
+        <li>Switch the set's tuning to 12-TET for ten seconds with root + fifth held. The 12-TET fifth is 2 cents narrow, so a very slow beat appears — roughly one pulse every couple of seconds at this register. Switch back: it stops. That tiny, audible difference is the thesis of this Lab Note in two notes.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Can you make beating appear and disappear by detuning the fifth, and count the rate while it's there?</li>
+        <li>With the fifth on its exact degree, is the root + fifth dead still?</li>
+        <li>Can you hear the slow beat the 12-TET fifth introduces, and watch it vanish when you switch back to your tuning?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="14" cy="22" r="6"/><circle cx="30" cy="22" r="6"/><line x1="20" y1="22" x2="24" y2="22"/></svg>
+      </div>
+      <div class="step-num">Step 04</div>
+      <h2 class="step-title">Voice the just major triad</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Add the third</div>
+      <ul>
+        <li>On <span class="code">DRONE THIRD</span>, draw a long note on the third degree (5/4 = 68.75 Hz). Bring it in slowly with the track's volume automation — the third changes the whole emotional cast, so let it arrive over 20–30 seconds.</li>
+        <li>You now have 1/1 + 5/4 + 3/2 — a just major triad in the ratio 4:5:6. Every interval inside it is pure: root–third (5:4), third–fifth (6:5), root–fifth (3:2). Held, it is utterly still — the chord 12-TET can only approximate.</li>
+        <li>A/B it: switch to 12-TET and the third's ~14-cent error makes the whole triad buzz restlessly. Switch back and it settles. Let this comparison teach your ear what "pure third" means.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Verify the third by beating</div>
+      <ul>
+        <li>The cleanest coincidence for a 5:4 is the 5th harmonic of the root (≈ 275 Hz) against the 4th harmonic of the third (≈ 275 Hz). In a pure 5:4 they coincide and don't beat. Nudge the third sharp and a beat appears; pull it back and it stops. Same method, new interval.</li>
+        <li>Leave the third on its exact degree. Confirm the full triad is still.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does the full 4:5:6 triad sit still in your tuning and buzz in 12-TET?</li>
+        <li>Did you bring the third in slowly enough that its arrival was a colour change, not an event?</li>
+        <li>Can you verify the third by its own beating test, independently of the fifth?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 5 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M10 22 a12 12 0 0 1 24 0"/><line x1="22" y1="34" x2="22" y2="22"/><circle cx="22" cy="22" r="2.5" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Step 05</div>
+      <h2 class="step-title">Introduce the harmonic seventh</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The note the keyboard can't play</div>
+      <ul>
+        <li>On <span class="code">DRONE SEVENTH</span>, draw a long note on the seventh degree (7/4 = 96.25 Hz). This is the harmonic seventh — flat, dark, with no 12-TET equivalent. It is the moment the tuning stops sounding "nice" and starts sounding genuinely other.</li>
+        <li>Sound it with just the root: 1/1 + 7/4 (4:7) is open and dark and locked. Then with the foundation: 1/1 + 3/2 + 7/4 (4:6:7) — the septimal voicing from the palette. Against the root it locks; against the fifth it leans (the 7:6 between them is narrow). Use that slight lean as tension.</li>
+        <li>Keep it rare. The seventh is the piece's "strangeness" colour — bring it in once, hold it, let it define the central section, then take it away.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Why it can't be faked in 12-TET</div>
+      <ul>
+        <li>Switch to 12-TET and try to find this note: the nearest grid pitch is the minor seventh at 1000 cents, fully 31 cents sharp of the just 7/4 (968.8 cents). There is no key that plays it. The only way to sound a harmonic seventh is to leave the 12 equal divisions behind — which is exactly what your tuning file did. Hold the contrast in your ears; it is the clearest demonstration the whole Lab Note offers.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does 1/1 + 7/4 lock, and does the 4:6:7 voicing have the dark, open colour you want?</li>
+        <li>Is the seventh used sparingly — a defining moment, not a constant?</li>
+        <li>Can you hear that 12-TET genuinely cannot reach this pitch? If you can, you have proved the point of the piece.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 6 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="4" y="14" width="10" height="6" rx="1"/><rect x="16" y="14" width="14" height="6" rx="1"/><rect x="32" y="14" width="8" height="6" rx="1"/><rect x="8" y="24" width="16" height="6" rx="1"/><rect x="26" y="24" width="12" height="6" rx="1"/></svg>
+      </div>
+      <div class="step-num">Step 06</div>
+      <h2 class="step-title">Arrange the piece as a tuning structure</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Structure is which intervals sound, when</div>
+      <p style="color:var(--text-muted);">A drone piece has no chord changes. Its structure is the schedule of which voices are present — the slow appearance and removal of intervals. This is exactly how the Young and Arkbro references work: the chord is fixed; the composition is the voicing over time. Use the track volume automation on each DRONE track to write that schedule.</p>
+      <table class="param-table">
+        <caption>An arrangement arc — section, voices present, the colour</caption>
+        <tr><td>0:00 – 1:30 / DRONE</td><td>Root alone, then root + fifth. The foundation establishes. Nothing else.</td></tr>
+        <tr><td>1:30 – 3:00 / WARMTH</td><td>Third swells in over 30 s → full 4:5:6 just major triad. The piece's warmest, most consonant region.</td></tr>
+        <tr><td>3:00 – 4:30 / SHIFT</td><td>Third fades out; seventh swells in. The 4:6:7 septimal voicing takes over — dark, open, "other."</td></tr>
+        <tr><td>4:30 – 5:30 / PEAK</td><td>Briefly all four: root + fifth + third + seventh. Dense, the inner 5:7 and 7:6 intervals adding restless motion against the still foundation. The one tense moment.</td></tr>
+        <tr><td>5:30 – 7:00 / STRIP</td><td>Seventh and third gone. Back to root + fifth. The fullness just past makes the bare fifth read as vast.</td></tr>
+        <tr><td>7:00 – 8:00 / REST</td><td>Fifth fades; root alone, then a long reverb tail. The piece returns to where it began.</td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Movement without touching pitch</div>
+      <table class="param-table">
+        <caption>Where the slow life of the piece comes from — none of it bends pitch</caption>
+        <tr><td>Filter rides</td><td>Slow low-pass cutoff automation on each voice, 16+ bars per move. Brightness changes; pitch does not.</td></tr>
+        <tr><td>Reverb send</td><td>Bloom the send up into the PEAK and pull it back for the STRIP. Space opens and closes.</td></tr>
+        <tr><td>Voice volume</td><td>The arrangement itself — the swelling and removal of intervals above.</td></tr>
+        <tr><td>Timbre / partial level</td><td>If using Operator, slowly raise a higher partial's level on one voice. The tone enriches, the pitch stays exact.</td></tr>
+      </table>
+      <ul>
+        <li>No ramp shorter than 8 bars. Most should be 16–32. If you can hear a move as an "event," it is too fast.</li>
+        <li>Right-click any automation segment → <span class="menu">Curve</span> (or drag the segment middle) to bend ramps into S-curves so entries breathe rather than step.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The optional 12-TET pulse</div>
+      <ul>
+        <li>If the piece needs a heartbeat, add one quiet percussive pulse on <span class="code">PERC</span> — a soft kick or a woodblock, left in 12-TET because it is atonal enough not to clash.</li>
+        <li>If it has any pitch, tune its sample so the fundamental agrees with the root (55 Hz or an octave of it). A detuned pulse against a pure drone is the one thing that will undo all your tuning work.</li>
+        <li>Keep it sparse — one hit every bar or every two bars. The drone is the subject; the pulse is only a frame.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Is the structure entirely a schedule of which intervals sound, with no pitch ever bending?</li>
+        <li>Does the PEAK feel dense because voices were <em>added</em>, and the STRIP feel vast because they were <em>removed</em>?</li>
+        <li>If there is a percussive pulse, is its pitch in agreement with the root, and is it sparse enough to stay a frame?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 7 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><polyline points="14 18 22 26 30 18"/><line x1="22" y1="8" x2="22" y2="26"/><line x1="8" y1="34" x2="36" y2="34"/></svg>
+      </div>
+      <div class="step-num">Step 07</div>
+      <h2 class="step-title">Render, check the tuning survived, and step away</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">A spectral sanity check</div>
+      <ul>
+        <li>Drop a <strong>Spectrum</strong> analyser on the master. Hold the foundation (root + fifth) and look at the peaks: you should see a peak at 55 Hz, one at 82.5 Hz, and — crucially — a <em>shared</em> peak where the root's 3rd harmonic and the fifth's 2nd harmonic coincide near 165 Hz. A single sharp shared peak means the interval is pure; two close peaks means it is beating.</li>
+        <li>This is the visual confirmation of what your ears already told you. If the shared peaks split, the tuning didn't apply to that voice — check the track's instrument is downstream of the global tuning.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Export</div>
+      <table class="param-table">
+        <caption>Render settings</caption>
+        <tr><td>Rendered Track</td><td>Master</td></tr>
+        <tr><td>Render Length</td><td>The full 8:00, including the final reverb tail</td></tr>
+        <tr><td>File Type / Sample Rate / Bit Depth</td><td>WAV / 48000 Hz / 24-bit</td></tr>
+        <tr><td>Normalize</td><td>OFF — the quiet, headroom-rich dynamics are part of the piece</td></tr>
+        <tr><td>Filename</td><td><span class="code">b6_tuning_001_v1.wav</span></td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Archive and listen away from the screen</div>
+      <ul>
+        <li><span class="menu">File → Collect All and Save</span> so the <span class="code">.ascl</span>, the set, and any samples live together. A tuned piece whose tuning file is lost cannot be reopened correctly.</li>
+        <li>Listen on different systems. Crucially, listen <em>loud and long</em> — beating and stillness only reveal themselves over sustained time and at volume.</li>
+        <li>Write a short note next to the WAV: which intervals locked, which leaned, and whether the seventh's strangeness landed. Wait a day, change one thing, render <span class="code">v2</span>.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Do the spectrum peaks confirm pure coincidences where your ears heard stillness?</li>
+        <li>Did the tuning file get collected into the project so the piece is reproducible?</li>
+        <li>On a fresh listen, can you point to the exact moment the tuning announces itself — and is that moment the strongest in the piece?</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The build in one line</div>
+    <p>You did not write a melody and find a tuning for it. You authored a tuning and let a held chord reveal what it makes possible — stillness where 12-TET shimmers, and a seventh the keyboard cannot reach.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="palette.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 05 / Palette
+    </a>
+    <a href="reflection.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      07 / Reflection →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B6-004 — Tuning</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B7-002 — Live Resampling — Capture palette</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B7-002<span class="labnote-topic">Live Resampling</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html" class="active"><span class="nav-num">05</span>Capture palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B7-002</div>
+    <div class="eyebrow">Live Resampling · 05 — Capture palette</div>
+    <h1>Capture and transform recipes</h1>
+    <p class="lede">A vocabulary of transforms that make a capture read as new material, not as a doubled mix. Each recipe is one move — stutter, pitch, reverse, freeze. The rule that governs all of them: one transform per capture. Stacking them just makes mud.</p>
+  </header>
+
+  <div class="callout">
+    <div class="callout-label">The test that decides everything</div>
+    <p>If the replay sounds like the source with a delay on it, you have not transformed it — you have just doubled the mix. Reverse it, pitch it, chop it, or freeze it until it reads as a <em>new</em> voice.</p>
+  </div>
+
+  <h2>Recipe — Reverse</h2>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>What it does.</strong> The captured envelope swells <em>toward</em> the beat instead of decaying away from it — anticipation, for free, from material already in key.</li>
+      <li><strong>Ableton.</strong> Double-click the captured clip → <span class="menu">Reverse</span> in Clip view. Or load it in Simpler and engage Reverse.</li>
+      <li><strong>Digitakt II.</strong> Set the sample's playback to reverse on the track's source page.</li>
+      <li><strong>Role.</strong> Best as a bed or a transition swell. High-passed and reverbed, a reversed capture becomes a riser that came from the room itself.</li>
+    </ul>
+  </div>
+
+  <h2>Recipe — Pitch / octave</h2>
+
+  <table class="param-table">
+    <caption>Pitch moves and what they buy you</caption>
+    <tr><td>Down one octave (-12 st)</td><td>A sub layer under the source. Low-pass it; let it reinforce, not muddy.</td></tr>
+    <tr><td>Up one octave (+12 st)</td><td>A ghostly high counter-line. High-pass and reverb so it floats above the mix.</td></tr>
+    <tr><td>Up a fifth (+7 st)</td><td>A harmonic shimmer that stays consonant because the source already defined the key.</td></tr>
+    <tr><td>Down a fifth (-7 st)</td><td>A darker shadow of the phrase; pairs with a long tail for depth.</td></tr>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Ableton.</strong> Transpose in Simpler, or set the clip's Pitch in semitones. Warp on, Mode <span class="menu">Complex Pro</span> for clean pitch shifts of full-mix captures.</li>
+      <li><strong>Digitakt II.</strong> Tune the sample on the track's SRC page; pitch is sample-rate based, so extreme shifts also change character — use that.</li>
+      <li><strong>Discipline.</strong> A pitched capture is the most exposed role — a hook. Use it once, as a peak event, never as a constant bed.</li>
+    </ul>
+  </div>
+
+  <h2>Recipe — Sample-start chop / stutter</h2>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>What it does.</strong> Move the start point so the loop falls on an offbeat — same audio, new rhythm. Retrigger short slices and the phrase becomes a stutter that is in key by construction.</li>
+      <li><strong>Ableton.</strong> In Simpler, drag the sample start marker; map it to a control to chop live. Beat Repeat after <span class="code">RS RETURN</span> for grid-locked stutters (e.g. <span class="code">1/16</span> repeats, Chance 30%).</li>
+      <li><strong>Digitakt II.</strong> P-lock sample start per trig, and use retrigs (<span class="code">1/16</span> or <span class="code">1/32</span>) on chosen steps. The Digitakt's per-trig control is built for exactly this.</li>
+      <li><strong>Role.</strong> A counter-rhythm — the highest clash risk. Quantise the launch to the bar and keep it under the source.</li>
+    </ul>
+  </div>
+
+  <h2>Recipe — Freeze</h2>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>What it does.</strong> Holds one slice of the capture into a sustained pad or drone — the rhythm dissolves into texture. A captured bar becomes the room the next section lives in.</li>
+      <li><strong>Ableton.</strong> Grain Delay on the capture (Freq low, Spray <span class="code">60 ms</span>, Feedback high) freezes a grain cloud. Or a long-tail reverb with high Dry/Wet on a held slice.</li>
+      <li><strong>Digitakt II / Octatrack.</strong> Loop a tiny region of the buffer with a long amp release, or set a Flex slice to loop and ride the filter.</li>
+      <li><strong>Role.</strong> A bed. Filter and reverb until it names nothing — the safest return, almost impossible to clash.</li>
+    </ul>
+  </div>
+
+  <h2>Which transform for which role</h2>
+
+  <table class="param-table">
+    <caption>Match the transform to the layer you decided on in page 03</caption>
+    <tr><td>Bed</td><td>Reverse, or Freeze — heavily filtered, reverbed, low in the mix</td></tr>
+    <tr><td>Counter-rhythm</td><td>Sample-start chop / stutter — quantised, under the source</td></tr>
+    <tr><td>Hook</td><td>Pitch up or down — once, exposed, as a peak event</td></tr>
+    <tr><td>Sub reinforcement</td><td>Pitch down an octave, low-passed — reinforce, don't muddy</td></tr>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">One move, then commit</div>
+    <p>Pick the transform that serves the role and stop. A reversed, pitched, chopped, frozen capture is no longer a capture — it is noise that happens to be in key. The restraint is the recipe.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="setup.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 04 / Setup
+    </a>
+    <a href="build.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      06 / The build →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B7-002 — Live Resampling</div>
+
+</div>
+
+</body>
+</html>

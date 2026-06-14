@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B6-002 — Self-playing Patches — The Build</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B6-002<span class="labnote-topic">Self-playing Patches</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html" class="active"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B6-002</div>
+    <div class="eyebrow">Self-playing Patches · 06 — The build</div>
+    <h1>Build a self-playing patch and capture ten minutes of it</h1>
+    <p class="lede">This is the deep page. We build one complete self-player from an empty project, prove it moves with your hands off, run the ten-minute unattended test, and capture the take. The worked rig is the MicroFreak matrix recorded into Ableton via the MOTU M4, with VCV Rack and Max for Live noted at each step. Keep the <a href="setup.html">setup page</a> open — it is the wiring reference this page assumes.</p>
+  </header>
+
+  <!-- STEP 1 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 14 v20 a2 2 0 0 0 2 2 h28 a2 2 0 0 0 2 -2 v-16 a2 2 0 0 0 -2 -2 h-14 l-4 -4 h-10 a2 2 0 0 0 -2 2 z"/></svg>
+      </div>
+      <div class="step-num">Step 01</div>
+      <h2 class="step-title">Prepare the recording project</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Open a clean set</div>
+      <ul>
+        <li><kbd>&#8984; N</kbd> for a new Live Set. <kbd>Tab</kbd> to <strong>Arrangement</strong> view — the ten-minute capture lives here, not in Session.</li>
+        <li>Tempo is irrelevant for a free-running self-player, but set <span class="code">120</span> so the metronome and grid don't distract you. You will never sync anything to it.</li>
+        <li>Right-click the timeline ruler &rarr; <span class="menu">Time Ruler Format &rarr; Time</span> so positions read as <span class="code">m:ss</span>. You are recording minutes, not bars.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Audio preferences</div>
+      <ul>
+        <li><kbd>&#8984; ,</kbd> &rarr; <strong>Audio</strong>. Input and Output Device: <strong>MOTU M4</strong>.</li>
+        <li>Sample Rate <span class="code">48000 Hz</span>, Buffer Size <span class="code">256 samples</span>. Latency does not matter — nothing is monitored through Ableton in performance.</li>
+        <li><strong>Input Config:</strong> enable mono input <span class="code">1</span> (MicroFreak). Rename it <span class="code">MicroFreak</span>.</li>
+        <li><kbd>&#8984; ,</kbd> &rarr; <strong>Record, Warp &amp; Launch</strong>: File Type <span class="code">WAV</span>, Bit Depth <span class="code">24</span>. Turn <strong>OFF</strong> <span class="menu">Auto-Warp Long Samples</span> — a self-player has no tempo to warp to and warping would smear the drift.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">One audio track, armed and waiting</div>
+      <ul>
+        <li><kbd>&#8984; T</kbd> for one audio track, named <span class="code">HABITAT</span>. Audio From &rarr; <strong>Ext. In</strong>, channel <span class="code">1</span>.</li>
+        <li>Monitor &rarr; <strong>In</strong> while you design, so you hear the MicroFreak. Switch to <strong>Auto</strong> before recording.</li>
+        <li><kbd>&#8984; S</kbd> &rarr; save as <span class="code">self_player_b6_002.als</span> in a dedicated folder. Takes record into its <span class="code">Samples/Recorded</span> folder automatically.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">In-the-box and VCV alternatives</div>
+      <ul>
+        <li><strong>VCV Rack:</strong> no Ableton needed yet — you will record with VCV's own recorder module, or route its output into this same <span class="code">HABITAT</span> track via an aggregate device.</li>
+        <li><strong>Max for Live:</strong> the instrument and the modulators all live on one Live track; add a second audio track set to <strong>Resampling</strong> to capture it.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 22 q9 -4 18 0 t18 0"/><path d="M6 28 q9 -2 18 0 t18 0"/></svg>
+      </div>
+      <div class="step-num">Step 02</div>
+      <h2 class="step-title">Build the audio path — then never touch it</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Initialise and choose the engine</div>
+      <ul>
+        <li><kbd>Shift</kbd> + press the Type encoder to initialise a fresh patch — never sculpt on top of a factory preset.</li>
+        <li>Type encoder &rarr; <span class="code">Wavetable</span>. It morphs harmonic content as the Wave knob moves, which is exactly what we want a modulator to drive. <span class="code">Harmo</span> is the gentler alternative if Wavetable feels gritty.</li>
+        <li>Turn <strong>Paraphonic on</strong> — you will hold a chord, not a single note.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Starting knob positions</div>
+      <table class="param-table">
+        <caption>Oscillator + filter + amp — the fixed body</caption>
+        <tr><td>Wave</td><td>~40 % — leaves room for a modulator to sweep it both ways</td></tr>
+        <tr><td>Timbre</td><td>~55 %</td></tr>
+        <tr><td>Shape</td><td>~50 %</td></tr>
+        <tr><td>Filter — Cutoff</td><td>10 o'clock (dark) — the centre the modulator drifts around</td></tr>
+        <tr><td>Filter — Resonance</td><td>9 o'clock — low; resonance + long reverb = whistling</td></tr>
+        <tr><td>ENV — Attack</td><td>long — the chord swells in, never clicks</td></tr>
+        <tr><td>ENV — Release</td><td>long — notes fade rather than cut</td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Hold the chord — the fixed pitch world</div>
+      <ul>
+        <li>Press <kbd>Hold</kbd>. Play the root <span class="note">A2</span>, then add the fifth <span class="note">E3</span>, then optionally the octave <span class="note">A3</span>. All sustain hands-free.</li>
+        <li>This chord is the habitat's pitch world. The system will roam in brightness and timbre but <strong>never leave these notes</strong>. That is the single decision that keeps drift from becoming noise.</li>
+        <li>Listen for ten seconds with your hands off the synth. It should now be a static, sustained pad. Static is correct — the next step makes it move.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>With my hands completely off the synth, does a clean, sustained chord hold indefinitely?</li>
+        <li>Is the filter dark enough that there is somewhere brighter for the system to go?</li>
+        <li>Have I committed to this chord? Changing it later means re-recording everything.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="14" cy="22" r="6"/><circle cx="30" cy="22" r="6"/><line x1="20" y1="22" x2="24" y2="22"/></svg>
+      </div>
+      <div class="step-num">Step 03</div>
+      <h2 class="step-title">Wire the first modulator — LFO to cutoff</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Set the LFO free, and slow</div>
+      <ul>
+        <li>LFO <strong>Shape: Sine</strong>. <strong>Rate: unsynced</strong> — confirm it is <em>not</em> tempo-locked. This is non-negotiable; a synced LFO defeats the whole patch.</li>
+        <li>Set the rate to roughly <strong>one cycle every 14 seconds</strong>. On the MicroFreak this is near the slow end of the LFO range — turn the rate down until you can count "one-and-two-and…" through a full slow rise and fall over about fourteen seconds.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Route it, click by click</div>
+      <ul>
+        <li>Rotate the <strong>Matrix</strong> encoder until the cursor sits on the <span class="code">LFO &rarr; Cutoff</span> intersection.</li>
+        <li><strong>Press</strong> to select the cell, <strong>turn</strong> to set the amount to ~<span class="code">15</span> (about 40 % of the way), <strong>press again</strong> to confirm.</li>
+        <li>Now the filter breathes on a fourteen-second clock. Watch the sound, hands off: it should slowly open and close, felt more than heard. If you hear an obvious wobble, halve the amount.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Same step in the other rigs</div>
+      <table class="param-table">
+        <caption>One slow LFO &rarr; cutoff, everywhere</caption>
+        <tr><td>VCV Rack</td><td><span class="code">LFO 1</span> bipolar out &rarr; 8vert (~40 %) &rarr; VCF <span class="code">CUTOFF</span> CV; LFO rate ~0.071 Hz</td></tr>
+        <tr><td>Max for Live</td><td>LFO A &rarr; map to Auto Filter <strong>Frequency</strong>; mode <strong>Hz</strong> at ~0.071 Hz; depth ~35 %</td></tr>
+      </table>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Hands off: does brightness drift on a slow, roughly fourteen-second cycle?</li>
+        <li>Is the motion drift, not wobble? If you can tap along to it, it is too fast or too deep.</li>
+        <li>Is the LFO definitely free-running, not synced to tempo?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="14" cy="22" r="8"/><circle cx="30" cy="22" r="8"/></svg>
+      </div>
+      <div class="step-num">Step 04</div>
+      <h2 class="step-title">Add the second motion — the cross-modulation</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">A second slow modulator on the timbre</div>
+      <ul>
+        <li>Engage the <strong>Cycling Envelope</strong> in <strong>loop / Run</strong> mode — this turns it into a second free-running LFO. Set a slow rise and a slow fall so one full cycle takes about <strong>23 seconds</strong>.</li>
+        <li>Matrix &rarr; <span class="code">Cycling Env &rarr; Wave</span>, amount ~<span class="code">15</span>. Confirm.</li>
+        <li>Now two motions run at 14 s and 23 s — unrelated periods. The brightness and the timbre drift on different clocks, so the combination never repeats. This is the engine described on page 03, now audible.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The true cross-modulation — modulate a rate</div>
+      <ul>
+        <li>The deepest version of the trick is one modulator changing <em>another modulator's speed</em>. On the MicroFreak, route a slow source into the LFO's rate region so the fourteen-second cycle itself speeds up and slows down over minutes.</li>
+        <li>In VCV this is literal: <span class="code">LFO 2</span> out &rarr; 8vert (~25 %) &rarr; <span class="code">LFO 1</span> FM/rate input, LFO 2 at ~0.043 Hz (23 s).</li>
+        <li>In Max for Live: LFO C (period ~37 s) mapped to LFO A's <strong>Rate</strong>. Keep its depth shallow — a little rate-wobble goes a long way.</li>
+        <li>Keep the depth small. The point is that the period <em>breathes</em>, not that it lurches. If the motion ever reads as a seizure, this is the first depth to pull back.</li>
+      </ul>
+    </div>
+
+    <div class="signal-flow">
+      <span class="signal-node">Cyc Env · 23 s</span>
+      <span class="signal-arrow">&rarr; wave</span>
+      <span class="signal-node">LFO · 14 s</span>
+      <span class="signal-arrow">&rarr; cutoff</span>
+      <span class="signal-node">Held chord A–E</span>
+      <span class="signal-arrow">&rarr;</span>
+      <span class="signal-node">Audio out</span>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Do brightness and timbre clearly drift on <em>different</em> clocks?</li>
+        <li>Listen for 90 seconds, hands off: can you find two ten-second windows that sound identical? You should not.</li>
+        <li>Is anything thrashing? If so, the cross-modulation depth is too high — pull it back until motion reads as weather.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 5 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M22 8l4 9 10 1-7 7 2 10-9-5-9 5 2-10-7-7 10-1z"/></svg>
+      </div>
+      <div class="step-num">Step 05</div>
+      <h2 class="step-title">Add a rare event — let a coin decide</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Seasoning, not a part</div>
+      <ul>
+        <li>A calm habitat can feel featureless. One occasional event — a brief swell or filter open — gives the ear something to wait for without breaking the drift.</li>
+        <li><strong>VCV:</strong> a slow square (one pulse ~every 11 s) &rarr; <span class="code">Bernoulli Gate</span> at ~25 % &rarr; an <span class="code">ADSR</span> with long release &rarr; VCA or filter. It fires roughly once every 44 s, never on a schedule.</li>
+        <li><strong>MicroFreak:</strong> there is no built-in coin, so emulate sparseness with a very slow second cycling-envelope shape that crests only occasionally, or add the rare event later in Ableton via an automated send bump (page 05, Recipe 4).</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Keep it sparse</div>
+      <ul>
+        <li>One event source only. Two coins make the listener start predicting, and prediction is the death of the effect.</li>
+        <li>Give every event a long recovery so it fades back into the wash with no hard edge.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 6 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><line x1="14" y1="14" x2="34" y2="14"/><line x1="14" y1="22" x2="34" y2="22"/><line x1="14" y1="30" x2="30" y2="30"/><circle cx="9" cy="14" r="1.4" fill="currentColor"/><circle cx="9" cy="22" r="1.4" fill="currentColor"/><circle cx="9" cy="30" r="1.4" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Step 06</div>
+      <h2 class="step-title">Set the boundaries the system cannot cross</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Clamp the range, then process</div>
+      <ul>
+        <li>The modulators must never reach harsh or vanish. The filter's centre plus the LFO depth defines the brightest and darkest the system can hit — set the cutoff centre and depth so the peak stays musical and the trough stays audible.</li>
+        <li>On the <span class="code">HABITAT</span> Ableton track, build a fixed processing chain the system plays through. This is part of the habitat, not performance, so set it once:</li>
+      </ul>
+      <table class="param-table">
+        <caption>Fixed processing on HABITAT — in this order</caption>
+        <tr><td>1 — EQ Eight HP</td><td>40 Hz, 24 dB/oct — clears sub-rumble before the reverb</td></tr>
+        <tr><td>2 — EQ Eight LP shelf</td><td>-3 dB above 7 kHz — caps brightness so a cutoff peak can't turn shrill</td></tr>
+        <tr><td>3 — Hybrid Reverb</td><td>Hall or Plate, decay <span class="code">6–8 s</span>, Dry/Wet <span class="code">35 %</span> — the room the habitat lives in</td></tr>
+        <tr><td>4 — Utility — Width</td><td>120–130 % — the mono source gains controllable, mono-safe width</td></tr>
+        <tr><td>5 — Limiter (ceiling only)</td><td>ceiling -1 dBFS as a safety net against an unexpected swell clipping the unattended take</td></tr>
+      </table>
+      <ul>
+        <li>EQ <em>before</em> reverb so you reverberate a clean signal, not rumble you then can't remove.</li>
+        <li>The limiter here is insurance, not loudness — it only catches a rare peak while you are out of the room.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>At the brightest the filter ever opens, is the sound still musical, not harsh?</li>
+        <li>At the darkest, is it still clearly audible, not gone?</li>
+        <li>Flip Utility to mono for ten seconds — does the habitat survive? If it thins out, pull Width back.</li>
+        <li>Can a sudden swell clip the master? The safety limiter should say no.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 7 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="16"/><polyline points="22 13 22 23 30 27"/></svg>
+      </div>
+      <div class="step-num">Step 07</div>
+      <h2 class="step-title">The ten-minute unattended test</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Run it, walk away, come back</div>
+      <ul>
+        <li>Arm <span class="code">HABITAT</span>, Monitor <strong>Auto</strong>. Position the playhead at <span class="code">0:00</span>. <kbd>&#8984; &#8679; R</kbd> to start recording.</li>
+        <li>Set a <strong>10-minute timer</strong> and <strong>leave the room</strong>. Do not adjust anything. You are gathering evidence of the system's <em>habits</em>, not giving a performance.</li>
+        <li>On return, listen back to the full ten minutes from a different seat. Ask one question: did it stay interesting, or did it settle into a rut after two minutes?</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Read the result, then fix the cause</div>
+      <table class="param-table">
+        <caption>Diagnosis &rarr; cause &rarr; fix</caption>
+        <tr><td>Settles into a rut</td><td>modulators too close in rate, or too few</td><td>widen the mismatch (e.g. 14 &amp; 23 &amp; 37), or add a third</td></tr>
+        <tr><td>Runaway / seizure</td><td>cross-modulation depth too high</td><td>pull rate-modulation depth back until motion reads as drift</td></tr>
+        <tr><td>Goes silent</td><td>amplitude modulated too deep, or release swamping attack</td><td>raise the amp floor; shorten the modulation depth on level</td></tr>
+        <tr><td>Turns harsh</td><td>filter peak exceeds the musical range</td><td>lower the cutoff centre or the LFO depth; tighten the LP shelf</td></tr>
+        <tr><td>Audibly loops</td><td>two periods in a simple ratio</td><td>nudge one period to a prime-ish, unrelated value</td></tr>
+      </table>
+      <ul>
+        <li><strong>The goal:</strong> ten minutes where no thirty-second window sounds quite like another, yet the whole thing clearly came from one habitat.</li>
+        <li>Fix exactly one thing, then run the full ten minutes again. Resist tweaking mid-run — the test only means something if you stay out of the room.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">A worked read of one ten-minute take</div>
+      <ul>
+        <li>Here is what a healthy result actually sounds like, so you know what you are listening for. With LFO at 14 s on cutoff and the cycling envelope at 23 s on wave, the two cross only every couple of minutes. Around <span class="code">2:10</span> both happen to crest together and the pad blooms bright and full — a peak you did not write. Around <span class="code">4:40</span> the cutoff is opening while the wave is closing, and the timbre hollows out into something almost vocal.</li>
+        <li>Neither of those moments is on a schedule. Re-run the patch and the bloom lands at a different minute, because the phases start fresh. That unpredictability, inside a fixed chord and a fixed range, is the proof the system is alive.</li>
+        <li>Write two or three such timestamps down as you listen. They are your evidence for the "what the system decided" list, and they are the first thing page 07 asks you to produce.</li>
+        <li>If, instead, you hear the <em>same</em> bloom at 2:10, 4:20, and 6:30 — a steady two-minute pulse — your periods are too close to a ratio. That regularity is the rut, and the fix is to widen one period, not to add busier modulation.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Did the ten minutes hold attention without me touching anything?</li>
+        <li>Can I find two identical windows? (I should not.)</li>
+        <li>Could I have predicted minute six from minute one? (I should not be able to.)</li>
+        <li>Did at least one moment surprise me — a bloom or a hollowing I did not design?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 8 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><line x1="12" y1="8" x2="12" y2="36"/><line x1="22" y1="8" x2="22" y2="36"/><line x1="32" y1="8" x2="32" y2="36"/><rect x="9" y="18" width="6" height="3" rx="0.5" fill="currentColor"/><rect x="19" y="24" width="6" height="3" rx="0.5" fill="currentColor"/><rect x="29" y="14" width="6" height="3" rx="0.5" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Step 08</div>
+      <h2 class="step-title">Capture the keeper take</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Record the definitive ten minutes</div>
+      <ul>
+        <li>Once a tuning passes the test, save the patch: on the MicroFreak press <strong>Save</strong>, write it to an empty slot as <span class="code">B6 HABITAT</span>. The system that worked must survive the session.</li>
+        <li>Record a fresh, clean ten-minute take with the tuned settings — the test take usually has a false start or a chair creak in it.</li>
+        <li>Hands off the whole time. Any knob you touch is no longer the system playing — it is you playing. That distinction is the entire exercise.</li>
+        <li>If you want a longer field recording, record fifteen or twenty minutes; you will curate the best ten on page 07's terms.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Light curation — the only place your hand returns</div>
+      <ul>
+        <li>You may choose where the ten minutes <em>start and end</em> within a longer recording. That is curation, and it is allowed — Eno chose which loops to release too.</li>
+        <li>Draw a slow fade-in over the first <span class="code">15–20 s</span> and a slow fade-out over the last <span class="code">30–45 s</span> using the clip fade handles. Nothing else gets edited — no comping, no rearranging.</li>
+        <li>Make any boundary cut at a quiet moment in the drift, so the entrance and exit feel like opening and closing a door on a room that was already alive.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 9 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><polyline points="14 18 22 26 30 18"/><line x1="22" y1="8" x2="22" y2="26"/><line x1="8" y1="34" x2="36" y2="34"/></svg>
+      </div>
+      <div class="step-num">Step 09</div>
+      <h2 class="step-title">Export and archive both lists</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Render the capture</div>
+      <ul>
+        <li>Select the curated region. <span class="menu">File &rarr; Export Audio / Video</span>.</li>
+      </ul>
+      <table class="param-table">
+        <caption>Render settings</caption>
+        <tr><td>Rendered Track</td><td>Master</td></tr>
+        <tr><td>File Type</td><td>WAV</td></tr>
+        <tr><td>Sample Rate</td><td>48000 Hz</td></tr>
+        <tr><td>Bit Depth</td><td>24-bit</td></tr>
+        <tr><td>Normalize</td><td>OFF — the headroom is part of the sound</td></tr>
+        <tr><td>Filename</td><td>self_player_b6_002_v1.wav</td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Archive the system in three layers</div>
+      <ul>
+        <li><span class="menu">File &rarr; Collect All and Save</span> — the project folder now holds the take.</li>
+        <li>Save the patch on the hardware (<span class="code">B6 HABITAT</span>), or save the VCV <span class="code">.vcv</span> patch file, or the Live set with its Max devices. The habitat must be re-runnable.</li>
+        <li>Write the two lists from page 03 into <span class="code">self_player_b6_002_notes.txt</span>: <strong>what I decided</strong> (chord, range, rates, depths) and <strong>what the system decided</strong> (which peaks landed where). Page 07 needs both.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>If I reload the patch and run it again, will it produce a <em>different</em> ten minutes from the same habitat? (It should — same rules, new combination.)</li>
+        <li>Is my "what I decided" list non-empty? (If empty, I abdicated — the rates were random.)</li>
+        <li>Is my "what the system decided" list non-empty? (If empty, I built a slow performance, not a self-player.)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>If you used VCV or Max for Live:</strong> every step above maps directly. The audio path is the chord/oscillator chain; the control path is the unsynced LFOs; the test, the capture, and the two-list archive are identical. Only the cabling changed.</li>
+      <li><strong>The Strega guest:</strong> if you sampled the Strega's self-feedback into the Digitakt II, lay one quiet pass underneath the captured habitat as a second organism — never louder than a whisper, never a second lead.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="palette.html">
+      <span class="page-nav-direction">Previous</span>
+      &larr; 05 / Palette
+    </a>
+    <a href="reflection.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      07 / Reflection &rarr;
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B6-002 — Self-playing Patches</div>
+
+</div>
+
+</body>
+</html>

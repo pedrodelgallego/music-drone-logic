@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B3-002 — Probability — The Build</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B3-002<span class="labnote-topic">Probability</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html" class="active"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B3-002</div>
+    <div class="eyebrow">Probability · 06 — The build</div>
+    <h1>Building a probabilistic track, step by step</h1>
+    <p class="lede">The deep page. From an empty Ableton project to a rendered 8-minute take whose single Digitakt II pattern never quite repeats. Every condition is placed deliberately, every step has a decision checkpoint, and nothing is randomised until the skeleton can stand alone. Keep the <a href="setup.html">setup page</a> open &mdash; it is the wiring reference this page assumes.</p>
+  </header>
+
+  <!-- STEP 1 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 14 v20 a2 2 0 0 0 2 2 h28 a2 2 0 0 0 2 -2 v-16 a2 2 0 0 0 -2 -2 h-14 l-4 -4 h-10 a2 2 0 0 0 -2 2 z"/></svg>
+      </div>
+      <div class="step-num">Step 01</div>
+      <h2 class="step-title">Prepare the project and the clock</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Open and configure</div>
+      <ul>
+        <li><kbd>&#8984; N</kbd> for a new Live Set, <kbd>Tab</kbd> to <strong>Arrangement</strong> view. Tempo <span class="code">124</span>, <span class="code">4/4</span>.</li>
+        <li>Right-click the ruler &rarr; <span class="menu">Time Ruler Format &rarr; Time</span> so positions read in <span class="code">m:ss</span>.</li>
+        <li>Confirm the clock chain from <a href="setup.html">Setup 01</a>: Ableton sends clock + transport to the Digitakt II; the Digitakt receives both and sends nothing. Press play and watch the box start, read <span class="code">124</span>, and stop on stop.</li>
+      </ul>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Why the clock comes first</div>
+      <ul>
+        <li>Conditions are evaluated at the top of every pattern cycle. A:B counters and PRE/NEI chains depend on a clean, uninterrupted count. If the transport stutters, those rules silently desync.</li>
+        <li>Create one audio track named <span class="code">DT DRUMS</span>, Audio From &rarr; <strong>Ext. In</strong> <span class="code">3/4</span>, Monitor <strong>In</strong> while programming. Add a return track with <strong>Echo</strong> (sync, <span class="code">3/16</span>, feedback <span class="code">40 %</span>, high-pass <span class="code">250 Hz</span>) for later perc tails.</li>
+        <li><kbd>&#8984; S</kbd> &rarr; save as <span class="code">prob_b3_002.als</span> in a dedicated project folder.</li>
+      </ul>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does the Digitakt follow play, stop, and tempo with zero lag?</li>
+        <li>If I stop and restart, does it restart cleanly from the pattern's first step? (It must, or A:B counting is meaningless.)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="14"/><circle cx="22" cy="22" r="5"/></svg>
+      </div>
+      <div class="step-num">Step 02</div>
+      <h2 class="step-title">Build the skeleton — no conditions yet</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Choose four samples and commit</div>
+      <ul>
+        <li><span class="code">T1 KICK</span>: short, dark, controlled sub. <span class="code">T2 HAT</span>: tight closed hat. <span class="code">T3 PERC</span>: one rim or click. <span class="code">T4 TAIL</span>: a short reverb-tail or noise fragment for later NEI binding.</li>
+        <li>Tune the kick's fundamental to your track's root so it agrees with any bass you add later. Pick one sample per track and stop browsing &mdash; sample-hunting mid-build is the procrastination this Lab Note kills.</li>
+      </ul>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Program the fixed body</div>
+      <ul>
+        <li>Pattern <span class="code">A01</span>, length 16. Kick on <span class="code">1, 5, 9, 13</span>. Hat on <span class="code">3, 7, 11, 15</span>.</li>
+        <li>Parameter-lock the hats: alternate velocity every other hit (hold a trig, turn volume) so the offbeats breathe instead of ticking. Nudge each hat a few ticks late with micro-timing &mdash; rolling, not mechanical. Add <span class="code">51&ndash;54 %</span> swing.</li>
+        <li><strong>Place no conditions.</strong> Loop this for at least two minutes. It is meant to be plain.</li>
+      </ul>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Can this skeleton hold attention for 30 seconds on its own? If not, fix the groove (timing, swing, sample choice) <em>now</em> &mdash; conditions cannot rescue a weak body.</li>
+        <li>Is the kick the unmistakable anchor? Everything that follows surprises against it.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="15"/><path d="M22 12a10 10 0 0 1 0 20z" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Step 03</div>
+      <h2 class="step-title">Introduce the first independent probability (%)</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Place exactly one</div>
+      <ul>
+        <li>On <span class="code">T3 PERC</span>, add a trig on step 7. Hold it, set the <strong>TRG</strong> condition to <span class="code">35 %</span>.</li>
+        <li>Loop and count cycles aloud for a minute. The hit should land roughly one bar in three, unpredictably. If you can predict it, you're hearing a pattern that's too short to loop &mdash; let it run longer.</li>
+        <li>Parameter-lock this trig's velocity down a touch and nudge it a few ticks late, so when it does appear it reads as a hand brushing the kit, not a machine firing.</li>
+      </ul>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Resist the urge to add more</div>
+      <ul>
+        <li>One condition is enough to break the loop's sameness. Sit with it. The discipline of this whole build is adding the <em>next</em> condition only once the previous one has earned its place over real listening time.</li>
+      </ul>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does the bar still sound like the same piece when the hit is absent? (It must &mdash; the skeleton carries it.)</li>
+        <li>Is 35 % the right weight, or does it want to be rarer (25 %) or more present (50 %)? Decide by ear, not by default.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M8 30L18 14L28 30"/><path d="M22 30L30 18L38 30"/></svg>
+      </div>
+      <div class="step-num">Step 04</div>
+      <h2 class="step-title">Chain a dependent tail (PRE)</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Make the random hit into a phrase</div>
+      <ul>
+        <li>On <span class="code">T3 PERC</span>, add a trig on step 12 and set its condition to <span class="code">PRE</span>. It fires only when step 7 (the previous conditional trig on this track) fired.</li>
+        <li>Now the two hits are one gesture: a two-note figure that arrives whole or not at all. The randomness stops sounding like a glitch and starts sounding composed.</li>
+        <li>Test the inverse: temporarily switch step 12 to the inverted PRE so it covers the gaps when 7 is silent. Listen to both. Keep whichever serves the trance; usually the straight PRE.</li>
+      </ul>
+    </div>
+    <div class="signal-flow">
+      <span class="signal-node">Step 7 fires (35 %)</span>
+      <span class="signal-arrow">&rarr;</span>
+      <span class="signal-node">PRE true</span>
+      <span class="signal-arrow">&rarr;</span>
+      <span class="signal-node">Step 12 plays</span>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does the pair read as one event rather than two unrelated taps?</li>
+        <li>Is step 12's sound a believable continuation of step 7 &mdash; same timbre family, sensible spacing?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 5 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="14"/><path d="M22 8v14l10 5"/><circle cx="22" cy="22" r="2" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Step 05</div>
+      <h2 class="step-title">Add periodic form with A:B</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Impose a four-bar phrase</div>
+      <ul>
+        <li>On <span class="code">T3 PERC</span>, add a trig on step 15 and set its condition to <span class="code">1:4</span> &mdash; it fires on cycle 1 of every 4.</li>
+        <li>This is deterministic, not random. Its job is architecture: it turns a one-bar loop into a felt four-bar phrase, marking the head of each group.</li>
+        <li>Optionally stack a second periodic accent &mdash; a <span class="code">3:4</span> on a different track &mdash; so two phrase positions are marked. Across four bars no two are identical, yet the group repeats forever.</li>
+      </ul>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">High-probability hat: absence as event</div>
+      <ul>
+        <li>Take hat step 15 and set it to <span class="code">80 %</span>. It plays most bars but vanishes roughly one in five. Because it is otherwise reliable, its rare absence becomes the surprise.</li>
+        <li>You now have both flavours: hits that surprise by appearing (perc 7/12) and one that surprises by disappearing (hat 15) &mdash; plus the periodic spine (perc 15).</li>
+      </ul>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Can I feel the four-bar phrase the 1:4 imposes, even with eyes closed?</li>
+        <li>Are independent and periodic events doing different jobs &mdash; texture vs. form &mdash; rather than competing?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 6 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M22 8l4 9 10 1-7 7 2 10-9-5-9 5 2-10-7-7 10-1z"/></svg>
+      </div>
+      <div class="step-num">Step 06</div>
+      <h2 class="step-title">Bind two tracks by chance (NEI)</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Give the appearing hit a shadow</div>
+      <ul>
+        <li>On <span class="code">T4 TAIL</span> (directly below perc), place a trig on step 7 and set it to <span class="code">NEI</span>. It fires only when the perc's step-7 condition fired.</li>
+        <li>Send <span class="code">T4 TAIL</span> to the Digitakt's delay or to the Ableton Echo return, high-passed, so the tail blooms behind the perc hit it belongs to &mdash; and never appears orphaned.</li>
+        <li><strong>Why NEI over a second %:</strong> binding deepens one event instead of adding a fifth independent uncertainty. The pattern stays legible.</li>
+      </ul>
+    </div>
+    <div class="signal-flow">
+      <span class="signal-node">Perc 7 (35 %) fires</span>
+      <span class="signal-arrow">&rarr;</span>
+      <span class="signal-node">NEI true on track below</span>
+      <span class="signal-arrow">&rarr;</span>
+      <span class="signal-node">Tail plays + delay</span>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does the tail only ever follow a real perc hit (never alone)?</li>
+        <li>Is the delayed tail adding depth, or is it just clutter? If clutter, lower its level or remove it &mdash; restraint over feature-count.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 7 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M22 8l4 9 10 1-7 7 2 10-9-5-9 5 2-10-7-7 10-1z" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Step 07</div>
+      <h2 class="step-title">Prepare a FILL state for live performance</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">A second state, not a second pattern</div>
+      <ul>
+        <li>Add two or three extra trigs &mdash; an extra ghost perc on step 4, a hat retrig on step 14 &mdash; and set each to <span class="code">FILL</span>. They are silent until you hold FILL mode.</li>
+        <li>Set one existing hit (say hat 11) to the inverted FILL so it <em>drops out</em> during fills. A fill that removes as much as it adds keeps the trance intact.</li>
+        <li>This is the logical fill of <a href="palette.html">page 05</a>: a momentary re-weighting performed by hand, captured live &mdash; never a snare-roll crescendo.</li>
+      </ul>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Rehearse the fill</div>
+      <ul>
+        <li>Loop the pattern and tap FILL mode on the last bar of every four-bar phrase. Aim for a fill the listener feels but can't point to.</li>
+        <li>Prepare the hold before the bar line so the fill lands cleanly on beat one of the target bar.</li>
+      </ul>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does the fill re-weight the groove rather than roll over it?</li>
+        <li>Could a listener miss that a fill happened, yet feel the bar was different? (That is the target.)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 8 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><line x1="12" y1="8" x2="12" y2="36"/><line x1="22" y1="8" x2="22" y2="36"/><line x1="32" y1="8" x2="32" y2="36"/><rect x="9" y="18" width="6" height="3" rx="0.5" fill="currentColor"/><rect x="19" y="24" width="6" height="3" rx="0.5" fill="currentColor"/><rect x="29" y="14" width="6" height="3" rx="0.5" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Step 08</div>
+      <h2 class="step-title">Stress-test the rule system</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Listen for failure modes</div>
+      <ul>
+        <li>Loop for a full five minutes without touching anything. Note the timestamp of any moment that feels too dense, too sparse, or where the surprises stop surprising.</li>
+        <li><strong>Too twitchy?</strong> You have too many independent %; convert one to a periodic A:B so the ear gets a predictable anchor.</li>
+        <li><strong>Too predictable?</strong> An A:B has become a memorised hook; lower its frequency (1:8) or convert it to a % so it stops being a schedule.</li>
+        <li><strong>Surprises feel orphaned?</strong> Add a PRE or NEI dependency so a lone hit becomes part of a phrase.</li>
+      </ul>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">The polymeter option (advanced)</div>
+      <ul>
+        <li>Set <span class="code">T3 PERC</span> to a per-track length of <strong>14</strong> while the pattern stays 16. The conditional perc hits now phase against the kick, realigning every 7 bars &mdash; a second, slower layer of non-repetition stacked on top of the conditions. Use sparingly; it is seasoning.</li>
+      </ul>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Across five minutes, is there always a stable body and always something I can't quite predict?</li>
+        <li>If I strip every condition, does a clean playable loop remain? (Verify by muting the conditional trigs.)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 8b -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="8" y="8" width="28" height="28" rx="3"/><line x1="8" y1="22" x2="36" y2="22"/><line x1="22" y1="8" x2="22" y2="36"/><circle cx="15" cy="15" r="2" fill="currentColor"/><circle cx="29" cy="29" r="2" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Step 08b</div>
+      <h2 class="step-title">Map the probability of the whole bar</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Think in outcomes, not in single trigs</div>
+      <ul>
+        <li>With several conditions running, the bar is no longer one pattern &mdash; it is a small set of possible bars, each with its own likelihood. Spend ten minutes writing them out; it changes how you hear the loop.</li>
+        <li>Step 7 plays 35 % of the time, and when it does, step 12 (PRE) follows. So roughly a third of bars carry the two-note perc figure; two-thirds do not. Hat 15 is present in four bars out of five. The 1:4 accent on perc 15 is guaranteed in exactly one bar of every four.</li>
+        <li>Multiply it out: the single most common bar &mdash; no perc figure, hat present, no accent &mdash; still happens less than half the time. The "default" bar is itself in the minority. That is why the loop never settles into a groove the ear can switch off to.</li>
+      </ul>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Tune the weights against each other</div>
+      <table class="param-table">
+        <caption>Reading the combined behaviour</caption>
+        <tr><td>Two-note perc figure (7&rarr;12)</td><td>~ 35 % of bars &mdash; the recognisable signature gesture</td></tr>
+        <tr><td>Hat 15 absent</td><td>~ 20 % of bars &mdash; the "hole" surprise</td></tr>
+        <tr><td>Periodic accent (perc 15, 1:4)</td><td>exactly 25 % of bars &mdash; the phrase marker</td></tr>
+        <tr><td>NEI tail behind perc 7</td><td>fully correlated with the perc figure &mdash; depth, not a new outcome</td></tr>
+      </table>
+      <ul>
+        <li>If two events collide too often (the perc figure landing on the same bar as the dropped hat, every time, by coincidence of the dice), and it sounds muddy, lower one probability by 10 % and re-listen. You are balancing distributions, not single hits.</li>
+      </ul>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Is the "default" bar genuinely in the minority? (If one bar dominates, your probabilities are too low &mdash; raise the workhorse % toward 50.)</li>
+        <li>Can I describe the loop as a handful of weighted outcomes rather than as a fixed sequence?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 9 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 14 v20 a2 2 0 0 0 2 2 h28 a2 2 0 0 0 2 -2 v-16 a2 2 0 0 0 -2 -2 h-14 l-4 -4 h-10 a2 2 0 0 0 -2 2 z"/><circle cx="30" cy="26" r="2" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Step 09</div>
+      <h2 class="step-title">Record the conditional performance</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Capture the long take</div>
+      <ul>
+        <li>Arm <span class="code">DT DRUMS</span>, Monitor on <strong>Auto</strong>, peaks around <span class="code">-6 dBFS</span>. <kbd>&#8984; &#8679; R</kbd> and record <strong>8 minutes</strong>.</li>
+        <li>Perform the arc with mutes and fills, not new patterns: bars 1&ndash;32 kick + hat only; introduce the % perc around bar 32; let the PRE/NEI/A:B web run full from bar 64; trigger FILL on phrase ends through the middle; strip back to kick + the high-% hat for the outro.</li>
+        <li>Because the conditions are running live, this single take will contain variation you could never program by hand &mdash; that is the entire point. Record two passes and keep the calmer one.</li>
+      </ul>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">An arc made of conditions, not sections</div>
+      <table class="param-table">
+        <caption>8-minute performance map (bars at 124 BPM)</caption>
+        <tr><td>0:00 &ndash; 1:00 (bars 1&ndash;32)</td><td>Kick + hat only. Conditional perc muted. The skeleton establishes the room.</td></tr>
+        <tr><td>1:00 &ndash; 2:00 (bars 32&ndash;63)</td><td>Unmute the 35 % perc and its PRE tail. First uncertainty enters.</td></tr>
+        <tr><td>2:00 &ndash; 4:30 (bars 63&ndash;140)</td><td>Full rule web: A:B accent, NEI tail, hat 15 at 80 %. Trigger FILL on the last bar of each four-bar phrase.</td></tr>
+        <tr><td>4:30 &ndash; 5:30 (bars 140&ndash;171)</td><td>Peak density. Hold FILL latched for one phrase, then release &mdash; the only sustained departure.</td></tr>
+        <tr><td>5:30 &ndash; 8:00 (bars 171&ndash;249)</td><td>Strip back to kick + the high-% hat. The uncertainty recedes; the loop returns to its bones to close the circle.</td></tr>
+      </table>
+      <ul>
+        <li>Notice there is no second pattern and no new instrument anywhere in this arc. Every change is a condition being enabled, weighted, or performed. The arrangement <em>is</em> the probability schedule.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Reproducibility note</div>
+      <ul>
+        <li>Independent % is different every take by design. If you need a specific lucky bar again, you must keep that take &mdash; you cannot re-roll it. This is why we capture long audio rather than relying on the pattern to play live forever.</li>
+        <li>Immediately save the Digitakt project and the Ableton set. The pattern and the audio are now linked decisions.</li>
+      </ul>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Fast troubleshooting while recording</div>
+      <table class="param-table">
+        <caption>Symptom &rarr; check</caption>
+        <tr><td>Conditions seem frozen / never vary</td><td>The Digitakt is free-running, not following Ableton's transport &mdash; restart shows the same bar each cycle. Re-check Sync receive.</td></tr>
+        <tr><td>A:B accent drifts off the phrase</td><td>The transport was stopped and restarted mid-take, resetting the cycle counter. Restart the take from a clean transport stop.</td></tr>
+        <tr><td>PRE tail plays with no head</td><td>Another conditional trig sits between 7 and 12 on the same track and is now "the previous one". Remove it or move it off-track.</td></tr>
+        <tr><td>NEI tail fires on the wrong perc</td><td>NEI reads the track directly above &mdash; confirm the tail track sits immediately below the perc, not elsewhere.</td></tr>
+        <tr><td>FILL won't latch</td><td>Momentary vs. latched hold differ; on the Digitakt, double-tap or use the hold combo to latch fill mode for a full phrase.</td></tr>
+        <tr><td>Take too dense or too sparse overall</td><td>Not a recording fault &mdash; it is a weighting choice. Stop, adjust the workhorse % by 10 %, and re-record.</td></tr>
+      </table>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Listening back to the whole take, does it sound like a loop that evolves &mdash; not a loop pasted for eight minutes, and not eight minutes of chaos?</li>
+        <li>Did the fills land on phrase boundaries cleanly?</li>
+        <li>Did the A:B accent stay locked to the phrase across the full eight minutes?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 10 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><polyline points="14 18 22 26 30 18"/><line x1="22" y1="8" x2="22" y2="26"/><line x1="8" y1="34" x2="36" y2="34"/></svg>
+      </div>
+      <div class="step-num">Step 10</div>
+      <h2 class="step-title">Edit, mix lightly, export</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Edit the best bars</div>
+      <ul>
+        <li>Make every cut on a kick downbeat with <kbd>&#8984; E</kbd>, grid snap on. Where two takes meet, overlap a bar and crossfade &mdash; hard joins click.</li>
+        <li>If a stretch of the take has a run of bad dice (too dense or too empty), splice in a better stretch from the other pass. You are curating luck, not faking it.</li>
+        <li>Consolidate finished sections with <kbd>&#8984; J</kbd>.</li>
+      </ul>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Light mix and render</div>
+      <table class="param-table">
+        <caption>DT DRUMS processing</caption>
+        <tr><td>EQ Eight &mdash; HP</td><td>25&ndash;30 Hz, 24 dB/oct</td></tr>
+        <tr><td>Saturator</td><td>+1 to +3 dB, Soft Sine &mdash; glue, not grit</td></tr>
+        <tr><td>Echo return</td><td>fed only by the NEI tail's p-locks; high-passed at 250 Hz</td></tr>
+        <tr><td>Fader / master</td><td>peaks ~ -6 dBFS; master &le; -3 dBFS, no limiter</td></tr>
+      </table>
+      <ul>
+        <li><span class="menu">File &rarr; Export Audio / Video</span>: WAV, 48 kHz, 24-bit, Normalize <strong>off</strong>. Filename <span class="code">prob_b3_002_v1.wav</span>.</li>
+        <li><span class="menu">File &rarr; Collect All and Save</span>. The track now survives in three layers: pattern on the box, audio in Ableton, and the rule system in your notes.</li>
+      </ul>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does the rendered file hold up away from Ableton &mdash; on phone, on laptop speakers?</li>
+        <li>Can I write, in one sentence, the rule set that produced it? If yes, the build did its job.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Principle</div>
+    <p>You did not program eight minutes of variation. You programmed a handful of rules and let them play. The craft was in choosing the rules, protecting the skeleton, and knowing which surprise was random and which was scheduled.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="palette.html">
+      <span class="page-nav-direction">Previous</span>
+      &larr; 05 / Palette
+    </a>
+    <a href="reflection.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      07 / Reflection &rarr;
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B3-002 — Probability</div>
+
+</div>
+
+</body>
+</html>

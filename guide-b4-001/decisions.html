@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B4-001 — Resonance — Decisions</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Lab Note contents">
+  <p class="nav-label labnote-code">Lab Note B4-001<span class="labnote-topic">Resonance</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html" class="active"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B4-001</div>
+    <div class="eyebrow">Resonance · 03 — Decisions</div>
+    <h1>What resonance is, and what you choose</h1>
+    <p class="lede">The theory you need to make the filter sing in tune, followed by the design decisions you must settle before recording. Resonance is a feedback peak; once it gains pitch it becomes a musical voice with all the obligations of one — it has to be in key, in time, and at a sane level. Decide those things here, on paper, not while the take is running.</p>
+  </header>
+
+  <h2>What resonance actually is</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 30 L18 30 L22 12 L26 30 L38 30"/></svg>
+      </div>
+      <h3 class="card-title">A boost at the corner</h3>
+      <ul class="card-points">
+        <li>Resonance feeds the filter's output back into its input at the cutoff frequency</li>
+        <li>It builds a narrow peak right where the slope begins</li>
+        <li>Low Q: a gentle emphasis. High Q: a ringing, whistling tone with audible pitch</li>
+        <li>The peak <em>is</em> a sine partial the filter generates from whatever excites it</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 22 q9 -14 18 0 t18 0"/><line x1="6" y1="22" x2="38" y2="22" stroke-dasharray="2 3"/></svg>
+      </div>
+      <h3 class="card-title">From color to pitch</h3>
+      <ul class="card-points">
+        <li>At low resonance the ear hears <em>timbre</em> — bright or dark</li>
+        <li>As Q rises the peak narrows until the ear hears a discrete <em>note</em></li>
+        <li>Past unity feedback the filter self-oscillates: it sings with no input at all</li>
+        <li>The crossover from "color" to "note" is the whole subject of this Lab Note</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The nonlinearity warning</div>
+    <p>Filtering is linear at low resonance and increasingly nonlinear as Q climbs. A resonant peak loud enough to clip the next stage changes what every downstream device does. What enters the filter, and at what level the resonance peaks, both matter before you ask what the filter "sounds like". A self-oscillating peak can add 12–18 dB at one frequency — plan for it, don't discover it.</p>
+  </div>
+
+  <h2>The resonance ladder — five rungs of one knob</h2>
+  <p style="text-align:center; max-width:620px; margin:0 auto 24px; color:var(--text-muted);">The same cutoff sweep is a different musical event at each resonance setting. Climb the ladder deliberately; do not jump to self-oscillation because it is the dramatic end. For a filter-as-lead track you will mostly live on rungs three and four, and visit the fifth as a special effect.</p>
+
+  <table class="param-table">
+    <caption>Resonance / Q — what each region buys you</caption>
+    <tr><td>0 – 15 %</td><td>Pure tone shaping. The filter only removes; sweeping cutoff reads as "opening up", no added pitch.</td></tr>
+    <tr><td>15 – 40 %</td><td>Emphasis. The sweep gains a vocal, formant-like quality. Still timbral, not yet a note.</td></tr>
+    <tr><td>40 – 70 %</td><td>The peak acquires pitch. On a sustained or noisy source you can now hum the resonance. This is where the filter becomes a melodic layer.</td></tr>
+    <tr><td>70 – 95 %</td><td>Aggressive ring. The peak dominates the source; transients excite a clear ping. Classic acid territory — the home rung for this track.</td></tr>
+    <tr><td>Self-oscillation</td><td>The filter sings unprompted. Cutoff is now a pitch control. Input only modulates the tone the filter is already making.</td></tr>
+  </table>
+
+  <h2>Self-oscillation — the filter as an oscillator</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 22 q6 -12 11 0 t11 0 t11 0"/></svg>
+      </div>
+      <h3 class="card-title">It is a sine generator</h3>
+      <ul class="card-points">
+        <li>A self-oscillating filter outputs a near-pure sine at the cutoff frequency</li>
+        <li>Cutoff = pitch; you can play it like any monophonic synth voice</li>
+        <li>Any input becomes <em>excitation</em> — a struck bell rather than a played note</li>
+        <li>A percussive input gives the classic resonant "pluck" or "ping"</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><line x1="8" y1="34" x2="8" y2="14"/><line x1="18" y1="34" x2="18" y2="8"/><line x1="28" y1="34" x2="28" y2="18"/><line x1="38" y1="34" x2="38" y2="12"/></svg>
+      </div>
+      <h3 class="card-title">Make it musical, not random</h3>
+      <ul class="card-points">
+        <li>Key-track the cutoff so the sine follows the notes you play</li>
+        <li>Quantize cutoff automation to a scale, or drive it from a sequencer</li>
+        <li>An unkeyed self-oscillating filter drifts out of tune with everything</li>
+        <li>Tame the level: a self-oscillating peak can be the loudest thing in the mix</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Key-tracking, plainly</div>
+    <p>Key-tracking ties the cutoff frequency to the note you play so the filter's emphasis stays at a fixed musical interval above (or on) the fundamental. Without it, a low note and a high note get the same absolute brightness — the bass sounds muffled and the top sounds thin. With it, every note keeps the same character, and a self-oscillating filter plays in tune. For a filter-as-melody track, key-tracking is the difference between a tuned instrument and a theremin you can't control.</p>
+  </div>
+
+  <h2>The decisions you must settle now</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="16"/><path d="M14 22 h16"/><path d="M22 14 v16"/></svg>
+      </div>
+      <div class="step-num">Decision 01</div>
+      <h2 class="step-title">Which voice carries the lead</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">The choice</div>
+      <ul>
+        <li>This track is led by a <strong>resonant filter ride</strong> — not a synth lead, not a pad. Commit to that. Every other element supports the ride.</li>
+        <li>Pick the host: the <strong>MicroFreak analog filter</strong> (warm, self-oscillating, key-trackable), an <strong>Ableton Auto Filter</strong> on a recorded source, or a <strong>Digitakt II per-track filter</strong> p-locked into a melody. The build uses the first two together; choose your primary.</li>
+      </ul>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>If you removed the filter ride, is there still a track? There should not be — that proves the filter is the lead.</li>
+        <li>Have you resisted writing a second melodic instrument? One lead voice, voiced by a filter.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M8 30 L8 14 L16 14"/><path d="M20 30 L20 10 L28 10"/><path d="M32 30 L32 18 L40 18"/></svg>
+      </div>
+      <div class="step-num">Decision 02</div>
+      <h2 class="step-title">Key, scale, and the "frets"</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">The choice</div>
+      <ul>
+        <li>Pick one key and one scale and stay in it: <strong>A minor (natural)</strong>, root <span class="note">A1</span>, is the working choice for this build — dark, sits well with a hypnotic kick.</li>
+        <li>The cutoff frequencies that land on scale tones are your "frets". You will find and note them on the palette page. A filter line in tune is a filter line whose cutoff only ever rests on a fret.</li>
+        <li>Decide the range: a 1–2 octave window for the cutoff sweep. Too wide and the ear loses the melody; too narrow and it can't breathe.</li>
+      </ul>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Can you sing the intended line before you build it? If not, simplify it to 3–5 notes.</li>
+        <li>Is the range chosen so the resonant peak never disappears under the kick or screeches past 5 kHz?</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 22 q9 -16 18 0 t18 0"/></svg>
+      </div>
+      <div class="step-num">Decision 03</div>
+      <h2 class="step-title">How high the resonance lives</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">The choice</div>
+      <ul>
+        <li>Choose the home rung: this build lives at <strong>70–85 %</strong> (rung four) for the lead, dipping toward self-oscillation only at the peak.</li>
+        <li>Decide whether you want <em>excited resonance</em> (a source pings the peak — percussive, acid-pluck) or <em>self-oscillation</em> (the filter sings continuously — smoother, theremin-like). The build demonstrates excited resonance as the rhythmic lead and reserves self-oscillation for the peak section.</li>
+      </ul>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>At your chosen rung, can you still hear the source, or has the peak swallowed it? Decide which you want and set Q accordingly.</li>
+        <li>Have you decided the maximum Q the track ever reaches — so the peak section has somewhere to go?</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="10" width="32" height="24" rx="2"/><path d="M6 28 L14 20 L22 26 L30 14 L38 22"/></svg>
+      </div>
+      <div class="step-num">Decision 04</div>
+      <h2 class="step-title">Where the ride is driven from</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">The choice</div>
+      <ul>
+        <li><strong>Printed</strong> — perform the cutoff by hand on the MicroFreak and record it into the take. Human, irreversible.</li>
+        <li><strong>Sequenced</strong> — p-lock cutoff per step on Digitakt II, or drive the MicroFreak cutoff from its own sequencer/cycling envelope. Repeatable, tight.</li>
+        <li><strong>Drawn</strong> — automate Ableton Auto Filter cutoff/resonance on a recorded flat source. Infinitely revisable, scale-quantizable.</li>
+        <li>The build combines a sequenced/printed core with drawn long-form arc automation on top. Decide which layer owns the melody and which owns the journey.</li>
+      </ul>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Is the melodic phrasing in a layer you can re-perform, and the slow arc in a layer you can redraw? Don't bake the slow arc into the take.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Carry forward:</strong> the level <em>leaving</em> a resonant filter is rarely the level that entered it. A high-Q peak can add 12–18 dB at one frequency. That hotter, peakier signal is what your saturation, sidechain, and master see — so resonance is not an isolated tone decision, it is a gain-staging and mix decision. The <a href="setup.html">setup page</a> meters it; the <a href="build.html">build</a> tames it.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="listen.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 02 / Listen
+    </a>
+    <a href="setup.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      04 / Setup →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B4-001 — Resonance</div>
+
+</div>
+
+</body>
+</html>

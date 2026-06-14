@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B1-005 — Subtractive · Setup</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B1-005<span class="labnote-topic">Subtractive</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html" class="active"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B1-005</div>
+    <div class="eyebrow">Subtractive · 04 — Setup</div>
+    <h1>The MicroFreak from init, into a clean signal</h1>
+    <p class="lede">One voice work asks almost nothing of the rig — one synth, one cable, honest monitoring. But it asks two things absolutely: that you start from a true init patch so every change is yours, and that the signal is clean and well-gained so you are judging the sound, not a converter or a clip. This page wires exactly that, and nothing more.</p>
+  </header>
+
+  <div class="cards three">
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="14" width="32" height="16" rx="2"/><line x1="14" y1="14" x2="14" y2="30"/><line x1="22" y1="14" x2="22" y2="30"/><line x1="30" y1="14" x2="30" y2="30"/></svg>
+      </div>
+      <h3 class="card-title">Arturia MicroFreak</h3>
+      <ul class="card-points">
+        <li>The one voice — one engine, one analog filter, one amp envelope</li>
+        <li>Started from a true init patch, then built one control at a time</li>
+        <li>Mod matrix holds the single modulator that makes it evolve</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="14" width="32" height="16" rx="2"/><circle cx="14" cy="22" r="2.5"/><circle cx="22" cy="22" r="2.5"/><circle cx="30" cy="22" r="2.5"/></svg>
+      </div>
+      <h3 class="card-title">MOTU M4</h3>
+      <ul class="card-points">
+        <li>The single audio device — MicroFreak mono into input 1</li>
+        <li>Gain set by the Lab Note B1-002 / B1-003 method, never by eye</li>
+        <li>Extra headroom budgeted because a held tone is hot at the same peak</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="10" width="32" height="20" rx="2"/><line x1="16" y1="36" x2="28" y2="36"/><line x1="22" y1="30" x2="22" y2="36"/></svg>
+      </div>
+      <h3 class="card-title">Ableton Live 12 Suite</h3>
+      <ul class="card-points">
+        <li>Records the voice; arranges by subtraction and by level</li>
+        <li>Holds Analog / Operator as a software fallback for the same patch</li>
+        <li>No effects on the voice — the tone must stand dry</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M10 24 a12 12 0 0 1 24 0"/><rect x="6" y="22" width="8" height="12" rx="2"/><rect x="30" y="22" width="8" height="12" rx="2"/></svg>
+      </div>
+      <h3 class="card-title">Monitoring</h3>
+      <ul class="card-points">
+        <li>Your calibrated headphones at your calibrated level</li>
+        <li>One monitoring path declared in one line — direct or software</li>
+        <li>Ear breaks scheduled — sustained tones tire you fast</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><line x1="8" y1="22" x2="36" y2="22"/><line x1="14" y1="16" x2="14" y2="28"/><line x1="30" y1="16" x2="30" y2="28"/></svg>
+      </div>
+      <h3 class="card-title">Software fallback</h3>
+      <ul class="card-points">
+        <li>Live's <strong>Analog</strong> — two oscillators, classic LP/HP filter, ADSR; use one osc</li>
+        <li>Live's <strong>Operator</strong> in subtractive mode — one carrier, the filter, an LFO</li>
+        <li>Same blocks, same drill — init the device and build from one oscillator</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="14"/><line x1="22" y1="22" x2="22" y2="12"/><line x1="22" y1="22" x2="30" y2="26"/></svg>
+      </div>
+      <h3 class="card-title">No clock needed</h3>
+      <ul class="card-points">
+        <li>No MIDI clock, no sequencer for the drone half — the transport stays stopped</li>
+        <li>The LFO runs free, unsynced, at its own slow rate</li>
+        <li>Notes are held by hand or by the MicroFreak's <span class="code">Hold</span> button</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <h2>Reach a true init patch first</h2>
+  <p style="text-align:center; max-width:640px; margin:0 auto 24px; color:var(--text-muted);">Before any building, get the synth to a state where you hear the raw oscillator and nothing else. Everything you do afterward is then a change you made and can name. Do not skip this — building on top of a preset's hidden decisions is the single most common reason a beginner cannot say what their own patch is doing.</p>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Get to init on the MicroFreak — confirm each line by ear</div>
+    <ul>
+      <li>Pick one engine and leave it. Set <span class="code">Wave</span> and <span class="code">Timbre</span> to a plain mid position — a clean, bright raw tone.</li>
+      <li>Filter wide open: <span class="code">Cutoff</span> fully up, <span class="code">Resonance</span> at zero, type <strong>LP</strong>. The filter must be removing nothing.</li>
+      <li>Amp envelope neutral: <span class="code">Attack 0</span>, <span class="code">Decay</span> short, <span class="code">Sustain</span> full, <span class="code">Release</span> short. A held note simply turns on and stays on.</li>
+      <li>No modulation: <span class="code">LFO</span> amount zero, the <span class="code">Cycling Envelope</span> off, the <strong>Matrix</strong> cleared of routings.</li>
+      <li><span class="code">Glide 0</span>, <span class="code">Paraphonic OFF</span> — one voice only.</li>
+      <li>Hold a note. You should hear a steady, unshaped raw tone. If you hear movement, brightness sweeps, or shaping, something is still routed — clear it before you go on.</li>
+    </ul>
+  </div>
+
+  <h2>Audio path — one cable, mono</h2>
+
+  <div class="signal-flow">
+    <span class="signal-node">MicroFreak Out</span>
+    <span class="signal-arrow">→ TS →</span>
+    <span class="signal-node">M4 In 1</span>
+    <span class="signal-arrow">→ USB-C →</span>
+    <span class="signal-node">Ableton</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">Headphones</span>
+  </div>
+
+  <table>
+    <thead><tr><th>From</th><th>To</th><th>Cable</th><th>Carries</th></tr></thead>
+    <tbody>
+      <tr><td>MicroFreak <span class="code">Audio Out</span> (mono, unbalanced)</td><td>M4 <span class="code">Input 1</span></td><td>1 × 1/4" TS</td><td>The single synth voice — bass, lead, drone, all of it</td></tr>
+      <tr><td>M4 <span class="code">Phones</span></td><td>Your calibrated headphones</td><td>1/4" headphone plug</td><td>Your entire monitoring world for this note</td></tr>
+      <tr><td>M4 / MicroFreak <span class="code">USB</span></td><td>Computer (direct, no hub)</td><td>USB-C / USB</td><td>Audio in, and MIDI only if you sequence the build half</td></tr>
+    </tbody>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Why mono.</strong> One voice is one mono signal. Recording it mono keeps the decision honest — width, if you want it later, is something you add deliberately, not something that hides a thin tone.</li>
+      <li><strong>Nothing else on the bench.</strong> The constraint starts at the wall. For this note there is no second synth and no drum machine — physically set them aside so you are not tempted to solve a dull voice by adding a part.</li>
+    </ul>
+  </div>
+
+  <h2>Gain and headroom — the one measurement to respect</h2>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Set the gain on the body of the tone, not its first moment</div>
+    <ul>
+      <li>Set the M4 preamp using the method from <a href="../guide-b1-002/index.html">Lab Note B1-002</a> and <a href="../guide-b1-003/index.html">Lab Note B1-003</a> — by the meter, against a known target, never by ear alone.</li>
+      <li>For a held tone, set the gain on the <strong>settled sustain level</strong>, not on the opening swell. A drone that swells in will overshoot if you gain it on its first loud moment.</li>
+      <li>Budget extra headroom. A sustained tone delivers far more energy than a spiky source at the same peak reading — most people land at a peak target of <span class="code">−15 dBFS</span> or lower for drones, against the higher target a kick allows.</li>
+      <li>Confirm a held two-minute note never creeps into clipping as the LFO pushes the level up and down. If it does, lower the preamp and re-check on the body of the tone.</li>
+    </ul>
+  </div>
+
+  <table class="param-table">
+    <caption>Peak targets — spiky vs sustained material</caption>
+    <tr><td>Drums / plucks (spiky)</td><td>Tall peaks, near-silence between — the higher peak target you calibrated for transient sources holds.</td></tr>
+    <tr><td>Held tone / drone (sustained)</td><td>Body sits just under the peak the whole time — far more energy at the same reading. Aim <span class="code">−15 dBFS</span> or lower.</td></tr>
+    <tr><td>Where to read it</td><td>On the settled sustain, after any swell-in and after the LFO has cycled at least once.</td></tr>
+  </table>
+
+  <h2>The software fallback, set the same way</h2>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Live's Analog.</strong> Drop it on a MIDI track, then init it: use <strong>one</strong> oscillator (turn OSC 2 off), filter wide open, ADSR neutral, LFO amount zero. You now have the same init patch in software, with the same three blocks.</li>
+      <li><strong>Live's Operator (subtractive mode).</strong> Use a single carrier with a saw or square wave, engage the filter section, route the filter envelope and one LFO. The routing names differ from the MicroFreak's matrix, but the blocks are identical.</li>
+      <li><strong>Same drill either way.</strong> Whether hardware or software, you reach init, then move one control at a time. The Lab Note's pedagogy does not depend on the MicroFreak — it depends on starting from nothing and naming every change.</li>
+    </ul>
+  </div>
+
+  <div class="tag-row">
+    <span class="tag">one voice</span>
+    <span class="tag">init patch</span>
+    <span class="tag">mono</span>
+    <span class="tag">dry</span>
+    <span class="tag">no clock</span>
+    <span class="tag">held tone</span>
+    <span class="tag">one control at a time</span>
+  </div>
+
+  <div class="page-nav">
+    <a href="decisions.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 03 / Decisions
+    </a>
+    <a href="palette.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      05 / Palette →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B1-005 — Subtractive</div>
+
+</div>
+
+</body>
+</html>

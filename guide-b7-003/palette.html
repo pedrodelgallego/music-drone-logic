@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B7-003 — Feedback Safety — Feedback states</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B7-003<span class="labnote-topic">Feedback Safety</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html" class="active"><span class="nav-num">05</span>Feedback states</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B7-003</div>
+    <div class="eyebrow">Feedback Safety · 05 — Feedback states</div>
+    <h1>The playable states, and how to find and hold each</h1>
+    <p class="lede">A feedback instrument is not one sound — it is a small set of stable-enough states the loop can sit in, separated by transitions you ride between them. This page is the palette: each state, the safe range of the ride control where it lives, what it sounds like, and exactly how to find it and hold it. Learn these in rehearsal so that live, you are recalling positions rather than discovering them.</p>
+  </header>
+
+  <h2>The states, low to high</h2>
+
+  <table class="param-table">
+    <caption>The ride control from silent to capped — never beyond</caption>
+    <tr><td>S0 — Silent</td><td>Loop gain below unity. Any sound dies away. The home base and the safe state.</td></tr>
+    <tr><td>S1 — Bloom</td><td>Just under unity. A tone fed in swells slowly, then settles. The gentlest usable state.</td></tr>
+    <tr><td>S2 — Held tone</td><td>At unity. A single pitch sustains steadily, neither growing nor dying. The plateau — the core of the instrument.</td></tr>
+    <tr><td>S3 — Brink</td><td>A hair above unity. The tone grows slowly and brightens; harmonics pile up. Tension lives here.</td></tr>
+    <tr><td>CAP — Ceiling</td><td>The capped maximum, a clear margin below true runaway. The loudest the rig will physically allow. You visit, never live here.</td></tr>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">The whole performance is between S1 and S3</div>
+    <p>S0 is where you start and where the panic path returns you. S2 is home. S1 and S3 are the two directions you can move from home. Anything past the cap does not exist on this instrument — by design.</p>
+  </div>
+
+  <h2>State by state — find it, hold it, leave it</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="14"/><line x1="14" y1="22" x2="30" y2="22"/></svg>
+      </div>
+      <div class="step-num">S0</div>
+      <h2 class="step-title">Silent — home base</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Find it</div>
+      <ul>
+        <li>Ride control fully down, or panic pad engaged. Loop gain well below unity.</li>
+        <li>Tap a sound into the loop — it decays and is gone. That decay confirms you are below unity.</li>
+      </ul>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Hold it / leave it</div>
+      <ul>
+        <li>It holds itself — nothing sustains. This is the only truly safe state.</li>
+        <li>Leave it by raising the ride control <em>slowly</em> toward S1, hand on the panic pad.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 34 Q22 8 38 34"/></svg>
+      </div>
+      <div class="step-num">S1</div>
+      <h2 class="step-title">Bloom — the swell that settles</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Find it</div>
+      <ul>
+        <li>Raise the ride control until a fed-in tone <em>grows a little, then stops growing</em>. The growth is the loop adding energy; the settling is it still being below true unity.</li>
+        <li>This is the largest part of the usable range — a gentle, forgiving region. On the encoder it is typically the lower-middle of the capped travel.</li>
+      </ul>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Hold it / leave it</div>
+      <ul>
+        <li>Holds easily. Small filter moves here shift the pitch without risk. Good for long, slow passages.</li>
+        <li>Leave it upward into S2 by nudging the ride control a touch more; downward into S0 by pulling back.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><line x1="6" y1="22" x2="38" y2="22"/><line x1="6" y1="16" x2="6" y2="28"/><line x1="38" y1="16" x2="38" y2="28"/></svg>
+      </div>
+      <div class="step-num">S2</div>
+      <h2 class="step-title">Held tone — the plateau</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Find it</div>
+      <ul>
+        <li>Edge the ride control up from S1 until a tone <em>sustains without growing or fading</em>. That steady hold is unity — the heart of the instrument.</li>
+        <li>The window is narrow. Learn the exact knob/fader position in rehearsal and mark it (tape on hardware, note the value on the mapped control).</li>
+        <li>The filter centre sets the pitch; confirm it lands on your set's key note.</li>
+      </ul>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Hold it / leave it</div>
+      <ul>
+        <li>Holds, but watch it — drift in the room or gear can push it toward S3 on its own. A tone that slowly brightens means you have crept upward; ease the ride back a hair.</li>
+        <li>This is the state you return to between gestures. From here, S3 is up, S1 is down, and the panic pad is always one move away.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M8 30 Q22 6 36 30"/><circle cx="22" cy="14" r="2.5" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">S3</div>
+      <h2 class="step-title">Brink — the tension state</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Find it</div>
+      <ul>
+        <li>From S2, nudge the ride control up until the tone <em>slowly grows and brightens</em> — new harmonics climb in. This is just above unity.</li>
+        <li>It is rising toward the cap on its own. You do not park here — you pass through it on a swell and come back.</li>
+      </ul>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Hold it / leave it</div>
+      <ul>
+        <li><strong>Do not hold.</strong> S3 wants to climb. The musical move is to ride <em>into</em> it and back out — the brink-of-runaway tension is the event, living at the edge, never over it.</li>
+        <li>Leave it by pulling the ride control back to S2 or S1 <em>before</em> it reaches the cap. The limiter will catch you if you misjudge, but the music is in not needing it to.</li>
+        <li>If it gets away from you: panic pad. No hesitation. Recover to S0 and rebuild.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Shaping the tone within a state</h2>
+
+  <p style="color:var(--text-muted);">Once you can find and hold the states, the filter and EQ give you colour without changing the danger level. These moves stay safe because they do not raise loop gain — they only move where the energy already in the loop sits.</p>
+
+  <table class="param-table">
+    <caption>Safe tone moves — they shift colour, not level</caption>
+    <tr><td>Filter centre frequency</td><td>Slides the oscillation pitch. Sweep it slowly in S2 for a melodic glide between notes — the most musical single gesture on the instrument.</td></tr>
+    <tr><td>Filter resonance / Q</td><td>Narrow Q = purer, more sine-like (Sachiko territory). Wider Q = broader, harmonically richer. Changing Q can nudge loop gain, so move it gently and watch the level.</td></tr>
+    <tr><td>A second EQ notch</td><td>Carve out a harsh harmonic that builds in S3 — tames the scream into a tone (the tuned-instability idea from page 03).</td></tr>
+    <tr><td>Stereo width / pan</td><td>Pan the return for movement without touching gain. Costs nothing in safety.</td></tr>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">Safe-range discipline</div>
+    <p>Every state above lives <em>below</em> the cap, and the cap lives below true runaway, and the limiter sits below that as a hard backstop. Three layers of margin. The palette is wide because the ceiling is fixed — you can explore freely precisely because you cannot reach the dangerous part.</p>
+  </div>
+
+  <h2>The map you carry into the build</h2>
+
+  <table class="param-table">
+    <caption>Your instrument, summarised</caption>
+    <tr><td>Home</td><td>S2, held tone, on your key note</td></tr>
+    <tr><td>Down from home</td><td>S1 bloom → S0 silence</td></tr>
+    <tr><td>Up from home</td><td>S3 brink → (cap, never past)</td></tr>
+    <tr><td>Pitch control</td><td>Filter centre, swept slowly</td></tr>
+    <tr><td>The one exit</td><td>Panic pad → S0, always one move away</td></tr>
+  </table>
+
+  <div class="page-nav">
+    <a href="setup.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 04 / Setup
+    </a>
+    <a href="build.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      06 / The build →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B7-003 — Feedback Safety</div>
+
+</div>
+
+</body>
+</html>

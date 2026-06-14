@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B5-002 — Reverb — Palette</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B5-002<span class="labnote-topic">Reverb</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html" class="active"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B5-002</div>
+    <div class="eyebrow">Reverb · 05 — Palette</div>
+    <h1>Four rooms, dialled to exact values</h1>
+    <p class="lede">Four reverb recipes — room, plate, hall, and freeze — each with the pre-delay, decay, size, and EQ you can type straight into Hybrid Reverb. Build all four once, audition each against the same dry drone, and you will hear the place-vs-blur spectrum in ten minutes. These are starting points to internalise, then move away from.</p>
+  </header>
+
+  <h2>The four-room spectrum</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="8" y="12" width="28" height="20" rx="2"/><path d="M14 26 q8 -8 16 0"/></svg>
+      </div>
+      <h3 class="card-title">Room → Plate</h3>
+      <ul class="card-points">
+        <li>Pure placement: the sound stays itself, just situated</li>
+        <li>Short tails, audible only as "air" and depth</li>
+        <li>Used on drums and percussive sources</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="6"/><circle cx="22" cy="22" r="12" opacity="0.6"/><circle cx="22" cy="22" r="18" opacity="0.3"/></svg>
+      </div>
+      <h3 class="card-title">Hall → Freeze</h3>
+      <ul class="card-points">
+        <li>Toward blur: the source dissolves into the room</li>
+        <li>Long tails, heard as a layer in their own right</li>
+        <li>Used on the drone and the atmosphere</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Recipe 1 — Room (placement)</h2>
+
+  <table class="param-table">
+    <caption>Hybrid Reverb — "NEAR ROOM"</caption>
+    <tr><td>Algorithm</td><td>Room (algorithmic) or small Convolution IR</td></tr>
+    <tr><td>Pre-delay</td><td><span class="code">15 ms</span></td></tr>
+    <tr><td>Decay</td><td><span class="code">0.9 s</span></td></tr>
+    <tr><td>Size</td><td><span class="code">~25 %</span> (small)</td></tr>
+    <tr><td>Diffusion / density</td><td>High — early reflections close together</td></tr>
+    <tr><td>EQ before reverb</td><td>HP <span class="code">300 Hz</span>, LP shelf -3 dB @ <span class="code">9 kHz</span></td></tr>
+    <tr><td>Dry/Wet (return)</td><td><span class="code">100 %</span></td></tr>
+  </table>
+  <div class="note-block">
+    <ul>
+      <li><strong>What to listen for:</strong> with the send low, you should not hear a "reverb" at all — only that the drums have a body and sit in a space. Mute the send and they go flat and pasted-on. That absence test is how you know placement is working.</li>
+    </ul>
+  </div>
+
+  <h2>Recipe 2 — Plate (bright placement with a tail)</h2>
+
+  <table class="param-table">
+    <caption>Hybrid Reverb — "PLATE"</caption>
+    <tr><td>Algorithm</td><td>Plate</td></tr>
+    <tr><td>Pre-delay</td><td><span class="code">25 ms</span></td></tr>
+    <tr><td>Decay</td><td><span class="code">2.2 s</span></td></tr>
+    <tr><td>Size</td><td>n/a (plates have a fixed character) — set tone/damping instead</td></tr>
+    <tr><td>Damping / tone</td><td>Mid-bright; let the top ring a little</td></tr>
+    <tr><td>EQ before reverb</td><td>HP <span class="code">400 Hz</span>, LP shelf -2 dB @ <span class="code">10 kHz</span></td></tr>
+    <tr><td>Dry/Wet (return)</td><td><span class="code">100 %</span></td></tr>
+  </table>
+  <div class="note-block">
+    <ul>
+      <li><strong>What to listen for:</strong> a plate has no real "room shape" — it is a dense, bright sheet of reflections. It flatters metallic perc and rim hits, giving a sustained shimmer without reading as a large space. Pre-delay keeps the hit's attack intact in front of the sheen.</li>
+    </ul>
+  </div>
+
+  <h2>Recipe 3 — Hall (blur)</h2>
+
+  <table class="param-table">
+    <caption>Hybrid Reverb — "FAR HALL"</caption>
+    <tr><td>Algorithm</td><td>Hall (large algorithmic or Convolution Hall)</td></tr>
+    <tr><td>Pre-delay</td><td><span class="code">40 ms</span></td></tr>
+    <tr><td>Decay</td><td><span class="code">7 s</span></td></tr>
+    <tr><td>Size</td><td><span class="code">~80 %</span> (large)</td></tr>
+    <tr><td>Diffusion / density</td><td>High, smooth — no fluttery early reflections</td></tr>
+    <tr><td>EQ before reverb</td><td>HP <span class="code">350 Hz</span>, LP shelf -4 dB @ <span class="code">7.5 kHz</span></td></tr>
+    <tr><td>After reverb</td><td>Compressor, kick-sidechained, ~3 dB reduction</td></tr>
+    <tr><td>Dry/Wet (return)</td><td><span class="code">100 %</span></td></tr>
+  </table>
+  <div class="note-block">
+    <ul>
+      <li><strong>What to listen for:</strong> at a healthy send, drone notes should start to overlap — the tail of one note still ringing when the next arrives. That overlap is blur. If the source vanishes entirely, that is fine for the drone; if it vanishes on the drums, pull their send down.</li>
+    </ul>
+  </div>
+
+  <h2>Recipe 4 — Freeze (the room becomes a pad)</h2>
+
+  <table class="param-table">
+    <caption>Hybrid Reverb — "FREEZE"</caption>
+    <tr><td>Algorithm</td><td>Large algorithm with a <span class="code">Freeze</span> control</td></tr>
+    <tr><td>Pre-delay</td><td><span class="code">0 ms</span></td></tr>
+    <tr><td>Decay</td><td><span class="code">12 s</span> (held indefinitely once frozen)</td></tr>
+    <tr><td>Size</td><td>Maximum</td></tr>
+    <tr><td>Freeze</td><td>Engage while a single note/chord rings — then it sustains forever</td></tr>
+    <tr><td>EQ before reverb</td><td>HP <span class="code">250 Hz</span> only — let it stay wide and dark</td></tr>
+    <tr><td>Dry/Wet (return)</td><td><span class="code">100 %</span></td></tr>
+  </table>
+  <div class="note-block">
+    <ul>
+      <li><strong>What to listen for:</strong> freeze a single drone note and you have an instant pad with no oscillator. Freeze a snare tail and you have a metallic drone. Capture it to audio (Setup, return C) and it becomes the atmosphere layer — material, not a live effect you're afraid to turn off.</li>
+    </ul>
+  </div>
+
+  <h2>The whole palette at a glance</h2>
+
+  <table class="param-table">
+    <caption>Place → blur, left to right</caption>
+    <tr><td>Room</td><td>Pre-delay 15 ms · Decay 0.9 s · small · placement on drums/bass body</td></tr>
+    <tr><td>Plate</td><td>Pre-delay 25 ms · Decay 2.2 s · bright sheet · perc shimmer</td></tr>
+    <tr><td>Hall</td><td>Pre-delay 40 ms · Decay 7 s · large · blur on the drone</td></tr>
+    <tr><td>Freeze</td><td>Pre-delay 0 ms · held · the room as a sustained pad / printed layer</td></tr>
+  </table>
+
+  <h2>Pre-delay at 124 BPM — synced values</h2>
+
+  <table class="param-table">
+    <caption>Note value → milliseconds (for a tail that lands on the grid)</caption>
+    <tr><td>1/32</td><td><span class="code">~60 ms</span></td></tr>
+    <tr><td>1/16</td><td><span class="code">~121 ms</span></td></tr>
+    <tr><td>1/16 triplet</td><td><span class="code">~81 ms</span></td></tr>
+    <tr><td>1/8</td><td><span class="code">~242 ms</span></td></tr>
+  </table>
+  <div class="note-block">
+    <ul>
+      <li><strong>Use a synced pre-delay when the reverb fights the groove.</strong> A 1/16 (121 ms) pre-delay on the near room makes each kick's room-bloom re-attack a sixteenth later, so the space pulses with the beat instead of washing across it. For the far hall, keep pre-delay free (40 ms) — its job is size, not rhythm.</li>
+    </ul>
+  </div>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Decision check</div>
+    <ul>
+      <li>Audition all four against the same dry drone: can you hear the spectrum from "placed" to "dissolved" as one continuous move?</li>
+      <li>On the Room and Plate, does muting the send make the source flatten? (Placement working.)</li>
+      <li>On the Hall, do drone notes overlap into a wash without burying the drums?</li>
+      <li>Did the Freeze produce something you could keep as a layer, or is it still a live effect?</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="setup.html">
+      <span class="page-nav-direction">Previous</span>
+      &larr; 04 / Setup
+    </a>
+    <a href="build.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      06 / The build &rarr;
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B5-002 — Reverb</div>
+
+</div>
+
+</body>
+</html>

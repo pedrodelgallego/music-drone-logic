@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B5-001 — Delay as Architecture · Delay recipes</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B5-001<span class="labnote-topic">Delay</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html" class="active"><span class="nav-num">05</span>Delay recipes</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B5-001</div>
+    <div class="eyebrow">Delay · 05 — Delay recipes</div>
+    <h1>Four delays, four jobs</h1>
+    <p class="lede">Concrete starting points for the throws you will use in the build. Each recipe is a complete Echo setting plus the gesture that plays it. Dial them, then mutate — the numbers are a floor to stand on, not a sound to copy.</p>
+  </header>
+
+  <h2>Recipe 1 — the dub throw</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 34 Q22 6 38 14"/><circle cx="6" cy="34" r="2.5" fill="currentColor"/><circle cx="38" cy="14" r="2.5" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Recipe 01</div>
+      <h2 class="step-title">Spike the send, let it trail for bars</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The Echo setting (Return A)</div>
+      <table class="param-table">
+        <caption>Long sync'd ping-pong</caption>
+        <tr><td>Sync / time</td><td>On, <span class="code">3/16</span></td></tr>
+        <tr><td>Feedback</td><td><span class="code">60 %</span> — six to eight audible repeats</td></tr>
+        <tr><td>Stereo</td><td>Ping-Pong</td></tr>
+        <tr><td>Feedback HP / LP</td><td><span class="code">250 Hz</span> / <span class="code">4 kHz</span></td></tr>
+        <tr><td>Dry/Wet</td><td><span class="code">100 %</span></td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The gesture</div>
+      <ul>
+        <li>Keep the send at <span class="code">-inf</span> for the whole bar, then spike it to <span class="code">0 dB</span> for a single snare, stab, or word, then drop it back to <span class="code">-inf</span>.</li>
+        <li>Only that one hit enters the delay line. With 60&nbsp;% feedback it trails away for bars while the dry part carries on clean — the signature dub move.</li>
+        <li><strong>Automate the send, not the feedback.</strong> Feedback stays set; the throw is purely an on/off of the path.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">On the rig</div>
+      <ul>
+        <li><strong>Ableton:</strong> draw send automation on the source track — flat at <span class="code">-inf</span>, a one-step spike to <span class="code">0 dB</span> on the chosen trig, back to <span class="code">-inf</span>. Or MIDI-map the send to a fader and perform it.</li>
+        <li><strong>Digitakt II:</strong> parameter-lock the delay send on a single trig. Everything else sends nothing. The throw is baked into the pattern, repeatable forever.</li>
+        <li><strong>Compact mixer:</strong> if the delay is on an aux send, ride the aux knob by hand — the most tactile version of the same idea.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Recipe 2 — the slap</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><line x1="12" y1="12" x2="12" y2="32"/><line x1="20" y1="16" x2="20" y2="28"/></svg>
+      </div>
+      <div class="step-num">Recipe 02</div>
+      <h2 class="step-title">A single short repeat that thickens</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The Echo setting (Return B)</div>
+      <table class="param-table">
+        <caption>Free-time mono slap</caption>
+        <tr><td>Sync / time</td><td>Off, <span class="code">110 ms</span> (try <span class="code">80–130 ms</span>)</td></tr>
+        <tr><td>Feedback</td><td><span class="code">12 %</span> — one clear repeat, maybe a ghost of a second</td></tr>
+        <tr><td>Stereo</td><td>Mono, panned a touch off-centre opposite the dry source</td></tr>
+        <tr><td>Feedback HP</td><td><span class="code">300 Hz</span></td></tr>
+        <tr><td>Dry/Wet</td><td><span class="code">100 %</span></td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">What it is for</div>
+      <ul>
+        <li>A slap is felt, not heard as an echo — it fattens a stab or vocal and pushes it slightly back in the room.</li>
+        <li>Because it is short and mono, it is the mono-safe width source: pan the dry left and the slap right and the part feels wide without ping-pong that collapses.</li>
+        <li>Keep feedback low. A slap with high feedback stops being a slap and becomes a flutter — a different, busier effect.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Recipe 3 — the ping-pong wash</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="10" cy="16" r="2.5" fill="currentColor"/><circle cx="34" cy="22" r="2.5" fill="currentColor"/><circle cx="10" cy="28" r="2" fill="currentColor" opacity="0.5"/><path d="M12 16 L32 22 L12 28" opacity="0.5"/></svg>
+      </div>
+      <div class="step-num">Recipe 03</div>
+      <h2 class="step-title">Wide repeats that build a space</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The Echo setting</div>
+      <table class="param-table">
+        <caption>Long ping-pong, used as ambience</caption>
+        <tr><td>Sync / time</td><td>On, dotted <span class="code">1/8</span> (363 ms at 124 BPM)</td></tr>
+        <tr><td>Feedback</td><td><span class="code">50 %</span></td></tr>
+        <tr><td>Stereo</td><td>Ping-Pong, Width <span class="code">~70 %</span> (not full — leaves a centre that survives mono)</td></tr>
+        <tr><td>Feedback HP / LP</td><td><span class="code">300 Hz</span> / <span class="code">3 kHz</span> — dark, washy repeats</td></tr>
+        <tr><td>Modulation</td><td>Small — a slow wobble blurs the repeats into a cloud</td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">How to use it without making mud</div>
+      <ul>
+        <li>Feed it sparse, sustained material — a melodica-style line, a chord stab — not the kick or busy percussion.</li>
+        <li>The dotted-eighth makes the repeats stagger against the beat, so a held send creates a rolling, self-weaving texture that never lands square.</li>
+        <li>Pull the Width to ~70&nbsp;% so the centre stays populated; a 100&nbsp;% ping-pong is a hole in mono.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Recipe 4 — runaway feedback, filtered</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M8 22 a14 14 0 1 1 4 10"/><polyline points="8 26 8 32 14 32"/></svg>
+      </div>
+      <div class="step-num">Recipe 04</div>
+      <h2 class="step-title">Push feedback to the edge of self-oscillation</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The Echo setting</div>
+      <table class="param-table">
+        <caption>The transition / riser delay</caption>
+        <tr><td>Sync / time</td><td>On, <span class="code">3/16</span></td></tr>
+        <tr><td>Feedback — resting</td><td><span class="code">55 %</span></td></tr>
+        <tr><td>Feedback — peak (automated)</td><td><span class="code">85–95 %</span> for 8–16 bars, then back to 55&nbsp;%</td></tr>
+        <tr><td>Feedback HP / LP</td><td><span class="code">250 Hz</span> / <span class="code">4 kHz</span> — the filter is what keeps the runaway from screaming</td></tr>
+        <tr><td>Saturation in loop</td><td>A touch of Echo's drive — repeats compress and dirty as they pile</td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The move</div>
+      <ul>
+        <li>This is the only time you automate feedback rather than the send. Ramp it up over 8–16 bars and the existing repeats regenerate into a swelling wash — a riser made entirely of echo, no new element added.</li>
+        <li>The in-loop low-pass is essential: without it, the runaway turns into a bright howl. With it, the swell stays warm and darkens as it intensifies.</li>
+        <li>Pull feedback back down <em>before</em> it fully self-oscillates, on a bar line, into a stripped section — the drop lands because the echo suddenly stops feeding itself.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Choosing per source</h2>
+  <table class="param-table">
+    <caption>Which recipe for which part</caption>
+    <tr><td>Snare / rim / clap</td><td>Recipe 1 — throw it into the long tail on chosen bars</td></tr>
+    <tr><td>Synth stab / chord</td><td>Recipe 2 slap to fatten, or Recipe 3 wash when it should bloom</td></tr>
+    <tr><td>Lead / melodica-style line</td><td>Recipe 3 — the delay becomes a second voice answering the phrase</td></tr>
+    <tr><td>Whole-track transitions</td><td>Recipe 4 — feedback swell into a drop, sparingly, once or twice in the arrangement</td></tr>
+    <tr><td>Kick / sub bass</td><td>None. Keep them dry — the feedback HP exists precisely to keep them out of the echoes</td></tr>
+  </table>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Palette check</div>
+    <ul>
+      <li>Does each recipe filter its feedback so the tail darkens? Flat feedback is a bug, not a sound.</li>
+      <li>Are you throwing (send automation) for Recipes 1–3, and only automating feedback for Recipe 4?</li>
+      <li>Is anything low-frequency being sent to a delay? It should not be — solo the return and listen for kick or sub leaking in.</li>
+      <li>If you removed every dry hit and left only the returns, would the recipes still imply the groove? In a dub track, they should.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="setup.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 04 / Setup
+    </a>
+    <a href="build.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      06 / The build →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B5-001 — Delay as Architecture</div>
+
+</div>
+
+</body>
+</html>

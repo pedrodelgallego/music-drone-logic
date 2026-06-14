@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B6-002 — Self-playing Patches — Decisions</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B6-002<span class="labnote-topic">Self-playing Patches</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html" class="active"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B6-002</div>
+    <div class="eyebrow">Self-playing Patches · 03 — Decisions</div>
+    <h1>Design the habitat, not the notes</h1>
+    <p class="lede">Brian Eno's insight was that you can design a process and then let it play itself — the composer builds the habitat, the music is whatever lives in it. Every decision on this page is about that one shift: stop deciding moments, start deciding boundaries. Read it before you touch any gear.</p>
+  </header>
+
+  <h2>The Eno move</h2>
+
+  <p style="text-align:center; max-width:640px; margin:0 auto 24px; color:var(--text-muted);">In <em>Music for Airports</em>, loops of different lengths drift in and out of phase, so the combination never repeats inside the listening window. No note is "composed" — the <em>system</em> of overlapping cycles is. Your job is to set the cycle lengths and then leave. Everything below is in service of doing that well.</p>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 22 q8 -12 16 0 t16 0"/><path d="M6 28 q11 -8 16 0 t16 0"/></svg>
+      </div>
+      <h3 class="card-title">Phasing loops</h3>
+      <ul class="card-points">
+        <li>Several voices, each on a loop of a different prime-ish length</li>
+        <li>Their alignment cycles only over many minutes</li>
+        <li>Eno's tape pieces; Reich's tape phasing is the rhythmic cousin</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><circle cx="14" cy="22" r="8"/><circle cx="30" cy="22" r="8"/></svg>
+      </div>
+      <h3 class="card-title">Cross-modulating LFOs</h3>
+      <ul class="card-points">
+        <li>LFO A shapes a sound; LFO B shapes LFO A's rate or depth</li>
+        <li>Unsynced rates &rarr; the combined motion never repeats</li>
+        <li>This is the engine inside almost every self-playing patch</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Principle</div>
+    <p>Two slow modulators at unrelated rates produce a third motion neither of them contains. That emergent third thing is the music.</p>
+  </div>
+
+  <h2>Why the rates must be unsynced</h2>
+
+  <div class="sub-block">
+    <div class="sub-label">The arithmetic of "never repeats"</div>
+    <ul>
+      <li>If LFO 1 has period 8 s and LFO 2 has period 16 s, they realign every 16 s — the combined motion repeats twice a minute. That is a loop, not a system.</li>
+      <li>Make the periods <strong>prime-ish and unrelated</strong> — say 8 s and 23 s — and the combined cycle is their lowest common multiple, here 184 s. Add a third at 37 s and the full alignment stretches past an hour. Inside any ten-minute window you will never hear the same combination twice.</li>
+      <li>The lesson: avoid integer ratios (1:2, 2:3, 3:4). Reach for numbers that share no small factors. Decimals are your friend — 7.3 s against 19.1 s is better than 7 against 19.</li>
+      <li><strong>Free-running, not synced.</strong> Any "sync to clock" or "tempo" switch on an LFO defeats this on purpose — it forces the periods into musical ratios. For a self-player, set every modulator to free Hz, not note values.</li>
+    </ul>
+  </div>
+
+  <div class="signal-flow">
+    <span class="signal-node">LFO 1 · 8 s</span>
+    <span class="signal-arrow">+</span>
+    <span class="signal-node">LFO 2 · 23 s</span>
+    <span class="signal-arrow">+</span>
+    <span class="signal-node">LFO 3 · 37 s</span>
+    <span class="signal-arrow">&rarr; realign after &rarr;</span>
+    <span class="signal-node">&gt; 1 hour</span>
+  </div>
+
+  <h2>The organism habitat</h2>
+  <p style="text-align:center; max-width:640px; margin:0 auto 24px; color:var(--text-muted);">Think of the patch as a terrarium. You set the temperature, the light, the food — the boundaries — and then you watch what the creature does. You don't move its legs. The signal flow below is the minimum viable organism: one modulator shaping the sound, a second modulator shaping the first.</p>
+
+  <div class="signal-flow">
+    <span class="signal-node">LFO 1 (slow)</span>
+    <span class="signal-arrow">&rarr; modulates &rarr;</span>
+    <span class="signal-node">Filter cutoff</span>
+    <span class="signal-arrow">+</span>
+    <span class="signal-node">LFO 2 (slower, unsynced)</span>
+    <span class="signal-arrow">&rarr; modulates &rarr;</span>
+    <span class="signal-node">LFO 1 rate</span>
+    <span class="signal-arrow">&rarr;</span>
+    <span class="signal-node">Audio out</span>
+  </div>
+
+  <h2>What to fix, what to let move</h2>
+
+  <p style="text-align:center; max-width:640px; margin:0 auto 24px; color:var(--text-muted);">This is the single most important decision in the whole Lab Note. Fix too much and the system is dead; let too much move and it is chaos. The split below is a reliable starting contract.</p>
+
+  <table class="param-table">
+    <caption>The contract — fix the walls, free the motion</caption>
+    <tr><td>Pitch / chord</td><td><strong>Fix.</strong> A held chord or drone is the habitat's pitch world. Random pitch is the fastest route to noise.</td></tr>
+    <tr><td>Filter cutoff</td><td><strong>Let move</strong>, slowly, modulated. Cutoff drift is the most musical motion you can hand to a system.</td></tr>
+    <tr><td>Timbre / wave</td><td><strong>Let move</strong>, slowly, on a different period from the filter.</td></tr>
+    <tr><td>Amplitude / level</td><td><strong>Mostly fix</strong>, allow gentle swell. A system that fades to silence has ended itself.</td></tr>
+    <tr><td>Filter range (min/max)</td><td><strong>Fix.</strong> You set the brightest and darkest the system may reach. Inside that, it roams.</td></tr>
+    <tr><td>Modulation depths</td><td><strong>Fix.</strong> Depth is the size of the leash. Set it; never automate it live.</td></tr>
+    <tr><td>Rare events (retrigs, swells)</td><td><strong>Let a coin decide.</strong> A probability gate firing occasionally is the seasoning, not the meal.</td></tr>
+  </table>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Decision check</div>
+    <ul>
+      <li>Can I name, right now, the exact pitch world the system can never leave?</li>
+      <li>Have I set a brightest and a darkest the filter cannot exceed — so the system can never turn harsh or vanish?</li>
+      <li>Is every modulator free-running in Hz, not synced to a clock?</li>
+      <li>Are any two periods in a simple ratio (1:2, 2:3)? If yes, nudge one until they share no small factor.</li>
+    </ul>
+  </div>
+
+  <h2>How much motion is enough</h2>
+
+  <div class="sub-block">
+    <div class="sub-label">The two failure modes, and the target between them</div>
+    <ul>
+      <li><strong>Rut.</strong> The system settles and stops surprising after two minutes. Cause: too few modulators, or rates too close together, or depths too small. Fix: widen the rate mismatch, or add a third modulator.</li>
+      <li><strong>Seizure.</strong> The system thrashes — motion reads as jitter, not drift. Cause: cross-modulation depth too high, or rates too fast. Fix: pull depth back and slow every period until motion reads as <em>weather</em>, not noise.</li>
+      <li><strong>The target.</strong> Ten minutes where no thirty-second window sounds quite like another, yet the whole thing clearly came from one habitat. That is the only success criterion that matters.</li>
+    </ul>
+  </div>
+
+  <h2>What the system decides vs. what you decide</h2>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>You decide:</strong> the chord, the filter range, the rates, the depths, which parameter each modulator touches, and when to start and stop recording. These are all set <em>before</em> the system runs.</li>
+      <li><strong>The system decides:</strong> the exact moment any swell peaks, which combination of positions coincides at minute six, whether the rare event lands in this window or the next. You cannot predict these, and that is the point.</li>
+      <li>Be able to write both lists after the build. If your "you decide" list is empty, you have abdicated; if your "system decides" list is empty, you have just built a slow performance. Page 07 returns to this split.</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Carry forward</div>
+    <p>If you have to babysit the patch to keep it interesting, it is not self-playing — it is an instrument. Both are fine, but only one passes the ten-minute test.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="listen.html">
+      <span class="page-nav-direction">Previous</span>
+      &larr; 02 / Listen
+    </a>
+    <a href="setup.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      04 / Setup &rarr;
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B6-002 — Self-playing Patches</div>
+
+</div>
+
+</body>
+</html>

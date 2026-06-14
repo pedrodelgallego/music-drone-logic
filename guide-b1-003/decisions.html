@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B1-003 — Lock · Decisions</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B1-003<span class="labnote-topic">Lock</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html" class="active"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B1-003</div>
+    <div class="eyebrow">Lock · 03 — Decisions</div>
+    <h1>The theory of lock, and the three choices it forces</h1>
+    <p class="lede">Lock is built from three decisions made before a single cable is plugged in: who is the clock master, what buffer size you work at, and which single path you monitor through. This page teaches each from zero — what it is, why it matters, and what to choose — so that on the build page you are committing decisions, not guessing.</p>
+  </header>
+
+  <h2>Three clocks in the room</h2>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>The audio clock.</strong> The interface's internal timer, ticking 48,000 times a second, placing every recorded sample precisely. This is the fine ruler.</li>
+      <li><strong>MIDI clock.</strong> A coarser timing signal sent over USB. Good enough to keep the Digitakt at the right tempo, not precise enough to place a single hit exactly on the beat.</li>
+      <li><strong>Your hands.</strong> They adapt to whatever they hear. If they hear late, they play late, and the take keeps that drag. This is why the monitor path is a timing decision, not just a volume one.</li>
+    </ul>
+  </div>
+
+  <p style="text-align:center; color:var(--text-muted); max-width:640px; margin:0 auto 24px;">These three clocks do not automatically agree. Lock is the work of making them agree on purpose. The three decisions below are how you do it.</p>
+
+  <h2>What "lock" means — clock + monitoring</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="14"/><line x1="22" y1="22" x2="22" y2="13"/><line x1="22" y1="22" x2="29" y2="25"/></svg>
+      </div>
+      <h3 class="card-title">Clock lock</h3>
+      <ul class="card-points">
+        <li>Every device follows one tempo source</li>
+        <li>Start and stop happen together, on the same bar one</li>
+        <li>The offset between devices stays fixed — it never grows</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M10 24a12 12 0 0 1 24 0"/><rect x="6" y="22" width="8" height="12" rx="2"/><rect x="30" y="22" width="8" height="12" rx="2"/></svg>
+      </div>
+      <h3 class="card-title">Monitoring lock</h3>
+      <ul class="card-points">
+        <li>A live input reaches your ears by exactly one path</li>
+        <li>No doubling, so no comb filtering or flam</li>
+        <li>You know whether what you hear is what gets printed</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Principle</div>
+    <p>Lock is two promises: one clock everyone follows, and one monitoring path that lets you hear an input exactly once. The first stops drift; the second stops doubling. Both must be true at the same time, or the rig is not locked.</p>
+  </div>
+
+  <h2>Decision 1 — who is the clock master</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="14"/><circle cx="22" cy="22" r="5"/></svg>
+      </div>
+      <div class="step-num">Concept 01</div>
+      <h2 class="step-title">One device sets tempo; everything else follows</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The mechanism</div>
+      <ul>
+        <li>A clock <strong>master</strong> generates the tempo and the transport (start/stop). A <strong>slave</strong> receives both and runs at the master's tempo. MIDI clock is the signal that carries this over USB — a steady stream of ticks, plus start, stop, and continue messages.</li>
+        <li>Exactly one device may be master. If two devices both generate clock, you have two free-running tempos and the rig drifts — the gap between them grows, and no setting fixes it. This is the drift you learned to hear on the <a href="listen.html">Listen</a> page.</li>
+        <li>The master decides the tempo; the slave's own tempo display becomes irrelevant — it simply shows whatever the master is sending.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The two real choices for this rig</div>
+      <table class="param-table">
+        <caption>Digitakt as master vs Live as master</caption>
+        <tr><td><strong>Live as master</strong> (recommended)</td><td>Live sends MIDI clock + transport to the Digitakt over USB. Live's tempo rules; the Digitakt follows. Tempo automation, arrangement, and Link all live in Live — one place to drive everything.</td></tr>
+        <tr><td><strong>Digitakt as master</strong></td><td>The Digitakt sends clock to Live; Live's tempo follows the box. Useful if you compose hands-on at the hardware and want the box to lead. Live must be set to receive sync, which makes its own transport a follower.</td></tr>
+      </table>
+      <ul>
+        <li><strong>The decision:</strong> for this course, make <strong>Live the only clock master</strong>. It keeps the timeline, automation, and recording in one authority, and the Digitakt starts cleanly on Live's bar one.</li>
+        <li>Whichever you choose, the rule is the same: name the master out loud, set every other device to receive, and confirm only one device is sending clock.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">One clock to rule them all</div>
+    <p>Exactly one device generates tempo; everything else listens. If the Digitakt's screen shows a tempo different from Live's, sync is broken — stop and fix it before recording, because a take recorded against a drifting clock cannot be trusted and cannot be repaired.</p>
+  </div>
+
+  <h2>Decision 2 — your buffer size</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="8" y="14" width="6" height="16" rx="1"/><rect x="16" y="14" width="6" height="16" rx="1"/><rect x="24" y="14" width="6" height="16" rx="1"/><rect x="32" y="14" width="6" height="16" rx="1"/></svg>
+      </div>
+      <div class="step-num">Concept 02</div>
+      <h2 class="step-title">The tradeoff between delay and CPU</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">What latency is, from zero</div>
+      <ul>
+        <li>When sound passes through the computer it arrives a little late. The interface collects a chunk of audio — the <strong>buffer</strong> — the computer processes it, and the result comes back out. Every stage adds delay.</li>
+        <li>The buffer size is how many samples the computer gathers before processing. A bigger buffer is more stable — the CPU has more time — but adds more delay. A smaller buffer is faster to respond but strains the CPU, and if it can't keep up you hear crackles and dropouts.</li>
+        <li><strong>Round-trip latency</strong> is the full journey: into the interface, through the computer, back to your ears. The minimum is simple: <span class="code">round trip ≈ 2 × buffer ÷ sample rate</span>. One buffer fills on the way in, one on the way out. Converters and the driver add a little more on top.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The numbers at 48 kHz</div>
+      <table class="param-table">
+        <caption>Buffer size — pick per task</caption>
+        <tr><td>128 samples</td><td>~ 2.7 ms each way. Use when software-monitoring through Live's effects feels sluggish under your hands.</td></tr>
+        <tr><td>256 samples</td><td>~ 5.3 ms each way, ~ 12–15 ms round trip. The course default — stable and low enough for recording and playing.</td></tr>
+        <tr><td>512+ samples</td><td>Mix and export only. Latency no longer matters; CPU headroom does.</td></tr>
+      </table>
+      <ul>
+        <li><strong>Live's latency compensation.</strong> Live reports its own input + output latency, but the figure is usually a little low because parts of the path are invisible to it. The shortfall is your <strong>driver error</strong>, entered in <span class="menu">Driver Error Compensation</span> so a recorded transient lands on the grid line, not after it.</li>
+        <li><strong>Recording vs monitoring latency.</strong> Compensation pulls the <em>recorded</em> audio back onto the grid. It does not change the delay you <em>feel</em> while playing — that is set by the buffer alone. Two different problems: one fixed by a number you enter, one fixed by a smaller buffer or a direct monitor path.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The decision</div>
+      <ul>
+        <li>Work at <strong>256 samples</strong> for programming and recording. Drop to 128 only if software monitoring feels laggy. Raise to 512+ once the takes are printed and you are mixing.</li>
+        <li>Whatever you pick, measure the round trip once at that buffer and enter the driver-error value. A compensation number is only valid for the configuration it was measured on — change the buffer and you re-measure.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Decision 3 — your monitor path</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M10 24a12 12 0 0 1 24 0"/><rect x="6" y="22" width="8" height="12" rx="2"/><rect x="30" y="22" width="8" height="12" rx="2"/></svg>
+      </div>
+      <div class="step-num">Concept 03</div>
+      <h2 class="step-title">Hardware direct vs software — pick exactly one</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The two ways to hear yourself while recording</div>
+      <ul>
+        <li><strong>Direct (hardware) monitoring.</strong> The M4 routes your input straight to your headphones inside the interface, before the computer. Near-zero delay, but dry — none of Live's effects. The M4's monitor mix knob sets how much input you hear against the computer playback.</li>
+        <li><strong>Software monitoring.</strong> You hear the signal after it passes through Live — with effects — but late by the full round-trip delay. Set with the track's Monitor switch (In / Auto).</li>
+      </ul>
+    </div>
+
+    <div class="callout">
+      <div class="callout-label">The doubled-monitoring trap</div>
+      <p>Switch on both at once and the same input reaches your ears twice, a few milliseconds apart. The two copies cancel at some frequencies — the hollow, phasey comb filtering from the <a href="listen.html">Listen</a> page. It is never useful. Pick one path and turn the other off, every time.</p>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">How to pick, per task</div>
+      <table>
+        <thead><tr><th>Task</th><th>Monitor through</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><td>Designing sounds, jamming, sequencing hardware</td><td>M4 direct (monitor mix knob toward input), Live track Monitor <strong>Off</strong></td><td>Zero latency — knob moves feel instant</td></tr>
+          <tr><td>Recording a take with Live effects</td><td>Live Monitor <strong>Auto</strong>, M4 direct <strong>off</strong> for that channel</td><td>You hear exactly what is being printed, including FX</td></tr>
+          <tr><td>Recording the Digitakt's analog outs</td><td>M4 direct on inputs 3/4, Live Monitor <strong>Off</strong></td><td>You hear the box itself; the USB copy records silently</td></tr>
+          <tr><td>Editing, arranging, mixing</td><td>Live playback only</td><td>The hardware is silent; latency is irrelevant</td></tr>
+        </tbody>
+      </table>
+      <ul>
+        <li><strong>The decision:</strong> default to <strong>M4 direct monitoring</strong> while designing and jamming, and switch to <strong>Live Auto</strong> only when an effect is part of the sound you're tracking. Never both — that is the whole rule.</li>
+        <li><strong>Cue vs main.</strong> The M4's monitor mix lets you blend direct input against computer playback. Keep it deliberate: too far toward input and you can't hear the track; too far toward playback and you lose the instant feel direct monitoring is for.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Edge cases — when devices won't lock</h2>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Jitter.</strong> Tiny variation in the timing of MIDI-clock ticks. On a direct USB port it is well under a millisecond and inaudible for this music. Through a cheap unpowered hub it can grow — so plug hardware straight into the computer.</li>
+      <li><strong>Transport sync, not just clock.</strong> Clock keeps tempo; transport (start/stop/continue) keeps position. A device can follow tempo but still start on the wrong bar if transport receive is off. Both must be enabled on the follower.</li>
+      <li><strong>It won't lock at all.</strong> If the Digitakt ignores Live's play, the usual causes are: sync not enabled on the right MIDI port, clock/transport receive off on the box, two devices both sending clock, or a flaky hub. Work through them in that order.</li>
+      <li><strong>Drift after a clean start.</strong> If devices start together but slide apart, stopping and restarting Live's transport realigns the follower to bar one. Make it a rule: restart the transport before any take that matters.</li>
+    </ul>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon">
+        <svg viewBox="0 0 44 44"><polyline points="10 22 18 30 34 12"/></svg>
+      </div>
+      <div class="checklist-label">Decisions locked before setup</div>
+    </div>
+    <ul>
+      <li>I can name my clock master and say why exactly one device is allowed to be it.</li>
+      <li>I know my buffer size and the round-trip number it implies.</li>
+      <li>I understand that compensation fixes the recording, not the feel.</li>
+      <li>I have chosen a default monitor path and know when I switch it.</li>
+      <li>I can describe the doubled-monitoring trap and how to avoid it.</li>
+      <li>I know the difference between a fixed offset (latency) and a growing one (drift).</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="listen.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 02 / Listen
+    </a>
+    <a href="setup.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      04 / Setup →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B1-003 — Lock</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B5-002 — Reverb — Decisions</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B5-002<span class="labnote-topic">Reverb</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html" class="active"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B5-002</div>
+    <div class="eyebrow">Reverb · 03 — Decisions</div>
+    <h1>Place or blur — the decision that sets every knob</h1>
+    <p class="lede">Reverb answers one question before any parameter: do you want to <em>place</em> this sound somewhere, or <em>blur</em> it into the background? Placement and blur pull the controls in opposite directions. Decide the intent, then the settings follow — and the most common reverb mistakes all come from confusing the two, or from misreading what "dry/wet" means.</p>
+  </header>
+
+  <h2>Place vs blur — two jobs, one device</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M22 6c8 6 8 26 0 32"/><path d="M22 6c-8 6-8 26 0 32"/><circle cx="22" cy="22" r="2" fill="currentColor"/></svg>
+      </div>
+      <h3 class="card-title">Reverb to place</h3>
+      <ul class="card-points">
+        <li>Short, controlled — the sound is still clearly itself, just <em>in a room</em></li>
+        <li>Pre-delay keeps the dry attack distinct from the tail</li>
+        <li>Decay short enough that the next hit isn't smeared</li>
+        <li>Goal: depth and position without losing definition</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="6"/><circle cx="22" cy="22" r="12" opacity="0.6"/><circle cx="22" cy="22" r="18" opacity="0.3"/></svg>
+      </div>
+      <h3 class="card-title">Reverb to blur</h3>
+      <ul class="card-points">
+        <li>Long, large — the source dissolves into atmosphere</li>
+        <li>Little or no pre-delay; the wet swallows the dry</li>
+        <li>Heavy high-passing so the cloud doesn't drown the mix</li>
+        <li>Goal: texture and scale, not a locatable object</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The principle</div>
+    <p>Placement reverb you should barely notice; you'd notice its absence. Blur reverb is meant to be heard as a layer. Knowing which you're after stops you from "fixing" one with the other's settings.</p>
+  </div>
+
+  <h2>What a reverb is actually made of</h2>
+
+  <p style="text-align:center; max-width:660px; margin:0 auto 24px; color:var(--text-muted);">Every reverb, hardware or software, is three things happening in sequence. Hearing them separately is what lets you place a sound: you can keep one part defined while the rest dissolves.</p>
+
+  <table class="param-table">
+    <caption>The three phases of a reverb tail</caption>
+    <tr><td>Direct sound</td><td>The dry signal itself, arriving first. On a send this is the source track; on an insert it is the dry-through. Its clarity is what "near" is made of.</td></tr>
+    <tr><td>Early reflections</td><td>The first few bounces off near surfaces, arriving 5–80&nbsp;ms after the direct sound. These carry the <em>size and shape</em> of the room — the ear reads distance from them before the tail even starts.</td></tr>
+    <tr><td>Late reflections (the tail)</td><td>The dense, diffuse wash that follows, decaying over the RT60 time. This is the part that blurs. Long late reflections = a large, vague space.</td></tr>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Why early reflections matter most for placement:</strong> the gap and pattern between the direct sound and the first reflections is what your ear uses to judge distance. A sound with strong, slightly-delayed early reflections and a modest tail reads as "in a real room, up front". A sound with no early reflections and a huge tail reads as "lost in fog, far away".</li>
+    </ul>
+  </div>
+
+  <h2>The four parameters that actually matter</h2>
+
+  <table class="param-table">
+    <caption>Hybrid Reverb — what each control does to the space</caption>
+    <tr><td>Pre-delay</td><td>Gap between the dry sound and the onset of the tail. Longer = bigger perceived room <em>and</em> a clearer dry transient. The single most underused control.</td></tr>
+    <tr><td>Decay (RT60)</td><td>How long the tail takes to fall 60&nbsp;dB into silence. Sets the size of the gesture in time. Short places; long blurs.</td></tr>
+    <tr><td>Size</td><td>The geometry of the space — early-reflection spread and density. Big size + short decay = a large room you can still hear through.</td></tr>
+    <tr><td>Dry/Wet vs send level</td><td>On an insert, Dry/Wet is the blend. On a return, lock it to 100&nbsp;% wet and let the <em>send</em> be the blend (see below).</td></tr>
+  </table>
+
+  <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:11px; letter-spacing:0.2em; text-transform:uppercase;">Pre-delay — the control that buys you depth without mud</h3>
+
+  <table class="param-table">
+    <caption>Pre-delay times and what they do</caption>
+    <tr><td>0 ms</td><td>Tail starts the instant the sound does. The wet smears the attack — sounds distant and indistinct. Use only when you <em>want</em> blur.</td></tr>
+    <tr><td>10–25 ms</td><td>A small gap. The transient cuts through, then the room blooms behind it. The sweet spot for keeping drums and plucks defined inside a big space.</td></tr>
+    <tr><td>40–80 ms</td><td>An audible gap that reads as a genuinely large room. The dry sound is unmistakably near; the tail is unmistakably far.</td></tr>
+    <tr><td>Synced (1/16, 1/8)</td><td>Set pre-delay to a note value at the tempo and the tail re-attacks on the grid — the reverb stops fighting the groove and joins it.</td></tr>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Pre-delay is rhythmic, too:</strong> at 124&nbsp;BPM a 1/16 note is ~121&nbsp;ms and a 1/32 is ~60&nbsp;ms. Setting pre-delay to one of these lands the tail's onset on a subdivision, so the room pulses with the track instead of washing over it.</li>
+    </ul>
+  </div>
+
+  <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:11px; letter-spacing:0.2em; text-transform:uppercase;">Decay — sizing the gesture in time</h3>
+
+  <table class="param-table">
+    <caption>Decay ranges by intent</caption>
+    <tr><td>0.3–0.8 s</td><td>A tight room. Adds body and "air" to a percussive sound without any audible tail. Pure placement.</td></tr>
+    <tr><td>1.5–3 s</td><td>A plate or small hall. The tail is heard as space but clears before the next bar. Place with a hint of blur.</td></tr>
+    <tr><td>4–8 s</td><td>A large hall. Tails overlap across notes; the source still recognisable but the room dominates. The drone's home in this build.</td></tr>
+    <tr><td>10 s+ / Freeze</td><td>Full blur. Individual events merge into one evolving cloud. This is where reverb becomes a pad, not an effect.</td></tr>
+  </table>
+
+  <h2>The wet/dry ambiguity — the trap that makes mixes muddy</h2>
+
+  <p style="text-align:center; max-width:660px; margin:0 auto 24px; color:var(--text-muted);">"Dry/Wet" means two completely different things depending on where the device sits. Confusing them is the most common reverb mistake, and it always sounds the same: a washed-out, distant mix that no amount of EQ rescues.</p>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 22h32"/><rect x="17" y="13" width="10" height="18" rx="1.5"/></svg>
+      </div>
+      <h3 class="card-title">On an insert</h3>
+      <ul class="card-points">
+        <li>Dry/Wet blends dry-through with wet. 30&nbsp;% means 70&nbsp;% dry passes the device.</li>
+        <li>Correct place to set the balance for <em>one</em> sound.</li>
+        <li>Raise it and the dry shrinks — the source recedes.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 16h32"/><path d="M16 16v8a4 4 0 0 0 4 4h18"/><circle cx="16" cy="16" r="2" fill="currentColor"/></svg>
+      </div>
+      <h3 class="card-title">On a return</h3>
+      <ul class="card-points">
+        <li>The dry already exists on the source track. The return carries <em>only</em> wet.</li>
+        <li>Set Dry/Wet to 100&nbsp;% and never touch it. Any dry leaking through the return doubles and smears the source.</li>
+        <li>The send knob is the blend — per track, with one shared space.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">One-line diagnosis</div>
+    <p>If a return is set to anything other than 100&nbsp;% wet, you are summing two copies of the dry signal at different phases. That is the muddy mix. Fix the knob before you fix anything else.</p>
+  </div>
+
+  <h2>Send vs insert — same reverb, different role</h2>
+
+  <div class="signal-flow">
+    <span class="signal-node">DT drums</span>
+    <span class="signal-arrow">→ send A →</span>
+    <span class="signal-node">Return A: Hybrid Reverb 100% wet</span>
+    <span class="signal-arrow">+ MF drone send</span>
+    <span class="signal-node">→ master</span>
+  </div>
+
+  <table class="param-table">
+    <caption>When to use which</caption>
+    <tr><td>One shared room (send)</td><td>Drums, bass, drone all sit in the same space. Cohesive, efficient, printable. The default for this guide.</td></tr>
+    <tr><td>A private space (insert)</td><td>One sound needs its own reverb character no other track should share — e.g. a gated room only on the snare, or a freeze on a single drone note.</td></tr>
+    <tr><td>Two sends for two depths</td><td>Return A = short "near" room, Return B = long "far" wash. Send a track to both to place its body up front and its tail far back.</td></tr>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Why two depths is the whole trick:</strong> with a near return and a far return on separate sends, depth becomes a single knob you can automate. Push a track from the near send to the far send over sixteen bars and it walks backward into the room — no fader move, no EQ, just space.</li>
+    </ul>
+  </div>
+
+  <h2>Independent vs shared — does every sound want the same room?</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="8" y="10" width="28" height="24" rx="2"/><circle cx="16" cy="22" r="2" fill="currentColor"/><circle cx="28" cy="22" r="2" fill="currentColor"/></svg>
+      </div>
+      <h3 class="card-title">One shared room</h3>
+      <ul class="card-points">
+        <li>Cohesive: everything sounds like it is in the same place</li>
+        <li>Efficient: one reverb to tune, one tail to EQ and duck</li>
+        <li>The realistic default — real rooms hold every sound at once</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="12" width="14" height="20" rx="2"/><rect x="24" y="12" width="14" height="20" rx="2"/></svg>
+      </div>
+      <h3 class="card-title">Separate spaces</h3>
+      <ul class="card-points">
+        <li>Surreal: a near, dry beat inside a vast, slow drone-room</li>
+        <li>The Biosphere effect — defined pulses against an enormous wash</li>
+        <li>Costs an extra return and the risk of an incoherent mix if overused</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Keep the room out of the way</h2>
+
+  <table class="param-table">
+    <caption>EQ and dynamics on the reverb path — before and after</caption>
+    <tr><td>High-pass the send or return</td><td><span class="code">250–400 Hz</span> — low frequencies carry no useful spatial information and just thicken the low end</td></tr>
+    <tr><td>Tame the top</td><td>LP shelf around <span class="code">8&nbsp;kHz</span>, -3&nbsp;dB — keeps the tail from hissing and sitting on top of the hats</td></tr>
+    <tr><td>EQ before the reverb</td><td>Filter the <em>source going in</em> so you reverberate a clean signal, not rumble you then can't remove</td></tr>
+    <tr><td>Duck the reverb to the kick</td><td>Sidechain the return to the kick so the space breathes open between hits instead of masking the groove</td></tr>
+  </table>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Decision check</div>
+    <ul>
+      <li>For each source: are you placing it or blurring it? Do the pre-delay and decay agree with that intent?</li>
+      <li>Every reverb return: is it exactly 100&nbsp;% wet? Check now, because a leaked dry signal is invisible until the mix is mud.</li>
+      <li>Is the low end high-passed out of the reverb, so the room adds depth without weight?</li>
+      <li>Do all your sounds want the same room, or does one need its own? Don't pay for a second return unless the answer is clearly yes.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="listen.html">
+      <span class="page-nav-direction">Previous</span>
+      &larr; 02 / Listen
+    </a>
+    <a href="setup.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      04 / Setup &rarr;
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B5-002 — Reverb</div>
+
+</div>
+
+</body>
+</html>

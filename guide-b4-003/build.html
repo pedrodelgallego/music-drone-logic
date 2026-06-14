@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B4-003 — Granular — The build</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B4-003<span class="labnote-topic">Granular</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Grain palette</a>
+  <a href="build.html" class="active"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B4-003</div>
+    <div class="eyebrow">Granular · 06 — The build</div>
+    <h1>Step-by-step: a textural piece from one source cloud</h1>
+    <p class="lede">Now we make the track. One short recording becomes a 6–8 minute textural piece through freezing, scanning, slicing, and a chain of resamples. Every step is small, every step has a decision checkpoint, and every dial value is spelled out. Keep the <a href="setup.html">setup page</a> open for the rig and the <a href="palette.html">grain palette</a> open for the recipes — this page assumes both. Keep <span class="code">generations.txt</span> open too; you will write in it eight times.</p>
+  </header>
+
+  <!-- STEP 1 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="14"/><circle cx="22" cy="22" r="5"/></svg>
+      </div>
+      <div class="step-num">Step 01</div>
+      <h2 class="step-title">Record the single source — generation 1</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Choose what to record</div>
+      <ul>
+        <li>You need <strong>one short sound with a clear, stable pitch</strong>. A single MicroFreak drone note, a struck string, a sung vowel. Two to four seconds of audio is more than enough — the whole track lives inside it.</li>
+        <li>For this build, use the MicroFreak: <kbd>Shift</kbd> + press Type to initialise, choose the <span class="code">Harmo</span> engine for an organ-like, harmonically rich tone. Set the root to <span class="note">C3</span>. Wave/Timbre/Shape around <span class="code">40 / 55 / 50</span>. Filter cutoff at 1 o'clock — you want harmonics present, because grains feed on harmonic content.</li>
+        <li>Long ENV attack and release so the note swells and never clicks. No LFO movement yet — the source should be <em>static</em>; all movement will be granular.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Capture it clean</div>
+      <ul>
+        <li>Arm <span class="code">SOURCE REC</span> (Ext. In 1), Monitor <strong>Auto</strong>. Press <kbd>Hold</kbd> on the MicroFreak, play <span class="note">C3</span>, let it sustain.</li>
+        <li><kbd>⌘ ⇧ R</kbd> — record about <strong>6 seconds</strong>. Stop. You want a clean swell with a sustained, stable middle — that middle is where you will freeze.</li>
+        <li>Peaks at <span class="code">-12 to -6 dBFS</span>. A source recorded too hot leaves no headroom once dozens of grains overlap and sum.</li>
+        <li>Save the MicroFreak patch as <span class="code">SRC HARMO</span>. Trim the recorded clip to the cleanest 3–4 seconds with <kbd>⌘ E</kbd>, and consolidate (<kbd>⌘ J</kbd>) into one file named <span class="code">gen1_source</span>.</li>
+        <li><strong>Log it:</strong> open <span class="code">generations.txt</span> and write <span class="code">gen1 = MicroFreak Harmo C3, 4s, clean swell</span>.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does the source have a clearly nameable pitch? Hum it back. If you can't, the granular chord later will be mush — re-record.</li>
+        <li>Is there a stable sustained section, not just attack and decay? You need an instant worth freezing.</li>
+        <li>Is it harmonically rich but not noisy? Rich feeds the grains; noisy never becomes harmony.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="10" width="32" height="20" rx="2"/><circle cx="14" cy="20" r="2" fill="currentColor"/><circle cx="22" cy="20" r="2" fill="currentColor"/><circle cx="30" cy="20" r="2" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Step 02</div>
+      <h2 class="step-title">Load the source and find the freeze point</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Into Granulator III</div>
+      <ul>
+        <li>Drop <span class="code">gen1_source</span> onto the <span class="code">GRANULATOR</span> MIDI track to load it into Granulator III.</li>
+        <li>Engage <strong>Freeze</strong>. Set the dials to the <strong>Pad</strong> recipe to start: Grain Size <span class="code">100 ms</span>, Density high, Spray <span class="code">5 ms</span>, Window smooth bell.</li>
+        <li>Draw or play a single held <span class="note">C3</span> in the clip so the engine sounds while you scrub.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Scrub Position to the best instant</div>
+      <ul>
+        <li>With the note holding, slowly turn <strong>Macro 1 — Position</strong> across the file. Listen for the spot where the timbre is richest and most stable — usually the sustained middle, not the attack.</li>
+        <li>Park Position there. This frozen instant is the harmonic seed of the entire piece. Note its rough value (e.g. <span class="code">0.42 s</span>) — you will reference it.</li>
+        <li>Now play a chord: hold <span class="note">C3 — G3 — E4</span>. Because pitch is decoupled from position, one frozen instant becomes a sustained triad. This is the texture-into-harmony move, live.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Scrub Position slowly end to end once more — is the parked instant genuinely the best one? Commit only after you've heard the alternatives.</li>
+        <li>Does the chord read as harmony, or still as noise? If noise, lengthen grains toward <span class="code">120 ms</span> and drop spray to <span class="code">0</span>.</li>
+        <li>Can you hear the loop point ticking? Add <span class="code">3–5 ms</span> of spray — just enough to hide it.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 22 h32"/><path d="M6 16 q16 -6 32 0" opacity="0.5"/><path d="M6 28 q16 6 32 0" opacity="0.5"/></svg>
+      </div>
+      <div class="step-num">Step 03</div>
+      <h2 class="step-title">Print the pad — generation 2</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Play and record the chord progression</div>
+      <ul>
+        <li>Plan a slow, three-chord movement in C natural minor: <span class="code">Cm — A♭ — E♭</span>, each chord held about 16 bars at 110 BPM (roughly 35 seconds each). This is the harmonic skeleton of the whole piece.</li>
+        <li>Draw these as long held MIDI notes in the <span class="code">GRANULATOR</span> clip across ~100 bars. The frozen position stays put; only the played pitches change.</li>
+        <li>Add a <strong>slow LFO to Spray</strong> inside Granulator (one cycle per ~18 s, depth <span class="code">±4 ms</span>) so the pad shimmers without any audible event.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Resample it</div>
+      <ul>
+        <li>Solo <span class="code">GRANULATOR</span> and its reverb send. Arm <span class="code">RESAMPLE</span> (Audio From → Resampling, Monitor <strong>Off</strong>).</li>
+        <li><kbd>F9</kbd>, capture the full progression, stop. Drag the printed clip to <span class="code">CLOUD A</span>, rename <span class="code">gen2_pad</span>.</li>
+        <li><strong>Log it:</strong> <span class="code">gen2 = gen1 frozen @0.42s, size 100ms, spray 5±4ms LFO, chords Cm-Ab-Eb</span>.</li>
+        <li>This printed pad is now committed audio — the previous settings are gone. That is intentional: the pad is the bed, and it no longer costs CPU or risks being knocked out of tune.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Played quietly, does the progression feel like a piece beginning — or like a patch demo? It should have somewhere to go.</li>
+        <li>Is the printed pad clean, with no clicks at the chord changes? If a change clicks, the held notes overlap badly — re-draw with a short crossfade between chords.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 22 q4 -10 8 0 t8 0 t8 0 t8 0"/><circle cx="10" cy="16" r="1.4" fill="currentColor"/><circle cx="22" cy="14" r="1.4" fill="currentColor"/><circle cx="34" cy="16" r="1.4" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Step 04</div>
+      <h2 class="step-title">Scan a cloud over the pad — generation 3</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Switch Granulator to the Cloud recipe</div>
+      <ul>
+        <li>Reload <span class="code">gen1_source</span> into Granulator (or duplicate the track). Set the <strong>Cloud</strong> recipe: Grain Size <span class="code">60 ms</span>, Density high-minus, Spray <span class="code">30 ms</span>.</li>
+        <li><strong>Unfreeze</strong> Position, and put an LFO on Macro 1 — Position: one full pass per <span class="code">45 s</span>, full file range. The read point now scans slowly through the source the whole time.</li>
+        <li>Play the same chord progression an octave up (<span class="note">C4 — A♭4 — E♭4</span>) so the cloud sits above the pad rather than fighting it.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Send to the Grain Haze, then print</div>
+      <ul>
+        <li>Send the cloud generously to <strong>Return A — Grain Haze</strong>. Set Grain Delay Pitch to <span class="code">+12 st</span> for a shimmering octave double, Spray <span class="code">50 ms</span>, Feedback <span class="code">30 %</span>.</li>
+        <li>Solo Granulator + both sends. Print to <span class="code">RESAMPLE</span>, drag to <span class="code">CLOUD B</span>, rename <span class="code">gen3_cloud</span>.</li>
+        <li><strong>Log it:</strong> <span class="code">gen3 = gen1 scanning 45s LFO, size 60ms, spray 30ms, +haze +12st</span>.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Play pad + cloud together: do they interlock, or fight in the same frequency band? If they clash, EQ the cloud with a high-pass at <span class="code">300 Hz</span> so it floats above the pad.</li>
+        <li>Is the scan glacial enough? If you can hear the timbre "move" as an event, halve the LFO rate to one pass per <span class="code">90 s</span>.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 5 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><line x1="10" y1="8" x2="10" y2="36"/><line x1="20" y1="8" x2="20" y2="36"/><line x1="30" y1="8" x2="30" y2="36"/><line x1="6" y1="22" x2="38" y2="22"/></svg>
+      </div>
+      <div class="step-num">Step 05</div>
+      <h2 class="step-title">Slice a cloud on the Digitakt — generation 4</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Get the cloud onto the box</div>
+      <ul>
+        <li>Take <span class="code">gen2_pad</span> (or a fresh print of a denser cloud) and sample it into a Digitakt slot — transfer the WAV, or route <span class="code">CLOUD A</span> out over the M4 and sample its input. Keep it to ~4 bars of audio.</li>
+        <li>On the Digitakt, set the sample to <span class="code">Slicing</span>. Slice by an even grid first — <strong>16 slices</strong> — so each slice is a clean, equal fragment of the cloud.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Reassemble into a pattern the cloud never played</div>
+      <ul>
+        <li>Trigger slices per step on a 16-step pattern, but <em>out of order</em>: place slice 1 on step 1, slice 9 on step 3, slice 4 on step 6, and so on. The cloud is now re-sequenced into a rhythm it never contained.</li>
+        <li>P-lock <strong>sample start</strong> on two or three trigs for finer cuts — fragments the even slicing didn't give you.</li>
+        <li>Add gentle swing (<span class="code">52–54 %</span>) and one <strong>Retrig</strong> on a single slice every few bars for a granular-style stutter (Recipe 3, on the grid).</li>
+        <li>Keep it sparse and tonal — this is texture made rhythmic, not a drum pattern. No kick.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Record the slice pass</div>
+      <ul>
+        <li>Arm <span class="code">DT SLICE</span> (Ext. In 3/4), Monitor <strong>Auto</strong>. Record <strong>2 minutes</strong> while performing slice mutes and the occasional retrig.</li>
+        <li><strong>Log it:</strong> <span class="code">gen4 = gen2 sliced x16 on Digitakt, reordered, 1 retrig/4bars</span>.</li>
+        <li>Optional further generation: resample the Digitakt pattern back to a slot and granulate <em>that</em> — a cloud of slices of a cloud. Log it as gen5 if you do.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does the reassembled pattern relate to the source, or has it become fully new material? Either is valid — but decide which you wanted before keeping it.</li>
+        <li>Is it adding rhythm without becoming a beat? If it reads as drums, thin it until it reads as pulsing texture.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 6 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M8 22 h6 l3 -8 4 16 3 -10 4 6 h8"/></svg>
+      </div>
+      <div class="step-num">Step 06</div>
+      <h2 class="step-title">Build a glitch transition — generation 6</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Dial the Glitch recipe</div>
+      <ul>
+        <li>Reload <span class="code">gen1_source</span>. Set the <strong>Glitch</strong> recipe: Grain Size <span class="code">15 ms</span>, Density low-medium, Spray <span class="code">80 ms</span>, Position jumping (LFO on Macro 1, fast random or stepped).</li>
+        <li>Sharpen the grain window for grit. Add a hard pitch element — automate Granulator pitch to drop <span class="code">−12 st</span> across the event.</li>
+        <li>This deliberately tears the source apart. It is a <em>transition</em> — a tear in the fabric between sections — not a layer that runs throughout.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Print a short burst</div>
+      <ul>
+        <li>Print just <strong>8 bars</strong> of the glitch to <span class="code">RESAMPLE</span>, drag to <span class="code">STUTTER</span>, rename <span class="code">gen6_glitch</span>.</li>
+        <li><strong>Log it:</strong> <span class="code">gen6 = gen1 glitch, size 15ms, spray 80ms, pos jump, -12st sweep</span>.</li>
+        <li>You now hold six generations, all descended from one 4-second recording: source, pad, cloud, sliced cloud, (optional sliced-cloud cloud), glitch.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Is the glitch short enough to be an event? More than a few seconds and it becomes the bed — trim it.</li>
+        <li>Can you still tell, faintly, that it came from the same source? If it is pure noise with no lineage, pull spray back a little so a thread of pitch survives.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 7 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="4" y="14" width="10" height="6" rx="1"/><rect x="16" y="14" width="14" height="6" rx="1"/><rect x="32" y="14" width="8" height="6" rx="1"/><rect x="8" y="24" width="16" height="6" rx="1"/><rect x="26" y="24" width="12" height="6" rx="1"/></svg>
+      </div>
+      <div class="step-num">Step 07</div>
+      <h2 class="step-title">Arrange the generations on the timeline</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Mark the map first</div>
+      <ul>
+        <li>Right-click the scrub area → <span class="menu">Add Locator</span> at each boundary: <span class="code">EMERGE</span>, <span class="code">CLOUD IN</span>, <span class="code">PULSE</span>, <span class="code">PEAK</span>, <span class="code">TEAR</span>, <span class="code">DISSOLVE</span>.</li>
+      </ul>
+      <table class="param-table">
+        <caption>Section → time (textural, not beat-driven)</caption>
+        <tr><td>EMERGE — 0:00</td><td>Pad alone (gen2), surfacing from silence</td></tr>
+        <tr><td>CLOUD IN — 1:30</td><td>Scanning cloud (gen3) enters above the pad</td></tr>
+        <tr><td>PULSE — 3:00</td><td>Sliced-cloud rhythm (gen4) brings pulse</td></tr>
+        <tr><td>PEAK — 4:30</td><td>All layers, haze and reverb blooming — nothing new added</td></tr>
+        <tr><td>TEAR — 5:30</td><td>Glitch burst (gen6) tears the texture for ~15 s</td></tr>
+        <tr><td>DISSOLVE — 6:00</td><td>Layers strip away; pad alone returns and fades</td></tr>
+        <tr><td>END — 7:30</td><td>Silence</td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Place the clips</div>
+      <ul>
+        <li><strong>EMERGE</strong> — <span class="code">gen2_pad</span> from bar 1, with a long fade-in via the clip corner handle so it surfaces over ~20 seconds. Reverb send up; the room is the first thing the listener hears.</li>
+        <li><strong>CLOUD IN</strong> — drop <span class="code">gen3_cloud</span> in, high-passed at <span class="code">300 Hz</span>, fading in over 8 bars. Two layers now breathe against each other at different scan rates.</li>
+        <li><strong>PULSE</strong> — <span class="code">gen4_slice</span> enters quietly (<span class="code">-18 dB</span>) — the first sense of rhythm, made of cloud fragments.</li>
+        <li><strong>PEAK</strong> — all three layers present. <em>Nothing new enters.</em> Energy comes from automation (Step 08), not addition.</li>
+        <li><strong>TEAR</strong> — <span class="code">gen6_glitch</span> punctures the peak; duck the pad and cloud underneath it for the 15 seconds it plays.</li>
+        <li><strong>DISSOLVE</strong> — remove cloud and slice; <span class="code">gen2_pad</span> alone carries the exit, master fade over the final 30–45 s.</li>
+        <li>Make every edit on a bar line. Crossfade clip seams by 1 bar — granular layers butt-joined will click.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does the piece evolve continuously, or does it lurch between blocks? Lengthen fades until transitions are felt, not seen.</li>
+        <li>At PEAK, is the fullness coming from layers <em>opening</em> rather than from a new sound arriving? That is the thesis of the whole exercise.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 8 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 34 Q22 6 38 14"/><circle cx="6" cy="34" r="2.5" fill="currentColor"/><circle cx="38" cy="14" r="2.5" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Step 08</div>
+      <h2 class="step-title">Draw the automation arc</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">What moves, and how slowly</div>
+      <ul>
+        <li>This is <strong>drawn</strong> movement on devices sitting over the printed clips — Auto Filter, sends, Utility width. The granular movement is already baked into the audio; do not fake more by extreme plugin automation. If a moment needs more grain motion, go back and re-print the generation.</li>
+        <li><kbd>A</kbd> for automation lanes, <kbd>B</kbd> to draw. No ramp shorter than <strong>16 bars</strong> — most will be 32–64 bars. Bend ramps to S-curves so they read as intention.</li>
+      </ul>
+      <table class="param-table">
+        <caption>Automation map</caption>
+        <tr><td>Pad Auto Filter cutoff @ 0:00 → 4:30</td><td><span class="code">800 Hz → 4 kHz</span> — the pad opens across the whole rise</td></tr>
+        <tr><td>Cloud volume @ 1:30 → 4:30</td><td><span class="code">-inf → -8 dB</span> — the cloud blooms as it scans</td></tr>
+        <tr><td>Grain Haze send @ 4:00 → 4:30</td><td><span class="code">-10 dB → -2 dB</span> — haze peaks exactly at PEAK</td></tr>
+        <tr><td>Reverb send @ 4:30</td><td>up to <span class="code">-3 dB</span> — space blooms at the top</td></tr>
+        <tr><td>Pad + Cloud volume @ 5:30 (TEAR)</td><td>duck <span class="code">-6 dB</span> under the glitch, recover after</td></tr>
+        <tr><td>Master volume @ 6:45 → 7:30</td><td>slow fade to silence</td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Perform Position by hand</div>
+      <ul>
+        <li>If you kept a live Granulator track rather than only printed clips, <kbd>⌘ M</kbd> and map <strong>Macro 1 — Position</strong> to a Launchpad control. Set the mapping Min/Max to the useful file range so you can't scrub into the dead attack.</li>
+        <li>Record one pass performing slow Position scrubs at PEAK — felt as the timbre slowly transforming. Slower than feels natural. Keep the calmer of two takes.</li>
+        <li>After: right-click each lane → <span class="menu">Simplify Envelope</span> to thin breakpoints while keeping the shape.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>If you can hear the automation move as an event, it is too fast.</li>
+        <li>Can you remove one automation lane without weakening the arc? If yes, remove it.</li>
+        <li>Play 4:00–4:30 blind: does PEAK arrive because layers <em>opened</em>, not because something was <em>added</em>?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 9 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><line x1="12" y1="8" x2="12" y2="36"/><line x1="22" y1="8" x2="22" y2="36"/><line x1="32" y1="8" x2="32" y2="36"/><rect x="9" y="18" width="6" height="3" rx="0.5" fill="currentColor"/><rect x="19" y="24" width="6" height="3" rx="0.5" fill="currentColor"/><rect x="29" y="14" width="6" height="3" rx="0.5" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Step 09</div>
+      <h2 class="step-title">Mix the cloud</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Carve the layers apart</div>
+      <ul>
+        <li>Granular layers all share the same harmonic DNA, so they mask each other badly. Separate them by register: pad owns the low-mids, cloud floats above <span class="code">300 Hz</span>, slice-rhythm sits in the upper-mids.</li>
+        <li><span class="code">CLOUD A</span> (pad): EQ HP <span class="code">80 Hz</span> to clear sub-rumble the grains generate. <span class="code">CLOUD B</span>: HP <span class="code">300 Hz</span>. <span class="code">DT SLICE</span>: HP <span class="code">400 Hz</span>, gentle LP shelf above <span class="code">9 kHz</span>.</li>
+        <li>Watch for grain build-up: dozens of overlapping grains sum into far more low-mid energy than the source had. A broad <span class="code">-2 dB</span> dip around <span class="code">250–400 Hz</span> on the pad usually clears the fog.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Levels and checks</div>
+      <table class="param-table">
+        <caption>Starting balance</caption>
+        <tr><td>Pad (gen2)</td><td>-10 dB</td></tr>
+        <tr><td>Cloud (gen3)</td><td>-14 dB</td></tr>
+        <tr><td>Slice rhythm (gen4)</td><td>-18 dB</td></tr>
+        <tr><td>Glitch (gen6)</td><td>-12 dB, only during TEAR</td></tr>
+        <tr><td>Return A — Grain Haze</td><td>-10 dB</td></tr>
+        <tr><td>Return B — Reverb</td><td>-8 dB</td></tr>
+        <tr><td>Master peak</td><td>≤ -3 dBFS</td></tr>
+      </table>
+      <ul>
+        <li><strong>Mono check:</strong> flip a Utility to mono — granular haze widened too far collapses to nothing. Pull width back where it vanishes.</li>
+        <li><strong>Quiet check:</strong> listen once at low volume; the true balance shows. If the pad disappears, the cloud is too loud.</li>
+        <li>No limiter — this is a learning piece, not a master. Protect the headroom you left.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 10 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><polyline points="14 18 22 26 30 18"/><line x1="22" y1="8" x2="22" y2="26"/><line x1="8" y1="34" x2="36" y2="34"/></svg>
+      </div>
+      <div class="step-num">Step 10</div>
+      <h2 class="step-title">Export, archive the generations, step away</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Render</div>
+      <ul>
+        <li>Select <span class="code">0:00</span> to <span class="code">7:30</span>. <span class="menu">File → Export Audio / Video</span>. Master, WAV, 48 kHz, 24-bit, Normalize <strong>OFF</strong>. Filename <span class="code">granular_b4-003_v1.wav</span>.</li>
+      </ul>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Archive the lineage</div>
+      <ul>
+        <li><span class="menu">File → Collect All and Save</span> — every generation's WAV is now inside the project folder.</li>
+        <li>Confirm <span class="code">generations.txt</span> is complete: one line per generation, gen1 through gen6. This file <em>is</em> the recipe — without it the track is unreproducible, because every resample erased its own settings.</li>
+        <li>Save the MicroFreak patch <span class="code">SRC HARMO</span> and the Digitakt project.</li>
+      </ul>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Listen elsewhere</div>
+      <ul>
+        <li>Copy to phone and laptop speakers — brutal on the low-mid grain build-up. Note timestamps, not feelings: <span class="code">3:10 cloud masks pad</span>.</li>
+        <li>Wait one day. Change one thing. Render <span class="code">v2</span>.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>What you built:</strong> a 7:30 textural piece in which every sound descends from a single 4-second recording, transformed through six logged generations of freezing, scanning, slicing, and glitching. The piece evolves over minutes from movement that is mostly baked into the audio, not drawn on top of it. Page 07 closes the loop.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="palette.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 05 / Grain palette
+    </a>
+    <a href="reflection.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      07 / Reflection →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B4-003 — Granular</div>
+
+</div>
+
+</body>
+</html>

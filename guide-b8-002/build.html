@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B8-002 — The Release — The build</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B8-002<span class="labnote-topic">The Release</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup &amp; rig</a>
+  <a href="palette.html"><span class="nav-num">05</span>Delivery targets</a>
+  <a href="build.html" class="active"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B8-002</div>
+    <div class="eyebrow">The Release · 06 — The build</div>
+    <h1>Mix to master to sequence to deliver — one EP, one target</h1>
+    <p class="lede">Take three finished pieces to a delivered EP at a named loudness target. Each step is small, has a decision checkpoint, and names exact dB and LUFS values. Keep the <a href="palette.html">delivery targets page</a> open in another tab — it is the recipe this build assumes — and keep the <a href="setup.html">rig page</a> open for the chain order. We master to <strong>−14 LUFS integrated, true-peak −1.0 dBTP, for streaming</strong>; the method transfers to any other target by changing one number.</p>
+  </header>
+
+  <!-- STEP 1 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 14 v20 a2 2 0 0 0 2 2 h28 a2 2 0 0 0 2 -2 v-16 a2 2 0 0 0 -2 -2 h-14 l-4 -4 h-10 a2 2 0 0 0 -2 2 z"/></svg>
+      </div>
+      <div class="step-num">Step 01</div>
+      <h2 class="step-title">Finalise the mix and bounce a clean source</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Confirm the mix is actually finished</div>
+      <ul>
+        <li>Open the mix set for track 1. The master bus carries Spectrum and Utility only — <strong>no limiter, no master EQ</strong>. Mastering happens in a separate set; mixing and mastering must not blur into each other.</li>
+        <li>Peaks across the whole piece sit <span class="code">≤ −3 dBFS</span> with headroom for the loudest section's reverb bloom. If anything touches 0&nbsp;dBFS, the mix is too hot — pull the master fader, do not reach for a limiter here.</li>
+        <li>Do the four mix-verification passes one last time: sidechain steady, mono-compatible, solo-pairs resolved, and a quiet-volume listen where the balance still holds.</li>
+        <li>Take headphones off for five minutes before deciding the mix is done. A fatigued ear over-brightens.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Bounce the mix source</div>
+      <table class="param-table">
+        <caption>Export the mix, not a master</caption>
+        <tr><td>Rendered Track</td><td>Master</td></tr>
+        <tr><td>File Type</td><td>WAV</td></tr>
+        <tr><td>Sample Rate</td><td>48000 Hz</td></tr>
+        <tr><td>Bit Depth</td><td>24-bit</td></tr>
+        <tr><td>Normalize</td><td>OFF — the headroom is part of the sound</td></tr>
+        <tr><td>Dither</td><td>OFF — this is 24-bit, never dither it</td></tr>
+        <tr><td>Filename</td><td><span class="code">ep_track1_mix_v1.wav</span></td></tr>
+      </table>
+      <ul>
+        <li>Render the full length plus a couple of bars of tail so the limiter has the reverb decay to work with.</li>
+        <li>Repeat for track 2 and track 3. You now have three clean 24-bit mix sources — the raw material of the master.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Is the mix-bus genuinely free of dynamics processing, so the master starts from honest material?</li>
+        <li>Do all three mixes peak <span class="code">≤ −3 dBFS</span> with room left for tails?</li>
+        <li>Could I hand these three WAVs to a stranger and call them finished mixes?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="10" width="32" height="24" rx="2"/><line x1="6" y1="22" x2="38" y2="22"/><circle cx="14" cy="16" r="2"/><circle cx="30" cy="28" r="2"/></svg>
+      </div>
+      <div class="step-num">Step 02</div>
+      <h2 class="step-title">Build the mastering set and read the starting point</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Set up the session</div>
+      <ul>
+        <li><kbd>⌘ N</kbd> for a new set. Save as <span class="code">EP-MASTER.als</span> in a dedicated release folder. Buffer <span class="code">512</span>, sample rate <span class="code">48 kHz</span>.</li>
+        <li>Drag <span class="code">ep_track1_mix_v1.wav</span> onto an audio track. Clip view → Warp <strong>off</strong>. Never time-stretch a finished mix.</li>
+        <li>On the <strong>master</strong> chain, build the recipe from the setup page in order: EQ Eight (corrective) → Glue Compressor → EQ Eight (tonal) → Limiter → LUFS meter. Bypass the Glue, tonal EQ, and Limiter for now.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Read the unprocessed loudness first</div>
+      <ul>
+        <li>Reset the LUFS meter (<span class="menu">integrated → reset</span>). Play the whole track start to finish, untouched, and let the integrated reading settle.</li>
+        <li>Log it. A typical dynamic mix lands somewhere around <span class="code">−18 to −16 LUFS</span> integrated with true-peak near <span class="code">−3 dBTP</span>. That gap to −14 is the work the limiter will do.</li>
+        <li>If the mix already reads near or above <span class="code">−14 LUFS</span>, it is too compressed at the mix stage — you have no room to master. Go back and restore dynamics before continuing.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Open the metering log</div>
+      <p style="color:var(--text-muted);">Keep a plain text file, <span class="code">ep_master_log.txt</span>, beside the set. One line per reading. This is the engineering half of being able to say why — the same habit Visconti models on the listen page.</p>
+      <table class="param-table">
+        <caption>Metering log — starting state (example)</caption>
+        <tr><td>track 1 · mix, unprocessed</td><td>−17.2 LUFS-I · −2.9 dBTP · corr +0.7</td></tr>
+        <tr><td>track 2 · mix, unprocessed</td><td>−16.1 LUFS-I · −2.4 dBTP · corr +0.8</td></tr>
+        <tr><td>track 3 · mix, unprocessed</td><td>−18.4 LUFS-I · −3.3 dBTP · corr +0.6</td></tr>
+      </table>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Did I read the integrated LUFS over the <em>whole</em> piece, not a loud section?</li>
+        <li>Is there at least 2–3 LU of room between the unprocessed mix and the −14 target?</li>
+        <li>Is the starting state written in the log before I changed anything?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="16" cy="22" r="10"/><circle cx="28" cy="22" r="10"/></svg>
+      </div>
+      <div class="step-num">Step 03</div>
+      <h2 class="step-title">Reference-match the tonal balance</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Set up the A/B</div>
+      <ul>
+        <li>Drop your chosen lossless reference on a second track, routed so it bypasses the master chain (or open it in a parallel set you toggle to). You must hear the reference raw, not through your processing.</li>
+        <li>Pull the reference track's gain <em>down</em> until its loudness matches your master on the LUFS meter and by ear. Removing the louder-sounds-better bias is the whole point of this step.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Match broad balance, fractions of a dB</div>
+      <ul>
+        <li>Engage the tonal EQ Eight. A/B in short bursts on the same section type — sub against sub, top against top. Listen to <strong>broad balance</strong>, never detail.</li>
+        <li>If the reference has more low weight, add a low shelf of <span class="code">+0.5 to +1.5 dB</span> below ~120&nbsp;Hz. If it has more air, a high shelf of <span class="code">+0.5 to +1.5 dB</span> above ~10&nbsp;kHz — but trust the phone and car here, not the DT 990's lift.</li>
+        <li><strong>Hard ceiling:</strong> if any move wants more than <span class="code">±2 dB</span>, stop. That is a mix problem — re-open the mix set and fix it, then re-bounce. Mastering EQ flavours; it does not rescue.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Glue, gently</div>
+      <ul>
+        <li>Engage the Glue Compressor: ratio <span class="code">2:1</span>, attack <span class="code">30 ms</span>, release <span class="code">Auto</span>. Bring the threshold down until the loudest section shows <span class="code">≤ 1–2 dB</span> gain reduction.</li>
+        <li>Bypass and compare at matched output: the compressed version should feel slightly more cohesive, never more squashed. If you hear pumping, you have gone too far — back off.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Did I level-match the reference <em>before</em> judging tone?</li>
+        <li>Is every EQ move under <span class="code">±2 dB</span> — and could I name why each one is there?</li>
+        <li>Does the glue compression add cohesion without audible pumping at matched level?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><line x1="10" y1="32" x2="10" y2="18"/><line x1="18" y1="32" x2="18" y2="10"/><line x1="26" y1="32" x2="26" y2="14"/><line x1="34" y1="32" x2="34" y2="22"/><line x1="6" y1="36" x2="38" y2="36"/></svg>
+      </div>
+      <div class="step-num">Step 04</div>
+      <h2 class="step-title">Reach the loudness target with the limiter</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Set the ceiling before the gain</div>
+      <ul>
+        <li>Engage the Limiter. <strong>True-peak limiting ON.</strong> Ceiling <span class="code">−1.0 dBTP</span>. Set this first — the ceiling is the law, the loudness is what you negotiate underneath it.</li>
+        <li>Reset the LUFS integrated reading. Now raise the limiter's input gain slowly, playing the loudest section, until the <strong>short-term</strong> LUFS hovers around your target during the peak.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Confirm over the whole piece</div>
+      <ul>
+        <li>Reset integrated again, play the <em>entire</em> track, and read the settled integrated value. Nudge input gain so it lands at <span class="code">−14.0 LUFS ± 0.5</span>.</li>
+        <li>Watch the gain-reduction meter. Brief catches on transients are fine; sustained <span class="code">3–4 dB+</span> reduction means you are pushing too hard — accept a slightly lower loudness instead of crushing the dynamics you protected all the way here.</li>
+        <li>Listen for the cost: if the kick stops punching or the low end pumps, you have hit the music's limit. The target is a ceiling on loudness, not a quota you must fill.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Log the result</div>
+      <table class="param-table">
+        <caption>Metering log — after master chain (example)</caption>
+        <tr><td>track 1 · mastered</td><td>−14.1 LUFS-I · −1.0 dBTP · corr +0.7 · GR peak 2.3 dB</td></tr>
+        <tr><td>track 2 · mastered</td><td>−13.9 LUFS-I · −1.0 dBTP · corr +0.8 · GR peak 1.8 dB</td></tr>
+        <tr><td>track 3 · mastered</td><td>−14.2 LUFS-I · −1.0 dBTP · corr +0.6 · GR peak 2.6 dB</td></tr>
+      </table>
+      <ul>
+        <li>Three tracks within <span class="code">±0.3 LU</span> of each other is the goal — the EP must feel level across its length, with no track sending the listener for the volume.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Common limiter faults and their fixes</div>
+      <table class="param-table">
+        <caption>Symptom → cause → fix</caption>
+        <tr><td>Low end pumps with the kick</td><td>Limiter over-driven by sub energy</td><td>Back off input gain, or add a touch of high-pass at the corrective EQ to free headroom</td></tr>
+        <tr><td>Transients gone flat, no punch</td><td>Sustained gain reduction past 3–4 dB</td><td>Accept a lower integrated LUFS; the music's dynamics matter more than the last dB</td></tr>
+        <tr><td>Distortion on sustained low notes</td><td>Limiter release too fast</td><td>Lengthen the release until the low note rides smoothly</td></tr>
+        <tr><td>True-peak creeps above the ceiling on export</td><td>Sample-peak limiting only, true-peak off</td><td>Confirm true-peak limiting is enabled and ceiling is −1.0 dBTP, then re-export</td></tr>
+        <tr><td>Loud sections fine, quiet sections lifeless</td><td>Reading momentary instead of integrated</td><td>Target the whole-piece integrated value; let quiet sections stay quiet</td></tr>
+      </table>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Is integrated LUFS at <span class="code">−14.0 ± 0.5</span> and true-peak holding at <span class="code">−1.0 dBTP</span>?</li>
+        <li>Is gain reduction modest — transient catches, not sustained crushing?</li>
+        <li>Did reaching the number cost the punch or the dynamics? If yes, back off and accept a quieter, more honest master.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 5 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="14" width="32" height="16" rx="2"/><circle cx="14" cy="22" r="2.5"/><circle cx="22" cy="22" r="2.5"/><circle cx="30" cy="22" r="2.5"/></svg>
+      </div>
+      <div class="step-num">Step 05</div>
+      <h2 class="step-title">Verify translation across four systems</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Bounce a check file, listen everywhere</div>
+      <ul>
+        <li>Quick-export the mastered track to a temporary 24-bit WAV. Copy it to your phone.</li>
+        <li>Audition in this order: monitors or DT 990 → phone speaker → car or earbuds → mono fold-down (Utility Width 0&nbsp;% on the master, briefly).</li>
+      </ul>
+      <table class="param-table">
+        <caption>What each system must confirm</caption>
+        <tr><td>Monitors / DT 990</td><td>Detailed picture holds; you are not over-cutting the 7–10 kHz region the headphones exaggerate</td></tr>
+        <tr><td>Phone speaker</td><td>Groove and lead survive with no sub and no air — the harshest honest test</td></tr>
+        <tr><td>Car / earbuds</td><td>Low end present but not boomy; nothing fatiguing over a full play</td></tr>
+        <tr><td>Mono</td><td>Nothing essential cancels; correlation stays positive; the wide drone survives the fold-down</td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Fix at the right stage</div>
+      <ul>
+        <li>If the phone exposes a thin low-mid, that is usually a <em>mix</em> fix, not a master EQ boost — re-open the mix before piling dB on the master.</li>
+        <li>If mono cancels part of the drone, the width was overdone in the mix's Utility — fix it there and re-bounce. Mastering cannot un-cancel phase.</li>
+        <li>Re-check the reference on the same four systems and note the one thing it keeps everywhere. Your master must clear that same bar.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does the master hold its shape on all four systems, quiet and loud?</li>
+        <li>Did anything vanish in mono? If yes, the fault is phase/width in the mix, not the master.</li>
+        <li>Does it clear the same translation bar the reference clears?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 6 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="16" width="8" height="12" rx="1"/><rect x="18" y="12" width="8" height="20" rx="1"/><rect x="30" y="18" width="8" height="8" rx="1"/></svg>
+      </div>
+      <div class="step-num">Step 06</div>
+      <h2 class="step-title">Sequence the EP as one statement</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Decide the running order</div>
+      <ul>
+        <li>Lay all three mastered tracks end to end on the timeline of a fresh sequencing set. Treat the order like a single track's arrangement.</li>
+        <li><strong>Opener</strong> states the thesis plainly. <strong>Signature piece</strong> lands where its weight pays off — often penultimate, rarely first. <strong>Closer</strong> resolves or deliberately refuses to.</li>
+        <li>Order so adjacent tracks share or neighbour a key and the tempo steps feel chosen. An abrupt jump reads as a compilation; smooth it or make the jump deliberate.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Decide the gaps</div>
+      <table class="param-table">
+        <caption>Silence between tracks</caption>
+        <tr><td>Standard gap</td><td><span class="code">1–2 s</span> — a clean breath between distinct pieces</td></tr>
+        <tr><td>Near-gapless</td><td><span class="code">0–0.5 s</span> — a long-form release where the flow is the composition</td></tr>
+        <tr><td>Crossfade</td><td>Overlap tails by a bar where two tracks share a drone or key — the EP becomes one continuous arc</td></tr>
+      </table>
+      <ul>
+        <li>Listen to the whole sequence in one sitting, start to finish, more than once. The order is wrong until it stops feeling like a list.</li>
+        <li>Confirm inter-track loudness: with all three at <span class="code">−14 ± 0.3 LUFS</span>, the listener never reaches for the volume. A deliberately quiet interlude is fine; an accidental 3-LU drop is a fault to fix in step 04.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does the order read as one statement, not a folder of singles?</li>
+        <li>Are the key and tempo steps between tracks intentional?</li>
+        <li>Is the silence between each pair a decision, not a default?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 7 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><polyline points="14 18 22 26 30 18"/><line x1="22" y1="8" x2="22" y2="26"/><line x1="8" y1="34" x2="36" y2="34"/></svg>
+      </div>
+      <div class="step-num">Step 07</div>
+      <h2 class="step-title">Export the deliverables — dither exactly once</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The two exports per track</div>
+      <table class="param-table">
+        <caption>Export from the mastering set, per track</caption>
+        <tr><td>1 — Source master</td><td><span class="code">WAV · 48 kHz · 24-bit · Normalize OFF · Dither OFF</span> → <span class="code">ep_track1_master_24b_v1.wav</span></td></tr>
+        <tr><td>2 — Delivery (16-bit)</td><td><span class="code">WAV · 44.1 kHz · 16-bit · Dither ON</span> → <span class="code">ep_track1_16b_v1.wav</span></td></tr>
+        <tr><td>Lossy</td><td>Encode MP3/AAC from the source with the platform encoder — do not re-dither</td></tr>
+      </table>
+      <ul>
+        <li>Dither is applied <strong>only</strong> on the 16-bit export, because that is the only place bit depth drops. The 24-bit source is never dithered. Two exports, exactly one dither stage.</li>
+        <li>Verify the 16-bit file once on the meter: integrated LUFS and true-peak should match the 24-bit master within rounding. If true-peak crept above <span class="code">−1.0 dBTP</span>, the limiter ceiling was set wrong — fix and re-export.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Final metering log entry</div>
+      <table class="param-table">
+        <caption>Metering log — delivered files (example)</caption>
+        <tr><td>track 1 · 16b delivery</td><td>−14.1 LUFS-I · −1.0 dBTP · 44.1 kHz · dithered ✓</td></tr>
+        <tr><td>track 2 · 16b delivery</td><td>−13.9 LUFS-I · −1.0 dBTP · 44.1 kHz · dithered ✓</td></tr>
+        <tr><td>track 3 · 16b delivery</td><td>−14.2 LUFS-I · −1.0 dBTP · 44.1 kHz · dithered ✓</td></tr>
+      </table>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Is there a 24-bit un-dithered source <em>and</em> a 16-bit dithered delivery for every track?</li>
+        <li>Was dither applied exactly once per delivery file, and never to the source?</li>
+        <li>Do the delivered files still read at target LUFS and under the true-peak ceiling?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 8 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="8" y="10" width="28" height="8" rx="1"/><rect x="8" y="22" width="28" height="14" rx="1"/><line x1="14" y1="29" x2="30" y2="29"/></svg>
+      </div>
+      <div class="step-num">Step 08</div>
+      <h2 class="step-title">Statement, positioning, and the archive</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Write the artist statement</div>
+      <ul>
+        <li>One short paragraph a stranger can hold: the thesis sentence expanded. It names the <strong>intention and the refusals</strong> — not the gear list.</li>
+        <li>Write it so it would still be true of your next release. Honest enough to be wrong; specific enough to be useful.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">State the positioning</div>
+      <ul>
+        <li>Who this is for — and, just as important, who it is <em>not</em> for. Where it belongs: a label, a context, a kind of listening.</li>
+        <li>Positioning is a refusal applied to the market, not a marketing trick. Distribution serves the work; never let it edit the work.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Assemble the archive</div>
+      <ul>
+        <li><strong>Masters:</strong> the un-dithered 24-bit sources plus each delivered format, every file dated and version-tagged.</li>
+        <li><strong>Sessions:</strong> the collected-and-saved mix project per track, plus the <span class="code">EP-MASTER.als</span> mastering set — samples, patches, automation intact (<span class="menu">File → Collect All and Save</span>).</li>
+        <li><strong>Documents:</strong> the artist statement, the running-order notes, and the <span class="code">ep_master_log.txt</span> metering log.</li>
+        <li><strong>Provenance:</strong> a short note on what changed from the original spec and why — the honest gap between intention and result.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does the master translate on a phone, in a car, and in mono?</li>
+        <li>Did I dither exactly once, only at the bit-depth reduction?</li>
+        <li>Does the running order read as one statement played whole?</li>
+        <li>Could a stranger reopen this release in three years and understand every decision?</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Step away before you ship.</strong> Wait a day. Re-read the metering log, re-listen to the sequence on the phone, change at most one thing, and re-export as <span class="code">v2</span>. An un-archived, un-rested release is a statement you can defend only once.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="palette.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 05 / Delivery targets
+    </a>
+    <a href="reflection.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      07 / Reflection →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B8-002 — The Release</div>
+
+</div>
+
+</body>
+</html>

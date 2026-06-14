@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B1-005 — Subtractive · Reflection</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B1-005<span class="labnote-topic">Subtractive</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html" class="active"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B1-005</div>
+    <div class="eyebrow">Subtractive · 07 — Reflection</div>
+    <h1>Fault, carry-forward, principle</h1>
+    <p class="lede">Most of the learning happens here, not while turning knobs. Answer slowly, write the answers down, and turn the result into one usable rule you can take into the next voice and into the rest of Block 1.</p>
+  </header>
+
+  <h2>How you know it worked</h2>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="16"/><polyline points="14 22 20 28 30 16"/></svg>
+      </div>
+      <div class="checklist-label">Success signals</div>
+    </div>
+    <ul>
+      <li>The voice was built from a true init patch — every change is one you made and can name.</li>
+      <li>You moved one control at a time and can say what each one did, in isolation.</li>
+      <li>The same single voice clearly played more than one role — bass, lead, maybe percussion.</li>
+      <li>The held drone stayed alive for two full minutes with no clock and no second element.</li>
+      <li>Time in the drone is carried by beating, slow drift, and level — not by a hidden grid.</li>
+      <li>You can name every control doing the work, from the engine to the LFO rate and depth.</li>
+      <li>You reached for a deeper use of one block before you reached for a new one.</li>
+      <li>The gain was set on the body of the tone, with headroom, and never clipped on a swell.</li>
+    </ul>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon">
+        <svg viewBox="0 0 44 44"><polygon points="22 6 40 36 4 36"/><line x1="22" y1="16" x2="22" y2="24"/><circle cx="22" cy="29" r="1.4" fill="currentColor"/></svg>
+      </div>
+      <div class="checklist-label">Failure signals — the faults to name</div>
+    </div>
+    <ul>
+      <li>You started from a preset, so you could not say which knob did what.</li>
+      <li>You turned several controls at once and can only describe the result as "it sounded good".</li>
+      <li>The voice went dead within seconds when held — no modulator was carrying it.</li>
+      <li>You solved a dull voice by adding a second oscillator or a part, instead of moving inside the one.</li>
+      <li>The drone had no rhythm because you never built the beating between two detuned tones.</li>
+      <li>You switched filter mode or engine mid-voice and lost the thread of the sound.</li>
+      <li>Resonance was set so high it screamed, and you could not sit with it for two minutes.</li>
+      <li>The gain was set on the swell, so the body of the tone clipped or the meter lied.</li>
+    </ul>
+  </div>
+
+  <h2>Reflection questions</h2>
+
+  <ol class="reflection-list">
+    <li>Which single control did the most for the voice — and could you isolate why?</li>
+    <li>Did you truly start from init, or did a preset's hidden decisions creep in?</li>
+    <li>Was your one modulator an envelope or an LFO — and did you choose it, or default to it?</li>
+    <li>When you held the note for two minutes, what kept it alive? Name the exact mover.</li>
+    <li>With the clock gone, which of the three replacements — beating, drift, level — carried the most weight?</li>
+    <li>Where were you tempted to add a second oscillator or a part, and did restraint hold?</li>
+    <li>Could you switch the patch into a percussion hit and back from memory? If not, what did you not yet understand?</li>
+    <li>Did the gain decision belong on the swell or the body — and did you put it in the right place?</li>
+    <li>What is the smallest change — one cutoff position, one LFO rate — that would most improve the next version?</li>
+    <li>Of the records you studied, whose one-control mechanism did your voice actually use?</li>
+  </ol>
+
+  <h2>Carry-forward</h2>
+
+  <div class="callout">
+    <div class="callout-label">Write your carry-forward rule</div>
+    <p>Finish this sentence in your logbook and reuse it next time: "If a voice feels dull or dead, I will move one control deeper before I add a single new sound." A carry-forward rule is a fault turned into a reflex.</p>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Keep the patch and the log.</strong> Your init-to-finished control list is a reusable object. Next time you sit at any synth, init it and rebuild from your log — you start from a sound you own, not from scratch.</li>
+      <li><strong>The system-diff sentence:</strong> "I thought the life came from ___; after building it, I found the life actually came from ___." Most of the time the answer is the one slow LFO, or the beating between two detuned tones.</li>
+      <li><strong>Next in Block 1:</strong> this was one voice from an init patch. The workshop labs — <a href="../workshop/block-1/lab-004.html">One Oscillator, One Filter</a> and <a href="../workshop/block-1/lab-004b.html">One Voice, No Clock</a> — turn the same skill into finished études. The <a href="../guide-b1-001/index.html">Block 1 guide</a> sequences the bench skills this voice rests on.</li>
+    </ul>
+  </div>
+
+  <h2>The proof</h2>
+
+  <div class="callout">
+    <div class="callout-label">Proof gate — the one thing that proves you learned this</div>
+    <p>From an init patch, build <strong>one</strong> voice — one oscillator, one filter, one modulator — that holds attention for two minutes with no clock and no second element, and name every control doing the work. If you can do that, and say each control's job in one sentence, you have learned subtractive synthesis. If you cannot, the patch is still a happy accident, and the fault is one un-named control.</p>
+  </div>
+
+  <div class="final">
+    <div class="final-icon">
+      <svg viewBox="0 0 44 44"><line x1="22" y1="8" x2="22" y2="36"/><circle cx="22" cy="22" r="4"/><line x1="8" y1="22" x2="14" y2="22"/><line x1="30" y1="22" x2="36" y2="22"/></svg>
+    </div>
+    <div class="final-label">Final principle</div>
+    <p>The strongest voice is not the one with the most parts. It is one raw tone, carved with controls you can name, made to evolve from the inside — a sound you can rebuild from zero and trust to hold a room on its own.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="build.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 06 / The build
+    </a>
+    <a href="../workshop/block-1/lab-004.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      Block 1 · Lab 004 →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B1-005 — Subtractive</div>
+
+</div>
+
+</body>
+</html>

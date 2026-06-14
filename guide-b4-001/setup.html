@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B4-001 — Resonance — Setup</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Lab Note contents">
+  <p class="nav-label labnote-code">Lab Note B4-001<span class="labnote-topic">Resonance</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html" class="active"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B4-001</div>
+    <div class="eyebrow">Resonance · 04 — Setup</div>
+    <h1>The rig for a filter ride</h1>
+    <p class="lede">The same five boxes as Lab Note B1-001, wired the same way — but this topic puts unusual demands on gain-staging, because a resonant peak is loud and narrow. This page is the wiring and metering reference the build assumes: where the filter lives, what feeds it, and how to keep an 18 dB peak from wrecking the chain.</p>
+  </header>
+
+  <h2>Three filters, three voices</h2>
+  <p style="text-align:center; max-width:620px; margin:0 auto 24px; color:var(--text-muted);">You have three usable resonant filters. They are not interchangeable — each sings differently and is driven differently. Decide on the <a href="decisions.html">decisions page</a> which is primary; this build uses the MicroFreak filter as the lead and the Ableton Auto Filter as the long-form arc.</p>
+
+  <table class="param-table">
+    <caption>MicroFreak filter — key-tracking the analog state-variable</caption>
+    <tr><td>Resonance knob</td><td>Past ~3 o'clock the 12 dB state-variable filter self-oscillates and produces a sine</td></tr>
+    <tr><td>Keyboard → cutoff</td><td>In the filter section enable keyboard tracking so the resonant pitch follows the note played</td></tr>
+    <tr><td>Excite it</td><td>A short, bright oscillator burst (Wavetable at high Wave, fast envelope) "plinks" the resonance — bell tones from one note</td></tr>
+    <tr><td>Cycling envelope → cutoff</td><td>In loop mode, a slow cycling envelope makes the self-oscillated pitch glide between two values forever</td></tr>
+  </table>
+
+  <table class="param-table">
+    <caption>Ableton Auto Filter — the filter as the slow arc</caption>
+    <tr><td>Filter type</td><td>Clean self-oscillates politely; the analog-style circuits (OSR / PRD / SVF) add their own grit as Q climbs — pick by ear</td></tr>
+    <tr><td>Resonance</td><td>Push toward maximum until a steady tone appears with no input — that is self-oscillation engaged</td></tr>
+    <tr><td>Frequency</td><td>This is now your pitch knob. Map it to a controller or draw it on a scale-quantized lane</td></tr>
+    <tr><td>Envelope amount</td><td>Small positive envelope → each note "blooms" the resonance upward, a filtered pluck</td></tr>
+    <tr><td>LFO → Frequency</td><td>Slow, small depth = the resonant tone drifts like a theremin; large depth = siren</td></tr>
+  </table>
+
+  <table class="param-table">
+    <caption>Digitakt II per-track filter — resonance as rhythm</caption>
+    <tr><td>FLTR — Resonance</td><td>Raise per track; on a noise or texture sample the resonant peak gains pitch as on any source</td></tr>
+    <tr><td>P-lock the cutoff</td><td>Hold a trig, turn FLTR Freq — the resonant pitch changes step by step, a filter melody locked to the sequence</td></tr>
+    <tr><td>FLTR envelope</td><td>Per-step envelope depth turns a flat sample into a resonant pluck only on the trigs you choose</td></tr>
+    <tr><td>Sound lock</td><td>Lock different cutoff values to give one drum track a sung two- or three-note line from its own filter</td></tr>
+  </table>
+
+  <h2>Signal path — where the resonance happens</h2>
+
+  <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:11px; letter-spacing:0.2em; text-transform:uppercase;">Lead voice — MicroFreak filter as the instrument</h3>
+  <div class="signal-flow">
+    <span class="signal-node">MicroFreak osc</span>
+    <span class="signal-arrow">excites →</span>
+    <span class="signal-node">analog filter (high Q)</span>
+    <span class="signal-arrow">→ TS →</span>
+    <span class="signal-node">M4 In 1</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">MF FILTER track</span>
+    <span class="signal-arrow">peak limiter →</span>
+    <span class="signal-node">Ableton</span>
+  </div>
+
+  <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:11px; letter-spacing:0.2em; text-transform:uppercase;">Arc voice — Auto Filter on a recorded flat source</h3>
+  <div class="signal-flow">
+    <span class="signal-node">dry source clip</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">Auto Filter (cutoff = pitch)</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">peak-tame Utility / limiter</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">saturation</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">master</span>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Recommended path</div>
+    <p>Use the MOTU M4 as the single audio device: MicroFreak mono into input 1, Digitakt II stereo into inputs 3/4, headphones from the M4. Ableton is the only MIDI clock master; Digitakt II and MicroFreak both receive clock and transport over USB. One device, one clock — the same stable base as Lab Note B1-001.</p>
+  </div>
+
+  <h2>The resonant gain chain — the part that is different</h2>
+  <p style="text-align:center; max-width:640px; margin:0 auto 18px; color:var(--text-muted);">A high-Q peak can add 12–18 dB at one frequency, and it appears the instant you sweep the cutoff through a strong partial. Set the chain so the <em>peak</em>, not the average, has headroom. Meter it once, deliberately, before you commit a take.</p>
+
+  <table class="param-table">
+    <caption>Set in this order, watching the peak — not the average</caption>
+    <tr><td>1 — MicroFreak master volume</td><td>~ 60–70 %, lower than usual. Hold a note and slowly sweep the cutoff across its full range while watching the next stage. The loudest moment is your reference, not a steady note.</td></tr>
+    <tr><td>2 — M4 Input 1 gain</td><td>Set so the <em>loudest resonant peak</em> hits healthy amber, never red. If a normal note looks quiet, that is correct — you are leaving room for the peak.</td></tr>
+    <tr><td>3 — Ableton MF FILTER meter</td><td>Peaks at <span class="code">-12 to -8 dBFS</span> during the sweep. The narrow resonant transient is what you are metering, so trust the peak hold, not your ears.</td></tr>
+    <tr><td>4 — Peak limiter on the track</td><td>A Limiter or fast Utility-gain catch set to a ceiling of <span class="code">-6 dBFS</span>, only catching the rare overshoot. This is a safety net, not a sound — if it is working hard, fix stage 1.</td></tr>
+    <tr><td>5 — Phones knob</td><td>Comfortable, then leave it. A resonant whistle is fatiguing; protect your ears and your judgement by not riding this knob.</td></tr>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">The golden rule, restated for resonance</div>
+    <p>Fix the peak at the earliest stage that causes it. If the resonant ping clips, pull the MicroFreak volume down — do not pull the track fader, which leaves the converter still clipping. The peak you can't hear (it is brief) is the peak that ruins a take.</p>
+  </div>
+
+  <h2>Track layout for this build</h2>
+
+  <table>
+    <thead><tr><th>Track</th><th>Source</th><th>Ableton input</th><th>Role</th></tr></thead>
+    <tbody>
+      <tr><td>MF FILTER</td><td>MicroFreak — recorded resonant lead</td><td>Ext. In <span class="code">1</span> (mono)</td><td>The lead voice — the filter ride</td></tr>
+      <tr><td>ARC SOURCE</td><td>Flat drone / noise printed for Auto Filter</td><td>Ext. In <span class="code">1</span> (mono)</td><td>Slow long-form cutoff arc</td></tr>
+      <tr><td>DT DRUMS</td><td>Digitakt II main L/R</td><td>Ext. In <span class="code">3/4</span> (stereo)</td><td>Hypnotic foundation</td></tr>
+      <tr><td>MF SUB</td><td>MicroFreak — clean sub bass</td><td>Ext. In <span class="code">1</span> (mono)</td><td>Low anchor under the filter</td></tr>
+      <tr><td>Return A</td><td>Hybrid Reverb</td><td>—</td><td>Space — used sparingly on high resonance</td></tr>
+      <tr><td>Return B</td><td>Echo</td><td>—</td><td>Delay for the filter pings</td></tr>
+    </tbody>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Resonance + long reverb = whistling artifacts.</strong> A high-Q peak fed into a long reverb tail can ring at one frequency forever. High-pass the reverb send and keep the send modest on the lead — the build sets this explicitly.</li>
+      <li><strong>Headroom is mandatory, not optional, here.</strong> Track peaks at -8 dBFS leave room for the resonance to spike, for saturation to add level, and for the master bus. A take where the resonant ping clips is a take you re-record.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="decisions.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 03 / Decisions
+    </a>
+    <a href="palette.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      05 / Palette →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B4-001 — Resonance</div>
+
+</div>
+
+</body>
+</html>

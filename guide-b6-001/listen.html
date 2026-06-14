@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B6-001 — Rule-based Sequencing — Listen</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Lab Note contents">
+  <p class="nav-label labnote-code">Lab Note B6-001<span class="labnote-topic">Rule-based Sequencing</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html" class="active"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Rule vocabulary</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B6-001</div>
+    <div class="eyebrow">Rule-based Sequencing · 02 — Listen</div>
+    <h1>Three pieces where the rule is the composition</h1>
+    <p class="lede">Before you write a single condition, listen to music that was authored as a rule-set rather than performed note by note. In each case the composer's real work was upstream of the sound: defining what the system was allowed to do, then letting it run. Listen for the boundary, not the surprise.</p>
+  </header>
+
+  <h2>How to listen this time</h2>
+
+  <p style="text-align:center; max-width:640px; margin:0 auto 24px; color:var(--text-muted);">You already know how to hear melody and groove. The new skill is hearing the <em>rule</em> — the invariant the composer fixed, and the small space they left open for the system to move. Ask of each piece: what never changes, and what is allowed to?</p>
+
+  <div class="cards three">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="15"/><line x1="22" y1="22" x2="22" y2="10"/><line x1="22" y1="22" x2="31" y2="27"/></svg>
+      </div>
+      <h3 class="card-title">Find the invariant</h3>
+      <ul class="card-points">
+        <li>What pitch grid, pulse, or spine never moves?</li>
+        <li>That fixed thing is the fence the composer built first</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="8" y="8" width="28" height="28" rx="3"/><rect x="16" y="16" width="12" height="12" rx="1"/><circle cx="22" cy="22" r="2" fill="currentColor"/></svg>
+      </div>
+      <h3 class="card-title">Find the freedom</h3>
+      <ul class="card-points">
+        <li>Where does the music wander — and how far can it go?</li>
+        <li>The width of that wandering is the rule's tolerance</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M8 30 l8 -10 l7 6 l13 -16"/><circle cx="16" cy="20" r="2" fill="currentColor"/></svg>
+      </div>
+      <h3 class="card-title">Trace the time-scale</h3>
+      <ul class="card-points">
+        <li>Does change arrive per bar, per minute, or per movement?</li>
+        <li>Long evolution from short rules is the whole trick</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>The rep lessons</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="16"/><circle cx="22" cy="22" r="9"/><circle cx="22" cy="22" r="2.5" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Rep 01</div>
+      <h2 class="step-title">Laurie Spiegel — <em>The Expanding Universe</em></h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Why it belongs here</div>
+      <ul>
+        <li>Spiegel built her own software (GROOVE, later Music Mouse) so that <em>processes</em> — slow algorithmic transformations — could carry the piece while she steered. The note-to-note detail is delegated; the shape is authored.</li>
+        <li>Listen for how little "happens" per second and how much has happened per minute. That gap is exactly what a good rule-set buys you.</li>
+        <li>This is the patient end of generative music: rules tuned so the evolution is felt, never witnessed as an event.</li>
+      </ul>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Open the rep lesson</div>
+      <ul>
+        <li>Full listening guide: <a href="../workshop/block-6/rep-laurie-spiegel-the-expanding-universe.html">rep-laurie-spiegel-the-expanding-universe.html</a></li>
+        <li>Carry-back to your build: a process that changes one parameter slowly is itself a rule. Write it as "over N bars, X drifts from A to B."</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 22 q8 -12 16 0 t16 0"/><path d="M6 28 q8 -8 16 0 t16 0"/></svg>
+      </div>
+      <div class="step-num">Rep 02</div>
+      <h2 class="step-title">Roland Kayn — <em>Tektra</em></h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Why it belongs here</div>
+      <ul>
+        <li>Kayn called his work "cybernetic music": he configured networks of feedback and let them self-organise, intervening only to set conditions and constraints. No melodies, no metre — only systems settling into and out of states.</li>
+        <li>This is the extreme case of "the system decides." It teaches you what unbounded behaviour sounds like, and why even Kayn's apparent chaos sits inside carefully built electronic boundaries.</li>
+        <li>Listen for textures that breathe and reorganise on their own. Ask: if I muted my hands entirely, would my system still earn the next minute?</li>
+      </ul>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Open the rep lesson</div>
+      <ul>
+        <li>Full listening guide: <a href="../workshop/block-6/rep-roland-kayn-tektra.html">rep-roland-kayn-tektra.html</a></li>
+        <li>Carry-back to your build: feedback is a rule too — "the output of step N feeds the condition of step N+1." The Digitakt's <span class="code">PRE</span> condition is a miniature of this idea.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M12 8h16l8 8v20a2 2 0 0 1-2 2H12a2 2 0 0 1-2-2V10a2 2 0 0 1 2-2z"/><path d="M28 8v8h8"/><line x1="16" y1="26" x2="30" y2="26"/><line x1="16" y1="31" x2="26" y2="31"/></svg>
+      </div>
+      <div class="step-num">Rep 03</div>
+      <h2 class="step-title">Lejaren Hiller &amp; Leonard Isaacson — <em>Illiac Suite, Experiment 1</em></h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Why it belongs here</div>
+      <ul>
+        <li>The earliest score composed by a computer (1956): the ILLIAC ran rules of species counterpoint, generating notes at random and <em>rejecting</em> any that broke the rule. Generate, test, keep what passes — the exact loop you will run by ear in this Lab Note.</li>
+        <li>Experiment 1 makes the method audible: it is the sound of bounded randomness, where the boundary is a written rule-book and chance only proposes candidates.</li>
+        <li>Listen for how lawful it sounds despite being machine-generated. That lawfulness is the rule-book doing its job — the same job your Digitakt conditions and Live's Scale effect do.</li>
+      </ul>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Open the rep lesson</div>
+      <ul>
+        <li>Full listening guide: <a href="../workshop/block-6/rep-lejaren-hiller-and-leonard-isaacson-illiac-suite-experiment-1.html">rep-lejaren-hiller-and-leonard-isaacson-illiac-suite-experiment-1.html</a></li>
+        <li>Carry-back to your build: "generate-and-reject" is your curation pass. Let the rule propose; you keep only what passes the ear.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Listening principle</div>
+    <p>In each piece, the composer's real authorship happened before any sound: they chose the fence. Your job in this Lab Note is to do the same — and to be honest later about which decisions were yours and which were the system's.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="index.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 01 / Overview
+    </a>
+    <a href="decisions.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      03 / Decisions →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B6-001 — Rule-based Sequencing</div>
+
+</div>
+
+</body>
+</html>

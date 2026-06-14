@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B4-002 — Saturation · The build</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B4-002<span class="labnote-topic">Saturation</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup &amp; signal path</a>
+  <a href="palette.html"><span class="nav-num">05</span>Saturation palette</a>
+  <a href="build.html" class="active"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B4-002</div>
+    <div class="eyebrow">Saturation · 06 — The build</div>
+    <h1>Build a track one nonlinear stage at a time</h1>
+    <p class="lede">This is the deep page. We assemble a full original track where the structure <em>is</em> staged saturation: grit baked at the source, density built on the bus, the whole intensity arc driven by pushing harder into curves rather than adding parts. Every step has exact dB values, a decision checkpoint, and a stated commitment point. Keep the <a href="setup.html">setup page</a> open — its gain ledger is the contract this page assumes.</p>
+  </header>
+
+  <!-- STEP 1 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 14 v20 a2 2 0 0 0 2 2 h28 a2 2 0 0 0 2 -2 v-16 a2 2 0 0 0 -2 -2 h-14 l-4 -4 h-10 a2 2 0 0 0 -2 2 z"/></svg>
+      </div>
+      <div class="step-num">Step 01</div>
+      <h2 class="step-title">Set up the project for honest saturation</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">New set, clean headroom</div>
+      <ul>
+        <li><kbd>⌘ N</kbd>, <kbd>Tab</kbd> to Arrangement. Tempo <span class="code">130</span>, <span class="code">4/4</span> — a touch faster than the hypnotic build; this track leans industrial.</li>
+        <li><kbd>⌘ ,</kbd> → <strong>Audio</strong>: MOTU M4, <span class="code">48000 Hz</span>, buffer <span class="code">256</span>. Inputs as on the setup page.</li>
+        <li>Right-click the ruler → <span class="menu">Time Ruler Format → Time</span> so positions read <span class="code">m:ss</span>.</li>
+        <li>Create audio tracks: <span class="code">DT KICK</span>, <span class="code">DT HATS/PERC</span>, <span class="code">MF BASS</span>, <span class="code">MF DRONE</span>, <span class="code">ATMOS</span>. Two returns: <span class="code">A — REVERB</span>, <span class="code">B — ECHO</span>.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The honesty tool — A/B at equal loudness</div>
+      <ul>
+        <li>Saturation flatters. Before you build anything, decide how you will judge it: every nonlinear stage gets its <strong>output trimmed to match bypass</strong>, and you A/B with that trim in place.</li>
+        <li>Put a <strong>Utility</strong> at the very end of the master, gain at <span class="code">0 dB</span>, as a manual loudness-match when comparing whole-track versions.</li>
+        <li>Keep a notepad open. Every stage you commit gets one line: <span class="code">DT KICK Saturator, Analog Clip, +4 dB, out -4 dB</span>. The ledger is the deliverable as much as the audio.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Hygiene</div>
+      <ul>
+        <li><kbd>⌘ S</kbd> → <span class="code">lab_b4-002_sat.als</span> in a dedicated folder. <span class="menu">File → Collect All and Save</span> at every session end.</li>
+        <li>Confirm the clock: press play, both boxes start, screens read <span class="code">130</span>. A take with baked grit recorded against a bad clock is unrecoverable.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="14"/><circle cx="22" cy="22" r="5"/></svg>
+      </div>
+      <div class="step-num">Step 02</div>
+      <h2 class="step-title">Bake the kick — stage A at the source</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Choose and tune the sample</div>
+      <ul>
+        <li>On Digitakt II, project <span class="code">SAT LAB</span>, pattern <span class="code">A01</span>. <span class="code">T1 KICK</span>: a short, dark kick with controlled sub.</li>
+        <li>SRC — Tune the fundamental to <strong>A</strong> or <strong>E</strong>. A detuned kick under a tonal bass smears the moment you saturate either.</li>
+        <li>Trigs on <span class="code">1, 5, 9, 13</span>. Keep it dry — the bite will come from drive, not reverb.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Drive at the source — the first commitment</div>
+      <table class="param-table">
+        <caption>Digitakt T1 amp page</caption>
+        <tr><td>Drive</td><td>Start <span class="code">0 %</span>. Raise slowly while the loop plays. At <span class="code">~ 40 %</span> the kick gains a clipped corner and an aggressive odd-harmonic bite.</td></tr>
+        <tr><td>Sample level</td><td>Strong but not clipping the box's output — let the Drive be the only clipper. Watch the Digitakt's own meter.</td></tr>
+        <tr><td>Decay</td><td>Short enough that the tail is gone before the next bass note.</td></tr>
+      </table>
+      <ul>
+        <li>This is irreversible. The grit is now welded into the rendered audio. That is the point — it grounds the whole track in a flavour no plugin can wobble.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Record a dedicated kick pass</div>
+      <ul>
+        <li>Mute T2–T4. Arm <span class="code">DT KICK</span>, monitor <strong>Auto</strong>. Record <strong>4 minutes</strong> of kick-only.</li>
+        <li>Confirm the clip peaks <span class="code">-12 to -6 dBFS</span> — headroom for stage A in Ableton.</li>
+        <li>A separate kick pass also gives a clean sidechain source later, with no hat bleed.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Stage A in Ableton — the channel curve</div>
+      <table class="param-table">
+        <caption>DT KICK device chain, in this order</caption>
+        <tr><td>1 — EQ Eight HP</td><td><span class="code">28 Hz</span>, 24 dB/oct — <em>before</em> the Saturator, so sub doesn't hog the curve</td></tr>
+        <tr><td>2 — Utility (input gain)</td><td>Set so the kick hits the Saturator at <span class="code">~ -8 dBFS</span> avg</td></tr>
+        <tr><td>3 — Saturator</td><td>Type <span class="code">Analog Clip</span>, Soft Clip <strong>on</strong>, Drive <span class="code">+4 dB</span></td></tr>
+        <tr><td>4 — Saturator Output</td><td>Trim <span class="code">-4 dB</span> until on/off match by ear</td></tr>
+      </table>
+      <ul>
+        <li>Bypass the Saturator at matched loudness. The driven version should sound <em>denser and more forward</em>, not just louder. If it only sounds louder, your output trim is wrong — fix it before moving on.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>At equal loudness, does the saturated kick beat the clean one? If not, you were chasing level.</li>
+        <li>Does the transient still punch, or did the drive flatten the attack? If flattened, lower Drive or engage Soft Clip harder.</li>
+        <li>Have I written the source Drive % down? I cannot recover it later — it must live in the ledger.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="10" cy="22" r="3" fill="currentColor"/><circle cx="20" cy="14" r="3"/><circle cx="30" cy="30" r="3" fill="currentColor"/><circle cx="38" cy="22" r="3"/></svg>
+      </div>
+      <div class="step-num">Step 03</div>
+      <h2 class="step-title">Hats and perc — parallel grit</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Program and drive at source</div>
+      <ul>
+        <li><span class="code">T2 HAT</span> on <span class="code">3, 7, 11, 15</span>; <span class="code">T3 PERC</span> one hit on step <span class="code">8</span> with a <span class="code">25–50 %</span> probability condition.</li>
+        <li>Digitakt Drive on T2/T3 at <span class="code">20–30 %</span> — present, never fizzy.</li>
+        <li>Add <span class="code">52 %</span> swing and nudge hats a hair late for roll. Record <strong>4 minutes</strong> into <span class="code">DT HATS/PERC</span> (kick muted).</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Stage A — parallel so the transient survives</div>
+      <table class="param-table">
+        <caption>DT HATS/PERC chain</caption>
+        <tr><td>1 — EQ HP</td><td><span class="code">500 Hz</span> before the curve — no low end to distort</td></tr>
+        <tr><td>2 — Saturator</td><td>Type <span class="code">Soft Sine</span>, Drive <span class="code">+3 dB</span>, <strong>Dry/Wet 60 %</strong></td></tr>
+        <tr><td>3 — Output</td><td>Trim <span class="code">-2 dB</span> to match</td></tr>
+      </table>
+      <ul>
+        <li>Parallel (Dry/Wet 60 %) keeps the dry transient clean while the wet path adds odd-harmonic body underneath — bite without the tick going brittle.</li>
+        <li>On the DT 990 this will sound sharp at 7–10 kHz. Resist cutting; confirm on a second source first.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does the hat sit <em>around</em> the kick, or fight it for the same forward space?</li>
+        <li>Is the parallel mix preserving the attack? Flip Dry/Wet to 100 % for a second — if it gets brittle, you'd have killed the tick at full wet.</li>
+        <li>When the probability perc lands, is it a surprise? If predictable, make it rarer.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 22 q5 -14 10 0 t10 0 t10 0"/></svg>
+      </div>
+      <div class="step-num">Step 04</div>
+      <h2 class="step-title">Bass — even body, then rising odd grit</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Stage 0 — analog grit at the MicroFreak</div>
+      <ul>
+        <li><kbd>Shift</kbd> + Type to init a patch. Oscillator <span class="code">Wavetable</span>, Paraphonic off, root <span class="note">A1</span>.</li>
+        <li>Drive the filter: oscillator level high, <strong>Resonance ~ 11 o'clock</strong>, Cutoff low. Push until the filter adds an analog, even-leaning grit — this is a nonlinear stage in the hardware.</li>
+        <li>Program 3–5 notes over 16 steps, root on step 1, gaps left for the kick. Save the patch as <span class="code">SAT BASS</span>.</li>
+        <li>Arm <span class="code">MF BASS</span>, monitor <strong>Auto</strong>, peaks <span class="code">-12 to -6 dBFS</span>. Record <strong>4 minutes</strong>, hands off the knobs — the grit is already in the take.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Stage A — the staged plugin chain (order is the recipe)</div>
+      <table class="param-table">
+        <caption>MF BASS chain, strictly in this order</caption>
+        <tr><td>1 — EQ HP</td><td><span class="code">40 Hz</span>, 24 dB/oct — protect the sub before any curve</td></tr>
+        <tr><td>2 — Dynamic Tube</td><td>Even-harmonic bias, Drive <strong>low</strong> — body and warmth, no bite</td></tr>
+        <tr><td>3 — Utility (input)</td><td>Set bass to <span class="code">~ -8 dBFS</span> into the next stage</td></tr>
+        <tr><td>4 — Saturator</td><td>Type <span class="code">Medium</span> (rising odd), Drive <span class="code">+2 dB</span> at the start</td></tr>
+        <tr><td>5 — Saturator Output</td><td>Trim to match bypass at <span class="code">+2 dB</span> drive</td></tr>
+        <tr><td>6 — Compressor (sidechain)</td><td><em>After</em> the saturation; keyed to <span class="code">DT KICK</span>, Pre FX</td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Prove the order matters — do this once</div>
+      <ul>
+        <li>Print the chain as is. Then duplicate the track, move the HP to <em>after</em> the Saturator, print again. A/B.</li>
+        <li>The second version has audible sub distortion — the curve was allowed to chew the low end. Keep the first. You have just proven non-commutativity on your own bass.</li>
+        <li>Now move the sidechain compressor <em>before</em> the Saturator on a third copy. The grit no longer ducks against the kick — it masks it. Keep the original. Write the finding in the ledger.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Sidechain settings</div>
+      <table class="param-table">
+        <caption>Compressor on MF BASS, keyed to DT KICK</caption>
+        <tr><td>Ratio</td><td><span class="code">4:1</span></td></tr>
+        <tr><td>Attack / Release</td><td><span class="code">1 ms</span> / <span class="code">120 ms</span></td></tr>
+        <tr><td>Gain reduction</td><td>Threshold down until ~ <span class="code">-3 dB</span> per kick</td></tr>
+      </table>
+      <ul>
+        <li>Because the comp is after the saturation, the <em>harmonics</em> duck with the fundamental. The grit breathes with the kick instead of fighting it.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Did the order swap audibly change the sound? If not, one stage is doing nothing — find out which.</li>
+        <li>At matched loudness, does the staged bass sound fuller than the raw take, or just louder?</li>
+        <li>Is the sub clean? Solo below 80 Hz — there should be a tone, not fizz.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 5 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 22 q9 -4 18 0 t18 0"/><path d="M6 28 q9 -2 18 0 t18 0"/></svg>
+      </div>
+      <div class="step-num">Step 05</div>
+      <h2 class="step-title">Drone — the protected, near-linear voice</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Capture it clean</div>
+      <ul>
+        <li><kbd>Shift</kbd> + Type to init. Oscillator <span class="code">Harmo</span> or <span class="code">Wavetable</span>, Paraphonic <strong>on</strong>, long attack/release, a slow unsynced LFO → Timbre.</li>
+        <li><kbd>Hold</kbd>, play root <span class="note">A1</span> + fifth <span class="note">E2</span>. Keep the MicroFreak filter <em>clean</em> here — no overdrive. The drone is the contrast voice.</li>
+        <li>Record <strong>4 minutes</strong>. Save patch as <span class="code">SAT DRONE</span>.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">One gentle even stage, then protect it</div>
+      <table class="param-table">
+        <caption>MF DRONE chain</caption>
+        <tr><td>1 — EQ HP</td><td><span class="code">120 Hz</span> — drone owns mids, never sub</td></tr>
+        <tr><td>2 — Dynamic Tube</td><td>Drive <strong>low</strong>, even bias — body and a hint of air only</td></tr>
+        <tr><td>3 — Reverb send</td><td>To Return A, <em>after</em> and fully clean. Never saturate into a long tail.</td></tr>
+      </table>
+      <ul>
+        <li>Do <strong>not</strong> automate any drive up on the drone. Its job is to stay still while the kick and bass grow — the still element is what makes the others' growth read.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Can I hear grit on the drone? If yes, the Tube is too high — back it off until it is body only.</li>
+        <li>Does the drone create the room the driven elements live in?</li>
+        <li>Flip the reverb to check: is the tail clean, or is it amplifying distortion I added upstream?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 6 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="14" cy="22" r="6"/><circle cx="30" cy="22" r="6"/><line x1="20" y1="22" x2="24" y2="22"/></svg>
+      </div>
+      <div class="step-num">Step 06</div>
+      <h2 class="step-title">Stage B — drive on the drum bus</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Group and feed it the right level</div>
+      <ul>
+        <li>Select <span class="code">DT KICK</span> + <span class="code">DT HATS/PERC</span> → <kbd>⌘ G</kbd> → <span class="code">DRUMS</span>.</li>
+        <li>The summed group arrives hotter than either channel. Pull the <strong>group fader</strong> until the bus stage sees <span class="code">~ -10 dBFS</span> — set the input with the fader, not by re-driving the channels.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Roar on the group</div>
+      <table class="param-table">
+        <caption>Stage B — shared density</caption>
+        <tr><td>Mode</td><td>Single band first. Once it works, split: drive <span class="code">150 Hz – 4 kHz</span> only, leave the sub band clean.</td></tr>
+        <tr><td>Amount / Drive</td><td><span class="code">15 %</span> static — the floor of the build</td></tr>
+        <tr><td>Tone / Color</td><td>Slightly dark, so the added top doesn't stack harshly with the hats' stage A</td></tr>
+        <tr><td>Output</td><td>Level-match to bypass; confirm the kick transient still pokes through</td></tr>
+      </table>
+      <ul>
+        <li>Now there are two saturation stages on the kick: the baked source grit (A) and this bus density (B). They compound — which is exactly why each was kept modest. Two gentle stages beat one extreme one for control.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does the bus stage glue the kit, or smear the kick attack? If smeared, lower the drive or protect the transient (Drum Buss Transients +, or split Roar to spare the sub).</li>
+        <li>Bypass A and B together at matched loudness — the dry kit should sound thin but intact. That confirms saturation is shaping, not propping.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 7 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 34 Q22 6 38 14"/><circle cx="6" cy="34" r="2.5" fill="currentColor"/><circle cx="38" cy="14" r="2.5" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Step 07</div>
+      <h2 class="step-title">Build the intensity arc from drive alone</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The thesis: automate curves, not parts</div>
+      <ul>
+        <li>The peak of this track adds <em>no new element</em>. Energy comes from pushing the existing voices harder into their curves. This step draws those drive automations.</li>
+        <li><kbd>A</kbd> for automation lanes, pencil <kbd>B</kbd> for drawing. Bend ramps to S-curves. No ramp shorter than 8 bars; most are 16–48.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The drive automation map</div>
+      <table class="param-table">
+        <caption>Times → bars at 130 BPM (≈ 14.8 bars/min)</caption>
+        <tr><td>Bass Saturator Drive @ 0:00</td><td><span class="code">+2 dB</span> — body only, almost clean</td></tr>
+        <tr><td>Bass Saturator Drive @ 3:00</td><td><span class="code">+6 dB</span> — odd harmonics emerging</td></tr>
+        <tr><td>Bass Saturator Drive @ 4:30 (peak)</td><td><span class="code">+10 dB</span> — full grit, the bass's loudest, densest moment</td></tr>
+        <tr><td>Bass Saturator Drive @ 6:00</td><td><span class="code">+4 dB</span> — recedes for the close</td></tr>
+        <tr><td>Drum-bus Roar Amount @ 0:00 → 3:00</td><td><span class="code">15 % → 25 %</span></td></tr>
+        <tr><td>Drum-bus Roar Amount @ 4:30</td><td><span class="code">35 %</span> — the kit thickens at the peak</td></tr>
+        <tr><td>DT KICK Saturator Drive @ 4:30</td><td><span class="code">+4 → +9 dB</span> over 16 bars, then back</td></tr>
+        <tr><td>Drone Tube Drive</td><td><strong>Flat — never automated.</strong> The still voice that makes the growth audible.</td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Keep it honest while it grows</div>
+      <ul>
+        <li>Drive automation also raises level. Either automate each Saturator's <strong>Output down</strong> in step with the Drive up, or trust the master and check peaks stay <span class="code">≤ -3 dBFS</span>.</li>
+        <li>The peak must arrive because things got <em>denser and harder</em>, not merely louder. Play 4:00–5:00 with the master Utility pulling level back to intro-loudness — if the peak still reads as a peak, it is harmonic intensity, not gain.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Perform it on the Launchpad</div>
+      <ul>
+        <li><kbd>⌘ M</kbd>, map the bass Saturator Drive and the drum-bus Roar Amount to two pads. Set each mapping's Min/Max to the dB range above so a full pad sweep covers exactly the musical range.</li>
+        <li><kbd>F9</kbd> Arrangement Record, ride the two drive lanes <em>slower than feels natural</em>. Two takes, keep the calmer. <span class="menu">Simplify Envelope</span> after.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Play the peak blind: does it feel bigger because of harmonics, or only because of level? Master-Utility test settles it.</li>
+        <li>If I freeze the arrangement and remove the drive automation, does the track go flat? It should — that proves the arc is built from saturation.</li>
+        <li>Did I leave the drone flat? If I automated it too, I lost the still reference.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 8 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="4" y="14" width="10" height="6" rx="1"/><rect x="16" y="14" width="14" height="6" rx="1"/><rect x="32" y="14" width="8" height="6" rx="1"/><rect x="8" y="24" width="16" height="6" rx="1"/><rect x="26" y="24" width="12" height="6" rx="1"/></svg>
+      </div>
+      <div class="step-num">Step 08</div>
+      <h2 class="step-title">Arrange — sections defined by drive, not parts</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Locators and the map</div>
+      <table class="param-table">
+        <caption>Section → time → bar at 130 BPM</caption>
+        <tr><td>INTRO — 0:00</td><td>Bar 1 — drone clean, bass at +2 dB drive, no drums</td></tr>
+        <tr><td>KICK IN — 1:00</td><td>Bar 15 — driven kick enters, source grit doing the work</td></tr>
+        <tr><td>BASS IN — 2:00</td><td>Bar 30 — staged bass surfaces, sidechain breathing</td></tr>
+        <tr><td>FULL — 3:00</td><td>Bar 44 — hats + perc, bus drive climbing</td></tr>
+        <tr><td>PEAK — 4:30</td><td>Bar 67 — <em>no new element</em>; every drive lane at maximum</td></tr>
+        <tr><td>STRIP — 5:30</td><td>Bar 81 — pull bus drive back to 20 %, perc out; the strip makes the peak retroactively bigger</td></tr>
+        <tr><td>OUTRO — 6:30</td><td>Bar 96 — bass drive to +4 dB, kick out, clean drone closes</td></tr>
+        <tr><td>END — 7:30</td><td>Bar 111</td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Editing craft</div>
+      <ul>
+        <li>Cuts on kick downbeats only. <kbd>⌘ E</kbd>, grid snap on. Overlap take seams by one bar with 4-beat crossfades — hard joins click, and a clicked join into a saturated bus distorts the click.</li>
+        <li>When a section is final, <kbd>⌘ J</kbd> consolidate. One clean clip per section.</li>
+        <li>The PEAK section contains the same clips as FULL. The <em>only</em> difference between them is the drive automation. That contrast is the whole lesson, placed on the timeline.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does PEAK differ from FULL by drive alone? If I had to add a part to make PEAK land, the saturation arc wasn't strong enough — go back to Step 07.</li>
+        <li>Does STRIP make the prior fullness feel bigger in hindsight?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 9 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><line x1="12" y1="8" x2="12" y2="36"/><line x1="22" y1="8" x2="22" y2="36"/><line x1="32" y1="8" x2="32" y2="36"/><rect x="9" y="18" width="6" height="3" rx="0.5" fill="currentColor"/><rect x="19" y="24" width="6" height="3" rx="0.5" fill="currentColor"/><rect x="29" y="14" width="6" height="3" rx="0.5" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Step 09</div>
+      <h2 class="step-title">Stage C — master glue, and the mix pass</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Mix to feed the master stage cleanly</div>
+      <table class="param-table">
+        <caption>Starting balance (peaks)</caption>
+        <tr><td>DRUMS group</td><td>-9 dB</td></tr>
+        <tr><td>MF Bass</td><td>-12 dB</td></tr>
+        <tr><td>MF Drone</td><td>-16 dB</td></tr>
+        <tr><td>Atmosphere</td><td>-20 dB</td></tr>
+        <tr><td>Mix sum into master</td><td><span class="code">≤ -6 dBFS</span> — headroom for Stage C</td></tr>
+      </table>
+      <ul>
+        <li>Low-end pecking order, enforced by HP filters already placed: kick owns 40–80 Hz, bass owns 80–180 Hz. Saturation makes violations worse — fix them here.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The master glue — cohesion only</div>
+      <table class="param-table">
+        <caption>Master chain</caption>
+        <tr><td>1 — Saturator</td><td>Type <span class="code">Soft Sine</span>, Soft Clip <strong>on</strong>, Drive <span class="code">+1 to +2 dB</span></td></tr>
+        <tr><td>2 — Utility</td><td>Final trim, peak <span class="code">≤ -3 dBFS</span></td></tr>
+        <tr><td>3 — Spectrum</td><td>Metering only. No limiter — loudness is a distribution problem this track doesn't have.</td></tr>
+      </table>
+      <ul>
+        <li>Toggle Stage C at equal loudness. If you can barely tell, it is doing its job — seating the three earlier stages into one fabric, not creating a sound.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Verification passes</div>
+      <ul>
+        <li><strong>Cumulative-saturation check:</strong> bypass A, then B, then C in turn and listen. Each removal should thin the track a little. If removing one does nothing, it was redundant — delete it.</li>
+        <li><strong>Sidechain check:</strong> bass comp shows steady ~3 dB dips locked to the kick through FULL.</li>
+        <li><strong>Mono check:</strong> flip master to mono — the sub must survive; saturation can collapse a wide low end.</li>
+        <li><strong>Quiet check:</strong> listen once at low volume. The saturation's real balance shows; if the grit dominates quietly, it is too much.</li>
+        <li>Take the headphones off every 15 minutes — the DT 990's lift fatigues the ear exactly where saturation lives.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does each of the three stages earn its place on the bypass test?</li>
+        <li>Is the master stage glue, or am I using it to fix a sound that should have been fixed at the source?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 10 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><polyline points="14 18 22 26 30 18"/><line x1="22" y1="8" x2="22" y2="26"/><line x1="8" y1="34" x2="36" y2="34"/></svg>
+      </div>
+      <div class="step-num">Step 10</div>
+      <h2 class="step-title">Export and step away</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Render</div>
+      <table class="param-table">
+        <caption>Export settings</caption>
+        <tr><td>Rendered Track</td><td>Master</td></tr>
+        <tr><td>Render Length</td><td>0:00 – 7:30</td></tr>
+        <tr><td>File / Rate / Depth</td><td>WAV / 48000 Hz / 24-bit</td></tr>
+        <tr><td>Normalize</td><td>OFF — the headroom is part of the sound</td></tr>
+        <tr><td>Filename</td><td>lab_b4-002_v1.wav</td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Archive the irreversible decisions</div>
+      <ul>
+        <li><span class="menu">File → Collect All and Save</span>. Save the Digitakt project and both MicroFreak patches.</li>
+        <li>Write the final saturation ledger next to the WAV: every stage, its curve, drive, and output trim. The baked source grit (Digitakt Drive %, MicroFreak filter setting) is the part you can never recover from audio — it must be in the ledger or it is gone.</li>
+        <li>Listen elsewhere — phone, laptop speakers. Laptop speakers are brutally honest about over-saturated mids. Wait a day, change <strong>one</strong> stage, render v2, compare at equal loudness.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>What you built:</strong> a track whose structure is three staged nonlinear curves — baked source grit, automated bus density, a hair of master glue — with the entire intensity arc driven by pushing into those curves rather than adding parts. The drone, kept linear, is the still axis the growth rotates around.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="palette.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 05 / Saturation palette
+    </a>
+    <a href="reflection.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      07 / Reflection →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B4-002 — Saturation</div>
+
+</div>
+
+</body>
+</html>

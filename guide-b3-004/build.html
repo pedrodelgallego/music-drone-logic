@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B3-004 — Euclidean — The build</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B3-004<span class="labnote-topic">Euclidean</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Pattern palette</a>
+  <a href="build.html" class="active"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B3-004</div>
+    <div class="eyebrow">Euclidean · 06 — The build</div>
+    <h1>Build a track where the rule is the author</h1>
+    <p class="lede">Now we touch the gear. Every voice in this track is an E(n,m) string and nothing else — kick, hat, perc, texture, and bass are all chosen as pairs of integers, placed, rotated, and then left alone. Movement comes from one drifting length and from slowly changing a single integer over the arrangement. Keep the <a href="setup.html">setup page</a> and the <a href="palette.html">pattern palette</a> open alongside this one.</p>
+  </header>
+
+  <!-- STEP 1 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 14 v20 a2 2 0 0 0 2 2 h28 a2 2 0 0 0 2 -2 v-16 a2 2 0 0 0 -2 -2 h-14 l-4 -4 h-10 a2 2 0 0 0 -2 2 z"/></svg>
+      </div>
+      <div class="step-num">Step 01</div>
+      <h2 class="step-title">Set the project and decide the grid</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Open the set</div>
+      <ul>
+        <li><kbd>⌘ N</kbd> for a new Live Set. <kbd>Tab</kbd> to <strong>Arrangement</strong> view. Tempo <span class="code">124</span>, signature <span class="code">4/4</span>.</li>
+        <li>Right-click the ruler → <span class="menu">Time Ruler Format → Bars</span>. The whole point of this build is counting steps and bars, so keep the ruler in bars.</li>
+        <li><kbd>⌘ ,</kbd> → <strong>Audio</strong>: device <strong>MOTU M4</strong>, 48 kHz, 256 samples. Enable mono input <span class="code">1</span> (MicroFreak) and stereo input <span class="code">3/4</span> (Digitakt II).</li>
+        <li><kbd>⌘ ,</kbd> → <strong>Link, Tempo &amp; MIDI</strong>: enable <strong>Track</strong> and <strong>Sync</strong> on the Digitakt II output row and the MicroFreak output row. Ableton is the only clock master.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Commit to one master grid</div>
+      <ul>
+        <li>This track's master grid is <strong>M = 16</strong> — one bar of sixteenth steps. Every dividing voice locks to it; one odd-length voice will drift against it on purpose.</li>
+        <li>Write the plan down before sequencing anything. The discipline of this Lab Note is that the integers are decided first, on paper, then entered:</li>
+      </ul>
+      <table class="param-table">
+        <caption>The five voices — chosen as integers, on paper, before any sound</caption>
+        <tr><td>Kick</td><td>E(4,16), rotation 0 — the anchor</td></tr>
+        <tr><td>Hat</td><td>E(7,16), rotation 0 — the even offbeat bed</td></tr>
+        <tr><td>Perc</td><td>E(3,11), rotation 0 — the drifting polymeter line</td></tr>
+        <tr><td>Texture</td><td>E(5,12), rotation 0 — a 6/8-feel bell ancestor</td></tr>
+        <tr><td>Bass (MicroFreak)</td><td>E(5,16), rotation 2 — pushed off the downbeat</td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Create the tracks</div>
+      <ul>
+        <li><kbd>⌘ T</kbd> for audio tracks: <span class="code">DT DRUMS</span>, <span class="code">MF BASS</span>.</li>
+        <li><kbd>⌘ ⇧ T</kbd> for one MIDI track: <span class="code">MF EUCLID</span>, MIDI To → <strong>MicroFreak</strong> ch 1.</li>
+        <li><kbd>⌘ ⌥ T</kbd> for one return: <span class="code">A — ECHO</span> (Echo device, sync 3/16, feedback 40 %, HP 250 Hz, 100 % wet).</li>
+        <li><kbd>⌘ S</kbd> → save as <span class="code">euclid_b3_004.als</span> in a dedicated project folder.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Have I written down all five integer pairs <em>before</em> opening a sequencer? (If not, do it now — the rule must precede the sound.)</li>
+        <li>Is exactly one of my five lengths odd (11), so the groove will drift without new material?</li>
+        <li>Does the Digitakt II start, stop, and read 124 from Ableton?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="14"/><circle cx="22" cy="22" r="5"/></svg>
+      </div>
+      <div class="step-num">Step 02</div>
+      <h2 class="step-title">Place the kick — the anchor E(4,16)</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Why the anchor is trivial on purpose</div>
+      <ul>
+        <li>E(4,16) is a dividing case: all four gaps are equal. That is exactly what an anchor needs to be — the unmoving rule every other voice is heard against.</li>
+        <li>On Digitakt II, load a short dark kick on <span class="code">T1 KICK</span>. Set track length to <span class="code">16</span>. Grid-record trigs on steps <span class="code">1, 5, 9, 13</span>.</li>
+        <li>Tune the kick's fundamental to A or E so it agrees with the bass to come. Keep the decay short — the tail must be gone before the next step.</li>
+      </ul>
+      <div class="pattern-wrap">
+        <div class="pattern">
+          <div class="pattern-label">Kick E(4,16)</div>
+          <div class="pattern-step on">1</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+          <div class="pattern-step on">5</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+          <div class="pattern-step on">9</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+          <div class="pattern-step on">13</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Lock it and leave it</div>
+      <ul>
+        <li>No parameter locks on the kick beyond a tiny pitch drop on step 1 to mark the bar. The anchor's whole value is that it does not change.</li>
+        <li>Loop the kick alone for one full minute. If you are already bored, good — an anchor you notice is an anchor doing too much.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Are all four gaps audibly equal — a true four-on-the-floor with no accidental swing?</li>
+        <li>Is the kick tuned so it will not blur with the bass below 100 Hz?</li>
+        <li>Is the kick boring on its own? It should be.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 22 q9 -8 18 0 t18 0"/><path d="M6 30 q9 -6 18 0 t18 0"/></svg>
+      </div>
+      <div class="step-num">Step 03</div>
+      <h2 class="step-title">Place the hat — the even bed E(7,16)</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Read the string off the palette, then place it</div>
+      <ul>
+        <li>E(7,16) places seven hits with gaps alternating 2 and 3 steps. From page 05: <span class="code">x.x.x.x.x.x.x...</span> — hits on steps <span class="code">1, 3, 5, 7, 9, 11, 13</span>.</li>
+        <li>On <span class="code">T2 HAT</span>, length <span class="code">16</span>, load a tight closed hat. Grid-record those seven trigs by hand. High-pass the hat around 500 Hz on the Digitakt FLTR page.</li>
+      </ul>
+      <div class="pattern-wrap">
+        <div class="pattern">
+          <div class="pattern-label">Hat E(7,16)</div>
+          <div class="pattern-step on">1</div><div class="pattern-step"></div><div class="pattern-step accent">3</div><div class="pattern-step"></div>
+          <div class="pattern-step on">5</div><div class="pattern-step"></div><div class="pattern-step accent">7</div><div class="pattern-step"></div>
+          <div class="pattern-step on">9</div><div class="pattern-step"></div><div class="pattern-step accent">11</div><div class="pattern-step"></div>
+          <div class="pattern-step on">13</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Make the even line breathe</div>
+      <ul>
+        <li>Parameter-lock alternating velocity: hold every other hat trig and lower its volume a few dB. The distribution stays E(7,16); the accents make it roll instead of tick.</li>
+        <li>Micro-time: nudge each hat a hair late (hold trig, micro-timing right by 1–2 ticks). A consistent lag is the difference between mechanical and human-played evenness.</li>
+        <li>Add <span class="code">51–53 %</span> swing — subtle, on the edge of perception. Euclidean placement plus a touch of swing is the core of the groove.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Against the kick, does the hat sit as an even bed or does it fight the downbeats? It should weave through them, busy but never dominant.</li>
+        <li>Is the last gap (steps 13→1) audibly longer? That breath at the bar's end is the E(7,16) fingerprint — keep it.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M30 14a12 12 0 1 0 4 9"/><polyline points="34 11 34 19 26 19"/></svg>
+      </div>
+      <div class="step-num">Step 04</div>
+      <h2 class="step-title">Place the perc — the drifting E(3,11)</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The polymeter superpower</div>
+      <ul>
+        <li>On <span class="code">T3 PERC</span>, switch to per-track length and set it to <strong>11 steps</strong> while the pattern stays 16. This is the move that makes the track evolve with no new material.</li>
+        <li>E(3,11) places three hits: <span class="code">x..x..x....</span> — steps <span class="code">1, 4, 7</span> of the 11-step track. Load a rim, conga, or click.</li>
+        <li>Because 11 and 16 share no factors, the perc line lands on a different position in the bar every cycle and only fully realigns with the kick after 176 steps (11 bars). That slow drift is the whole arrangement engine.</li>
+      </ul>
+      <div class="pattern-wrap">
+        <div class="pattern">
+          <div class="pattern-label">Perc E(3,11)</div>
+          <div class="pattern-step on">1</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step on">4</div>
+          <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step on">7</div><div class="pattern-step"></div>
+          <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Keep it sparse</div>
+      <ul>
+        <li>Three hits is enough. The drift does the work; adding more hits buries the phasing under density.</li>
+        <li>Optional: a <span class="code">1:4</span> trig condition on one hit so it fires only every fourth cycle — a slow heartbeat layered on top of the drift.</li>
+        <li>A small Echo send (via p-lock on chosen trigs only) lets the drifting hit smear into the gaps as it moves.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Loop kick + hat + perc for three full minutes. Does the perc appear to move around the bar without you changing anything? That is the polymeter working.</li>
+        <li>Is the perc sparse enough that you can hear it relocate, or has density hidden the drift?</li>
+        <li>Does the realignment moment (every 11 bars) feel like an event? If you can sense it land, leave it as a natural section marker.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 5 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="15"/><path d="M22 7v30M7 22h30"/></svg>
+      </div>
+      <div class="step-num">Step 05</div>
+      <h2 class="step-title">Place the texture — the 12-grid bell E(5,12)</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">An ancestor inside the machine</div>
+      <ul>
+        <li>On <span class="code">T4 TEXTURE</span>, set per-track length to <strong>12</strong>. E(5,12) is the venda / West-African bell line: <span class="code">x..x.x..x.x.</span> — steps <span class="code">1, 4, 6, 9, 11</span>.</li>
+        <li>Load a short resampled fragment, a dusty bell, or a metallic tick. This is the voice the rep lessons pointed at — the bell that implies a 6/8 swing inside the steady cycle.</li>
+        <li>12 against 16 drifts more gently than 11 against 16 (they share the factor 4 and realign every 4 bars). The two odd lengths together — 11 and 12 — never line up with each other within the track, so the composite is in constant slow motion.</li>
+      </ul>
+      <div class="pattern-wrap">
+        <div class="pattern">
+          <div class="pattern-label">Texture E(5,12)</div>
+          <div class="pattern-step on">1</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step on">4</div>
+          <div class="pattern-step"></div><div class="pattern-step on">6</div><div class="pattern-step"></div><div class="pattern-step"></div>
+          <div class="pattern-step on">9</div><div class="pattern-step"></div><div class="pattern-step on">11</div><div class="pattern-step"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Sit it under the groove</div>
+      <ul>
+        <li>Low-pass the texture mostly closed on the Digitakt FLTR page, then open it very slowly with a track LFO (MOD page: LFO → Filter Frequency, slow speed, small depth).</li>
+        <li>Keep it quiet — this is the room the rule lives in, not a fourth rhythmic lead.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>With all four Digitakt voices running, can you still hear four distinct rules, or has it become a wall? If it is a wall, thin the texture or the hat — never the anchor.</li>
+        <li>Does muting the texture make the track feel smaller rather than missing? It should.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 6 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="10" cy="22" r="3" fill="currentColor"/><circle cx="20" cy="14" r="3"/><circle cx="30" cy="30" r="3" fill="currentColor"/><circle cx="38" cy="22" r="3"/></svg>
+      </div>
+      <div class="step-num">Step 06</div>
+      <h2 class="step-title">Generate the bass — E(5,16) rotated by 2</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Let Ableton compute this one</div>
+      <ul>
+        <li>On <span class="code">MF EUCLID</span>, create a 1-bar MIDI clip. <span class="menu">Generate → Euclidean</span>: <span class="code">Steps 16</span>, <span class="code">Pulses 5</span>, <span class="code">Rotation 2</span>.</li>
+        <li>E(5,16) at rotation 0 is <span class="code">x..x..x..x..x...</span>. Rotation by 2 pushes the first hit off the downbeat so the bass answers the kick rather than doubling it — exactly the syncopation rotation buys you.</li>
+        <li>Set every generated note to one pitch — root <span class="note">A1</span>. The bass is one note; the rule provides all the rhythm.</li>
+      </ul>
+      <div class="pattern-wrap">
+        <div class="pattern">
+          <div class="pattern-label">Bass E(5,16) rot 0</div>
+          <div class="pattern-step on">x</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step on">x</div>
+          <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step on">x</div><div class="pattern-step"></div>
+          <div class="pattern-step"></div><div class="pattern-step on">x</div><div class="pattern-step"></div><div class="pattern-step"></div>
+          <div class="pattern-step on">x</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+
+          <div class="pattern-label">Bass rot 2</div>
+          <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step on">x</div><div class="pattern-step"></div>
+          <div class="pattern-step"></div><div class="pattern-step on">x</div><div class="pattern-step"></div><div class="pattern-step"></div>
+          <div class="pattern-step on">x</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step on">x</div>
+          <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step on">x</div><div class="pattern-step"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Dial the MicroFreak patch</div>
+      <table class="param-table">
+        <caption>Bass patch — short, dark, monophonic</caption>
+        <tr><td>Oscillator</td><td>Wavetable, Wave ~ 30 %, Paraphonic <strong>off</strong></td></tr>
+        <tr><td>Filter</td><td>Cutoff 11 o'clock (dark), Resonance 9 o'clock</td></tr>
+        <tr><td>Envelope</td><td>Attack 0, Decay 25, Sustain 20, Release 30 — each note speaks instantly, then clears the step</td></tr>
+        <tr><td>Clock</td><td><kbd>Shift</kbd> + <kbd>Tempo</kbd> → USB, so the clip plays at exactly 124</td></tr>
+      </table>
+      <ul>
+        <li><kbd>Shift</kbd> + press Type to initialise first — never sculpt on a factory preset.</li>
+        <li>Save the patch as <span class="code">EUCLID BASS</span>.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does the rotated bass answer the kick rather than land on top of it? Solo kick + bass to confirm they interlock, not collide.</li>
+        <li>Is the bass leaving the sub region (below 100 Hz) to the kick on the downbeats?</li>
+        <li>If the bass feels too on-the-nose, try rotation 3 or 4 in the generator and listen again — that is a one-number edit.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 7 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><line x1="14" y1="14" x2="34" y2="14"/><line x1="14" y1="22" x2="34" y2="22"/><line x1="14" y1="30" x2="30" y2="30"/></svg>
+      </div>
+      <div class="step-num">Step 07</div>
+      <h2 class="step-title">Hear the stack — five rules at once</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The composite signal flow</div>
+      <div class="signal-flow">
+        <span class="signal-node">E(4,16) kick</span>
+        <span class="signal-arrow">+</span>
+        <span class="signal-node">E(7,16) hat</span>
+        <span class="signal-arrow">+</span>
+        <span class="signal-node">E(3,11) perc</span>
+        <span class="signal-arrow">+</span>
+        <span class="signal-node">E(5,12) texture</span>
+        <span class="signal-arrow">+</span>
+        <span class="signal-node">E(5,16)+2 bass</span>
+        <span class="signal-arrow">→</span>
+        <span class="signal-node">one evolving groove</span>
+      </div>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Listen for the interlock</div>
+      <ul>
+        <li>Loop the full stack for at least five minutes. Two of the five lengths (11 and 12) are not 16, so the composite never repeats exactly within the loop — that is the Konono / Burundi interlock from page 02, built from numbers.</li>
+        <li>Name what each voice is doing: anchor, bed, drift, bell, answer. If two voices are doing the same job, change one integer until they separate.</li>
+        <li>Do not add a sixth voice to fix boredom. If it is flat, the fix is a different rotation or a different length on a voice you already have.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Why this stack works — the maths under the feel</div>
+      <ul>
+        <li>The kick at E(4,16) is the only voice that repeats identically every bar. It is the metronome the ear measures everything else against; without one stable rule, drift reads as a mistake rather than as motion.</li>
+        <li>The hat at E(7,16) shares the 16-grid, so it never drifts — but its uneven 2/3 gap pattern keeps it from sounding like a simple division of the kick. It is the texture that proves a same-length voice can still feel alive purely from its distribution.</li>
+        <li>The perc at E(3,11) and texture at E(5,12) are the moving parts. Eleven is coprime with sixteen, so the perc takes the full eleven bars to return to its starting phase; twelve shares a factor of four with sixteen, so the texture cycles back every four bars. Two different return periods means the <em>composite</em> of perc-plus-texture has a period of their least common multiple — long enough that a four-minute loop never quite repeats.</li>
+        <li>The bass at E(5,16)+2 is back on the grid but rotated, so it interlocks with the kick's gaps instead of doubling its hits. Rotation, not a new rhythm, is what makes one note feel like a melodic answer.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Can I follow each rule separately while hearing them as one groove?</li>
+        <li>Is the low end clear — kick owns 40–80 Hz, bass owns 80–180 Hz, nothing else below 200?</li>
+        <li>Does the groove move on its own over five minutes, with my hands off everything?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 8 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 34 Q22 6 38 14"/><circle cx="6" cy="34" r="2.5" fill="currentColor"/><circle cx="38" cy="14" r="2.5" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Step 08</div>
+      <h2 class="step-title">Evolve by changing one integer</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The arrangement is a sequence of integer edits</div>
+      <ul>
+        <li>This track does not add and remove elements — it changes the numbers. Map the eight minutes as a series of one-integer moves, each landing on a bar line:</li>
+      </ul>
+      <table class="param-table">
+        <caption>Arrangement by integer — times at 124 BPM</caption>
+        <tr><td>0:00 INTRO</td><td>Texture E(5,12) alone, low-passed. The bell establishes the room.</td></tr>
+        <tr><td>1:00 KICK IN</td><td>Add kick E(4,16). The anchor arrives under the drifting bell.</td></tr>
+        <tr><td>2:00 BASS IN</td><td>Unmute bass E(5,16)+2. The interlock with the kick begins.</td></tr>
+        <tr><td>3:00 HAT IN</td><td>Add hat E(7,16). Full density; the groove is now five rules.</td></tr>
+        <tr><td>4:00 PERC DRIFT</td><td>Add perc E(3,11) — the polymeter drift becomes the centre of attention.</td></tr>
+        <tr><td>4:30 PEAK — integer move</td><td>Push hat from E(7,16) to <strong>E(9,16)</strong>: one number, more density, peak energy with no new instrument.</td></tr>
+        <tr><td>5:30 STRIP — integer move</td><td>Hat back to E(7,16), then to <strong>E(5,16)</strong>: the bed thins by one number at a time.</td></tr>
+        <tr><td>6:30 OUTRO</td><td>Drop kick and hat. Bass E(5,16) then perc fade; texture E(5,12) closes alone, as it opened.</td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">How to perform an integer move</div>
+      <ul>
+        <li>On Digitakt II: prepare the change on a copied pattern (<span class="code">A02</span> with hat re-placed as E(9,16)) and switch to it on a bar line, or re-place trigs live. The change must land cleanly on the downbeat.</li>
+        <li>On the Ableton bass: automate the Euclidean Generator's Pulses or Rotation via a Max for Live version, or duplicate the clip with new generator settings and trigger it at the section.</li>
+        <li>Record one long performance into <span class="code">DT DRUMS</span> and <span class="code">MF BASS</span> while you perform the integer moves. Performance first, surgery second.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does the PEAK arrive because a number <em>grew</em>, not because an instrument was <em>added</em>? That is the thesis of this Lab Note.</li>
+        <li>Is every integer move landing exactly on a bar line, or are some lurching mid-bar?</li>
+        <li>Could I narrate the whole arrangement as a list of number changes? If yes, the rule is genuinely the author.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 9 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><line x1="12" y1="8" x2="12" y2="36"/><line x1="22" y1="8" x2="22" y2="36"/><line x1="32" y1="8" x2="32" y2="36"/><rect x="9" y="18" width="6" height="3" rx="0.5" fill="currentColor"/><rect x="19" y="24" width="6" height="3" rx="0.5" fill="currentColor"/><rect x="29" y="14" width="6" height="3" rx="0.5" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Step 09</div>
+      <h2 class="step-title">Record, mix, and verify the rule survives</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Record the passes</div>
+      <ul>
+        <li>Arm <span class="code">DT DRUMS</span> (Ext. In 3/4, Monitor Auto). Record the full 8-minute drum performance with your integer moves.</li>
+        <li>Arm <span class="code">MF BASS</span> (Ext. In 1, mono, Monitor Auto). Record the bass pass with the generator driving the MicroFreak.</li>
+        <li>Optional muted-kick pass into a <span class="code">DT KICK</span> track for a clean sidechain source.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Mix to keep the rules legible</div>
+      <table class="param-table">
+        <caption>Starting balance and separation</caption>
+        <tr><td>DT Drums</td><td>-10 dB. EQ HP 25–30 Hz. Saturator Soft Sine +2 dB.</td></tr>
+        <tr><td>MF Bass</td><td>-12 dB. Compressor sidechained to the kick: 4:1, attack 1 ms, release 120 ms, ~3 dB reduction per kick.</td></tr>
+        <tr><td>Hat / texture EQ</td><td>HP the hat at 500 Hz, the texture at 250 Hz — keep the low end for kick and bass only.</td></tr>
+        <tr><td>Return A (Echo)</td><td>-10 dB. Fed only from perc and texture p-locks, so the drift smears, not the anchor.</td></tr>
+        <tr><td>Master</td><td>Spectrum + Utility, peaks ≤ -3 dBFS. No limiter for this exercise.</td></tr>
+      </table>
+      <ul>
+        <li>The sidechain is what lets the bass and kick share the low end while interlocking — watch the gain-reduction meter pulse with the E(4,16) anchor.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Verification passes</div>
+      <ul>
+        <li><strong>Drift check:</strong> play 4:00–5:00 and confirm the perc and texture are still relocating against the kick. If they have locked, a length got reset to 16.</li>
+        <li><strong>Legibility check:</strong> solo each voice for 8 bars. Each should read as one clean Euclidean string, not a smear of effects.</li>
+        <li><strong>Quiet check:</strong> listen once at low volume. The interlock should still be felt; if it collapses into mush, the densest voice is too loud.</li>
+        <li><strong>Mono check:</strong> flip Utility width to 0 % — nothing essential should vanish.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Export and archive</div>
+      <ul>
+        <li><span class="menu">File → Export Audio / Video</span>: WAV, 48 kHz, 24-bit, Normalize OFF. Filename <span class="code">euclid_b3_004_v1.wav</span>.</li>
+        <li><span class="menu">File → Collect All and Save</span>. Save the Digitakt project (with all per-track lengths) and the <span class="code">EUCLID BASS</span> patch.</li>
+        <li>Write a 10-line notes file — timestamped observations only: <span class="code">4:30 hat E(9,16) too dense</span>, not <span class="code">peak feels off</span>.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does the printed audio still drift, or did the recording flatten the polymeter?</li>
+        <li>Can a listener who knows nothing of Euclidean rhythm still feel the groove evolve?</li>
+        <li>If I had to rebuild this track from scratch, could I do it from five integer pairs and a list of integer moves? That is the deliverable.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-nav">
+    <a href="palette.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 05 / Pattern palette
+    </a>
+    <a href="reflection.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      07 / Reflection →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B3-004 — Euclidean</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B5-001 — Delay as Architecture · Setup</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B5-001<span class="labnote-topic">Delay</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html" class="active"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Delay recipes</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B5-001</div>
+    <div class="eyebrow">Delay · 04 — Setup</div>
+    <h1>The delay rig</h1>
+    <p class="lede">Two ways to build the architecture: Ableton's Echo on return tracks (the studio default for this course), and a compact hardware mixer with an aux send (the dub-engineer way, where the send knob is literally in your hand). This page wires both, and shows how the Digitakt II's own delay slots in.</p>
+  </header>
+
+  <h2>The signal path you are building</h2>
+  <p style="text-align:center; max-width:620px; margin:0 auto 24px; color:var(--text-muted);">Dry parts stay dry. A copy of each part is sent to a shared echo return, which runs 100&nbsp;% wet, filters its own feedback, and returns to the master. The send is where you perform; the return is where you shape the tail.</p>
+
+  <div class="signal-flow">
+    <span class="signal-node">Dry source</span>
+    <span class="signal-arrow">→ send A →</span>
+    <span class="signal-node">Return A: Echo (100% wet)</span>
+    <span class="signal-arrow">→ HP/LP feedback →</span>
+    <span class="signal-node">Return fader</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">Master</span>
+  </div>
+
+  <h2>Option A — Ableton Echo on a return (course default)</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 16h32"/><path d="M16 16v8a4 4 0 0 0 4 4h18"/><circle cx="16" cy="16" r="2" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Setup A</div>
+      <h2 class="step-title">Build two delay return tracks</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Create the returns</div>
+      <ul>
+        <li><kbd>⌘ ⌥ T</kbd> twice for return tracks. Rename with <kbd>⌘ R</kbd>: <span class="code">A — DUB ECHO</span> and <span class="code">B — SLAP</span>.</li>
+        <li>A third return for reverb is useful (see the block-5 reverb note), but the two delays are the spine of this track.</li>
+        <li>Drop an <strong>Echo</strong> on each. Both run <strong>Dry/Wet 100&nbsp;%</strong> — the send is the mix, always.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Return A — the dub throw echo</div>
+      <table class="param-table">
+        <caption>Echo on Return A</caption>
+        <tr><td>Sync</td><td>On — <span class="code">3/16</span> (the classic dub throw)</td></tr>
+        <tr><td>Stereo mode</td><td>Ping-Pong</td></tr>
+        <tr><td>Feedback</td><td><span class="code">55–65 %</span> — long, regenerating tails you can ride toward self-oscillation</td></tr>
+        <tr><td>Filter — High-pass</td><td>On, <span class="code">250 Hz</span> — keep the low end out of the repeats</td></tr>
+        <tr><td>Filter — Low-pass</td><td>On, <span class="code">4 kHz</span> — each pass darkens; the tail dissolves</td></tr>
+        <tr><td>Modulation / Wobble</td><td>Small — a little tape drift, not a vibrato</td></tr>
+        <tr><td>Dry/Wet</td><td><span class="code">100 %</span></td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Return B — the tight slap</div>
+      <table class="param-table">
+        <caption>Echo on Return B</caption>
+        <tr><td>Sync</td><td>Off — free time, <span class="code">90–130 ms</span> (a slap, not a rhythm)</td></tr>
+        <tr><td>Stereo mode</td><td>Mono, panned slightly off-centre</td></tr>
+        <tr><td>Feedback</td><td><span class="code">10–20 %</span> — one or two repeats, a thickening not a trail</td></tr>
+        <tr><td>Filter — High-pass</td><td>On, <span class="code">300 Hz</span></td></tr>
+        <tr><td>Dry/Wet</td><td><span class="code">100 %</span></td></tr>
+      </table>
+      <ul>
+        <li>Return B is mono-safe by design — it is the width insurance for when Return A's ping-pong is the only thing carrying stereo.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Print discipline — the return is a bus you can commit</div>
+      <ul>
+        <li>Because the echo lives on a return, you can record it as audio: route the return's output to a new audio track, <kbd>⌘ ⇧ R</kbd>, and capture a pass of pure repeats.</li>
+        <li>A printed tail can be reversed, re-pitched, time-stretched, or chopped — moves you cannot make on a live return. Use this when the delay becomes a texture in its own right (page 06, Step 08).</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Option B — compact mixer with an aux send (the dub way)</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><line x1="12" y1="8" x2="12" y2="36"/><line x1="22" y1="8" x2="22" y2="36"/><line x1="32" y1="8" x2="32" y2="36"/><rect x="9" y="18" width="6" height="3" rx="0.5" fill="currentColor"/><rect x="19" y="24" width="6" height="3" rx="0.5" fill="currentColor"/><rect x="29" y="14" width="6" height="3" rx="0.5" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Setup B</div>
+      <h2 class="step-title">Aux send to an outboard or plugin delay</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The hardware version of the same idea</div>
+      <ul>
+        <li>On a small mixer (or the Digitakt II thought of as a mixer), each channel has an <strong>aux/FX send</strong> knob. That knob is the throw — turning it up sends a copy of that channel into the delay.</li>
+        <li>The delay's output returns to two spare channels (or the mixer's FX return). The return channel's fader is the return level; the aux knob is the send level. Same two-knob distinction as page 03, now physical.</li>
+        <li>This is exactly the King Tubby model — the engineer plays the aux knobs live, and the performance <em>is</em> the mix.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Wiring it through the MOTU M4</div>
+      <table class="param-table">
+        <caption>If using outboard delay alongside the M4</caption>
+        <tr><td>Mixer aux out</td><td>→ delay input (pedal, rack unit, or a hardware echo)</td></tr>
+        <tr><td>Delay output</td><td>→ M4 spare line inputs, recorded to a dedicated <span class="code">ECHO RETURN</span> track</td></tr>
+        <tr><td>Send control</td><td>The mixer's aux knob, ridden by hand — printed as audio in real time</td></tr>
+        <tr><td>Caveat</td><td>One clock only. If the delay is sync'd hardware, feed it MIDI clock from Ableton; otherwise run it free-time as a slap.</td></tr>
+      </table>
+      <ul>
+        <li>For this course, Option A is simpler and fully recallable. Use Option B when you specifically want the tactile, performed throw — and you will hear the difference, because a hand-ridden send breathes in a way drawn automation rarely does.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>The Digitakt II delay — a per-track send in a box</h2>
+
+  <table class="param-table">
+    <caption>Digitakt II master delay, used as a throw</caption>
+    <tr><td>Time</td><td>Dotted-eighth (the box's dub default) or 3/16, locked to Ableton's clock</td></tr>
+    <tr><td>Feedback</td><td><span class="code">45–60</span> — long enough to trail across a bar</td></tr>
+    <tr><td>Delay input filter / HP</td><td>Raise it so echoes stay airy and never thicken the low end</td></tr>
+    <tr><td>Send amount</td><td>Per-track delay send, <strong>p-locked on chosen trigs only</strong> — that is the throw, baked into the pattern</td></tr>
+    <tr><td>Role split</td><td>Use the Digitakt's delay for percussion throws; use Ableton's Echo returns for everything synth and for the big architectural tails</td></tr>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">One throw, one place</div>
+    <p>Don't send the same hit into both the Digitakt's delay and Ableton's Echo at once — you get two overlapping tails at different times and the rhythm smears. Decide per sound which delay owns it.</p>
+  </div>
+
+  <h2>Gain &amp; headroom for delay</h2>
+  <table class="param-table">
+    <caption>Where level lives in a delay-heavy mix</caption>
+    <tr><td>Dry tracks</td><td>Peaks around <span class="code">-12 to -6 dBFS</span> — same as any take; leave room for the wet path to add up</td></tr>
+    <tr><td>Send level</td><td>Per track, set by ear during the throw — flat at <span class="code">-inf</span> when not throwing</td></tr>
+    <tr><td>Return A fader</td><td>Start <span class="code">-10 dB</span>; this is presence, not length</td></tr>
+    <tr><td>Return B fader</td><td>Start <span class="code">-12 dB</span></td></tr>
+    <tr><td>Master peak</td><td>≤ <span class="code">-3 dBFS</span> — high feedback can bloom; watch the meter through the loudest throw</td></tr>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>High feedback is a headroom risk.</strong> A throw at 65&nbsp;% feedback regenerates — its peak arrives a second after the hit, not on it. Test the loudest throw and leave 3&nbsp;dB of master headroom for the bloom.</li>
+      <li><strong>Filter the feedback, not just the return.</strong> An EQ after the Echo filters the sound once. The HP/LP <em>inside</em> Echo's feedback path filters every pass — that is what makes the tail darken and die instead of piling up. This is the whole reason dub delays sound the way they do.</li>
+    </ul>
+  </div>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Setup check</div>
+    <ul>
+      <li>Both Echo returns at Dry/Wet 100&nbsp;%? If either is below 100&nbsp;%, you wired a send like an insert.</li>
+      <li>Is the in-loop HP/LP engaged on Return A — not just an EQ after it?</li>
+      <li>Flip Return A to mono for ten seconds: does Return B keep the width alive? If both collapse, you have no mono insurance.</li>
+      <li>Is exactly one delay owning each sound — no hit feeding two delay lines at once?</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="decisions.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 03 / Decisions
+    </a>
+    <a href="palette.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      05 / Delay recipes →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B5-001 — Delay as Architecture</div>
+
+</div>
+
+</body>
+</html>

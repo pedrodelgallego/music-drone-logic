@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B1-005 — Subtractive · Listen</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B1-005<span class="labnote-topic">Subtractive</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html" class="active"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B1-005</div>
+    <div class="eyebrow">Subtractive · 02 — Listen</div>
+    <h1>Hear each control before you touch it</h1>
+    <p class="lede">You cannot shape a sound you have not learned to hear. Before any music, train your ear on what each single control does on its own — first by sweeping one knob at a time on the synth, then by listening to records that live or die by one moving control. The goal is not to copy a patch. It is to name the mechanism, so you can rebuild it with your own raw tone.</p>
+  </header>
+
+  <h2>The one-control ear-training pass</h2>
+
+  <p style="text-align:center; color:var(--text-muted); max-width:640px; margin:0 auto 24px;">Do this at the synth before you read the records. Hold one low note. Move only the named control, slowly, end to end, and say out loud what changed. Move nothing else. If you hear two things change, your hand drifted to a second knob — start that sweep again.</p>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M10 24a12 12 0 0 1 24 0"/><circle cx="22" cy="24" r="3" fill="currentColor"/><line x1="22" y1="8" x2="22" y2="13"/></svg>
+      </div>
+      <div class="step-num">The drill</div>
+      <h2 class="step-title">Sweep one control, name what it did</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Sweep these, in order, one note held</div>
+      <ol class="rules-list">
+        <li>Waveform — change only the wave (saw, then square, then a softer shape). What changes is the <em>brightness and buzz</em> of the raw tone, before any filter.
+          <details class="reveal"><summary>Why it matters</summary><div class="reveal-body"><p>The waveform sets how many harmonics you start with. A saw is bright and full of harmonics; a triangle is nearly hollow. Subtractive synthesis can only remove harmonics, never add them — so the waveform is the raw material you carve from.</p></div></details>
+        </li>
+        <li>Cutoff — wave fixed, sweep only the filter cutoff from open to closed. The tone goes from bright to muffled as harmonics are removed from the top down.
+          <details class="reveal"><summary>Why it matters</summary><div class="reveal-body"><p>This single sweep <em>is</em> the meaning of "subtractive". You are taking the top harmonics away. The word names the whole craft: you subtract from a bright tone to find a darker one.</p></div></details>
+        </li>
+        <li>Resonance — cutoff parked mid-way, raise only resonance. A whistle appears and grows at the cutoff point; push far and it rings or screams.
+          <details class="reveal"><summary>Why it matters</summary><div class="reveal-body"><p>Resonance emphasises the frequencies right at the cutoff. A little adds focus and character; a lot makes the filter sing its own note. At the extreme with a short envelope it becomes a click or a thump — the drums hiding in the patch.</p></div></details>
+        </li>
+        <li>Filter type — sweep nothing; just switch low-pass → band-pass → high-pass and hold each. Low-pass keeps the lows, high-pass keeps the highs, band-pass keeps a slice in the middle.
+          <details class="reveal"><summary>Why it matters</summary><div class="reveal-body"><p>The filter type decides which part of the sound survives. Most subtractive patches use the low-pass. Knowing the other two by ear means you can choose the survivor on purpose instead of by default.</p></div></details>
+        </li>
+        <li>Attack, then release — play short, repeated notes; lengthen only attack, then only release. Attack changes how the note <em>arrives</em>; release changes how it <em>leaves</em> after you let go.
+          <details class="reveal"><summary>Why it matters</summary><div class="reveal-body"><p>The envelope is the shape of the note over time. A plucked sound and a pad can use the identical oscillator and filter — they differ only in this shape. Hear attack and release alone and you own the difference between a stab and a drone.</p></div></details>
+        </li>
+        <li>LFO rate, then depth — route one LFO to cutoff. Sweep only the LFO rate, then only its depth. Rate sets how fast the tone wobbles; depth sets how far.
+          <details class="reveal"><summary>Why it matters</summary><div class="reveal-body"><p>An LFO is a slow, automatic hand on a knob — it repeats forever and you do nothing. This is where a static voice gains life. Distinguishing rate from depth lets you ask for "slow and wide" or "fast and shallow" precisely.</p></div></details>
+        </li>
+      </ol>
+    </div>
+  </div>
+
+  <h2>Records to study — one moving control each</h2>
+
+  <p style="text-align:center; color:var(--text-muted); max-width:640px; margin:0 auto 24px;">Each links a full replication lesson in the Block 1 workshop. Run the one-control drill first, then open the lesson and rebuild the mechanism with your own raw tone — not their sound, their move.</p>
+
+  <table>
+    <thead><tr><th>Record</th><th>The mechanism to steal</th><th>Replication lesson</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>Phuture — "Acid Tracks"</td>
+        <td>The filter as the whole performance. One bass synth, eleven minutes, all the change made by turning cutoff and resonance. The notes barely move; the survivor of the filter is the music.</td>
+        <td><a href="../workshop/block-1/rep-acid-tracks.html">rep-acid-tracks.html</a></td>
+      </tr>
+      <tr>
+        <td>Mike Parker — "Spiral Snare"</td>
+        <td>Slow movement inside one tone. The central sound changes texture rather than melody, and the change is patient — a slow modulation working the timbre over minutes, not bars.</td>
+        <td><a href="../workshop/block-1/rep-spiral-snare.html">rep-spiral-snare.html</a></td>
+      </tr>
+      <tr>
+        <td>Surgeon — "Magneze"</td>
+        <td>One voice under rising pressure. Nothing is ever added; the same sound gets fiercer as drive and the filter open. The spectrum fills upward with harmonics, not with new parts.</td>
+        <td><a href="../workshop/block-1/rep-magneze.html">rep-magneze.html</a></td>
+      </tr>
+      <tr>
+        <td>Coil — <em>Time Machines</em></td>
+        <td>One held tone, slow phase, no clock. A sustained drone that meters itself through beating and slow internal drift. This is the free-running engine the back half of this note borrows.</td>
+        <td><a href="../workshop/block-1/rep-time-machines.html">rep-time-machines.html</a></td>
+      </tr>
+      <tr>
+        <td>Eleh — <em>Floating Frequencies / Intuitive Synthesis</em></td>
+        <td>Level as composition. Sustained tones arranged entirely by raising and lowering them — no cuts, no new sounds. Structure comes from volume alone.</td>
+        <td><a href="../workshop/block-1/rep-eleh.html">rep-eleh.html</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Listen on the rig you'll build on.</strong> Use the headphones you mix on, at your calibrated level. A filter sweep that sounds obvious on big speakers can be hard to place on laptop speakers — and the records above hide their one move in plain sight.</li>
+      <li><strong>Write the answer down.</strong> One sentence per record naming the single control doing the work. A move you can't write in words is one you can't dial in.</li>
+      <li><strong>Resist the sound.</strong> Acid's squelch and Surgeon's drive are seductive. You are not stealing the patch — you are stealing the one knob that is moving, and proving you can do the same move on a tone of your own.</li>
+    </ul>
+  </div>
+
+  <h2>Static voice vs evolving voice — the two-minute test</h2>
+
+  <div class="callout">
+    <div class="callout-label">The test that decides this whole note</div>
+    <p>Hold one note for two full minutes with everything still — no LFO, no envelope motion, no hands. It dies almost at once; the ear stops hearing it within seconds. Now hold the same note with one slow LFO on the cutoff and a long envelope shaping the arrival. It stays alive for the full two minutes, because something is always changing. The difference between those two recordings is the entire subject of this Lab Note.</p>
+  </div>
+
+  <p style="text-align:center; color:var(--text-muted); max-width:640px; margin:24px auto;">A static voice is information your ear files away and ignores. An evolving voice keeps giving the ear something new to track — a cutoff drifting open, two tones beating slowly against each other, a filter envelope breathing. "Do less, but make the one element evolve" is not a poetic instruction. It is the literal difference between a recording that holds two minutes and one that holds two seconds.</p>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon">
+        <svg viewBox="0 0 44 44"><polyline points="10 22 18 30 34 12"/></svg>
+      </div>
+      <div class="checklist-label">Before you move on</div>
+    </div>
+    <ul>
+      <li>I can sweep cutoff alone and hear the top harmonics being removed.</li>
+      <li>I can raise resonance alone and hear the whistle grow at the cutoff point.</li>
+      <li>I can tell low-pass, band-pass, and high-pass apart by ear.</li>
+      <li>I can hear attack change the arrival and release change the departure.</li>
+      <li>I have one written sentence naming the single moving control in each record.</li>
+      <li>I have heard, on my own synth, the difference between a static held note and an evolving one over two minutes.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="index.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 01 / Overview
+    </a>
+    <a href="decisions.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      03 / Decisions →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B1-005 — Subtractive</div>
+
+</div>
+
+</body>
+</html>

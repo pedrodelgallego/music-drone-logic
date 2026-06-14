@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B7-003 — Feedback Safety — Listen</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B7-003<span class="labnote-topic">Feedback Safety</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html" class="active"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Feedback states</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B7-003</div>
+    <div class="eyebrow">Feedback Safety · 02 — Listen</div>
+    <h1>Listen before you patch a single cable</h1>
+    <p class="lede">A feedback instrument is not learned from a diagram — it is learned from the ear of someone who has lived inside the loop for years. These three players define the practice: the no-input mixer as a solo voice, feedback as an architectural space, and the high sine as a held edge. Listen to each as the rep lesson directs, then come back. The whole point of this note is to make sounds <em>like</em> these without copying any of them.</p>
+  </header>
+
+  <h2>Three players, three uses of the loop</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="10" width="32" height="24" rx="2"/><line x1="14" y1="16" x2="14" y2="28"/><line x1="22" y1="16" x2="22" y2="28"/><line x1="30" y1="16" x2="30" y2="28"/></svg>
+      </div>
+      <h3 class="card-title">Toshimaru Nakamura</h3>
+      <ul class="card-points">
+        <li>The no-input mixing board as a complete solo instrument</li>
+        <li>Patience: long tones, micro-moves, the mixer's own character</li>
+        <li><a href="../workshop/block-7/rep-toshimaru-nakamura-no-input-mixing-board.html">Rep lesson: No-Input Mixing Board →</a></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="6"/><path d="M22 6v6"/><path d="M22 32v6"/><path d="M6 22h6"/><path d="M32 22h6"/><path d="M11 11l4 4"/><path d="M29 29l4 4"/><path d="M33 11l-4 4"/><path d="M15 29l-4 4"/></svg>
+      </div>
+      <h3 class="card-title">David Tudor</h3>
+      <ul class="card-points">
+        <li><em>Rainforest IV</em> — feedback through resonant physical objects</li>
+        <li>The loop as a space the audience walks inside, not a single tone</li>
+        <li><a href="../workshop/block-7/rep-david-tudor-rainforest-iv.html">Rep lesson: Rainforest IV →</a></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 22h8l4-12 6 24 4-12h10"/></svg>
+      </div>
+      <h3 class="card-title">Sachiko M</h3>
+      <ul class="card-points">
+        <li><em>Sine Wave Solo</em> — the held edge, near-pure tone, extreme restraint</li>
+        <li>What it teaches about commitment to a single unstable pitch</li>
+        <li><a href="../workshop/block-7/rep-sachiko-m-sine-wave-solo.html">Rep lesson: Sine Wave Solo →</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>What to listen for in each</h2>
+
+  <table class="param-table">
+    <caption>Nakamura — No-Input Mixing Board</caption>
+    <tr><td>The instrument</td><td>A mixer's outputs patched back to its own inputs. No microphone, no synth, no sample — the circuit's own noise floor, amplified into a tone.</td></tr>
+    <tr><td>Listen for</td><td>How <em>slowly</em> he moves. A single fader nudge changes the pitch of the whole system. Nothing is fast, because in this instrument fast means runaway.</td></tr>
+    <tr><td>Steal this</td><td>The discipline of treating one knob as the whole performance. You will cap that knob's range on page 04 so the slowness is structural, not just willpower.</td></tr>
+  </table>
+
+  <table class="param-table">
+    <caption>Tudor — Rainforest IV</caption>
+    <tr><td>The instrument</td><td>Audio driven into physical objects (sheet metal, barrels, springs); their resonance fed back through contact pickups into the loop.</td></tr>
+    <tr><td>Listen for</td><td>That the feedback has a <em>body</em> — it rings at the object's pitch, not an abstract sine. The room and the object are part of the circuit.</td></tr>
+    <tr><td>Steal this</td><td>The idea that an EQ or a resonant filter in your loop is the "object" — it decides which frequency oscillates. You tune the instability instead of fighting it.</td></tr>
+  </table>
+
+  <table class="param-table">
+    <caption>Sachiko M — Sine Wave Solo</caption>
+    <tr><td>The instrument</td><td>A sampler's test-tone sine waves, held and shifted with almost no other material.</td></tr>
+    <tr><td>Listen for</td><td>The nerve it takes to commit to one high tone and let it sit. The tension is entirely in <em>what does not change</em>.</td></tr>
+    <tr><td>Steal this</td><td>Restraint as content. A held feedback tone at the brink is a musical event by itself — you do not need to "do" anything to it.</td></tr>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">Safety note while listening</div>
+    <p>Even these recordings are best auditioned on speakers at a moderate level. Sine and feedback content sits in narrow bands your ear fatigues to quickly — and you are about to spend a session making more of it. Protect your hearing now; you only get the one pair.</p>
+  </div>
+
+  <h2>The originality line</h2>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Copy nothing.</strong> These players are references for an approach, not source material. Your loop, your mixer, your room — the tone will be yours because the circuit is yours.</li>
+      <li><strong>Take the discipline, not the lick.</strong> What carries over is the slowness, the tuned instability, the commitment to a held edge — never a specific gesture or pitch.</li>
+      <li><strong>Name what you took.</strong> In the reflection you will write down which of these three taught you the most. Knowing the lineage is how you stay original on purpose.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="index.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 01 / Overview
+    </a>
+    <a href="decisions.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      03 / Decisions →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B7-003 — Feedback Safety</div>
+
+</div>
+
+</body>
+</html>

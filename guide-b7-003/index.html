@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B7-003 — Feedback Safety — Overview</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B7-003<span class="labnote-topic">Feedback Safety</span></p>
+  <a href="index.html" class="active"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Feedback states</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B7-003</div>
+    <div class="eyebrow">Feedback Safety · 01 — Overview</div>
+    <h1>Build, tune, and safely perform a feedback instrument</h1>
+    <p class="lede">The no-input mixing board and the self-oscillating filter are the most alive instruments in the rig — they make sound from nothing but their own returning signal. They are also the only instruments that can hurt you. This Lab Note treats the feedback system as a <em>live performance</em>: how to build the loop, find and hold its playable states, and stay one move from silence the whole time. Safety is not a warning at the bottom — it is the instrument's first design decision.</p>
+  </header>
+
+  <h2>The goal</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M30 14a10 10 0 1 0 4 8"/><path d="M30 8v8h-8"/></svg>
+      </div>
+      <h3 class="card-title">A performed feedback take</h3>
+      <ul class="card-points">
+        <li>A 4–6 minute take of a no-input mixer or self-oscillating instrument played live</li>
+        <li>Built loop, tuned tone, swells ridden to the brink and pulled back — on purpose</li>
+        <li>Recorded into the workshop set as raw material, fully original to your rig</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><line x1="14" y1="14" x2="34" y2="14"/><line x1="14" y1="22" x2="34" y2="22"/><line x1="14" y1="30" x2="30" y2="30"/><circle cx="9" cy="14" r="1.4" fill="currentColor"/><circle cx="9" cy="22" r="1.4" fill="currentColor"/><circle cx="9" cy="30" r="1.4" fill="currentColor"/></svg>
+      </div>
+      <h3 class="card-title">Fundamentals you'll practice</h3>
+      <ul class="card-points">
+        <li>Closing a feedback loop deliberately; reading where unity gain sits</li>
+        <li>In-circuit limiting, capped encoder ranges, speaker-only monitoring</li>
+        <li>A rehearsed panic path; tuning the loop to a pitch; performing the swell</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Core objective</div>
+    <p>Make an unstable system playable — stable enough to perform, alive enough to be worth performing — without ever being more than one move from killing it.</p>
+  </div>
+
+  <h2>The angle of this note</h2>
+
+  <p style="color:var(--text-muted);">There are two ways feedback shows up in this workshop, and they are different instruments with different disciplines. Do not confuse them.</p>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="10" width="32" height="24" rx="2"/><line x1="14" y1="16" x2="14" y2="28"/><line x1="22" y1="16" x2="22" y2="28"/><line x1="30" y1="16" x2="30" y2="28"/></svg>
+      </div>
+      <h3 class="card-title">This note — the loop as instrument</h3>
+      <ul class="card-points">
+        <li>Feedback <em>is</em> the source — no sample, no synth note under it</li>
+        <li>A no-input mixer, a self-oscillating filter, an amplified object</li>
+        <li>Played live and on the edge of runaway; the danger is the point</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M8 22 q9 -10 18 0 t18 0"/><circle cx="8" cy="22" r="2" fill="currentColor"/></svg>
+      </div>
+      <h3 class="card-title">Block 5 — dub feedback (separate)</h3>
+      <ul class="card-points">
+        <li>Delay/echo feedback applied <em>to</em> an existing sound</li>
+        <li>There is always a dry source to fall back to</li>
+        <li>A flavour, not an instrument — covered in its own note</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Why it belongs in Block 7</div>
+    <p>Block 7 is about performance systems — riding parameters, live resampling, set structure. A feedback instrument is the purest test of all of it: there is no undo, no dry signal, and no second chance if the panic path fails. Master it here and every other live move feels safe by comparison.</p>
+  </div>
+
+  <h2>Why this exercise matters</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><line x1="22" y1="6" x2="22" y2="10"/><line x1="34" y1="10" x2="31" y2="13"/><line x1="38" y1="22" x2="34" y2="22"/><line x1="10" y1="22" x2="6" y2="22"/><line x1="13" y1="13" x2="10" y2="10"/><circle cx="22" cy="22" r="10"/><line x1="22" y1="32" x2="22" y2="38"/></svg>
+      </div>
+      <h3 class="card-title">The beginner instinct</h3>
+      <ul class="card-points">
+        <li>Crank the feedback to hear it scream, then panic-grab a knob</li>
+        <li>Set it up in headphones because the room is loud</li>
+        <li>Treat safety as something to bolt on once the sound is found</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M22 6l14 6v8c0 9-6 15-14 18-8-3-14-9-14-18v-8z"/><polyline points="16 22 20 26 28 17"/></svg>
+      </div>
+      <h3 class="card-title">The opposite discipline</h3>
+      <ul class="card-points">
+        <li>Build the ceiling — limiter, capped ranges, panic path — before the first loud sound</li>
+        <li>Live at the brink as a musical event, never over it</li>
+        <li>Tune the instability to a pitch so it sings instead of shrieks</li>
+      </ul>
+    </div>
+  </div>
+
+  <p style="text-align: center; color: var(--text-muted); max-width: 640px; margin: 24px auto;">The discipline transfers. A musician who can hold a runaway system at the edge and recover it blind can perform anything: modular patches, dub mixers, live electronics, generative rigs. You are not learning a trick — you are learning to perform a system that does not want to be controlled.</p>
+
+  <div class="callout">
+    <div class="callout-label">Principle</div>
+    <p>The feedback path has no ceiling of its own. The ceiling is the one you build — and you build it first.</p>
+  </div>
+
+  <div class="page-nav">
+    <span></span>
+    <a href="listen.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      02 / Listen →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B7-003 — Feedback Safety</div>
+
+</div>
+
+</body>
+</html>

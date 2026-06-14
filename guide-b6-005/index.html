@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B6-005 — The Score — Overview</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Lab Note contents">
+  <p class="nav-label labnote-code">Lab Note B6-005<span class="labnote-topic">The Score</span></p>
+  <a href="index.html" class="active"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Score primitives</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B6-005</div>
+    <div class="eyebrow">The Score · 01 — Overview</div>
+    <h1>Write a score — a rule-set that produces sound — and realize it twice</h1>
+    <p class="lede">A single-topic deep reference for instruction-based composition. A score is not a transcription of music you already heard; it is a <em>system</em> — a small set of rules that, when obeyed, produces music. You will write one score, realize it once, realize the same score again differently, and read the gap between the two takes. That gap is the lesson. The piece must be fully original: your rules, your realizations, no copied reference.</p>
+  </header>
+
+  <h2>The goal</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="8" y="8" width="28" height="28" rx="2"/><line x1="14" y1="16" x2="30" y2="16"/><line x1="14" y1="22" x2="30" y2="22"/><line x1="14" y1="28" x2="24" y2="28"/></svg>
+      </div>
+      <h3 class="card-title">A score and two realizations</h3>
+      <ul class="card-points">
+        <li>One page of rules in a chosen idiom — text, graphic, event-list, or open-form</li>
+        <li>Two printed takes from that one page: <span class="code">R1</span> and <span class="code">R2</span>, each 2–5 minutes</li>
+        <li>Fully original: you author the rules; the recordings are evidence of how they read</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="15"/><polyline points="14 22 20 28 31 16"/></svg>
+      </div>
+      <h3 class="card-title">Fundamentals you'll practice</h3>
+      <ul class="card-points">
+        <li>Notation as design — deciding what each rule fixes and what it hands to the realizer</li>
+        <li>Indeterminacy with boundaries — chance that lives inside a written fence</li>
+        <li>Reading a delta — tracing every sameness and difference back to the rule behind it</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Core objective</div>
+    <p>Author the smallest rule-set that still leaves the music somewhere to go — then prove it by realizing it twice and naming exactly which rule fixed what stayed the same and which rule freed what changed.</p>
+  </div>
+
+  <h2>Why this exercise matters</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M12 12l20 20"/><path d="M32 12L12 32"/></svg>
+      </div>
+      <h3 class="card-title">The beginner instinct</h3>
+      <ul class="card-points">
+        <li>Write down everything — turn the score into a transcription nothing can vary</li>
+        <li>Or write down nothing — call "do whatever" a score and trust the vibe</li>
+        <li>Treat the recording as the work, and the instructions as scaffolding to discard</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M8 22h28"/><polyline points="28 14 36 22 28 30"/><circle cx="16" cy="22" r="3"/></svg>
+      </div>
+      <h3 class="card-title">The opposite discipline</h3>
+      <ul class="card-points">
+        <li>Treat the rule-set as the work — the recording is one output among many</li>
+        <li>Decide, line by line, what is fixed (determinate) and what is free (indeterminate)</li>
+        <li>Tune the freedom until two realizations are recognizably the same piece, audibly different</li>
+      </ul>
+    </div>
+  </div>
+
+  <p style="text-align: center; color: var(--text-muted); max-width: 640px; margin: 24px auto;">The skill transfers far past experimental music. Once you can encode an intention as rules and hear what survives realization, you can write generative patches, prompt systems, live-coding sets, and conducted improvisations — anything that has to run, or be read, without you holding its hand.</p>
+
+  <div class="callout">
+    <div class="callout-label">Principle</div>
+    <p>A score is a system. Every line either fixes an outcome or hands it to the realizer — and you should know which, before you hear a note.</p>
+  </div>
+
+  <h2>How this Lab Note is laid out</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><circle cx="14" cy="22" r="6"/><path d="M20 22h6"/><circle cx="32" cy="22" r="6"/></svg>
+      </div>
+      <h3 class="card-title">From rule to realization</h3>
+      <ul class="card-points">
+        <li><strong>02 Listen</strong> — pieces that exist primarily as instructions, not recordings</li>
+        <li><strong>03 Decisions</strong> — the four score idioms; how much to fix vs leave free</li>
+        <li><strong>04 Setup</strong> — the rig and signal path for realizing a score honestly</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 30 l10 -8 l8 5 l14 -13"/><circle cx="16" cy="22" r="2" fill="currentColor"/><circle cx="24" cy="27" r="2" fill="currentColor"/></svg>
+      </div>
+      <h3 class="card-title">Then you build it</h3>
+      <ul class="card-points">
+        <li><strong>05 Score primitives</strong> — a library of instruction types with examples</li>
+        <li><strong>06 The build</strong> — write a score, realize R1, realize R2, read the delta</li>
+        <li><strong>07 Reflection</strong> — the fault, carry-forward, and the principle that survives</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>The rig:</strong> Ableton Live 12 Suite, Arturia MicroFreak, Elektron Digitakt II, MOTU M4, Launchpad Pro MK3, DT 990 Pro — plus paper, a drawing app, or a text file, because the score is written away from the rig first.</li>
+      <li><strong>The tradition:</strong> Christian Wolff, Earle Brown, John Cage, Cornelius Cardew, Pauline Oliveros, Terry Riley — composers who handed the page real authority over the sound.</li>
+      <li><strong>The throughline:</strong> the score is the work; the rig only realizes it. Fix what must be shared, free what must vary, and let the delta between two readings teach you which was which.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <span></span>
+    <a href="listen.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      02 / Listen →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B6-005 — The Score</div>
+
+</div>
+
+</body>
+</html>

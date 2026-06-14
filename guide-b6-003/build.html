@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B6-003 — Chance Operations — The Build</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B6-003<span class="labnote-topic">Chance Operations</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Procedures</a>
+  <a href="build.html" class="active"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <div class="labnote-badge">Lab Note B6-003</div>
+  <header class="page-header">
+    <div class="eyebrow">Chance Operations · 06 — The build</div>
+    <h1>Build a track whose form is decided by chance you designed</h1>
+    <p class="lede">This is the deep page. We build one complete 6–8 minute track end to end, and at each step we draw the line between what is <em>decided</em> and what is <em>rolled</em>, then log every roll. Keep the <a href="setup.html">setup page</a> open for wiring and the <a href="palette.html">procedures page</a> open for the six chance operations this build calls by name. Nothing here is random until we say it is — and when we say it is, we write down what happened.</p>
+  </header>
+
+  <!-- STEP 1 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 14 v20 a2 2 0 0 0 2 2 h28 a2 2 0 0 0 2 -2 v-16 a2 2 0 0 0 -2 -2 h-14 l-4 -4 h-10 a2 2 0 0 0 -2 2 z"/></svg>
+      </div>
+      <div class="step-num">Step 01</div>
+      <h2 class="step-title">Write the constitution — what chance may never touch</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Decide everything structural, on paper, first</div>
+      <ul>
+        <li>Open a text file <span class="code">b6003_constitution.txt</span> next to the project. Before any gear, write the fixed law of the track. This is the human composition; everything later is execution.</li>
+        <li>Tempo <span class="code">124 BPM</span>, time signature <span class="code">4/4</span>, key <strong>A natural minor</strong>, root <span class="note">A1</span>. Eight-minute form with a single peak — these are inherited, fixed, and never rolled.</li>
+        <li>The kick is four-on-the-floor and exists in every bar of the body. Chance is forbidden from deciding whether the kick plays.</li>
+        <li>The three notes the bass may use: <span class="code">A1</span>, <span class="code">C2</span>, <span class="code">G1</span>. The three steps it may land on: 1, 7, 11. Write these down — they are the fence for Procedure D.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Declare where chance is allowed to act</div>
+      <ul>
+        <li>List the four hand-offs explicitly, so the file is the complete answer to "what is chance choosing between?":</li>
+        <li><strong>1</strong> — which of the three notes the bass plays each bar (Procedure D).</li>
+        <li><strong>2</strong> — whether the rare perc trig fires, at <span class="code">35 %</span> (Procedure B).</li>
+        <li><strong>3</strong> — which of two texture samples loads each cycle (Procedure C).</li>
+        <li><strong>4</strong> — the order of six pre-built 16-bar section variants across the body (Procedure A).</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Set the re-roll budget</div>
+      <ul>
+        <li>Write the rule: <strong>best of three</strong> for each chance decision. You will run every procedure at least three times and keep the run you most want to hear again.</li>
+        <li>This single line is what separates indeterminacy from settling. Without it, chance is just an excuse to stop deciding.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Is every structural element on the "decided" side of the line? Kick, key, tempo, form, peak — none of them may be rolled.</li>
+        <li>Can a stranger read this file and list exactly what chance is choosing between? If not, rewrite until they can.</li>
+        <li>If you deleted the four chance hand-offs, would a complete (if static) track still be described? It must.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="14" cy="22" r="6"/><circle cx="30" cy="22" r="6"/><line x1="20" y1="22" x2="24" y2="22"/></svg>
+      </div>
+      <div class="step-num">Step 02</div>
+      <h2 class="step-title">Set up the project and confirm one clock</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Ableton project</div>
+      <ul>
+        <li><kbd>⌘ N</kbd>, <kbd>Tab</kbd> to Arrangement. Tempo <span class="code">124</span>, time ruler set to <span class="code">m:ss</span> so the form plan reads in minutes.</li>
+        <li>Tracks (<kbd>⌘ T</kbd>): <span class="code">DT DRUMS</span>, <span class="code">MF BASS</span>, <span class="code">MF DRONE</span>, <span class="code">ATMOS</span>. Returns (<kbd>⌘ ⌥ T</kbd>): <span class="code">A — REVERB</span>, <span class="code">B — ECHO</span>.</li>
+        <li>Save as <span class="code">b6003_chance.als</span> in a dedicated folder. Keep <span class="code">b6003_constitution.txt</span> and a new <span class="code">b6003_rolllog.txt</span> beside it.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Clock — one master, as always</div>
+      <ul>
+        <li>In <kbd>⌘ ,</kbd> → <strong>Link, Tempo &amp; MIDI</strong>, enable <strong>Sync</strong> on the Digitakt and MicroFreak output rows. Ableton is the only clock master.</li>
+        <li>If using the VCV path for Procedure D, slave VCV to Ableton over <strong>Link</strong> (VCV's Hub/clock module set to follow Link), and route its MIDI out to the MicroFreak.</li>
+        <li><strong>Verify before any roll:</strong> press play. Digitakt reads <span class="code">124</span>, MicroFreak's synced LFO follows, VCV's clock light blinks in time. A chance take recorded against a drifting clock cannot be reproduced <em>or</em> repaired.</li>
+      </ul>
+    </div>
+
+    <div class="signal-flow">
+      <span class="signal-node">Ableton (clock master)</span>
+      <span class="signal-arrow">→ Link / MIDI →</span>
+      <span class="signal-node">VCV chance engine</span>
+      <span class="signal-arrow">→ MIDI note →</span>
+      <span class="signal-node">MicroFreak bass</span>
+      <span class="signal-arrow">+ analog audio →</span>
+      <span class="signal-node">M4 → Ableton</span>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="14"/><circle cx="22" cy="22" r="5"/></svg>
+      </div>
+      <div class="step-num">Step 03</div>
+      <h2 class="step-title">Build the fixed drum foundation</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The part chance never touches</div>
+      <ul>
+        <li>On the Digitakt, project <span class="code">CHANCE LAB</span>, pattern <span class="code">A01</span>. Assign <span class="code">T1 KICK</span>, <span class="code">T2 HAT</span>, <span class="code">T3 PERC</span>, <span class="code">T4 TEXTURE</span>.</li>
+        <li>Kick on <span class="code">1, 5, 9, 13</span> — fixed, every bar, no condition. This is the spine the whole track hangs on.</li>
+        <li>Hat on <span class="code">3, 7, 11, 15</span>, plain trigs for now. Tune the kick's fundamental to A so it agrees with the bass.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Now place the first authored chance — Procedure B</div>
+      <ul>
+        <li>On <span class="code">T3 PERC</span>, one trig on step 8. Hold it, set the trig condition to <span class="code">35 %</span>. This trig plays <em>sometimes</em> — the only undetermined thing in the drum foundation.</li>
+        <li>Everything else on the drums is decided. Confirm: kick certain, hat certain, perc the single coin.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Solo the drums for two minutes: is the groove complete <em>without</em> the 35 % trig ever firing? It must stand alone — the coin decorates, it doesn't carry.</li>
+        <li>When the trig lands, is it a pleasant surprise rather than a missing-puzzle-piece? If you feel its absence as a gap, it's load-bearing and the condition is wrong.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><line x1="8" y1="30" x2="8" y2="18"/><line x1="16" y1="30" x2="16" y2="12"/><line x1="24" y1="30" x2="24" y2="22"/><line x1="32" y1="30" x2="32" y2="14"/><line x1="6" y1="30" x2="36" y2="30"/></svg>
+      </div>
+      <div class="step-num">Step 04</div>
+      <h2 class="step-title">Build the chance bassline — Procedure D, logged</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The MicroFreak patch (decided)</div>
+      <ul>
+        <li><kbd>Shift</kbd> + Type to init. Oscillator <span class="code">Wavetable</span>, monophonic, root at <span class="note">A1</span>. Cutoff at 11 o'clock, short envelope — the standard hypnotic bass voice.</li>
+        <li>The <em>sound</em> is fully composed. Only the <em>note choice</em> is handed off.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Wire the chance engine — pick one path</div>
+      <ul>
+        <li><strong>VCV path:</strong> random voltage → sample-and-hold clocked once per bar → quantizer set to A-minor with <em>only</em> degrees A, C, G enabled → MIDI to MicroFreak. The quantizer is the fence; without it this is Procedure F.</li>
+        <li><strong>Code path:</strong> <span class="code">Prand([0,3,7], inf)</span> in SuperCollider clocked per bar, MIDI out to the MicroFreak.</li>
+        <li><strong>Analog path:</strong> roll a die per bar — 1–2 = A1, 3–4 = C2, 5–6 = G1 — and play the logged sequence in by hand.</li>
+        <li>Whichever path: the bass plays only on steps 1, 7, 11. Step choice is decided; note choice is rolled.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Run it three times — the logged rolls</div>
+      <table class="param-table">
+        <caption>Best-of-three for the 8-bar bass seed (step order: bar.1 / bar.7 / bar.11)</caption>
+        <tr><td>Run 1</td><td>A·A·G / C·A·G / A·C·C / G·A·A — lands on root too often, feels safe. Reject.</td></tr>
+        <tr><td>Run 2</td><td>G·C·A / A·G·C / C·C·A / G·A·G — strong C2 tension mid-phrase, never fully resolves. <strong>Keep.</strong></td></tr>
+        <tr><td>Run 3</td><td>C·C·G / C·A·C / A·G·C / C·C·A — too much C2, reads as a different key centre. Reject.</td></tr>
+      </table>
+      <ul>
+        <li>Log all three runs verbatim in <span class="code">b6003_rolllog.txt</span>, mark Run 2 as kept, and note <em>why</em>. The rejected runs are part of the score — they prove you curated.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Record the kept run</div>
+      <ul>
+        <li>Arm <span class="code">MF BASS</span>, monitor <strong>Auto</strong>. Record <strong>4 minutes</strong> of Run 2 looping. Hands off the knobs — this is the static raw material; movement comes later from automation.</li>
+        <li>If using the live VCV/code path, the engine keeps re-rolling as it runs — that's fine, but you've committed to Run 2's character; let only the per-bar micro-variation stay live. Save the patch as <span class="code">LAB CHANCE BASS</span>.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Is the kept run one of several you'd have been happy with — or did you keep the first thing that played? Best-of-three is the law.</li>
+        <li>Does the bass leave the downbeats to the kick? Steps 1, 7, 11 should never bury the four-on-the-floor.</li>
+        <li>Remove the chance note-picker and play a single fixed note — is the part still recognisably this track? If yes, the fence is doing its job.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 5 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 22 q9 -4 18 0 t18 0"/><path d="M6 28 q9 -2 18 0 t18 0"/></svg>
+      </div>
+      <div class="step-num">Step 05</div>
+      <h2 class="step-title">Build the fixed drone and the chance texture — Procedure C</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The drone (decided)</div>
+      <ul>
+        <li>Init a fresh MicroFreak patch. Paraphonic on, hold <span class="note">A1</span> + <span class="note">E2</span>, long attack and release. Record a 4-minute hands-off take into <span class="code">MF DRONE</span>. EQ HP at <span class="code">120 Hz</span> → reverb send. The drone is the fixed room the chance lives inside — never rolled.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Author the two texture samples</div>
+      <ul>
+        <li>Resample two short MicroFreak fragments into the Digitakt, both in A-minor, both matched in level and decay. Load them into slots the texture trig can reach. Vet each one solo against the drone — if either fails, it doesn't go in the field.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Hand the choice to a coin — Procedure C, logged</div>
+      <ul>
+        <li><strong>Digitakt way:</strong> conditional sample lock — pattern A locks slot A on the texture trig; copy to pattern B, lock slot B; alternate with a per-cycle die roll (odd = A, even = B).</li>
+        <li><strong>VCV way:</strong> a guaranteed gate into a <strong>Bernoulli Gate</strong> at <span class="code">0.5</span>, outputs triggering sampler voices A and B. Rhythm fixed, timbre rolled.</li>
+        <li>Logged 16-cycle run: <span class="code">A B A A B A B B A A B A A B A B</span> — 9×A, 7×B, with a B-run around cycle 7 that gave the section unplanned movement. Kept on the first run because every cycle was usable; logged anyway.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Are both texture samples ones you'd keep on their own? If one is weaker, the coin will surface it half the time — fix the field, not the odds.</li>
+        <li>Does the texture sit under the drone, never fronting it? Target around <span class="code">-20 dB</span>, as in the studio reference.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 6 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="10" y="10" width="24" height="24" rx="4"/><circle cx="17" cy="17" r="2" fill="currentColor"/><circle cx="27" cy="17" r="2" fill="currentColor"/><circle cx="22" cy="22" r="2" fill="currentColor"/><circle cx="17" cy="27" r="2" fill="currentColor"/><circle cx="27" cy="27" r="2" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Step 06</div>
+      <h2 class="step-title">Pre-build six section variants — the charts for Procedure A</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Compose the field — six 16-bar variants</div>
+      <ul>
+        <li>This is the composition work, the equivalent of Cage's charts or Mozart's 176 bars. Build six 16-bar variants of the body, all sharing the fixed kick, drone, and key. They differ only in things chance is already touching: bass density, whether the perc condition is active, which texture is favoured.</li>
+      </ul>
+      <table class="param-table">
+        <caption>The six charts — each one keepable on its own</caption>
+        <tr><td>V1</td><td>Root-heavy bass, perc off, texture A favoured — the anchor</td></tr>
+        <tr><td>V2</td><td>C2 lift in the bass, perc 35 %, textures even</td></tr>
+        <tr><td>V3</td><td>Longest gaps, sparsest bass, perc off — the breath</td></tr>
+        <tr><td>V4</td><td>G1 emphasis, perc off, texture B favoured</td></tr>
+        <tr><td>V5</td><td>Full bass field, perc condition active, hat retrig every 8 bars</td></tr>
+        <tr><td>V6</td><td>C2/G1 alternating, perc 1:2, texture coin at 0.5</td></tr>
+      </table>
+      <ul>
+        <li>Render each variant to its own audio clip in Ableton so a die roll can drop them on the timeline directly. These are your numbered bars.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Roll the order — Procedure A, logged</div>
+      <table class="param-table">
+        <caption>Body order, eight 16-bar slots, die per slot (no consecutive repeats)</caption>
+        <tr><td>Slot 1 → 4</td><td>V4</td></tr>
+        <tr><td>Slot 2 → 4 → re-roll → 1</td><td>V1</td></tr>
+        <tr><td>Slot 3 → 6</td><td>V6</td></tr>
+        <tr><td>Slot 4 → 2</td><td>V2</td></tr>
+        <tr><td>Slot 5 → 5</td><td>V5 (sits at the peak — energy from the chart, not from new elements)</td></tr>
+        <tr><td>Slot 6 → 1</td><td>V1</td></tr>
+        <tr><td>Slot 7 → 3</td><td>V3 (the strip-back breath)</td></tr>
+        <tr><td>Slot 8 → 6</td><td>V6</td></tr>
+      </table>
+      <ul>
+        <li>Log the full sequence and the one re-roll. Note the happy accident: V5 landing on slot 5 put the densest chart exactly at the peak — chance handed you the structure, inside a fence where any order would have worked.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Is every one of the six variants a section you'd keep? If V3 is boring solo, it's not a valid chart entry — fix it before rolling.</li>
+        <li>Does the rolled order still respect the inherited form — intro before body, single peak, outro? The die orders the body; it never moves the peak.</li>
+        <li>Did you roll the order more than once and choose? Best-of-three applies here too — you kept this sequence over two others (logged).</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 7 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="4" y="14" width="10" height="6" rx="1"/><rect x="16" y="14" width="14" height="6" rx="1"/><rect x="32" y="14" width="8" height="6" rx="1"/><rect x="8" y="24" width="16" height="6" rx="1"/><rect x="26" y="24" width="12" height="6" rx="1"/></svg>
+      </div>
+      <div class="step-num">Step 07</div>
+      <h2 class="step-title">Assemble the timeline and place the fixed frame</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Lay the decided frame first</div>
+      <ul>
+        <li>Add locators: <span class="code">INTRO</span> (0:00), <span class="code">BODY</span> (1:00), <span class="code">PEAK</span> (4:30), <span class="code">OUTRO</span> (6:30), <span class="code">END</span> (8:00). These positions are from the constitution — not rolled.</li>
+        <li>Intro: drone + texture only, nothing rhythmic, for the first minute. Outro: drone carries the exit, kick out around 7:00, slow master fade.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Drop the rolled body in the logged order</div>
+      <ul>
+        <li>From bar 32 onward, place the eight variant clips in the Procedure A order: V4, V1, V6, V2, V5, V1, V3, V6. Cut on kick downbeats, 4-beat crossfades at every seam.</li>
+        <li>The recorded chance bass (Run 2) and the 35 % perc are already printed into those clips — the chance is baked, the order is rolled, the frame is fixed.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Play the seams: does each variant boundary land on a downbeat without a click or lurch? Re-cut any that don't.</li>
+        <li>Does the PEAK section get its energy purely from V5's density and the automation, with nothing new entering? That's the thesis of the genre and the test of the build.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 8 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 34 Q22 6 38 14"/><circle cx="6" cy="34" r="2.5" fill="currentColor"/><circle cx="38" cy="14" r="2.5" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Step 08</div>
+      <h2 class="step-title">Draw the automation — the human hand returns</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Movement is decided, not rolled</div>
+      <ul>
+        <li>Chance shaped the notes, the perc, the texture, and the order. The macro arc — the slow open and close — is yours, drawn by hand. Chance never automates the build's emotional curve.</li>
+        <li>Auto Filter (low-pass, 24 dB) on <span class="code">MF BASS</span>: cutoff ~600 Hz at 0:00, climbing to ~3.5 kHz at the 4:30 peak, back to ~800 Hz by 6:30. No ramp shorter than 8 bars; S-curves, not straight lines.</li>
+        <li>Drone volume and reverb send bloom at the peak, recede after. Echo feedback briefly self-regenerates at 5:00. All decided gestures.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>If you can hear the automation move, it's too fast — same rule as always.</li>
+        <li>Does the peak arrive because things <em>opened</em> (your automation) over a chart that <em>happened</em> to be dense (chance)? Two layers of authorship, neither pretending to be the other.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 9 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><line x1="12" y1="8" x2="12" y2="36"/><line x1="22" y1="8" x2="22" y2="36"/><line x1="32" y1="8" x2="32" y2="36"/><rect x="9" y="18" width="6" height="3" rx="0.5" fill="currentColor"/><rect x="19" y="24" width="6" height="3" rx="0.5" fill="currentColor"/><rect x="29" y="14" width="6" height="3" rx="0.5" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Step 09</div>
+      <h2 class="step-title">Curate — the second composition pass</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Listen to the whole run as one object</div>
+      <ul>
+        <li>Play the full eight minutes start to finish, twice, before changing anything. Curation is listening, not tweaking.</li>
+        <li>Mark any moment where chance produced something you'd <em>not</em> sign your name to. There should be very few, because the fences were tight — but if one exists, that's a fence failure, not a roll failure. Tighten the boundary and re-record that variant.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Decide what to keep, with the log open</div>
+      <ul>
+        <li>Read <span class="code">b6003_rolllog.txt</span> alongside the audio. For each kept run, confirm you can still defend the choice. For each rejected run, confirm you'd still reject it.</li>
+        <li>Mix pass as in the studio reference: kick owns 40–80 Hz, bass 80–180 Hz, drone HP at 120 Hz, texture HP at 220 Hz, master peaks ≤ <span class="code">-3 dBFS</span>, no limiter.</li>
+        <li>Export <span class="code">b6003_chance_v1.wav</span>, 48 kHz / 24-bit, normalize off. Collect All and Save. The track now exists as three recoverable layers plus a roll log that <em>is</em> its score.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Could you reproduce this exact track from the constitution plus the roll log? If the log is complete, yes — that's the proof the chance was authored, not arbitrary.</li>
+        <li>Did curation mean <em>choosing between good runs</em>, or <em>rescuing bad ones</em>? Only the first means the fences were right.</li>
+        <li>Remove all four chance hand-offs and play the constitution as a static track — is it coherent? It must be. Chance decorated structure; it never was the structure.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">What you just proved</div>
+    <p>The track's form was decided by chance — which note, which perc, which texture, which order — yet every second is one you authored, because you built every fence the dice rolled inside. That is Cage's architecture: authorship relocated from "which" to "which field of."</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="palette.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 05 / Procedures
+    </a>
+    <a href="reflection.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      07 / Reflection →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B6-003 — Chance Operations</div>
+
+</div>
+
+</body>
+</html>

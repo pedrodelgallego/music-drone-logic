@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B5-002 — Reverb — The Build</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B5-002<span class="labnote-topic">Reverb</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html" class="active"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B5-002</div>
+    <div class="eyebrow">Reverb · 06 — The build</div>
+    <h1>Building a track where the room is the form</h1>
+    <p class="lede">A complete reverb-defined piece, from empty project to render. We record everything dry, build three rooms, place each source at a chosen depth, and then let the space itself — growing, freezing, and stripping back — carry the whole arc. Each step is small, has a decision checkpoint, and spells out every value. Keep the <a href="setup.html">setup page</a> open in another tab; it is the wiring this page assumes.</p>
+  </header>
+
+  <!-- STEP 1 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 14 v20 a2 2 0 0 0 2 2 h28 a2 2 0 0 0 2 -2 v-16 a2 2 0 0 0 -2 -2 h-14 l-4 -4 h-10 a2 2 0 0 0 -2 2 z"/></svg>
+      </div>
+      <div class="step-num">Step 01</div>
+      <h2 class="step-title">Create the project and the three rooms</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Open the set</div>
+      <ul>
+        <li><kbd>⌘ N</kbd> for a new Live Set, <kbd>Tab</kbd> to <strong>Arrangement</strong> view. Tempo <span class="code">124</span>, <span class="code">4/4</span>.</li>
+        <li>Right-click the timeline ruler → <span class="menu">Time Ruler Format → Time</span> so positions read as <span class="code">m:ss</span>.</li>
+        <li><kbd>⌘ T</kbd> four times for audio tracks: <span class="code">DT DRUMS</span>, <span class="code">MF BASS</span>, <span class="code">MF DRONE</span>, <span class="code">ATMOS</span>.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Create the three return tracks</div>
+      <ul>
+        <li><kbd>⌘ ⌥ T</kbd> three times → rename <span class="code">A — NEAR ROOM</span>, <span class="code">B — FAR HALL</span>, <span class="code">C — FREEZE</span>.</li>
+        <li>Build each one exactly as the <a href="setup.html">setup page</a> specifies — Room 0.9 s, Hall 7 s, Freeze 12 s, all at <span class="code">100 %</span> wet, all high-passed before the reverb.</li>
+        <li>On <span class="code">B — FAR HALL</span>, add the kick-sidechained Compressor after the reverb now, even though there is no kick yet. Wiring it early means you won't forget it later.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The wet/dry check, done once and for all</div>
+      <ul>
+        <li>Click each return's Hybrid Reverb and confirm Dry/Wet reads <span class="code">100 %</span>. Write it on a sticky note if you have to. Every muddy reverb mix in history started with a return left at 50&nbsp;%.</li>
+        <li><kbd>⌘ S</kbd> → save as <span class="code">reverb_lab_b5_002.als</span> in a dedicated project folder.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Are all three returns at 100&nbsp;% wet?</li>
+        <li>Is each return high-passed before its reverb?</li>
+        <li>Does the project read tempo on both hardware boxes once you enable sync (see Step 02)?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="14" cy="22" r="6"/><circle cx="30" cy="22" r="6"/><line x1="20" y1="22" x2="24" y2="22"/></svg>
+      </div>
+      <div class="step-num">Step 02</div>
+      <h2 class="step-title">Record every source dry</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Sync and gain-stage the hardware</div>
+      <ul>
+        <li>Enable MIDI clock + transport to the Digitakt II and MicroFreak (Ableton is the only master). Press play; confirm both boxes show <span class="code">124</span>.</li>
+        <li>MicroFreak Out → M4 In 1 (mono); Digitakt II Main L/R → M4 In 3/4 (stereo). Peaks <span class="code">-12 to -6 dBFS</span>.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The drone — the source the big room acts on</div>
+      <ul>
+        <li>MicroFreak: <kbd>Shift</kbd> + press Type to init, choose <span class="code">Wavetable</span> or <span class="code">Harmo</span>. Paraphonic <strong>on</strong>. Long attack and release. Filter dark (10 o'clock).</li>
+        <li>Two slow, unsynced modulations: LFO → Timbre ~25, Cycling Env (loop, slow) → Wave ~15.</li>
+        <li>Press <kbd>Hold</kbd>, play root <span class="note">A1</span> + fifth <span class="note">E2</span>. Arm <span class="code">MF DRONE</span>, Monitor Auto, record <strong>4 minutes</strong> totally dry. Save the patch as <span class="code">LAB DRONE</span>.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Bass, drums, and a single perc hit for the room</div>
+      <ul>
+        <li><span class="code">MF BASS</span>: monophonic, dark, short envelope, 3–5 notes in A minor, root on step 1. Record 4 minutes dry. Save patch <span class="code">LAB BASS</span>.</li>
+        <li><span class="code">DT DRUMS</span>: kick on <span class="code">1, 5, 9, 13</span>; tight hat on offbeats; <strong>one</strong> rim or metallic perc hit on step <span class="code">8</span>. Tune the kick to A or E. Keep the kick's Digitakt reverb send at zero — the kick must stay dry and near.</li>
+        <li>Record a separate muted-kick pass into a <span class="code">DT KICK</span> track for clean sidechaining of the far hall and bass.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Is every take genuinely dry — no Digitakt reverb baked in?</li>
+        <li>Is there exactly one percussive hit (the perc on step 8) chosen to show off the room later?</li>
+        <li>Are the kick and bass tuned to agree, so the dry low end stays clean under all that space?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><line x1="10" y1="34" x2="34" y2="34"/><circle cx="14" cy="28" r="2.5" fill="currentColor"/><circle cx="24" cy="20" r="2.5"/><circle cx="32" cy="12" r="2.5" opacity="0.5"/></svg>
+      </div>
+      <div class="step-num">Step 03</div>
+      <h2 class="step-title">Place each source by depth</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Assign depths before touching a send</div>
+      <ul>
+        <li>Decide the depth ranking out loud: <strong>bass = dead front, dry</strong>; <strong>kick = near</strong>; <strong>perc = mid</strong>; <strong>drone = far</strong>; <strong>atmosphere = the room itself</strong>. Write it down. Every send setting below serves this ranking.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Set the sends, source by source</div>
+      <table class="param-table">
+        <caption>Send levels — start here, then trust the depth test</caption>
+        <tr><td>MF BASS → A, B</td><td><span class="code">off / off</span> — bass stays dry and front</td></tr>
+        <tr><td>DT DRUMS → A (near room)</td><td><span class="code">-18 dB</span> — body and place, no tail</td></tr>
+        <tr><td>DT DRUMS → B (far hall)</td><td><span class="code">off</span> — drums must not blur</td></tr>
+        <tr><td>Perc (via p-lock send on Digitakt) → A</td><td><span class="code">-10 dB</span> — the one hit allowed to show the room</td></tr>
+        <tr><td>MF DRONE → A (near room)</td><td><span class="code">-16 dB</span> — a little definition</td></tr>
+        <tr><td>MF DRONE → B (far hall)</td><td><span class="code">-6 dB</span> — most of the drone dissolves into the hall</td></tr>
+      </table>
+      <ul>
+        <li>The drone going to <em>both</em> returns is the place-and-blur trick from the listen page: its body sits in the near room, its tail walks far back into the hall.</li>
+        <li>Resist the urge to send the bass anywhere. Every reverberant low frequency you add now is a decision you will have to undo in the mix, and the dry bass is precisely what makes the vast room above it legible — there has to be one solid object in front for the depth behind it to register. A track where everything is reverberant has no near, and a mix with no near has no far either; the two only exist in contrast.</li>
+        <li>Set the perc send via a parameter-lock on the Digitakt rather than a fixed track send, so only the chosen hit on step 8 wakes the room. A constant perc send would keep the near room ringing under every offbeat and quickly turn placement into wash.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The depth test</div>
+      <ul>
+        <li>Close your eyes and play 16 bars. Point with your finger at where each sound sits, front to back. If two sounds occupy the same depth and shouldn't, change a send — not a fader.</li>
+        <li>Flip every return to mono for ten seconds. If the drone collapses or the room hisses, pull the offending send or revisit the return EQ.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Can you point to a clear near / mid / far for the four main sounds?</li>
+        <li>Is the bass still dry and unmistakably in front?</li>
+        <li>Does muting send A make the drums flatten (placement working), and muting send B make the drone shrink (blur working)?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><line x1="22" y1="8" x2="22" y2="36"/><line x1="8" y1="22" x2="36" y2="22"/><line x1="12" y1="12" x2="32" y2="32"/><line x1="32" y1="12" x2="12" y2="32"/></svg>
+      </div>
+      <div class="step-num">Step 04</div>
+      <h2 class="step-title">Freeze a tail and print the atmosphere</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Capture the cloud</div>
+      <ul>
+        <li>Temporarily raise <span class="code">MF DRONE → C (FREEZE)</span> send to <span class="code">0 dB</span>. Let one sustained chord ring into the freeze return.</li>
+        <li>Click <span class="code">Freeze</span> on the FREEZE return's Hybrid Reverb at a moment the chord is full and rich. The tail now holds forever.</li>
+        <li>New audio track, Audio From → <strong>Resampling</strong>, Monitor Off. Arm it. <kbd>⌘ ⇧ R</kbd>, record <strong>32 bars</strong> of the frozen cloud. Un-freeze, and drop the FREEZE send back to off.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Turn the cloud into a layer</div>
+      <ul>
+        <li>Drag the resampled clip to <span class="code">ATMOS</span>. Double-click → <span class="menu">Reverse</span> so it swells <em>toward</em> events instead of away — free anticipation, in key, from material you already had.</li>
+        <li>Auto Filter HP @ <span class="code">300 Hz</span>, gentle resonance. Send <span class="code">ATMOS → B</span> at <span class="code">-9 dB</span> so the printed tail itself sits in the far hall.</li>
+      </ul>
+      <div class="note-block">
+        <ul>
+          <li><strong>The throughline in practice:</strong> the music happened in the return path, and you committed it. The atmosphere is now reverb made solid — it keeps playing even when you later automate the live reverb down to nothing.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Is the FREEZE send back to off, so it isn't quietly bleeding into the mix?</li>
+        <li>Does the printed atmosphere read as material you could solo, not as a live effect?</li>
+        <li>Reversed, does it create lift into each section rather than a tail dragging behind?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 5 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 34 Q22 6 38 14"/><circle cx="6" cy="34" r="2.5" fill="currentColor"/><circle cx="38" cy="14" r="2.5" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Step 05</div>
+      <h2 class="step-title">Automate the room — the space is the arrangement</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">What moves, and what doesn't</div>
+      <ul>
+        <li>In a reverb-led track, the arrangement is mostly drawn on three lanes: the <strong>drone's send to B</strong>, the <strong>far hall's decay</strong>, and the <strong>far hall's pre-delay</strong>. Almost nothing else needs to change. This is the discipline the whole Lab Note is built around: instead of fading instruments in and out, you grow and shrink the space they sit in, and the listener experiences that as the music breathing rather than as parts being switched.</li>
+        <li>Treat the three lanes as one gesture, not three. They should peak together at the same moment, because a room that is simultaneously louder, longer, and larger reads as a single physical event — the walls moving outward — rather than as three plug-in parameters drifting independently. If they peak at different times the effect smears and the ear stops believing it is a real space.</li>
+        <li><kbd>A</kbd> shows automation lanes, <kbd>B</kbd> is the pencil. No ramp shorter than <strong>16 bars</strong> — the room should grow so slowly the listener never catches it changing. The single most common mistake here is impatience: a reverb send that climbs over four bars is heard as someone turning a knob, while the same climb over thirty-two bars is heard as the architecture itself opening up.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The space-growth map</div>
+      <table class="param-table">
+        <caption>Drone send → B (far hall) — times → bars at 124 BPM</caption>
+        <tr><td>0:00 (bar 1)</td><td><span class="code">-12 dB</span> — a modest room; the drone is mostly itself</td></tr>
+        <tr><td>3:00 (bar 94)</td><td><span class="code">-6 dB</span> — the hall starts to take over</td></tr>
+        <tr><td>4:30 (bar 140)</td><td><span class="code">0 dB</span> — the drone has all but dissolved; the room is the loudest thing</td></tr>
+        <tr><td>5:30 – 6:30 (bars 171–202)</td><td>back to <span class="code">-10 dB</span> — the space recedes and the source returns</td></tr>
+      </table>
+      <table class="param-table">
+        <caption>Far hall decay + pre-delay</caption>
+        <tr><td>Decay @ 0:00</td><td><span class="code">4 s</span> — a room you can hear through</td></tr>
+        <tr><td>Decay @ 4:30 (peak)</td><td><span class="code">9 s</span> — tails overlap into a single cloud</td></tr>
+        <tr><td>Decay @ 6:30</td><td><span class="code">4 s</span> — back to a readable space</td></tr>
+        <tr><td>Pre-delay @ 4:30</td><td><span class="code">40 → 70 ms</span> — the room grows physically larger at the peak</td></tr>
+      </table>
+      <table class="param-table">
+        <caption>Near room + master</caption>
+        <tr><td>Near room (A) send on drums</td><td>Flat the whole track — placement should never move</td></tr>
+        <tr><td>Master volume @ 7:00 – 8:00</td><td>slow fade over the final 45 s; the last thing heard is the tail</td></tr>
+      </table>
+      <ul>
+        <li>Bend every ramp into an S-curve (<span class="menu">Curve</span> on the segment) — straight lines read as a ruler, S-curves read as intention.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Perform it on hardware (optional but better)</div>
+      <ul>
+        <li><kbd>⌘ M</kbd> for MIDI map. Map the drone's B-send and the far hall's Decay to two Launchpad controls. Set each mapping's Min/Max to the musical range above so a full pad sweep covers exactly that span.</li>
+        <li><kbd>F9</kbd> Arrangement Record, play the whole 8 minutes, and ride the two controls <em>slower than feels natural</em>. Two takes, keep the calmer one. Afterwards, <span class="menu">Simplify Envelope</span> on each lane.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Play 4:00 – 5:00 blind: does the peak arrive because the <em>room opened</em>, not because anything was added? That is the thesis of this Lab Note.</li>
+        <li>If you can hear the reverb change as an event, the ramp is too fast — stretch it.</li>
+        <li>Can you remove one automation lane without weakening the arc? If yes, remove it.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 6 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="4" y="14" width="10" height="6" rx="1"/><rect x="16" y="14" width="14" height="6" rx="1"/><rect x="32" y="14" width="8" height="6" rx="1"/><rect x="8" y="24" width="16" height="6" rx="1"/><rect x="26" y="24" width="12" height="6" rx="1"/></svg>
+      </div>
+      <div class="step-num">Step 06</div>
+      <h2 class="step-title">Arrange clips around the moving room</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Mark the map — sections are room-states</div>
+      <ul>
+        <li>Right-click the scrub area → <span class="menu">Add Locator</span> at each boundary. Name them for the <em>space</em>, not the instruments: <span class="code">SMALL</span>, <span class="code">PULSE</span>, <span class="code">OPENING</span>, <span class="code">VAST</span>, <span class="code">RECEDING</span>, <span class="code">TAIL</span>.</li>
+      </ul>
+      <table class="param-table">
+        <caption>Section → room state → time/bar at 124 BPM</caption>
+        <tr><td>SMALL — 0:00 / bar 1</td><td>Dry drone in a modest room; no beat. The listener settles into the space.</td></tr>
+        <tr><td>PULSE — 1:30 / bar 47</td><td>Kick enters into the near room; the room gets a heartbeat.</td></tr>
+        <tr><td>OPENING — 3:00 / bar 94</td><td>Bass + perc; drone send to the hall begins climbing.</td></tr>
+        <tr><td>VAST — 4:30 / bar 140</td><td>Peak. Nothing new enters — the room is at its largest (decay 9 s, send 0 dB).</td></tr>
+        <tr><td>RECEDING — 5:30 / bar 171</td><td>Space shrinks back; the dry sources re-emerge from the wash.</td></tr>
+        <tr><td>TAIL — 7:00 / bar 218</td><td>Beat out, drone out; only the printed atmosphere and the last live tail.</td></tr>
+        <tr><td>END — 8:00 / bar 249</td><td>Silence after the fade.</td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Clip placement, section by section</div>
+      <ul>
+        <li><strong>SMALL</strong> — Drone from bar 1, printed atmosphere underneath at <span class="code">-22 dB</span>. No drums.</li>
+        <li><strong>PULSE</strong> — DT drums (kick-only portion) from bar 47. <kbd>⌘ E</kbd>-split the take if it opened busy and use only the kick here.</li>
+        <li><strong>OPENING</strong> — Bass from bar 94 with a 4-bar fade-in drawn on the clip corner; perc audible shortly after. The hall-send automation is already climbing through here.</li>
+        <li><strong>VAST</strong> — <em>No new clips.</em> The peak is entirely the room automation from Step 05.</li>
+        <li><strong>RECEDING</strong> — Drum clip gain down 2 dB; the hall send retreats. The strip-back makes the earlier vastness feel retroactively bigger.</li>
+        <li><strong>TAIL</strong> — Cut bass and drums; let the printed atmosphere and the decaying live tail carry the exit under the master fade.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Editing craft</div>
+      <ul>
+        <li>Make every cut on a kick downbeat: <kbd>⌘ E</kbd> at the playhead with grid snap on.</li>
+        <li>Where two takes meet, overlap by one bar and use a 4-beat crossfade — hard butt-joins click, and a click is fatal inside a quiet reverberant passage.</li>
+        <li>When a section's edits are final, select its clips and <kbd>⌘ J</kbd> to consolidate.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does each section feel like a <em>different size of room</em> rather than a different set of instruments?</li>
+        <li>Is the VAST section genuinely empty of new clips, carried only by space?</li>
+        <li>Do any edits click against the quiet tail? Loop each seam (<kbd>⌘ L</kbd>) and listen three times.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 7 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><line x1="12" y1="8" x2="12" y2="36"/><line x1="22" y1="8" x2="22" y2="36"/><line x1="32" y1="8" x2="32" y2="36"/><rect x="9" y="18" width="6" height="3" rx="0.5" fill="currentColor"/><rect x="19" y="24" width="6" height="3" rx="0.5" fill="currentColor"/><rect x="29" y="14" width="6" height="3" rx="0.5" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Step 07</div>
+      <h2 class="step-title">Mix the space, then export</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Balance with the room in mind</div>
+      <table class="param-table">
+        <caption>Starting balance</caption>
+        <tr><td>DT Drums</td><td>-10 dB (peaks ~ -6 dBFS)</td></tr>
+        <tr><td>Bass</td><td>-12 dB, dry</td></tr>
+        <tr><td>Drone</td><td>-16 dB</td></tr>
+        <tr><td>Atmosphere (printed tail)</td><td>-22 dB</td></tr>
+        <tr><td>A — Near Room</td><td>-9 dB</td></tr>
+        <tr><td>B — Far Hall</td><td>-8 dB (automated)</td></tr>
+        <tr><td>Master peak</td><td>≤ -3 dBFS, including the VAST bloom</td></tr>
+      </table>
+      <ul>
+        <li>Pull all faders to <span class="code">-inf</span>, then raise one at a time, 30 s apart: kick, bass, drone, atmosphere, then the returns. Each return earns its level against a mix that already works dry.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Verification passes for a reverberant mix</div>
+      <ul>
+        <li><strong>Low-end check:</strong> confirm the kick owns 40–80 Hz and the bass 80–180 Hz with <em>nothing reverberant</em> below 250 Hz. If the low end is woolly, the return high-pass slipped — raise it.</li>
+        <li><strong>Mono check:</strong> flip the master to mono. The reverb should narrow but survive; if the drone vanishes, the far-hall image is over-wide.</li>
+        <li><strong>Sidechain check:</strong> watch the far-hall Compressor's gain reduction through the VAST section — it should breathe open between kicks, ~3 dB dips, not pump.</li>
+        <li><strong>Quiet check:</strong> listen once at low volume. The depth ranking — near vs. far — should still be obvious. If everything flattens to one distance, the sends need spreading.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Export and step away</div>
+      <table class="param-table">
+        <caption>Render</caption>
+        <tr><td>Rendered Track</td><td>Master</td></tr>
+        <tr><td>Render Length</td><td>8:00 — extend the end so the final reverb tail is captured in full</td></tr>
+        <tr><td>File Type / SR / Bit</td><td>WAV / 48000 Hz / 24-bit</td></tr>
+        <tr><td>Normalize</td><td>OFF — the headroom you protected is part of the sound</td></tr>
+        <tr><td>Filename</td><td>reverb_lab_b5_002_v1.wav</td></tr>
+      </table>
+      <ul>
+        <li><span class="menu">File → Collect All and Save</span>, then listen on other systems. Note timestamps, not feelings: <span class="code">4:40 room too long, smears the perc</span>. Wait a day, change one thing, render v2.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does the finished track sound like one coherent space that changes size, rather than separate sounds with reverb on them?</li>
+        <li>Is the low end clean despite all the room above it?</li>
+        <li>Did the render capture the full final tail, or did it cut off?</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-nav">
+    <a href="palette.html">
+      <span class="page-nav-direction">Previous</span>
+      &larr; 05 / Palette
+    </a>
+    <a href="reflection.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      07 / Reflection &rarr;
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B5-002 — Reverb</div>
+
+</div>
+
+</body>
+</html>

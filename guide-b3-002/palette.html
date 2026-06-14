@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B3-002 — Probability — Palette</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B3-002<span class="labnote-topic">Probability</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html" class="active"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B3-002</div>
+    <div class="eyebrow">Probability · 05 — Palette</div>
+    <h1>One conditional pattern, built one condition at a time</h1>
+    <p class="lede">A worked example you can program in five minutes and then study for an hour. We start from a dead-static skeleton and add exactly one condition per step, naming what each one buys. By the end the loop never repeats &mdash; and you can point to the rule responsible for every surprise.</p>
+  </header>
+
+  <h2>Layer 0 — the skeleton</h2>
+
+  <div class="pattern-wrap">
+    <div class="pattern">
+      <div class="pattern-label">Kick</div>
+      <div class="pattern-step on">1</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+      <div class="pattern-step on">5</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+      <div class="pattern-step on">9</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+      <div class="pattern-step on">13</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+
+      <div class="pattern-label">Hat</div>
+      <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step on">3</div><div class="pattern-step"></div>
+      <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step on">7</div><div class="pattern-step"></div>
+      <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step on">11</div><div class="pattern-step"></div>
+      <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step on">15</div><div class="pattern-step"></div>
+    </div>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li>Four kicks, four offbeat hats. Program this with <strong>no conditions at all</strong> and loop it. It is deliberately boring &mdash; that is the point. This is the body the surprises will surprise against. If this skeleton can't hold its own for 30 seconds, fix it before adding a single condition.</li>
+    </ul>
+  </div>
+
+  <h2>Layer 1 — one independent ghost (%)</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="15"/><path d="M22 12a10 10 0 0 1 0 20z" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Condition 01</div>
+      <h2 class="step-title">A 35 % perc hit on step 7</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Program it</div>
+      <ul>
+        <li>On the perc track place a trig on step 7. Hold it, set <strong>TRG</strong> condition to <span class="code">35 %</span>.</li>
+        <li>Loop and count: roughly one bar in three, a perc taps just after the second kick. You can't predict which bar.</li>
+        <li><strong>What it buys:</strong> the first crack in the loop's sameness. With one trig, "bar 1" and "bar 2" are no longer guaranteed identical.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="pattern-wrap">
+    <div class="pattern">
+      <div class="pattern-label">Perc</div>
+      <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+      <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step ghost">7<br>35%</div><div class="pattern-step"></div>
+      <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+      <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+    </div>
+  </div>
+
+  <h2>Layer 2 — a dependent tail (PRE)</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M8 30L18 14L28 30"/><path d="M22 30L30 18L38 30"/></svg>
+      </div>
+      <div class="step-num">Condition 02</div>
+      <h2 class="step-title">A PRE hit on step 12</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Program it</div>
+      <ul>
+        <li>On the same perc track, place a trig on step 12. Set its condition to <span class="code">PRE</span>.</li>
+        <li>Step 12 now fires <em>only</em> when step 7 (the previous conditional trig on this track) fired. The two become a single gesture: either a two-note figure or silence.</li>
+        <li><strong>What it buys:</strong> the random hit on 7 stops sounding like a glitch. It now reads as the head of a phrase &mdash; cause and effect the ear can follow.</li>
+      </ul>
+    </div>
+    <div class="note-block">
+      <ul>
+        <li>Try the inverse for contrast: set step 12 to the inverted PRE and it fires only when step 7 <em>didn't</em> &mdash; a fill-in that covers the gap. Same two trigs, opposite logic.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="pattern-wrap">
+    <div class="pattern">
+      <div class="pattern-label">Perc</div>
+      <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+      <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step ghost">7<br>35%</div><div class="pattern-step"></div>
+      <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step ghost">12<br>PRE</div>
+      <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+    </div>
+  </div>
+
+  <h2>Layer 3 — a periodic accent (A:B)</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="14"/><path d="M22 8v14l10 5"/><circle cx="22" cy="22" r="2" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Condition 03</div>
+      <h2 class="step-title">A 1:4 accent on step 15</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Program it</div>
+      <ul>
+        <li>Place a perc trig on step 15 and set its condition to <span class="code">1:4</span>. It fires on the first pattern cycle of every four &mdash; once a bar group, like clockwork.</li>
+        <li>Unlike steps 7 and 12, this one is fully predictable. That is its job: it imposes a four-bar phrase on a one-bar pattern.</li>
+        <li><strong>What it buys:</strong> <em>form</em>. The loop now has a felt downbeat-of-the-phrase. The random hits give texture; this gives architecture.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Layer 4 — the high-probability hat (absence as event)</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><line x1="8" y1="22" x2="36" y2="22"/><circle cx="14" cy="22" r="2.5" fill="currentColor"/><circle cx="22" cy="22" r="2.5"/><circle cx="30" cy="22" r="2.5" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Condition 04</div>
+      <h2 class="step-title">Hat step 15 at 80 %</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Program it</div>
+      <ul>
+        <li>Take the final hat (step 15) and set it to <span class="code">80 %</span>. It plays most bars &mdash; but one bar in five it vanishes.</li>
+        <li>Because the hat is otherwise reliable, the ear treats its rare absence as the surprise. A hole where a hit should be.</li>
+        <li><strong>What it buys:</strong> a second flavour of uncertainty. Steps 7 and 12 surprise by <em>appearing</em>; this one surprises by <em>disappearing</em>.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>The complete pattern</h2>
+
+  <div class="pattern-wrap">
+    <div class="pattern">
+      <div class="pattern-label">Kick</div>
+      <div class="pattern-step on">1</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+      <div class="pattern-step on">5</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+      <div class="pattern-step on">9</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+      <div class="pattern-step on">13</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+
+      <div class="pattern-label">Hat</div>
+      <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step on">3</div><div class="pattern-step"></div>
+      <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step on">7</div><div class="pattern-step"></div>
+      <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step on">11</div><div class="pattern-step"></div>
+      <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step ghost">15<br>80%</div><div class="pattern-step"></div>
+
+      <div class="pattern-label">Perc</div>
+      <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+      <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step ghost">7<br>35%</div><div class="pattern-step"></div>
+      <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step ghost">12<br>PRE</div>
+      <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step accent">15<br>1:4</div><div class="pattern-step"></div>
+    </div>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Reading the pattern:</strong> kick and three hats are guaranteed &mdash; the skeleton. Hat 15 plays 80 % (its absence is the event). Perc 7 plays 35 % (genuine surprise); perc 12 only plays as a tail when 7 did (PRE chain); perc 15 is a deterministic accent every fourth cycle (1:4 phrasing). Four uncertainties &mdash; two that appear, one that disappears, one periodic &mdash; over one fixed body. The loop never repeats and never wanders.</li>
+    </ul>
+  </div>
+
+  <h2>Optional layer 5 — a cross-track binding (NEI)</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M22 8l4 9 10 1-7 7 2 10-9-5-9 5 2-10-7-7 10-1z"/></svg>
+      </div>
+      <div class="step-num">Condition 05</div>
+      <h2 class="step-title">A reverb-tail sample bound to the perc by NEI</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Program it</div>
+      <ul>
+        <li>On the track directly below perc, load a short reverb-tail or click sample. Place a trig on step 7 and set its condition to <span class="code">NEI</span>.</li>
+        <li>It now fires only when the perc's step-7 condition fired &mdash; the tail only ever follows a perc hit that actually happened.</li>
+        <li><strong>What it buys:</strong> the appearing hit gains a shadow. Two tracks move together by chance, deepening one event instead of adding a fifth independent one.</li>
+      </ul>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Can I name the rule behind every surprise in this loop?</li>
+        <li>Did I keep the uncertain hits to a handful while the skeleton stayed dominant?</li>
+        <li>Do I have both flavours present &mdash; appearing (%) and disappearing (high %) &mdash; and both kinds (independent and periodic)?</li>
+        <li>After three minutes of looping, does it still surprise me, or have I memorised the schedule?</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-nav">
+    <a href="setup.html">
+      <span class="page-nav-direction">Previous</span>
+      &larr; 04 / Setup
+    </a>
+    <a href="build.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      06 / The build &rarr;
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B3-002 — Probability</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B7-002 — Live Resampling — The build</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B7-002<span class="labnote-topic">Live Resampling</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Capture palette</a>
+  <a href="build.html" class="active"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B7-002</div>
+    <div class="eyebrow">Live Resampling · 06 — The build</div>
+    <h1>Build a performable resampling section</h1>
+    <p class="lede">A full, performable set section that feeds on itself — captured live, transformed, returned, retired, and recovered if it goes wrong. Each step is small, each has a decision checkpoint, and every routing move and latency number is spelled out. Keep the <a href="setup.html">setup page</a> open in another tab — it is the wiring this page assumes — and the <a href="decisions.html">decisions page</a> beside it, since this page only executes what you settled there.</p>
+  </header>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Read this once before touching anything.</strong> The ten steps below run in order, and the order is the safety. Steps 01–03 are cold setup — clock, channels, latency — done in rehearsal, never on stage. Steps 04–08 are the live loop itself: source, capture, transform, return, feed. Steps 09–10 are recovery and capture-the-take. Skipping ahead to the fun part (the capture) before the clock and latency are locked is the single most common way this technique fails in front of a room.</li>
+      <li><strong>The whole section is one idea repeated.</strong> You will perform the same loop — arm, capture on the bar, transform once, return under the source, retire — three or four times across 64 bars. Each pass replaces the last. The build is not in adding; it is in the discipline of letting one generation live at a time. If that sounds like the restraint from every other Lab Note, it is: do less, but make each element evolve.</li>
+      <li><strong>Originality lives in the source.</strong> A resampled layer is your own output, in your own key, at your own tempo — there is nothing to copy and nothing to borrow. The only way this section sounds like someone else's is if your source does. Build an original groove first; the loop will keep it original.</li>
+    </ul>
+  </div>
+
+  <!-- STEP 1 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 14 v20 a2 2 0 0 0 2 2 h28 a2 2 0 0 0 2 -2 v-16 a2 2 0 0 0 -2 -2 h-14 l-4 -4 h-10 a2 2 0 0 0 -2 2 z"/></svg>
+      </div>
+      <div class="step-num">Step 01</div>
+      <h2 class="step-title">Confirm the rig and the clock</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Set the session</div>
+      <ul>
+        <li>Open the live set. Tempo <span class="code">124</span>, time signature <span class="code">4/4</span>. The whole loop is built on a clean bar count, so the grid must be correct before anything else.</li>
+        <li><kbd>⌘ ,</kbd> → <span class="menu">Audio</span>. Sample Rate <span class="code">48000 Hz</span>, Buffer Size <span class="code">256 samples</span>. Write this buffer size down — your measured latency offset is only valid for this exact value.</li>
+        <li><kbd>⌘ ,</kbd> → <span class="menu">Record, Warp &amp; Launch</span>. Record Quantization → <span class="code">1 Bar</span>. Turn <strong>OFF</strong> <span class="menu">Auto-Warp Long Samples</span> — your captures are already on the grid; auto-warp would smear their transients.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">One clock master</div>
+      <ul>
+        <li>Ableton is clock + transport master. In <span class="menu">Link, Tempo &amp; MIDI</span>, enable <strong>Sync</strong> on the output row of every hardware box you sync.</li>
+        <li>Digitakt II / Octatrack: clock <em>receive</em> on, transport <em>receive</em> on, clock <em>send</em> <strong>off</strong>. Exactly one device sends clock.</li>
+        <li><strong>Verify before continuing:</strong> press play. Every box starts instantly and reads <span class="code">124</span>. Press stop; all stop. If either fails, fix it now — every later step assumes one locked clock.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Is there exactly one clock master, with everything else slaved?</li>
+        <li>Does every box start and stop with the transport, on the bar?</li>
+        <li>Is the buffer size noted, so the latency measurement in Step 02 stays valid?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="14"/><path d="M22 14v8l6 4"/></svg>
+      </div>
+      <div class="step-num">Step 02</div>
+      <h2 class="step-title">Build the capture and return channels</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Capture track</div>
+      <ul>
+        <li><kbd>⌘ T</kbd> → audio track <span class="code">RS CAPTURE</span>. <kbd>⌘ R</kbd> to rename. Audio From → <span class="menu">Resampling</span>. This taps the full internal mix, post-master-fader.</li>
+        <li>Monitor → <strong>Off</strong>. The capture track must never monitor — monitoring a resampling input is an instant feedback path.</li>
+        <li>In Session view, the track's clip slots will hold each capture. Their record length is governed by the <span class="code">1 Bar</span> quantization from Step 01.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Return track</div>
+      <ul>
+        <li><kbd>⌘ T</kbd> → audio track <span class="code">RS RETURN</span>. This plays the captured clip back into the mix. Keep it separate from <span class="code">RS CAPTURE</span> so the engine can never record its own output.</li>
+        <li>Build the return chain in this order: <strong>EQ Eight</strong> (high-pass ~<span class="code">200 Hz</span>, ready but bypassed) → <strong>Limiter</strong> (ceiling <span class="code">-1 dBFS</span>, fast release).</li>
+        <li>Pull the <span class="code">RS RETURN</span> fader to <span class="code">-6 dB</span> as a starting ceiling. This is the gain discipline made physical; you will lower it, never raise it, live.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Map the live controls</div>
+      <ul>
+        <li><kbd>⌘ M</kbd> → MIDI map mode. Map a single pad to <strong>arm the capture clip slot</strong>, a second to <strong>launch the return clip</strong>, and a fader/encoder to the <span class="code">RS RETURN</span> volume.</li>
+        <li>Map the high-pass bypass and the transform control (sample start, or Simpler transpose) you chose on the <a href="palette.html">palette page</a>. Map four controls and no more — capture, launch, return level, transform.</li>
+        <li>Exit map mode. Tap each control once to confirm it responds. A control you discover is unmapped <em>during</em> the set is a control you will fumble.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Are capture and return on separate tracks, so the engine cannot sample itself?</li>
+        <li>Is <span class="code">RS CAPTURE</span> monitor set to Off?</li>
+        <li>Is the limiter last in the return chain, ceiling at -1 dBFS?</li>
+        <li>Are exactly four controls mapped, and does each respond?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="14"/><circle cx="22" cy="22" r="5" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Step 03</div>
+      <h2 class="step-title">Measure the round-trip latency</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The click-capture test</div>
+      <ul>
+        <li>Program a single click on the downbeat of an empty 1-bar pattern on the clock master.</li>
+        <li>Arm the <span class="code">RS CAPTURE</span> clip slot. On the bar, capture exactly one bar. Stop.</li>
+        <li>Drag the captured clip onto the timeline. Zoom all the way into bar 1. The click transient sits a few milliseconds <em>after</em> the grid line — that gap is the round-trip latency.</li>
+        <li>At <span class="code">48 kHz / 256 samples</span> expect roughly <span class="code">10–20 ms</span> total. Read the exact figure off the ruler — say it measures <span class="code">14 ms</span>.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Apply the compensation</div>
+      <ul>
+        <li><strong>Global:</strong> enter the measured value (e.g. <span class="code">14 ms</span>) in <kbd>⌘ ,</kbd> → <span class="menu">Audio</span> → <span class="menu">Driver Error Compensation</span>.</li>
+        <li><strong>Per-return:</strong> set a negative Track Delay of <span class="code">-14 ms</span> on <span class="code">RS RETURN</span>, so the replay fires early enough to land on the grid.</li>
+        <li><strong>Re-test:</strong> capture the click again. It must now sit <em>on</em> the grid line. Do this once; it holds for the whole set as long as the buffer size from Step 01 does not change.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Why this matters more here than anywhere</div>
+      <ul>
+        <li>A capture replayed over its source is the one case where a few milliseconds is audible as a flam or a smeared transient — the source and its echo are identical, so any offset between them comb-filters.</li>
+        <li>Measure once, correct, and forget it. An uncorrected loop will sound "almost tight," which is worse than obviously wrong, because you will chase it live instead of trusting the grid.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does the re-captured click sit exactly on the grid line?</li>
+        <li>Is the buffer size unchanged since the measurement?</li>
+        <li>Do you have the offset written down, so you can re-apply it after any audio-device change?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M8 22h28"/><path d="M30 16l6 6-6 6"/></svg>
+      </div>
+      <div class="step-num">Step 04</div>
+      <h2 class="step-title">Establish the source groove</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Lay the bed the section feeds on</div>
+      <ul>
+        <li>Run your live source — the Digitakt drums, the MicroFreak bass and drone — for at least <strong>16 bars</strong> before you even think about capturing. The loop needs a source with character to feed on.</li>
+        <li>Find the densest, most characterful bar: the moment the perc and a long echo coincide. Note it. That is the bar you will capture, not a sparse intro bar.</li>
+        <li>Keep your hands off the master fader from here on. Resampling is post-master-fader; the master level <em>is</em> your capture level. Ride sends and channel faders instead.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Has the source been running long enough to have a clear "best bar"?</li>
+        <li>Is the master fader parked at unity and untouched?</li>
+        <li>Do you know which role you want back — bed, counter-rhythm, or hook — before you arm?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 5 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M30 14a10 10 0 1 0 4 8"/><path d="M30 8v8h-8"/></svg>
+      </div>
+      <div class="step-num">Step 05</div>
+      <h2 class="step-title">Arm early, capture on the bar</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Arm in advance</div>
+      <ul>
+        <li>One bar <em>before</em> the section you want to catch, arm the <span class="code">RS CAPTURE</span> clip slot. Arming late is the classic failure: you decide to capture, then fumble while the moment passes.</li>
+        <li>Confirm the slot is set to record a fixed length — <span class="code">4 bars</span> for a counter-rhythm or hook, <span class="code">8 bars</span> for a bed. A clean count loops without a seam.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Trigger on the downbeat</div>
+      <ul>
+        <li>Press the mapped capture pad at any time inside the bar. With Record Quantization at <span class="code">1 Bar</span>, the recorder waits for the boundary. The capture is on-grid even when your hand is not.</li>
+        <li>Let it run the full 4 or 8 bars and stop itself. Watch the clip's length confirm the exact bar count — not <span class="code">4.1</span> bars, not <span class="code">3.9</span>.</li>
+        <li>Do <strong>one</strong> capture. Resist the urge to "grab a few while I'm here." A single deliberate capture is the material; a folder of half-takes is procrastination.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Did the capture start exactly on a bar boundary?</li>
+        <li>Is the clip length a clean integer bar count?</li>
+        <li>Does the capture contain the dense, characterful bar you chose — not a sparse one?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 6 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="10" cy="22" r="3" fill="currentColor"/><circle cx="20" cy="14" r="3"/><circle cx="30" cy="30" r="3" fill="currentColor"/><circle cx="38" cy="22" r="3"/></svg>
+      </div>
+      <div class="step-num">Step 06</div>
+      <h2 class="step-title">Apply one transform</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Make it read as new — pick exactly one</div>
+      <table class="param-table">
+        <caption>One transform per capture — stacking them just makes mud</caption>
+        <tr><td>Reverse</td><td>Swell-toward-the-beat. Double-click clip → <span class="menu">Reverse</span>. Best for a bed or a riser.</td></tr>
+        <tr><td>Pitch / octave</td><td>Down <span class="code">-12 st</span> for a sub; up <span class="code">+12 st</span> for a ghost line. Warp Mode <span class="menu">Complex Pro</span>. A hook — use once.</td></tr>
+        <tr><td>Sample-start chop</td><td>Drag the start marker so the loop lands on an offbeat. A counter-rhythm — keep it under the source.</td></tr>
+        <tr><td>Freeze</td><td>Grain Delay (Spray <span class="code">60 ms</span>, high Feedback) or a long reverb on a held slice. A bed — filter until it names nothing.</td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The transform test</div>
+      <ul>
+        <li>Solo the transformed clip against the live source for four bars. If it sounds like the source with a delay on it, you have not transformed it — push the move further or choose a different one.</li>
+        <li>One move, then commit. A reversed, pitched, chopped, frozen capture is no longer in key; it is noise that happens to share a tempo.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Transform on hardware, in time, if you can</div>
+      <ul>
+        <li>If your capture engine is the Digitakt II or Octatrack, perform the transform on the box rather than in Ableton: p-lock the sample start per trig, tune the pitch on the SRC page, or set the playback to reverse. Hardware transforms land on the clock automatically and read as a played gesture, not an edit.</li>
+        <li>If the transform is a filter or grain move, map it to one of your four controls and ride it in slowly across the bars the return is live — the transform itself can evolve, which is what keeps a single capture interesting for sixteen bars.</li>
+        <li>Whatever the route, the rule is unchanged: <em>one</em> transform. A control you ride is still one move; two stacked transforms is mud whether you played them or drew them.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does the replay read as a <em>new</em> voice, not a doubled mix?</li>
+        <li>Did you apply exactly one transform?</li>
+        <li>Does the transform match the role you decided on in page 03?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 7 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 30h32"/><path d="M10 30V18M18 30V12M26 30V20M34 30V16"/></svg>
+      </div>
+      <div class="step-num">Step 07</div>
+      <h2 class="step-title">Return it on the bar, under the source</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Launch quantised</div>
+      <ul>
+        <li>Move the transformed clip to <span class="code">RS RETURN</span>. Set its launch quantization to <span class="code">1 Bar</span> so the replay drops in on a boundary, never mid-phrase.</li>
+        <li>Tap the mapped launch pad. The clip waits for the bar, then enters. With the <span class="code">-14 ms</span> track delay from Step 03, its transients land on the source's transients.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Set the level and hold the ceiling</div>
+      <ul>
+        <li>Bring the <span class="code">RS RETURN</span> fader up to its <span class="code">-6 dB</span> ceiling — no further. The capture already contains the full mix; it does not need to compete.</li>
+        <li>Watch the limiter's gain-reduction meter. Steady, occasional reduction is fine. Constant heavy reduction means the return is too hot — pull the fader, do not raise the ceiling.</li>
+        <li>If the capture is a bed, bypass-off the <span class="code">200 Hz</span> high-pass so it never doubles the source's low end. If it is a hook, leave the low end intact.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Signal flow at this moment</div>
+      <div class="signal-flow">
+        <div class="signal-node">Source</div>
+        <div class="signal-arrow">→</div>
+        <div class="signal-node">RS CAPTURE</div>
+        <div class="signal-arrow">→</div>
+        <div class="signal-node">Transform</div>
+        <div class="signal-arrow">→</div>
+        <div class="signal-node">RS RETURN −6 dB / limiter</div>
+        <div class="signal-arrow">→</div>
+        <div class="signal-node">Mix</div>
+      </div>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Did the replay enter on a bar boundary, in time with the source?</li>
+        <li>Is the return at -6 dB or lower, with the limiter only catching peaks?</li>
+        <li>Could a stranger tell this layer is the set's own output? (If yes, transform harder.)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 8 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M14 28 a6 6 0 0 1 0 -12 a8 8 0 0 1 15 -2 a6 6 0 0 1 1 14 z"/></svg>
+      </div>
+      <div class="step-num">Step 08</div>
+      <h2 class="step-title">Let the section feed on itself — safely</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The one-capture-live rule</div>
+      <ul>
+        <li>The mix now contains the source <em>and</em> the return. If you capture again now, the new capture contains the old one — levels compound, and the section turns to wall in four bars.</li>
+        <li><strong>Retire before you re-capture.</strong> Before grabbing a second capture, fade the first return out (or mute <span class="code">RS RETURN</span>), so the next capture samples a clean source again.</li>
+        <li>This is the discipline that separates a self-feeding section from a feedback accident: the loop is allowed to feed, but only one generation lives in the mix at a time.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Why one generation, in concrete numbers</div>
+      <ul>
+        <li>Say the source sits at <span class="code">0 dB</span> reference and the return enters at <span class="code">-6 dB</span>. Capture the combined mix and the new capture already carries the source <em>plus</em> a copy of itself; its loudest content is now hotter than the source alone. Return that at <span class="code">-6 dB</span> and the second-generation copy is only <span class="code">-6 dB</span> down from a signal that was already boosted — the effective level of the resampled content climbs with every round.</li>
+        <li>Three uncorrected generations and the resampled material is competing with the source; five and the limiter is pinned and the section is a wall. The limiter from <a href="setup.html">setup</a> stops it clipping, but it cannot make a wall musical.</li>
+        <li>Retiring the previous return before each capture breaks the chain. Every capture then samples the clean source at its known level, and the return ceiling means just what it says. This is the whole reason the section is built as a sequence of <em>replacements</em>, not a stack.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Build the section as a sequence of generations</div>
+      <table class="param-table">
+        <caption>A performable arc — each capture replaces the last, never stacks</caption>
+        <tr><td>Bars 1–16</td><td>Source only. Establish the groove the loop will feed on.</td></tr>
+        <tr><td>Bars 17–32</td><td>Capture the dense bar → reverse → return as a bed at -6 dB. The room deepens.</td></tr>
+        <tr><td>Bars 33–48</td><td>Retire the bed. Capture again → sample-start chop → return as a counter-rhythm. New groove, same DNA.</td></tr>
+        <tr><td>Bars 49–56</td><td>Retire the counter-rhythm. Capture → pitch up an octave → return as a single hook. The peak.</td></tr>
+        <tr><td>Bars 57–64</td><td>Fade the return out entirely. The source carries the exit, retroactively bigger for having been fed.</td></tr>
+      </table>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Is there ever more than one return generation live at once? (There must not be.)</li>
+        <li>Does each capture sample a clean source, with the previous return retired?</li>
+        <li>Does the section build by <em>replacing</em> layers, not by piling them up?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 9 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><polygon points="22 6 40 36 4 36"/><line x1="22" y1="16" x2="22" y2="24"/><circle cx="22" cy="29" r="1.4" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Step 09</div>
+      <h2 class="step-title">The panic path</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">When the loop runs away</div>
+      <ul>
+        <li><strong>First move, always:</strong> pull the <span class="code">RS RETURN</span> fader to <span class="code">-inf</span>. One mapped fader kills the loop instantly without touching the source.</li>
+        <li>If the limiter is pinned and the sound is still building, you captured a mix that already contained a return — mute <span class="code">RS RETURN</span>, let the source breathe for four bars, and start the next generation clean.</li>
+        <li>If a capture came back out of time, it is a clock or latency problem, not a level one. Stop the return, re-confirm one clock master, and re-check the Step 03 offset at the next break.</li>
+        <li>Rehearse this path until pulling the return fader is a reflex. The difference between a self-feeding section and a screaming feedback loop is one fader you can find without looking.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Can you find and pull the return fader to silence without looking?</li>
+        <li>Does killing the return leave the source playing cleanly?</li>
+        <li>Have you rehearsed the recovery so it costs no more than four bars?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 10 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><polyline points="14 18 22 26 30 18"/><line x1="22" y1="8" x2="22" y2="26"/><line x1="8" y1="34" x2="36" y2="34"/></svg>
+      </div>
+      <div class="step-num">Step 10</div>
+      <h2 class="step-title">Record the section and step away</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Capture the performance, not just the loop</div>
+      <ul>
+        <li>Arm Arrangement Record (<kbd>F9</kbd>) and perform the whole 64-bar section in one take. The captures, transforms, and retirements are arrangement moves — record them as they happen.</li>
+        <li>Do two passes. Keep the calmer one — the take where you trusted the grid and rode the return level slower than felt natural.</li>
+        <li>Export: <span class="menu">File → Export Audio / Video</span>, WAV, <span class="code">48000 Hz</span>, 24-bit, Normalize <strong>OFF</strong>. The headroom you protected with the gain ceiling is part of the sound.</li>
+        <li>Listen the next day, somewhere that is not the studio. Note one timestamp where the loop felt alive and one where it felt like a doubled mix. Change one thing. Perform it again.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Did the full section survive one continuous take?</li>
+        <li>Across the whole take, did the return ever exceed the source? (It should not.)</li>
+        <li>Does the section sound like it generated its own material — or like a loop pasted over itself?</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-nav">
+    <a href="palette.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 05 / Capture palette
+    </a>
+    <a href="reflection.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      07 / Reflection →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B7-002 — Live Resampling</div>
+
+</div>
+
+</body>
+</html>

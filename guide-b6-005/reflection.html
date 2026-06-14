@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B6-005 — The Score — Reflection</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Lab Note contents">
+  <p class="nav-label labnote-code">Lab Note B6-005<span class="labnote-topic">The Score</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Score primitives</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html" class="active"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B6-005</div>
+    <div class="eyebrow">The Score · 07 — Reflection</div>
+    <h1>The fault, the carry-forward, and the principle</h1>
+    <p class="lede">Most of the learning happens here, not at the rig. You wrote a system, ran it twice, and read the gap. Now name what broke, decide what survives into the next piece, and state the one principle this whole exercise was built to teach. Answer slowly; write the answers down.</p>
+  </header>
+
+  <h2>The required fault: ambiguity / under-specification</h2>
+  <p>Every Lab Note has a designed failure you must taste so you can recognise it later by feel. Here it is <strong>ambiguity</strong> — a rule you believed was determinate but which read differently when someone obeyed it cold. Its loud cousin is <strong>under-specification</strong>: no rule fixed hard enough to stamp an identity, so the two realizations share nothing and the score collapses into a permission slip. You met both in Step 05 of the build. This page is where you write down what they sounded like.</p>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon">
+        <svg viewBox="0 0 44 44"><polygon points="22 6 40 36 4 36"/><line x1="22" y1="16" x2="22" y2="24"/><circle cx="22" cy="29" r="1.4" fill="currentColor"/></svg>
+      </div>
+      <div class="checklist-label">Failure signals — the score is too loose or too vague</div>
+    </div>
+    <ul>
+      <li>R1 and R2 share nothing — they sound like two unrelated pieces. (Under-specification: no firm <span class="code">D</span> rule.)</li>
+      <li>They differ in things you meant to fix. (Ambiguity: a "determinate" rule was read two ways.)</li>
+      <li>You cannot say which rule caused which observation. (Rules overlap; each line is doing several jobs.)</li>
+      <li>A stranger realizing the score had to ask you a question. (The page did not stand on its own.)</li>
+      <li>A sameness in the delta has no rule behind it. (An accident you mistook for the score working.)</li>
+    </ul>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="16"/><polyline points="14 22 20 28 30 16"/></svg>
+      </div>
+      <div class="checklist-label">Success signals — the score found the band</div>
+    </div>
+    <ul>
+      <li>R1 and R2 are recognizably the same piece, audibly different takes.</li>
+      <li>Every sameness traces to a named <span class="code">D</span> rule; every difference to a named <span class="code">I</span> zone.</li>
+      <li>You tasted both failures in Step 05 and can describe the band between them in one sentence.</li>
+      <li>A stranger could realize the score with no questions, and you can predict roughly how their take would differ.</li>
+      <li>You can name your system-diff: what you thought the score fixed/freed versus what it actually did.</li>
+    </ul>
+  </div>
+
+  <h2>Diagnose the fault — symptom to fix</h2>
+  <table class="param-table">
+    <caption>If the delta misbehaved, find it here</caption>
+    <tr><td>Symptom</td><td>Cause</td><td>Fix</td></tr>
+    <tr><td>R1 and R2 share nothing</td><td>Under-specification — no <span class="code">D</span> rule strong enough to stamp an identity</td><td>Add or harden one determinate rule: a fixed shape, register, count, or boundary every realization must carry</td></tr>
+    <tr><td>R1 and R2 are indistinguishable</td><td>Over-specification — the <span class="code">I</span> zone had no real range</td><td>Widen one indeterminate zone: open the source, order, or duration to a genuine span</td></tr>
+    <tr><td>They differ in things you meant to fix</td><td>A rule you believed determinate was ambiguous read cold</td><td>Rewrite it so a stranger reads it the same way twice; re-realize without your memory of intent</td></tr>
+    <tr><td>They match in things you meant to free</td><td>An <span class="code">I</span> zone was nominally free but forced by the rig or by habit</td><td>Name a wider source palette, or require R2 to use a source R1 did not</td></tr>
+    <tr><td>You can't attribute observations to rules</td><td>Rules overlap; the score does several things per line</td><td>Split compound rules into one decision each; re-tag every line <span class="code">D</span>/<span class="code">I</span></td></tr>
+  </table>
+
+  <h2>Eleven reflection questions</h2>
+  <ol class="reflection-list">
+    <li>Which of your rules turned out to do the most work — and was it a <span class="code">D</span> rule or an <span class="code">I</span> zone?</li>
+    <li>Where did your Step 01 prediction break — what did a rule do that you did not expect?</li>
+    <li>Was any sameness in the delta an accident rather than a rule? What would have varied it?</li>
+    <li>Was any difference an ambiguity rather than a designed freedom? Which rule read two ways?</li>
+    <li>Which idiom did you choose, and did it make the freedom you wanted easy or awkward to express?</li>
+    <li>If you handed this score to a stranger, which rule would they misread first?</li>
+    <li>Where on the Cage ↔ Wolff axis did your score sit — more fixed, or more free — and was that the right place for what you wanted?</li>
+    <li>What did the under-specified re-realization in Step 05 sound like, and how quickly did you recognise the collapse?</li>
+    <li>What did the over-specified version sound like, and could you have mistaken its clones for a working score?</li>
+    <li>Reading the rule-set back: what does it reveal about what <em>you</em> trust the realizer with — what is your voice as a score-writer?</li>
+    <li>What is the one rule you would change before the next piece, and why?</li>
+  </ol>
+
+  <h2>Carry-forward</h2>
+  <div class="note-block">
+    <ul>
+      <li><strong>Keep the band statement.</strong> The one sentence from Step 05 — how much freedom keeps a piece recognizable while still letting it vary — is reusable across every system you write next, score or patch or prompt.</li>
+      <li><strong>Keep the fix/free instinct.</strong> Before building anything that has to run or be read without you, ask: which dimensions do I fix to stamp identity, which do I free to let it breathe? That question is the transferable core.</li>
+      <li><strong>Keep the delta habit.</strong> Two realizations and a map that ties each observation to a rule is a diagnostic you can run on any generative system — it tells you what your design actually decided versus what you hoped it would.</li>
+      <li><strong>Carry the originality constraint.</strong> The reference scores taught the grammar; the piece was yours. Hold that line into the block's other labs.</li>
+    </ul>
+  </div>
+
+  <div class="final">
+    <div class="final-icon">
+      <svg viewBox="0 0 44 44"><rect x="8" y="8" width="28" height="28" rx="2"/><line x1="14" y1="16" x2="30" y2="16"/><line x1="14" y1="22" x2="30" y2="22"/><line x1="14" y1="28" x2="24" y2="28"/></svg>
+    </div>
+    <div class="final-label">Final principle</div>
+    <p>A score is the smallest set of rules that still leaves the music somewhere to go. Fix too much and you have written a transcription; fix too little and you have written noise. The work — and the voice — is in choosing exactly which rules to fix and which to free, and being able to hear, in the gap between two readings, that you chose well.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="build.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 06 / The build
+    </a>
+    <a href="../workshop/block-6/index.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      Block 6 · Decision Systems →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B6-005 — The Score</div>
+
+</div>
+
+</body>
+</html>

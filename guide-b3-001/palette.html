@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B3-001 — Groove · Palette</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B3-001<span class="labnote-topic">Groove</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html" class="active"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B3-001</div>
+    <div class="eyebrow">Groove · 05 — Palette</div>
+    <h1>Concrete groove settings</h1>
+    <p class="lede">Three ready-to-program groove templates, the exact tick offset for every element, and the swing percentages that put each one in its pocket. Steal a template, then mutate it — but start from real numbers, not from "feel".</p>
+  </header>
+
+  <h2>The reference numbers</h2>
+
+  <table class="param-table">
+    <caption>What a tick is worth at 124 BPM</caption>
+    <tr><td>One bar</td><td>≈ 1935 ms</td></tr>
+    <tr><td>One 16th step</td><td>≈ 121 ms</td></tr>
+    <tr><td>Micro-timing range per trig</td><td><span class="code">±23</span> ticks (≈ ±58 ms, roughly half a step)</td></tr>
+    <tr><td>One tick</td><td>≈ 2.5 ms</td></tr>
+    <tr><td>Felt nudge</td><td><span class="code">3–6</span> ticks (≈ 8–15 ms)</td></tr>
+    <tr><td>Heard as a flam</td><td><span class="code">10+</span> ticks (≈ 25 ms)</td></tr>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">Sign convention used on this page</div>
+    <p><span class="code">+</span> means <strong>late</strong> (pull, behind the beat). <span class="code">−</span> means <strong>early</strong> (push, ahead of the beat). The kick is always <span class="code">0</span> — it is the reference clock.</p>
+  </div>
+
+  <h2>Template A — Rolling pocket (the default)</h2>
+  <p style="text-align:center; color:var(--text-muted); max-width:640px; margin:0 auto 18px;">Locked kick, hats dragged a touch late, one perc accent flicked early. The all-purpose hypnotic-techno groove. Start here.</p>
+
+  <div class="pattern-wrap">
+    <div class="pattern">
+      <div class="pattern-label">Kick</div>
+      <div class="pattern-step on">1</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+      <div class="pattern-step on">5</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+      <div class="pattern-step on">9</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+      <div class="pattern-step on">13</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+
+      <div class="pattern-label">Hat</div>
+      <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step ghost">+4</div><div class="pattern-step"></div>
+      <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step ghost">+4</div><div class="pattern-step"></div>
+      <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step ghost">+4</div><div class="pattern-step"></div>
+      <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step ghost">+4</div><div class="pattern-step"></div>
+
+      <div class="pattern-label">Perc</div>
+      <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step accent">-3</div>
+      <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+      <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step accent">-3</div>
+      <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+    </div>
+  </div>
+
+  <table class="param-table">
+    <caption>Template A — settings per element</caption>
+    <tr><td>Kick (T1)</td><td>Steps 1, 5, 9, 13 · micro-timing <span class="code">0</span> · swing not applied · velocity full</td></tr>
+    <tr><td>Hat (T2)</td><td>Offbeat steps 3, 7, 11, 15 · micro-timing <span class="code">+4</span> · or swing <span class="code">55 %</span> on this track only · velocity alternating 100 / 80</td></tr>
+    <tr><td>Perc (T3)</td><td>Steps 4 and 12 · micro-timing <span class="code">−3</span> · velocity ~90 · trig condition <span class="code">50 %</span> on step 12</td></tr>
+    <tr><td>Swing (pattern)</td><td><span class="code">55 %</span> if using global swing instead of per-trig hat nudges — do one or the other, not both</td></tr>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>One sentence:</strong> "Kick on the grid, hats dragged 4 ticks, perc accent pushed 3 ticks early on the bar lead-ins." If you can say that, it's a groove, not an accident.</li>
+    </ul>
+  </div>
+
+  <h2>Template B — Deep drag (heavy, late-night)</h2>
+  <p style="text-align:center; color:var(--text-muted); max-width:640px; margin:0 auto 18px;">Everything except the kick pulled further behind. Reads as weight and exhaustion — the body leaning back. Use sparingly; too much drag and it sounds broken rather than deep.</p>
+
+  <table class="param-table">
+    <caption>Template B — settings per element</caption>
+    <tr><td>Kick (T1)</td><td>Four-on-the-floor · micro-timing <span class="code">0</span> · the only thing the listener trusts</td></tr>
+    <tr><td>Hat (T2)</td><td>Offbeats · micro-timing <span class="code">+7</span> · velocity 100 / 70 alternating</td></tr>
+    <tr><td>Clap / snare (T3)</td><td>Steps 5 and 13 · micro-timing <span class="code">+5</span> · the backbeat drags with the hats</td></tr>
+    <tr><td>Ghost perc (T4)</td><td>Step 14 only · micro-timing <span class="code">+9</span> · velocity 55 · trig condition <span class="code">1:2</span></td></tr>
+    <tr><td>Swing (pattern)</td><td><span class="code">57 %</span> — the upper edge of the pocket before it reads as shuffle</td></tr>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>The risk:</strong> at <span class="code">+7</span> to <span class="code">+9</span> ticks you are near a third of a step late. Audition against the locked kick for two full minutes — if it stops feeling like a lean and starts feeling like a mistake, pull every offset back by 2 ticks.</li>
+    </ul>
+  </div>
+
+  <h2>Template C — Forward push (driving)</h2>
+  <p style="text-align:center; color:var(--text-muted); max-width:640px; margin:0 auto 18px;">Accents land early; the track feels like it is straining forward against the clock. Good for peak sections. The kick still does not move — only the urgency around it.</p>
+
+  <table class="param-table">
+    <caption>Template C — settings per element</caption>
+    <tr><td>Kick (T1)</td><td>Four-on-the-floor · micro-timing <span class="code">0</span></td></tr>
+    <tr><td>Hat (T2)</td><td>Offbeats · micro-timing <span class="code">−2</span> · slight forward lean · velocity 100 / 85</td></tr>
+    <tr><td>Lead perc (T3)</td><td>Steps 4, 8, 12, 16 · micro-timing <span class="code">−5</span> · the part that "pulls the track forward"</td></tr>
+    <tr><td>Off-accent (T4)</td><td>Step 7 · micro-timing <span class="code">−6</span> · velocity 95 · trig condition <span class="code">75 %</span></td></tr>
+    <tr><td>Swing (pattern)</td><td><span class="code">50–52 %</span> — near-straight; the push, not swing, carries the energy</td></tr>
+  </table>
+
+  <h2>Swing percentage cheat-sheet</h2>
+
+  <table class="param-table">
+    <caption>Where each amount sits</caption>
+    <tr><td><span class="code">50 %</span></td><td>Straight. The reference state and Template C's home.</td></tr>
+    <tr><td><span class="code">53–54 %</span></td><td>The faintest roll. Felt only over many bars.</td></tr>
+    <tr><td><span class="code">55 %</span></td><td>Template A. The dependable pocket.</td></tr>
+    <tr><td><span class="code">57 %</span></td><td>Template B. Heavy, on the edge of obvious.</td></tr>
+    <tr><td><span class="code">58–62 %</span></td><td>House / garage shuffle. Usually too much for hypnotic techno.</td></tr>
+    <tr><td><span class="code">66 %</span></td><td>Triplet feel. A different genre.</td></tr>
+  </table>
+
+  <h2>Velocity — the other half of the pocket</h2>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Couple timing and dynamics.</strong> A part that lands late should usually also be a touch quieter. Late + soft reads as a ghost note; late + loud reads as an error.</li>
+      <li><strong>Alternate the offbeat hats.</strong> 100 / 80 / 100 / 80 across the four offbeats stops them ticking like a clock. On the Digitakt II, p-lock the AMP volume per trig.</li>
+      <li><strong>Keep the kick constant.</strong> The reference clock is constant in both time and level. Velocity variation on the kick undermines the anchor every other part leans on.</li>
+    </ul>
+  </div>
+
+  <h2>Ableton Groove Pool starting values</h2>
+
+  <table class="param-table">
+    <caption>When applying an extracted groove to the MicroFreak bass</caption>
+    <tr><td>Timing</td><td><span class="code">100 %</span> — apply the full extracted offset so the bass shares the exact drum lean</td></tr>
+    <tr><td>Quantize</td><td><span class="code">0 %</span> — do not pre-straighten; you want the recorded feel intact</td></tr>
+    <tr><td>Velocity</td><td><span class="code">0–30 %</span> — let the bass keep its own dynamics unless you want the drum accents imposed</td></tr>
+    <tr><td>Random</td><td><span class="code">0 %</span> on bass; up to <span class="code">5 %</span> only on a long ghost-hat layer</td></tr>
+    <tr><td>Base</td><td><span class="code">1/16</span> — the grid the offsets are measured against</td></tr>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">The palette rule</div>
+    <p>Pick one template and commit. Mutating a stated groove (A → B by adding 3 ticks to every part) is composition. Hopping between templates mid-track because none "feels right" is the indecision this Lab Note exists to cure.</p>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon">
+        <svg viewBox="0 0 44 44"><polyline points="10 22 18 30 34 12"/></svg>
+      </div>
+      <div class="checklist-label">Before the build</div>
+    </div>
+    <ul>
+      <li>I have chosen one template (A, B, or C) as my starting groove.</li>
+      <li>I have written the tick offset for every element.</li>
+      <li>I know my swing percentage and that I'm using swing <em>or</em> per-trig nudges, not both.</li>
+      <li>Velocity is coupled to timing — late hits are softer.</li>
+      <li>My Groove Pool plan is set: Timing 100 %, Quantize 0 %, Random 0 % on bass.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="setup.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 04 / Setup
+    </a>
+    <a href="build.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      06 / The build →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B3-001 — Groove</div>
+
+</div>
+
+</body>
+</html>

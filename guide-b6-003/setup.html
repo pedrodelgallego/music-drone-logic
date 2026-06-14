@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B6-003 — Chance Operations — Setup</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B6-003<span class="labnote-topic">Chance Operations</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html" class="active"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Procedures</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <div class="labnote-badge">Lab Note B6-003</div>
+  <header class="page-header">
+    <div class="eyebrow">Chance Operations · 04 — Setup</div>
+    <h1>The rig — where the dice plug in</h1>
+    <p class="lede">Same five boxes and one pair of headphones as every Lab Note, plus a physical die, a coin, and a copy of VCV Rack. The new question this page answers is which path each chance device takes into the music — and the iron rule that <strong>chance always rides the control path, never the audio path</strong>. The audio is what was decided; the control is where the coin is allowed to act.</p>
+  </header>
+
+  <h2>The rig</h2>
+
+  <div class="cards">
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="10" width="32" height="20" rx="2"/><line x1="16" y1="36" x2="28" y2="36"/><line x1="22" y1="30" x2="22" y2="36"/></svg>
+      </div>
+      <h3 class="card-title">Ableton Live 12 Suite</h3>
+      <ul class="card-points">
+        <li>Records, edits, arranges; the only MIDI clock master</li>
+        <li>Per-note <strong>chance</strong> and clip <strong>follow actions</strong> as native chance devices</li>
+        <li>Max for Live for routing random CV if you skip VCV</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="8" width="32" height="28" rx="2"/><rect x="10" y="12" width="10" height="7" rx="1"/><circle cx="29" cy="15.5" r="3"/><rect x="10" y="24" width="4" height="4" rx="0.7"/><rect x="17" y="24" width="4" height="4" rx="0.7"/><rect x="24" y="24" width="4" height="4" rx="0.7"/><rect x="31" y="24" width="4" height="4" rx="0.7"/></svg>
+      </div>
+      <h3 class="card-title">Elektron Digitakt II</h3>
+      <ul class="card-points">
+        <li>Trig conditions: <span class="code">%</span> probability, <span class="code">A:B</span> ratios, <span class="code">NEI</span> logic</li>
+        <li>Conditional sample locks — a coin choosing a slot</li>
+        <li>The main on-box chance engine for this build</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="14" width="32" height="16" rx="2"/><line x1="14" y1="14" x2="14" y2="30"/><line x1="22" y1="14" x2="22" y2="30"/><line x1="30" y1="14" x2="30" y2="30"/></svg>
+      </div>
+      <h3 class="card-title">Arturia MicroFreak</h3>
+      <ul class="card-points">
+        <li>Source of the bass, drone, and texture audio</li>
+        <li>Receives chance-chosen notes over MIDI from VCV or Live</li>
+        <li><strong>Spice &amp; Dice</strong> as a built-in bounded randomizer</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="14"/><path d="M22 8 a14 14 0 0 1 0 28"/><circle cx="22" cy="15" r="2" fill="currentColor"/><circle cx="16" cy="26" r="2" fill="currentColor"/><circle cx="28" cy="26" r="2" fill="currentColor"/></svg>
+      </div>
+      <h3 class="card-title">VCV Rack (free)</h3>
+      <ul class="card-points">
+        <li><strong>Bernoulli Gate</strong> — a literal coin in the control voltage</li>
+        <li>Random / sample-and-hold modules for n-way picks</li>
+        <li>Sends MIDI notes or gates to the MicroFreak and Digitakt</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="14" width="32" height="16" rx="2"/><circle cx="14" cy="22" r="2.5"/><circle cx="22" cy="22" r="2.5"/><circle cx="30" cy="22" r="2.5"/></svg>
+      </div>
+      <h3 class="card-title">MOTU M4</h3>
+      <ul class="card-points">
+        <li>4-in / 4-out interface; the single audio device</li>
+        <li>MicroFreak mono into In 1, Digitakt stereo into 3/4</li>
+        <li>The clock anchor for the whole rig</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="10" y="10" width="24" height="24" rx="4"/><circle cx="17" cy="17" r="2" fill="currentColor"/><circle cx="27" cy="17" r="2" fill="currentColor"/><circle cx="22" cy="22" r="2" fill="currentColor"/><circle cx="17" cy="27" r="2" fill="currentColor"/><circle cx="27" cy="27" r="2" fill="currentColor"/></svg>
+      </div>
+      <h3 class="card-title">A die, a coin, paper</h3>
+      <ul class="card-points">
+        <li>The cheapest, most honest chance device you own</li>
+        <li>A roll log on paper — the score of what chance decided</li>
+        <li>Use them when the procedure is structural, not per-step</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <h2>The two paths — and which one chance is allowed on</h2>
+  <p style="text-align:center; max-width:620px; margin:0 auto 24px; color:var(--text-muted);">Audio carries the sound you already committed to. Control carries the decisions still being made. Keep them mentally separate: a chance device that ends up in the audio path is just a fader nobody is holding.</p>
+
+  <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:11px; letter-spacing:0.2em; text-transform:uppercase;">Audio path — never random</h3>
+  <div class="signal-flow">
+    <span class="signal-node">MicroFreak Out</span>
+    <span class="signal-arrow">→ TS →</span>
+    <span class="signal-node">M4 In 1</span>
+    <span class="signal-arrow">+</span>
+    <span class="signal-node">Digitakt Main L/R</span>
+    <span class="signal-arrow">→ 2 × TRS →</span>
+    <span class="signal-node">M4 In 3/4</span>
+    <span class="signal-arrow">→ USB-C →</span>
+    <span class="signal-node">Ableton</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">DT 990 Pro</span>
+  </div>
+
+  <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:11px; letter-spacing:0.2em; text-transform:uppercase;">Control path — where the coin lives</h3>
+  <div class="signal-flow">
+    <span class="signal-node">Die / coin / VCV / code</span>
+    <span class="signal-arrow">→ a pick →</span>
+    <span class="signal-node">Boundary you authored</span>
+    <span class="signal-arrow">→ MIDI / CV / a logged choice →</span>
+    <span class="signal-node">Digitakt trig · MicroFreak note · clip order</span>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The iron rule</div>
+    <p>Chance touches only the control path. It can choose which note, which sample, which section variant, or whether a non-essential trig fires. It must never decide whether the kick exists, what key you're in, or where the peak lands — those are decided, recorded, fixed.</p>
+  </div>
+
+  <h2>Each chance device → its boundary → its destination</h2>
+
+  <table>
+    <thead><tr><th>Device</th><th>The boundary you build</th><th>Where the pick lands</th></tr></thead>
+    <tbody>
+      <tr><td>Physical <strong>die</strong> (1–6)</td><td>A numbered table of pre-built options — e.g. six 16-bar section variants, Mozart-style</td><td>A logged choice on paper → you arrange that clip in Ableton</td></tr>
+      <tr><td>Physical <strong>coin</strong></td><td>Two outcomes you'd both accept — sample A vs sample B, fill or no fill</td><td>A Digitakt sample-lock slot, or which of two clips you drop in</td></tr>
+      <tr><td>Digitakt <span class="code">%</span> trig</td><td>One authored trig that plays <em>sometimes</em></td><td>Stays on the box; printed into the recorded drum take</td></tr>
+      <tr><td>VCV <strong>Bernoulli Gate</strong></td><td>A gate stream split by a probability knob into two destinations</td><td>MIDI note / gate → MicroFreak or Digitakt trigger</td></tr>
+      <tr><td>VCV random + S&amp;H</td><td>A quantizer holding only your 3 allowed scale degrees</td><td>MIDI note → MicroFreak bass, one fresh pick per bar</td></tr>
+      <tr><td>Live per-note <strong>chance</strong></td><td>A fixed clip where each note has its own % to fire</td><td>Internal to the clip; print to audio when curated</td></tr>
+      <tr><td><strong>TidalCycles</strong> / <strong>SuperCollider</strong></td><td>A list literal — <span class="code">Prand([0,3,7])</span> — that you wrote</td><td>MIDI out → MicroFreak, or directly to a software voice</td></tr>
+    </tbody>
+  </table>
+
+  <h2>VCV Bernoulli gate — the canonical coin</h2>
+
+  <table class="param-table">
+    <caption>Patch: a coin that chooses which voice triggers, never whether a voice exists</caption>
+    <tr><td>Clock</td><td>From Ableton via a MIDI-to-CV clock, or VCV's own clock locked to Link. One clock master, as always.</td></tr>
+    <tr><td>Bernoulli Gate — input</td><td>The steady gate stream you want to <em>route</em>, not create</td></tr>
+    <tr><td>Bernoulli Gate — probability</td><td>Start at <span class="code">0.5</span> (a fair coin); bias toward the safer outcome as you tighten the fence</td></tr>
+    <tr><td>Output A / Output B</td><td>To two different sample triggers or two MIDI note CVs — both musically valid on their own</td></tr>
+    <tr><td>Mode</td><td><strong>Toggle off</strong> for an independent coin each clock; <strong>toggle on</strong> for a latching A/B with memory</td></tr>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Why route, not generate:</strong> if the Bernoulli gate decides whether a gate passes <em>at all</em>, you've handed existence to chance. Feed it a guaranteed gate and let it only choose the destination — that keeps the rhythm intact and the chance bounded.</li>
+      <li><strong>Quantize before the synth:</strong> always pass random CV through a quantizer set to your scale and your allowed degrees. An unquantized random voltage is the open-radio failure mode in miniature.</li>
+    </ul>
+  </div>
+
+  <h2>Recording discipline for chance takes</h2>
+
+  <table class="param-table">
+    <caption>Chance makes one new demand on tracking</caption>
+    <tr><td>Record long</td><td>A probability trig at <span class="code">35 %</span> needs many bars before its behaviour is audible. Record <strong>4 minutes minimum</strong>, never an 8-bar loop.</td></tr>
+    <tr><td>Log every roll</td><td>Keep paper next to the keyboard. Write down what the die/coin chose and at which bar — this is your score, and the reflection page depends on it.</td></tr>
+    <tr><td>One take = one seed</td><td>A take is one run of the system. To audition another outcome, re-roll and record again — don't edit the take into a different result.</td></tr>
+    <tr><td>Monitor discipline unchanged</td><td>Ableton monitor on <strong>Auto</strong>, M4 <span class="code">MON</span> off for that channel — exactly as the studio reference describes.</td></tr>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">One clock to rule them all</div>
+    <p>VCV, the Digitakt, and the MicroFreak all follow Ableton's clock. A chance procedure that drifts off the grid is two failures stacked — bad timing and an outcome you can't reproduce. Confirm sync before any roll, just as in the studio reference.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="decisions.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 03 / Decisions
+    </a>
+    <a href="palette.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      05 / Procedures →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B6-003 — Chance Operations</div>
+
+</div>
+
+</body>
+</html>

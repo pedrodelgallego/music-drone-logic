@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B4-002 — Saturation · Palette</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B4-002<span class="labnote-topic">Saturation</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup &amp; signal path</a>
+  <a href="palette.html" class="active"><span class="nav-num">05</span>Saturation palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B4-002</div>
+    <div class="eyebrow">Saturation · 05 — Saturation palette</div>
+    <h1>A recipe per voice, in dB</h1>
+    <p class="lede">Each element gets a documented nonlinear treatment: which stage, which curve, what drive, and the output trim that level-matches it. These are starting points calibrated to the gain ledger on page 04 — feed each stage the input it expects and the drive numbers mean what they say. Copy the discipline; the sounds are yours.</p>
+  </header>
+
+  <div class="callout">
+    <div class="callout-label">How to read a recipe</div>
+    <p>Every recipe lists <strong>input</strong> (the level hitting the curve), <strong>curve / drive</strong> (the timbre), and <strong>output</strong> (trimmed to match bypass). Set the input first with a Utility, dial the drive, then trim the output until on and off are the same loudness. Only then decide if you like it.</p>
+  </div>
+
+  <h2>Kick — hard, odd, baked then bus-glued</h2>
+
+  <table class="param-table">
+    <caption>Stage A — Digitakt source (irreversible)</caption>
+    <tr><td>Per-track Drive</td><td><span class="code">35–45 %</span> on T1. Hard, odd grit welded into the sample. Audition against the bass, not solo.</td></tr>
+    <tr><td>Sample level</td><td>Loud but not clipping the box — let the Drive do the clipping, not the converter.</td></tr>
+    <tr><td>Tune</td><td>Fundamental to A or E to agree with the bass — saturation on a detuned kick smears the low end.</td></tr>
+  </table>
+  <table class="param-table">
+    <caption>Stage A — Ableton channel on DT KICK</caption>
+    <tr><td>Saturator — Type</td><td><span class="code">Analog Clip</span></td></tr>
+    <tr><td>Input (Utility before)</td><td><span class="code">~ -8 dBFS</span> avg</td></tr>
+    <tr><td>Drive</td><td><span class="code">+4 dB</span> static; automated to <span class="code">+9 dB</span> at the peak</td></tr>
+    <tr><td>Soft Clip toggle</td><td><strong>On</strong> — rounds the hardest corner, guards against aliasing on the click</td></tr>
+    <tr><td>Output</td><td>Trim <span class="code">-4 dB</span> to match bypass</td></tr>
+    <tr><td>Protect</td><td>EQ HP <span class="code">25–30 Hz</span> <em>before</em> the Saturator so sub doesn't dominate the curve</td></tr>
+  </table>
+
+  <h2>Hats &amp; perc — bite without harshness</h2>
+
+  <table class="param-table">
+    <caption>Stage A — channel on DT HATS/PERC</caption>
+    <tr><td>Digitakt Drive</td><td><span class="code">20–30 %</span> — present, not fizzy</td></tr>
+    <tr><td>Saturator — Type</td><td><span class="code">Soft Sine</span> — gentle odd, keeps the metallic top musical</td></tr>
+    <tr><td>Input</td><td>HP <span class="code">500 Hz</span> before the curve — hats carry no useful low end to distort</td></tr>
+    <tr><td>Drive</td><td><span class="code">+3 dB</span>, Dry/Wet <span class="code">60 %</span> (parallel — keep the transient clean)</td></tr>
+    <tr><td>Output</td><td>Trim <span class="code">-2 dB</span> to match</td></tr>
+    <tr><td>Watch</td><td>The DT 990's 7–10 kHz lift exaggerates this; if it sounds harsh here, it is probably fine elsewhere — confirm before cutting</td></tr>
+  </table>
+
+  <h2>Drum bus — shared density</h2>
+
+  <table class="param-table">
+    <caption>Stage B — Roar on the DRUMS group</caption>
+    <tr><td>Mode</td><td>Single band to start; later split so only the <span class="code">150 Hz – 4 kHz</span> mids drive, sub band clean</td></tr>
+    <tr><td>Input</td><td><span class="code">~ -10 dBFS</span> on the group — set with the group fader, not the channels</td></tr>
+    <tr><td>Amount / Drive</td><td><span class="code">15 %</span> static; automated to <span class="code">35 %</span> across the build</td></tr>
+    <tr><td>Color / Tone</td><td>Slightly dark — tame the added top before it stacks with the hats</td></tr>
+    <tr><td>Output</td><td>Level-match to bypass; confirm the kick transient still pokes through</td></tr>
+  </table>
+  <table class="param-table">
+    <caption>Alternative — Drum Buss on the DRUMS group</caption>
+    <tr><td>Drive</td><td><span class="code">15–25 %</span></td></tr>
+    <tr><td>Crunch</td><td><span class="code">10 %</span> — adds high grit; small amounts only</td></tr>
+    <tr><td>Transients</td><td><span class="code">+10 %</span> — claws the kick attack back from the drive</td></tr>
+    <tr><td>Boom</td><td>Off or <span class="code">&lt; 10 %</span>, tuned to the kick — do not let it muddy the bass's band</td></tr>
+  </table>
+
+  <h2>Bass — even body, then rising odd grit</h2>
+
+  <table class="param-table">
+    <caption>Stage 0 — hardware (irreversible, even)</caption>
+    <tr><td>MicroFreak filter drive</td><td>Oscillator level high, resonance ~ 11 o'clock — push the filter into analog grit. Recorded into the take.</td></tr>
+    <tr><td>Why even</td><td>The filter's asymmetric overdrive leans even — fattens the bass before any plugin</td></tr>
+  </table>
+  <table class="param-table">
+    <caption>Stage A — channel on MF BASS</caption>
+    <tr><td>1 — EQ HP</td><td><span class="code">40 Hz</span> before the curve — protect the sub from the harmonic generation</td></tr>
+    <tr><td>2 — Dynamic Tube</td><td>Bias for even harmonics, Drive low — body, not bite</td></tr>
+    <tr><td>3 — Saturator — Type</td><td><span class="code">Medium</span> (rising odd)</td></tr>
+    <tr><td>3 — Drive</td><td><span class="code">+2 dB</span> intro → automated to <span class="code">+10 dB</span> at the peak — this lane carries the bass's arc</td></tr>
+    <tr><td>3 — Output</td><td>Trim to match bypass at every drive value (automate output inversely if needed)</td></tr>
+    <tr><td>4 — Sidechain comp</td><td><em>After</em> the saturation, keyed to the kick — so the grit ducks too and never masks the kick</td></tr>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">Order is the recipe here</div>
+    <p>HP → Tube (even) → Saturator (odd) → sidechain is not interchangeable. Move the HP after the Saturator and the sub distorts; move the sidechain before the saturation and the grit stops ducking. The slot is the sound.</p>
+  </div>
+
+  <h2>Drone — protected, one gentle even stage</h2>
+
+  <table class="param-table">
+    <caption>Stage A — channel on MF DRONE (kept mostly clean)</caption>
+    <tr><td>1 — EQ HP</td><td><span class="code">120 Hz</span> — the drone owns the mids, never the sub</td></tr>
+    <tr><td>2 — Dynamic Tube</td><td>Drive <span class="code">low</span>, even bias — adds only body and a hint of air</td></tr>
+    <tr><td>Drive ceiling</td><td>Never automated up — the drone is the element deliberately left near-linear</td></tr>
+    <tr><td>Output</td><td>Match bypass; if you can clearly hear grit, you went too far — back it off</td></tr>
+    <tr><td>Reverb</td><td>Sits <em>after</em>, fully clean — never send a distorted drone into a long tail or the tail smears</td></tr>
+  </table>
+
+  <h2>Atmosphere — character distortion, used once</h2>
+
+  <table class="param-table">
+    <caption>Stage A — channel on ATMOS</caption>
+    <tr><td>Amp / Cabinet</td><td>One extreme nonlinear pass for texture — a resampled fragment crushed beyond recognition</td></tr>
+    <tr><td>Input</td><td>HP <span class="code">220 Hz</span> first — keep the crush out of the low end</td></tr>
+    <tr><td>Dry/Wet</td><td><span class="code">40–60 %</span> — it is colour, not a lead</td></tr>
+    <tr><td>Output</td><td>Sit it around <span class="code">-20 dB</span> on the fader; if you can name what it does, it's too loud</td></tr>
+  </table>
+
+  <h2>Master — cohesion only</h2>
+
+  <table class="param-table">
+    <caption>Stage C — master glue (never sound-creation)</caption>
+    <tr><td>Saturator — Type</td><td><span class="code">Soft Sine</span>, Soft Clip <strong>on</strong></td></tr>
+    <tr><td>Input</td><td>Mix peaks <span class="code">≤ -6 dBFS</span> — a clean, headroomed input</td></tr>
+    <tr><td>Drive</td><td><span class="code">+1 to +2 dB</span> only — a hair of harmonics to seat the mix together</td></tr>
+    <tr><td>Output</td><td>Final peak <span class="code">≤ -3 dBFS</span>; no limiter in this exercise</td></tr>
+    <tr><td>Bypass test</td><td>Toggle it at equal loudness — if you can't reliably hear it, it is doing its job</td></tr>
+  </table>
+
+  <h2>The whole palette at a glance</h2>
+
+  <table class="param-table">
+    <caption>Voice → stage → curve → flavour → arc</caption>
+    <tr><td>Kick</td><td>A (source + channel)</td><td>Hard / Analog Clip</td><td>Odd — bite</td></tr>
+    <tr><td>Hats / perc</td><td>A (channel, parallel)</td><td>Soft Sine</td><td>Odd — presence</td></tr>
+    <tr><td>Drum bus</td><td>B (Roar / Drum Buss)</td><td>Multiband soft</td><td>Shared density, automated</td></tr>
+    <tr><td>Bass</td><td>0 + A (filter, Tube, Saturator)</td><td>Even → Medium odd</td><td>Body, then rising grit — main arc</td></tr>
+    <tr><td>Drone</td><td>A (Tube, gentle)</td><td>Even, near-linear</td><td>Protected — stays clean</td></tr>
+    <tr><td>Atmosphere</td><td>A (Amp, parallel)</td><td>Extreme character</td><td>Colour, used once</td></tr>
+    <tr><td>Master</td><td>C (Saturator)</td><td>Soft Sine, +1–2 dB</td><td>Cohesion only</td></tr>
+  </table>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Palette decision check</div>
+    <ul>
+      <li>Does every recipe have a written input, a curve, and a level-matched output?</li>
+      <li>Is the sub protected on every voice — HP before the curve, nothing low into a hard stage?</li>
+      <li>Which voices carry the arc (kick, bass, drum bus) and which stay fixed (drone)? Is that contrast deliberate?</li>
+      <li>If I bypass every saturation stage at equal loudness, does the track still hold? It should be thinner, not broken — proof the saturation is shaping, not propping.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="setup.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 04 / Setup &amp; signal path
+    </a>
+    <a href="build.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      06 / The build →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B4-002 — Saturation</div>
+
+</div>
+
+</body>
+</html>

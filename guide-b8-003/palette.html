@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B8-003 — Palette</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Lab Note contents">
+  <p class="nav-label labnote-code">Lab Note B8-003<span class="labnote-topic">Teaching the Method</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html" class="active"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html"><span class="nav-num">06</span>Build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B8-003</div>
+    <div class="eyebrow">Teaching the Method · 05 — Palette</div>
+    <h1>The template, and the difference between good and bad instructions</h1>
+    <p class="lede">Here is the lab-note template filled in once, end to end, so you can see what each block looks like when it works. Then a gallery of instructions rewritten from bad to good — because the failure of most teaching notes is not missing steps but vague ones. The vocabulary of a teachable instruction is small; this page is that vocabulary.</p>
+  </header>
+
+  <h2>The template, filled in</h2>
+
+  <p style="text-align:center; max-width:660px; margin:0 auto 24px; color:var(--text-muted);">A worked example using the breathing-bass sidechain method. Read it as a shape to pour your own method into — not as content to copy.</p>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="9" y="6" width="26" height="32" rx="2"/><line x1="14" y1="14" x2="30" y2="14"/><line x1="14" y1="20" x2="30" y2="20"/><line x1="14" y1="26" x2="24" y2="26"/></svg>
+      </div>
+      <div class="step-num">Worked example</div>
+      <h2 class="step-title">"The breathing bass" as a teaching note</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">1 — Thesis</div>
+      <ul>
+        <li>The bass should swell back between kicks like a held breath, so the low end pulses without anyone hearing a compressor work.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">2 — Reader profile</div>
+      <ul>
+        <li>You can arm a track, drop a device, and read a gain-reduction meter. You do not share my kick, my room, or my ear. Wherever I say "by ear," you supply your own.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">3 — Refusals</div>
+      <ul>
+        <li>No audible pumping. If you can hear it duck, it is wrong.</li>
+        <li>No fader war — the kick and bass coexist by timing, not by one being louder.</li>
+        <li>No multiband, no fancy tools. One compressor, one sidechain.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">4 — Rig &amp; roles</div>
+      <ul>
+        <li>Exact: Ableton Compressor on the bass track, sidechain input from the kick track, kick taken Pre-FX.</li>
+        <li>Roles: a <em>compressor that can be triggered by another track</em>, on the bass; a <em>clean kick source</em> as the trigger. Any DAW with a sidechain compressor substitutes directly.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">5 — Mechanism</div>
+      <ul>
+        <li>The compressor on the bass listens to the kick, not to the bass. Each kick presses the bass down; between kicks the bass rises back. Ratio <span class="code">4:1</span>, attack <span class="code">1&nbsp;ms</span>, release <span class="code">120&nbsp;ms</span> as a starting point. Clock master is the DAW; both tracks run on the same transport so the trigger lands on the beat.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">6 — Steps + decision checks</div>
+      <ul>
+        <li>Drop the compressor on the bass; enable sidechain; set source to the kick, Pre-FX.</li>
+        <li>Lower the threshold until the gain-reduction meter shows about <span class="code">3&nbsp;dB</span> per kick.</li>
+        <li>Tune the release by ear until the swell-back is audible but the pump is not.</li>
+      </ul>
+      <div class="decision-check">
+        <div class="decision-check-label">Decision check</div>
+        <ul>
+          <li>Does the bass swell back between kicks, or does it stay flat? (Flat = release too long.)</li>
+          <li>Can you hear the compressor working? (Yes = too much reduction or release too short.)</li>
+          <li>Does the meter dip steadily about 3&nbsp;dB on every kick? (Wild dips = the source has bleed; use a clean kick.)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">7 — What is lost</div>
+      <ul>
+        <li>The exact release that feels like breathing depends on your kick's tail and your tempo. I gave you 120&nbsp;ms and the listening test; the final number is a judgement only your ear can make. That judgement is yours, and it is the part of this I cannot hand over.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Good vs bad instructions</h2>
+
+  <p style="text-align:center; max-width:660px; margin:0 auto 24px; color:var(--text-muted);">Same intent, two ways. The bad version is not wrong — it is unreproducible. Read the right-hand column as the thing you are training yourself to write.</p>
+
+  <table class="param-table">
+    <caption>Vagueness → reproducibility</caption>
+    <tr><td>"Open the filter as it builds."</td><td>"Automate the low-pass cutoff from 600&nbsp;Hz to 3.5&nbsp;kHz over bars 94–140, as an S-curve."</td></tr>
+    <tr><td>"Add some movement to the drone."</td><td>"Route LFO → Timbre at depth ~25, sine, one cycle per 10–20&nbsp;s, unsynced."</td></tr>
+    <tr><td>"Sidechain the bass so it pumps nicely."</td><td>"Sidechain bass to kick, 4:1, release 120&nbsp;ms, lower threshold to ~3&nbsp;dB reduction per kick, then tune release by ear until the swell is audible and the pump is not."</td></tr>
+    <tr><td>"EQ the drone so it doesn't clash."</td><td>"High-pass the drone at 120&nbsp;Hz, 24&nbsp;dB/oct, <em>before</em> the reverb — the bass owns everything below."</td></tr>
+    <tr><td>"Make the intro atmospheric."</td><td>"Drone only from bar 1, atmosphere underneath at -22&nbsp;dB, nothing rhythmic until bar 32."</td></tr>
+    <tr><td>"Keep it from getting muddy."</td><td>"Kick owns 40–80&nbsp;Hz, bass owns 80–180&nbsp;Hz, nothing else below 200&nbsp;Hz. Check by soloing the pair."</td></tr>
+  </table>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="15"/><line x1="14" y1="22" x2="30" y2="22"/></svg>
+      </div>
+      <h3 class="card-title">Why the bad ones fail</h3>
+      <ul class="card-points">
+        <li>They assume the reader's ear matches yours</li>
+        <li>"Nicely," "some," "atmospheric" are your taste, unstated</li>
+        <li>No number means no way to confirm the result</li>
+        <li>The reader can perform them and still be wrong</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="15"/><polyline points="14 22 20 28 30 16"/></svg>
+      </div>
+      <h3 class="card-title">Why the good ones work</h3>
+      <ul class="card-points">
+        <li>A range or value the reader can dial exactly</li>
+        <li>An order, where order changes the result</li>
+        <li>A checkable observation — what to hear or see</li>
+        <li>An honest "by ear" flag where judgement is required</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>The four ingredients of a teachable instruction</h2>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>A value or range.</strong> "600&nbsp;Hz to 3.5&nbsp;kHz," not "open it." A number can be reproduced; a verb cannot.</li>
+      <li><strong>An order, when it matters.</strong> "EQ before reverb." If swapping two steps changes the result, the order is part of the instruction.</li>
+      <li><strong>A checkable result.</strong> "Until the meter shows 3&nbsp;dB per kick." The reader confirms they hit the intention, not just that they acted.</li>
+      <li><strong>An honest by-ear flag.</strong> "Tune by ear until the swell is audible." Where judgement is unavoidable, name it and give the listening test — do not disguise it as a fixed number.</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Restraint, applied to writing</div>
+    <p>The same discipline as the music: do less, but make every instruction load-bearing. A teaching note with twenty vague steps transfers less than one with seven exact ones. Cut any step the reader could not get wrong, and sharpen any step they could.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="setup.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 04 / Setup
+    </a>
+    <a href="build.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      06 / Build →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B8-003 — Teaching the Method</div>
+
+</div>
+
+</body>
+</html>

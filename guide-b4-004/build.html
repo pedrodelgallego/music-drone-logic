@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B4-004 — Tape &amp; Degradation — The Build</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B4-004<span class="labnote-topic">Tape &amp; Degradation</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Degradation palette</a>
+  <a href="build.html" class="active"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B4-004</div>
+    <div class="eyebrow">Tape &amp; Degradation · 06 — The build</div>
+    <h1>Build a disintegration-loop track, step by step</h1>
+    <p class="lede">Only now do we touch the gear. We will write a beautiful short loop, build a degradation pass so gentle it is almost inaudible, then print generation after generation against a written log, and finally arrange the decay itself as the form of the piece. Every step is small, every step has a decision checkpoint, and every value is spelled out. Keep the <a href="setup.html">setup page</a> open in another tab — it is the rig reference this page assumes.</p>
+  </header>
+
+  <!-- STEP 1 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 14 v20 a2 2 0 0 0 2 2 h28 a2 2 0 0 0 2 -2 v-16 a2 2 0 0 0 -2 -2 h-14 l-4 -4 h-10 a2 2 0 0 0 -2 2 z"/></svg>
+      </div>
+      <div class="step-num">Step 01</div>
+      <h2 class="step-title">Set up the project and the parking lot</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">New set</div>
+      <ul>
+        <li><kbd>⌘ N</kbd> for a new Live Set. <kbd>Tab</kbd> to <strong>Arrangement</strong> view — the whole piece lives here, not in Session.</li>
+        <li>Tempo <span class="code">120</span> for now; the loop will not be beat-locked, but a tempo gives the grid for clean loop lengths. Time signature <span class="code">4/4</span>.</li>
+        <li>Right-click the ruler → <span class="menu">Time Ruler Format → Time</span> so positions read as <span class="code">m:ss</span>. This is a long, slow piece; minutes matter more than bars.</li>
+        <li><kbd>⌘ ,</kbd> → <strong>Record, Warp &amp; Launch</strong>: File Type <span class="code">WAV</span>, Bit Depth <span class="code">24</span>. Turn <strong>OFF</strong> <span class="menu">Auto-Warp Long Samples</span> — warping would smear the very pitch drift you are cultivating.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Create the tracks</div>
+      <ul>
+        <li><kbd>⌘ T</kbd> for an audio track named <span class="code">LOOP</span> — the live source, holding whichever generation is currently being degraded.</li>
+        <li><kbd>⌘ T</kbd> for <span class="code">PRINT</span> — Audio From → <span class="code">Resampling</span>, Monitor <strong>Off</strong>. This captures each new generation.</li>
+        <li><kbd>⌘ T</kbd> for <span class="code">GENERATIONS</span> — a parking track where every printed clip is filed and never overwritten.</li>
+        <li><kbd>⌘ ⌥ T</kbd> for one return track <span class="code">A — SPACE</span> with a Hybrid Reverb, decay <span class="code">6–8 s</span>, Dry/Wet <span class="code">100 %</span>. The decay needs a room to dissolve into.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Project hygiene</div>
+      <ul>
+        <li><kbd>⌘ S</kbd> → save as <span class="code">labnote_b4_004.als</span> in a dedicated project folder.</li>
+        <li>Create a folder <span class="code">gen_00_archive</span> <em>outside</em> the live set. Generation 0 will be copied here and never reopened in the degradation chain — it is the only untouched original.</li>
+        <li>End every session with <span class="menu">File → Collect All and Save</span>.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 22 q9 -4 18 0 t18 0"/><path d="M6 28 q9 -2 18 0 t18 0"/></svg>
+      </div>
+      <div class="step-num">Step 02</div>
+      <h2 class="step-title">Write generation 0 — the thing worth losing</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Choose the source</div>
+      <ul>
+        <li>The loop must be short, pretty, and fully original — a drone chord, a melodic fragment, a sung phrase, an arpeggio. <strong>4 to 8 bars</strong>. This is your "tape".</li>
+        <li>Recommended for a first build: a slow two-note pad on the MicroFreak (root + fifth, long attack and release) — it exposes pitch wobble and dulls gracefully. Record <span class="code">8 bars</span> into <span class="code">LOOP</span>.</li>
+        <li>Whatever the source, it should be something you would happily loop untouched for two minutes. If it bores you pristine, it will be unbearable degraded.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Note the starting state precisely</div>
+      <table class="param-table">
+        <caption>Generation 0 reference — write these down</caption>
+        <tr><td>Peak level</td><td>Set the take to peak around <span class="code">-6 dBFS</span> — headroom for every later saturation stage</td></tr>
+        <tr><td>Top end</td><td>Full and present; note that gen 0 reaches the full spectrum. This is the ceiling everything erodes from.</td></tr>
+        <tr><td>Stereo width</td><td>Note whether it is mono or stereo; width only ever decreases from here</td></tr>
+        <tr><td>Loop length</td><td>Exact bars/seconds. Every print must be this same length or the generations will not stack cleanly.</td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Make the loop seamless and archive it</div>
+      <ul>
+        <li>Trim the clip to exactly the loop length on bar lines. Add a 10–20 ms crossfade across the loop seam (drag the clip fade handles) so it cycles without a click.</li>
+        <li>Consolidate with <kbd>⌘ J</kbd> into one clean clip. Drag a copy to <span class="code">GENERATIONS</span> and label it <span class="code">gen 0</span>.</li>
+        <li>Export this clip to <span class="code">gen_00_archive</span> as <span class="code">gen_00.wav</span>. From now on, the source in <span class="code">LOOP</span> is allowed to die — this archived copy is not.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Would I happily listen to this loop, untouched, for two minutes? If not, rewrite it before degrading — decay cannot rescue a dull source.</li>
+        <li>Does it loop seamlessly with no click at the seam?</li>
+        <li>Is gen 0 archived outside the set, so the contrast survives even when no copy does?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="8" y="10" width="28" height="8" rx="1"/><rect x="8" y="22" width="28" height="8" rx="1"/><circle cx="14" cy="14" r="1.5" fill="currentColor"/><circle cx="24" cy="26" r="1.5" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Step 03</div>
+      <h2 class="step-title">Build the degradation pass</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Drop the chain on LOOP — in order</div>
+      <ul>
+        <li>On the <span class="code">LOOP</span> track, build the chain from page 04: <strong>Saturator → Vinyl Distortion → Redux → Auto Filter (LP) → Echo → Utility</strong>. Order matters — saturate first, filter the result, then wobble and narrow.</li>
+        <li>This single chain is your tape head. It will be applied once per print, and because you reload each print as the new source, its effect compounds.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Dial each device for a barely-there single pass</div>
+      <table class="param-table">
+        <caption>Starting values — one pass should be almost inaudible</caption>
+        <tr><td>Saturator</td><td>Soft Sine, Drive <span class="code">+3 dB</span>, Output <span class="code">-3 dB</span> so the pass does not get louder</td></tr>
+        <tr><td>Vinyl Distortion</td><td>Crackle Density <span class="code">15</span>, Crackle Volume low; Tracing/Pinch subtle</td></tr>
+        <tr><td>Redux</td><td>Sample rate <strong>full</strong> at first — leave this idle until late generations</td></tr>
+        <tr><td>Auto Filter</td><td>LP, 12 dB, cutoff just below the loop's top so it shaves only the highest highs (start ~ <span class="code">14 kHz</span>)</td></tr>
+        <tr><td>Echo</td><td>Wobble Amount <span class="code">10 %</span>, slow morph (wow); Noise Amount <span class="code">8 %</span>; Dry/Wet small so it does not add obvious delay</td></tr>
+        <tr><td>Utility</td><td>Width <span class="code">100 %</span> now; you will lower it per pass</td></tr>
+      </table>
+      <ul>
+        <li>A/B the chain against bypass on a single play. If you can clearly say "that is degraded", you have gone too far for one pass — pull every device back until it is just a warmth.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>With the chain on, does one pass sound only <em>slightly</em> warmer and softer than gen 0 — not destroyed?</li>
+        <li>Is the lead symptom I chose on page 03 the one that is most present, with the others supporting it?</li>
+        <li>Is the output level matched to the input, so the decay's slope comes from damage, not from a level change I did not intend?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="14" cy="22" r="8"/><circle cx="30" cy="22" r="8"/><circle cx="14" cy="22" r="2" fill="currentColor"/><circle cx="30" cy="22" r="2" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Step 04</div>
+      <h2 class="step-title">Print the generations against a log</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The print loop — mechanical, repeatable</div>
+      <ul>
+        <li>Solo <span class="code">LOOP</span>. Confirm only <span class="code">LOOP</span> reaches the master; <span class="code">PRINT</span> is on Resampling, Monitor Off.</li>
+        <li>Arm <span class="code">PRINT</span>. Position the playhead at bar 1. <kbd>⌘ ⇧ R</kbd> and record exactly one loop length. Stop. This is <strong>generation 1</strong>.</li>
+        <li>Drag the new print from <span class="code">PRINT</span> to <span class="code">GENERATIONS</span>, label it <span class="code">gen 1</span>, then drag a copy onto <span class="code">LOOP</span>, <em>replacing</em> the previous source clip. The chain now degrades the degraded copy.</li>
+        <li>Advance one symptom value per the escalation rules below, then print again for generation 2. Repeat.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Escalate gently — what changes between prints</div>
+      <table class="param-table">
+        <caption>Per-print adjustments on the LOOP chain</caption>
+        <tr><td>Every pass</td><td>Auto Filter cutoff down ~ <span class="code">600 Hz</span>; Utility Width down <span class="code">8 %</span></td></tr>
+        <tr><td>Every pass</td><td>Echo Noise up ~ <span class="code">3 %</span>; Vinyl Crackle Volume up a hair</td></tr>
+        <tr><td>From gen 4</td><td>Echo Wobble up to <span class="code">18–25 %</span> so pitch drift becomes audible</td></tr>
+        <tr><td>From gen 6</td><td>Begin lowering Redux sample rate for grit; allow brief volume dips (dropouts)</td></tr>
+        <tr><td>Hold steady</td><td>Saturator Drive — keep constant so the decay slope stays smooth (or ramp it for a lurching decay)</td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The generation log — keep it as you go</div>
+      <table class="param-table">
+        <caption>labnote_b4_004_genlog.txt — write a line per print</caption>
+        <tr><td>gen 0</td><td>pristine · peak -6 dBFS · full top · stereo · ARCHIVED</td></tr>
+        <tr><td>gen 1</td><td>LP 13.4k · width 92% · noise 8% · warmth only, still "clean"</td></tr>
+        <tr><td>gen 2</td><td>LP 12.8k · width 84% · noise 11% · clearly "tape" now</td></tr>
+        <tr><td>gen 3</td><td>LP 12.2k · width 76% · noise 14% · top dull, hiss rising, first wobble</td></tr>
+        <tr><td>gen 4</td><td>LP 11.6k · width 68% · noise 17% · wobble 18% · pitch visibly drifting</td></tr>
+        <tr><td>gen 6</td><td>LP 10.4k · width 52% · noise 23% · WEATHERED SWEET SPOT — mark for arrangement</td></tr>
+        <tr><td>gen 8</td><td>LP 9.2k · width 36% · noise level w/ signal · Redux engaged · dropouts begin</td></tr>
+        <tr><td>gen 10</td><td>LP 8k · near mono · melody dissolving · Basinski zone</td></tr>
+        <tr><td>gen 12</td><td>more gap than tone · an impression of the loop · DUST</td></tr>
+      </table>
+      <ul>
+        <li>The log is not bookkeeping — it is the map of the piece. When you arrange, you will pull specific generations from <span class="code">GENERATIONS</span> by their logged character, not by ear-hunting through identical-looking clips.</li>
+        <li>Print at least to your target generation plus two, so you have material past the endpoint to choose from.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does each generation sound like a survivor of all the ones before it — does gen 6 sound like it lived through 1–5, not just "a filtered loop"?</li>
+        <li>Is the loss genuinely compounding? Spot-check: gen 6 should be dramatically further from gen 0 than gen 3 is. If gens 3 and 6 sound similar, you are re-degrading the original by accident — confirm you reload the <em>print</em>.</li>
+        <li>Is there any way back? There should not be. The only escape hatch is the archived gen 0.</li>
+        <li>Have I logged every pass, so I can find the weathered sweet spot and the dust by name later?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 5 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="12" width="32" height="20" rx="2"/><circle cx="16" cy="22" r="4"/><circle cx="28" cy="22" r="4"/></svg>
+      </div>
+      <div class="step-num">Step 05</div>
+      <h2 class="step-title">Optional — a real-tape generation</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Run one pass through the cassette deck</div>
+      <ul>
+        <li>If you have the Path A rig from page 04, route a mid-generation print (say gen 4) out to the cassette deck and back, as wired on the setup page.</li>
+        <li>Record the return into <span class="code">PRINT</span> and file it in <span class="code">GENERATIONS</span> as <span class="code">gen 4-tape</span>. Note in the log that this pass added flutter and oxide hiss no plugin gave you.</li>
+        <li>Continue the in-the-box chain from that tape print if you want the genuine flutter baked into everything downstream.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does the real-tape pass add irregular flutter and character the emulation could not? If it sounds the same as a plugin pass, the deck is not earning its place — skip it.</li>
+        <li>Did the deck destroy the loop in one pass? Lower its record level and clean the heads, then retry from the same source generation.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 6 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="4" y="14" width="10" height="6" rx="1"/><rect x="16" y="14" width="14" height="6" rx="1"/><rect x="32" y="14" width="8" height="6" rx="1"/><rect x="8" y="24" width="16" height="6" rx="1"/><rect x="26" y="24" width="12" height="6" rx="1"/></svg>
+      </div>
+      <div class="step-num">Step 06</div>
+      <h2 class="step-title">Arrange the decay as the form</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Decide the shape of the piece</div>
+      <ul>
+        <li>The composition is the <em>sequence</em> of generations over time. The simplest and strongest form is monotonic: start near gen 0, end at your target generation, and let the loop simply repeat and worsen across 6–9 minutes.</li>
+        <li>You are not adding sections or new elements. The only event is the slow handover from one generation to the next. This is the thesis of the whole Lab Note in one arrangement.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Place the generations on the timeline</div>
+      <table class="param-table">
+        <caption>A monotonic disintegration arc — time → generation</caption>
+        <tr><td>0:00 – 1:30</td><td>gen 0 / gen 1 — the loop pristine, the listener settling in, learning the phrase</td></tr>
+        <tr><td>1:30 – 3:00</td><td>gen 2 / gen 3 — warmth and hiss creep in; "is this getting older?"</td></tr>
+        <tr><td>3:00 – 4:30</td><td>gen 4 / gen 6 — clearly worn; the weathered sweet spot; pitch wavering</td></tr>
+        <tr><td>4:30 – 6:00</td><td>gen 8 — melody dissolving into texture; reverb send opening to catch the dust</td></tr>
+        <tr><td>6:00 – 7:30</td><td>gen 10 / gen 12 — more gap than tone; the loop becomes an impression</td></tr>
+        <tr><td>7:30 – 8:00</td><td>silence, or gen 0 returning for a single bar — your choice of ending</td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Crossfade between generations, never cut</div>
+      <ul>
+        <li>Lay each generation's clip on <span class="code">LOOP</span> (or alternating lanes) so consecutive generations <strong>overlap by one loop length</strong>. Drag the fade handles to make a long crossfade across the seam.</li>
+        <li>A hard cut between gen 3 and gen 4 announces "something changed" — exactly the event you are trying to hide. The decay should be felt, never witnessed.</li>
+        <li>Loop a suspicious crossfade with <kbd>⌘ L</kbd> and listen three times. If you can name the moment the generation changed, lengthen the fade.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">One slow gesture of space</div>
+      <ul>
+        <li><kbd>A</kbd> to show automation. Draw the <span class="code">A — SPACE</span> reverb send rising slowly from <span class="code">-12 dB</span> at 0:00 to <span class="code">-3 dB</span> by 6:00, so the room blooms exactly as the loop loses its body. The reverb catches the dust as the signal lets go of it.</li>
+        <li>No ramp shorter than 16 bars. If you can hear the send move as an event, it is too fast.</li>
+        <li>Resist adding anything else. One reverb gesture is the entire "production" — the decay does the rest.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Play 0:00 then jump to 6:00 — is the distance shocking? It should be. The whole piece is that gap, revealed slowly.</li>
+        <li>Can I hear any individual generation handover as a cut? If yes, lengthen the crossfade until it disappears.</li>
+        <li>Does the piece still hold without any new element entering? If it sags, the problem is the source loop or the decay slope — not a missing part. Resist the urge to add.</li>
+        <li>Is my chosen ending earned — silence after dust, or gen 0 returning as memory? Either works; pick on purpose.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 7 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><polyline points="14 18 22 26 30 18"/><line x1="22" y1="8" x2="22" y2="26"/><line x1="8" y1="34" x2="36" y2="34"/></svg>
+      </div>
+      <div class="step-num">Step 07</div>
+      <h2 class="step-title">Mix check, export, and archive</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Light mix pass</div>
+      <ul>
+        <li>This is barely a mix — the decay <em>is</em> the mix. Put an EQ Eight on <span class="code">LOOP</span> with a gentle HP around <span class="code">30 Hz</span> to keep rumble out, and nothing else unless something is genuinely wrong.</li>
+        <li>Watch the master meter across the whole piece: peaks ≤ <span class="code">-3 dBFS</span>, including the reverb bloom. The rising hiss should never push the master into the red.</li>
+        <li><strong>Mono check:</strong> flip a Utility on the master to mono every few minutes. Because the generations march toward mono anyway, the late piece should survive perfectly; only the early generations have width to lose.</li>
+        <li>Listen once <em>quietly</em> — at low volume the balance of signal-to-hiss across the arc shows honestly.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Export</div>
+      <table class="param-table">
+        <caption>Render</caption>
+        <tr><td>Rendered Track</td><td>Master</td></tr>
+        <tr><td>Render Length</td><td>Full arrangement (e.g. 8:00)</td></tr>
+        <tr><td>File Type / Sample Rate / Bit Depth</td><td>WAV / 48000 Hz / 24-bit</td></tr>
+        <tr><td>Normalize</td><td>OFF — the protected headroom is part of the sound</td></tr>
+        <tr><td>Filename</td><td>labnote_b4_004_v1.wav</td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Archive the whole chain of evidence</div>
+      <ul>
+        <li><span class="menu">File → Collect All and Save</span> — every generation print now lives in the project folder.</li>
+        <li>Keep the generation log <span class="code">.txt</span> beside the WAV. The track now exists as three things: the archived pristine gen 0, the full ladder of generations, and the final arranged render.</li>
+        <li>Copy the render to your phone. Listen in another room. Note in 10 lines or fewer where the decay sags or rushes — timestamped, not feelings. Wait a day, change one thing (usually the decay slope or one crossfade), render v2, compare.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>What you just made:</strong> a piece whose only event is the erosion of a single loop, where the path's history is the entire composition. Nothing was added; something was lost, slowly, on purpose, and the listener felt every generation of it.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="palette.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 05 / Degradation palette
+    </a>
+    <a href="reflection.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      07 / Reflection →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B4-004 — Tape &amp; Degradation</div>
+
+</div>
+
+</body>
+</html>

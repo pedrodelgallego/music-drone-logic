@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B1-003 — Lock · Listen</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B1-003<span class="labnote-topic">Lock</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html" class="active"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B1-003</div>
+    <div class="eyebrow">Lock · 02 — Listen</div>
+    <h1>Hear the difference between locked and not</h1>
+    <p class="lede">You cannot fix a timing problem you cannot hear. Before any cable, train your ear on the four sounds this Lab Note exists to prevent — drift, flam, doubled monitoring, and audible latency — and on what a locked rig sounds like by contrast. These are not records to copy; they are faults to recognise, so that when one appears in your own room you name it in a second.</p>
+  </header>
+
+  <h2>The four faults you must be able to name</h2>
+
+  <p style="text-align:center; color:var(--text-muted); max-width:640px; margin:0 auto 24px;">Each fault has a sound and a cause. Learn the sound first — the cause is what the rest of this Lab Note fixes. Make each of these on purpose at least once; a fault you have produced deliberately is one you will recognise instantly when it appears by accident.</p>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><line x1="8" y1="16" x2="36" y2="16"/><line x1="8" y1="28" x2="34" y2="28"/><line x1="8" y1="16" x2="8" y2="28"/><line x1="36" y1="16" x2="34" y2="28"/></svg>
+      </div>
+      <div class="step-num">Fault 01</div>
+      <h2 class="step-title">Drift — the gap that grows</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">What it sounds like</div>
+      <ul>
+        <li>Two devices start together and slowly slide apart. At bar 1 the kick and the hat line up; by bar 32 the hat is noticeably ahead or behind, and it keeps going.</li>
+        <li>It is not a steady offset — it is a <em>growing</em> one. The longer the loop runs, the worse it gets, until the two parts are in a different relationship than they started.</li>
+        <li><strong>The cause:</strong> two free-running clocks. Each device is keeping its own tempo, and even a tiny difference between them accumulates over time. No setting compensates for drift — it means the clock setup is wrong.</li>
+      </ul>
+    </div>
+
+    <details class="reveal"><summary>How to hear it on purpose</summary><div class="reveal-body"><p>Run the Digitakt on its own internal clock at "124 BPM" while Ableton also plays at 124, with no sync between them. Loop both for two minutes. They will start close and drift apart, because no two crystals are exactly the same tempo. That slide is drift.</p></div></details>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><line x1="16" y1="10" x2="16" y2="34"/><line x1="20" y1="10" x2="20" y2="34"/></svg>
+      </div>
+      <div class="step-num">Fault 02</div>
+      <h2 class="step-title">Flam — one hit arriving as two</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">What it sounds like</div>
+      <ul>
+        <li>A single drum hit that lands as a quick <em>da-dum</em> instead of one clean strike — two transients a handful of milliseconds apart.</li>
+        <li>It robs the kick of its weight: instead of one solid thump you get a soft, smeared double that never quite punches.</li>
+        <li><strong>The cause:</strong> two copies of the same sound reaching the same place slightly apart — usually a device started a few milliseconds late against the grid, or the same source recorded twice and played back together.</li>
+      </ul>
+    </div>
+
+    <details class="reveal"><summary>Why it matters</summary><div class="reveal-body"><p>Flam is the audible signature of a timing offset between two copies of one event. A little of it, deliberate and consistent, is the dub smear in Lee "Scratch" Perry's work. Unplanned, it is just a kick that won't land. The difference is whether you chose it.</p></div></details>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M10 22 q6 -10 12 0 t12 0"/><path d="M10 28 q6 -10 12 0 t12 0"/></svg>
+      </div>
+      <div class="step-num">Fault 03</div>
+      <h2 class="step-title">Doubled monitoring — hollow and phasey</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">What it sounds like</div>
+      <ul>
+        <li>A live input that sounds thin, hollow, and metallic — like talking into a spinning fan, or a voice in a cardboard tube. Certain frequencies vanish.</li>
+        <li>It is not an echo you can point at; it is a colour smeared across the whole sound, with a faint tin-can resonance that moves if the delay changes.</li>
+        <li><strong>The cause:</strong> the same input reaching your ears by two paths at once — direct monitoring on the interface <em>and</em> software monitoring in Live. The two copies, a few milliseconds apart, cancel each other at some frequencies. This is comb filtering, and it is the doubled-monitoring trap.</li>
+      </ul>
+    </div>
+
+    <details class="reveal"><summary>How to hear it on purpose</summary><div class="reveal-body"><p>Arm a track on the MicroFreak input, set Live's Monitor to In, and <em>also</em> turn the M4 blend toward input so you hear the hardware directly. Now you hear the synth twice, a few ms apart. Play a sustained note and sweep the filter — the hollow, phasey colour is comb filtering. Then kill one path and hear it snap solid.</p></div></details>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="14" cy="22" r="3" fill="currentColor"/><line x1="17" y1="22" x2="30" y2="22"/><circle cx="33" cy="22" r="3"/></svg>
+      </div>
+      <div class="step-num">Fault 04</div>
+      <h2 class="step-title">Latency — the lag under your hands</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">What it sounds like</div>
+      <ul>
+        <li>You press a key and hear the note a beat later than your finger expected — a rubbery lag between the gesture and the sound.</li>
+        <li>At a big buffer it is obvious; at a small buffer it shrinks until your hands stop noticing. It never reaches zero through the computer — the only question is how big it is and whether you know the number.</li>
+        <li><strong>The cause:</strong> the buffer. The interface collects a chunk of audio, the computer processes it, and the result comes back out. Every stage adds delay. A bigger buffer is more stable but later; a smaller buffer is faster but strains the CPU.</li>
+      </ul>
+    </div>
+
+    <details class="reveal"><summary>Why it matters</summary><div class="reveal-body"><p>Latency is not a fault to eliminate — it is a number to know. If you play against a late copy, any drag in your hands gets baked into the take. Once you have measured it and chosen your monitor path, latency stops causing problems. Players who skip this are playing against a delay they don't know about.</p></div></details>
+  </div>
+
+  <h2>Ten records, ten timing decisions</h2>
+
+  <p style="text-align:center; color:var(--text-muted); max-width:640px; margin:0 auto 24px;">Lab 002's listening set proves a larger point: tightness is a decision, not an accident. Every one of these artists knew exactly where their sounds sat relative to the clock. Listen for the timing choice, then bring that same awareness to your own rig.</p>
+
+  <table>
+    <thead><tr><th>Record</th><th>The timing decision</th></tr></thead>
+    <tbody>
+      <tr><td>Plastikman — "Spastik"</td><td>No second copy of anything. Every hit lands once, exactly on the grid — the sound of a perfectly locked, undoubled rig.</td></tr>
+      <tr><td>Kraftwerk — "Numbers"</td><td>Everything dead on the clock. Exactness itself is the groove; nothing leans, nothing flams.</td></tr>
+      <tr><td>Lee "Scratch" Perry — <em>Super Ape</em></td><td>Deliberate doubles — copies layered slightly apart on purpose. The flam you must learn to <em>choose</em>, not suffer.</td></tr>
+      <tr><td>J Dilla — <em>Donuts</em></td><td>Hits placed late, consistently. Proof that a fixed offset is a decision, not drift — it repeats identically every bar.</td></tr>
+      <tr><td>D'Angelo — "Playa Playa"</td><td>Each layer behind the kick by its own fixed amount. Loose to the body, fixed to the ruler — never drifting.</td></tr>
+      <tr><td>Neu! — "Hallogallo"</td><td>A human being the clock — steady for ten minutes, alive but never loose. The opposite of a clock that wanders.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Listen on the rig you'll build on.</strong> The DT 990 Pro's wide stage makes a flam or a hollow comb-filter colour far easier to place than laptop speakers. Loop, don't scrub — drift only appears across many bars.</li>
+      <li><strong>Make the fault, then fix it.</strong> The fastest way to learn a sound is to cause it deliberately for ten seconds and then remove it. The snap from hollow to solid, or from drifting to locked, is the lesson.</li>
+      <li><strong>Write one sentence per fault.</strong> "Doubled monitoring sounds like ___." A fault you can describe in words is one you will catch in your own room before it ruins a take.</li>
+    </ul>
+  </div>
+
+  <h2>The one principle to carry into the build</h2>
+
+  <div class="callout">
+    <div class="callout-label">Carry this into the build</div>
+    <p>Locked and not-locked are <em>audible</em>. Drift slides, flam doubles, comb filtering hollows out, latency lags. None of these is a vibe you have to guess at — each has a clear sound. Once your ear knows them, you stop guessing and start diagnosing: you hear the fault, you name it, and the setup pages tell you exactly which knob fixes it.</p>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon">
+        <svg viewBox="0 0 44 44"><polyline points="10 22 18 30 34 12"/></svg>
+      </div>
+      <div class="checklist-label">Before you move on</div>
+    </div>
+    <ul>
+      <li>I can describe drift, flam, doubled monitoring, and latency in one sentence each.</li>
+      <li>I have produced at least one of these faults on purpose and then removed it.</li>
+      <li>I know which fault grows over time (drift) and which is a fixed colour (doubled monitoring).</li>
+      <li>I can tell a deliberate offset (Dilla's late snare) from accidental drift.</li>
+      <li>I understand that latency is a number to know, not a fault to eliminate.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="index.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 01 / Overview
+    </a>
+    <a href="decisions.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      03 / Decisions →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B1-003 — Lock</div>
+
+</div>
+
+</body>
+</html>

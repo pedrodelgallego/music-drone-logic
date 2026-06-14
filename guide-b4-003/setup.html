@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B4-003 — Granular — Setup</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B4-003<span class="labnote-topic">Granular</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html" class="active"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Grain palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B4-003</div>
+    <div class="eyebrow">Granular · 04 — Setup</div>
+    <h1>The rig and the resampling loop</h1>
+    <p class="lede">Granular work has one trap above all others: a feedback path you don't intend, or a CPU spike you can't repeat. This page wires the instruments — Ableton Granulator III, Grain Delay, the MicroFreak as a granular source, Digitakt slicing — into one predictable signal path with a deliberate resampling loop at its centre. Keep it open beside the build.</p>
+  </header>
+
+  <h2>The instruments, by role</h2>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="10" width="32" height="20" rx="2"/><circle cx="14" cy="20" r="2" fill="currentColor"/><circle cx="22" cy="20" r="2" fill="currentColor"/><circle cx="30" cy="20" r="2" fill="currentColor"/><line x1="16" y1="36" x2="28" y2="36"/></svg>
+      </div>
+      <h3 class="card-title">Granulator III</h3>
+      <ul class="card-points">
+        <li>The main engine — plays one loaded file as grains</li>
+        <li>Size, Position, Spray, Density exposed as macros</li>
+        <li>Freeze plus a decoupled pitch keyboard — play chords from one frozen instant</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M8 22 q4 -8 8 0 t8 0 t8 0 t8 0"/><circle cx="8" cy="22" r="1.6" fill="currentColor"/><circle cx="38" cy="22" r="1.6" fill="currentColor"/></svg>
+      </div>
+      <h3 class="card-title">Grain Delay</h3>
+      <ul class="card-points">
+        <li>An effect, not an instrument — granulates whatever audio passes through</li>
+        <li>Frequency, Spray, Pitch, Feedback — clouds from a live signal</li>
+        <li>Used on a return for grain-haze you can send any track into</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="14" width="32" height="16" rx="2"/><line x1="14" y1="14" x2="14" y2="30"/><line x1="22" y1="14" x2="22" y2="30"/><line x1="30" y1="14" x2="30" y2="30"/></svg>
+      </div>
+      <h3 class="card-title">MicroFreak</h3>
+      <ul class="card-points">
+        <li>Sample / Grain Stretch engine — a granular source in hardware</li>
+        <li>Wave = position; modulate it with LFO or cycling envelope</li>
+        <li>Records the original source note this whole track grows from</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="8" width="32" height="28" rx="2"/><line x1="14" y1="8" x2="14" y2="36"/><line x1="22" y1="8" x2="22" y2="36"/><line x1="30" y1="8" x2="30" y2="36"/><rect x="9" y="16" width="4" height="4" fill="currentColor"/><rect x="24" y="22" width="4" height="4" fill="currentColor"/></svg>
+      </div>
+      <h3 class="card-title">Digitakt II</h3>
+      <ul class="card-points">
+        <li>Slices a recorded cloud and triggers slices per step</li>
+        <li>Sample start / length p-locks reassemble without new samples</li>
+        <li>Resamples a processed pattern back to a slot — generations on the box</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>The signal path</h2>
+
+  <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:11px; letter-spacing:0.2em; text-transform:uppercase;">From source to cloud to print</h3>
+  <div class="signal-flow">
+    <span class="signal-node">MicroFreak note</span>
+    <span class="signal-arrow">→ record →</span>
+    <span class="signal-node">SOURCE clip</span>
+    <span class="signal-arrow">→ load →</span>
+    <span class="signal-node">Granulator III</span>
+    <span class="signal-arrow">→ FX →</span>
+    <span class="signal-node">Resample track</span>
+    <span class="signal-arrow">print</span>
+    <span class="signal-node">new generation</span>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Recommended path</div>
+    <p>Record one MicroFreak note as the single source. Load it into Granulator III on a MIDI track. Set a dedicated audio track's input to <strong>Resampling</strong> to print clouds. Keep a Grain Delay on a return for haze. The Digitakt enters later, fed a resampled cloud over the M4 to slice. One source file, one engine, one print track — everything else is generations.</p>
+  </div>
+
+  <h2>Set up the project</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 14 v20 a2 2 0 0 0 2 2 h28 a2 2 0 0 0 2 -2 v-16 a2 2 0 0 0 -2 -2 h-14 l-4 -4 h-10 a2 2 0 0 0 -2 2 z"/></svg>
+      </div>
+      <div class="step-num">Setup 01</div>
+      <h2 class="step-title">Project, tracks, and the resample track</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">New set</div>
+      <ul>
+        <li><kbd>⌘ N</kbd>, switch to Arrangement with <kbd>Tab</kbd>. Tempo <span class="code">110</span> — this is textural music; the grid is loose. Time signature <span class="code">4/4</span>.</li>
+        <li><kbd>⌘ ,</kbd> → <strong>Audio</strong>: device <strong>MOTU M4</strong>, sample rate <span class="code">48000 Hz</span>, buffer <span class="code">256</span> (drop to 128 if scrubbing Position feels laggy; raise to 512 for the mix).</li>
+        <li><kbd>⌘ ,</kbd> → <strong>Record, Warp &amp; Launch</strong>: WAV, 24-bit. Turn <strong>OFF</strong> Auto-Warp Long Samples — you want untouched audio to granulate.</li>
+      </ul>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Create the tracks</div>
+      <ul>
+        <li><kbd>⌘ ⇧ T</kbd> for a MIDI track → <span class="code">GRANULATOR</span>. This hosts Granulator III.</li>
+        <li><kbd>⌘ T</kbd> for audio tracks: <span class="code">SOURCE REC</span> (records the MicroFreak), <span class="code">RESAMPLE</span> (prints generations), <span class="code">DT SLICE</span> (records the Digitakt later), <span class="code">CLOUD A</span>, <span class="code">CLOUD B</span>, <span class="code">STUTTER</span> for the printed layers.</li>
+        <li><kbd>⌘ ⌥ T</kbd> twice for returns: <span class="code">A — GRAIN HAZE</span> (Grain Delay), <span class="code">B — REVERB</span> (Hybrid Reverb, decay 6–8 s, 100 % wet).</li>
+        <li>On <span class="code">SOURCE REC</span>: Audio From → <strong>Ext. In 1</strong> (MicroFreak mono). On <span class="code">RESAMPLE</span>: Audio From → <strong>Resampling</strong>. On <span class="code">DT SLICE</span>: Audio From → <strong>Ext. In 3/4</strong>.</li>
+      </ul>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Project hygiene for generations</div>
+      <ul>
+        <li><kbd>⌘ S</kbd> → save as <span class="code">granular_lab_b4-003.als</span> in a dedicated folder.</li>
+        <li>Keep a text file <span class="code">generations.txt</span> next to it. Every resample gets one line: <span class="code">gen2 = gen1 frozen @0.42s, size 90ms, spray 12%</span>. This is non-negotiable — resamples are irreversible.</li>
+        <li><span class="menu">File → Collect All and Save</span> at the end of each session.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="10" width="32" height="20" rx="2"/><circle cx="14" cy="20" r="2" fill="currentColor"/><circle cx="22" cy="20" r="2" fill="currentColor"/><circle cx="30" cy="20" r="2" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Setup 02</div>
+      <h2 class="step-title">Map Granulator III to four macros</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">The four dials, where they live</div>
+      <table class="param-table">
+        <caption>Granulator III — assign these to Macros 1–4 (right-click → Map to Macro)</caption>
+        <tr><td>Macro 1 — Position</td><td>The grain start point in the file. This is the one you scrub and freeze. Range it across the useful part of the source, not the whole file.</td></tr>
+        <tr><td>Macro 2 — Grain Size</td><td>From ~20 ms to ~120 ms. Below 50 ms = texture; above = pad.</td></tr>
+        <tr><td>Macro 3 — Spray</td><td>0 to ~80 ms of random position scatter. Tiny amounts hide the loop; large amounts dissolve pitch.</td></tr>
+        <tr><td>Macro 4 — Density / Grains</td><td>How many voices overlap. Higher = smoother and denser; lower = sparse and rhythmic.</td></tr>
+      </table>
+      <ul>
+        <li>Engage <strong>Freeze</strong> so Position stops following any played note and sits where Macro 1 parks it.</li>
+        <li>Set the grain <strong>window</strong> (envelope shape) to a smooth bell to start — sharpen it only when you want grit.</li>
+        <li>Map Macro 1 to a Launchpad control later (<kbd>⌘ M</kbd>) so you can scrub Position by hand while everything plays.</li>
+      </ul>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>With Freeze on and a note held, does turning Macro 1 scrub through the source like scrubbing tape? If the pitch jumps instead, Freeze is off.</li>
+        <li>Does Macro 2 cross audibly from buzz to pad around the middle of its range? If it never smooths out, raise density.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M8 22 q4 -8 8 0 t8 0 t8 0 t8 0"/></svg>
+      </div>
+      <div class="step-num">Setup 03</div>
+      <h2 class="step-title">Grain Delay on the haze return + Reverb</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Return A — Grain Haze</div>
+      <table class="param-table">
+        <caption>Grain Delay starting values</caption>
+        <tr><td>Frequency</td><td>~ 8 Hz — how often it samples the input into grains</td></tr>
+        <tr><td>Spray</td><td>40–60 ms — scatters the grains into a haze rather than a clean echo</td></tr>
+        <tr><td>Pitch</td><td>0 st to start; later, −7 or +12 st for shifted shimmer copies</td></tr>
+        <tr><td>Feedback</td><td>20–35 % — keep it short of self-oscillation on a return</td></tr>
+        <tr><td>Dry/Wet</td><td>100 % (it is a return — the send knob is the mix)</td></tr>
+      </table>
+      <ul>
+        <li>Put an EQ Eight after the Grain Delay, high-passed at <span class="code">200 Hz</span> — granular haze loves to build up mud.</li>
+      </ul>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Return B — Reverb</div>
+      <ul>
+        <li>Hybrid Reverb, large algorithm, decay <span class="code">6–8 s</span>, pre-delay short, high-pass the reverb input at <span class="code">300 Hz</span> so the cloud's lows don't wash out.</li>
+        <li>This is the room every cloud sits in. Keep its low end disciplined or the whole piece turns to fog.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="6"/><path d="M22 4 v6 M22 34 v6 M4 22 h6 M34 22 h6"/><path d="M9 9 l4 4 M35 9 l-4 4 M9 35 l4 -4 M35 35 l-4 -4"/></svg>
+      </div>
+      <div class="step-num">Setup 04</div>
+      <h2 class="step-title">The resampling loop — and how to avoid feedback</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">How a resample is printed</div>
+      <ul>
+        <li>Set <span class="code">RESAMPLE</span> track Audio From → <strong>Resampling</strong>, Monitor → <strong>Off</strong>, and arm it.</li>
+        <li>Solo the tracks you want captured (e.g. <span class="code">GRANULATOR</span> + its sends). Anything not soloed will not print.</li>
+        <li><kbd>F9</kbd> / Arrangement Record, capture the length you need, stop. Drag the printed clip to <span class="code">CLOUD A</span> (or wherever it belongs) and rename it <span class="code">gen2</span>.</li>
+        <li>Write the line in <span class="code">generations.txt</span> immediately.</li>
+      </ul>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">The feedback trap</div>
+      <ul>
+        <li>Resampling captures the master output. If the <span class="code">RESAMPLE</span> track is itself audible in the master while armed and monitoring, you get a feedback howl.</li>
+        <li>Keep <span class="code">RESAMPLE</span> Monitor on <strong>Off</strong> at all times except the instant you check a take. Never leave it on <strong>In</strong>.</li>
+        <li>If you hear a rising tone the moment you arm, mute the <span class="code">RESAMPLE</span> track's output or pull its fader — then print.</li>
+      </ul>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Digitakt as a slicing stage</div>
+      <ul>
+        <li>Send a printed cloud out to the Digitakt: route <span class="code">CLOUD A</span> output to the M4 so the Digitakt can sample it via its input, or transfer the WAV to the box. Sample it into a slot.</li>
+        <li>On the Digitakt, set the sample to <span class="code">Slicing</span>, slice by transient or by an even grid, and trigger slices per step. P-lock <strong>sample start</strong> for finer cuts the cloud never had.</li>
+        <li>Use <strong>Retrig</strong> to machine-gun a single slice into a granular-style stutter at sequencer resolution.</li>
+        <li>Resample the Digitakt pattern back to a slot for a further generation, or record it into <span class="code">DT SLICE</span> over the M4 (Ext. In 3/4).</li>
+      </ul>
+    </div>
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Can I print a 16-bar cloud to <span class="code">RESAMPLE</span> and drag it out without a feedback howl? If not, fix monitoring before the build.</li>
+        <li>Does my <span class="code">generations.txt</span> have a line for the source recording itself (gen1)? Start the log there.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Carry forward:</strong> the rig is one source, one engine, one print track, two returns. Page 05 gives you the grain settings — recipes for pad, cloud, stutter, and glitch — that you will dial into Granulator III and the haze return throughout the build.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="decisions.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 03 / Decisions
+    </a>
+    <a href="palette.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      05 / Grain palette →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B4-003 — Granular</div>
+
+</div>
+
+</body>
+</html>

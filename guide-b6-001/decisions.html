@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B6-001 — Rule-based Sequencing — Decisions</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Lab Note contents">
+  <p class="nav-label labnote-code">Lab Note B6-001<span class="labnote-topic">Rule-based Sequencing</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html" class="active"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Rule vocabulary</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B6-001</div>
+    <div class="eyebrow">Rule-based Sequencing · 03 — Decisions</div>
+    <h1>Turning an intention into explicit rules</h1>
+    <p class="lede">A rule is a musical intention made literal enough for a machine to execute without you. Before any randomness, the discipline is writing down what should happen and under what condition — so the system has somewhere to surprise you <em>from</em>. This page is the theory you decide on before the rig is even powered on.</p>
+  </header>
+
+  <h2>Intention → rule → boundary</h2>
+
+  <p style="text-align:center; max-width:620px; margin:0 auto 24px; color:var(--text-muted);">Every generative patch is really two paths kept apart: the <strong>audio path</strong> (what makes sound) and the <strong>control path</strong> (what decides). A rule lives entirely in the control path. Write it before you touch a sound.</p>
+
+  <div class="signal-flow">
+    <span class="signal-node">Musical intention</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">Explicit condition</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">Bounded outcome</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">Audio path</span>
+  </div>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M12 8h16l8 8v20a2 2 0 0 1-2 2H12a2 2 0 0 1-2-2V10a2 2 0 0 1 2-2z"/><path d="M28 8v8h8"/><line x1="16" y1="24" x2="30" y2="24"/><line x1="16" y1="30" x2="26" y2="30"/></svg>
+      </div>
+      <h3 class="card-title">A vague wish</h3>
+      <ul class="card-points">
+        <li>"The percussion should feel less mechanical."</li>
+        <li>"I want it to evolve."</li>
+        <li>Nothing here can be executed — it's a feeling, not a rule.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="15"/><polyline points="14 22 20 28 31 16"/></svg>
+      </div>
+      <h3 class="card-title">The same wish as a rule</h3>
+      <ul class="card-points">
+        <li>"The rimshot on step 11 plays only on 1 of every 4 pattern cycles."</li>
+        <li>"When the previous trig played, this one is silent."</li>
+        <li>Now a machine can run it, and you can hear whether you were right.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Principle</div>
+    <p>A rule you cannot state in one sentence is not yet a rule — it is a hope.</p>
+  </div>
+
+  <h2>The audio path and the control path</h2>
+  <p style="text-align:center; max-width:640px; margin:0 auto 24px; color:var(--text-muted);">Keeping these two separate is the single most important decision of the whole exercise. It is what lets you change <em>how</em> something is decided without changing <em>what</em> it sounds like, and vice versa.</p>
+
+  <table class="param-table">
+    <caption>What lives in each path</caption>
+    <tr><td>Control path</td><td>Conditions, probabilities, sequencers, LFOs as modulators, MIDI generators, Max logic. It decides <em>when</em> and <em>which</em> — and emits no sound itself.</td></tr>
+    <tr><td>Audio path</td><td>Oscillators, samples, filters, the signal that reaches the speakers. It is told what to do; it never decides.</td></tr>
+    <tr><td>The interface</td><td>A note, a gate, a trig, a CC value. The control path speaks here; the audio path listens.</td></tr>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Why it matters in practice:</strong> if your rules are MIDI flowing into an instrument, you can swap the instrument, re-voice the part, or print a different sound — the composition (the rule) survives. If you bake the decision <em>into</em> a recorded audio take, the rule and the sound fuse and can never be separated again. Generate in the control path; commit to audio only when curating.</li>
+    </ul>
+  </div>
+
+  <h2>Bounded versus unbounded randomness</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="10" y="10" width="24" height="24" rx="3"/><circle cx="17" cy="17" r="2" fill="currentColor"/><circle cx="27" cy="27" r="2" fill="currentColor"/><circle cx="22" cy="22" r="2" fill="currentColor"/></svg>
+      </div>
+      <h3 class="card-title">Unbounded</h3>
+      <ul class="card-points">
+        <li>Any note, any time, any velocity</li>
+        <li>Feels arbitrary because it is — no fence to read against</li>
+        <li>Sounds the same after ten seconds as after ten minutes</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="8" y="8" width="28" height="28" rx="3"/><rect x="16" y="16" width="12" height="12" rx="1"/><circle cx="22" cy="22" r="2" fill="currentColor"/></svg>
+      </div>
+      <h3 class="card-title">Bounded</h3>
+      <ul class="card-points">
+        <li>Three allowed notes, on allowed steps, within a velocity range</li>
+        <li>Surprise reads as <em>choice</em> because there's a wall behind it</li>
+        <li>This is the entire craft: design the box, let chance move inside it</li>
+      </ul>
+    </div>
+  </div>
+
+  <p style="text-align:center; max-width:640px; margin:24px auto; color:var(--text-muted);">A boundary can fence three independent dimensions. Decide each one on purpose — most weak generative patches forgot one.</p>
+
+  <table class="param-table">
+    <caption>The three fences of any bounded system</caption>
+    <tr><td>Pitch fence</td><td>A scale, a chord, or a fixed set of allowed notes. The Scale MIDI effect and the Digitakt's per-track scale are pitch fences.</td></tr>
+    <tr><td>Rhythm fence</td><td>Which steps are even eligible to fire, and the swing/micro-timing window around them. The grid is a fence; conditions narrow it further.</td></tr>
+    <tr><td>Dynamic fence</td><td>A velocity / volume range. Bounded loudness is what keeps a probabilistic part sitting <em>inside</em> the mix instead of poking through it.</td></tr>
+  </table>
+
+  <h2>Rule, chance, and the order to reach for them</h2>
+  <p style="text-align:center; max-width:640px; margin:0 auto 24px; color:var(--text-muted);">Not all conditions are equal. A logical rule is something you can predict and defend; a probabilistic one is a coin you delegated a decision to. Spend the budget in this order.</p>
+
+  <table class="param-table">
+    <caption>From most authored to least</caption>
+    <tr><td>1 — Fixed / deterministic</td><td>The spine: kick, root, pulse. Never conditional. The listener must be able to lock to it.</td></tr>
+    <tr><td>2 — Counted / logical</td><td><span class="code">1:4</span>, <span class="code">PRE</span>, <span class="code">FIRST</span>, every-N. Predictable, defensible variation. Most of your conditional budget goes here.</td></tr>
+    <tr><td>3 — Probabilistic</td><td>The percentage condition. One coin, rarely, never as backbone. It produces motion you did not author — use it last.</td></tr>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>The trap:</strong> probability is the easiest condition to reach for and the weakest. <span class="code">1:4</span> is a <em>rule</em> — you can predict and defend it. <span class="code">35 %</span> is a <em>coin</em> — it produces motion you didn't author. Spend your conditional budget on logic first, chance last.</li>
+    </ul>
+  </div>
+
+  <h2>The choices you are actually making</h2>
+
+  <table class="param-table">
+    <caption>Decide these before the build page</caption>
+    <tr><td>What is the spine?</td><td>The one or two parts that are always fixed. Write them down; they are off-limits to every rule.</td></tr>
+    <tr><td>What is allowed to vary, and how?</td><td>For each conditional part: which dimension (pitch / rhythm / dynamic) and which condition type.</td></tr>
+    <tr><td>Where does each rule get written?</td><td>Digitakt trig conditions, Live MIDI clip, a MIDI effect, Max for Live, or a code path. One home per rule.</td></tr>
+    <tr><td>How long must it run to reveal itself?</td><td>A <span class="code">1:8</span> condition needs at least eight cycles before you've heard the rule, not an accident.</td></tr>
+    <tr><td>What is your reject criterion?</td><td>How will you decide, by ear, which generated passes you keep? Name it now, before you're attached to a take.</td></tr>
+  </table>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Decision check</div>
+    <ul>
+      <li>Can I recite my whole rule-set out loud in under five sentences? If not, it is too complex to evaluate honestly.</li>
+      <li>Is the spine genuinely unconditional, or did a rule sneak onto the kick?</li>
+      <li>For every chance condition, can I name what it does <em>and</em> why a logical rule wouldn't do it better?</li>
+      <li>Is every rule in the control path, with nothing decision-making baked into audio yet?</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Carry forward</div>
+    <p>Randomness without boundaries is drift. Boundaries without randomness is a loop. Generative music is the narrow band between them — and you draw the band.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="listen.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 02 / Listen
+    </a>
+    <a href="setup.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      04 / Setup →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B6-001 — Rule-based Sequencing</div>
+
+</div>
+
+</body>
+</html>

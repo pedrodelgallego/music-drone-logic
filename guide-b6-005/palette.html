@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B6-005 — The Score — Score primitives</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Lab Note contents">
+  <p class="nav-label labnote-code">Lab Note B6-005<span class="labnote-topic">The Score</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html" class="active"><span class="nav-num">05</span>Score primitives</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B6-005</div>
+    <div class="eyebrow">The Score · 05 — Score primitives</div>
+    <h1>A vocabulary of instructions you can assemble into a score</h1>
+    <p class="lede">A score is built from primitives — single instructions, each of which fixes one thing or frees one thing. This page is the parts bin. Every primitive comes with an example you could paste straight into a score, a note on whether it tends to read as <span class="code">D</span> or <span class="code">I</span>, and what it costs. Build your score by choosing a handful and arranging them; the build page shows the assembly.</p>
+  </header>
+
+  <div class="callout">
+    <div class="callout-label">How to read this page</div>
+    <p>Each primitive is a candidate line for your score. The mark <span class="code">D</span> means it usually fixes an outcome (it will show as sameness in your delta); <span class="code">I</span> means it usually frees one (it will show as difference). Some are <span class="code">D/I</span> — they fix one dimension and free another in the same breath. Aim for a score of 4–8 lines with at least one hard <span class="code">D</span> and one wide <span class="code">I</span>.</p>
+  </div>
+
+  <h2>Boundary primitives — they fix the edges</h2>
+  <table class="param-table">
+    <caption>Cheap, strong identity-fixers · usually D</caption>
+    <tr><td>Begin / end state</td><td><span class="code">"Begins and ends in silence."</span> Every realization shares its frame. The single most reliable identity rule.</td></tr>
+    <tr><td>Event count</td><td><span class="code">"Exactly three sound events, no more."</span> Audible across takes, trivial to obey, impossible to misread.</td></tr>
+    <tr><td>Total duration</td><td><span class="code">"The whole piece lasts between 3:00 and 3:30."</span> Fixes scale while leaving internal timing free.</td></tr>
+    <tr><td>Register band</td><td><span class="code">"All sound stays below 200 Hz."</span> Stamps a sonic identity without naming a pitch.</td></tr>
+    <tr><td>Entrance order</td><td><span class="code">"The lowest sound enters last."</span> Fixes architecture; exact sounds stay free.</td></tr>
+  </table>
+
+  <h2>Choice primitives — they open a real range</h2>
+  <table class="param-table">
+    <caption>Wide-open freedoms · usually I · give them genuine range</caption>
+    <tr><td>Open source</td><td><span class="code">"Choose any sound source not yet heard in the piece."</span> The classic wide <span class="code">I</span> — makes R1 metallic, R2 vocal, from one line.</td></tr>
+    <tr><td>Free pitch in band</td><td><span class="code">"Any pitch within the chosen band; it may change or not."</span> Frees content while a boundary rule fixes the band.</td></tr>
+    <tr><td>Free duration</td><td><span class="code">"Hold each sound as long as one comfortable breath, or longer."</span> Riley/Oliveros flavour — the realizer's body sets the clock.</td></tr>
+    <tr><td>Performer's discretion</td><td><span class="code">"Repeat any gesture as many times as feels necessary, then move on."</span> Frees length and recurrence at once.</td></tr>
+    <tr><td>Open dynamics</td><td><span class="code">"Any dynamic, but never twice the same in succession."</span> A freedom with a small constraint riding on it.</td></tr>
+  </table>
+
+  <h2>Relational primitives — the rule is between events</h2>
+  <p>These are Wolff's territory: they fix nothing about any single sound, only how sounds relate. They produce structure that survives realization while leaving the material wide open. On the rig, realized solo, you obey them by treating each prior recorded event as the cue for the next.</p>
+  <table class="param-table">
+    <caption>Contingency rules · D in logic, I in content</caption>
+    <tr><td>Response</td><td><span class="code">"Each new sound answers the previous one — higher if it was low, longer if it was short."</span> Makes the piece depend on its own unfolding.</td></tr>
+    <tr><td>Cue / wait</td><td><span class="code">"Enter only after a silence you did not plan."</span> Fixes the trigger, frees the timing.</td></tr>
+    <tr><td>Mirror / contrast</td><td><span class="code">"The second half undoes the first, in reverse order."</span> Fixes a relationship across the whole form.</td></tr>
+    <tr><td>Density coupling</td><td><span class="code">"When one layer thickens, another must thin."</span> A conservation law for texture.</td></tr>
+  </table>
+
+  <h2>Process primitives — do X until a condition, then advance</h2>
+  <p>Riley's territory: a tiny rule that, run long enough, generates a whole piece. Solo-realizable on the rig by stepping the process yourself or by mapping it onto a sequence.</p>
+  <table class="param-table">
+    <caption>Process rules · D in mechanism, I in when</caption>
+    <tr><td>Ordered advance</td><td><span class="code">"Move through these 6 cells in order; repeat each as long as you like before advancing."</span> The In C mechanism, scaled down.</td></tr>
+    <tr><td>Accumulate</td><td><span class="code">"Each pass adds one new layer and never removes one."</span> A one-directional build.</td></tr>
+    <tr><td>Decay</td><td><span class="code">"Each repetition is quieter and shorter than the last until nothing remains."</span> A process with a built-in ending.</td></tr>
+    <tr><td>Phase</td><td><span class="code">"Two identical figures at slightly different lengths, allowed to drift apart and realign."</span> Reich's mechanism as a rule.</td></tr>
+  </table>
+
+  <h2>Graphic primitives — shapes as instructions</h2>
+  <p>For a graphic idiom, the "lines" of your score are marks on a page plus a <em>key</em> that says how to read them. The key is itself a set of <span class="code">D</span>/<span class="code">I</span> decisions — it declares which spatial dimension maps to which musical one, and what is left unsaid.</p>
+  <table class="param-table">
+    <caption>Reading conventions you declare in the key</caption>
+    <tr><td>Horizontal = time</td><td>Left-to-right is the clock. Usually <span class="code">D</span> in order, often <span class="code">I</span> in exact rate.</td></tr>
+    <tr><td>Vertical = register</td><td>Higher on the page = higher in pitch/band. Fixes contour, frees exact pitch.</td></tr>
+    <tr><td>Thickness = dynamic or density</td><td>Thick mark = loud or many. A clear visual <span class="code">D</span>.</td></tr>
+    <tr><td>Mark type = articulation / source</td><td>A dot vs a line vs a smear maps to attack, sustain, texture — your choice, stated in the key.</td></tr>
+    <tr><td>Empty space</td><td>Silence, or freedom — say which. Undeclared empty space is the commonest graphic ambiguity.</td></tr>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Cardew's <em>Treatise</em> has no key at all</strong> — 193 pages of graphics and not one instruction. That is a legitimate extreme, but for this build you must declare your key, because an unread key is the under-specification fault waiting to happen.</li>
+    </ul>
+  </div>
+
+  <h2>Attention primitives — the Oliveros move</h2>
+  <p>Pauline Oliveros's <em>Sonic Meditations</em> instruct <em>attention and intention</em> rather than action: "listen to the lowest sound you can hear and tune toward it." On the rig you can encode these as rules about what you respond to. They produce the most original results and the hardest-to-read deltas — use one if you want the freedom to live in perception itself.</p>
+  <table class="param-table">
+    <caption>Attention rules · I in nearly every dimension</caption>
+    <tr><td>Tune toward</td><td><span class="code">"Find the lowest pitch present and add a sound a fifth above it."</span> The pitch is determined by what's already there.</td></tr>
+    <tr><td>Fill the gap</td><td><span class="code">"Add sound only where you hear silence."</span> The density self-regulates against the existing recording.</td></tr>
+    <tr><td>Match and leave</td><td><span class="code">"Match a timbre already present, hold it, then remove the original."</span> A handover the realizer hears in real time.</td></tr>
+  </table>
+
+  <h2>Worked mini-examples — three two-line scores</h2>
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><line x1="10" y1="16" x2="34" y2="16"/><line x1="10" y1="24" x2="34" y2="24"/></svg>
+      </div>
+      <h3 class="card-title">Text, tight</h3>
+      <ul class="card-points">
+        <li><span class="code">D</span> "Exactly three events; begins and ends in silence."</li>
+        <li><span class="code">I</span> "Each event is any source not yet heard."</li>
+        <li>Delta: same shape and frame, totally different sounds.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><line x1="10" y1="28" x2="22" y2="16"/><circle cx="30" cy="22" r="3"/></svg>
+      </div>
+      <h3 class="card-title">Process, drifting</h3>
+      <ul class="card-points">
+        <li><span class="code">D</span> "Step through 5 register-bands, lowest to highest, in order."</li>
+        <li><span class="code">I</span> "Hold each band as long as one breath; choose its sound freely."</li>
+        <li>Delta: same ascent, different pacing and timbre.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M8 24 a8 8 0 0 1 16 0 a8 8 0 0 0 16 0"/></svg>
+      </div>
+      <h3 class="card-title">Relational, alive</h3>
+      <ul class="card-points">
+        <li><span class="code">D</span> "Every sound answers the last: opposite register, opposite length."</li>
+        <li><span class="code">I</span> "Stop when you have made a sound that answers nothing."</li>
+        <li>Delta: same logic, different conversation and length.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Assembling a score from primitives</div>
+    <p>Pick one boundary <span class="code">D</span> (the identity), one choice or attention <span class="code">I</span> (the freedom), and optionally one relational or process primitive (the engine that makes it move). Three good lines beat eight muddled ones. The build page takes exactly this kit and writes a full score with it.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="setup.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 04 / Setup
+    </a>
+    <a href="build.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      06 / The build →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B6-005 — The Score</div>
+
+</div>
+
+</body>
+</html>

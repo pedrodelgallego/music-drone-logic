@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B7-003 — Feedback Safety — The build</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B7-003<span class="labnote-topic">Feedback Safety</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Feedback states</a>
+  <a href="build.html" class="active"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B7-003</div>
+    <div class="eyebrow">Feedback Safety · 06 — The build</div>
+    <h1>Build it, tune it, then perform a rehearsed take</h1>
+    <p class="lede">Only now do we let the loop oscillate — and even now, the safety devices go in first and the loud part comes last. Each step is small, each has a decision checkpoint, and a safety callout sits beside every step where the loop can bite. The second half is a fully scripted, rehearsed performance: a four-and-a-half-minute take of the feedback instrument played through its states, recorded as raw material. Keep the <a href="setup.html">setup page</a> open in another tab — it is the wiring this page assumes — and keep your hand on the panic pad from Step 04 onward.</p>
+  </header>
+
+  <!-- STEP 1 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 14 v20 a2 2 0 0 0 2 2 h28 a2 2 0 0 0 2 -2 v-16 a2 2 0 0 0 -2 -2 h-14 l-4 -4 h-10 a2 2 0 0 0 -2 2 z"/></svg>
+      </div>
+      <div class="step-num">Step 01</div>
+      <h2 class="step-title">Set up the session and the silent loop</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Prepare the room before any signal</div>
+      <ul>
+        <li>Confirm <strong>monitoring is on speakers</strong>, headphones unplugged or pushed away. This is decided before the session, not negotiated during it.</li>
+        <li>Set the monitor volume <em>lower than feels normal</em>. You will raise the room, not the loop, if you want it louder later.</li>
+        <li>Open a new set at the workshop tempo (<span class="code">124</span> if you intend to drop the take into the main track). Tempo only matters because you may sync filter movement to it; the feedback itself is free-running.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Build the loop from page 04 — and leave it silent</div>
+      <ul>
+        <li>Create <span class="code">FB LOOP</span> and <span class="code">FB RETURN</span> and wire the return's output back to the loop's input, exactly as in Rig A (or patch the hardware loop, Rig B).</li>
+        <li><strong>Ride control fully down.</strong> Loop gain well below unity. The loop is closed but cannot sustain — this is the only state you build in.</li>
+        <li>Put the resonant filter / EQ on <span class="code">FB RETURN</span> as the first device, centre frequency near your chosen key note. Do not raise gain yet.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Are speakers the only monitoring path, and is the room volume low?</li>
+        <li>Is the loop wired and the ride control all the way down?</li>
+        <li>Can I tap a sound into the loop and hear it decay to nothing? (If it does not decay, gain is already too high — pull it down before continuing.)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M22 6l14 6v8c0 9-6 15-14 18-8-3-14-9-14-18v-8z"/></svg>
+      </div>
+      <div class="step-num">Step 02</div>
+      <h2 class="step-title">Insert the limiter — the ceiling goes in first</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The in-circuit limiter</div>
+      <ul>
+        <li>Add a <strong>Limiter as the last device on <span class="code">FB RETURN</span></strong>, after the filter and any tone shaping, before the wrap back to source.</li>
+        <li>Ceiling <span class="code">-3 dBFS</span>. Lookahead on, release fast. This is the hard backstop the whole instrument relies on.</li>
+        <li><strong>Confirm it is last.</strong> If any gain stage sits after the limiter, it can push the signal back over the ceiling. Drag it to the end of the chain and verify.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Set the ceiling and walk away from it</div>
+      <ul>
+        <li>Set <span class="code">-3 dBFS</span> now, while the loop is still silent. Write it down.</li>
+        <li>You will not touch this value again today. Not at the peak of the take, not if the tone feels "too quiet". The ceiling is fixed; you make the music below it.</li>
+      </ul>
+    </div>
+
+    <div class="note-block">
+      <ul>
+        <li><strong>Safety:</strong> the limiter caps loudness; it does not prevent oscillation. The squeal can still happen — the limiter only decides it cannot get loud enough to hurt anyone. That is exactly the job you want it to do, and the reason it goes in before the loop is allowed to ring.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Is the limiter the genuinely last device before the loop wraps?</li>
+        <li>Is the ceiling at −3 dBFS and written down?</li>
+        <li>Have I committed to not raising it for the rest of the session?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M16 6h12v10a6 6 0 0 1-12 0z"/><path d="M22 22v10"/><path d="M14 38h16"/></svg>
+      </div>
+      <div class="step-num">Step 03</div>
+      <h2 class="step-title">Wire and label the panic path</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Map the kill</div>
+      <ul>
+        <li><kbd>⌘ M</kbd> → MIDI-map one dedicated pad to <strong>mute <span class="code">FB RETURN</span></strong>. Muting the return opens the loop instantly, so it cannot sustain.</li>
+        <li>If your controller allows, build a kill that does both at once: mute <span class="code">FB RETURN</span> and zero the <span class="code">FB LOOP</span> send. One pad, total silence.</li>
+        <li>Exit map mode. Press the pad — the loop must go dead silent immediately, not fade.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Fix it and label it</div>
+      <ul>
+        <li>Choose the physical pad's spot and commit. <strong>Tape a label on it</strong> — a strip of gaff with "KILL" is not theatrics, it is how your hand finds it without looking.</li>
+        <li>It never moves again, this session or any other. A panic path that lives somewhere different each set is not a panic path.</li>
+      </ul>
+    </div>
+
+    <div class="note-block">
+      <ul>
+        <li><strong>Safety:</strong> from this step forward, the panic pad exists and works <em>before</em> the loop is ever allowed to get loud. You are now permitted to raise gain — because the exit is built, tested, and labeled. Never reverse this order.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does one pad take the loop to true silence, instantly, every time?</li>
+        <li>Is it labeled and in a spot I will never change?</li>
+        <li>Can I already find it without looking down?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="8" y="8" width="28" height="28" rx="3"/><line x1="16" y1="16" x2="28" y2="28"/><line x1="28" y1="16" x2="16" y2="28"/></svg>
+      </div>
+      <div class="step-num">Step 04</div>
+      <h2 class="step-title">Find the runaway point and cap below it</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Approach the edge once, on purpose, hand on the kill</div>
+      <ul>
+        <li>Hand resting on the panic pad. Raise the ride control <em>slowly</em>. Listen for the loop to begin sustaining (S2), then to begin climbing (S3).</li>
+        <li>Keep going just until it clearly tries to run away — then <strong>note the position and pull straight back</strong>. You only need to see the edge once. You do not need to let it scream.</li>
+        <li>That position is "runaway". The limiter will have caught the level — that is its job — but you are looking for where the <em>behaviour</em> tips, not how loud it gets.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Set the structural cap a clear margin below</div>
+      <ul>
+        <li><strong>Rig A:</strong> open the mapped ride control's <span class="menu">Mapping → Min/Max</span> and set the Max to a value a clear margin below the runaway position. The encoder now physically cannot reach the scream.</li>
+        <li><strong>Rig B:</strong> mark the runaway point on the fader strip with tape, then mark your cap line below it. The tape is the wall; the limiter is the backstop behind it.</li>
+        <li>Leave a generous margin. The threshold drifts during a set — a cap that was perfect in a cold studio can be at runaway in a warm room. Margin is what absorbs that drift.</li>
+      </ul>
+    </div>
+
+    <div class="note-block">
+      <ul>
+        <li><strong>Safety:</strong> this is the loudest the instrument will get all session, and you set it deliberately, once, with your hand on the kill. After this step the danger is mapped out of reach — every later move happens inside a region you have already proven is recoverable.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Did I find the runaway point with one slow approach, not by cranking it?</li>
+        <li>Is the cap set below runaway with margin to spare?</li>
+        <li>If I push the ride control to its new maximum, does it stop short of running away?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 5 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 22h8l4-12 6 24 4-12h10"/></svg>
+      </div>
+      <div class="step-num">Step 05</div>
+      <h2 class="step-title">Tune the loop to a pitch</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Use the filter to choose the note</div>
+      <ul>
+        <li>Bring the ride control to S2 (held tone). With the loop sustaining steadily, sweep the filter centre frequency slowly.</li>
+        <li>The oscillation pitch follows the filter — it sings loudest where loop gain is highest, which is the filter's boost. Park the centre on your key note (check against a reference tone or a tuner).</li>
+        <li>Narrow the resonance/Q for a purer, more sine-like tone; widen it for a richer, harmonically busier one. Move Q gently — it can nudge loop gain, so watch the level as you do.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Tame the harsh harmonic before it builds</div>
+      <ul>
+        <li>Push briefly toward S3 and listen for the harmonic that climbs fastest and harshest. Add a second narrow EQ notch on the return that pulls that frequency down.</li>
+        <li>Now S3 brightens into a richer tone instead of a piercing shriek. This is the tuned-instability move from page 03 — you are deciding what the edge sounds like, not just how loud it is.</li>
+        <li>Return to S2 when done. Save the loop / device chain so this tuned instrument survives the session.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does the held tone (S2) sit on my key note?</li>
+        <li>When I push to the brink (S3), does it sing rather than shriek?</li>
+        <li>Have I saved the tuned instrument so I do not rebuild it next time?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 6 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="16"/><polyline points="22 12 22 22 30 26"/></svg>
+      </div>
+      <div class="step-num">Step 06</div>
+      <h2 class="step-title">Rehearse the panic path blind</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Drill it until it is reflex</div>
+      <ul>
+        <li>Ride the loop up into S3, eyes off the controller, and <strong>hit the panic pad blind</strong>. Silence. Repeat from different starting positions.</li>
+        <li>Do it mid-build, mid-sweep, while distracted — the conditions you will actually be in live. A panic path you can only hit when calm is not rehearsed.</li>
+        <li>Drill it at least a dozen times across the session, not once. The goal is that your hand goes there <em>before</em> you have decided to, the instant the tone gets away from you.</li>
+      </ul>
+    </div>
+
+    <div class="note-block">
+      <ul>
+        <li><strong>Safety:</strong> this step is the whole reason the instrument is allowed on a stage. Confidence to ride the edge comes entirely from knowing the exit is reflex. If you cannot hit the kill blind reliably, the rig stays in the studio until you can.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Can I kill the loop blind, from any state, without thinking?</li>
+        <li>Does my hand go to the pad faster than I can decide to move it?</li>
+        <li>Have I drilled it enough times that it is boring? (Boring is the goal.)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 7 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 34 Q22 6 38 14"/><circle cx="6" cy="34" r="2.5" fill="currentColor"/><circle cx="38" cy="14" r="2.5" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Step 07</div>
+      <h2 class="step-title">The rehearsed take — perform the instrument</h2>
+    </div>
+
+    <p style="color:var(--text-muted);">Everything above was preparation. This is the performance: a four-and-a-half-minute take that moves the loop through its states as a piece of music. It is scripted because a feedback take is too dangerous to improvise on the first pass — rehearse the script, then record it. Slower than feels natural, always. Arm <span class="code">FB LOOP</span> (or a resampling track capturing the loop output), monitor on speakers, hand on the panic pad, and record.</p>
+
+    <div class="signal-flow">
+      <div class="signal-node">S0 silence</div>
+      <div class="signal-arrow">→</div>
+      <div class="signal-node">S1 bloom</div>
+      <div class="signal-arrow">→</div>
+      <div class="signal-node">S2 held tone</div>
+      <div class="signal-arrow">→</div>
+      <div class="signal-node">S3 swell + back</div>
+      <div class="signal-arrow">→</div>
+      <div class="signal-node">S2 pitch glide</div>
+      <div class="signal-arrow">→</div>
+      <div class="signal-node">S0 silence</div>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The scripted choreography — slower than feels natural</div>
+      <table class="param-table">
+        <caption>4:30 take — ride control + filter, hand on the kill throughout</caption>
+        <tr><td>0:00 – 0:30 / S0→S1</td><td>From silence, raise the ride control over the full 30 seconds until the loop blooms. The piece begins as the room realising a tone is present.</td></tr>
+        <tr><td>0:30 – 1:30 / S2</td><td>Edge up to the held tone on your key note. Hands off. Let it sustain for a full minute — the nerve to hold one pitch is the content (the Sachiko lesson).</td></tr>
+        <tr><td>1:30 – 2:15 / S2 glide</td><td>Sweep the filter centre slowly to a second note and back. The pitch glides; the level does not change. The most musical gesture on the instrument.</td></tr>
+        <tr><td>2:15 – 3:00 / S2→S3</td><td>Ride slowly into the brink. The tone brightens, harmonics climb. Live at the edge — do not let it reach the cap. This is the swell.</td></tr>
+        <tr><td>3:00 – 3:15 / S3→S2</td><td>Pull back to the held tone <em>before</em> it runs. The release of tension is the payoff. If it gets away: panic pad, recover, and the take is over — that is fine, you learned the edge.</td></tr>
+        <tr><td>3:15 – 4:00 / S2→S1</td><td>Ease down into the bloom. Optional gentle Q narrowing for a purer, thinning tone.</td></tr>
+        <tr><td>4:00 – 4:30 / S1→S0</td><td>Bring the ride control down to silence over the final 30 seconds. End where you started. Do not stab the kill to end it — fade it out as a musical close (the kill is for emergencies, not endings).</td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Rules for the take</div>
+      <ul>
+        <li><strong>One control rides; everything else is parked.</strong> The ride control and the filter centre are the only things you touch. The cap and limiter are untouchable.</li>
+        <li><strong>If you can hear a move as an "event", you moved too fast.</strong> The listener should notice that the tone is <em>different</em>, rarely that it <em>changed</em> — except the deliberate swell into S3, which is meant to be felt.</li>
+        <li><strong>The panic pad is not part of the music.</strong> Hitting it ends the take. Use it the instant the edge gets away from you and never feel you wasted a take — a recovered runaway is a successful rehearsal.</li>
+        <li>Record two or three takes. Keep the calmest one — the one where the edge felt held, not survived.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Reading drift during the take</div>
+      <ul>
+        <li>The threshold moves as you play — the gear warms, the room's reflections shift as you move, the loop's own heat changes its behaviour. The edge you found in Step 04 is a few minutes old by the time you record.</li>
+        <li>Watch for the tell-tale sign: a held tone (S2) that <em>slowly brightens on its own</em> has crept upward toward S3 without you moving anything. Ease the ride control back a hair to bring it home. This is normal, expected, and the reason you ride one control and nothing else.</li>
+        <li>The opposite drift — a held tone that slowly thins and dies — means the loop has fallen below unity. Nudge the ride control up a touch to re-find S2.</li>
+        <li>Because the cap and limiter are fixed below runaway, this constant small correction is the entire skill. You are not chasing a sound; you are balancing a system that is always trying to leave the plateau in one direction or the other.</li>
+      </ul>
+    </div>
+
+    <div class="note-block">
+      <ul>
+        <li><strong>Safety:</strong> across the whole take your hand never leaves the region of the panic pad, monitoring stays on speakers, and the cap and limiter are never adjusted. The performance is bold precisely because the boundaries are fixed. You are improvising <em>inside</em> a cage you built and trust. The cage is not a limit on the music — it is what makes the music possible to attempt at all.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does the take move through the states as music, or as a demo of effects?</li>
+        <li>Did the swell into S3 feel like tension I controlled, not luck?</li>
+        <li>If I had to kill it, did my hand go there without thought?</li>
+        <li>Is the take usable as raw material — a tuned, evolving tone, not a wall of squeal?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 8 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="4" y="14" width="10" height="6" rx="1"/><rect x="16" y="14" width="14" height="6" rx="1"/><rect x="32" y="14" width="8" height="6" rx="1"/><rect x="8" y="24" width="16" height="6" rx="1"/><rect x="26" y="24" width="12" height="6" rx="1"/></svg>
+      </div>
+      <div class="step-num">Step 08</div>
+      <h2 class="step-title">Capture, label, and put it away safely</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Make the take usable</div>
+      <ul>
+        <li>The recorded take has the limiter's ceiling baked in — it cannot be louder than −3 dBFS, which is exactly what you want for raw material.</li>
+        <li>Trim to the cleanest pass. High-pass anything below your tone's fundamental if sub-rumble crept in. Do not normalise into the red — leave the headroom.</li>
+        <li>Save the tuned instrument's device chain / patch as a recallable preset so the instrument survives, not just the recording.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Leave the rig safe for next time</div>
+      <ul>
+        <li>Ride control to S0. Save the set with the cap, limiter, and panic mapping intact — next session you rehearse the kill once and you are ready, rather than rebuilding the cage.</li>
+        <li>Note the runaway position and the cap value in the project so you can re-confirm margin in a different room.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Is the take trimmed, headroom intact, and named?</li>
+        <li>Did I save the tuned instrument and the safety mappings together?</li>
+        <li>Is the loop parked at silence so nothing oscillates when I reopen the set?</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Final safety checklist</h2>
+  <div class="checklist">
+    <ul>
+      <li>A limiter sits last on the feedback path, ceiling −3 dBFS, set in rehearsal and never raised.</li>
+      <li>The ride control's range tops out below runaway, with margin for drift.</li>
+      <li>The loop was built, tuned, and performed on speakers — never in headphones.</li>
+      <li>A single labeled panic pad kills the loop instantly, in a fixed spot.</li>
+      <li>The kill was rehearsed blind, mid-build, until it is reflex.</li>
+      <li>On stage, the house engineer can pull the master as a second net.</li>
+      <li>The take is recorded with headroom; the rig is saved parked at silence.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="palette.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 05 / Feedback states
+    </a>
+    <a href="reflection.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      07 / Reflection →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B7-003 — Feedback Safety</div>
+
+</div>
+
+</body>
+</html>

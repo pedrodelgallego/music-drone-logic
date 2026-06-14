@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feedback — The build</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B5-003<span class="labnote-topic">Feedback</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html" class="active"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B5-003</div>
+    <div class="eyebrow">Feedback · 06 — The build</div>
+    <h1>Build a dub-techno track on a feedback loop</h1>
+    <p class="lede">A complete, end-to-end build where the feedback loop is the lead instrument. Every step is small, every step has a decision checkpoint, and every gain and cable is spelled out. The first step is not music — it is the ceiling. Keep the <a href="setup.html">setup page</a> open in another tab; it is the wiring reference this page assumes, and keep the <a href="palette.html">palette</a> open for the recipe ranges.</p>
+  </header>
+
+  <div class="callout">
+    <div class="callout-label">Safety first — every session, before sound</div>
+    <p>You will raise loop gain many times today. Each time, the limiter must be set, the monitor must be low, and the kill must be in reach. If at any point the loop climbs and won't stop, hit the kill — do not try to "ride it down" with a mouse. Re-read the discipline if you skipped <a href="decisions.html">Decisions</a>.</p>
+  </div>
+
+  <!-- STEP 1 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="16"/><polyline points="14 22 20 28 30 16"/></svg>
+      </div>
+      <div class="step-num">Step 01</div>
+      <h2 class="step-title">Build the ceiling and the kill</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Project and master backstop</div>
+      <ul>
+        <li><kbd>⌘ N</kbd> for a new Live Set. <kbd>Tab</kbd> to <strong>Arrangement</strong>. Tempo <span class="code">126</span>, <span class="code">4/4</span>. Set the time ruler to <span class="menu">Time Ruler Format → Time</span> so the arrangement reads in <span class="code">m:ss</span>.</li>
+        <li>On the <strong>Master</strong>, drop a <strong>Limiter</strong>. Ceiling <span class="code">-3 dBFS</span>, Lookahead <span class="code">1.5 ms</span> (fastest). This is the catch, not the sound — you should rarely see it engage in normal play.</li>
+        <li>Add a <strong>Spectrum</strong> after the limiter so you can <em>see</em> a band start to compound before you hear it run away.</li>
+        <li>Turn your monitor controller down to a conversational level. Headphones off or at minimum for the first loop test.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Audio &amp; clock preferences</div>
+      <ul>
+        <li><kbd>⌘ ,</kbd> → <strong>Audio</strong>: Input/Output <strong>MOTU M4</strong>, <span class="code">48000 Hz</span>, buffer <span class="code">256</span>.</li>
+        <li><strong>Link, Tempo &amp; MIDI</strong>: enable <strong>Track</strong> and <strong>Sync</strong> on the Digitakt II output row so Ableton is the clock master; enable <strong>Sync</strong> on the MicroFreak. Confirm both follow play/stop at <span class="code">126</span> before continuing.</li>
+        <li><kbd>⌘ ,</kbd> → <strong>Sends</strong>: enable <span class="menu">Allow Sends to be assigned to other return tracks</span>. Without this, the self-send is impossible.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Tracks and the kill</div>
+      <ul>
+        <li><kbd>⌘ T</kbd> three audio tracks: <span class="code">DT DRUMS</span>, <span class="code">MF SEED</span>, <span class="code">LOOP PRINT</span> (the last one will record the loop's output later).</li>
+        <li><kbd>⌘ ⌥ T</kbd> two return tracks: <span class="code">A — LOOP</span>, <span class="code">B — TAP</span>.</li>
+        <li><kbd>⌘ M</kbd> → map a Launchpad pad to <span class="code">A — LOOP</span>'s <strong>Activator</strong> (track on/off). This is your instant kill — pressing it silences the entire loop in one tap. Verify it works <em>now</em>, before there is anything dangerous in the loop.</li>
+        <li><kbd>⌘ S</kbd> → save as <span class="code">feedback_b5_003.als</span> in a dedicated project folder.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Is the master limiter at <span class="code">-3 dBFS</span> and the monitor turned down?</li>
+        <li>Does the mapped kill pad silence <span class="code">A — LOOP</span> in one press? Test it twice.</li>
+        <li>Can you see the Spectrum, so a compounding band is visible as well as audible?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 22h6l4-12 6 24 4-12h12"/></svg>
+      </div>
+      <div class="step-num">Step 02</div>
+      <h2 class="step-title">Build the loop device chain</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">A — LOOP devices, in exact order</div>
+      <table class="param-table">
+        <caption>The chain on A — LOOP (filter first, trim last)</caption>
+        <tr><td>1 — EQ Eight</td><td>HP <span class="code">200 Hz</span> 24 dB/oct; LP <span class="code">4 kHz</span> 24 dB/oct. Every pass is band-limited before anything else acts.</td></tr>
+        <tr><td>2 — Auto Filter</td><td>Low-pass, resonance <span class="code">20 %</span> to start. This is the "character" filter you'll sweep and automate. Map its cutoff later.</td></tr>
+        <tr><td>3 — Saturator</td><td>Soft Sine, Drive <span class="code">+3 dB</span>, <strong>output ceiling on</strong>. Loud repeats compress and dirty instead of climbing.</td></tr>
+        <tr><td>4 — Echo</td><td>Sync on, <span class="code">3/16</span>, the Echo's <em>own</em> Feedback only <span class="code">20 %</span>, HP its input at <span class="code">250 Hz</span>. Dry/Wet <span class="code">100 %</span>.</td></tr>
+        <tr><td>5 — Hybrid Reverb</td><td>Plate or Hall, decay <span class="code">3.5 s</span>, Dry/Wet <span class="code">100 %</span>.</td></tr>
+        <tr><td>6 — Utility</td><td>Gain <span class="code">-6 dB</span>. The guaranteed per-pass loss — your hard floor of safety even if the self-send creeps.</td></tr>
+      </table>
+      <ul>
+        <li>Two Echo feedbacks exist now: the Echo device's internal feedback (keep low, <span class="code">20 %</span>) and the <em>loop's</em> feedback (the self-send you build next). Keep them mentally separate — the loop feedback is the one that can run away.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Close the loop through B — TAP</div>
+      <ul>
+        <li><span class="code">B — TAP</span> holds no devices. Set its <span class="menu">Audio To → A — LOOP</span>. It is just the wire that carries the loop output back to the loop input.</li>
+        <li>On <span class="code">A — LOOP</span>, show its sends. The send to <span class="code">B — TAP</span> is the <strong>loop-gain</strong> control. Set it to <span class="code">-inf</span> for now.</li>
+        <li><kbd>⌘ M</kbd> → map a Launchpad <strong>fader</strong> to that send. Mapping Min <span class="code">-inf</span>, Max <span class="code">0 dB</span>. Push the fader to the bottom and confirm that is "off." Exit map mode.</li>
+      </ul>
+    </div>
+
+    <div class="callout">
+      <div class="callout-label">Before the next step</div>
+      <p>You now have a loop that can run away, but the self-send is at <span class="code">-inf</span>, the Utility loses 6 dB per pass, the filter is band-limited, the saturator is ceilinged, the limiter catches at <span class="code">-3 dBFS</span>, and the kill is mapped. Five layers. Only now is it safe to raise gain.</p>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="14"/><circle cx="22" cy="22" r="5"/></svg>
+      </div>
+      <div class="step-num">Step 03</div>
+      <h2 class="step-title">Make the seed on the MicroFreak</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">A sparse chord stab</div>
+      <ul>
+        <li><kbd>Shift</kbd> + press Type to init a fresh patch. Oscillator <span class="code">Harmo</span> (organ-like, controllable). Paraphonic <strong>on</strong> — you'll hold two notes.</li>
+        <li>Tune to a minor third + root, e.g. <span class="code">D2</span> + <span class="code">F2</span>. Filter cutoff <span class="code">11 o'clock</span> (dark), resonance low. ENV attack <span class="code">0</span>, decay/sustain/release short — a stab, not a pad. The loop does the sustaining.</li>
+        <li>The seed must have a clear onset and a short body. A long source fed into a loop just turns to mud — the silence between stabs is where the repeats bloom.</li>
+        <li>Save the patch as <span class="code">SEED STAB</span>.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Route the seed into the loop</div>
+      <ul>
+        <li>Select <span class="code">MF SEED</span>. Audio From → <strong>Ext. In 1</strong> (MicroFreak), Monitor <strong>In</strong>. Gain-stage so a stab peaks around <span class="code">-12 dBFS</span>.</li>
+        <li>On <span class="code">MF SEED</span>, set its <strong>send to A — LOOP</strong> to about <span class="code">-9 dB</span>. Keep the track fader itself modest — most of the sound will come back through the wet loop, not the dry seed.</li>
+        <li>Play one stab. With the loop self-send still at <span class="code">-inf</span>, you should hear a single dub echo decay and stop. That confirms the dry-to-loop path before any feedback exists.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Is the seed a short stab with a clear onset, not a sustained pad?</li>
+        <li>With self-send at <span class="code">-inf</span>, does one stab produce a clean, decaying echo and then silence?</li>
+        <li>Is the dry seed quiet enough that the wet loop can be the star?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M22 8a14 14 0 1 1-13 9"/><polyline points="8 8 9 17 18 16"/></svg>
+      </div>
+      <div class="step-num">Step 04</div>
+      <h2 class="step-title">Find unity, then back off</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Raise the loop gain by hand</div>
+      <ul>
+        <li>Monitor low. One hand on the loop-gain fader, one near the kill pad. Play a stab, then stop playing — let the loop carry alone.</li>
+        <li>Raise the loop-gain fader <strong>a hair at a time</strong>. Listen: at first repeats decay quickly; as you climb they decay slower; then there is a point where a repeat is as loud as the one before it. <strong>That is unity.</strong> The Spectrum will show a band holding flat instead of falling.</li>
+        <li>The instant a repeat is <em>louder</em> than the previous one, you are above unity — pull the fader down immediately. You do not need to visit there.</li>
+        <li>Find unity, then back the fader off about <span class="code">10 %</span>. Mark this position (a piece of tape, or note the dB value). This is <strong>home</strong> — the dub-wash recipe from the palette.</li>
+      </ul>
+    </div>
+
+    <div class="callout">
+      <div class="callout-label">If it ever won't stop</div>
+      <p>Hit the kill pad. Then pull the loop-gain fader to the bottom. Then bring the kill back up. Diagnose with gain at home, never by chasing a runaway. A loop that surprised you once will do it again at the same fader position — respect the mark.</p>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Confirm the decay floor</div>
+      <ul>
+        <li>At home, play one stab and take both hands off everything. The wash must decay to silence on its own within a few seconds. If it doesn't, you are at or above unity — lower the fader or increase the Utility loss to <span class="code">-8 dB</span>.</li>
+        <li>This hands-off decay test is the single most important check on this page. Repeat it any time you change a loop parameter.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Do you have a marked "home" fader position about 10 % below unity?</li>
+        <li>Hands fully off: does the loop decay to silence on its own? (If not, you are above unity.)</li>
+        <li>Did you reach for the kill at any point — and did it work instantly?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 5 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="14"/><circle cx="22" cy="22" r="5"/></svg>
+      </div>
+      <div class="step-num">Step 05</div>
+      <h2 class="step-title">Build the dub-techno foundation on Digitakt II</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">A minimal, swung pattern</div>
+      <ul>
+        <li>Digitakt II project <span class="code">FEEDBACK LAB</span>, pattern <span class="code">A01</span>, clocked to Ableton at <span class="code">126</span>. Four tracks: <span class="code">T1 KICK</span>, <span class="code">T2 HAT</span>, <span class="code">T3 RIM</span>, <span class="code">T4 SUB</span>.</li>
+        <li><span class="code">T1 KICK</span>: trigs on <span class="code">1, 5, 9, 13</span>, short dark kick tuned to <span class="code">D</span> so it agrees with the seed. <span class="code">T2 HAT</span>: offbeats <span class="code">3, 7, 11, 15</span>, p-lock alternating volume. Add <span class="code">52 %</span> swing.</li>
+        <li><span class="code">T3 RIM</span>: one hit on step <span class="code">11</span>, sometimes — set a probability of <span class="code">35 %</span>. <span class="code">T4 SUB</span>: a sine-ish sub on <span class="code">D1</span>, trigs on <span class="code">1</span> and <span class="code">9</span> only, sidechained later.</li>
+        <li>Route <span class="code">DT DRUMS</span> Audio From → <strong>Ext. In 3/4</strong>. Drums stay <em>dry</em> — they are the steady grid against which the wet loop drifts. No send to the loop from the kick.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Decide what feeds the loop</div>
+      <ul>
+        <li>Send <em>only</em> the rim (<span class="code">T3 RIM</span>, via a Digitakt FX send or a separate Ableton track send) into <span class="code">A — LOOP</span> at <span class="code">-12 dB</span>. The kick and sub must never enter the loop — sub in a feedback loop is the fastest route to a low-frequency runaway, and the HP at 200 Hz is only your second line of defense.</li>
+        <li>So the loop is fed by two sparse sources: the MicroFreak stab (occasional) and the rim (probabilistic). Both leave long silences for the wash to bloom into.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Are kick and sub kept entirely out of the loop?</li>
+        <li>Does the groove feel like dub-techno — sparse, swung, spacious — rather than busy?</li>
+        <li>Do the loop's sources leave enough silence for the repeats to be heard?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 6 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M8 22h6l3-12 4 24 4-20 3 14 4-6h6"/></svg>
+      </div>
+      <div class="step-num">Step 06</div>
+      <h2 class="step-title">Shape the three loop characters</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Map the recipe ranges to the arrangement</div>
+      <ul>
+        <li>You built the loop at the <strong>dub-wash</strong> home in Step 04. Now rehearse moving it to the other two palette recipes <em>by hand</em>, so you know the gestures before recording.</li>
+        <li><strong>Filtered tail:</strong> raise the loop-gain fader from home toward <span class="code">70–85 %</span> of unity while pulling the Auto Filter cutoff down from <span class="code">4 kHz</span> toward <span class="code">800 Hz</span>. The repeats darken and tunnel away. The filter guarantees the decay even at this higher gain — confirm with the hands-off test.</li>
+        <li><strong>Resonant howl:</strong> from home, raise the Auto Filter resonance toward <span class="code">50 %</span> and sweep its cutoff slowly. A pitched howl emerges. Keep loop gain <em>lower</em> here (<span class="code">50–65 %</span> of unity) because resonance is adding the rest of the energy. Hand stays on the gain fader.</li>
+      </ul>
+    </div>
+
+    <div class="callout">
+      <div class="callout-label">The resonant howl is the high-risk recipe</div>
+      <p>Resonance adds gain at one frequency — the band most likely to run away. Never combine resonance above 55 % with loop gain above ~70 % of unity, and keep the LP filter active above the howl. If the howl starts to climb, drop resonance first, then gain.</p>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Can you move between all three recipes by hand without the loop ever climbing?</li>
+        <li>For the filtered tail, does pulling the cutoff down reliably bring the tail to silence even at high gain?</li>
+        <li>For the howl, is your hand on the gain fader the entire time?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 7 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 34 Q22 6 38 14"/><circle cx="6" cy="34" r="2.5" fill="currentColor"/><circle cx="38" cy="14" r="2.5" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Step 07</div>
+      <h2 class="step-title">Arrange the loop as the lead</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The eight-minute arc, sections and times</div>
+      <table class="param-table">
+        <caption>Section → time → loop behaviour at 126 BPM</caption>
+        <tr><td>INTRO — 0:00</td><td>Loop at dub-wash home, fed by occasional stabs only. No drums. The room establishes itself.</td></tr>
+        <tr><td>KICK — 1:00</td><td>Kick + sub enter dry. Loop unchanged. The dry grid meets the wet wash.</td></tr>
+        <tr><td>GROOVE — 2:00</td><td>Hat + rim enter; rim begins feeding the loop probabilistically. Wash thickens with the rim's drift.</td></tr>
+        <tr><td>TAIL — 3:00</td><td>Shift toward the filtered-tail recipe: loop gain creeps up, Auto Filter cutoff automated down. Repeats darken.</td></tr>
+        <tr><td>BLOOM — 4:30</td><td>The peak. The scripted gesture: ride loop gain toward ~<span class="code">98 %</span> of unity for 4–8 bars, then pull back. Reverb send blooms. <em>Nothing new enters.</em></td></tr>
+        <tr><td>STRIP — 5:30</td><td>Loop gain back to home, filter reopened. Drums thin to kick + hat. The strip-back makes the bloom retroactively bigger.</td></tr>
+        <tr><td>OUTRO — 6:30</td><td>Drums out. Loop fed by the last few stabs, gain easing down so the wash decays to silence over the final 60–90 s.</td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Print the loop as audio</div>
+      <ul>
+        <li>The loop's output is generative and won't recall perfectly — so capture it. Set <span class="code">LOOP PRINT</span> Audio From → <strong>Resampling</strong> (it records the post-fader master, or set its input to the <span class="code">A — LOOP</span> output if you want it isolated).</li>
+        <li>Arm <span class="code">LOOP PRINT</span>, monitor low, and record the full performance while you ride the gestures live. The dry drums and seed are already recallable; this print preserves the un-repeatable wet evolution.</li>
+        <li>Two takes. Keep the one where the bloom felt most controlled, not the loudest.</li>
+      </ul>
+    </div>
+
+    <div class="callout">
+      <div class="callout-label">The bloom is a performance, not an accident</div>
+      <p>The peak at 4:30 is the whole point of the track: a deliberate, hands-on push toward the edge and a confident pull back. It works because every ceiling is already in place. If you find yourself <em>hoping</em> the loop will calm down, you've crossed from performance into accident — pull the gain to home.</p>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does the peak arrive because the loop <em>bloomed</em>, not because a new element was added?</li>
+        <li>Did you record the loop print, so the un-repeatable wet evolution survives?</li>
+        <li>Through the whole take, was your hand on the gain fader and the kill in reach?</li>
+        <li>Does the outro decay to silence on its own once your hands leave the controls?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 8 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><line x1="12" y1="8" x2="12" y2="36"/><line x1="22" y1="8" x2="22" y2="36"/><line x1="32" y1="8" x2="32" y2="36"/><rect x="9" y="18" width="6" height="3" rx="0.5" fill="currentColor"/><rect x="19" y="24" width="6" height="3" rx="0.5" fill="currentColor"/><rect x="29" y="14" width="6" height="3" rx="0.5" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Step 08</div>
+      <h2 class="step-title">Mix, verify, and export</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Balance around the loop</div>
+      <table class="param-table">
+        <caption>Starting faders — the loop print is the centrepiece</caption>
+        <tr><td>DT Drums (dry)</td><td>-9 dB (peaks ~ -6 dBFS)</td></tr>
+        <tr><td>MF Seed (dry)</td><td>-15 dB — the dry stab is just an onset</td></tr>
+        <tr><td>Loop print (wet)</td><td>-8 dB — the lead instrument</td></tr>
+        <tr><td>A — LOOP return (live)</td><td>mute once the print is recorded, to avoid double feedback</td></tr>
+        <tr><td>Master peak</td><td>≤ -3 dBFS (limiter is the catch, not the loudness tool)</td></tr>
+      </table>
+      <ul>
+        <li>Once <span class="code">LOOP PRINT</span> holds the take, <strong>mute the live loop return</strong> so you are not running a second feedback path during the mix. The danger is over; the recording is just audio now.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Verification passes</div>
+      <ul>
+        <li><strong>Low-end check:</strong> the loop print should hold nothing below <span class="code">200 Hz</span> (the in-loop HP). Confirm on Spectrum; if there's sub in the wet, the HP was bypassed during the take — re-print.</li>
+        <li><strong>Mono check:</strong> flip a master Utility to mono — the wet reverb wash will narrow but must not vanish or comb harshly.</li>
+        <li><strong>Decay check:</strong> the outro must reach true silence. A wash that never quite ends reads as a mistake, not a tail.</li>
+        <li><strong>Quiet listen:</strong> play it once at conversation volume. The dub-wash relationship between dry grid and wet loop should still read.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Export</div>
+      <table class="param-table">
+        <caption>Render</caption>
+        <tr><td>Rendered Track</td><td>Master</td></tr>
+        <tr><td>Render Length</td><td>8:00</td></tr>
+        <tr><td>File Type / Sample Rate / Bit Depth</td><td>WAV / 48000 Hz / 24-bit</td></tr>
+        <tr><td>Normalize</td><td>OFF — the headroom you protected is part of the sound</td></tr>
+        <tr><td>Filename</td><td>feedback_b5_003_v1.wav</td></tr>
+      </table>
+      <ul>
+        <li><span class="menu">File → Collect All and Save</span>. Save the Digitakt II project and the <span class="code">SEED STAB</span> patch. The track survives in recoverable layers — but the wet loop only survives as the printed audio, so guard that file.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Is the live loop return muted, so the mix isn't running a second feedback path?</li>
+        <li>Does the wet print hold nothing below 200 Hz?</li>
+        <li>Did you guard the loop-print audio — the one element that cannot be recreated exactly?</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-nav">
+    <a href="palette.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 05 / Palette
+    </a>
+    <a href="reflection.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      07 / Reflection →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B5-003 — Feedback</div>
+
+</div>
+
+</body>
+</html>

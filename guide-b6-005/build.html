@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B6-005 — The Score — The build</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Lab Note contents">
+  <p class="nav-label labnote-code">Lab Note B6-005<span class="labnote-topic">The Score</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Score primitives</a>
+  <a href="build.html" class="active"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B6-005</div>
+    <div class="eyebrow">The Score · 06 — The build</div>
+    <h1>Write a score, realize it twice, read the delta, defend the rule</h1>
+    <p class="lede">This is the deep page. You will write one original score from the primitives on page 05, realize it once as <span class="code">R1</span>, realize the same score again differently as <span class="code">R2</span>, lay the two takes side by side, and trace every sameness and difference back to the rule responsible. The gap between R1 and R2 is the entire lesson — it is the audible proof of what your rules fixed and what they freed. Keep the <a href="setup.html">setup page</a> open; it is the rig reference this build assumes.</p>
+  </header>
+
+  <div class="signal-flow">
+    <span class="signal-node">write the score</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">predict the delta</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">realize R1</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">choice log</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">realize R2</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">delta map</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">defend the rule</span>
+  </div>
+
+  <!-- STEP 1 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="8" y="8" width="28" height="28" rx="2"/><line x1="14" y1="16" x2="30" y2="16"/><line x1="14" y1="22" x2="30" y2="22"/><line x1="14" y1="28" x2="24" y2="28"/></svg>
+      </div>
+      <div class="step-num">Step 01</div>
+      <h2 class="step-title">Write the score — one page, one idiom</h2>
+    </div>
+
+    <p style="color:var(--text-muted);">The score is written away from the rig. You are designing a system, not a sound. Choose an idiom from page 03, pull primitives from page 05, and decide line by line what is fixed and what is free. We will build a worked example alongside you — an event-list score — and you will write your own in parallel.</p>
+
+    <p style="color:var(--text-muted);">Hold one discipline above all others while writing: keep the score readable by a stranger. The single fastest way to fool yourself here is to write rules you understand only because you already know what you meant. A rule that depends on your intent is not a rule — it is a private note. Every line should survive being read cold by someone who has never spoken to you, because in Step 02 and again in Step 03 <em>you</em> become that stranger: in R2 you must obey the page, not your memory of the performance. So write as if handing the score to a person across the world. If a line needs a footnote to be obeyed correctly, fold the footnote into the line. If two readers could obey it differently and you did not intend that freedom, the line is ambiguous and the build's required fault is already baked in. The discipline is not pedantry; it is the only way the delta between R1 and R2 can mean anything. A delta produced by a score only you can read measures your memory, not your rules.</p>
+
+    <div class="sub-block">
+      <div class="sub-label">Choose the idiom and commit</div>
+      <ul>
+        <li>For the worked example we choose <strong>event-list</strong>: an ordered table, one row per move, with an explicit <span class="code">free?</span> column. It is the most tractable to realize solo on the rig and it maps row-for-row onto the delta map you fill in Step 04.</li>
+        <li>Your score may instead be text, graphic, or open-form. Whichever you pick, the discipline below is identical: tag every line <span class="code">D</span> or <span class="code">I</span>, and guarantee at least one hard <span class="code">D</span> and one wide <span class="code">I</span>.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The worked score — "Three Answers"</div>
+      <p style="color:var(--text-muted); margin-bottom:10px;">A score in four fixed rules and one event-list. It pairs a boundary <span class="code">D</span> (the identity) with an open-source <span class="code">I</span> (the freedom) and a relational primitive (the engine). Read it as something a stranger could realize without asking a question.</p>
+      <table class="param-table">
+        <caption>Three Answers — the fixed rules (D)</caption>
+        <tr><td>R-a · frame</td><td><span class="code">D</span> — Begins and ends in silence. Total length 3:00–3:30.</td></tr>
+        <tr><td>R-b · count</td><td><span class="code">D</span> — Exactly three sound events, in sequence, no overlap.</td></tr>
+        <tr><td>R-c · order</td><td><span class="code">D</span> — Each event answers the one before: opposite register (if the last was low, go high) and opposite length (if the last was long, go short). Event 1 has nothing to answer, so it is free.</td></tr>
+        <tr><td>R-d · separation</td><td><span class="code">D</span> — Between events, a silence of at least one unhurried breath, no more than ten seconds.</td></tr>
+      </table>
+      <table class="param-table">
+        <caption>Three Answers — the event-list (the I lives in the columns marked free)</caption>
+        <tr><td>Event</td><td>Register</td><td>Length</td><td>Source — <span class="code">free?</span></td></tr>
+        <tr><td>1</td><td>free</td><td>free</td><td>any source not yet heard — <span class="code">I</span></td></tr>
+        <tr><td>2</td><td>opposite of 1 — <span class="code">D</span></td><td>opposite of 1 — <span class="code">D</span></td><td>any source not yet heard — <span class="code">I</span></td></tr>
+        <tr><td>3</td><td>opposite of 2 — <span class="code">D</span></td><td>opposite of 2 — <span class="code">D</span></td><td>any source not yet heard — <span class="code">I</span></td></tr>
+      </table>
+      <ul>
+        <li>Notice the design: register and length are <em>determined by the answer rule</em> after event 1, so the contour is fixed across realizations. Source is free every time, with real range. That is the band we are aiming for.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Write your own — the rules</div>
+      <ul>
+        <li>Write 4–8 lines. Tag each <span class="code">D</span> or <span class="code">I</span> in the margin. Pull from page 05: one boundary primitive for identity, one choice or attention primitive for freedom, and optionally one relational or process primitive for the engine.</li>
+        <li>Stress-test each <span class="code">I</span>: does it have genuine range, or is it a fake freedom ("C or C#") that will make R1 and R2 clones?</li>
+        <li>Stress-test each <span class="code">D</span>: would a stranger read it the same way twice? "Begins in silence" passes; "start gently" fails — it is ambiguous, and ambiguity is the fault this Lab Note hunts.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Predict the delta — in writing, before you record</div>
+      <ul>
+        <li>Write one sentence naming what R1 and R2 will <strong>share</strong> (your <span class="code">D</span> rules) and where they will <strong>diverge</strong> (your <span class="code">I</span> zones). For the worked score: <em>"Both will be three answered events in silence, the same up-down-up contour and short-long pacing; they will differ only in what the three sounds are."</em></li>
+        <li>This prediction is the hypothesis. The two realizations confirm or break it. A broken prediction is not failure — it is the most valuable result this page produces.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Could a stranger realize this with no questions? Hand it to someone and watch where they hesitate.</li>
+        <li>Is there exactly one idiom, one hard <span class="code">D</span>, and one wide <span class="code">I</span> minimum?</li>
+        <li>Does my indeterminacy live in the <em>reading</em>, not just in how I generated the score? (If it's all Cage-style fixed, R1 and R2 cannot differ.)</li>
+        <li>Have I written the share/diverge prediction down where I can check it later?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="15"/><circle cx="22" cy="22" r="4" fill="currentColor"/><line x1="22" y1="7" x2="22" y2="13"/></svg>
+      </div>
+      <div class="step-num">Step 02</div>
+      <h2 class="step-title">Realize R1 — perform the score once, print it</h2>
+    </div>
+
+    <p style="color:var(--text-muted);">A realization is a performance, not an edit. Obey every rule honestly — including resisting the urge to fix "mistakes" that are actually legal outcomes of the rules. Print to one stereo track and render without surgery.</p>
+
+    <div class="sub-block">
+      <div class="sub-label">Set the rig to match the score</div>
+      <ul>
+        <li>Open the arrangement named <span class="code">R1</span>. Because Three Answers <em>frees</em> timing (durations are "long/short," not bars), work <strong>gridless</strong>: <span class="menu">Time Ruler Format → Time</span>, metronome off, ruler in <span class="code">m:ss</span>. If your own score fixes timing, work on the grid instead.</li>
+        <li>Confirm the gain target: peaks ≈ <span class="code">-12 dBFS</span>. Write the M4 Input 1 gain setting on a sticky note — R2 must match it exactly.</li>
+        <li>Stage the sources the free zone allows so none requires browsing mid-take: a MicroFreak patch, two or three Digitakt samples (one of them a field recording or a struck object), all reachable in a beat.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Perform the score, obeying each rule</div>
+      <ul>
+        <li>Arm the print track, monitor <strong>Auto</strong>. <kbd>⌘ ⇧ R</kbd>. Start in silence (R-a).</li>
+        <li><strong>Event 1</strong> — free register, free length, free source. Suppose you choose a <em>low, long</em> MicroFreak drone. Note it: low / long.</li>
+        <li><strong>Silence</strong> — one unhurried breath (R-d).</li>
+        <li><strong>Event 2</strong> — the answer rule (R-c) forces <em>high and short</em>. Source still free: a brief metallic Digitakt ping. The register and length were <em>decided by the score</em>; only the timbre was yours.</li>
+        <li><strong>Silence</strong>, then <strong>Event 3</strong> — answer of event 2, so <em>low and long</em> again. Free source: a field-recorded rumble. End in silence (R-a). Stop the take inside the 3:00–3:30 window.</li>
+        <li>Keep your hands off anything the score didn't delegate. If a sound rings longer than you meant, that is a legal outcome — keep it.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Render and log the choices</div>
+      <ul>
+        <li><span class="menu">File → Export Audio/Video</span>. 24-bit WAV named <span class="code">R1.wav</span>.</li>
+        <li>Write a one-line <strong>choice log</strong> — for each <span class="code">I</span> zone, what you chose this time:</li>
+      </ul>
+      <table class="param-table">
+        <caption>R1 choice log — the free zones only</caption>
+        <tr><td>Event 1 source</td><td>MicroFreak low drone</td></tr>
+        <tr><td>Event 2 source</td><td>Digitakt metallic ping</td></tr>
+        <tr><td>Event 3 source</td><td>field-recorded rumble</td></tr>
+        <tr><td>Pacing within the breath-silences</td><td>~4 s, ~6 s</td></tr>
+      </table>
+      <ul>
+        <li>The choice log is what makes R2 honest. In R2 you must choose <em>differently</em> in these same zones — not re-run this performance.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Did I obey every <span class="code">D</span> rule, including the answer-contour and the silence frame?</li>
+        <li>Did I leave the <span class="code">I</span> zones genuinely chosen, not defaulted to habit?</li>
+        <li>Is the take one continuous performance, not a comp of fragments?</li>
+        <li>Is the choice log complete enough that I could deliberately contradict it tomorrow?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="15"/><circle cx="22" cy="22" r="4" fill="currentColor"/><line x1="37" y1="22" x2="31" y2="22"/></svg>
+      </div>
+      <div class="step-num">Step 03</div>
+      <h2 class="step-title">Realize R2 — same score, different choices</h2>
+    </div>
+
+    <p style="color:var(--text-muted);">The same page, read again, with deliberately different decisions in every free zone — and, where the rule allows, entirely different sources. The <span class="code">D</span> rules are the controls you hold constant; the <span class="code">I</span> zones are the only thing you change.</p>
+
+    <div class="sub-block">
+      <div class="sub-label">Re-read the score cold</div>
+      <ul>
+        <li>Open the arrangement named <span class="code">R2</span>. <strong>Do not play the R1 take</strong> while realizing — consult only the R1 choice log, so you can be sure to choose <em>otherwise</em>.</li>
+        <li>Same gridless setting, same gain target, same monitoring level. Everything except the free zones matches R1, or the delta lies.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Make genuinely different free-zone choices</div>
+      <ul>
+        <li><strong>Event 1</strong> — free register/length again. Choose differently: a <em>high, short</em> bowed-glass sample. (Note: this flips the whole contour, since R-c answers relative to whatever event 1 is — and that is fine, the <em>relationship</em> is fixed even though the absolute registers differ.)</li>
+        <li><strong>Event 2</strong> — answer forces <em>low and long</em>. Free source: a sustained MicroFreak Speech-engine vowel.</li>
+        <li><strong>Event 3</strong> — answer forces <em>high and short</em>. Free source: a single struck metal object miked into Input 1.</li>
+        <li>Obey R-a, R-b, R-d exactly as in R1. Three events, silence frame, breath-length gaps, 3:00–3:30.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Render and log</div>
+      <ul>
+        <li>24-bit WAV named <span class="code">R2.wav</span>. Write its own choice log next to R1's.</li>
+      </ul>
+      <table class="param-table">
+        <caption>R2 choice log — deliberately different from R1</caption>
+        <tr><td>Event 1 source / shape</td><td>bowed-glass sample — high, short</td></tr>
+        <tr><td>Event 2 source</td><td>MicroFreak Speech vowel — low, long (forced by R-c)</td></tr>
+        <tr><td>Event 3 source</td><td>struck metal object — high, short (forced by R-c)</td></tr>
+        <tr><td>Pacing within silences</td><td>~7 s, ~3 s</td></tr>
+      </table>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Did every free zone get a genuinely different choice from R1?</li>
+        <li>Did I hold every <span class="code">D</span> rule constant — same count, same frame, same answer-logic?</li>
+        <li>Did the gain and monitoring match R1, so a loudness difference would be a real choice and not an accident?</li>
+        <li>Can I hear, already, that this is recognizably the same piece — and audibly a different take?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="7" y="12" width="13" height="20" rx="1"/><rect x="24" y="12" width="13" height="20" rx="1"/><line x1="20.5" y1="22" x2="23.5" y2="22"/></svg>
+      </div>
+      <div class="step-num">Step 04</div>
+      <h2 class="step-title">Lay R1 and R2 side by side — read the delta</h2>
+    </div>
+
+    <p style="color:var(--text-muted);">This table is the lab's product. Map every audible <em>sameness</em> back to the <span class="code">D</span> rule that fixed it, and every <em>difference</em> back to the <span class="code">I</span> zone that freed it. Reading the delta backwards is reading your own rule-set.</p>
+
+    <div class="sub-block">
+      <div class="sub-label">Set up the comparison</div>
+      <ul>
+        <li>Drop <span class="code">R1</span> and <span class="code">R2</span> on two tracks, time-aligned at their starts. A/B them at the marked phones level — do not touch the volume knob between them.</li>
+        <li>Listen three times: once for what they share, once for where they part, once with the score in front of you matching each observation to a line.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Fill the delta map</div>
+      <table class="param-table">
+        <caption>Delta map — Three Answers, worked</caption>
+        <tr><td>Observation</td><td>Same / Different</td><td>Rule responsible</td><td>D or I?</td></tr>
+        <tr><td>Both open and close in silence</td><td>same</td><td>R-a frame</td><td>D</td></tr>
+        <tr><td>Both are exactly three discrete events</td><td>same</td><td>R-b count</td><td>D</td></tr>
+        <tr><td>Both alternate register and length event-to-event</td><td>same</td><td>R-c answer rule</td><td>D</td></tr>
+        <tr><td>R1 starts low/long, R2 starts high/short</td><td>different</td><td>event 1 register/length free</td><td>I</td></tr>
+        <tr><td>R1 sources drone/ping/rumble, R2 glass/vowel/metal</td><td>different</td><td>"any unheard source"</td><td>I</td></tr>
+        <tr><td>Silence gaps ~4/6 s vs ~7/3 s</td><td>different</td><td>"breath-length" pacing free within R-d bounds</td><td>I</td></tr>
+      </table>
+      <ul>
+        <li><strong>Flag the dangerous cases:</strong> any sameness with <em>no</em> rule behind it is an accident you should have varied; any difference with <em>no</em> rule behind it is a rule you thought was firm but wasn't. Both go in the reflection.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision checkpoint</div>
+      <ul>
+        <li>Can I point to at least one clear sameness with a <span class="code">D</span> rule behind it, and at least one clear difference with an <span class="code">I</span> zone behind it?</li>
+        <li>If either column is empty, the score failed — under-specified (no sameness) or over-specified (no difference). Fix the rule and re-realize before claiming a pass.</li>
+        <li>Did the result match my Step 01 prediction? Where it didn't, <em>that</em> is the lesson — a rule read differently than I intended.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 5 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M22 7 l13 6 v9 c0 8 -6 13 -13 15 c-7 -2 -13 -7 -13 -15 v-9 z"/><polyline points="16 22 21 27 29 17"/></svg>
+      </div>
+      <div class="step-num">Step 05</div>
+      <h2 class="step-title">Tune the score — taste both failures on purpose</h2>
+    </div>
+
+    <p style="color:var(--text-muted);">You only know you've found the band between transcription and noise by stepping over both edges. Mis-tune the score deliberately, in both directions, and listen to it break.</p>
+
+    <div class="signal-flow">
+      <span class="signal-node">loosen a D rule</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">re-realize ×2</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">hear the collapse</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">pin an I zone</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">hear the clone</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">restore &amp; state the band</span>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Under-specify — delete your firmest D</div>
+      <ul>
+        <li>Replace R-c (the answer rule) with "do whatever you like." Realize twice, quickly. The two takes now share almost nothing — the score has become a permission slip, not a system. This is the <strong>ambiguity / under-specification</strong> fault, and you have just heard it.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Over-specify — pin your widest I</div>
+      <ul>
+        <li>Replace "any unheard source" with "exactly this MicroFreak preset at A1 for 8 seconds." Realize twice. The takes are now identical — you have written a transcription, and indeterminacy is dead.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Restore and state the band</div>
+      <ul>
+        <li>Return to the tuned score. In one sentence, name the band you found: how much freedom keeps the piece recognizable while still letting it vary. For Three Answers: <em>"Fix the count, the frame, and the answer-contour; free the source and the pacing — that is enough identity and enough room."</em></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 6 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="15"/><line x1="22" y1="14" x2="22" y2="24"/><circle cx="22" cy="30" r="1.6" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Step 06</div>
+      <h2 class="step-title">Defend the rule — the pass gate</h2>
+    </div>
+
+    <p style="color:var(--text-muted);">A pass is not "they sound different." A pass is naming <em>exactly which rule</em> produced the difference between R1 and R2, and <em>which rule</em> produced the sameness — and being right when someone checks against the takes.</p>
+
+    <div class="sub-block">
+      <div class="sub-label">Write the defence</div>
+      <ul>
+        <li>One paragraph, the form: <em>"The 'any unheard source' rule made R1's events drone/ping/rumble and R2's glass/vowel/metal — that is the difference. The 'three answered events in silence' rules made both feel like the same gesture — that is the sameness."</em></li>
+        <li>Add the <strong>system-diff sentence</strong>: "I thought the score would fix X and free Y; the realizations showed it fixed ___ and freed ___." If your prediction held perfectly, say so — but most don't, and the surprise is the point.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The report bundle</div>
+      <ul>
+        <li>The score — one page, one idiom, every line tagged <span class="code">D</span>/<span class="code">I</span>, one deliberate wide <span class="code">I</span> zone.</li>
+        <li><span class="code">R1.wav</span> + its choice log.</li>
+        <li><span class="code">R2.wav</span> + its choice log, with genuinely different free-zone choices.</li>
+        <li>The delta map — every sameness and difference traced to a named rule.</li>
+        <li>The fault entry from Step 05 — the under- and over-specified re-realizations and the band statement.</li>
+        <li>The written defence + the system-diff sentence.</li>
+      </ul>
+    </div>
+
+    <div class="callout">
+      <div class="callout-label">Pass standard</div>
+      <p>Minimum: the bundle exists; one sameness and one difference are each traced to a named rule. Solid: every line of the delta map maps to a rule, and the band statement is specific and defensible. Advanced: you can hand the score to another person, predict the delta of their realization in advance, and be right about which features hold.</p>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Final decision check</div>
+      <ul>
+        <li>Can I say, in one sentence each, the rule behind the sameness and the rule behind the difference?</li>
+        <li>Is the score the work here — would I be content if someone realized it a third way I never heard?</li>
+        <li>Did I keep the originality constraint: my rules, my realizations, nothing copied from the reference scores?</li>
+        <li>What did the delta teach me that I did not predict in Step 01?</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-nav">
+    <a href="palette.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 05 / Score primitives
+    </a>
+    <a href="reflection.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      07 / Reflection →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B6-005 — The Score</div>
+
+</div>
+
+</body>
+</html>

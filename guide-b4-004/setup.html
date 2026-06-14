@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B4-004 — Tape &amp; Degradation — Setup</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B4-004<span class="labnote-topic">Tape &amp; Degradation</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html" class="active"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Degradation palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B4-004</div>
+    <div class="eyebrow">Tape &amp; Degradation · 04 — Setup</div>
+    <h1>Build the degradation rig</h1>
+    <p class="lede">There are two genuine ways to walk this path: a real cassette 4-track that physically loses material on every pass, or an in-the-box resampling chain that emulates the loss and lets you log every step. This page wires up both, and sets the gain discipline that keeps the decay reading as <em>smooth</em> rather than as a series of accidents.</p>
+  </header>
+
+  <h2>The signal path, abstractly</h2>
+
+  <div class="signal-flow">
+    <span class="signal-node">source loop</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">degrade pass</span>
+    <span class="signal-arrow">record →</span>
+    <span class="signal-node">new copy</span>
+    <span class="signal-arrow">reload →</span>
+    <span class="signal-node">degrade pass</span>
+    <span class="signal-arrow">…→</span>
+    <span class="signal-node">gen N</span>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The whole rig in one sentence</div>
+    <p>Whatever the gear, you are building a loop that feeds its own output back into its input through something lossy, and printing a copy each time round. Everything below is just two ways to build that loop — and the discipline to make each lap small.</p>
+  </div>
+
+  <h2>Path A — real cassette 4-track or dictaphone</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="12" width="32" height="20" rx="2"/><circle cx="16" cy="22" r="4"/><circle cx="28" cy="22" r="4"/><circle cx="16" cy="22" r="1" fill="currentColor"/><circle cx="28" cy="22" r="1" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Path A</div>
+      <h2 class="step-title">The genuine article</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">What you need</div>
+      <ul>
+        <li>A cassette 4-track (Tascam Portastudio or similar), or a handheld dictaphone, or any consumer tape deck with a record function.</li>
+        <li>A blank cassette — the cheaper and more worn, the more character. Type I (ferric) hisses more than chrome; lean into it.</li>
+        <li>Cables from your interface output to the deck's line/mic input, and from the deck's output back to an interface input.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Wiring — the round trip</div>
+      <ul>
+        <li>Interface <strong>Output</strong> → 4-track <strong>Line In</strong> (or play the loop on a phone into the mic). This is how generation N enters the tape.</li>
+        <li>4-track <strong>Line Out</strong> / headphone out → interface <strong>Input</strong>. This is how the freshly-degraded copy comes back into Ableton to become generation N+1.</li>
+        <li>Set the deck's record level so a loud part of the loop pushes the meter into the top quarter but not into the red. Hotter = more saturation per pass.</li>
+        <li>If your deck has Dolby noise reduction, switch it <strong>off</strong> — you want the hiss, not a circuit fighting it.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The physical loop method (Basinski-style)</div>
+      <ul>
+        <li>For the genuine disintegration: record the loop onto a short length of tape, splice it into a literal loop, and let it run continuously past the head while you record the output. The oxide wears with every revolution.</li>
+        <li>Lower-effort version: record the loop to the cassette, play it back while recording to Ableton, then play <em>that</em> recording back into the deck again. Each bounce is one generation living on tape.</li>
+        <li>This path is slow, noisy, and unrepeatable — that is the point. Capture long passes; you cannot redo a take exactly.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does a single pass through the deck add audible hiss and a touch of wobble, but still leave the loop fully recognisable? If it is destroyed in one pass, lower the record level and clean the heads.</li>
+        <li>Can I hear flutter — fine pitch warble — that no plugin gave me? That irregularity is what justifies the cabling.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Path B — Ableton emulation chain</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="8" y="10" width="28" height="8" rx="1"/><rect x="8" y="22" width="28" height="8" rx="1"/><line x1="14" y1="14" x2="14" y2="14"/><circle cx="14" cy="14" r="1.5" fill="currentColor"/><circle cx="24" cy="26" r="1.5" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Path B</div>
+      <h2 class="step-title">A resampling degradation chain</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The copy mechanism</div>
+      <ul>
+        <li>Create one audio track named <span class="code">LOOP</span> holding generation 0, and a second audio track named <span class="code">PRINT</span>.</li>
+        <li>On <span class="code">PRINT</span>, set Audio From → <span class="code">Resampling</span>. Each record pass on this track captures the master output — your "copy" mechanism. One pass = one generation.</li>
+        <li>Mute everything except <span class="code">LOOP</span> while you print, so the resample captures only the degrading loop and nothing else.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The degradation device chain on LOOP</div>
+      <table class="param-table">
+        <caption>Stock Ableton devices, in this order</caption>
+        <tr><td>1 — Saturator</td><td>Tape-style softening — the nonlinear medium. <span class="code">Soft Sine</span> curve, Drive low (+2 to +4 dB). Adds harmonics and tames peaks.</td></tr>
+        <tr><td>2 — Vinyl Distortion</td><td>Crackle and surface noise. Tracing Model + Pinch settings low; raise the <span class="code">Crackle</span> Density and Volume a little for dust per pass.</td></tr>
+        <tr><td>3 — Redux</td><td>Bit / sample-rate reduction. Drop sample rate gently for a grittier, dustier loss; keep bit depth high at first or it crushes too fast.</td></tr>
+        <tr><td>4 — Auto Filter (LP)</td><td>Roll a few hundred Hz off the top each generation to mimic high-frequency loss. This is the "duller every copy" knob.</td></tr>
+        <tr><td>5 — Echo (wobble engine)</td><td>Engage Echo's <span class="code">Wobble</span> and Modulation for flutter, and its built-in <span class="code">Noise</span> for hiss — wow/flutter and noise floor without a tape plugin.</td></tr>
+        <tr><td>6 — Utility (width)</td><td>Narrow the stereo image a little each pass to simulate the centre-collapse of real generation loss.</td></tr>
+      </table>
+      <ul>
+        <li>If you own a dedicated tape emulation, it can stand in for steps 1, 4, and 5 — but the stock chain above is fully sufficient and more transparent to log.</li>
+        <li>Set every device so a <em>single</em> pass is barely noticeable. The drama comes from repetition, not from one extreme setting.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Print, reload, repeat</div>
+      <ul>
+        <li>Solo <span class="code">LOOP</span>. Arm <span class="code">PRINT</span> (Resampling). <kbd>⌘ ⇧ R</kbd> and record exactly one loop length. This is generation 1.</li>
+        <li>Drag the new print back onto <span class="code">LOOP</span> as the source, replacing generation 0. The chain now degrades the already-degraded copy. Print again for generation 2.</li>
+        <li>Keep <em>every</em> print as a separate clip in a parking track — the sequence of generations is the composition. Never overwrite a print you might arrange later.</li>
+        <li><strong>Archive generation 0</strong> in a folder outside the set before you start. It is the only copy that survives untouched.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does one print sound only slightly worse than its source — not destroyed? If gen 1 is already harsh, pull every device back.</li>
+        <li>Does the loss compound when I reload and reprint, or am I accidentally re-applying the same gentle FX to the original each time (reversible)? Confirm you are reloading the <em>print</em>, not gen 0.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Gain discipline across passes</h2>
+
+  <table class="param-table">
+    <caption>Record level is the decay's slope</caption>
+    <tr><td>Consistent level every pass</td><td>The decay reads as a smooth, even slide. Set the print level once and never touch it.</td></tr>
+    <tr><td>Rising level across passes</td><td>Each copy saturates harder than the last — the decay accelerates and lurches. Use deliberately for "the machine is breaking down".</td></tr>
+    <tr><td>Falling level across passes</td><td>The loop quietly recedes into its own hiss — a fading-memory feel that approaches silence rather than noise.</td></tr>
+    <tr><td>Peak target</td><td>Keep peaks around <span class="code">-6 dBFS</span> on the print so each pass has headroom for the next stage's saturation. A pass that clips is a pass you redo.</td></tr>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">Level is sound design again</div>
+    <p>Generation loss interacts with everything: each pass through a saturating stage at a hot level degrades faster and harder. The record level is not a housekeeping detail here — it is the single biggest control over the <em>shape</em> of the decay curve. Decide it on purpose.</p>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Carry forward:</strong> with a rig that copies and degrades in one lap, page 05 gives you concrete recipes — how much wow, how much hiss, how many passes — for the look you chose on page 03. Page 06 prints the generations against a log.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="decisions.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 03 / Decisions
+    </a>
+    <a href="palette.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      05 / Degradation palette →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B4-004 — Tape &amp; Degradation</div>
+
+</div>
+
+</body>
+</html>

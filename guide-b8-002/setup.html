@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B8-002 — The Release — Setup &amp; rig</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B8-002<span class="labnote-topic">The Release</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html" class="active"><span class="nav-num">04</span>Setup &amp; rig</a>
+  <a href="palette.html"><span class="nav-num">05</span>Delivery targets</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B8-002</div>
+    <div class="eyebrow">The Release · 04 — Setup &amp; rig</div>
+    <h1>The mastering rig and its signal path</h1>
+    <p class="lede">Mastering is mostly a listening problem, not a plugin problem. The rig is small: a clean master-bus chain, one trustworthy LUFS meter, a reference track sitting alongside your piece at matched level, a set of systems to translate on, and an export path that dithers exactly once. This page wires all of it before the build touches a fader.</p>
+  </header>
+
+  <h2>The mastering signal path</h2>
+  <p style="text-align:center; max-width:620px; margin:0 auto 24px; color:var(--text-muted);">Everything happens on one channel — the master bus of a dedicated mastering set, or a fresh set with your bounced mix on a single track. The order is load-bearing: corrective moves first, the loudness stage near the end, the meter listening after everything, and dither only at export.</p>
+
+  <div class="signal-flow">
+    <span class="signal-node">Bounced mix (24-bit)</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">Corrective EQ</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">Glue compression</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">Tonal EQ</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">Limiter (true-peak)</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">LUFS / dBTP / correlation meter</span>
+    <span class="signal-arrow">→ export →</span>
+    <span class="signal-node">Dither (16-bit only)</span>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The meter listens last</div>
+    <p>Put the metering device <em>after</em> the limiter, so it reads what actually leaves. The limiter's own true-peak ceiling is the safeguard; the meter is the verification. Never trust a number from before the last processing stage.</p>
+  </div>
+
+  <h2>Build the master-bus chain in Live</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="10" width="32" height="24" rx="2"/><line x1="6" y1="22" x2="38" y2="22"/><circle cx="14" cy="16" r="2"/><circle cx="30" cy="28" r="2"/></svg>
+      </div>
+      <h3 class="card-title">A dedicated mastering set</h3>
+      <ul class="card-points">
+        <li>New Live set, one audio track, your bounced 24-bit / 48&nbsp;kHz mix imported</li>
+        <li>Warp <strong>off</strong> — never time-stretch a finished mix</li>
+        <li>All processing on the <em>master</em> chain, not the track, so the meter reads the true output</li>
+        <li>Buffer at 512+; latency is irrelevant, CPU headroom is not</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><line x1="10" y1="32" x2="10" y2="18"/><line x1="18" y1="32" x2="18" y2="10"/><line x1="26" y1="32" x2="26" y2="14"/><line x1="34" y1="32" x2="34" y2="22"/><line x1="6" y1="36" x2="38" y2="36"/></svg>
+      </div>
+      <h3 class="card-title">One LUFS meter, ready first</h3>
+      <ul class="card-points">
+        <li>Live 12 Suite ships a metering display with LUFS, or install <strong>Youlean Loudness Meter 2</strong> (free)</li>
+        <li>Either reads momentary, short-term, and integrated LUFS plus true-peak</li>
+        <li>Place it last on the master chain, after the limiter</li>
+        <li>Have it loaded before step 1 of the build — you cannot target a number you cannot see</li>
+      </ul>
+    </div>
+  </div>
+
+  <table class="param-table">
+    <caption>Master-bus devices, in order</caption>
+    <tr><td>1 — EQ Eight (corrective)</td><td>Surgical only: a high-pass below the lowest useful frequency (≈ 20–25&nbsp;Hz), and narrow cuts of any resonance the mix left behind. Nothing musical yet.</td></tr>
+    <tr><td>2 — Glue Compressor</td><td>Gentle bus glue: ratio <span class="code">2:1</span>, slow attack <span class="code">30&nbsp;ms</span>, auto release, threshold for <span class="code">≤ 1–2&nbsp;dB</span> of reduction on the loudest section. Glue, not pumping.</td></tr>
+    <tr><td>3 — EQ Eight (tonal)</td><td>Broad, gentle shelves to match the reference balance — a fraction of a dB at a time. If you need more than ±2&nbsp;dB anywhere, fix the mix instead.</td></tr>
+    <tr><td>4 — Limiter</td><td>Live's Limiter with <strong>true-peak limiting enabled</strong>. Ceiling <span class="code">−1.0 dBTP</span>. Push input gain only until the integrated LUFS reaches target; watch gain-reduction stay modest.</td></tr>
+    <tr><td>5 — LUFS / dBTP / correlation meter</td><td>Reads the final output. No processing here — it only listens.</td></tr>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>The chain is short on purpose.</strong> A finished mix that needs heavy mastering is a mix that is not finished. Most of the work here is verification, not correction.</li>
+      <li><strong>Dither is not on this chain.</strong> It lives inside the 16-bit export only — see the export section below. The 24-bit master never gets dithered.</li>
+    </ul>
+  </div>
+
+  <h2>The reference-track method</h2>
+
+  <table class="param-table">
+    <caption>Set up an honest A/B</caption>
+    <tr><td>Import the reference</td><td>Drop your chosen lossless reference onto a second track in the mastering set, routed past the master chain (or on a separate set you switch to) so it is heard raw, not through your processing.</td></tr>
+    <tr><td>Level-match it</td><td>Pull the reference's track gain down until its loudness matches your master by ear and on the LUFS meter. The louder track always wins the first impression — remove that bias before judging.</td></tr>
+    <tr><td>A/B in short bursts</td><td>Switch between reference and master every few seconds, on the same section type. Listen to broad balance — sub, low-mid, mid, top — not detail.</td></tr>
+    <tr><td>Match balance, not material</td><td>Move your tonal EQ toward the reference's balance in fractions of a dB. Never chase its arrangement, its sounds, or its exact loudness.</td></tr>
+  </table>
+
+  <h2>The translation rig</h2>
+  <p style="text-align:center; max-width:620px; margin:0 auto 18px; color:var(--text-muted);">A master is verified on systems, not opinions. Audition every master on at least four, in this order — the harshest honest test is the cheap mid-heavy speaker.</p>
+
+  <table>
+    <thead><tr><th>System</th><th>What it reveals</th><th>How to use it</th></tr></thead>
+    <tbody>
+      <tr><td>Monitors or DT 990 Pro</td><td>The detailed, full-range picture you mixed on — and the DT 990's 7–10&nbsp;kHz lift, which will tempt you to over-cut highs</td><td>Make decisions here, then verify everywhere else. Trust the others when they disagree about the extremes.</td></tr>
+      <tr><td>Phone speaker</td><td>Mid-range honesty: anything that lives only in sub or only in air vanishes. The harshest real-world test.</td><td>If the groove and the hook survive a phone speaker, the balance is robust.</td></tr>
+      <tr><td>Car or earbuds</td><td>How most listening actually happens — and a different bass coupling than any room</td><td>Check the low end is present but not boomy, and the vocal/lead is intelligible.</td></tr>
+      <tr><td>Mono fold-down</td><td>Phase and width problems: a wide drone or stereo-widened low end can cancel and disappear</td><td>Sum to mono (Utility Width 0&nbsp;% on the master, briefly) and confirm nothing essential drops out. Watch the correlation meter stay positive.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">The translation rule</div>
+    <p>If the piece only works at one volume on one system, it is not mastered yet. It must hold its shape quiet and loud, on a phone and in a car, in stereo and in mono. Note one thing the reference keeps everywhere — your master must clear the same bar.</p>
+  </div>
+
+  <h2>The export &amp; dither path</h2>
+
+  <table class="param-table">
+    <caption>Two exports from one master</caption>
+    <tr><td>1 — The source master</td><td>Export the master chain to <span class="code">WAV · 48&nbsp;kHz · 24-bit · Normalize OFF · Dither OFF</span>. This un-dithered file is the source of truth; everything else derives from it.</td></tr>
+    <tr><td>2 — The 16-bit delivery</td><td>Export again to <span class="code">WAV · 44.1 or 48&nbsp;kHz · 16-bit · Dither ON</span>. Live applies dither only because the bit depth drops here — this is the single, last dither stage.</td></tr>
+    <tr><td>Lossy formats</td><td>Generate MP3/AAC from the 24-bit source or the 16-bit file with the platform's encoder, not by re-dithering. Never dither twice.</td></tr>
+    <tr><td>Filenames</td><td>Version- and date-tag everything: <span class="code">ep_track1_master_24b_v1.wav</span>, <span class="code">ep_track1_16b_v1.wav</span>. The archive depends on names you can trust later.</td></tr>
+  </table>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Rig ready check</div>
+    <ul>
+      <li>Is the LUFS / dBTP / correlation meter loaded last on the master chain, reading the true output?</li>
+      <li>Is the limiter's true-peak ceiling set to <span class="code">−1.0 dBTP</span> before I push a single dB of gain?</li>
+      <li>Is the reference imported and level-matched <em>down</em> to my master?</li>
+      <li>Do I have four systems to translate on, including a phone speaker and a mono fold-down?</li>
+      <li>Is my export plan one 24-bit un-dithered source and one 16-bit dithered delivery — dither exactly once?</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="decisions.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 03 / Decisions
+    </a>
+    <a href="palette.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      05 / Delivery targets →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B8-002 — The Release</div>
+
+</div>
+
+</body>
+</html>

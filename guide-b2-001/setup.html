@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B2-001 — Setup</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Lab Note contents">
+  <p class="nav-label labnote-code">Lab Note B2-001<span class="labnote-topic">Synthesis from Zero</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html" class="active"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html"><span class="nav-num">06</span>Build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B2-001</div>
+    <div class="eyebrow">Synthesis from Zero · 04 — Setup</div>
+    <h1>The synthesis rig</h1>
+    <p class="lede">For synthesis from zero, the rig is mostly software — the sounds are generated, not recorded, so cables matter less than knowing which device does which job. This page lays out the instruments, the signal path inside the box, and the one analyzer that turns "harmonic vs inharmonic" from a feeling into a picture.</p>
+  </header>
+
+  <div class="cards">
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="10" width="32" height="20" rx="2"/><line x1="16" y1="36" x2="28" y2="36"/><line x1="22" y1="30" x2="22" y2="36"/></svg>
+      </div>
+      <h3 class="card-title">Ableton Live 12 Suite</h3>
+      <ul class="card-points">
+        <li>The studio brain — hosts every synth, records, arranges</li>
+        <li><strong>Operator</strong> (FM/PM), <strong>Wavetable</strong> (additive-style), <strong>Drum synths</strong>, <strong>Sampler</strong></li>
+        <li><strong>Spectrum</strong> analyzer — see the harmonics, don't only hear them</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><circle cx="14" cy="22" r="6"/><circle cx="30" cy="22" r="6"/><line x1="20" y1="22" x2="24" y2="22"/></svg>
+      </div>
+      <h3 class="card-title">Operator</h3>
+      <ul class="card-points">
+        <li>Four-operator phase-modulation FM synth with selectable algorithms</li>
+        <li>Carrier:modulator ratio + index = predictable spectra</li>
+        <li>Also a sine source with its own pitch envelope — the kick body lives here</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 22 q5 -10 10 0 t10 0 t10 0" fill="none"/><line x1="6" y1="30" x2="38" y2="30"/></svg>
+      </div>
+      <h3 class="card-title">Wavetable</h3>
+      <ul class="card-points">
+        <li>Two wavetable oscillators + sub + noise, two filters</li>
+        <li>Sweeping the wavetable position = additive-style spectral morph</li>
+        <li>Built-in noise generator feeds the hat and clap recipes</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="8" width="32" height="28" rx="2"/><circle cx="15" cy="17" r="4"/><circle cx="29" cy="17" r="4"/><rect x="11" y="26" width="22" height="5" rx="1"/></svg>
+      </div>
+      <h3 class="card-title">Live drum synths</h3>
+      <ul class="card-points">
+        <li>Drum Rack hosting Operator/Wavetable per pad — no sampled pads</li>
+        <li>Each voice is one synth instance: kick, hat, clap</li>
+        <li>Routed to a <span class="code">SYNTH KIT</span> group for one drum bus</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="14" width="32" height="16" rx="2"/><line x1="14" y1="14" x2="14" y2="30"/><line x1="22" y1="14" x2="22" y2="30"/><line x1="30" y1="14" x2="30" y2="30"/></svg>
+      </div>
+      <h3 class="card-title">Arturia MicroFreak</h3>
+      <ul class="card-points">
+        <li>Hardware oscillator engines + analog-style filter + wavefolder</li>
+        <li>The analog alternative path for bass, drone, and folded tones</li>
+        <li>One envelope only — note its limit for separate-click drum work</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="7" y="8" width="12" height="12" rx="1"/><rect x="25" y="8" width="12" height="12" rx="1"/><rect x="7" y="24" width="12" height="12" rx="1"/><rect x="25" y="24" width="12" height="12" rx="1"/><line x1="19" y1="14" x2="25" y2="14"/><line x1="13" y1="20" x2="13" y2="24"/></svg>
+      </div>
+      <h3 class="card-title">VCV Rack 2 (optional)</h3>
+      <ul class="card-points">
+        <li>Free modular — the only practical home for a true low-pass gate</li>
+        <li>VCO → wavefolder → LPG for the west-coast voice</li>
+        <li>Recorded into Live over the audio interface, or via its VST in Suite</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <h2>The signal path for synthesis work</h2>
+  <p style="text-align:center; max-width:620px; margin:0 auto 24px; color:var(--text-muted);">Two paths run in parallel — generated audio inside the box, and an analyzer on the master so you can verify the spectrum. The MicroFreak and VCV only enter when you want the analog folder or the true LPG; everything else is internal.</p>
+
+  <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:11px; letter-spacing:0.2em; text-transform:uppercase;">Internal synthesis path (the default)</h3>
+  <div class="signal-flow">
+    <span class="signal-node">Operator / Wavetable</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">per-track FX</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">group bus</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">Master + Spectrum</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">interface</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">DT 990 Pro</span>
+  </div>
+
+  <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:11px; letter-spacing:0.2em; text-transform:uppercase;">External path (only for the folder / LPG voice)</h3>
+  <div class="signal-flow">
+    <span class="signal-node">VCV: VCO → folder → LPG</span>
+    <span class="signal-arrow">→ audio out →</span>
+    <span class="signal-node">interface in</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">Ableton audio track</span>
+    <span class="signal-arrow">+</span>
+    <span class="signal-node">MicroFreak Out → interface In 1</span>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The one device you must keep open</div>
+    <p>Put Live's <strong>Spectrum</strong> on the master and leave it there for the entire build. This Lab Note's promise — predict the spectrum from the patch — is only verifiable if you can <em>see</em> harmonic (evenly spaced spikes) versus inharmonic (uneven spikes) versus noise (a continuous band). Trust your eyes to confirm what your ears predict.</p>
+  </div>
+
+  <h2>Project skeleton</h2>
+
+  <table>
+    <thead><tr><th>Track / group</th><th>Device</th><th>Method</th></tr></thead>
+    <tbody>
+      <tr><td>KICK</td><td>Operator (sine + click osc)</td><td>Subtractive-ish: pitch-enveloped sine</td></tr>
+      <tr><td>HAT</td><td>Operator / Wavetable noise + HP filter</td><td>Noise shaping</td></tr>
+      <tr><td>CLAP</td><td>Operator noise + BP filter + short reverb</td><td>Noise shaping (staggered bursts)</td></tr>
+      <tr><td>SYNTH KIT (group)</td><td>bus for the three drum voices</td><td>—</td></tr>
+      <tr><td>BASS</td><td>Operator (FM, integer ratio) or Wavetable</td><td>FM / subtractive</td></tr>
+      <tr><td>LEAD</td><td>Operator (FM) or Wavetable</td><td>FM / additive</td></tr>
+      <tr><td>PAD</td><td>Wavetable</td><td>Additive-style morph</td></tr>
+      <tr><td>DRONE / TEXTURE</td><td>Wavetable noise, or VCV folder+LPG recorded</td><td>Noise shaping / west-coast</td></tr>
+      <tr><td>Return A</td><td>Reverb</td><td>— (glue + clap tail)</td></tr>
+      <tr><td>Return B</td><td>Echo</td><td>—</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Gain &amp; metering plan</h2>
+  <p style="text-align:center; max-width:640px; margin:0 auto 18px; color:var(--text-muted);">Synthesis has one gain trap that recording does not: raising an FM index or a fold depth also raises level, so a "brighter" change can be just a "louder" change in disguise. Gain-compensate every spectral move so you judge timbre, not volume.</p>
+
+  <table>
+    <thead><tr><th>Stage</th><th>Target</th><th>Its one job</th></tr></thead>
+    <tbody>
+      <tr><td>Each voice, solo</td><td>peaks ≈ <span class="code">-12 dBFS</span></td><td>Leave headroom so the group sum doesn't clip. Set the synth output, not the fader.</td></tr>
+      <tr><td>Index / fold changes</td><td>loudness-matched</td><td>When raising FM index or fold depth, trim the operator/output level so only brightness changes — A/B at matched volume.</td></tr>
+      <tr><td>Group bus (SYNTH KIT, SYNTHS)</td><td>peaks ≤ <span class="code">-6 dBFS</span></td><td>One place to balance the kit against the tonal parts.</td></tr>
+      <tr><td>Master</td><td>peaks ≤ <span class="code">-3 dBFS</span></td><td>No limiter for this exercise. The headroom is part of the sound.</td></tr>
+      <tr><td>Phones knob</td><td>comfortable, then leave it</td><td>Listening level only — zero effect on disk. Riding it while patching destroys your judgement.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">The golden rule of synthesis gain</div>
+    <p>A spectral parameter that also changes loudness is lying to you. Compensate at the source so "brighter" never secretly means "louder" — otherwise the louder version always wins, and you learn nothing about the spectrum.</p>
+  </div>
+
+  <h2>Latency, clock, and buffer</h2>
+
+  <table class="param-table">
+    <caption>Buffer size at 48 kHz — pick per task</caption>
+    <tr><td>128 samples</td><td>Use when playing a synth live and the latency feels sluggish.</td></tr>
+    <tr><td>256 samples</td><td>The default. Most of this work is programmed, so latency barely matters.</td></tr>
+    <tr><td>512+ samples</td><td>Mix and export sessions, and when running VCV alongside Live — CPU headroom over latency.</td></tr>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>The MicroFreak's one envelope</strong> is its real limit for drum synthesis: you cannot easily run a separate pitch envelope and a separate click envelope at once. For the kick's two-generator structure, prefer Operator; use the MicroFreak as the analog-flavour alternative noted in each recipe.</li>
+      <li><strong>VCV is optional but recommended for the west-coast voice</strong> — it is the only easy place to get a true vactrol-modelled low-pass gate. If you skip it, the MicroFreak's wavefolder plus a tight envelope is the documented approximation.</li>
+      <li><strong>Synthesized one-shots may be printed as WAVs.</strong> That is not "using samples" — it is bouncing your own synthesis. The constraint is no <em>borrowed</em> recordings, not no audio files.</li>
+    </ul>
+  </div>
+
+  <h2>Tempo &amp; mood</h2>
+  <p style="text-align:center; color:var(--text-muted);">Recommended tempo: <span class="code">120–126 BPM</span>. Start at <strong>122 BPM</strong>.</p>
+
+  <div class="tag-row">
+    <span class="tag">synthetic</span>
+    <span class="tag">precise</span>
+    <span class="tag">harmonic</span>
+    <span class="tag">inharmonic</span>
+    <span class="tag">folded</span>
+    <span class="tag">gated</span>
+    <span class="tag">spectral</span>
+    <span class="tag">built-from-zero</span>
+  </div>
+
+  <div class="page-nav">
+    <a href="decisions.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 03 / Decisions
+    </a>
+    <a href="palette.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      05 / Palette →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B2-001 — Synthesis from Zero</div>
+
+</div>
+
+</body>
+</html>

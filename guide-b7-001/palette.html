@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B7-001 — Parameter Riding — Ride map</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B7-001<span class="labnote-topic">Parameter Riding</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup &amp; rig</a>
+  <a href="palette.html" class="active"><span class="nav-num">05</span>Ride map</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B7-001</div>
+    <div class="eyebrow">Parameter Riding · 05 — Ride map</div>
+    <h1>The four-control ride map</h1>
+    <p class="lede">This is the reference card. Four controls, each with a target device, a Min/Max range, a job, and a safe zone. Print it, tape it next to the rig, and learn it cold. The build on the next page assumes this map exactly — every gesture refers back to one of these four.</p>
+  </header>
+
+  <h2>The map at a glance</h2>
+
+  <table class="param-table">
+    <caption>The whole performance surface, on one card</caption>
+    <tr><td>Encoder 1 — <span class="code">BASS FLT</span></td><td>Bass Auto Filter Cutoff · <span class="code">600 Hz → 3.5 kHz</span> · the main arc</td></tr>
+    <tr><td>Encoder 2 — <span class="code">FEEDBK</span></td><td>Echo (Return B) Feedback · <span class="code">35 % → 70 %</span> · the tension valve</td></tr>
+    <tr><td>Encoder 3 — <span class="code">VERB</span></td><td>Drone reverb send · <span class="code">-12 dB → -3 dB</span> · depth &amp; scale</td></tr>
+    <tr><td>Pads — <span class="code">MUTES</span></td><td>Kick / hat / perc / texture · binary, 1-bar quantised · section edits</td></tr>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">Read the map this way</div>
+    <p>Three encoders you turn slowly and a bank of pads you tap on the bar. If you can recite what each one does and where its safe zone ends, you are ready to rehearse. If you cannot, do not record a take yet.</p>
+  </div>
+
+  <h2>Ride 01 — the bass filter</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="14"/><line x1="22" y1="22" x2="22" y2="10"/></svg>
+      </div>
+      <div class="step-num">Encoder 1</div>
+      <h2 class="step-title">BASS FLT — your main arc</h2>
+    </div>
+    <table class="param-table">
+      <caption>Bass Auto Filter Cutoff</caption>
+      <tr><td>Target</td><td>Auto Filter (low-pass, 24 dB) on <span class="code">MF BASS</span> → Cutoff</td></tr>
+      <tr><td>Range</td><td>Min <span class="code">600 Hz</span> · Max <span class="code">3.5 kHz</span></td></tr>
+      <tr><td>Job</td><td>The energy arc. Closed = underwater intro; open = the track's brightest moment.</td></tr>
+      <tr><td>Safe zone</td><td>Entire range is musical by design — the danger is speed, not value</td></tr>
+      <tr><td>How to ride</td><td>Long S-curves of 16–48 bars. This is the instrument; everything else accompanies it.</td></tr>
+      <tr><td>Resting state</td><td>Start at 600 Hz (closed). Return near there to close the set or loop the take.</td></tr>
+    </table>
+  </div>
+
+  <h2>Ride 02 — echo feedback</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 22 q9 -10 18 0 t18 0"/></svg>
+      </div>
+      <div class="step-num">Encoder 2</div>
+      <h2 class="step-title">FEEDBK — the tension valve</h2>
+    </div>
+    <table class="param-table">
+      <caption>Echo (Return B) Feedback</caption>
+      <tr><td>Target</td><td>Echo device on <span class="code">Return B</span> → Feedback</td></tr>
+      <tr><td>Range</td><td>Min <span class="code">35 %</span> · Max <span class="code">70 %</span></td></tr>
+      <tr><td>Job</td><td>Transitions. Push for 4–8 bars so echoes pile, then pull back as the next section lands.</td></tr>
+      <tr><td>Safe zone</td><td>Below ~60 % is comfortable; 60–70 % is the near-runaway edge — visit it, never park there</td></tr>
+      <tr><td>How to ride</td><td>The one faster gesture you allow yourself — still spread over bars, never a flick</td></tr>
+      <tr><td>Resting state</td><td>35 % floor. Never start or leave a section with this cracked open.</td></tr>
+    </table>
+    <div class="callout">
+      <div class="callout-label">Most dangerous control</div>
+      <p>Treat the top of this range as a near-feedback control. The Max of 70 % is baked into the map so a panic turn cannot reach runaway — but your judgement still has to bring it back down before the wall arrives.</p>
+    </div>
+  </div>
+
+  <h2>Ride 03 — reverb send</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M14 28 a6 6 0 0 1 0 -12 a8 8 0 0 1 15 -2 a6 6 0 0 1 1 14 z"/></svg>
+      </div>
+      <div class="step-num">Encoder 3</div>
+      <h2 class="step-title">VERB — depth and scale</h2>
+    </div>
+    <table class="param-table">
+      <caption>Drone reverb send (to Return A)</caption>
+      <tr><td>Target</td><td><span class="code">MF DRONE</span> → Send A (Hybrid Reverb)</td></tr>
+      <tr><td>Range</td><td>Min <span class="code">-12 dB</span> · Max <span class="code">-3 dB</span></td></tr>
+      <tr><td>Job</td><td>How large the room feels. Blooms at the peak, recedes at the strip-back.</td></tr>
+      <tr><td>Safe zone</td><td>Whole range is safe; above -3 dB (clamped) the drone would wash the mix out</td></tr>
+      <tr><td>How to ride</td><td>Move it <em>with</em> the bass filter — both reach their bright/wet peak together as one swell</td></tr>
+      <tr><td>Resting state</td><td>-12 dB (dry). Space is earned later, not the opening state.</td></tr>
+    </table>
+  </div>
+
+  <h2>Ride 04 — the mutes</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="8" y="10" width="8" height="24" rx="1"/><rect x="28" y="10" width="8" height="24" rx="1"/></svg>
+      </div>
+      <div class="step-num">Pads</div>
+      <h2 class="step-title">MUTES — section edits, performed live</h2>
+    </div>
+    <table class="param-table">
+      <caption>Drum track mutes (Launchpad pads or Digitakt mute mode)</caption>
+      <tr><td>Target</td><td>Kick / hat / perc / texture mutes on <span class="code">DT DRUMS</span> sub-lanes or the Digitakt</td></tr>
+      <tr><td>Range</td><td>Binary on/off — launch quantised to <span class="code">1 Bar</span></td></tr>
+      <tr><td>Job</td><td>Arrangement performed live: drop the hat, strip to the kick, bring perc back.</td></tr>
+      <tr><td>Safe zone</td><td>Never mute the kick mid-floor without a plan to return it — the room feels a dropped kick instantly</td></tr>
+      <tr><td>How to play</td><td>Prepare the mute before the bar line; let the quantise land it clean</td></tr>
+      <tr><td>Resting state</td><td>Kick always on. Hat and perc are the toys; texture is the rare spice.</td></tr>
+    </table>
+  </div>
+
+  <h2>What stays off the map</h2>
+  <table class="param-table">
+    <caption>Fixed — never under a performance hand</caption>
+    <tr><td>Master output</td><td>Lives on Live's master or the venue mixer. Only touched to recover.</td></tr>
+    <tr><td>Kick level &amp; tuning</td><td>Frozen in rehearsal. A ridden kick is a wrong kick waiting to happen.</td></tr>
+    <tr><td>MicroFreak / Digitakt internal modulation</td><td>LFOs and p-locks run themselves — delegated movement you never think about</td></tr>
+    <tr><td>Bass &amp; drone tuning</td><td>Decided in the studio; live re-tuning sours the held chord</td></tr>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">The pairing rule</div>
+    <p>Encoders 1 and 3 move together — filter opens as reverb blooms, one swell. Encoder 2 is the punctuation between sections. The pads are the structure. Four moves, three of them slow, all of them named.</p>
+  </div>
+
+  <div class="checklist">
+    <ul>
+      <li>Each ride encoder is labeled on the EC4 display and on a tape strip on the surface.</li>
+      <li>Every continuous map has its Min/Max set to a musical range — no encoder reaches a value that hurts.</li>
+      <li>Mutes are quantised to the bar so a section edit lands clean.</li>
+      <li>Nothing dangerous (master, kick) is under a performance hand.</li>
+      <li>You can name, from memory, what every mapped control does and where its safe zone ends.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="setup.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 04 / Setup &amp; rig
+    </a>
+    <a href="build.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      06 / The build →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B7-001 — Parameter Riding</div>
+
+</div>
+
+</body>
+</html>

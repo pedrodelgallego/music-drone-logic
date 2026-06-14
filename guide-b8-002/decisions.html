@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B8-002 — The Release — Decisions</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B8-002<span class="labnote-topic">The Release</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html" class="active"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup &amp; rig</a>
+  <a href="palette.html"><span class="nav-num">05</span>Delivery targets</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B8-002</div>
+    <div class="eyebrow">The Release · 03 — Decisions</div>
+    <h1>The theory you decide before you meter</h1>
+    <p class="lede">Mastering goes wrong when "how loud is it?" is answered by ear at one volume. There are four honest answers — peak, RMS, LUFS, true-peak — and only some of them describe loudness at all. This page is the theory: what each meter measures, why streaming normalisation makes the loudness war unwinnable, when and how to dither, and how to sequence an EP as one statement. Decide all of it here, so the build is execution, not improvisation.</p>
+  </header>
+
+  <h2>The four ways to answer "how loud?"</h2>
+
+  <p style="text-align:center; max-width:660px; margin:0 auto 24px; color:var(--text-muted);">"Make it loud" is not a target — it is a wish. A target is a number with a meter behind it: <span class="code">−14 LUFS integrated, true-peak under −1 dBTP, delivered 16-bit dithered</span>. Once you can read those numbers, loudness stops being a vibe and becomes a decision you defend.</p>
+
+  <table class="param-table">
+    <caption>The metering vocabulary</caption>
+    <tr><td>Peak (sample peak)</td><td>The single highest sample value in the file. Tells you about <em>clipping headroom</em>, almost nothing about loudness — a quiet click and a wall of sound can share the same peak.</td></tr>
+    <tr><td>RMS</td><td>The average energy over a window — closer to "how loud does it feel" than peak, but it ignores how the ear weights frequencies. A useful old tool; LUFS is its modern, ear-matched replacement.</td></tr>
+    <tr><td>LUFS</td><td>Loudness Units relative to Full Scale — RMS filtered to match human hearing, and the unit every streaming platform uses. Three windows: <strong>momentary</strong> (≈400&nbsp;ms, the instantaneous feel), <strong>short-term</strong> (≈3&nbsp;s, the section feel), and <strong>integrated</strong> (the whole piece averaged — the one number that defines a master's loudness).</td></tr>
+    <tr><td>True-peak (dBTP)</td><td>The real peak <em>between</em> samples, after the file is reconstructed into a continuous wave on playback or conversion. A file can read 0.0&nbsp;dB on a sample-peak meter and still overshoot to +0.8&nbsp;dBTP when decoded — inter-sample clipping a sample-peak meter never showed you.</td></tr>
+    <tr><td>Correlation / phase</td><td>A meter from −1 to +1 showing how the left and right channels relate. <span class="code">+1</span> is mono-summable; <span class="code">0</span> is wide but safe; <span class="code">−1</span> means the channels cancel and the signal disappears in mono. Watch it the way you watch true-peak.</td></tr>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">Why integrated LUFS is the one number</div>
+    <p>Momentary and short-term tell you about moments; integrated tells you about the master. When a platform normalises, it acts on the integrated value — so that is the number you target, and the short-term meter is how you watch a loud section not run away from it.</p>
+  </div>
+
+  <h2>Loudness normalisation — why the war is unwinnable</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><line x1="6" y1="34" x2="38" y2="34"/><rect x="9" y="10" width="6" height="24"/><rect x="19" y="10" width="6" height="24"/><rect x="29" y="10" width="6" height="24"/></svg>
+      </div>
+      <h3 class="card-title">The squashed master</h3>
+      <ul class="card-points">
+        <li>Mastered to −6 LUFS to "win" loudness</li>
+        <li>The platform turns it <em>down</em> to its target — the loudness is gone</li>
+        <li>What remains is the cost: crushed transients, no dynamic contrast, pre-distortion on lossy encode</li>
+        <li>It arrives no louder than anyone else, and worse</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><line x1="6" y1="34" x2="38" y2="34"/><rect x="9" y="22" width="6" height="12"/><rect x="19" y="14" width="6" height="20"/><rect x="29" y="26" width="6" height="8"/></svg>
+      </div>
+      <h3 class="card-title">The dynamic master</h3>
+      <ul class="card-points">
+        <li>Mastered to ≈ −14 LUFS, true-peak under −1 dBTP</li>
+        <li>The platform leaves it near where you set it</li>
+        <li>It keeps its transients, its quiet, its room to move</li>
+        <li>It plays back at the same loudness as the squashed one — but intact</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The trade, in one sentence</div>
+    <p>Every dB of integrated LUFS you gain above the mix's natural level costs dynamic range and risks pumping. Streaming normalisation then gives the loudness back to everyone equally — so the dB you sacrificed bought nothing. Master for how the piece wants to move, not to win a fight that no longer exists.</p>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Streaming wants ≈ −14 LUFS.</strong> Above it the platform only turns you down, keeping the dynamics you crushed for nothing. At or below it, you keep your dynamics and lose no loudness.</li>
+      <li><strong>Club and long-form can sit quieter and more dynamic.</strong> A hypnotic piece built on a slow rise should keep its range — do not crush it to match a single. The mastering target follows the listening context, not a default.</li>
+      <li><strong>True-peak is the real ceiling.</strong> Set <span class="code">−1.0 dBTP</span> so lossy encoders never clip on conversion. Sample-peak at 0.0&nbsp;dB is not safe; the inter-sample overshoot is the part that distorts.</li>
+    </ul>
+  </div>
+
+  <h2>Dither — apply once, last, only at bit-depth reduction</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="12" cy="14" r="1.6" fill="currentColor"/><circle cx="22" cy="20" r="1.6" fill="currentColor"/><circle cx="32" cy="12" r="1.6" fill="currentColor"/><circle cx="16" cy="28" r="1.6" fill="currentColor"/><circle cx="28" cy="30" r="1.6" fill="currentColor"/><circle cx="34" cy="24" r="1.6" fill="currentColor"/><circle cx="10" cy="22" r="1.6" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Theory</div>
+      <h2 class="step-title">What dither is, and the rules</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Why it exists</div>
+      <ul>
+        <li>Reducing from 24-bit to 16-bit throws away the lowest bits. Without dither, the rounding errors correlate with the signal and become audible <em>quantisation distortion</em> in quiet tails — the worst place for it.</li>
+        <li>Dither adds a tiny, carefully shaped noise <em>before</em> the truncation, decorrelating the error. You trade a barely-audible noise floor for the removal of an ugly distortion. It is the right trade, every time you reduce bit depth.</li>
+      </ul>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">The rules</div>
+      <table class="param-table">
+        <caption>Dither discipline</caption>
+        <tr><td>Apply once</td><td>Exactly one dither stage, the very last thing in the chain, on the bit-depth-reducing export. Dithering twice stacks two noise floors for no benefit.</td></tr>
+        <tr><td>Only on reduction</td><td>Dither only when going <em>to</em> 16-bit. Never dither a 24-bit master — there is no truncation to mask.</td></tr>
+        <tr><td>Keep the source un-dithered</td><td>The 24-bit / 48&nbsp;kHz master is the source of truth. Export every delivery format from it; dither happens inside each 16-bit export, not in the master.</td></tr>
+        <tr><td>Noise shaping</td><td>Use the encoder's standard noise-shaped dither for material a listener will sit with. It pushes the dither noise into frequencies the ear is least sensitive to.</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <h2>Reference-matching — match balance, not loudness</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><circle cx="16" cy="22" r="10"/><circle cx="28" cy="22" r="10"/></svg>
+      </div>
+      <h3 class="card-title">What to match</h3>
+      <ul class="card-points">
+        <li>Broad spectral balance — the relative weight of sub, low-mid, mid, and top</li>
+        <li>The relationship of bass to top, the thing that stays constant across systems</li>
+        <li>How dynamic the reference is — whether it breathes or sits flat</li>
+        <li>How it translates on a phone, a car, and in mono</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><line x1="22" y1="8" x2="22" y2="36"/><path d="M14 14 l8 -6 l8 6"/><path d="M14 30 l8 6 l8 -6"/></svg>
+      </div>
+      <h3 class="card-title">What not to match</h3>
+      <ul class="card-points">
+        <li>Its exact loudness — level-match the reference down to your master to compare honestly</li>
+        <li>Its arrangement, its sounds, its signature gestures — that breaks originality</li>
+        <li>Its peak loudness as a goal — loud references will pull you into the unwinnable war</li>
+        <li>A single moment — match the whole-piece balance, not one drop</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Level-match before you judge</div>
+    <p>The louder of two tracks always sounds "better" for the first few seconds — more weight, more excitement. Before A/B-ing against a reference, turn the reference down so its loudness matches yours. Only then are you comparing tone and dynamics instead of being fooled by level.</p>
+  </div>
+
+  <h2>Sequencing the EP as one statement</h2>
+
+  <p style="text-align:center; max-width:660px; margin:0 auto 24px; color:var(--text-muted);">A release is not a folder of tracks. It is one arc made of several pieces — the same long-form discipline from a single track, applied across the running order.</p>
+
+  <table class="param-table">
+    <caption>Sequencing decisions</caption>
+    <tr><td>Opener</td><td>States the thesis plainly. It is the EP's intro — it sets the room and earns the rest.</td></tr>
+    <tr><td>Signature piece</td><td>Place it where its weight lands — often second or penultimate, rarely first. The opener earns it.</td></tr>
+    <tr><td>Keys &amp; tempo</td><td>Sequence so adjacent tracks share or neighbour a key, and tempo steps feel intentional. Abrupt jumps read as a compilation, not a statement.</td></tr>
+    <tr><td>Gaps</td><td>Decide the silence between tracks. A long-form release often wants near-gapless flow; the space is part of the composition, not a default.</td></tr>
+    <tr><td>Closer</td><td>Resolves or deliberately refuses to — the same tension-and-release choice you made inside one track, now at EP scale.</td></tr>
+    <tr><td>Inter-track loudness</td><td>Master the EP to a <em>consistent</em> integrated LUFS across tracks so the listener never reaches for the volume. A quiet interlude is a choice; a track 4 LUFS quieter by accident is a fault.</td></tr>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li>Listen to the whole sequence in one sitting, start to finish, more than once. The running order is wrong until it stops feeling like a list.</li>
+      <li>The artist statement is the thesis sentence expanded — it names the intention and the refusals, not the gear. The positioning names who it is for and who it is not for. The archive stores the master, session, statement, and patches together so the release can be defended twice.</li>
+    </ul>
+  </div>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Decisions to lock before the build</div>
+    <ul>
+      <li>What is my integrated-LUFS target, and why — does this music want impact-on-first-listen or dynamic contrast?</li>
+      <li>What is my true-peak ceiling? (≤ −1.0 dBTP recommended.)</li>
+      <li>Which one delivery context am I mastering for first — streaming, file, or club?</li>
+      <li>What is my running order, and does it read as one statement when played whole?</li>
+      <li>Have I chosen one reference track in the same idiom, in lossless form, to match balance against?</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="listen.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 02 / Listen
+    </a>
+    <a href="setup.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      04 / Setup &amp; rig →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B8-002 — The Release</div>
+
+</div>
+
+</body>
+</html>

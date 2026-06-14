@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B2-001 — Listen</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Lab Note contents">
+  <p class="nav-label labnote-code">Lab Note B2-001<span class="labnote-topic">Synthesis from Zero</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html" class="active"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html"><span class="nav-num">06</span>Build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B2-001</div>
+    <div class="eyebrow">Synthesis from Zero · 02 — Listen</div>
+    <h1>Listen for the machine, not the mood</h1>
+    <p class="lede">Before you patch anything, train your ear to hear synthesis as mechanism. The records below are landmarks of sound built from zero. Run each one through the same six questions — you are not listening for whether you like it, you are reverse-engineering how it was made.</p>
+  </header>
+
+  <h2>The six-question frame</h2>
+
+  <p style="text-align:center; max-width:640px; margin:0 auto 24px; color:var(--text-muted);">Ask these six questions of every sound you study. They map directly onto the synthesis decisions you will make on the Decisions and Build pages.</p>
+
+  <table>
+    <thead><tr><th>#</th><th>Question</th><th>What it tells you</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Can I sing its pitch?</td><td>A clear pitch means a harmonic spectrum (integer ratios, low partials). A smeared or absent pitch means inharmonic content or noise.</td></tr>
+      <tr><td>2</td><td>Where do the harmonics come from?</td><td>Subtraction (filter carving a rich source), addition (FM/additive building partials up), or folding (a sine made complex by amplitude). Listen for which.</td></tr>
+      <tr><td>3</td><td>How does the timbre change over one note?</td><td>If brightness moves while pitch holds, something is enveloped — a filter cutoff, an FM index, a fold depth. A static timbre sounds dead.</td></tr>
+      <tr><td>4</td><td>What shapes the volume?</td><td>Fast attack + short decay = percussive. Slow attack = a pad swell. Does the brightness fall <em>with</em> the volume (a low-pass gate) or independently (a VCA)?</td></tr>
+      <tr><td>5</td><td>Is there noise, and is it shaped?</td><td>Hats and claps are filtered noise. Ask whether the noise is high-passed (airy hat), band-passed (clap/snare body), or sweeping (riser).</td></tr>
+      <tr><td>6</td><td>What single move carries the part?</td><td>The most hypnotic synthesized parts evolve from one parameter moving slowly — find it. That is the move you will steal.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>The reference listening</h2>
+
+  <div class="cards three">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><circle cx="14" cy="30" r="6"/><path d="M20 30 V12 l16 -4 v18"/><circle cx="30" cy="26" r="6"/></svg>
+      </div>
+      <h3 class="card-title">Wendy Carlos — Selected Work</h3>
+      <ul class="card-points">
+        <li>The Moog as a precision instrument: subtractive voices, each partial placed on purpose</li>
+        <li>Q1–Q2: singable, harmonic; harmonics carved from rich oscillators by filters</li>
+        <li><a href="../workshop/block-4/rep-wendy-carlos-selected-work.html">Rep lesson →</a></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M8 24 q7 -14 14 0 t14 0"/><circle cx="8" cy="24" r="2" fill="currentColor"/><circle cx="36" cy="24" r="2" fill="currentColor"/></svg>
+      </div>
+      <h3 class="card-title">Morton Subotnick — Silver Apples of the Moon</h3>
+      <ul class="card-points">
+        <li>Buchla 100: folded, gated tones — brightness rises with loudness</li>
+        <li>Q3–Q4: timbre blooms at peaks; the low-pass gate fuses bright + loud + long</li>
+        <li><a href="../workshop/block-6/rep-morton-subotnick-silver-apples-of-the-moon.html">Rep lesson →</a></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><line x1="10" y1="34" x2="10" y2="10"/><line x1="18" y1="34" x2="18" y2="18"/><line x1="26" y1="34" x2="26" y2="14"/><line x1="34" y1="34" x2="34" y2="22"/></svg>
+      </div>
+      <h3 class="card-title">Suzanne Ciani — Buchla Concerts 1975</h3>
+      <ul class="card-points">
+        <li>Folding as the whole timbre; sequences kept alive by gate depth alone</li>
+        <li>Q6: one control — fold depth or ping strength — carries an entire part</li>
+        <li><a href="../workshop/block-6/rep-suzanne-ciani-buchla-concerts-1975.html">Rep lesson →</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>How to use each reference</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M10 24 a12 12 0 0 1 24 0"/><line x1="22" y1="24" x2="22" y2="14"/><circle cx="22" cy="24" r="2.5" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Listening protocol</div>
+      <h2 class="step-title">Find one sound, run the six questions, write one hypothesis</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Isolate, don't admire</div>
+      <ul>
+        <li>Pick a single repeated sound in the record — a kick, a pluck, a held tone. Loop a few seconds of it in your head.</li>
+        <li>Run the six questions in order. Write the answers as <em>mechanism</em>, not adjective: "pitch falls then settles, ~5 ms" — not "punchy".</li>
+        <li>If an answer is just a feeling, you have not heard the machine yet. Keep listening to that one sound.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Name the method out loud</div>
+      <ul>
+        <li>Carlos: "harmonic, subtractive — a saw carved by a filter, with a separate envelope on cutoff."</li>
+        <li>Subotnick: "a folded tone whose brightness tracks loudness, articulated by a gate that darkens as it fades."</li>
+        <li>Ciani: "a sequence kept alive because fold depth changes per step — freeze it and the part dies."</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>The one stolen principle</h2>
+
+  <div class="callout">
+    <div class="callout-label">Steal this — and only this</div>
+    <p>From Subotnick and Ciani, steal the discipline of <strong>one moving control</strong>: a single synthesis parameter, enveloped or sequenced, can carry an entire part for minutes. From Carlos, steal the opposite rigour — <strong>every partial placed on purpose</strong>. Your finished piece should let a stranger freeze one knob and hear the part collapse, proving the expression really lived in that one move.</p>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Steal a principle, not a sound.</strong> You may copy the <em>idea</em> "brightness rises with loudness" — you may not copy a Subotnick phrase. The replica stays in your logbook as a study; the printed track is yours.</li>
+      <li><strong>The six questions are the bridge.</strong> Every answer you write here becomes a decision on the next page. "Inharmonic, bell-like" → FM with a non-integer ratio. "Airy noise, no pitch" → high-passed white noise. Listening <em>is</em> the spec.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="index.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 01 / Overview
+    </a>
+    <a href="decisions.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      03 / Decisions →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B2-001 — Synthesis from Zero</div>
+
+</div>
+
+</body>
+</html>

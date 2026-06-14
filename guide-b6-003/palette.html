@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B6-003 — Chance Operations — Procedures</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B6-003<span class="labnote-topic">Chance Operations</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html" class="active"><span class="nav-num">05</span>Procedures</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <div class="labnote-badge">Lab Note B6-003</div>
+  <header class="page-header">
+    <div class="eyebrow">Chance Operations · 05 — Procedures</div>
+    <h1>A palette of chance procedures, each with a worked outcome</h1>
+    <p class="lede">Six procedures, ordered from the tightest fence to the loosest. Each one names the device, the boundary you author, the exact mechanics, and a <em>worked roll</em> — what actually happened the first time it ran, so you can hear the difference between a usable result and one that needs a re-roll. Steal these, then re-draw the fences for your own track.</p>
+  </header>
+
+  <h2>Procedure A — The Würfelspiel (dice choose section order)</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="10" y="10" width="24" height="24" rx="4"/><circle cx="17" cy="17" r="2" fill="currentColor"/><circle cx="27" cy="17" r="2" fill="currentColor"/><circle cx="22" cy="22" r="2" fill="currentColor"/><circle cx="17" cy="27" r="2" fill="currentColor"/><circle cx="27" cy="27" r="2" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Procedure A</div>
+      <h2 class="step-title">Pre-build six variants, let a die order them</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The boundary you author</div>
+      <ul>
+        <li>Build <strong>six</strong> 16-bar variants of the same section — call them V1–V6. Same key, same kick, same energy band. They differ only in which allowed bass notes land and which perc condition is active.</li>
+        <li>Every variant must be one you'd happily keep on its own. That is the whole fence.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Mechanics</div>
+      <ul>
+        <li>Roll a six-sided die once per 16-bar slot across the body of the track. Log the sequence on paper.</li>
+        <li>Constraint to keep it musical: never play the same variant twice in a row — re-roll a repeat. This is a rule you author <em>on top</em> of the chance, exactly as Mozart's table forbids nonsensical adjacencies.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Worked roll</div>
+      <table class="param-table">
+        <caption>First run — eight slots, die results logged</caption>
+        <tr><td>Slot 1 → 4</td><td>V4 (sparse, perc off)</td></tr>
+        <tr><td>Slot 2 → 4</td><td>repeat — re-rolled → 1 (V1, root-heavy)</td></tr>
+        <tr><td>Slot 3 → 6</td><td>V6 (G1 emphasis, perc 1:2)</td></tr>
+        <tr><td>Slot 4 → 2</td><td>V2 (C2 lift)</td></tr>
+        <tr><td>Slot 5 → 5</td><td>V5 (perc condition fires)</td></tr>
+        <tr><td>Slot 6 → 1</td><td>V1 again — legal, not consecutive</td></tr>
+        <tr><td>Slot 7 → 3</td><td>V3 (longest gaps)</td></tr>
+        <tr><td>Slot 8 → 6</td><td>V6 to close the body</td></tr>
+      </table>
+      <ul>
+        <li><strong>Outcome:</strong> a body that breathes V4 → V1 → V6 → V2 → V5 → V1 → V3 → V6. Every slot is keepable because every variant was. This is bounded indeterminacy working exactly as intended.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Procedure B — The single probability trig</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="16"/><text x="22" y="27" font-size="13" text-anchor="middle" fill="currentColor">%</text></svg>
+      </div>
+      <div class="step-num">Procedure B</div>
+      <h2 class="step-title">One trig that plays <em>sometimes</em></h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The boundary you author</div>
+      <ul>
+        <li>One perc trig on <span class="code">T3</span>, step 8, set to a <span class="code">35 %</span> condition. The trig either plays its authored sound or stays silent — those are the only two outcomes.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Mechanics</div>
+      <ul>
+        <li>Hold the trig, turn the trig-condition knob to <span class="code">35 %</span>. The Digitakt rolls its own coin each pattern cycle.</li>
+        <li>Record a 4-minute pass so the trig has dozens of chances to land. Over 4 minutes at 124 BPM that trig faces roughly 60 coin tosses.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Worked roll</div>
+      <ul>
+        <li>Across one 4-minute take the trig fired on bars 3, 9, 10, 17, 26, 31, 38, 44, 52, 59 — clustered, then sparse, in a way no human would program and no listener can predict.</li>
+        <li><strong>Outcome:</strong> the loop stops being a loop. Lower the percentage for a rarer heartbeat; raise it past <span class="code">60 %</span> and it reads as "always with occasional gaps", which is a different, weaker effect.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Procedure C — Bernoulli coin chooses the sample</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M22 8 v12"/><path d="M22 24 v12"/><circle cx="22" cy="22" r="3"/><path d="M14 16 l-6 6 l6 6"/><path d="M30 16 l6 6 l-6 6"/></svg>
+      </div>
+      <div class="step-num">Procedure C</div>
+      <h2 class="step-title">A coin in the control path picks A or B</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The boundary you author</div>
+      <ul>
+        <li>Two texture samples, both in key, both at the same level and decay. The kick and hat are fixed; only <em>which</em> texture the trig loads is up to the coin.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Mechanics — two ways</div>
+      <ul>
+        <li><strong>On the Digitakt:</strong> conditional sample lock — hold the texture trig, lock sample slot A; on a copied pattern lock slot B; alternate the patterns with a chance follow action or by a die roll per cycle.</li>
+        <li><strong>In VCV:</strong> a guaranteed gate into a <strong>Bernoulli Gate</strong> at <span class="code">0.5</span>; output A triggers sampler voice A, output B triggers voice B. The rhythm never changes — only the timbre does.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Worked roll</div>
+      <ul>
+        <li>Over 32 cycles the coin chose A 18 times, B 14 times — close to fair, with a run of four B's around the midpoint that gave the section an accidental "movement".</li>
+        <li><strong>Outcome:</strong> a texture that shimmers between two timbres with no detectable pattern. Because both samples were pre-vetted, every cycle was usable — no re-roll needed.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Procedure D — Quantized random note (the n-way pick)</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><line x1="8" y1="30" x2="8" y2="18"/><line x1="16" y1="30" x2="16" y2="12"/><line x1="24" y1="30" x2="24" y2="22"/><line x1="32" y1="30" x2="32" y2="14"/><line x1="6" y1="30" x2="36" y2="30"/></svg>
+      </div>
+      <div class="step-num">Procedure D</div>
+      <h2 class="step-title">Chance chooses among three allowed notes</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The boundary you author</div>
+      <ul>
+        <li>Exactly three pitches: <span class="code">A1</span>, <span class="code">C2</span>, <span class="code">G1</span>. Exactly three steps the bass may land on (1, 7, 11). Everything else is silence the kick owns.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Mechanics — three ways</div>
+      <ul>
+        <li><strong>VCV:</strong> a random voltage → sample-and-hold clocked once per bar → quantizer set to A-minor with only those three degrees enabled → MIDI to MicroFreak.</li>
+        <li><strong>Code:</strong> <span class="code">Prand([0,3,7], inf)</span> in SuperCollider, or <span class="code">n "&lt;0 3 7&gt;?"</span> in TidalCycles — the list literal is the fence.</li>
+        <li><strong>Analog:</strong> roll a die, 1–2 = A1, 3–4 = C2, 5–6 = G1; log it, play it in.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Worked roll</div>
+      <ul>
+        <li>One bar's S&amp;H sequence, logged: A1, A1, G1, C2, A1, G1, C2, C2 over eight bars. Note the two C2's in a row near the end — tension that resolves nowhere, which is exactly the hypnotic effect.</li>
+        <li><strong>Outcome:</strong> a bassline you'd never have written by hand but recognise as entirely yours, because you wrote the three notes it's drawing from. Re-roll if a bar lands on the root every time — that means the seed got lucky toward "safe".</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Procedure E — Live per-note chance inside a fixed clip</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="8" y="10" width="28" height="24" rx="2"/><rect x="12" y="14" width="5" height="4" fill="currentColor"/><rect x="20" y="20" width="5" height="4" fill="currentColor"/><rect x="28" y="16" width="5" height="4" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Procedure E</div>
+      <h2 class="step-title">Each note carries its own probability</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The boundary you author</div>
+      <ul>
+        <li>A fixed MIDI clip — say a hat or a chord stab. The notes, pitches, and timing are composed. The only thing in play is each note's <strong>Chance</strong> value in Live 12's note editor.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Mechanics</div>
+      <ul>
+        <li>Select a note, open the <span class="menu">Note</span> tab, set its <strong>Chance</strong> below 100 %. Structural notes stay at 100 %; ornamental ones drop to 40–70 %.</li>
+        <li>The clip is the field; the chances are bounded per note. Print to audio once a run sounds right — Live re-rolls every loop, so capture the take you curated.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Worked roll</div>
+      <ul>
+        <li>A 1-bar hat clip: downbeats at 100 %, the three offbeat ghosts at 50 %. Across 16 bars the ghosts thinned and thickened on their own; bar 11 happened to drop all three, leaving a held breath.</li>
+        <li><strong>Outcome:</strong> human-feeling variation with zero programming. The danger: too many sub-100 % notes and the groove's identity dissolves — keep the load-bearing hits certain.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Procedure F — Wide field (the cautionary one)</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><line x1="12" y1="12" x2="32" y2="32"/><line x1="32" y1="12" x2="12" y2="32"/></svg>
+      </div>
+      <div class="step-num">Procedure F</div>
+      <h2 class="step-title">Random pitch, no quantizer — what not to do</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The (absent) boundary</div>
+      <ul>
+        <li>Random CV straight to pitch, full range, no scale, no degree limit. The field is "any pitch", which is to say there is no field.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Worked roll</div>
+      <ul>
+        <li>Eight bars produced two notes in key, three glaringly out, two sub-audible, one ear-splitting. Every bar needed rescuing.</li>
+        <li><strong>Outcome:</strong> noise. This is here so you can hear the boundary's job by its absence. Add the quantizer and three-degree limit from Procedure D and the same random source becomes musical — the source didn't change, the fence did.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check — for every procedure above</div>
+      <ul>
+        <li>Can you write the complete list of outcomes this procedure chooses between? If not, tighten until you can.</li>
+        <li>Did you audition at least three runs before keeping one? Curation, not the first roll.</li>
+        <li>Remove the chance entirely — does a coherent track remain? It must.</li>
+        <li>Is every possible outcome one you'd sign your name to? If a single one isn't, the fence is too loose.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Carry forward</div>
+    <p>Procedures A through E differ only in fence width and where the pick lands. Procedure F is the same machinery with the fence removed — proof that the boundary, not the dice, is the instrument.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="setup.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 04 / Setup
+    </a>
+    <a href="build.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      06 / The build →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B6-003 — Chance Operations</div>
+
+</div>
+
+</body>
+</html>

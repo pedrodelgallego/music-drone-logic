@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B2-001 — Build</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Lab Note contents">
+  <p class="nav-label labnote-code">Lab Note B2-001<span class="labnote-topic">Synthesis from Zero</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html" class="active"><span class="nav-num">06</span>Build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B2-001</div>
+    <div class="eyebrow">Synthesis from Zero · 06 — Build</div>
+    <h1>Build the all-synthesized piece, step by step</h1>
+    <p class="lede">Now you assemble the recipes into one finished 4–6 minute piece in which every sound is synthesized — drums included. Each step is small, each has a decision checkpoint, and every device setting and click is spelled out. Keep the <a href="setup.html">Setup page</a> and <a href="palette.html">Palette page</a> open in other tabs — this page assumes them. Keep <strong>Spectrum</strong> on the master the entire time.</p>
+  </header>
+
+  <div class="signal-flow">
+    <span class="signal-node">project</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">kick</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">hat + clap</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">bass (FM)</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">lead (FM)</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">pad (additive)</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">drone (west-coast)</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">arrange</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">mix + print</span>
+  </div>
+
+  <!-- STEP 1 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 14 v20 a2 2 0 0 0 2 2 h28 a2 2 0 0 0 2 -2 v-16 a2 2 0 0 0 -2 -2 h-14 l-4 -4 h-10 a2 2 0 0 0 -2 2 z"/></svg>
+      </div>
+      <div class="step-num">Step 01</div>
+      <h2 class="step-title">Create the project and the analyzer</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Open a new set</div>
+      <ul>
+        <li><kbd>⌘ N</kbd> for a new Live Set. <kbd>Tab</kbd> to <strong>Arrangement</strong> view — the whole build lives here.</li>
+        <li>Tempo <span class="code">122</span>, time signature <span class="code">4/4</span>. Right-click the ruler → <span class="menu">Time Ruler Format → Time</span> so positions read as <span class="code">m:ss</span>.</li>
+        <li><kbd>⌘ S</kbd> → save as <span class="code">synth_from_zero_b2_001.als</span> in its own project folder.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Put the analyzer on the master — and leave it</div>
+      <ul>
+        <li>Select the Master track. Drag <strong>Spectrum</strong> onto it. Set Range to <span class="code">−80 dB</span>, Block size large enough to resolve low harmonics (<span class="code">8192</span>).</li>
+        <li>This is the device that proves the Lab Note's promise: evenly spaced spikes = harmonic, uneven spikes = inharmonic, a continuous band = noise. Verify every prediction here.</li>
+        <li>Add a <strong>Utility</strong> after Spectrum for the mono-check later. No limiter — headroom is the sound.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Create the tracks and groups</div>
+      <ul>
+        <li><kbd>⌘ ⇧ T</kbd> for MIDI tracks: <span class="code">KICK</span>, <span class="code">HAT</span>, <span class="code">CLAP</span>, <span class="code">BASS</span>, <span class="code">LEAD</span>, <span class="code">PAD</span>, <span class="code">DRONE</span>.</li>
+        <li>Select <span class="code">KICK</span>, <span class="code">HAT</span>, <span class="code">CLAP</span> → <kbd>⌘ G</kbd> → name the group <span class="code">SYNTH KIT</span>.</li>
+        <li><kbd>⌘ ⌥ T</kbd> twice for returns: <span class="code">A — REVERB</span> (Reverb, decay <span class="code">1.8 s</span>, Dry/Wet <span class="code">100%</span>, used for the clap glue) and <span class="code">B — ECHO</span> (Echo, <span class="code">3/16</span> ping-pong, Feedback <span class="code">35%</span>, HP at <span class="code">250 Hz</span>).</li>
+        <li>Color drums one family, tonal synths another. <kbd>⌘ R</kbd> to rename. Save.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Is Spectrum reading on the master right now? If not, fix it before anything else — you cannot verify a prediction you cannot see.</li>
+        <li>Are there zero samples loaded anywhere? Confirm the only audio in the set will be synthesis you bounce yourself.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="14"/><path d="M22 8 v14 l10 6"/></svg>
+      </div>
+      <div class="step-num">Step 02</div>
+      <h2 class="step-title">Build the kick — a falling sine plus a click</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The body</div>
+      <ul>
+        <li>On <span class="code">KICK</span>, add <strong>Operator</strong>. Enable oscillator <strong>A</strong> only (mute B, C, D for now), waveform <strong>Sine</strong>, Coarse <span class="code">1</span>, level full.</li>
+        <li>Amp envelope on A: Attack <span class="code">0 ms</span>, Decay <span class="code">250 ms</span>, Sustain <span class="code">0</span>, Release <span class="code">10 ms</span>. This is the body length.</li>
+        <li>Open the <strong>Pitch</strong> tab, enable Envelope. Set <strong>Initial</strong> high and <strong>Decay</strong> very fast: the oscillator starts ≈ <span class="code">150 Hz</span> and falls to the resting note. Pitch env time <span class="code">≈ 5 ms</span>.</li>
+        <li>Play a note so the resting frequency lands ≈ <span class="code">50 Hz</span> (F1). Tune this to the track root — write the root down now, because the bass must agree with it.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The click</div>
+      <ul>
+        <li>Enable oscillator <strong>B</strong> as Operator's <strong>Noise</strong> waveform (or a high sine, Coarse set high). Amp env: Decay <span class="code">3 ms</span>, level low.</li>
+        <li>Route B in <strong>parallel</strong> (algorithm where B reaches output directly), not as a modulator of A. It mixes with the body as the front edge.</li>
+        <li>Solo the kick, watch Spectrum: a brief broadband flash (the click) over a low spike that settles (the body).</li>
+      </ul>
+    </div>
+
+    <table class="param-table">
+      <caption>Kick — final values (adjust between takes)</caption>
+      <tr><td>Osc A</td><td>Sine, Coarse 1, level full</td></tr>
+      <tr><td>Amp env A</td><td>A 0 ms · D 250 ms · S 0 · R 10 ms</td></tr>
+      <tr><td>Pitch env</td><td>start ~150 Hz → rest ~50 Hz, time ~5 ms</td></tr>
+      <tr><td>Osc B (click)</td><td>Noise, parallel, D 3 ms, low level</td></tr>
+      <tr><td>Solo peak</td><td>≈ −12 dBFS</td></tr>
+    </table>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Can I hum the body but not the click? If I can hum the click, it is too long — shorten osc B's decay.</li>
+        <li>Does the kick punch, or boop? If it boops, the pitch-env time is too slow — bring it under 8 ms.</li>
+        <li>Is the resting note tuned to the track root? A detuned kick + a tonal bass = permanent low-end blur.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 22 l3 -10 2 18 3 -22 2 24 3 -14 2 10 3 -16 2 18 3 -8 2 6 3 -10 2 8" fill="none"/></svg>
+      </div>
+      <div class="step-num">Step 03</div>
+      <h2 class="step-title">Build the hat and clap from noise</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Hat — gated high-passed noise</div>
+      <ul>
+        <li>On <span class="code">HAT</span>, add <strong>Operator</strong>, oscillator A waveform <strong>Noise</strong>. Add an <strong>Auto Filter</strong>, High-pass, cutoff <span class="code">≈ 7.5 kHz</span>, mild resonance.</li>
+        <li>Amp env: Attack <span class="code">0 ms</span>, Decay <span class="code">40 ms</span>, Sustain <span class="code">0</span> — that short decay is the closed hat.</li>
+        <li>Duplicate the track to <span class="code">HAT OPEN</span>, lengthen Decay to <span class="code">300 ms</span>. Program the closed hat to choke the open one. (If you keep only one hat, that is fine — note it.)</li>
+        <li>Spectrum: a band of energy above ~7 kHz, no low spike. No pitch to sing — correct.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Clap — staggered bursts plus a tail</div>
+      <ul>
+        <li>On <span class="code">CLAP</span>, add <strong>Operator</strong>, oscillator A <strong>Noise</strong>. Amp env: A <span class="code">0 ms</span>, D <span class="code">15 ms</span>, S 0 — one short burst.</li>
+        <li>Add an <strong>Auto Filter</strong>, Band-pass, centre <span class="code">≈ 1.2 kHz</span>, moderate resonance — the "hand" colour.</li>
+        <li>In the clip, place <strong>3–4 MIDI notes</strong> <span class="code">10–20 ms</span> apart (zoom in; nudge them off-grid). Make the last burst slightly louder and longer.</li>
+        <li>Send the clap to <span class="code">A — REVERB</span> at <span class="code">−12 dB</span>: a <span class="code">~200 ms</span> tail glues the bursts into one clap. Without it they read as separate ticks.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Hat: solo the 8th-note pattern — do the hats close before the next kick, or smear into a wash? A wash means decay too long.</li>
+        <li>Clap: in slow motion, can I hear the front-edge flutter of several bursts? A single dry snap means the stagger collapsed.</li>
+        <li>Mono-check the clap (Utility on master to 0% width): does the tail survive? If it vanishes, pull the reverb width back.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="26" width="6" height="12"/><rect x="16" y="18" width="6" height="20"/><rect x="26" y="10" width="6" height="28"/><rect x="36" y="22" width="2" height="16"/></svg>
+      </div>
+      <div class="step-num">Step 04</div>
+      <h2 class="step-title">Program the drum pattern</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">A 16-step foundation</div>
+      <ul>
+        <li>On <span class="code">KICK</span>, draw a clip: hits on steps <span class="code">1, 5, 9, 13</span> (four on the floor).</li>
+        <li><span class="code">HAT</span>: off-beats <span class="code">3, 7, 11, 15</span>. Alternate velocity so the hats breathe instead of ticking.</li>
+        <li><span class="code">CLAP</span>: steps <span class="code">5</span> and <span class="code">13</span> (beats 2 and 4) — its staggered bursts sit inside those steps.</li>
+        <li>Add <span class="code">52%</span> groove (swing) to the kit, on the edge of perception. Loop and listen for two minutes before adding anything.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Kit bus</div>
+      <ul>
+        <li>On the <span class="code">SYNTH KIT</span> group: EQ Eight HP at <span class="code">25 Hz</span>; light Glue Compressor for cohesion (Ratio 2:1, slow-ish, ~1–2 dB).</li>
+        <li>Group peaks ≤ <span class="code">−6 dBFS</span>. The kit is now one drawable bus of pure synthesis.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does the groove move without thinking? If a hit feels decorative, mute it and listen for a minute — if nothing is lost, it stays muted.</li>
+        <li>Could a stranger believe these were sampled drums? If they sound stiff and identical, vary velocity and clap stagger — the realism is in the micro-variation you control.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 5 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="14" cy="22" r="8"/><circle cx="30" cy="22" r="4"/><path d="M22 22 q4 -8 8 0" fill="none"/></svg>
+      </div>
+      <div class="step-num">Step 05</div>
+      <h2 class="step-title">Build the bass — harmonic FM</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Two operators, integer ratio</div>
+      <ul>
+        <li>On <span class="code">BASS</span>, add <strong>Operator</strong>. Choose the algorithm where <strong>B sits on top of A</strong> (B modulates A; A is the only carrier reaching output). Turn C and D off.</li>
+        <li>Set A and B <strong>Coarse = 1</strong> (ratio 1:1). Carrier A full; modulator B level at zero to start.</li>
+        <li>Hold a low note and raise <strong>B's level</strong> (the index). Watch Spectrum: evenly spaced harmonics appear above the fundamental — 2×, 3×, 4× — and the <em>pitch never moves</em>. Stop at a brightness that sits under the kick, not over it.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Envelope the index for attack bite</div>
+      <ul>
+        <li>Give modulator <strong>B its own amp envelope</strong>: Attack <span class="code">0 ms</span>, Decay <span class="code">120 ms</span>, Sustain low. The bass is bright at the attack and mellow in the body — exactly the e-piano "tine" mechanism applied to a bass.</li>
+        <li>Carrier A amp env: A <span class="code">0 ms</span>, short Decay/Release so notes leave silence between them. Tune the played note to agree with the kick's resting note.</li>
+        <li><strong>Gain-compensate:</strong> trim A's output as you raised B's level so the brightness change is not just a loudness change. A/B at matched level.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">A short sequence</div>
+      <ul>
+        <li>Write a 16-step clip, 3–5 notes, root on step 1, gaps where the kick lives. A minor key keeps it dark.</li>
+        <li>Sidechain: Compressor on <span class="code">BASS</span>, Sidechain from <span class="code">SYNTH KIT</span> (Pre FX), Ratio <span class="code">4:1</span>, Attack <span class="code">1 ms</span>, Release <span class="code">120 ms</span>, ~3 dB gain reduction per kick.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Can I play a melody and stay in tune? If yes, the ratio is integer and the bass is harmonic — confirm on Spectrum (even spikes).</li>
+        <li>Is the brightness change really brightness, or did I just turn it up? Gain-match and re-judge.</li>
+        <li>Does the bass own 80–180 Hz while the kick owns 40–80 Hz? Two tonal sources fighting below 200 Hz is the most common low-end fault.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 6 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M8 30 L8 14 L36 8 L36 24" fill="none"/><circle cx="8" cy="30" r="4"/><circle cx="36" cy="24" r="4"/></svg>
+      </div>
+      <div class="step-num">Step 06</div>
+      <h2 class="step-title">Build the lead — FM with an inharmonic attack</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Harmonic body, metallic tine</div>
+      <ul>
+        <li>Duplicate the bass Operator onto <span class="code">LEAD</span>, or build fresh: B → A, ratio <span class="code">1 : 1</span>.</li>
+        <li>Steepen the <strong>index envelope</strong> on B: Attack <span class="code">0 ms</span>, Decay <span class="code">150 ms</span>, Sustain low. The brief high index at the attack is an inharmonic "tine" that fades into a harmonic body — the DX-Rhodes structure you heard in listening.</li>
+        <li>Add a touch of <strong>operator feedback</strong> on B for edge — seasoning only.</li>
+        <li>Carrier A amp env: A <span class="code">0 ms</span>, sustained, medium release for a struck-but-singing feel.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">An inharmonic variant for colour</div>
+      <ul>
+        <li>Duplicate to a parked clip and move modulator <strong>B to ≈ 1.41</strong> (Coarse 1 + Fine, or Coarse 3.5). Spectrum: spikes now <em>unevenly</em> spaced — a bell/mallet. Try to sing the pitch; it resists. Use this sparingly as a perc accent, not the main lead.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Hold a long note: does the spectrum animate (bright → mellow), or sit still? A static index sounds dead — keep the envelope.</li>
+        <li>On high notes at high index, does it turn harsh and detuned? That is aliasing — lower the index or play lower, or keep it as deliberate dirt and note the choice.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 7 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 22 q9 -6 18 0 t18 0"/><path d="M6 28 q9 -4 18 0 t18 0"/></svg>
+      </div>
+      <div class="step-num">Step 07</div>
+      <h2 class="step-title">Build the pad — additive-style wavetable</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">A morphing bed</div>
+      <ul>
+        <li>On <span class="code">PAD</span>, add <strong>Wavetable</strong>. Oscillator 1: a harmonically rich table (a "Basics" saw-to-sine sweep works).</li>
+        <li>Assign a <strong>slow LFO</strong> to the wavetable <strong>position</strong>: rate ≈ one cycle per <span class="code">10–20 s</span>, depth small. As the position moves, partials redistribute — additive-style movement with no new notes. Watch Spectrum: spikes rise and fall in level while the fundamental holds.</li>
+        <li>Filter: gentle low-pass, cutoff mid — let the table do the work, not the filter. Amp env: A <span class="code">300–800 ms</span>, long Sustain, long Release.</li>
+        <li>Hold root + fifth. Width via Unison/Utility — keep it mono-compatible.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Place it under everything</div>
+      <ul>
+        <li>EQ HP at <span class="code">150 Hz</span> so the pad owns the mids, not the low end the kick and bass own.</li>
+        <li>Reverb send <span class="code">−10 dB</span>. The pad is the room the track lives in.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Is the pad <em>evolving</em> from the wavetable sweep, or sitting still? If still, raise the LFO depth a touch — but slower than feels natural.</li>
+        <li>Solo pad + bass: is 80–200 Hz muddy? Raise the pad's HP before reaching for anything else.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 8 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 22 q5 -12 10 0 q5 12 10 0 q5 -12 10 0" fill="none"/><path d="M14 22 l-4 4 m4 -4 l-4 -4" fill="none"/></svg>
+      </div>
+      <div class="step-num">Step 08</div>
+      <h2 class="step-title">Build the drone — west-coast fold + low-pass gate</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Fold a sine (VCV path)</div>
+      <ul>
+        <li>Open VCV Rack. Add a <strong>VCO</strong>; take its <strong>sine</strong> output — harmonically poorest on purpose, so every new harmonic comes from the fold.</li>
+        <li>Add a <strong>wavefolder</strong> (Bogaudio FOLD / Befaco / Surge XT). Patch sine → folder input. Raise the fold knob: a pure tone sprouts harmonics, brighter as it is driven harder. Confirm on a scope.</li>
+        <li>Add an <strong>AD/function envelope</strong> → folder fold-depth CV (attenuated). Now brightness tracks dynamics — folding is amplitude-driven.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Gate it, don't filter it</div>
+      <ul>
+        <li>Add a <strong>low-pass gate</strong> (Bogaudio LPG, or Veils in LPG / "both" mode). Patch folder out → LPG audio in → audio interface → Live's <span class="code">DRONE</span> track.</li>
+        <li>Add a slow <strong>trigger/clock</strong> → the LPG's ping/excite input. Each ping = a pluck that opens bright+loud and closes along the vactrol curve, darkening as it fades.</li>
+        <li>The one move: drive fold depth (or ping strength) from a slow LFO/random. Harder ping = brighter + louder + longer — confirm by ear.</li>
+        <li>Record a 60–120 s pass into <span class="code">DRONE</span>. (No VCV? Use the Wavetable noise drone in the Palette, or the MicroFreak folder + a tight envelope as the documented approximation.)</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does the pluck <em>darken</em> as it decays (LPG), or just get quieter (a plain VCA)? Darkening is the west-coast signature — set the LPG to "both".</li>
+        <li>Freeze the one expressive control: does the part die? If it stays interesting, the expression was coming from elsewhere — strip the other movement.</li>
+        <li>Did I accidentally reach for a resonant filter with a "wah"? That is east-coast, and the prescribed fault — replace it with the LPG.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 9 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="4" y="14" width="10" height="6" rx="1"/><rect x="16" y="14" width="14" height="6" rx="1"/><rect x="32" y="14" width="8" height="6" rx="1"/><rect x="8" y="24" width="16" height="6" rx="1"/><rect x="26" y="24" width="12" height="6" rx="1"/></svg>
+      </div>
+      <div class="step-num">Step 09</div>
+      <h2 class="step-title">Arrange the timeline</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Mark the map</div>
+      <ul>
+        <li>Right-click the scrub area → <span class="menu">Add Locator</span> at each boundary. Name: <span class="code">INTRO</span>, <span class="code">KIT IN</span>, <span class="code">BASS IN</span>, <span class="code">FULL</span>, <span class="code">PEAK</span>, <span class="code">STRIP</span>, <span class="code">OUTRO</span>.</li>
+      </ul>
+      <table class="param-table">
+        <caption>Section → time → bar at 122 BPM</caption>
+        <tr><td>INTRO — 0:00</td><td>Bar 1 — drone + pad only</td></tr>
+        <tr><td>KIT IN — 0:45</td><td>Bar 23 — kick, then hat/clap</td></tr>
+        <tr><td>BASS IN — 1:30</td><td>Bar 46 — FM bass surfaces</td></tr>
+        <tr><td>FULL — 2:15</td><td>Bar 69 — lead enters sparsely</td></tr>
+        <tr><td>PEAK — 3:15</td><td>Bar 99 — nothing new; the automation peaks</td></tr>
+        <tr><td>STRIP — 4:00</td><td>Bar 122 — lead and clap out</td></tr>
+        <tr><td>OUTRO — 4:45</td><td>Bar 145 — drone + pad carry the exit</td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Place the clips</div>
+      <ul>
+        <li>Loop the MIDI clips across the sections; draw fade-ins on the clip corners where parts surface rather than arrive.</li>
+        <li><strong>PEAK</strong>: nothing new enters. The energy comes from automation drawn in Step 10 — that is the thesis of the genre, and of this Lab Note's restraint.</li>
+        <li>Make cuts on kick downbeats (<kbd>⌘ E</kbd>); consolidate finished sections with <kbd>⌘ J</kbd>.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does the piece work with fewer than eight elements? Count them. If you added a ninth to fill a gap, find the real fix instead.</li>
+        <li>Does the arrangement feel like a journey, or a loop pasted for five minutes?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 10 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 34 Q22 6 38 14"/><circle cx="6" cy="34" r="2.5" fill="currentColor"/><circle cx="38" cy="14" r="2.5" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Step 10</div>
+      <h2 class="step-title">Draw the automation — synthesis parameters, not just faders</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Automate the synthesis itself</div>
+      <ul>
+        <li>The cheapest movement comes from enveloping the parameter unique to each method. Automate these slowly across the arc:</li>
+      </ul>
+      <table class="param-table">
+        <caption>Automation map (no ramp shorter than 8 bars)</caption>
+        <tr><td>Bass FM index (Operator B level) @ INTRO→PEAK</td><td>low → high → low — the bass brightens into the peak without a filter</td></tr>
+        <tr><td>Pad wavetable position @ FULL→PEAK</td><td>a slow drift to a brighter table region</td></tr>
+        <tr><td>Drone fold depth @ across the piece</td><td>the one expressive control, riding slowly</td></tr>
+        <tr><td>Lead reverb send @ PEAK</td><td>−12 → −4 dB — space blooms at the top</td></tr>
+        <tr><td>Echo feedback @ PEAK</td><td>35% → 55% → 35% — echoes briefly self-regenerate</td></tr>
+      </table>
+      <ul>
+        <li><kbd>A</kbd> shows automation lanes; <kbd>B</kbd> is the pencil. Bend ramps into S-curves so they read as intention, not a ruler.</li>
+        <li>Gain-compensate index automation so "brighter" never becomes "louder" by accident.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Play PEAK blind: does the climax arrive because things <em>opened</em> (index, fold, send), not because things were <em>added</em>? That is the test of the whole exercise.</li>
+        <li>If you can hear an automation move as an event, it is too fast. Slow it.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 11 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><line x1="12" y1="8" x2="12" y2="36"/><line x1="22" y1="8" x2="22" y2="36"/><line x1="32" y1="8" x2="32" y2="36"/><rect x="9" y="18" width="6" height="3" fill="currentColor"/><rect x="19" y="24" width="6" height="3" fill="currentColor"/><rect x="29" y="14" width="6" height="3" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Step 11</div>
+      <h2 class="step-title">Mix pass and the sample A/B</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Balance and separate</div>
+      <ul>
+        <li>Pull all faders to <span class="code">−inf</span>. Bring up one at a time, 30 s apart: kick, then bass against it, then hat/clap, then pad, then lead, then drone.</li>
+        <li>Frequency pecking order below 200 Hz: kick owns 40–80 Hz, bass owns 80–180 Hz, nothing else allowed in. HP everything else above 150 Hz.</li>
+        <li>Target peaks: kit bus ≈ −6 dBFS, bass −12 dB, pad −16 dB, lead −14 dB, drone −18 dB, master ≤ −3 dBFS.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The honesty test — A/B against a sampled kit</div>
+      <ul>
+        <li>Park a factory sampled drum kit on a muted track, trimmed to the <em>same perceived loudness</em> as your <span class="code">SYNTH KIT</span> (a louder kit always "wins").</li>
+        <li>Play your synthesized kit, then the sampled one. Write three things you <strong>gained</strong> by synthesizing (e.g. "the kick is tuned to the bass", "every clap stagger is mine", "the hat decay locks to tempo") and two things you <strong>lost</strong> (e.g. "the sampled kit has recorded-room character").</li>
+        <li>This A/B is the proof you understand <em>when</em> to synthesize — not a contest your kit must win.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Listen once <em>quietly</em>: does the bass vanish or the hat dominate? Fix the balance at low volume before anything else.</li>
+        <li>Mono-check: flip Utility width to 0% — anything disappearing means widening is overdone (usual suspects: drone, clap reverb).</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 12 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><polyline points="14 18 22 26 30 18"/><line x1="22" y1="8" x2="22" y2="26"/><line x1="8" y1="34" x2="36" y2="34"/></svg>
+      </div>
+      <div class="step-num">Step 12</div>
+      <h2 class="step-title">Print and archive your synthesis</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Render and document</div>
+      <ul>
+        <li>Print each drum voice as a one-shot WAV (now allowed — it is <em>your</em> synthesis) plus the full mix. <span class="menu">File → Export Audio / Video</span>, WAV, 48 kHz, 24-bit, Normalize OFF.</li>
+        <li>Save every device preset: <span class="code">KICK</span>, <span class="code">HAT</span>, <span class="code">CLAP</span>, <span class="code">BASS</span>, <span class="code">LEAD</span>, <span class="code">PAD</span>; save the VCV patch and a screenshot of its cabling.</li>
+        <li>Draw each voice's signal flow by hand with every envelope time labelled. <span class="menu">File → Collect All and Save</span>.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Can I point to a specific number for every part of every sound and say what changing it would do? If any answer is just an adjective, that voice is not finished.</li>
+        <li>Is the printed track assembled from my own patches, with no borrowed recording anywhere? The replica study stays in the logbook.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-nav">
+    <a href="palette.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 05 / Palette
+    </a>
+    <a href="reflection.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      07 / Reflection →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B2-001 — Synthesis from Zero</div>
+
+</div>
+
+</body>
+</html>

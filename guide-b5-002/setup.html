@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B5-002 — Reverb — Setup</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B5-002<span class="labnote-topic">Reverb</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html" class="active"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B5-002</div>
+    <div class="eyebrow">Reverb · 04 — Setup</div>
+    <h1>Wiring the room — sends, returns, and the freeze path</h1>
+    <p class="lede">The same five-box rig as the rest of the course, set up so reverb is a destination, not an afterthought. Two return tracks carry two depths; one extra return exists only to be frozen and printed. This page is the signal-path reference the build assumes — keep it open in another tab.</p>
+  </header>
+
+  <h2>The rig, in this context</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="10" width="32" height="20" rx="2"/><line x1="16" y1="36" x2="28" y2="36"/><line x1="22" y1="30" x2="22" y2="36"/></svg>
+      </div>
+      <h3 class="card-title">Ableton Live 12 Suite</h3>
+      <ul class="card-points">
+        <li>Holds the reverb: <strong>Hybrid Reverb</strong> on return tracks</li>
+        <li>Freeze, resample, and automation of the space</li>
+        <li>Master MIDI clock for both hardware boxes</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="8" width="32" height="28" rx="2"/><rect x="10" y="12" width="10" height="7" rx="1"/><circle cx="29" cy="15.5" r="3"/><rect x="10" y="24" width="4" height="4" rx="0.7"/><rect x="17" y="24" width="4" height="4" rx="0.7"/><rect x="24" y="24" width="4" height="4" rx="0.7"/><rect x="31" y="24" width="4" height="4" rx="0.7"/></svg>
+      </div>
+      <h3 class="card-title">Elektron Digitakt II + Arturia MicroFreak</h3>
+      <ul class="card-points">
+        <li>Dry sources: kick, perc, bass, drone — recorded clean into Ableton</li>
+        <li>Digitakt's onboard reverb used sparingly, as a near room only</li>
+        <li>MicroFreak drone is the main thing the big room acts on</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The rule that makes this work</div>
+    <p>Record every source <em>dry</em>. The space is built in Ableton, on returns, where it stays editable. A reverb baked into a take can never be made smaller — only re-recorded.</p>
+  </div>
+
+  <h2>The reverb signal path</h2>
+
+  <div class="signal-flow">
+    <span class="signal-node">Dry source tracks</span>
+    <span class="signal-arrow">→ send A →</span>
+    <span class="signal-node">A — NEAR ROOM</span>
+    <span class="signal-arrow">→ send B →</span>
+    <span class="signal-node">B — FAR HALL</span>
+    <span class="signal-arrow">→ send C →</span>
+    <span class="signal-node">C — FREEZE</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">master</span>
+  </div>
+
+  <h2>Build the three returns</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="8" y="12" width="28" height="20" rx="2"/><path d="M14 26 q8 -8 16 0"/></svg>
+      </div>
+      <div class="step-num">Return A</div>
+      <h2 class="step-title">Near room — placement</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Hybrid Reverb settings</div>
+      <table class="param-table">
+        <caption>A — NEAR ROOM</caption>
+        <tr><td>Algorithm</td><td>Room (Hybrid Reverb's algorithmic Room, or a small Convolution room IR)</td></tr>
+        <tr><td>Pre-delay</td><td><span class="code">15 ms</span> — keeps transients in front</td></tr>
+        <tr><td>Decay</td><td><span class="code">0.8 – 1.2 s</span></td></tr>
+        <tr><td>Size</td><td>Small–medium</td></tr>
+        <tr><td>Dry/Wet</td><td><span class="code">100 %</span> — it is a return</td></tr>
+      </table>
+      <ul>
+        <li>Insert an <strong>EQ Eight</strong> <em>before</em> the reverb on the return: HP <span class="code">300 Hz</span>, LP shelf -3 dB at <span class="code">9 kHz</span>.</li>
+        <li>This is the room that gives drums and bass a sense of place without any audible tail.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="6"/><circle cx="22" cy="22" r="12" opacity="0.6"/><circle cx="22" cy="22" r="18" opacity="0.3"/></svg>
+      </div>
+      <div class="step-num">Return B</div>
+      <h2 class="step-title">Far hall — blur</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Hybrid Reverb settings</div>
+      <table class="param-table">
+        <caption>B — FAR HALL</caption>
+        <tr><td>Algorithm</td><td>Hall (Convolution Hall or large algorithmic Hall)</td></tr>
+        <tr><td>Pre-delay</td><td><span class="code">40 ms</span> — large room, still readable onsets</td></tr>
+        <tr><td>Decay</td><td><span class="code">6 – 8 s</span></td></tr>
+        <tr><td>Size</td><td>Large</td></tr>
+        <tr><td>Dry/Wet</td><td><span class="code">100 %</span></td></tr>
+      </table>
+      <ul>
+        <li>EQ Eight before it: HP <span class="code">350 Hz</span>, LP shelf -4 dB at <span class="code">7.5 kHz</span> — the far room should be darker than the near one.</li>
+        <li>Add a <strong>Compressor</strong> after the reverb on this return, sidechained to the kick (Audio From <span class="code">DT DRUMS</span>, Ratio <span class="code">4:1</span>, ~3 dB reduction) so the wash ducks open between kicks.</li>
+        <li>This is where sounds go to dissolve. The drone lives mostly here.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><line x1="22" y1="8" x2="22" y2="36"/><line x1="8" y1="22" x2="36" y2="22"/><line x1="12" y1="12" x2="32" y2="32"/><line x1="32" y1="12" x2="12" y2="32"/></svg>
+      </div>
+      <div class="step-num">Return C</div>
+      <h2 class="step-title">Freeze — material to be printed</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Hybrid Reverb settings</div>
+      <table class="param-table">
+        <caption>C — FREEZE</caption>
+        <tr><td>Algorithm</td><td>Any large algorithm with a <span class="code">Freeze</span> control</td></tr>
+        <tr><td>Pre-delay</td><td><span class="code">0 ms</span> — full blur is the point here</td></tr>
+        <tr><td>Decay</td><td><span class="code">12 s</span> (irrelevant once frozen)</td></tr>
+        <tr><td>Freeze</td><td>Off until you capture; then mapped to a Launchpad pad</td></tr>
+        <tr><td>Dry/Wet</td><td><span class="code">100 %</span></td></tr>
+      </table>
+      <ul>
+        <li>This return exists to be <strong>frozen and resampled</strong>, not to play under the whole track. Send it a single drone note, hit Freeze, and the tail holds forever.</li>
+        <li>Keep its send fader low in the normal mix; you raise it only during the capture pass.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>The freeze-and-print workflow</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="14"/><circle cx="22" cy="22" r="5" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Technique</div>
+      <h2 class="step-title">Freeze, then commit</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Capture the cloud</div>
+      <ul>
+        <li>Send a single drone note (or one chord, or a snare tail) to <span class="code">C — FREEZE</span>. While it rings, click <span class="code">Freeze</span> on the Hybrid Reverb — the current tail now sustains indefinitely with no oscillator.</li>
+        <li>Create a new audio track, Audio From → <strong>Resampling</strong>, Monitor <strong>Off</strong>. Arm it.</li>
+        <li><kbd>⌘ ⇧ R</kbd> and record 16–32 bars of the frozen cloud. Un-freeze when done.</li>
+        <li>Drag the recorded clip to the <span class="code">ATMOS</span> track. It is now <em>material</em> — reverse it, stretch it, filter it. The effect has become a layer you can turn off without losing the sound.</li>
+      </ul>
+    </div>
+    <div class="note-block">
+      <ul>
+        <li><strong>Hardware version:</strong> the Digitakt II's reverb won't freeze, but you can resample a pattern through it with a long decay and high feedback, then keep only the tail — the same idea on the box.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Track and return layout</h2>
+
+  <table>
+    <thead><tr><th>Track / Return</th><th>Carries</th><th>Sends used</th></tr></thead>
+    <tbody>
+      <tr><td>DT DRUMS</td><td>Dry stereo drums (Ext. In <span class="code">3/4</span>)</td><td>A only, low</td></tr>
+      <tr><td>MF BASS</td><td>Dry mono bass (Ext. In <span class="code">1</span>)</td><td>None — bass stays dry</td></tr>
+      <tr><td>MF DRONE</td><td>Dry mono drone (Ext. In <span class="code">1</span>)</td><td>A + B, B heavy</td></tr>
+      <tr><td>ATMOS</td><td>Printed frozen tail / resample</td><td>B, light</td></tr>
+      <tr><td>A — NEAR ROOM</td><td>Hybrid Reverb, short, placement</td><td>—</td></tr>
+      <tr><td>B — FAR HALL</td><td>Hybrid Reverb, long, blur, kick-ducked</td><td>—</td></tr>
+      <tr><td>C — FREEZE</td><td>Hybrid Reverb, frozen, for resampling</td><td>—</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">Why bass gets no reverb</div>
+    <p>Low frequencies carry almost no spatial information, and reverberant low end is the fastest route to mud. The bass stays dry and near; the room is built above it. Send only sounds that benefit from space.</p>
+  </div>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Decision check</div>
+    <ul>
+      <li>Are all three returns set to 100&nbsp;% wet? Check before recording anything.</li>
+      <li>Is every return high-passed, so the room never thickens the low end?</li>
+      <li>Is the far hall ducked to the kick, so the wash breathes instead of masking the groove?</li>
+      <li>Is every source recorded dry, with the space living only on the returns?</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="decisions.html">
+      <span class="page-nav-direction">Previous</span>
+      &larr; 03 / Decisions
+    </a>
+    <a href="palette.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      05 / Palette &rarr;
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B5-002 — Reverb</div>
+
+</div>
+
+</body>
+</html>

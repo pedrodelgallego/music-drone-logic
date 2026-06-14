@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feedback — Setup</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B5-003<span class="labnote-topic">Feedback</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html" class="active"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B5-003</div>
+    <div class="eyebrow">Feedback · 04 — Setup</div>
+    <h1>The rig and the signal path</h1>
+    <p class="lede">Two ways to build a send-into-itself loop: an Ableton return that feeds its own input, and a compact-mixer aux loop — the original dub patch. Both get the same non-negotiable backstop: a master limiter at <span class="code">-3 dBFS</span> and a kill route in reach. Wire the ceiling first, then the loop.</p>
+  </header>
+
+  <h2>The signal path, end to end</h2>
+
+  <div class="signal-flow">
+    <span class="signal-node">Source</span>
+    <span class="signal-arrow">→ send →</span>
+    <span class="signal-node">Loop: filter + saturator</span>
+    <span class="signal-arrow">→ Echo + Reverb</span>
+    <span class="signal-node">Utility trim</span>
+    <span class="signal-arrow">↺ self-send</span>
+    <span class="signal-node">Master limiter -3 dBFS</span>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Safety first — wire this before anything else</div>
+    <p>Put the limiter on the master and set the kill route <em>before</em> you create the self-send. A loop with no ceiling is the one that hurts. Monitor level down. Then, and only then, raise loop gain.</p>
+  </div>
+
+  <h2>Route A — the Ableton return self-send (recommended)</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M14 22a8 8 0 0 1 16 0"/><path d="M30 22a8 8 0 0 1-16 0"/><circle cx="14" cy="22" r="2" fill="currentColor"/><circle cx="30" cy="22" r="2" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Route A</div>
+      <h2 class="step-title">A return that feeds its own input</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Master backstop first</div>
+      <ul>
+        <li>On the master, add a <strong>Limiter</strong>. Ceiling <span class="code">-3 dBFS</span>, fastest lookahead. This is the catch, never the sound.</li>
+        <li>Turn the monitor controller down to a quiet level. You will bring it up only once the loop is stable.</li>
+        <li>Open <kbd>⌘ ,</kbd> → <strong>Sends</strong> and enable <span class="menu">Allow Sends to be assigned to other return tracks</span> (the A↔B routing toggle) — this is what lets a return send back toward itself.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Build the loop return</div>
+      <ul>
+        <li>Create two return tracks (<kbd>⌘ ⌥ T</kbd>): <span class="code">A — LOOP</span> and <span class="code">B — TAP</span>.</li>
+        <li>On <span class="code">A — LOOP</span>, build the device chain in this exact order: <strong>EQ Eight</strong> (HP <span class="code">200 Hz</span> 24 dB/oct, LP <span class="code">4 kHz</span> 24 dB/oct) → <strong>Saturator</strong> (Soft Sine, output ceiling on) → <strong>Echo</strong> (sync, <span class="code">3/16</span>, its own feedback <span class="code">20 %</span> only) → <strong>Hybrid Reverb</strong> (decay <span class="code">3–4 s</span>, 100 % wet) → <strong>Utility</strong> (gain trim, start at <span class="code">-6 dB</span>).</li>
+        <li>The filter is first so every pass is band-limited before the saturator and the time effects act on it.</li>
+        <li>The self-send: on <span class="code">A — LOOP</span> show its sends, and set its send to <span class="code">B — TAP</span> to <span class="code">-inf</span> for now. Route <span class="code">B — TAP</span>'s output back to <span class="code">A — LOOP</span> (<span class="menu">Audio To → A — LOOP</span>). <span class="code">B — TAP</span> is the wire that closes the loop; <span class="code">A — LOOP</span>'s send-to-B is the loop-gain control.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Map the safety fader</div>
+      <ul>
+        <li><kbd>⌘ M</kbd> → click <span class="code">A — LOOP</span>'s send-to-B knob → move a Launchpad fader/control. Set the mapping Min <span class="code">-inf</span>, Max <span class="code">0 dB</span>. Down is fully counter-clockwise — confirm the direction now.</li>
+        <li>Map a second control to a <strong>master mute</strong> or to <span class="code">A — LOOP</span>'s Activator. That is your instant kill.</li>
+        <li>Exit map mode. The mouse never touches loop gain during a take again.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Find unity</div>
+      <ul>
+        <li>Send a single seed into <span class="code">A — LOOP</span> (one chord stab). Monitor quiet.</li>
+        <li>Raise the self-send fader by a hair at a time. Repeats start to thicken and regenerate. Stop the instant they stop decaying — that point is unity.</li>
+        <li>Back the fader off ~<span class="code">10 %</span>. Mark the position. The Utility's <span class="code">-6 dB</span> trim is your guaranteed decay even if the fader creeps.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Route B — the compact-mixer aux loop (the original dub patch)</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><line x1="12" y1="8" x2="12" y2="36"/><line x1="22" y1="8" x2="22" y2="36"/><line x1="32" y1="8" x2="32" y2="36"/><rect x="9" y="18" width="6" height="3" rx="0.5" fill="currentColor"/><rect x="19" y="24" width="6" height="3" rx="0.5" fill="currentColor"/><rect x="29" y="14" width="6" height="3" rx="0.5" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Route B</div>
+      <h2 class="step-title">Aux return trimmed back to aux send</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The patch</div>
+      <ul>
+        <li>Mixer <strong>Aux Send</strong> → outboard delay (or the Digitakt II / a software delay on a hardware return) → delay output → mixer <strong>return channel</strong>.</li>
+        <li>The feedback: raise the return channel's own <strong>Aux Send</strong> a hair, so a little of the delayed signal goes back out the aux bus and through the delay again. That return-to-send trim is the loop-gain knob — and it is a performance instrument.</li>
+        <li>Keep a hand on it the whole time. This is exactly how dub engineers played the desk.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The ceilings, in hardware</div>
+      <table class="param-table">
+        <caption>No undo means more layers of protection</caption>
+        <tr><td>Master backstop</td><td>Bring the mixer's main out into Ableton or a hardware limiter set to <span class="code">-3 dBFS</span> before the monitors. Never feed raw mixer-feedback straight to amplified speakers.</td></tr>
+        <tr><td>Filter in the loop</td><td>HP/LP on the delay's input or insert — band-limit before it re-enters the aux bus.</td></tr>
+        <tr><td>Loop-gain trim</td><td>The return channel's aux send. Mark "home" and "danger" with tape on the desk.</td></tr>
+        <tr><td>Kill route</td><td>The return channel's mute, or pulling the aux-master fader. Know which one you'll grab before you start.</td></tr>
+        <tr><td>Monitor level</td><td>Down. Bring up only when stable. First test in headphones off or very low.</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <h2>The gain ceilings — the numbers that keep it musical</h2>
+
+  <table class="param-table">
+    <caption>Where to cap the loop, either route</caption>
+    <tr><td>Utility / trim in the loop</td><td>Negative gain (start <span class="code">-6 dB</span>) so each pass loses a fixed amount — guaranteed decay even if other knobs creep up</td></tr>
+    <tr><td>Saturator drive in the loop</td><td>Drive + output ceiling means loud repeats compress and dirty rather than climb — soft-clipping is its own limiter</td></tr>
+    <tr><td>Feedback / self-send target</td><td>Find unity by ear (repeats stop decaying), then back off ~<span class="code">10 %</span>. Live there; visit unity only as a brief, hands-on gesture</td></tr>
+    <tr><td>In-loop filter</td><td>HP <span class="code">200 Hz</span>, LP <span class="code">4 kHz</span> — bands outside this can never compound</td></tr>
+    <tr><td>Master limiter ceiling</td><td><span class="code">-3 dBFS</span>, fast — never the sound, always the catch if the loop slips past unity</td></tr>
+  </table>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Decision check</div>
+    <ul>
+      <li>Is the master limiter set to <span class="code">-3 dBFS</span> and the monitor level down <em>before</em> any self-send exists?</li>
+      <li>Is the in-loop filter the first device in the chain, so every pass is band-limited?</li>
+      <li>Is loop gain on a physical fader, and do you know without looking which way is down?</li>
+      <li>Can you reach the kill in under a second from playing position?</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="decisions.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 03 / Decisions
+    </a>
+    <a href="palette.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      05 / Palette →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B5-003 — Feedback</div>
+
+</div>
+
+</body>
+</html>

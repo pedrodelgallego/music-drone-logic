@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B8-002 — The Release — Delivery targets</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B8-002<span class="labnote-topic">The Release</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup &amp; rig</a>
+  <a href="palette.html" class="active"><span class="nav-num">05</span>Delivery targets</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B8-002</div>
+    <div class="eyebrow">The Release · 05 — Delivery targets</div>
+    <h1>The numbers, the recipe, and the checklist</h1>
+    <p class="lede">Three reference tables you will keep open through the build: the delivery targets for each context, a master-chain recipe with starting values, and the release checklist that says when the work is actually done. These are starting points and ceilings, not law — but every number here is a decision you should be able to defend.</p>
+  </header>
+
+  <h2>Delivery targets by context</h2>
+  <p style="text-align:center; max-width:660px; margin:0 auto 24px; color:var(--text-muted);">Pick the context first, then the target follows. Streaming normalises to roughly −14 LUFS, so mastering hotter only trades dynamics for nothing. Club and long-form can sit quieter and keep their range.</p>
+
+  <table class="param-table">
+    <caption>Integrated LUFS &amp; true-peak by destination</caption>
+    <tr><td>Streaming (Spotify, Apple, YouTube)</td><td>≈ <span class="code">−14 LUFS</span> integrated · true-peak <span class="code">≤ −1.0 dBTP</span>. Platforms normalise near here; above it they only turn you down.</td></tr>
+    <tr><td>Apple Music / Apple Digital Masters</td><td>≈ <span class="code">−16 LUFS</span> integrated · true-peak <span class="code">≤ −1.0 dBTP</span>. Slightly quieter target; the same dynamics-first logic.</td></tr>
+    <tr><td>Club / DJ play (long-form, hypnotic)</td><td><span class="code">−12 to −9 LUFS</span> is common, but let a slow build keep its range — favour the lower end and protect dynamics. True-peak <span class="code">≤ −1.0 dBTP</span> still holds.</td></tr>
+    <tr><td>Loud club / "competitive" single</td><td><span class="code">−9 to −8 LUFS</span> at most, and only if the music genuinely wants impact-on-first-listen. Expect to spend dynamic range to get there.</td></tr>
+    <tr><td>CD / file delivery (16-bit)</td><td>No platform normalisation — master to what the music wants, true-peak <span class="code">≤ −1.0 dBTP</span>, dithered to 16-bit. Often the most dynamic master of the set.</td></tr>
+    <tr><td>The source master (always)</td><td><span class="code">24-bit / 48&nbsp;kHz</span>, un-dithered, Normalize OFF. The source of truth every delivery format is exported from.</td></tr>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">Read it as a ceiling, not a goal</div>
+    <p>The LUFS figure is the loudest you should consider, not a number to hit. If the mix lands at −15 LUFS naturally and sounds finished, do not push it to −14. The quiet you keep is the dynamics you keep.</p>
+  </div>
+
+  <h2>Master-chain recipe</h2>
+  <p style="text-align:center; max-width:620px; margin:0 auto 18px; color:var(--text-muted);">Starting values for the chain you built on the setup page. Begin here, then move only what the reference A/B and the meter tell you to move.</p>
+
+  <table class="param-table">
+    <caption>1 — Corrective EQ Eight</caption>
+    <tr><td>High-pass</td><td><span class="code">20–25 Hz</span>, 24 dB/oct — remove sub-rumble that eats limiter headroom and never reproduces</td></tr>
+    <tr><td>Resonance cuts</td><td>Narrow (Q ≈ 4–6), only where the mix left a ring. If there are none, do nothing.</td></tr>
+    <tr><td>Mindset</td><td>Surgical, inaudible-by-itself. This stage fixes; it does not flavour.</td></tr>
+  </table>
+
+  <table class="param-table">
+    <caption>2 — Glue Compressor</caption>
+    <tr><td>Ratio</td><td><span class="code">2:1</span></td></tr>
+    <tr><td>Attack</td><td><span class="code">30 ms</span> — slow enough to let transients through</td></tr>
+    <tr><td>Release</td><td><span class="code">Auto</span> — follows the program</td></tr>
+    <tr><td>Gain reduction</td><td><span class="code">≤ 1–2 dB</span> on the loudest section. Glue, never pump.</td></tr>
+  </table>
+
+  <table class="param-table">
+    <caption>3 — Tonal EQ Eight</caption>
+    <tr><td>Low shelf</td><td>±0.5–1.5 dB to match the reference's low weight</td></tr>
+    <tr><td>High shelf</td><td>±0.5–1.5 dB for air — trust the phone and car, not the DT 990's 7–10 kHz lift</td></tr>
+    <tr><td>Ceiling</td><td>If any move exceeds <span class="code">±2 dB</span>, stop and fix the mix instead</td></tr>
+  </table>
+
+  <table class="param-table">
+    <caption>4 — Limiter (true-peak)</caption>
+    <tr><td>True-peak limiting</td><td><strong>ON</strong></td></tr>
+    <tr><td>Ceiling</td><td><span class="code">−1.0 dBTP</span></td></tr>
+    <tr><td>Input gain</td><td>Raise only until integrated LUFS reaches target; watch gain reduction stay modest</td></tr>
+    <tr><td>Lookahead / release</td><td>Default to start; lengthen release if you hear distortion on sustained low notes</td></tr>
+  </table>
+
+  <table class="param-table">
+    <caption>5 — Meter (listens only)</caption>
+    <tr><td>Integrated LUFS</td><td>Your target ± 0.5 LU after a full-piece pass</td></tr>
+    <tr><td>True-peak</td><td>Never exceeds <span class="code">−1.0 dBTP</span></td></tr>
+    <tr><td>Correlation</td><td>Stays positive; brief dips toward 0 are fine, sustained negative is a phase fault</td></tr>
+  </table>
+
+  <h2>The release checklist</h2>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="16"/><polyline points="14 22 20 28 30 16"/></svg>
+      </div>
+      <div class="checklist-label">Done means done</div>
+    </div>
+    <ul>
+      <li>Every track hits its named integrated-LUFS target within ± 0.5 LU.</li>
+      <li>No track exceeds −1.0 dBTP true-peak anywhere across its full length.</li>
+      <li>Each master translates on monitors/DT 990, phone, car, and in mono.</li>
+      <li>Correlation stays positive through every track; nothing cancels in mono.</li>
+      <li>Tracks sit at a consistent loudness across the EP — no accidental level jumps.</li>
+      <li>Each 16-bit delivery is dithered exactly once; the 24-bit source is un-dithered.</li>
+      <li>The running order plays as one statement, confirmed in a full sitting more than once.</li>
+      <li>The artist statement names the intention and the refusals, not the gear.</li>
+      <li>Positioning names who it is for — and who it is not for.</li>
+      <li>The archive holds masters, sessions, statement, and patches, dated and named.</li>
+      <li>A provenance note records what changed from the spec and why.</li>
+      <li>I can explain why every master move was made.</li>
+    </ul>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>The checklist is the contract.</strong> If any line is unchecked, the release is not finished — it is in progress. Print it, work down it, and only ship when every line is true.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="setup.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 04 / Setup &amp; rig
+    </a>
+    <a href="build.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      06 / The build →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B8-002 — The Release</div>
+
+</div>
+
+</body>
+</html>

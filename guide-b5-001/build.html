@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B5-001 — Delay as Architecture · The build</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B5-001<span class="labnote-topic">Delay</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Delay recipes</a>
+  <a href="build.html" class="active"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B5-001</div>
+    <div class="eyebrow">Delay · 06 — The build</div>
+    <h1>Build a dub where delay is the composition</h1>
+    <p class="lede">A complete, exhaustive build of a 6–8 minute dub-style track at 124 BPM in which the delay returns carry the music. The dry parts are deliberately sparse — most of what the listener hears is echo. Every send, feedback percentage, filter frequency, and throw is spelled out. Keep the <a href="setup.html">setup page</a> and <a href="palette.html">delay recipes</a> open in other tabs.</p>
+  </header>
+
+  <!-- STEP 1 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 14 v20 a2 2 0 0 0 2 2 h28 a2 2 0 0 0 2 -2 v-16 a2 2 0 0 0 -2 -2 h-14 l-4 -4 h-10 a2 2 0 0 0 -2 2 z"/></svg>
+      </div>
+      <div class="step-num">Step 01</div>
+      <h2 class="step-title">Project, returns, and the dry/wet philosophy</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Open the set</div>
+      <ul>
+        <li><kbd>⌘ N</kbd>, <kbd>Tab</kbd> to Arrangement view. Tempo <span class="code">124</span>, signature <span class="code">4/4</span>.</li>
+        <li>Right-click the ruler → <span class="menu">Time Ruler Format → Time</span> so positions read in <span class="code">m:ss</span>. The arrangement plan in Step 09 is written in minutes.</li>
+        <li><kbd>⌘ S</kbd> → save as <span class="code">dub_b5_001.als</span> in a dedicated project folder. <span class="menu">File → Collect All and Save</span> at every session's end.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Create exactly the tracks this dub needs</div>
+      <ul>
+        <li><kbd>⌘ T</kbd> for audio tracks: <span class="code">DT DRUMS</span>, <span class="code">MF BASS</span>, <span class="code">STAB</span>, <span class="code">SKANK</span>, <span class="code">MELODICA</span>. Five dry parts — that is the entire instrument list, and it is intentionally small.</li>
+        <li><kbd>⌘ ⌥ T</kbd> three times for returns: <span class="code">A — DUB ECHO</span>, <span class="code">B — SLAP</span>, <span class="code">C — SPRING</span>.</li>
+        <li>Colour the dry tracks one family and the returns a contrasting one. You will be reading the return lanes more than any others in this build.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Dial the three returns (from the recipes)</div>
+      <table class="param-table">
+        <caption>Return A — DUB ECHO (Echo, recipe 1/4)</caption>
+        <tr><td>Sync / time</td><td>On, <span class="code">3/16</span></td></tr>
+        <tr><td>Feedback</td><td><span class="code">60 %</span> resting</td></tr>
+        <tr><td>Stereo</td><td>Ping-Pong</td></tr>
+        <tr><td>Feedback HP / LP</td><td><span class="code">250 Hz</span> / <span class="code">4 kHz</span></td></tr>
+        <tr><td>Dry/Wet</td><td><span class="code">100 %</span></td></tr>
+      </table>
+      <table class="param-table">
+        <caption>Return B — SLAP (Echo, recipe 2)</caption>
+        <tr><td>Sync / time</td><td>Off, <span class="code">110 ms</span></td></tr>
+        <tr><td>Feedback</td><td><span class="code">12 %</span></td></tr>
+        <tr><td>Stereo / HP</td><td>Mono, panned right; HP <span class="code">300 Hz</span>; Dry/Wet <span class="code">100 %</span></td></tr>
+      </table>
+      <table class="param-table">
+        <caption>Return C — SPRING (Echo + short reverb, recipe 3 wash)</caption>
+        <tr><td>Echo time</td><td>Dotted <span class="code">1/8</span> (363 ms), Feedback <span class="code">50 %</span>, Ping-Pong, Width <span class="code">70 %</span></td></tr>
+        <tr><td>Feedback HP / LP</td><td><span class="code">300 Hz</span> / <span class="code">3 kHz</span></td></tr>
+        <tr><td>After Echo</td><td>A short Reverb, decay <span class="code">1.2 s</span>, to smear the repeats into a spring-tank haze; Dry/Wet <span class="code">100 %</span></td></tr>
+      </table>
+    </div>
+
+    <div class="callout">
+      <div class="callout-label">The thesis of this build</div>
+      <p>Every return is 100&nbsp;% wet. You will never touch a Dry/Wet on a return again. From here on, every musical decision is made on a <em>send</em> — and the sends are the composition.</p>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="14"/><circle cx="22" cy="22" r="5"/></svg>
+      </div>
+      <div class="step-num">Step 02</div>
+      <h2 class="step-title">The dry foundation — drums and bass, kept clean</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Digitakt II — the one-drop foundation</div>
+      <ul>
+        <li>On Digitakt II, project <span class="code">DUB B5</span>, pattern <span class="code">A01</span>, four tracks: <span class="code">T1 KICK</span>, <span class="code">T2 RIM</span>, <span class="code">T3 HAT</span>, <span class="code">T4 PERC</span>.</li>
+        <li>Confirm clock: press play in Ableton, Digitakt shows <span class="code">124</span> and follows transport. One clock master, always.</li>
+        <li>Programme a <strong>one-drop</strong> feel — the dub backbone. The kick does <em>not</em> sit on every quarter; it leaves space, and that space is where the echoes will live.</li>
+      </ul>
+      <table class="param-table">
+        <caption>The 16-step foundation</caption>
+        <tr><td>Kick (T1)</td><td>Steps <span class="code">3</span> and <span class="code">11</span> — the one-drop; downbeats 1 and 9 are deliberately empty</td></tr>
+        <tr><td>Rim (T2)</td><td>Step <span class="code">7</span> only — this is the hit you will throw into the echo</td></tr>
+        <tr><td>Hat (T3)</td><td>Offbeats <span class="code">3, 7, 11, 15</span>, micro-timed a hair late; p-lock alternating velocity</td></tr>
+        <tr><td>Perc (T4)</td><td>One sparse tick, <span class="code">25–50 %</span> probability, so it surprises</td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Keep the foundation dry on record</div>
+      <ul>
+        <li>On Digitakt, set the delay/reverb sends on T1–T4 to <strong>zero</strong> for the recorded pass — except one deliberate p-lock (below). The space in this track is created in Ableton, not baked in.</li>
+        <li>Record a 4-minute pass into <span class="code">DT DRUMS</span> (Ext. In 3/4, Monitor Auto). Peaks just under <span class="code">-6 dBFS</span>.</li>
+        <li><strong>The one baked throw:</strong> on T2 RIM step 7, p-lock the Digitakt's own delay send up — so that single rim is the seed of a hardware throw inside the recorded audio. Everything else stays bone dry.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">MicroFreak bass — deep, simple, dry</div>
+      <ul>
+        <li>Init a patch. Oscillator <span class="code">Wavetable</span>, Wave ~25&nbsp;%, monophonic. Filter cutoff at 11 o'clock, low resonance. Short envelope.</li>
+        <li>Sequence 3 notes in <strong>A natural minor</strong>, rooted <span class="note">A1</span>, landing on the kick's offbeat steps so bass and kick interlock rather than collide.</li>
+        <li>Record 4 minutes into <span class="code">MF BASS</span>, hands off the knobs. The bass never goes to any delay — it stays dry and central, the anchor the echoes float over.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Is the foundation genuinely sparse — are there empty downbeats for the echo to fill?</li>
+        <li>Are kick and bass dry, with nothing sent to any delay? Solo them; they should sound naked.</li>
+        <li>Does the one-drop feel like it is <em>leaving room</em> rather than missing a beat?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="10" cy="22" r="3" fill="currentColor"/><circle cx="20" cy="14" r="3"/><circle cx="30" cy="30" r="3" fill="currentColor"/><circle cx="38" cy="22" r="3"/></svg>
+      </div>
+      <div class="step-num">Step 03</div>
+      <h2 class="step-title">The stab — the part that lives in the delay</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Design a short, percussive chord</div>
+      <ul>
+        <li>MicroFreak, paraphonic on. Play a two- or three-note minor chord (A–C–E). Very short envelope — a stab, not a pad. It should be gone in under 200&nbsp;ms.</li>
+        <li>The stab is rhythmically sparse on purpose: it plays once or twice a bar, on an offbeat. Its <em>repeats</em> will fill the rest.</li>
+        <li>Record a 4-minute pass into <span class="code">STAB</span>, dry.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Wire the stab's sends — this is the move</div>
+      <table class="param-table">
+        <caption>STAB track sends</caption>
+        <tr><td>Send A (DUB ECHO)</td><td>Performed — flat at <span class="code">-inf</span>, thrown on chosen bars (Step 06)</td></tr>
+        <tr><td>Send B (SLAP)</td><td>Constant <span class="code">-15 dB</span> — a permanent slap fattens the dry stab</td></tr>
+        <tr><td>Send C (SPRING)</td><td><span class="code">-inf</span> until the breakdown, then opened (Step 07)</td></tr>
+      </table>
+      <ul>
+        <li>The constant slap (B) makes the dry stab feel wide and present without ping-pong. The throw (A) is the gesture. Two delays, two jobs, on one source — exactly the send model from page 03.</li>
+      </ul>
+    </div>
+
+    <div class="signal-flow">
+      <span class="signal-node">STAB (dry)</span>
+      <span class="signal-arrow">→ B const →</span>
+      <span class="signal-node">SLAP (width)</span>
+      <span class="signal-arrow">+ A thrown</span>
+      <span class="signal-node">DUB ECHO (tail)</span>
+      <span class="signal-arrow">→ mix →</span>
+      <span class="signal-node">Master</span>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Is the stab short enough that its repeats read as separate hits, not a smear?</li>
+        <li>Does the constant slap widen it without you hearing a distinct echo?</li>
+        <li>With Send A flat, does the dry stab feel sparse and waiting — leaving room for the throw to do the work?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 22 q9 -4 18 0 t18 0"/><path d="M6 28 q9 -2 18 0 t18 0"/></svg>
+      </div>
+      <div class="step-num">Step 04</div>
+      <h2 class="step-title">The skank and the melodica voice</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">SKANK — the offbeat chord chop</div>
+      <ul>
+        <li>A second, brighter MicroFreak chord on the offbeats (steps 3, 7, 11, 15) — the reggae skank. Bright filter, very short.</li>
+        <li>Record into <span class="code">SKANK</span>. Send B (SLAP) at <span class="code">-12 dB</span> constant; no throw — the skank's job is rhythmic glue, lightly slapped, never thrown.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">MELODICA — the voice that duets with the echo</div>
+      <ul>
+        <li>MicroFreak, a single-note lead patch (try the <span class="code">Harmo</span> or <span class="code">KarplusStr</span> engine for a reedy, melodica-like tone). Play a slow, sparse phrase — three or four notes, long gaps.</li>
+        <li>Record into <span class="code">MELODICA</span>. The gaps are essential: the delay answers into them. This is the Augustus Pablo duet — the line and its echo trade places.</li>
+        <li>Send C (SPRING) at <span class="code">-9 dB</span> constant, and Send A (DUB ECHO) performed on phrase endings. The repeats of the last note of each phrase become the answer.</li>
+      </ul>
+    </div>
+
+    <div class="callout">
+      <div class="callout-label">The duet rule</div>
+      <p>Never play over your own echo. Phrase, then rest, and let the delay fill the rest. If the dry line is busy, there is no room for the echo to speak — and the echo is the second musician.</p>
+    </div>
+  </div>
+
+  <!-- STEP 5 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 22 a14 14 0 1 1 4 10"/><polyline points="6 26 6 32 12 32"/></svg>
+      </div>
+      <div class="step-num">Step 05</div>
+      <h2 class="step-title">Tune the feedback so tails dissolve</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Set the tail length on Return A</div>
+      <ul>
+        <li>Solo <span class="code">STAB</span>. Throw a single stab into Return A by hand. Count the repeats before silence.</li>
+        <li>At <span class="code">60 %</span> feedback you should hear roughly six to eight repeats over about two bars. Fewer? Raise toward 70&nbsp;%. A wall that never decays? You are too high — lower it, do not reach for the return fader.</li>
+        <li>Confirm each repeat is <em>darker</em> than the last. If they stay bright, the in-loop low-pass is not engaged — fix it now; this is the difference between dub and noise.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Verify the two-knob distinction on your own ears</div>
+      <table class="param-table">
+        <caption>Prove it to yourself once</caption>
+        <tr><td>Raise feedback 60 → 75 %</td><td>Tail gets <em>longer</em> — more repeats. Presence unchanged.</td></tr>
+        <tr><td>Raise return fader -10 → -4 dB</td><td>Echoes get <em>louder</em>, same number of repeats. Length unchanged.</td></tr>
+        <tr><td>If you confused them</td><td>You raised the fader hoping for a longer tail and drowned the mix. Return both to start and set feedback first, level second.</td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Check the low end stays out</div>
+      <ul>
+        <li>Solo Return A. Throw the bass into it for a second (then undo). Does sub energy enter the repeats? It should not — the <span class="code">250 Hz</span> feedback HP exists to keep the echoes airy.</li>
+        <li>If the kick or sub leaks into the tail, raise the HP to <span class="code">300 Hz</span>. The delay must never compete with the dry low end.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Six-to-eight darkening repeats from one throw — yes or no?</li>
+        <li>Can you make the tail longer with feedback and louder with the fader, independently?</li>
+        <li>Is the low end absent from the repeats?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 6 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 34 Q22 6 38 14"/><circle cx="6" cy="34" r="2.5" fill="currentColor"/><circle cx="38" cy="14" r="2.5" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Step 06</div>
+      <h2 class="step-title">Perform the throws — the composition itself</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Map the sends to hardware</div>
+      <ul>
+        <li><kbd>⌘ M</kbd> for MIDI map mode. Click <span class="code">STAB</span> Send A → tap a Launchpad pad. Set the mapping Min/Max to <span class="code">-inf / 0 dB</span> so a full press is a full throw and release is silence.</li>
+        <li>Map four send throws total and no more: <span class="code">STAB → A</span>, <span class="code">RIM (DT DRUMS) → A</span>, <span class="code">MELODICA → A</span>, and <span class="code">SKANK → A</span> for rare surprises.</li>
+        <li>Exit map mode. You now play the delays like an instrument.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The throw vocabulary — a per-bar plan</div>
+      <table class="param-table">
+        <caption>When to throw what (per 8-bar cycle)</caption>
+        <tr><td>Bar 1, step 7 rim</td><td>Short throw — rim into the tail, one bar of trailing repeats</td></tr>
+        <tr><td>Bar 4, stab</td><td>Throw the stab; it answers across bars 4–5 while the dry stab rests</td></tr>
+        <tr><td>Bar 6, melodica phrase end</td><td>Throw the last note; the echo completes the phrase into bar 7</td></tr>
+        <tr><td>Bar 8, full throw</td><td>Spike several sends at once on the turnaround — a wash that resolves the cycle</td></tr>
+      </table>
+      <ul>
+        <li><strong>Automate the send, never the feedback,</strong> for every one of these. Feedback is set; the throw is on/off of the path.</li>
+        <li>Each throw is a one-step spike: <span class="code">-inf</span> → <span class="code">0 dB</span> on the exact trig → <span class="code">-inf</span> immediately after. Anything longer feeds multiple hits and the tail smears.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Record the performance</div>
+      <ul>
+        <li><kbd>F9</kbd> Arrangement Record. Play the full length and ride the four pads, following the throw plan but leaving room to react.</li>
+        <li>Throw <em>slower and rarer</em> than feels natural. A throw every bar is too many; the silence between throws is what makes each one land.</li>
+        <li>Two takes. Keep the one with more restraint. After: right-click each send lane → <span class="menu">Simplify Envelope</span> to clean the spikes while keeping the shape.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Mute every dry track for 16 bars and listen to the returns alone: do the throws still imply the groove and the chord changes? In a dub track, they must.</li>
+        <li>Is any throw landing on top of the dry hit it came from, doubling it? Move the throw to a bar where the dry source rests.</li>
+        <li>Could you remove a third of the throws and lose nothing? Then remove them — restraint is the lesson.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 7 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 34 Q22 6 38 14"/><circle cx="6" cy="34" r="2.5" fill="currentColor"/><circle cx="38" cy="14" r="2.5" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Step 07</div>
+      <h2 class="step-title">The feedback swell — a riser made of echo</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Automate feedback for the transition only</div>
+      <ul>
+        <li>This is the one place you automate feedback rather than a send. On Return A, ramp Feedback <span class="code">60 % → 92 %</span> over 8 bars approaching the breakdown, then snap it back to <span class="code">60 %</span> on the downbeat of the drop.</li>
+        <li>Hold a steady stream of sends going in during the ramp so there is material to regenerate. The existing repeats pile into a swelling, darkening wash — a riser with no new element.</li>
+        <li>The in-loop low-pass keeps the runaway warm. Without it the swell screams; with it, it blooms.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Open the SPRING wash in the breakdown</div>
+      <ul>
+        <li>At the drop, cut the dry drums. Open <span class="code">STAB</span> and <span class="code">MELODICA</span> Send C (SPRING) from <span class="code">-inf</span> to <span class="code">-6 dB</span> over 4 bars.</li>
+        <li>Now the only thing left is dry stab/melodica hits and their long, hazy dotted-eighth repeats in the spring return — the track dissolves into pure delay. This is the section that proves the thesis.</li>
+        <li>Bring the kick back on a bar line and pull Send C back to <span class="code">-inf</span> over 4 bars; the haze recedes as the groove returns.</li>
+      </ul>
+    </div>
+
+    <div class="note-block">
+      <ul>
+        <li><strong>Mind the lurch.</strong> Do not change Return A's <em>time</em> (3/16) anywhere — only its feedback. Changing sync'd time while it rings pitches the in-flight repeats. Feedback automation is safe; time automation is not.</li>
+        <li><strong>Watch the master meter during the swell.</strong> 92&nbsp;% feedback blooms a second after the last send. Keep the master ≤ <span class="code">-3 dBFS</span> through the peak of the swell.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 8 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M10 22 a12 12 0 0 1 21 -8"/><polyline points="25 8 31 14 26 18"/><path d="M34 22 a12 12 0 0 1 -21 8"/></svg>
+      </div>
+      <div class="step-num">Step 08</div>
+      <h2 class="step-title">Print the tail and reuse it as texture</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Capture a pass of pure repeats</div>
+      <ul>
+        <li>New audio track <span class="code">ECHO PRINT</span>, Audio From → the output of <span class="code">A — DUB ECHO</span> (route the return to this track). Arm, <kbd>⌘ ⇧ R</kbd>, record 16 bars of throws.</li>
+        <li>You now have the echo as committed audio — something a live return can never give you.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Mutate the printed tail</div>
+      <ul>
+        <li>Clip view → <span class="menu">Reverse</span>: the repeats now swell <em>toward</em> the hits — anticipation built from the track's own DNA.</li>
+        <li>Or Warp <strong>Texture</strong> mode, half-speed, for a ghostly under-layer. HP at <span class="code">250 Hz</span> so it sits beneath without muddying.</li>
+        <li>Place sparingly under the breakdown. One reversed echo-tail is a texture; a wall of them is clutter.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 9 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="4" y="14" width="10" height="6" rx="1"/><rect x="16" y="14" width="14" height="6" rx="1"/><rect x="32" y="14" width="8" height="6" rx="1"/><rect x="8" y="24" width="16" height="6" rx="1"/><rect x="26" y="24" width="12" height="6" rx="1"/></svg>
+      </div>
+      <div class="step-num">Step 09</div>
+      <h2 class="step-title">Arrange — the throw timeline is the structure</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Mark the map</div>
+      <table class="param-table">
+        <caption>Section → time → bar at 124 BPM</caption>
+        <tr><td>INTRO — 0:00</td><td>Bar 1 — drums + bass dry; one rim throw per cycle, nothing else</td></tr>
+        <tr><td>SKANK IN — 1:00</td><td>Bar 32 — skank enters with constant slap</td></tr>
+        <tr><td>STAB IN — 2:00</td><td>Bar 63 — stab enters; first thrown stabs into Return A</td></tr>
+        <tr><td>MELODICA — 3:00</td><td>Bar 94 — the melodica duet; phrase-end throws</td></tr>
+        <tr><td>SWELL — 4:20</td><td>Bar 134 — feedback ramp 60 → 92 % over 8 bars</td></tr>
+        <tr><td>BREAKDOWN — 4:45</td><td>Bar 147 — drums cut, SPRING wash opens, pure delay</td></tr>
+        <tr><td>RETURN — 5:45</td><td>Bar 178 — kick back, haze recedes, throws resume</td></tr>
+        <tr><td>OUTRO — 6:45</td><td>Bar 209 — strip to bass + dub echo trailing; fade over final 30–45 s</td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Editing craft</div>
+      <ul>
+        <li>Cut on kick steps; 4-beat crossfades over any seam. Consolidate finished sections with <kbd>⌘ J</kbd>.</li>
+        <li>The energy curve is drawn almost entirely by <em>throw density and feedback</em>, not by adding parts. From STAB IN to SWELL, the only thing that grows is how often and how hard you throw.</li>
+        <li>The BREAKDOWN adds nothing — it <em>removes</em> the dry drums and lets the delay stand alone. That subtraction is the climax.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Play 2:00 → 4:45 and ask: does the build come from throws getting denser, not from new instruments arriving?</li>
+        <li>Does the breakdown feel bigger <em>because</em> the drums left and the echo remained?</li>
+        <li>If you muted Returns A and C across the whole track, would less than half remain? That is the pass condition for this build.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 10 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><line x1="12" y1="8" x2="12" y2="36"/><line x1="22" y1="8" x2="22" y2="36"/><line x1="32" y1="8" x2="32" y2="36"/><rect x="9" y="18" width="6" height="3" rx="0.5" fill="currentColor"/><rect x="19" y="24" width="6" height="3" rx="0.5" fill="currentColor"/><rect x="29" y="14" width="6" height="3" rx="0.5" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Step 10</div>
+      <h2 class="step-title">Mix, mono-check, and export</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Balance with the returns as instruments</div>
+      <table class="param-table">
+        <caption>Starting balance</caption>
+        <tr><td>DT Drums (dry)</td><td>-10 dB</td></tr>
+        <tr><td>MF Bass (dry)</td><td>-12 dB</td></tr>
+        <tr><td>Stab / Skank / Melodica (dry)</td><td>-14 to -16 dB — quieter than usual; the echoes carry them</td></tr>
+        <tr><td>Return A — DUB ECHO</td><td>-9 dB (presence; set after feedback)</td></tr>
+        <tr><td>Return B — SLAP</td><td>-12 dB</td></tr>
+        <tr><td>Return C — SPRING</td><td>-12 dB</td></tr>
+        <tr><td>Master peak</td><td>≤ -3 dBFS, including the swell bloom</td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The checks that matter for a delay track</div>
+      <ul>
+        <li><strong>Mono check:</strong> Utility on the master, flip to mono every few minutes. The ping-pong returns are the suspects. If Return A collapses, lean on Return B's mono slap and pull A's width down — Return B was built as exactly this insurance.</li>
+        <li><strong>Low-end check:</strong> solo each return; confirm no kick or sub in the repeats. The feedback HP should have handled it; if not, raise it.</li>
+        <li><strong>Pile-up check:</strong> through the densest throws, do the tails darken and clear, or do they accumulate into mud? If they pile, lower the feedback LP toward 3&nbsp;kHz so each pass loses more highs.</li>
+        <li><strong>Quiet check:</strong> listen once at low volume. The throws should still read as gestures, not as a constant wash.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Export</div>
+      <table class="param-table">
+        <caption>Render</caption>
+        <tr><td>Master, full length</td><td>0:00 → 7:30+</td></tr>
+        <tr><td>WAV / 48 kHz / 24-bit</td><td>Normalize OFF, the bloom headroom is part of the sound</td></tr>
+        <tr><td>Filename</td><td>dub_b5_001_v1.wav</td></tr>
+      </table>
+      <ul>
+        <li><span class="menu">File → Collect All and Save</span>. Save the Digitakt project and MicroFreak patches. Listen on phone and laptop speakers — the latter are honest about whether the echoes muddy the mids.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-nav">
+    <a href="palette.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 05 / Delay recipes
+    </a>
+    <a href="reflection.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      07 / Reflection →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B5-001 — Delay as Architecture</div>
+
+</div>
+
+</body>
+</html>

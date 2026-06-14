@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B4-002 — Saturation · Setup &amp; signal path</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B4-002<span class="labnote-topic">Saturation</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html" class="active"><span class="nav-num">04</span>Setup &amp; signal path</a>
+  <a href="palette.html"><span class="nav-num">05</span>Saturation palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B4-002</div>
+    <div class="eyebrow">Saturation · 04 — Setup &amp; signal path</div>
+    <h1>The rig, and where each curve sits</h1>
+    <p class="lede">Saturation lives at specific points in the chain, and a nonlinear stage only sounds right if it is hit at the level it was set for. This page locks the rig, lays out a gain ledger every later step refers to, and maps where Ableton's Saturator, Roar, and the per-device Drive sit — at the source, on the bus, and at the end.</p>
+  </header>
+
+  <h2>The rig</h2>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="10" width="32" height="20" rx="2"/><line x1="16" y1="36" x2="28" y2="36"/><line x1="22" y1="30" x2="22" y2="36"/></svg>
+      </div>
+      <h3 class="card-title">Ableton Live 12 Suite</h3>
+      <ul class="card-points">
+        <li>Hosts every plugin nonlinear stage: Saturator, Roar, Drum Buss, Amp, Dynamic Tube</li>
+        <li>Records the hardware grit as audio; automates drive over the arrangement</li>
+        <li>Master MIDI clock for both hardware boxes</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="8" width="32" height="28" rx="2"/><rect x="10" y="12" width="10" height="7" rx="1"/><circle cx="29" cy="15.5" r="3"/><rect x="10" y="24" width="4" height="4" rx="0.7"/><rect x="17" y="24" width="4" height="4" rx="0.7"/><rect x="24" y="24" width="4" height="4" rx="0.7"/><rect x="31" y="24" width="4" height="4" rx="0.7"/></svg>
+      </div>
+      <h3 class="card-title">Elektron Digitakt II</h3>
+      <ul class="card-points">
+        <li>Per-track <strong>Drive</strong> in the amp page — saturation baked at the source</li>
+        <li>The level you sample at sets how hard a sample clips, permanently</li>
+        <li>Master overdrive on the FX track for whole-kit grit</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="14" width="32" height="16" rx="2"/><line x1="14" y1="14" x2="14" y2="30"/><line x1="22" y1="14" x2="22" y2="30"/><line x1="30" y1="14" x2="30" y2="30"/></svg>
+      </div>
+      <h3 class="card-title">Arturia MicroFreak</h3>
+      <ul class="card-points">
+        <li>Overdrive the analog-style filter for grit before any plugin sees it</li>
+        <li>High oscillator level + resonance pushes the filter into nonlinearity</li>
+        <li>Source of the bass and drone that get staged through Ableton</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="14" width="32" height="16" rx="2"/><circle cx="14" cy="22" r="2.5"/><circle cx="22" cy="22" r="2.5"/><circle cx="30" cy="22" r="2.5"/></svg>
+      </div>
+      <h3 class="card-title">MOTU M4</h3>
+      <ul class="card-points">
+        <li>4-in / 4-out interface; the converter is itself a (clean) stage to protect</li>
+        <li>Input 1: MicroFreak mono, with a gain knob you set for headroom</li>
+        <li>Inputs 3/4: Digitakt stereo, fixed line level — the box's volume is the record level</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="7" y="7" width="7" height="7" rx="1"/><rect x="18.5" y="7" width="7" height="7" rx="1"/><rect x="30" y="7" width="7" height="7" rx="1"/><rect x="7" y="18.5" width="7" height="7" rx="1"/><rect x="18.5" y="18.5" width="7" height="7" rx="1"/><rect x="30" y="18.5" width="7" height="7" rx="1"/><rect x="7" y="30" width="7" height="7" rx="1"/><rect x="18.5" y="30" width="7" height="7" rx="1"/><rect x="30" y="30" width="7" height="7" rx="1"/></svg>
+      </div>
+      <h3 class="card-title">Launchpad Pro MK3</h3>
+      <ul class="card-points">
+        <li>Maps to drive knobs for live, hand-ridden saturation moves</li>
+        <li>One pad column = one drive lane across the whole arrangement</li>
+        <li>Performs the intensity arc that the build page draws by hand</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M10 24 a12 12 0 0 1 24 0"/><rect x="6" y="22" width="8" height="12" rx="2"/><rect x="30" y="22" width="8" height="12" rx="2"/></svg>
+      </div>
+      <h3 class="card-title">Beyerdynamic DT 990 Pro</h3>
+      <ul class="card-points">
+        <li>Open-back, 250 Ω — honest, but a 7–10 kHz lift</li>
+        <li>That lift exaggerates exactly the harmonics saturation adds</li>
+        <li>Cut less high-end than the headphones beg for; check on a second source</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The headphone trap, stated plainly</div>
+    <p>The DT 990's upper-mid bump sits right where odd harmonics pile up. Saturation that sounds harsh on these headphones is often fine elsewhere — and saturation that sounds perfect here may be too bright in the room. Decide drive amounts by meter and A/B, then confirm on a second source before committing.</p>
+  </div>
+
+  <h2>Where saturation sits — the staged signal path</h2>
+  <p style="text-align:center; max-width:640px; margin:0 auto 24px; color:var(--text-muted);">Saturation is not one box at the end. It is up to three nonlinear stages, each at a different point. Knowing which stage is which keeps you from stacking grit by accident and from undoing one stage with the next.</p>
+
+  <div class="signal-flow">
+    <span class="signal-node">hardware grit</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">recorded audio</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">channel Saturator</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">bus Roar / Drum Buss</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">master glue</span>
+  </div>
+
+  <table class="param-table">
+    <caption>The three plugin stages and what each is for</caption>
+    <tr><td>Stage A — source / channel</td><td><strong>Saturator</strong> on the individual track. Defines each voice's core flavour. Set once, automate the drive for the arc.</td></tr>
+    <tr><td>Stage B — bus</td><td><strong>Roar</strong> (multiband / multi-mode) or <strong>Drum Buss</strong> on the group. Glues elements and adds shared harmonic density. Drive automated for the build.</td></tr>
+    <tr><td>Stage C — master</td><td>A whisper of soft clip / <strong>Saturator</strong> on the master, for cohesion only. Never the place to create a sound — only to seat one.</td></tr>
+  </table>
+
+  <table class="param-table">
+    <caption>The plugins, and the curve each gives you</caption>
+    <tr><td>Saturator</td><td>The workhorse. Type chooses the curve: <span class="code">Analog Clip</span> hard, <span class="code">Soft Sine / Medium</span> gentle, <span class="code">Digital Clip</span> harsh. Drive is the input into the curve.</td></tr>
+    <tr><td>Roar</td><td>Multiband, multi-stage saturation. Run it as one band to start; split into bands later to drive only the mids and leave the sub clean.</td></tr>
+    <tr><td>Drum Buss</td><td>Drum-specific: Drive + Crunch add grit, Boom adds a tuned sub. The Transients control protects the kick's attack from the drive.</td></tr>
+    <tr><td>Dynamic Tube</td><td>Asymmetric, even-harmonic tube colour. Use on bass and drone for body, not bite.</td></tr>
+    <tr><td>Amp / Cabinet</td><td>Extreme, character-rich nonlinearity. Reserve for an atmosphere layer or a one-off stab, not the core voices.</td></tr>
+  </table>
+
+  <h2>The gain ledger</h2>
+  <p style="text-align:center; max-width:640px; margin:0 auto 18px; color:var(--text-muted);">Because a nonlinear stage responds to level, every stage needs a written input and a written output. This ledger is the contract: fill it once, hit each stage at the level it expects, and the saturation behaves the same every session. The build page assumes these exact numbers.</p>
+
+  <table>
+    <thead><tr><th>Point in chain</th><th>Target level</th><th>Why this number</th></tr></thead>
+    <tbody>
+      <tr><td>Hardware source out</td><td>Healthy, peaks into amber on the M4</td><td>Hit the converter strongly without clipping it — clipping here is the one unrecoverable mistake at the front.</td></tr>
+      <tr><td>Recorded clip peak</td><td><span class="code">-12 to -6 dBFS</span></td><td>Leaves headroom so the channel Saturator has room to push without the track meter slamming red.</td></tr>
+      <tr><td>Into channel Saturator (Stage A)</td><td><span class="code">~ -8 dBFS</span> average, set by a Utility</td><td>The fixed input level that makes the drive setting in the palette mean what it says. Change this and the timbre changes.</td></tr>
+      <tr><td>Out of channel Saturator</td><td>Trim output to <strong>match bypass</strong></td><td>So you judge timbre, not loudness. Honesty control.</td></tr>
+      <tr><td>Into bus stage (Stage B)</td><td><span class="code">~ -10 dBFS</span> on the group</td><td>Sum of channels arrives a little hotter; the bus drive is calibrated for this. Pull the group fader, not the channels, to hit it.</td></tr>
+      <tr><td>Into master glue (Stage C)</td><td>Mix peaks <span class="code">≤ -6 dBFS</span></td><td>The master stage adds only a hair of harmonics; it needs a clean, headroomed input to do that gently.</td></tr>
+      <tr><td>Final master peak</td><td><span class="code">≤ -3 dBFS</span></td><td>No limiter in this exercise. The headroom is the deliverable.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">The golden rule, restated for saturation</div>
+    <p>Set the level <em>going into</em> each nonlinear stage with a gain stage (Utility or fader), not by riding the Drive knob. Drive shapes the curve; the input gain decides how far up the curve you climb. Mixing the two is how a "warm" idea turns into mud you can't trace.</p>
+  </div>
+
+  <h2>Hardware nonlinearity — bake it or skip it</h2>
+
+  <table class="param-table">
+    <caption>Grit at the source — decided when you record, not after</caption>
+    <tr><td>MicroFreak — overdrive the filter</td><td>Push oscillator level + resonance into the filter input for analog grit. Even-leaning, musical. Baked into the recorded take.</td></tr>
+    <tr><td>Digitakt II — per-track Drive</td><td>The amp-page Drive saturates each sample at source. Hard, odd, immediate. The drum bite of this track lives here.</td></tr>
+    <tr><td>Digitakt II — sample hot</td><td>Recording a source loud into the box bakes in clipping no later plugin can undo. Decide this when sampling, not in the mix.</td></tr>
+    <tr><td>Resample through a plugin stage</td><td>Print a saturated result back to audio to freeze stage A, so you can stack stage B cleanly on top.</td></tr>
+  </table>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Setup decision check</div>
+    <ul>
+      <li>Is every recorded clip peaking <span class="code">-12 to -6 dBFS</span>, leaving room for stage A to push?</li>
+      <li>Does each nonlinear stage have a written input level and a level-matched output?</li>
+      <li>Have I decided, before recording, which grit is baked in hardware (irreversible) and which stays in plugins (revisable)?</li>
+      <li>Is the sub protected — no element below ~60 Hz routed into a hard stage?</li>
+    </ul>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>One clock, one truth:</strong> Ableton is the only MIDI clock master; both boxes receive. A drifting clock ruins a take, and a take with baked-in grit recorded against a bad clock cannot be salvaged — the saturation is welded to a wrong timing.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="decisions.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 03 / Decisions
+    </a>
+    <a href="palette.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      05 / Saturation palette →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B4-002 — Saturation</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B1-002 — Unity · Listen</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B1-002<span class="labnote-topic">Unity</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html" class="active"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B1-002</div>
+    <div class="eyebrow">Unity · 02 — Listen</div>
+    <h1>Hear what level does — and what breaks it</h1>
+    <p class="lede">Gain structure is silent when it works, so the only way to learn it by ear is to learn its failures. Before any gear, train your ear on what a clean chain sounds like and on the three ways it goes wrong: a rising noise floor, hard clipping, and squashed dynamics. Once you can hear them, you can fix them.</p>
+  </header>
+
+  <h2>The four questions to ask of any sound</h2>
+
+  <p style="text-align:center; color:var(--text-muted); max-width:640px; margin:0 auto 24px;">Loop a clear 30–60 second section of whatever you are auditioning — a record, your own take, a test tone. Answer all four in one short sentence each. Describe the behavior, never the mood.</p>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M10 24a12 12 0 0 1 24 0"/><circle cx="22" cy="24" r="3" fill="currentColor"/><line x1="22" y1="8" x2="22" y2="13"/></svg>
+      </div>
+      <div class="step-num">The frame</div>
+      <h2 class="step-title">Four questions, one sentence each</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Ask, in order</div>
+      <ol class="rules-list">
+        <li>Is there a hiss or hum <em>under</em> the sound when it goes quiet?
+          <details class="reveal"><summary>Why it matters</summary><div class="reveal-body"><p>A noise floor that rises and falls with the quiet parts is the sound of a source recorded too cold then turned up. The interface trim was too low, the fader did the work, and the noise came up with the signal.</p></div></details>
+        </li>
+        <li>Is the top of the sound flattened — does it sound harsh, square, or crackly at the loud moments?
+          <details class="reveal"><summary>Why it matters</summary><div class="reveal-body"><p>That is clipping: a level pushed past the ceiling so the wave's peaks are sliced off. Done by accident it sounds cheap; the point of training the ear is to recognise it instantly so you never ship it unmeant.</p></div></details>
+        </li>
+        <li>Do the loud and quiet parts still feel different, or has everything been flattened to one loudness?
+          <details class="reveal"><summary>Why it matters</summary><div class="reveal-body"><p>Squashed dynamics are the sound of no headroom — every stage pushed so hard that limiting clamps the life out of the music. The kick and the pad end up the same size, and the track stops breathing.</p></div></details>
+        </li>
+        <li>If you turned it down to match a clean reference, would it still sound right?
+          <details class="reveal"><summary>Why it matters</summary><div class="reveal-body"><p>Louder always sounds better for the first few seconds. The honest test is to level-match. A clean chain survives being turned down; a chain that only impressed because it was loud falls apart.</p></div></details>
+        </li>
+      </ol>
+    </div>
+  </div>
+
+  <h2>Three sounds to learn cold</h2>
+
+  <p style="text-align:center; color:var(--text-muted); max-width:640px; margin:0 auto 24px;">You can make all three on your own bench in five minutes — and you will, on the <a href="build.html">build page</a>. For now, the goal is only to attach a name to each sound.</p>
+
+  <table>
+    <thead><tr><th>The fault</th><th>What it sounds like</th><th>Where it lives in the chain</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>Rising noise floor</td>
+        <td>A hiss or hum that swells under the signal, loudest in the quiet bars. The sound is clean but "thin" and surrounded by grime.</td>
+        <td>Source or interface trim set too cold, then the gap made up with the Live fader or clip gain. The noise was always there; you amplified it.</td>
+      </tr>
+      <tr>
+        <td>Hard clipping</td>
+        <td>A harsh, square, crackly edge on the peaks. On a sine it turns round and reedy; on drums it spits and tears.</td>
+        <td>Analog clip at the M4 input (red clip LED), or digital 0 dBFS overs inside Live. Same red light, two different chips, two different fixes.</td>
+      </tr>
+      <tr>
+        <td>Squashed dynamics</td>
+        <td>Everything one loudness. The kick no longer punches; the quiet parts are dragged up; the track is loud but lifeless and tiring.</td>
+        <td>No headroom left for the master. A limiter clamps the whole mix because every stage upstream was already maxed out.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>And one sound to learn as the target</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><line x1="8" y1="22" x2="36" y2="22"/><path d="M8 22 Q15 12 22 22 T36 22"/></svg>
+      </div>
+      <h3 class="card-title">A clean chain — the reference</h3>
+      <ul class="card-points">
+        <li>Quiet parts are <em>silent</em> underneath, not hissy</li>
+        <li>Loud parts have an edge of air above them — they are not touching the ceiling</li>
+        <li>The kick still punches above the pad; dynamics are intact</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="14"/><polyline points="14 22 20 28 30 16"/></svg>
+      </div>
+      <h3 class="card-title">How to confirm it</h3>
+      <ul class="card-points">
+        <li>Pause the track — what disappears was the music, what stays is your system noise</li>
+        <li>Turn it down to a clean reference's level — it should still sound right</li>
+        <li>Watch the meter sit around −12 dBFS with the peaks never near 0</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Listen on the rig you'll build on.</strong> The DT 990 Pro is open-back and honest — it will show you the noise floor and the harshness of clipping that laptop speakers hide. Loop, don't scrub; a noise floor only reveals itself across the quiet bars.</li>
+      <li><strong>Level-match before you judge.</strong> Any comparison made at two different volumes is a lie. Match loudness first, then ask which one is actually cleaner.</li>
+      <li><strong>Block 1 has a full listening list.</strong> Lab 001 collects ten records that each make a deliberate choice about volume — quiet as depth, clipping as texture, noise as melody. Work that list in <a href="../workshop/block-1/lab-001.html">Lab 001</a>; this page is only about hearing the <em>faults</em>.</li>
+    </ul>
+  </div>
+
+  <h2>The one principle you take from listening</h2>
+
+  <div class="callout">
+    <div class="callout-label">Carry this into the build</div>
+    <p>Every gain fault you can hear is a level set in the wrong place. Hiss is a level made up too late; clipping is a level pushed too far; squash is a level with no room left above it. The cure is never "fix it in the mix" — it is to find the stage that owns the level and set it there, once, at the source.</p>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon">
+        <svg viewBox="0 0 44 44"><polyline points="10 22 18 30 34 12"/></svg>
+      </div>
+      <div class="checklist-label">Before you move on</div>
+    </div>
+    <ul>
+      <li>I can name a rising noise floor by ear and say what causes it.</li>
+      <li>I can hear hard clipping on both a sine and a drum hit.</li>
+      <li>I can tell squashed dynamics from a sound that is simply loud.</li>
+      <li>I always level-match before deciding which take is cleaner.</li>
+      <li>I have one sentence: a clean chain is quiet underneath and has room on top.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="index.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 01 / Overview
+    </a>
+    <a href="decisions.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      03 / Decisions →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B1-002 — Unity</div>
+
+</div>
+
+</body>
+</html>

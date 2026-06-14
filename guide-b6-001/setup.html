@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B6-001 — Rule-based Sequencing — Setup</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Lab Note contents">
+  <p class="nav-label labnote-code">Lab Note B6-001<span class="labnote-topic">Rule-based Sequencing</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html" class="active"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Rule vocabulary</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B6-001</div>
+    <div class="eyebrow">Rule-based Sequencing · 04 — Setup</div>
+    <h1>The rig, and where each rule gets written</h1>
+    <p class="lede">This page wires the control path and the audio path so that one clock drives everything and every rule has exactly one home. Keep it open beside the build — it is the routing and condition reference the next page assumes.</p>
+  </header>
+
+  <h2>The signal path, decided once</h2>
+
+  <p style="text-align:center; max-width:640px; margin:0 auto 24px; color:var(--text-muted);">Read this left to right: the control path generates decisions, the instruments turn them into sound, Ableton records and curates. Clock flows the same direction so nothing drifts.</p>
+
+  <div class="signal-flow">
+    <span class="signal-node">Live clock master</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">Rules (DT cond / MIDI / Max / code)</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">MicroFreak + Digitakt II</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">MOTU M4</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">Live (record + curate)</span>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="15"/><line x1="22" y1="22" x2="22" y2="11"/><line x1="22" y1="22" x2="30" y2="26"/></svg>
+      </div>
+      <div class="step-num">Step 01</div>
+      <h2 class="step-title">One clock master, sync everything to it</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Clock and transport</div>
+      <ul>
+        <li>Ableton is the clock master. Set tempo <span class="code">124</span>, <span class="code">4/4</span>. A rule-based piece must run on one clock or the conditions count against drifting bar lines.</li>
+        <li><kbd>⌘ ,</kbd> → <strong>Link, Tempo &amp; MIDI</strong>. Enable <strong>Sync</strong> on the Digitakt II output row and the MicroFreak output row — Live sends clock and transport out.</li>
+        <li>Digitakt II: <span class="menu">Settings → MIDI Config → Sync</span> — enable clock and transport <em>receive</em>, disable clock <em>send</em>. Exactly one master.</li>
+        <li>MicroFreak: <kbd>Shift</kbd> + <kbd>Tempo</kbd> → source <strong>USB</strong>.</li>
+        <li><strong>Verify:</strong> press play in Live; both boxes start instantly and read <span class="code">124</span>. A <span class="code">1:4</span> condition is meaningless if the boxes count their own bars.</li>
+      </ul>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Audio return path</div>
+      <ul>
+        <li>MicroFreak <strong>Audio Out</strong> → MOTU M4 <strong>Input 1</strong> (mono TS). Digitakt II <strong>Main L/R</strong> → M4 <strong>Inputs 3/4</strong> (TRS).</li>
+        <li>Create audio tracks <span class="code">MF VOICE</span> (Ext. In 1) and <span class="code">DT DRUMS</span> (Ext. In 3/4), monitor <strong>In</strong> while programming, <strong>Auto</strong> before recording.</li>
+        <li>Peaks around <span class="code">-12</span> to <span class="code">-6 dBFS</span>. Headroom matters more here because a probabilistic accent can stack onto a downbeat unexpectedly.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="14"/><circle cx="22" cy="22" r="5"/></svg>
+      </div>
+      <div class="step-num">Step 02</div>
+      <h2 class="step-title">Digitakt II — conditions as a rule language</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Where the rules live on the box</div>
+      <ul>
+        <li>Hold a trig and turn the <strong>COND</strong> (trig condition) encoder. Each value is a sentence about <em>when</em> the trig is allowed to fire.</li>
+        <li>Per-track scale lengths and per-track scale (key) are pitch and rhythm fences set in the track length / scale settings.</li>
+        <li>Parameter locks (hold a trig, turn any knob) are per-step rules about timbre — a different decision frozen onto one step.</li>
+      </ul>
+      <table class="param-table">
+        <caption>Digitakt II trig conditions — read them as rules</caption>
+        <tr><td><span class="code">PRE</span></td><td>Fires only if the previous conditional trig <em>did</em> play. Chains events into cause-and-effect.</td></tr>
+        <tr><td><span class="code">PRE</span> (negated) / <span class="code">NEI</span></td><td>Fires only if the previous one did <em>not</em> — the two branches of an if/else.</td></tr>
+        <tr><td><span class="code">1:4</span>, <span class="code">2:4</span>, <span class="code">1:8</span></td><td>"On the Nth pass of M." A guaranteed, countable heartbeat of variation across bars.</td></tr>
+        <tr><td><span class="code">FILL</span> / <span class="code">FILL</span> (negated)</td><td>Plays only while FILL is held, or only while it is <em>not</em> — a performable A/B without a second pattern.</td></tr>
+        <tr><td><span class="code">FIRST</span> / <span class="code">NOT FIRST</span></td><td>Distinguishes the loop's first cycle from every repeat after — an intro built into the loop.</td></tr>
+        <tr><td><span class="code">%</span> (e.g. 35 %)</td><td>The one probabilistic condition. The system rolls a die each time. Use it last, and sparingly.</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="8" y="10" width="28" height="24" rx="2"/><line x1="14" y1="18" x2="30" y2="18"/><line x1="14" y1="24" x2="30" y2="24"/><line x1="14" y1="30" x2="24" y2="30"/></svg>
+      </div>
+      <div class="step-num">Step 03</div>
+      <h2 class="step-title">Live 12 — Generators, Transformations, and MIDI effects</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Where the rules live in Ableton</div>
+      <p style="color:var(--text-muted); margin-top:0;">All of these act on MIDI before it reaches an instrument — control path upstream of audio path. That is the point: the rule is editable forever, the sound stays swappable.</p>
+      <table class="param-table">
+        <caption>Where to write rules in Live 12</caption>
+        <tr><td>MIDI clip — <strong>Velocity</strong> / probability per note</td><td>Live 12's per-note chance and velocity ranges: a note can be set to play, say, 70 % of the time, within a velocity range. Bounded randomness, built in.</td></tr>
+        <tr><td>MIDI clip — <strong>Generators</strong></td><td>Euclidean, Rhythm, Stacks, Seed seed material from a rule. The generator <em>is</em> the rule; you curate the output it writes into the clip.</td></tr>
+        <tr><td>MIDI clip — <strong>Transformations</strong></td><td>Arpeggiate, Connect, Quantize, Strum, Recombine — rules that reshape existing notes. Non-destructive until you commit.</td></tr>
+        <tr><td><strong>Random</strong> MIDI effect</td><td>Adds bounded pitch deviation — set Chance and Choices to fence how far it can stray.</td></tr>
+        <tr><td><strong>Note Length</strong> / <strong>Velocity</strong> / <strong>Scale</strong> MIDI effects</td><td>Cheap, stackable rules. The Scale effect is itself a boundary: it forces stray notes back into a key — your pitch fence.</td></tr>
+        <tr><td>Max for Live — <strong>custom logic</strong></td><td>When the built-ins run out, a small Max patch is the control path written as a patch: probability gates, bouncing notes, state machines. Keep it generating MIDI, never audio, so the two paths stay separable.</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M16 14l-8 8 8 8"/><path d="M28 14l8 8-8 8"/></svg>
+      </div>
+      <div class="step-num">Step 04</div>
+      <h2 class="step-title">Free code paths — the same idea, written down</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">No hardware required</div>
+      <p style="color:var(--text-muted); margin-top:0;">Every condition on the Digitakt has a one-line equivalent in free software. If you have no box, you can do this entire Lab Note in code — the discipline (write the rule, fence the chance, run it long, curate) is identical.</p>
+      <table class="param-table">
+        <caption>The rule, in four free environments</caption>
+        <tr><td><strong>VCV Rack</strong></td><td>Patch logic with no modules to buy. A clock → Bernoulli Gate is a probability condition; a counter + logic gate is a <span class="code">1:4</span>; sample-and-hold off a noise source is bounded random pitch into a quantizer (your pitch fence).</td></tr>
+        <tr><td><strong>Pure Data</strong></td><td>A probability gate is two objects: <code>[random 100]</code> into a <code>[&lt; 35]</code> test gating a bang. Counters and <code>[moses]</code> build counted conditions. The control path made of boxes and lines.</td></tr>
+        <tr><td><strong>TidalCycles</strong></td><td>A conditional pattern is a one-liner: <code>every 4 (# crush 4) $ s "bd*4"</code> applies a transform on every fourth cycle. <code>sometimesBy 0.35</code> is the bounded coin.</td></tr>
+        <tr><td><strong>SuperCollider</strong></td><td>A full stochastic part is a <code>Pbind</code> with <code>Pwrand</code> (weighted choice over an allowed set) and <code>Pseq</code> for the fixed spine — the box and the freedom in one expression.</td></tr>
+      </table>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Routing a code path into the rig (optional)</div>
+      <ul>
+        <li>Any of these can drive your hardware: send their MIDI/clock out and let the MicroFreak or Digitakt be the audio path while the code is the control path.</li>
+        <li>Or render them straight to audio and curate in Ableton alongside the hardware takes. Either way, keep the generated material and the rule that made it in the same labelled place.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Setup check</div>
+    <ul>
+      <li>Press play: do both boxes start, stop, and read 124 from Live's clock? If not, fix sync before writing any condition.</li>
+      <li>Can I point at exactly one place where each rule will live? No rule should exist in two homes.</li>
+      <li>Is every rule still upstream of audio — MIDI, conditions, or code — with nothing committed to a recorded take yet?</li>
+      <li>Do my record levels leave headroom for a probabilistic hit landing on a downbeat?</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="decisions.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 03 / Decisions
+    </a>
+    <a href="palette.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      05 / Rule vocabulary →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B6-001 — Rule-based Sequencing</div>
+
+</div>
+
+</body>
+</html>

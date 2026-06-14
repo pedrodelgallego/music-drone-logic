@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B8-003 — Build</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Lab Note contents">
+  <p class="nav-label labnote-code">Lab Note B8-003<span class="labnote-topic">Teaching the Method</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html" class="active"><span class="nav-num">06</span>Build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B8-003</div>
+    <div class="eyebrow">Teaching the Method · 06 — Build</div>
+    <h1>Pick a method, deconstruct it, write the note, test it on a stranger, revise</h1>
+    <p class="lede">This is the work. You will choose one method you genuinely own, take it apart until you can see every joint, write it into the seven-block template, hand it to a real person, watch where they fail, and revise against the failure. The deliverable is a teaching artifact that survives contact with a stranger. Keep the <a href="palette.html">template page</a> open in another tab — it is the form this build pours into.</p>
+  </header>
+
+  <!-- STEP 1 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="16"/><circle cx="22" cy="22" r="10"/><circle cx="22" cy="22" r="3" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Step 01</div>
+      <h2 class="step-title">Choose a method you own</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The selection criteria</div>
+      <ul>
+        <li>Pick something you have done <strong>more than once</strong>, with results you could predict before you started. A one-time accident is not yet a method — you cannot teach what you have not repeated.</li>
+        <li>Pick something <strong>small enough to finish</strong>. "How I make a whole track" is a course; "how I make a bass breathe under a kick," "how I build a drone that never repeats," "how I resample a reverb tail into an atmosphere" — each is a method. Choose one mechanism, not a workflow.</li>
+        <li>Pick something you can <strong>state the intention of in one sentence</strong> before naming any gear. If you cannot, it is a habit; go back to page 03 and pick again.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Candidate methods from the course</div>
+      <table class="param-table">
+        <caption>Any of these is the right size</caption>
+        <tr><td>The breathing bass</td><td>Sidechain compression that pulses without audible pumping.</td></tr>
+        <tr><td>The endless drone</td><td>Two unsynced modulators so a held note never repeats.</td></tr>
+        <tr><td>The 14-against-16 perc</td><td>A per-track length that phases and realigns to create drift.</td></tr>
+        <tr><td>The reverse-drone atmosphere</td><td>A reversed copy of in-key material that swells toward beats.</td></tr>
+        <tr><td>The slow open</td><td>An S-curve filter automation that reads as intention, not a sweep.</td></tr>
+      </table>
+      <ul>
+        <li>The worked example throughout this page is <strong>the endless drone</strong>, because its hypnosis mechanism is exactly the kind of thing a maker does by feel and never writes down. Substitute your own method at every step.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Why size is the trap</div>
+      <ul>
+        <li>The most common failure of this exercise is choosing a method too large. A method the size of a whole track has too many forks, and the stranger will fail at the first one before ever reaching the part you wanted to teach. A teaching note that tries to cover everything teaches nothing.</li>
+        <li>The second failure is choosing something too trivial to have a mechanism — "I add reverb" is not a method, because there is no decision in it that a stranger could get wrong. The sweet spot is a move with exactly one or two real decisions, each of which has a wrong answer you can warn against.</li>
+        <li>Test the size before you start: try to say the method's mechanism in one sentence and its intention in another. If both sentences come easily, the scope is right. If the mechanism sentence sprawls into "and then, and then," cut the method in half and teach only the first half.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Have I done this more than once, with a predictable result?</li>
+        <li>Is it one mechanism, not a whole workflow?</li>
+        <li>Can I state its intention in one sentence with no gear in it?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="6" width="14" height="14" rx="1"/><rect x="24" y="6" width="14" height="14" rx="1"/><rect x="6" y="24" width="14" height="14" rx="1"/><rect x="24" y="24" width="14" height="14" rx="1"/></svg>
+      </div>
+      <div class="step-num">Step 02</div>
+      <h2 class="step-title">Deconstruct it — run it once with the log open</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Capture every move as it happens</div>
+      <ul>
+        <li>Open <span class="code">method_raw.txt</span> beside the DAW. Run your method from a blank start, and write down every single action and value as your hand makes it — not afterward. Memory smooths the method into the story you tell yourself; the log catches what you actually do.</li>
+        <li>For the endless drone, the raw log reads like this — notice how much was invisible until written:</li>
+      </ul>
+      <table class="param-table">
+        <caption>method_raw.txt — the endless drone, live capture</caption>
+        <tr><td>Init patch</td><td>Shift+Type to clear — never edit on a preset</td></tr>
+        <tr><td>Oscillator</td><td>Wavetable; Wave 40, Timbre 60, Shape 50</td></tr>
+        <tr><td>Paraphonic ON</td><td>so I can Hold two notes</td></tr>
+        <tr><td>Filter cutoff</td><td>10 o'clock — dark, didn't think about it</td></tr>
+        <tr><td>Mod 1</td><td>LFO → Timbre ~25, sine, slow, UNSYNCED</td></tr>
+        <tr><td>Mod 2</td><td>Cycling Env (loop) → Wave ~15, slow, different rate</td></tr>
+        <tr><td>Hold</td><td>root A1 then fifth E2</td></tr>
+        <tr><td>by ear</td><td>nudged cutoff until "it sat right" — value unknown</td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Find the mechanism inside the moves</div>
+      <ul>
+        <li>Read the raw log and ask: <strong>which one move makes this work?</strong> Strip away everything that is decoration and you find the mechanism. For the drone it is the two modulators at <em>different, unsynced rates</em> — that is the entire hypnosis. Wavetable vs Harmo is a preference; the unsynced pair is the method.</li>
+        <li>Separate the <strong>mechanism</strong> (load-bearing, must be reproduced) from the <strong>settings</strong> (your taste, substitutable) from the <strong>by-ear moments</strong> (judgement, cannot be transferred as a number).</li>
+      </ul>
+      <table class="param-table">
+        <caption>The deconstruction — three columns</caption>
+        <tr><td>Mechanism</td><td>Two modulators on the same patch, different rates, both unsynced — so the timbre never lands the same way twice.</td></tr>
+        <tr><td>Settings</td><td>Wavetable engine, LFO→Timbre ~25, CycEnv→Wave ~15, cutoff dark. Substitutable.</td></tr>
+        <tr><td>By ear</td><td>The exact cutoff that "sat right"; how slow is slow enough that the change is felt, not heard.</td></tr>
+      </table>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Can I name the one move that makes the method work, in a single sentence?</li>
+        <li>Have I sorted every action into mechanism, setting, or by-ear judgement?</li>
+        <li>Did I catch at least one thing I do by instinct and never say out loud?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><line x1="8" y1="14" x2="36" y2="14"/><line x1="8" y1="22" x2="36" y2="22"/><line x1="8" y1="30" x2="28" y2="30"/></svg>
+      </div>
+      <div class="step-num">Step 03</div>
+      <h2 class="step-title">Write the note — intention before gear</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Block 1 — Thesis, before anything else</div>
+      <ul>
+        <li>Open with the felt result, no gear. For the drone: <em>"A held chord that stays alive for minutes with no hands on it — the timbre keeps shifting but never seems to repeat, so the listener settles into a room rather than tracking a sound."</em></li>
+        <li>This sentence is the reader's target. Everything below it exists to produce this feeling, and the reader will judge their rebuild against it.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Block 2 — Reader profile</div>
+      <ul>
+        <li>One sentence on the stranger: <em>"You can initialise a patch and route a modulator on your synth. You do not have my synth, my reverb, or my ear — where I say 'slow' you will have to find your own slow."</em></li>
+        <li>Write this honestly. If you assume too much, the note breaks; if you assume too little, it drowns the reader in basics and they stop reading.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Block 3 — Refusals, stated as plainly as the steps</div>
+      <ul>
+        <li><em>"Do not sync the modulators to the clock."</em> Syncing is the most natural thing to do and it destroys the method — synced modulators repeat, and repetition is the opposite of the intention.</li>
+        <li><em>"Do not use resonance with a long reverb."</em> It whistles. A refusal saves the reader the failure you already had.</li>
+        <li>The refusals are where your hard-won mistakes become the reader's shortcut. Treat them as first-class instructions, not warnings in small print.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Block 4 — Rig and roles</div>
+      <ul>
+        <li>Exact path: <em>MicroFreak, Wavetable engine, into the DAW; Hybrid Reverb after an EQ high-pass.</em></li>
+        <li>Roles, so a stranger on other gear can follow: <em>"any synth with two independent modulation sources and a paraphonic/hold mode; any reverb with a long decay; an EQ before it."</em> The role is what travels.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Block 5 — Mechanism, with ranges and order</div>
+      <ul>
+        <li>State the load-bearing move with numbers: <em>"Assign two modulators on the same patch — LFO → Timbre at depth ~25, and a looping envelope → Wave at depth ~15. Set them to clearly different speeds and leave both <strong>unsynced</strong>. Because their cycles never align, the combined timbre never repeats."</em></li>
+        <li>Name the order and the clock where they matter: <em>"EQ high-pass at 120&nbsp;Hz comes <strong>before</strong> the reverb, so you reverberate a clean drone, not rumble you cannot remove later."</em></li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Block 6 — Steps, each ending in a decision check</div>
+      <ul>
+        <li>Turn the raw log into ordered steps, converting every "by ear" into either a range or an explicit listening test. The cutoff that "sat right" becomes: <em>"Start dark, around the lower third of the filter's range; raise it slowly until the chord has presence but no single harmonic jumps out."</em></li>
+        <li>Each step closes with a check the reader answers alone — never "ask me." A worked example of the central check:</li>
+      </ul>
+      <div class="decision-check">
+        <div class="decision-check-label">Decision check (inside the note)</div>
+        <ul>
+          <li>Hold the chord for two full minutes, hands off. Does the timbre keep changing?</li>
+          <li>Can you predict where the sound is going? If yes, your modulators are too close in rate — move them further apart.</li>
+          <li>Can you hear either modulator as a "wobble"? If yes, the depth is too high — halve it.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Block 7 — What is lost, named honestly</div>
+      <ul>
+        <li>Close with the truth: <em>"How slow 'slow' should be, and the exact cutoff that sits right, depend on your reverb and your room. I gave you the mechanism and the listening tests; the final feel is a judgement only your ear makes — and that judgement is where your version stops being a copy of mine."</em></li>
+        <li>This block is not an apology. It is the most useful thing in the note: it tells the reader exactly which part is theirs to author.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The transfer chain you are building</div>
+      <div class="signal-flow">
+        <span class="signal-node">Your piece</span>
+        <span class="signal-arrow">→</span>
+        <span class="signal-node">Lab note</span>
+        <span class="signal-arrow">→</span>
+        <span class="signal-node">Stranger rebuilds</span>
+        <span class="signal-arrow">→</span>
+        <span class="signal-node">Result recognisable</span>
+        <span class="signal-arrow">→</span>
+        <span class="signal-node">Method proven</span>
+      </div>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does my note lead with the thesis and the refusals before any gear?</li>
+        <li>Is every by-ear moment from the raw log now either a range or an explicit listening test?</li>
+        <li>Does every step end with a check the reader can answer without asking me?</li>
+        <li>Did I write the "what is lost" block honestly, naming the reader's gap rather than hiding it?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="15" cy="16" r="6"/><path d="M5 36c1-8 19-8 20 0"/><circle cx="32" cy="20" r="5"/><path d="M24 36c1-6 15-6 16 0"/></svg>
+      </div>
+      <div class="step-num">Step 04</div>
+      <h2 class="step-title">Test it on a stranger</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Find a real reader and step back</div>
+      <ul>
+        <li>The stranger must be a <strong>real person</strong>, not your imagination of one. Someone who makes music but does not know this method, ideally on different gear. Their unfamiliarity is the instrument — it measures exactly what your note assumes.</li>
+        <li>Hand them only the note. <strong>Say nothing.</strong> The moment you explain a step out loud, that step is no longer tested — and it is precisely the steps you feel the urge to explain that are broken on the page.</li>
+        <li>Sit where you can watch but not help. Resist every instinct to rescue them. A rescued test teaches you nothing.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Record the failures, not your feelings</div>
+      <ul>
+        <li>Keep a log of every place the stranger <strong>pauses, asks a question, or does something you did not intend</strong>. Write timestamps and the literal action, the same discipline as the listening notes in Lab Note B1-001: <span class="code">step 5 — synced the LFO, note never said don't</span>, not "they struggled."</li>
+        <li>Each pause is a coordinate of a gap. A question is a missing instruction. A wrong action is an ambiguous one. None of them are the reader's fault.</li>
+      </ul>
+      <table class="param-table">
+        <caption>Stranger test log — the drone note, first run</caption>
+        <tr><td>Block 5</td><td>Asked "synced or unsynced?" — I wrote "unsynced" but they read past it because it wasn't a refusal</td></tr>
+        <tr><td>Step 2</td><td>Set both modulators to the same speed — I never said they must differ, only "different rates" buried in prose</td></tr>
+        <tr><td>Check 1</td><td>Held the chord 20 seconds, declared it done — I wrote "two minutes" but didn't say why short is not enough</td></tr>
+        <tr><td>Block 7</td><td>"Where do I set the cutoff?" — my by-ear test was too vague to act on</td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Compare the result to the thesis</div>
+      <ul>
+        <li>When they finish, listen to what they made against your thesis sentence. Recognisable as the same method? Then the note transferred the system. Unrecognisable? The break is in the note, not the reader — find the step where your instinct stood in for an instruction.</li>
+        <li>Ask the reader two questions only: <em>"Where did you have to guess?"</em> and <em>"What did you think I meant here?"</em> Their guesses map your assumptions precisely.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Why one stranger is not enough — but is enough to start</div>
+      <ul>
+        <li>A single reader only walks one path through your note. The steps they happened to read carefully are tested; the steps they skimmed because their gear made them irrelevant are not. This is why the build ends in re-testing on a second reader — but the first test is still the most valuable, because the first reader finds the catastrophic gaps, the ones that stop the rebuild dead.</li>
+        <li>Resist the urge to pick a reader who is "close enough" to you. The closer their ear and gear are to yours, the more of your assumptions they will silently share, and the less your note is tested. The ideal first reader is competent but genuinely different — a drummer who programs, a guitarist who samples, anyone whose instincts are not your instincts.</li>
+        <li>Watch your own discomfort during the test. The steps that make you wince as the stranger reads them — the ones where you think "no, not like that" — are the steps your note failed to pin down. Your discomfort is a more honest signal than anything the reader will say aloud.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Did I stay silent and let the note do the teaching?</li>
+        <li>Do I have a literal log of every pause, question, and wrong turn?</li>
+        <li>Is the stranger's result recognisable as my method — and if not, can I name the step that failed?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 5 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M10 22 a12 12 0 0 1 21 -8"/><polyline points="25 8 31 14 26 18"/><path d="M34 22 a12 12 0 0 1 -21 8"/><polyline points="19 36 13 30 18 26"/></svg>
+      </div>
+      <div class="step-num">Step 05</div>
+      <h2 class="step-title">Revise against the failures</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Treat every gap as a fix, not a complaint</div>
+      <ul>
+        <li>Walk the test log line by line. For each pause, question, or wrong action, change the note so the next stranger cannot make the same mistake. The revision is mechanical: gap → instruction.</li>
+        <li>From the drone test log, four concrete fixes:</li>
+      </ul>
+      <table class="param-table">
+        <caption>Gap → revision</caption>
+        <tr><td>Read past "unsynced"</td><td>Promote it to a refusal: "Do NOT sync the modulators — synced means repeating, repeating kills the method."</td></tr>
+        <tr><td>Same speed both modulators</td><td>Add an explicit step: "Set the two rates clearly apart — if one is a slow 4-bar cycle, make the other noticeably faster or slower. They must not match."</td></tr>
+        <tr><td>Quit the check at 20 s</td><td>Add the why: "Hold for two full minutes — under that, the cycles can appear to repeat before they have drifted. Set a timer."</td></tr>
+        <tr><td>Vague cutoff test</td><td>Replace with: "Raise the cutoff until the chord has body, then back off the moment any single harmonic starts to sing out."</td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Re-test until it transfers clean</div>
+      <ul>
+        <li>The first revision is never the last. Hand the revised note to a <strong>second stranger</strong> and run the test again. New gaps will appear that the first reader's path never touched — different gear, different assumptions.</li>
+        <li>Stop when a stranger can rebuild the method end to end with <strong>zero questions to you</strong> and a result you recognise. That silence is the proof. It is the same standard as a mix that survives a different room: the work holds up where you are not present to defend it.</li>
+        <li>Do not revise toward cloning. If the second reader's drone sounds like theirs and still reads as the method, that is success — the gap you left in Block 7 is doing its job.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Archive the artifact in recoverable layers</div>
+      <ul>
+        <li>Keep all three: <span class="code">method_raw.txt</span> (what you actually do), the test logs (what broke), and the final <span class="code">method_note.html</span> (what transfers). Together they are the full provenance of the method.</li>
+        <li>The clean note is the deliverable. The raw log and test logs are how you will improve it the next time you teach it — a method, like a track, is never truly finished, only released.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Did every gap in the test log become a concrete change in the note?</li>
+        <li>Did a second, different stranger rebuild the method with no questions to me?</li>
+        <li>Is the result recognisably the method while still sounding like the reader's own?</li>
+        <li>Did I revise toward transfer, not toward cloning — leaving the reader's gap intact?</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The thesis of the exercise</div>
+    <p>The proof of mastery is not the track you can make — it is the stranger who can make their own version from your words alone. When the note transfers without you in the room, you finally know exactly what you knew, and exactly what was never knowledge but ear.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="palette.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 05 / Palette
+    </a>
+    <a href="reflection.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      07 / Reflection →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B8-003 — Teaching the Method</div>
+
+</div>
+
+</body>
+</html>

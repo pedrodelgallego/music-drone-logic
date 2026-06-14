@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B3-001 — Groove · Setup</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B3-001<span class="labnote-topic">Groove</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html" class="active"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B3-001</div>
+    <div class="eyebrow">Groove · 04 — Setup</div>
+    <h1>The rig, wired for feel</h1>
+    <p class="lede">Groove work is unforgiving about clock and latency: a few stray milliseconds will masquerade as a timing decision you never made. This page wires the rig so that every offset you hear is one you chose — and explains the one thing that ruins micro-timing if you skip it.</p>
+  </header>
+
+  <div class="cards three">
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="10" width="32" height="20" rx="2"/><line x1="16" y1="36" x2="28" y2="36"/><line x1="22" y1="30" x2="22" y2="36"/></svg>
+      </div>
+      <h3 class="card-title">Ableton Live 12 Suite</h3>
+      <ul class="card-points">
+        <li>The only clock master for both hardware boxes</li>
+        <li>Groove Pool, Extract Groove, automation</li>
+        <li>Records the Digitakt's hand-nudged feel as audio + MIDI</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="8" width="32" height="28" rx="2"/><rect x="10" y="12" width="10" height="7" rx="1"/><circle cx="29" cy="15.5" r="3"/><rect x="10" y="24" width="4" height="4" rx="0.7"/><rect x="17" y="24" width="4" height="4" rx="0.7"/><rect x="24" y="24" width="4" height="4" rx="0.7"/><rect x="31" y="24" width="4" height="4" rx="0.7"/></svg>
+      </div>
+      <h3 class="card-title">Elektron Digitakt II</h3>
+      <ul class="card-points">
+        <li>Per-track swing and per-trig micro-timing in ticks</li>
+        <li>The groove engine — kick locked, everything else leaning</li>
+        <li>Trig conditions and per-track length for slow drift</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="14" width="32" height="16" rx="2"/><line x1="14" y1="14" x2="14" y2="30"/><line x1="22" y1="14" x2="22" y2="30"/><line x1="30" y1="14" x2="30" y2="30"/></svg>
+      </div>
+      <h3 class="card-title">Arturia MicroFreak</h3>
+      <ul class="card-points">
+        <li>Bass and tonal stabs that must share the drums' pocket</li>
+        <li>Synced LFO follows Ableton's clock</li>
+        <li>Recorded into Ableton, then bent to the extracted groove</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="14" width="32" height="16" rx="2"/><circle cx="14" cy="22" r="2.5"/><circle cx="22" cy="22" r="2.5"/><circle cx="30" cy="22" r="2.5"/></svg>
+      </div>
+      <h3 class="card-title">MOTU M4</h3>
+      <ul class="card-points">
+        <li>4-in / 4-out USB-C interface — the single audio device</li>
+        <li>MicroFreak mono into input 1; Digitakt stereo into 3/4</li>
+        <li>Low, stable round-trip latency at 256 samples</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="7" y="7" width="7" height="7" rx="1"/><rect x="18.5" y="7" width="7" height="7" rx="1"/><rect x="30" y="7" width="7" height="7" rx="1"/><rect x="7" y="18.5" width="7" height="7" rx="1"/><rect x="18.5" y="18.5" width="7" height="7" rx="1"/><rect x="30" y="18.5" width="7" height="7" rx="1"/><rect x="7" y="30" width="7" height="7" rx="1"/><rect x="18.5" y="30" width="7" height="7" rx="1"/><rect x="30" y="30" width="7" height="7" rx="1"/></svg>
+      </div>
+      <h3 class="card-title">Launchpad Pro MK3</h3>
+      <ul class="card-points">
+        <li>Mutes for rehearsing the groove arc by hand</li>
+        <li>Live fader rides captured as automation</li>
+        <li>Not a clock — purely a control surface here</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M10 24 a12 12 0 0 1 24 0"/><rect x="6" y="22" width="8" height="12" rx="2"/><rect x="30" y="22" width="8" height="12" rx="2"/></svg>
+      </div>
+      <h3 class="card-title">Beyerdynamic DT 990 Pro</h3>
+      <ul class="card-points">
+        <li>Open-back, 250 Ω — wide stage makes timing legible</li>
+        <li>Honest about whether a hat drags or merely sounds late</li>
+        <li>Watch the 7–10 kHz bump on hat brightness, not on timing</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <h2>Why clock discipline is the whole game</h2>
+  <p style="text-align:center; max-width:620px; margin:0 auto 24px; color:var(--text-muted);">For a drone, a few milliseconds of slop is inaudible. For groove, it is the entire subject. If the clock jitters or the recorded take drifts, you cannot tell your <span class="code">+4</span>-tick hat from a converter delay. Lock the clock first, then trust your ears.</p>
+
+  <h3 style="text-align:center; color:var(--text-muted); font-family:var(--mono); font-size:11px; letter-spacing:0.2em; text-transform:uppercase;">Control + MIDI clock</h3>
+  <div class="signal-flow">
+    <span class="signal-node">Launchpad Pro MK3</span>
+    <span class="signal-arrow">↔ USB ↔</span>
+    <span class="signal-node">Ableton</span>
+    <span class="signal-arrow">→ MIDI clock + transport →</span>
+    <span class="signal-node">Digitakt II</span>
+    <span class="signal-arrow">+</span>
+    <span class="signal-node">MicroFreak</span>
+  </div>
+
+  <table>
+    <thead><tr><th>Device</th><th>Clock role</th><th>Transport</th><th>Port</th></tr></thead>
+    <tbody>
+      <tr><td>Ableton Live</td><td><strong>The only clock master</strong></td><td>Play / stop originates here</td><td>—</td></tr>
+      <tr><td>Digitakt II</td><td>Receives clock — swing and micro-timing are computed against Ableton's tempo</td><td>Receives start / stop</td><td>USB (<span class="menu">Settings → MIDI Config → Sync</span>: clock + transport receive ON, clock send OFF)</td></tr>
+      <tr><td>MicroFreak</td><td>Receives clock — synced LFO and sequencer follow Ableton</td><td>Sequencer starts on incoming clock</td><td>USB (<kbd>Shift</kbd> + <kbd>Tempo</kbd> → source <strong>USB</strong>)</td></tr>
+      <tr><td>Launchpad Pro MK3</td><td>None — control surface only</td><td>Launches clips / fires mutes</td><td>USB (Control Surface: <span class="code">Launchpad Pro MK3</span>)</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">One clock to rule them all</div>
+    <p>Exactly one device generates tempo; everything else listens. If the Digitakt's screen shows a tempo different from Ableton's, sync is broken — stop and fix it before recording, because a groove recorded against a drifting clock cannot be trusted and cannot be repaired.</p>
+  </div>
+
+  <h2>Audio path</h2>
+  <div class="signal-flow">
+    <span class="signal-node">MicroFreak Out</span>
+    <span class="signal-arrow">→ TS →</span>
+    <span class="signal-node">M4 In 1</span>
+    <span class="signal-arrow">+</span>
+    <span class="signal-node">Digitakt II Main L/R</span>
+    <span class="signal-arrow">→ 2 × TRS →</span>
+    <span class="signal-node">M4 In 3/4</span>
+    <span class="signal-arrow">→ USB-C →</span>
+    <span class="signal-node">Ableton</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">DT 990 Pro</span>
+  </div>
+
+  <table>
+    <thead><tr><th>From</th><th>To</th><th>Cable</th><th>Carries</th></tr></thead>
+    <tbody>
+      <tr><td>MicroFreak <span class="code">Audio Out</span> (mono, unbalanced)</td><td>M4 <span class="code">Input 1</span></td><td>1 × 1/4" TS</td><td>Mono synth audio — bass and tonal stabs</td></tr>
+      <tr><td>Digitakt II <span class="code">Main Out L</span></td><td>M4 <span class="code">Input 3</span> (rear line in)</td><td>1 × 1/4" TRS</td><td>Left half of the stereo drum mix — carries the groove</td></tr>
+      <tr><td>Digitakt II <span class="code">Main Out R</span></td><td>M4 <span class="code">Input 4</span> (rear line in)</td><td>1 × 1/4" TRS</td><td>Right half of the stereo drum mix</td></tr>
+      <tr><td>M4 <span class="code">Phones</span></td><td>DT 990 Pro</td><td>1/4" headphone plug</td><td>Your entire monitoring world</td></tr>
+      <tr><td>M4 / Digitakt II / MicroFreak / Launchpad <span class="code">USB</span></td><td>Computer (direct, no hub)</td><td>USB-C / USB</td><td>Audio + MIDI clock — direct ports keep jitter sub-millisecond</td></tr>
+    </tbody>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>No unpowered hubs for the clock.</strong> USB clock jitter is inaudible on a direct port and can become audible through a cheap hub. For groove work specifically, plug the Digitakt and MicroFreak straight into the computer.</li>
+      <li><strong>Why mono for the MicroFreak.</strong> The bass must share one pocket with the drums. A mono file forces you to create width deliberately later, and keeps the timing reference unambiguous.</li>
+    </ul>
+  </div>
+
+  <h2>The latency measurement you cannot skip</h2>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Measure the offset once, before any groove work</div>
+    <ul>
+      <li>Set Ableton to <span class="code">124 BPM</span>, buffer <span class="code">256 samples</span> at <span class="code">48 kHz</span>. Record 8 bars of the Digitakt playing a dead-straight kick on every downbeat, monitor on Auto.</li>
+      <li>Zoom all the way into bar 1. The kick transient will sit a few milliseconds <em>after</em> the grid line — that is clock-start lag plus converter latency, not a groove.</li>
+      <li>If the offset is consistent, fix it: enter the measured value in <kbd>⌘ ,</kbd> → <strong>Audio</strong> → <span class="menu">Driver Error Compensation</span> (global), or drag each recorded clip left so transients sit on the grid (per-take).</li>
+      <li>Only after this is your <span class="code">+4</span>-tick hat actually a +4-tick hat and not a +4-tick hat plus an unknown system delay. Measure once, now.</li>
+    </ul>
+  </div>
+
+  <table class="param-table">
+    <caption>Buffer size at 48 kHz — pick per task</caption>
+    <tr><td>128 samples</td><td>~ 2.7 ms each way. Use if hand-nudging feels laggy while you audition micro-timing.</td></tr>
+    <tr><td>256 samples</td><td>~ 5.3 ms each way. The default for programming and recording the groove.</td></tr>
+    <tr><td>512+ samples</td><td>Mix and export only. Latency no longer matters; the take is already printed.</td></tr>
+  </table>
+
+  <h2>Track layout for groove work</h2>
+
+  <table>
+    <thead><tr><th>Track</th><th>Source</th><th>Role in the pocket</th></tr></thead>
+    <tbody>
+      <tr><td>DT DRUMS</td><td>Digitakt II main L/R (stereo audio)</td><td>Carries the programmed swing + micro-timing</td></tr>
+      <tr><td>DT KICK</td><td>Digitakt II track 1 — optional separate pass</td><td>The reference clock; also the clean sidechain source and the Extract-Groove source</td></tr>
+      <tr><td>MF BASS</td><td>MicroFreak (mono audio)</td><td>Bent toward the extracted groove so it shares one feel</td></tr>
+      <tr><td>MIDI · GROOVE REF</td><td>Transcribed one-bar MIDI of the drum pass</td><td>The clip you run Extract Groove on</td></tr>
+      <tr><td>Return A / B</td><td>Reverb / Echo</td><td>Echo synced to the same grid; never fights the pocket</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Tempo &amp; feel</h2>
+  <p style="text-align:center; color:var(--text-muted);">Recommended tempo: <span class="code">122–126 BPM</span>. Start at <strong>124 BPM</strong> — one 16th step ≈ <span class="code">121 ms</span>, one tick ≈ <span class="code">2.5 ms</span>.</p>
+
+  <div class="tag-row">
+    <span class="tag">rolling</span>
+    <span class="tag">behind-the-beat</span>
+    <span class="tag">locked kick</span>
+    <span class="tag">leaning hats</span>
+    <span class="tag">hypnotic</span>
+    <span class="tag">repeated offset</span>
+    <span class="tag">one pocket</span>
+  </div>
+
+  <div class="page-nav">
+    <a href="decisions.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 03 / Decisions
+    </a>
+    <a href="palette.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      05 / Palette →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B3-001 — Groove</div>
+
+</div>
+
+</body>
+</html>

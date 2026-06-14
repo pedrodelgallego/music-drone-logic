@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B3-003 — Polymeter &amp; Phase — Reflection</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B3-003<span class="labnote-topic">Polymeter &amp; Phase</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen first</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Rig &amp; setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Length palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html" class="active"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B3-003</div>
+    <div class="eyebrow">Polymeter &amp; Phase · 07 — Reflection</div>
+    <h1>Fault, carry-forward, principle</h1>
+    <p class="lede">Polymeter and phase fail in characteristic ways — and almost all of them trace to one of two mistakes. Diagnose your track against the signals below, note what carries forward into the rest of Block 3, and keep the single principle at the end.</p>
+  </header>
+
+  <h2>How you know it worked</h2>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="16"/><polyline points="14 22 20 28 30 16"/></svg>
+      </div>
+      <div class="checklist-label">Success signals</div>
+    </div>
+    <ul>
+      <li>The track evolves for its full length with no new elements after the first third.</li>
+      <li>A listener feels the realignments arrive but cannot say what changed.</li>
+      <li>The kick stayed dead steady; everything interesting happened around it.</li>
+      <li>Emergent patterns appeared that you never programmed — the parts crossing made new melodies.</li>
+      <li>Every section boundary lands on a realignment or phase-unison bar.</li>
+      <li>You can state, in numbers, why each section is the length it is.</li>
+      <li>The phase drift is felt, not heard happening.</li>
+    </ul>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon">
+        <svg viewBox="0 0 44 44"><polygon points="22 6 40 36 4 36"/><line x1="22" y1="16" x2="22" y2="24"/><circle cx="22" cy="29" r="1.4" fill="currentColor"/></svg>
+      </div>
+      <div class="checklist-label">Failure signals</div>
+    </div>
+    <ul>
+      <li>The drift sounds like random mistimed hits, not movement — usually too many hits on the odd-length tracks.</li>
+      <li>You can't hear the polymeter at all — the odd track was too busy, or it wasn't in PER TRACK mode.</li>
+      <li>The phase "speeds up" audibly — the drift rate is too fast; widen the cycle.</li>
+      <li>The two phase copies turn to mud — identical low-end phasing; high-pass and pan the copy.</li>
+      <li>Section turns feel arbitrary — they were placed on round bar counts instead of realignment bars.</li>
+      <li>You reached for a new instrument to keep interest — the engine wasn't trusted to do its job.</li>
+      <li>Two engines at once (polymeter <em>and</em> a strong polyrhythm) so neither is audible.</li>
+    </ul>
+  </div>
+
+  <h2>The two faults, and their fixes</h2>
+
+  <table class="param-table">
+    <caption>Almost everything reduces to one of these</caption>
+    <tr><td>Fault 1 — Drift is illegible</td><td>Too dense, or no steady anchor. Fix: thin the odd-length tracks to 2–3 hits, and make sure the kick (and drone) hold absolutely steady so the ear has a ruler.</td></tr>
+    <tr><td>Fault 2 — Drift is inaudible</td><td>Not actually disagreeing. Fix: confirm PER TRACK mode on the Digitakt, confirm the phase copy's BPM truly differs, and check the realignment actually arrives on the bar the LCM predicts.</td></tr>
+  </table>
+
+  <h2>What carries forward</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><line x1="22" y1="8" x2="22" y2="36"/><polyline points="14 28 22 36 30 28"/></svg>
+      </div>
+      <h3 class="card-title">Into the rest of Block 3</h3>
+      <ul class="card-points">
+        <li>The "fixed clock + drifting voice" instinct underlies Euclidean rhythm and probability too</li>
+        <li>LCM thinking lets you predict any combined cycle, not just polymeter</li>
+        <li>Placing form on structural events, not round numbers, is a general arranging skill</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="14"/><path d="M22 12 a10 10 0 0 1 0 20"/></svg>
+      </div>
+      <h3 class="card-title">As a reusable technique</h3>
+      <ul class="card-points">
+        <li>Per-track length is now a tool you reach for whenever a loop feels static</li>
+        <li>Clip-phasing in Ableton works on any duplicated material, not just synth figures</li>
+        <li>You can hear the difference between length-drift and tempo-drift by ear</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Reflection questions</h2>
+
+  <ol class="reflection-list">
+    <li>Which engine carried the track — polymeter, phase, or both? Could you have done it with one?</li>
+    <li>Which length pair produced the most compelling rotation, and why that one?</li>
+    <li>Did the realignments arrive where the LCM said they would? Did you trust the math or fight it?</li>
+    <li>What emergent melody appeared that you never programmed?</li>
+    <li>Was the phase drift felt or heard? If heard, by how much would you widen the cycle next time?</li>
+    <li>Did any section turn end up off a realignment bar? Did it sound worse?</li>
+    <li>Did you ever reach for a new sound instead of trusting the drift? What happened?</li>
+    <li>If you removed the steady drone, was the drift still legible?</li>
+    <li>How long could this track run before the cycle genuinely stops giving — 8 minutes? 20?</li>
+    <li>What would you change first in the next session: a length, a drift rate, or the arrangement grid?</li>
+  </ol>
+
+  <div class="final">
+    <div class="final-icon">
+      <svg viewBox="0 0 44 44"><path d="M8 22 Q16 10 24 22 T40 22"/><path d="M8 28 Q16 16 24 28 T40 28"/></svg>
+    </div>
+    <div class="final-label">Final principle</div>
+    <p>You don't have to write the changes. Set two clocks disagreeing on purpose, keep one of them fixed, and let the alignment compose the form. Time is the material.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="build.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 06 / The build
+    </a>
+    <a href="../workshop/block-3/index.html" class="next">
+      <span class="page-nav-direction">Back to the workshop</span>
+      Block 3 →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B3-003 — Polymeter &amp; Phase</div>
+
+</div>
+
+</body>
+</html>

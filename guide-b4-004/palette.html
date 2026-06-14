@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B4-004 — Tape &amp; Degradation — Degradation palette</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B4-004<span class="labnote-topic">Tape &amp; Degradation</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html" class="active"><span class="nav-num">05</span>Degradation palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B4-004</div>
+    <div class="eyebrow">Tape &amp; Degradation · 05 — Degradation palette</div>
+    <h1>Recipes for wear</h1>
+    <p class="lede">A reference of concrete settings for each symptom of decay, and how those settings should change pass over pass. Treat these as starting points, not law — but if a value drifts far from here, ask why. The goal is a single pass so subtle you can barely hear it, accumulating into something undeniable by generation six.</p>
+  </header>
+
+  <h2>Symptom recipes — per single pass</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><circle cx="14" cy="22" r="8"/><circle cx="30" cy="22" r="8"/><circle cx="14" cy="22" r="2" fill="currentColor"/><circle cx="30" cy="22" r="2" fill="currentColor"/></svg>
+      </div>
+      <h3 class="card-title">Wow &amp; flutter</h3>
+      <ul class="card-points">
+        <li>Echo → Wobble Amount low; Wobble Morph toward slow for wow, fast for flutter</li>
+        <li>Or LFO → a pitch/warp parameter, sine, ~0.2–2 Hz, tiny depth</li>
+        <li>Aim for "is that drifting?" not "that is drifting"</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 30 h4 l3 -8 l3 12 l3 -6 h22" stroke-dasharray="1 2"/></svg>
+      </div>
+      <h3 class="card-title">Hiss</h3>
+      <ul class="card-points">
+        <li>Echo → Noise Amount low, Noise Morph for colour</li>
+        <li>Or a quiet noise sample looped under the loop, level rising per gen</li>
+        <li>Hiss should sit just under the signal at gen 1, level with it by gen 8</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 28 q9 -10 18 0 t18 0"/></svg>
+      </div>
+      <h3 class="card-title">Saturation</h3>
+      <ul class="card-points">
+        <li>Saturator, Soft Sine, Drive +2 to +4 dB per pass</li>
+        <li>Output trimmed so the pass does not get louder</li>
+        <li>Rounds transients and thickens body without obvious distortion</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="2" fill="currentColor"/><circle cx="12" cy="14" r="1.4" fill="currentColor"/><circle cx="32" cy="16" r="1.4" fill="currentColor"/><circle cx="16" cy="30" r="1.4" fill="currentColor"/><circle cx="30" cy="30" r="1.4" fill="currentColor"/></svg>
+      </div>
+      <h3 class="card-title">Crackle &amp; dropouts</h3>
+      <ul class="card-points">
+        <li>Vinyl Distortion → Crackle Density low, Volume low</li>
+        <li>For holes: brief volume dips drawn in, or Redux glitches</li>
+        <li>Irregular and sparse — one or two events per loop, no more</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>The per-pass settings table</h2>
+
+  <table class="param-table">
+    <caption>One generation — barely-there starting values (Path B)</caption>
+    <tr><td>Saturator Drive</td><td>+3 dB, Soft Sine, output -3 dB to compensate</td></tr>
+    <tr><td>Auto Filter LP cutoff</td><td>Lower by ~400–600 Hz from the previous pass's setting</td></tr>
+    <tr><td>Echo Wobble</td><td>Amount 8–15 %, slow morph (wow); raise morph for flutter</td></tr>
+    <tr><td>Echo Noise</td><td>Amount 5–10 %, rising ~3 % per generation</td></tr>
+    <tr><td>Vinyl Distortion Crackle</td><td>Density 10–20, Volume low; raise gently per generation</td></tr>
+    <tr><td>Redux sample rate</td><td>Full at gen 0; nudge down only past gen 4 when you want grit</td></tr>
+    <tr><td>Utility Width</td><td>-5 to -10 % per pass, marching toward mono</td></tr>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">The rule behind the numbers</div>
+    <p>No single value here is loud. The craft is that each is set so one pass is almost inaudible, yet the symptoms all point the same direction — duller, narrower, noisier, wobblier — so they reinforce each other across generations. If any one value is obvious on a single pass, halve it.</p>
+  </div>
+
+  <h2>How the settings escalate — the generation curve</h2>
+
+  <table class="param-table">
+    <caption>What the loop sounds like at each milestone</caption>
+    <tr><td>Gen 0</td><td>Pristine. Full top end, full width, no noise. The reference you archive and never touch.</td></tr>
+    <tr><td>Gen 1–2</td><td>A warmth and a faint hiss. Most listeners would call it "analog", not "damaged".</td></tr>
+    <tr><td>Gen 3</td><td>Top end noticeably duller, hiss rising, pitch beginning to waver. The character is now clearly tape.</td></tr>
+    <tr><td>Gen 6</td><td>Recognisable but worn — the "weathered" sweet spot many tracks live in. Width has collapsed toward mono.</td></tr>
+    <tr><td>Gen 8–10</td><td>Melody dissolving into texture, noise level with signal, dropouts appearing. The Basinski zone.</td></tr>
+    <tr><td>Gen 12+</td><td>Approaching dust. More gap than tone; the loop is now an impression of itself.</td></tr>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">Mark your destination</div>
+    <p>Cross-reference this against the endpoint you chose on page 03. If you want "weathered, still beautiful", you are arranging generations 1 through 6 and stopping. If you want full disintegration, you print all the way to 12+ and the late generations become the climax. The build page assumes you have a target generation in mind.</p>
+  </div>
+
+  <h2>Lead-symptom palettes</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 22 q6 -12 12 0 t12 0 t12 0"/></svg>
+      </div>
+      <h3 class="card-title">Wobble-forward</h3>
+      <ul class="card-points">
+        <li>Push Echo Wobble and pitch drift; keep filter and noise modest</li>
+        <li>Feels like a failing motor — seasick, queasy, unstable</li>
+        <li>Best on tonal, sustained material where pitch error is exposed</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 30 h2 l2 -10 l2 16 l2 -12 l2 8 l2 -6 h22" stroke-dasharray="1 2"/></svg>
+      </div>
+      <h3 class="card-title">Noise-forward</h3>
+      <ul class="card-points">
+        <li>Push hiss and crackle hard; keep pitch stable, filter gentle</li>
+        <li>Feels like an old, loved, much-played recording</li>
+        <li>The signal slowly drowns rather than warps — Belong, Basinski</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 14 h32"/><path d="M6 22 h24" stroke-dasharray="3 3"/><path d="M6 30 h14" stroke-dasharray="2 4"/></svg>
+      </div>
+      <h3 class="card-title">Dullness-forward</h3>
+      <ul class="card-points">
+        <li>Lead with the LP filter; drop several hundred Hz per pass</li>
+        <li>Feels like the recording sinking underwater or behind a wall</li>
+        <li>Quiet, mournful — the Caretaker's later stages</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 22 h6"/><path d="M16 22 h4"/><path d="M26 22 h2"/><path d="M32 22 h6"/></svg>
+      </div>
+      <h3 class="card-title">Dropout-forward</h3>
+      <ul class="card-points">
+        <li>Lead with holes, stutters, and gaps; keep tone otherwise intact</li>
+        <li>Feels like a damaged disc or a tape with bald patches</li>
+        <li>Closest to glitch — Oval, Yasunao Tone; use sparingly</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon">
+        <svg viewBox="0 0 44 44"><polyline points="10 22 18 30 34 12"/></svg>
+      </div>
+      <div class="checklist-label">Before you build</div>
+    </div>
+    <ul>
+      <li>I have a barely-audible per-pass setting for each symptom I am using.</li>
+      <li>I know which symptom leads, and I have pulled the others back so they support it.</li>
+      <li>I have a target generation from the curve above that matches my page-03 endpoint.</li>
+      <li>Every single value is subtle enough that one pass is almost inaudible.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="setup.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 04 / Setup
+    </a>
+    <a href="build.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      06 / The build →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B4-004 — Tape &amp; Degradation</div>
+
+</div>
+
+</body>
+</html>

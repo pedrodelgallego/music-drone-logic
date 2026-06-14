@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B1-004 — Metering · The build</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B1-004<span class="labnote-topic">Metering</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html" class="active"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B1-004</div>
+    <div class="eyebrow">Metering · 06 — The build</div>
+    <h1>Measure one loop, end to end</h1>
+    <p class="lede">Now we read the instruments. We take a single eight-bar loop and measure everything about it — its input level, its peak, its loudness, its spectral balance, its phase, its tuning — and we act on each reading with one corrective move, then confirm the move on the meter. Every step ends in a decision check. Keep the <a href="setup.html">setup page</a> and the <a href="palette.html">palette</a> open in other tabs.</p>
+  </header>
+
+  <!-- STEP 1 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 14 v20 a2 2 0 0 0 2 2 h28 a2 2 0 0 0 2 -2 v-16 a2 2 0 0 0 -2 -2 h-14 l-4 -4 h-10 a2 2 0 0 0 -2 2 z"/></svg>
+      </div>
+      <div class="step-num">Step 01</div>
+      <h2 class="step-title">Create the project and stand up the meters</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">New set</div>
+      <ul>
+        <li><kbd>⌘ N</kbd>. Tempo <span class="code">124</span>, signature <span class="code">4/4</span>. <kbd>⌘ ,</kbd> → <strong>Audio</strong>: device <strong>MOTU M4</strong>, sample rate <span class="code">48000 Hz</span>.</li>
+        <li>If you saved the measurement template from the <a href="setup.html">setup page</a>, it is already here. If not, add to the master, in order: <strong>Spectrum</strong>, a <strong>loudness meter</strong> (Live's or Youlean), a <strong>correlation meter</strong>, and a <strong>Utility</strong> last.</li>
+        <li>Save as <span class="code">meter_b1_004.als</span>.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Confirm the chain reads, doesn't shape</div>
+      <ul>
+        <li>Play any sound. Spectrum and the loudness meter should move; the Utility at <span class="code">Width 100 %</span> changes nothing yet.</li>
+        <li>Confirm the correlation meter shows a <span class="code">+1 … 0 … −1</span> scale and the master strip shows peak in <span class="code">dBFS</span>.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Are all four meters last in the master chain, after everything else?</li>
+        <li>Is the Utility the very last device — my mono switch?</li>
+        <li>Does nothing in the chain alter the sound until I toggle the Utility?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="14" width="32" height="16" rx="2"/><circle cx="14" cy="22" r="2.5"/><circle cx="22" cy="22" r="2.5"/><circle cx="30" cy="22" r="2.5"/></svg>
+      </div>
+      <div class="step-num">Step 02</div>
+      <h2 class="step-title">Read the first meter — the M4 input</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Set the level at the door</div>
+      <ul>
+        <li>Play your eight-bar Digitakt loop. Watch the M4's input meters on channels <span class="code">3/4</span>, not anything in Live yet.</li>
+        <li>The ladder should ride healthily on the loudest hits and the red <strong>clip LED</strong> must stay dark. If it flickers, lower the M4 input gain.</li>
+        <li>Record the loop into <span class="code">DT DRUMS</span>, monitor <strong>Auto</strong>. A clean converter level is the honest start every later reading depends on.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Write the first number</div>
+      <ul>
+        <li>Note the loop's input behaviour in your logbook: "M4 in 3/4 peaked mid-ladder, clip LED never lit." That is your first measured fact.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Did the M4 clip LED stay dark through the loudest bar?</li>
+        <li>Is the recorded clip clean, with headroom, not slammed to the top?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><line x1="12" y1="36" x2="12" y2="10"/><line x1="22" y1="36" x2="22" y2="18"/><line x1="32" y1="36" x2="32" y2="14"/><polyline points="10 12 12 8 14 12"/></svg>
+      </div>
+      <div class="step-num">Step 03</div>
+      <h2 class="step-title">Measure the peak — true peak too</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Read the channel and master peak</div>
+      <ul>
+        <li>Loop <span class="code">DT DRUMS</span>. Read the channel meter's peak hold. Note the highest value in <span class="code">dBFS</span> — e.g. <span class="code">−3.2 dBFS</span>.</li>
+        <li>On the loudness meter, find the <strong>true-peak (dBTP)</strong> reading. Note it. It will often sit a touch higher than the sample peak — that is the inter-sample overshoot the meter predicts.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Act on the reading</div>
+      <ul>
+        <li>If true peak is above <span class="code">−1 dBTP</span>, that's your first corrective move: drop the channel gain (or master output) until it sits at or below <span class="code">−1 dBTP</span>.</li>
+        <li>Re-read. The move is proven only when the meter confirms it: "true peak went from <span class="code">+0.3</span> to <span class="code">−1.0 dBTP</span>." Write both numbers down.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Do I have a sample-peak <em>and</em> a true-peak number written down?</li>
+        <li>Is true peak now at or under <span class="code">−1 dBTP</span>?</li>
+        <li>Did I confirm the fix on the meter, not just assume it worked?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="14"/><path d="M14 22 a8 8 0 0 1 16 0"/><line x1="22" y1="22" x2="28" y2="16"/></svg>
+      </div>
+      <div class="step-num">Step 04</div>
+      <h2 class="step-title">Measure loudness against your target</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Read integrated LUFS</div>
+      <ul>
+        <li>Reset the loudness meter and let the loop play for a full pass so the <strong>integrated</strong> reading settles. Note it — e.g. <span class="code">−18.4 LUFS</span>.</li>
+        <li>Compare to your target from the <a href="decisions.html">decisions page</a>: <span class="code">−14 LUFS</span>. This loop is quieter than target by about <span class="code">4 LU</span>.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Act on the reading — carefully</div>
+      <ul>
+        <li>Raise master gain to close the gap, watching that true peak does not cross <span class="code">−1 dBTP</span>. If loudness and peak fight, that tension is the job of a later mastering stage — for now, get the loudness honest and keep peak safe.</li>
+        <li>Glance at <strong>short-term</strong> LUFS as it plays: it should stay roughly even across the loop, with no single bar leaping out. A momentary spike points at one too-loud hit.</li>
+      </ul>
+    </div>
+
+    <div class="signal-flow">
+      <span class="signal-node">Momentary (400 ms)</span>
+      <span class="signal-arrow">→ widens to →</span>
+      <span class="signal-node">Short-term (3 s)</span>
+      <span class="signal-arrow">→ widens to →</span>
+      <span class="signal-node">Integrated (whole)</span>
+      <span class="signal-arrow">= your target</span>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Do I have an integrated-LUFS number, and how far is it from <span class="code">−14</span>?</li>
+        <li>When I corrected loudness, did true peak stay under <span class="code">−1 dBTP</span>?</li>
+        <li>Is short-term loudness even across the loop, or is one bar jumping?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 5 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 30 q6 -16 12 0 t12 -4 t8 4"/><line x1="20" y1="34" x2="20" y2="8"/></svg>
+      </div>
+      <div class="step-num">Step 05</div>
+      <h2 class="step-title">Read the spectral balance</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Characterize the tilt</div>
+      <ul>
+        <li>On Spectrum, watch the broad shape with a slower averaging so it settles. Write down the tilt: downward (healthy), flat (thin), or steep (dull).</li>
+        <li>Look for standing features: a broad <span class="code">200–500 Hz</span> hump (mud), a tall narrow spike (resonance), a <span class="code">2–5 kHz</span> rise (harshness).</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Act on one reading</div>
+      <table class="param-table">
+        <caption>What you see → the single move it triggers</caption>
+        <tr><td>Broad hump at <span class="code">~300 Hz</span></td><td>Wide EQ cut of a few dB at that frequency. Re-read: the hump flattens.</td></tr>
+        <tr><td>Spike at one frequency</td><td>Narrow notch at the spike. Re-read: the spike drops to its neighbours' height.</td></tr>
+        <tr><td>Thin, rising tilt</td><td>Gentle high-shelf down or low-shelf up. Re-read: the tilt slopes downward again.</td></tr>
+      </table>
+      <ul>
+        <li>Make <em>one</em> move, justified by the reading, and confirm it on Spectrum. Write it as "cut <span class="code">3 dB</span> at <span class="code">300 Hz</span>; hump gone." That sentence is the proof.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Can I name the loop's tilt in one word?</li>
+        <li>Did I name a fault as a frequency, then cut there, then confirm it changed?</li>
+        <li>Did I resist cutting by ear without a reading to point at?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 6 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><line x1="22" y1="8" x2="22" y2="36"/><path d="M14 14 a10 10 0 0 0 0 16"/><path d="M30 14 a10 10 0 0 1 0 16"/></svg>
+      </div>
+      <div class="step-num">Step 06</div>
+      <h2 class="step-title">Read phase, then fold to mono</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Read the correlation needle</div>
+      <ul>
+        <li>Watch the correlation meter across the loop. Note where the needle lives and its lowest dip — e.g. "lives at <span class="code">+0.6</span>, dips to <span class="code">+0.2</span>."</li>
+        <li>If it ever drops below <span class="code">0</span>, an element is going out of phase. Solo tracks to find which one — usually a widened pad or a stereo effect.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Prove it with the mono switch</div>
+      <ul>
+        <li>Toggle the Utility to <span class="code">Width 0 %</span>. Watch Spectrum and listen. If anything thins, drops out, or shows comb-shaped dips, that element was relying on phase that doesn't survive the fold.</li>
+        <li><strong>Act:</strong> reduce that element's width, or mono everything below <span class="code">120 Hz</span>, until the needle climbs above <span class="code">0</span> and nothing vanishes in the fold. Re-read in mono to confirm recovery.</li>
+      </ul>
+    </div>
+
+    <div class="signal-flow">
+      <span class="signal-node">Read needle</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">Fold to mono</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">See what vanishes</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">Narrow / mono low end</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">Confirm recovery</span>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Do I have a correlation number — where it lives and its lowest dip?</li>
+        <li>Did the mono fold lose anything? If so, did I fix it and re-confirm?</li>
+        <li>Is the low end mono and the needle above <span class="code">0</span>?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 7 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><line x1="22" y1="8" x2="22" y2="36"/><line x1="14" y1="16" x2="14" y2="28"/><line x1="30" y1="16" x2="30" y2="28"/><line x1="8" y1="22" x2="36" y2="22"/></svg>
+      </div>
+      <div class="step-num">Step 07</div>
+      <h2 class="step-title">Tune the drone against the reference</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Measure the pitch</div>
+      <ul>
+        <li>Solo the MicroFreak drone through Live's <strong>Tuner</strong>. Confirm the tuner's reference is <span class="code">A = 440 Hz</span>.</li>
+        <li>Read the note name and the cents offset. If it reads, say, <span class="code">A −12 cents</span>, the drone is flat of its target by 12 cents.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Act and confirm by ear too</div>
+      <ul>
+        <li>Retune the oscillator until the tuner reads <span class="code">0</span> cents. Then stack it under the kick's tuned fundamental: the slow beating you may have heard should slow and stop as the cents close to zero.</li>
+        <li>Tune the kick, bass, and drone to one shared root so the low end agrees rather than fights. Pitch is just another reading you act on.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does the tuner read within a few cents of <span class="code">0</span> on the drone?</li>
+        <li>Did the beating against the in-tune voice slow as the reading closed to zero?</li>
+        <li>Do the low-end parts share one root?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 8 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="8" y="10" width="28" height="24" rx="2"/><path d="M14 22 q8 -8 16 0"/><line x1="14" y1="28" x2="30" y2="28"/></svg>
+      </div>
+      <div class="step-num">Step 08</div>
+      <h2 class="step-title">Read gain reduction on a compressor</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Watch the GR meter, don't dial blind</div>
+      <ul>
+        <li>Put a Compressor on the drum bus for gentle glue. Lower the threshold until the <strong>gain-reduction meter</strong> dips <span class="code">1–3 dB</span> on the loudest hits and returns to <span class="code">0</span> between them.</li>
+        <li>Read the number, don't guess it: "GR dipping to <span class="code">−2 dB</span> on the kick." If the meter is pinned down at <span class="code">−6 dB+</span> constantly, you're crushing — raise the threshold or lower the ratio until it breathes.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Light touch only</div>
+      <ul>
+        <li>This Lab Note is about reading the meter, not designing the compression. A dip you can see and name is the goal; the deep craft of compression is Block 4's job. Confirm the GR matches your intent and move on.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Can I state the gain reduction as a number of dB removed?</li>
+        <li>Does the GR meter return to <span class="code">0</span> between hits, or is it pinned?</li>
+        <li>Does the reading match what I intended — glue, not crush?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 9 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><line x1="8" y1="36" x2="8" y2="10"/><line x1="8" y1="36" x2="38" y2="36"/><path d="M8 30 L16 24 L24 28 L32 16 L38 22"/></svg>
+      </div>
+      <div class="step-num">Step 09</div>
+      <h2 class="step-title">Assemble the full reading sheet</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">One loop, every number in one place</div>
+      <table class="param-table">
+        <caption>The reading sheet — copy and fill for your loop</caption>
+        <tr><td>M4 input</td><td>clip LED dark? · peaked where on the ladder?</td></tr>
+        <tr><td>Sample peak</td><td>___ <span class="code">dBFS</span></td></tr>
+        <tr><td>True peak</td><td>___ <span class="code">dBTP</span> (target ≤ <span class="code">−1</span>)</td></tr>
+        <tr><td>Integrated LUFS</td><td>___ (target <span class="code">−14</span>)</td></tr>
+        <tr><td>Spectral tilt</td><td>down / flat / steep · standing feature at ___ Hz</td></tr>
+        <tr><td>Correlation</td><td>lives at ___ · lowest dip ___ · survives mono? Y/N</td></tr>
+        <tr><td>Tuner</td><td>drone reads ___ note ___ cents</td></tr>
+        <tr><td>Gain reduction</td><td>___ dB on loudest hits</td></tr>
+      </table>
+      <ul>
+        <li>For each row that was out of bounds, write the corrective move <em>and</em> the before/after number. That column of fixes is the whole point of the exercise.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Is every row filled with a real number, not a vibe?</li>
+        <li>Does every fix have a before and an after reading?</li>
+        <li>Could someone else reproduce my corrections from this sheet alone?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 10 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><polyline points="14 18 22 26 30 18"/><line x1="22" y1="8" x2="22" y2="26"/><line x1="8" y1="34" x2="36" y2="34"/></svg>
+      </div>
+      <div class="step-num">Step 10</div>
+      <h2 class="step-title">Make one corrective move and prove it</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Pick the worst reading and fix it for real</div>
+      <ul>
+        <li>From the sheet, choose the single reading furthest out of bounds — the true peak above <span class="code">−1</span>, the <span class="code">300 Hz</span> mud, the needle below <span class="code">0</span>, or the drone <span class="code">12</span> cents flat.</li>
+        <li>Make exactly one move to correct it. State the move as a sentence with both numbers: "Cut <span class="code">3 dB</span> at <span class="code">300 Hz</span>; the hump on Spectrum flattened and the loop reads clearer."</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Confirm everywhere</div>
+      <ul>
+        <li>Re-read the affected meter to prove the move worked. Then glance at the others to confirm you didn't break a second reading fixing the first — e.g. a loudness boost that pushed true peak over the line.</li>
+        <li>Listen at your fixed monitoring level. Your ears should now agree with the meter — the proof that measurement led and hearing followed.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Final decision check</div>
+      <ul>
+        <li>Did I justify the move with a reading, not a feeling?</li>
+        <li>Can I state the before and after number for the thing I changed?</li>
+        <li>Did the fix hold without knocking another meter out of bounds?</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-nav">
+    <a href="palette.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 05 / Palette
+    </a>
+    <a href="reflection.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      07 / Reflection →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B1-004 — Metering</div>
+
+</div>
+
+</body>
+</html>

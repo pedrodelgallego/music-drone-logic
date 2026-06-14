@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B4-003 — Granular — Decisions</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B4-003<span class="labnote-topic">Granular</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html" class="active"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Grain palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B4-003</div>
+    <div class="eyebrow">Granular · 03 — Decisions</div>
+    <h1>What a grain is, and the four dials that shape it</h1>
+    <p class="lede">Every granular instrument, no matter the brand, exposes the same small set of decisions: how long each grain is, where in the source it reads from, how many fire per second, and how much they scatter. Understand these four and freezing, and you can drive any granular tool. This page is the theory; the choices made here are the choices the build assumes.</p>
+  </header>
+
+  <h2>What a grain is</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><circle cx="12" cy="16" r="2.5" fill="currentColor"/><circle cx="22" cy="24" r="2.5" fill="currentColor"/><circle cx="32" cy="14" r="2.5" fill="currentColor"/><circle cx="16" cy="32" r="2.5" fill="currentColor"/><circle cx="30" cy="30" r="2.5" fill="currentColor"/></svg>
+      </div>
+      <h3 class="card-title">A grain</h3>
+      <ul class="card-points">
+        <li>A very short window of a sample — typically 10–100 ms — with a smooth fade in and out</li>
+        <li>Too short to carry melody, long enough to carry timbre</li>
+        <li>Played alone it is a click or a chirp; played in clouds it is texture</li>
+        <li>Its read position in the source is set independently of when it plays</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 22 q4 -10 8 0 t8 0 t8 0 t8 0"/></svg>
+      </div>
+      <h3 class="card-title">A cloud</h3>
+      <ul class="card-points">
+        <li>Many overlapping grains per second build a continuous sound</li>
+        <li>Time is now decoupled from pitch — freeze position and pitch keeps moving</li>
+        <li>Density and overlap decide whether you hear stutter or smooth wash</li>
+        <li>This is how a half-second sample becomes a minute-long pad</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The grain window matters</div>
+    <p>The fade at each grain's edges — its <em>envelope</em> or window — is why grains do not click. A grain with hard edges is a click; a grain with a smooth bell-shaped window is a tone. Most instruments hide this as a single "shape" or "window" control. When a cloud sounds gritty and you don't want it to, the window is usually too sharp before the size is too short.</p>
+  </div>
+
+  <h2>The four grain controls</h2>
+
+  <table class="param-table">
+    <caption>The granular parameter set — what each dial does to the cloud</caption>
+    <tr><td>Size</td><td>Grain length. Short (10–30 ms) = buzzy, pitched-by-rate, the "grain" is audible. Long (60–120 ms) = smooth, the source's timbre survives. Crossing ~50 ms is roughly the line between texture and pad.</td></tr>
+    <tr><td>Position</td><td>Where in the source the grains are read from. Hold it still to <strong>freeze</strong>; move it slowly to scan the sample as a timbre you can scrub. This is the load-bearing control of the whole engine.</td></tr>
+    <tr><td>Density</td><td>How many grains per second. Low = sparse, rhythmic, pointillist. High = solid, continuous. Density trades CPU for smoothness; it also moves the sound along the point–cloud line.</td></tr>
+    <tr><td>Spray</td><td>Random scatter of grain position around the set point. A little spray hides the loop point and the periodicity; a lot turns a pitched tone into a noisy cloud.</td></tr>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">Freezing, plainly</div>
+    <p>Freezing means parking the read position so grains keep firing from the same spot. The sound sustains indefinitely from a single instant of the recording — a held breath, an infinite reverb tail, a frozen chord. The source had a few milliseconds of that timbre; freezing stretches it into forever. It is the single most important move in this Lab Note.</p>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Position is the new gain</div>
+    <p>On the saturation pages of Block 4, "level in / level out" was the whole story. Granular breaks that. The same processor reading position 0.2 s versus 0.8 s of the same file produces completely different material at identical level. Position becomes a sound-design parameter as load-bearing as gain ever was — and unlike gain, it has no neutral value.</p>
+  </div>
+
+  <h2>How the four dials interact</h2>
+
+  <table class="param-table">
+    <caption>Reading the cloud from its symptoms</caption>
+    <tr><td>Buzzy, pitched whine</td><td>Size too short — grains are firing fast enough to become a pitch of their own. Lengthen size or lower density.</td></tr>
+    <tr><td>Audible looping / machine-gun repeat</td><td>Position frozen with no spray and short grains. Add a little spray, or modulate position by a few ms.</td></tr>
+    <tr><td>Smooth but lifeless pad</td><td>Long grains, high density, zero spray, frozen position. Add slow position drift or a touch of spray to make it shimmer.</td></tr>
+    <tr><td>Noise, source gone</td><td>Spray too high and/or position scanning fast. Pull spray down and freeze position if you want the pitch back.</td></tr>
+    <tr><td>Stutter / rhythmic</td><td>Low density with short grains. This is a feature — lean into it for the glitch and stutter recipes.</td></tr>
+  </table>
+
+  <h2>Slicing — the larger grain</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><line x1="10" y1="8" x2="10" y2="36"/><line x1="20" y1="8" x2="20" y2="36"/><line x1="30" y1="8" x2="30" y2="36"/><line x1="6" y1="22" x2="38" y2="22"/></svg>
+      </div>
+      <h3 class="card-title">Slice by event</h3>
+      <ul class="card-points">
+        <li>Cut a recording at its transients — each hit becomes its own slice</li>
+        <li>Slices are musical units: a kick, a syllable, a note, a grain-burst</li>
+        <li>Map them to keys or pads so the timeline becomes playable material</li>
+        <li>The original order is now just one of many possible orders</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="14" width="7" height="6"/><rect x="16" y="14" width="11" height="6"/><rect x="30" y="14" width="8" height="6"/><rect x="10" y="24" width="11" height="6"/><rect x="24" y="24" width="7" height="6"/></svg>
+      </div>
+      <h3 class="card-title">Reassemble by grammar</h3>
+      <ul class="card-points">
+        <li>Re-sequence slices into a pattern the source never played</li>
+        <li>Reorder, repeat, reverse, skip — compose <em>with</em> the recording</li>
+        <li>A frozen cloud, once sliced, becomes a rhythmic kit</li>
+        <li>Sequence by musical logic, not by where the grid happens to fall</li>
+      </ul>
+    </div>
+  </div>
+
+  <p style="text-align:center; color:var(--text-muted); max-width:640px; margin:0 auto 24px;">Granular and slicing are the same idea at two scales. A grain is dozens of milliseconds reassembled into clouds; a slice is a musical event reassembled into a new arrangement. Both decouple a sound from its own timeline — one too small to hear individually, one large enough to play.</p>
+
+  <h2>Resampling — printing a transformation as new material</h2>
+
+  <div class="signal-flow">
+    <span class="signal-node">source</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">transform (grain / slice / FX)</span>
+    <span class="signal-arrow">print to audio</span>
+    <span class="signal-node">new sample</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">transform again</span>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Why resample at all</div>
+    <p>Resampling freezes a transformed result into a fresh recording you can treat as a brand-new source. It is how you stack transformations that couldn't otherwise coexist (a granular cloud, then sliced; a sliced break, then granulated) and how you commit a CPU-heavy or unrepeatable result so the rest of the chain stays light. Each resample is a <strong>generation</strong> — and once printed, the previous stage's settings are gone, exactly like bouncing to tape.</p>
+  </div>
+
+  <h2>The decisions this Lab Note makes for you</h2>
+
+  <table class="param-table">
+    <caption>Choices the build assumes — change them only deliberately</caption>
+    <tr><td>One source</td><td>The whole track grows from a single short recording. Every layer is a generation of it. This is the constraint that forces depth instead of width.</td></tr>
+    <tr><td>Source has clear pitch</td><td>A single sustained note — drone, struck string, sung vowel. A pitched source lets a frozen cloud become a chord; a noisy source can only ever be texture.</td></tr>
+    <tr><td>Smooth before stutter</td><td>The track's spine is a long, frozen, high-density pad. Stutter and glitch are seasoning layered on top — never the foundation.</td></tr>
+    <tr><td>Generations are logged</td><td>Every resample is written down: what entered it, what settings, which generation number. Irreversible steps demand a paper trail.</td></tr>
+    <tr><td>Position drives the arc</td><td>The long-form evolution comes from position and size moving over minutes, plus drawn automation — not from adding new sounds.</td></tr>
+  </table>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Decision check</div>
+    <ul>
+      <li>Have I chosen a single source with a clear, stable pitch — or am I about to granulate something noisy and wonder why it never becomes harmony?</li>
+      <li>Do I know, for each dial, which direction moves toward texture and which toward pad?</li>
+      <li>Have I decided whether I want the source to survive recognisably or dissolve into new material? Both are valid — but pick one before page 06.</li>
+      <li>Do I have a place to log generations? Page 06 will produce several, and you cannot undo a resample.</li>
+    </ul>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Carry forward:</strong> the four dials and freezing are the entire conceptual toolkit. Page 04 maps them onto specific instruments — Granulator III, Grain Delay, MicroFreak's sample engine, Digitakt slicing — and builds the resampling loop they all feed.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="listen.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 02 / Listen
+    </a>
+    <a href="setup.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      04 / Setup →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B4-003 — Granular</div>
+
+</div>
+
+</body>
+</html>

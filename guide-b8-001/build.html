@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B8-001 — Spec &amp; Voice — The Build</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Lab Note contents">
+  <p class="nav-label labnote-code">Lab Note B8-001<span class="labnote-topic">Spec &amp; Voice</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html" class="active"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B8-001</div>
+    <div class="eyebrow">Spec &amp; Voice · 06 — The build</div>
+    <h1>Author the spec, then build to it</h1>
+    <p class="lede">This is the long page. You will audit your own archive, write both halves of the spec, design the constraints, draft the thesis sentence, compile the spec into a session, and build one short piece that obeys it — then verify, line by line, that the piece you made is the piece the spec demanded. Keep the <a href="palette.html">palette page</a> open in another tab; the template and worksheet there are the forms this page fills. Keep the <a href="setup.html">setup page</a> open too; it is the wiring this build assumes.</p>
+  </header>
+
+  <!-- STEP 1 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="20" cy="20" r="11"/><line x1="28" y1="28" x2="38" y2="38"/></svg>
+      </div>
+      <div class="step-num">Step 01</div>
+      <h2 class="step-title">Audit your archive</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Lay the whole catalogue out at once</div>
+      <ul>
+        <li>Open every finished piece from the workshop — Blocks 1 through 7. Render each to a short reference WAV if it is not already, and put them in one folder. You are about to read your own work like a stranger.</li>
+        <li>Do not start with your favourite. The voice is the pattern across the set, not the high point of one track. The favourite flatters you; the set tells the truth.</li>
+        <li>Set a timer and listen to the first thirty seconds of each, in order. Resist editing. The job right now is observation, not improvement.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Fill the voice-audit worksheet, one row per piece</div>
+      <ul>
+        <li>Use the columns from <a href="palette.html">page 05</a>: defining move, what carried it, what I refused, what I reached for too easily, would a stranger know it was mine.</li>
+        <li>Write the <strong>defining move</strong> as a single gesture — "one filter opens the whole arrangement," "the intro refuses to start," "a dry kick against a wet everything." If you need a sentence, you have not found the move yet; compress.</li>
+        <li>Be brutal about the crutch column. The thing you add when unsure is almost never a signature — it is a tell, and naming it is half the work of this page.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Read down the columns for the recurrence</div>
+      <ul>
+        <li>Find the move that appears in the most rows. That recurring move is the raw material of the voice — the thing your hands do when you stop deciding.</li>
+        <li>Find the crutch that appears in the most rows. That is a refusal waiting to be written, or a habit waiting to be justified.</li>
+        <li>Write both down as plain phrases before you do anything else: <span class="code">recurring move: ___</span> and <span class="code">recurring crutch: ___</span>.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Why the archive, and not the next idea</div>
+      <ul>
+        <li>The voice is the pattern across what you have already finished, not the idea in front of you. The next idea is a hope; the archive is a record. Hopes lie about who you are; records do not.</li>
+        <li>This is the lesson of <em>Dust</em> from page 02: the palette changed track to track, yet one author was audible throughout. Run the same listening on yourself. Strip away the wardrobe — the particular synth, the particular sample — and ask what survives every change. The survivor is the voice.</li>
+        <li>If nothing survives yet, that is also a finding. A young catalogue may have habits but no signature. The audit tells you honestly which you have, so you do not write a thesis your work cannot back up.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Can I name the one move that appears across most of my finished work, in three words?</li>
+        <li>Did I audit the whole set, or just the pieces I am proud of?</li>
+        <li>Have I separated what I <em>did</em> from what I <em>meant to do</em>? Only the first is evidence.</li>
+        <li>Did a crutch recur? If I cannot find one, I have not been honest enough yet.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="15"/><line x1="12" y1="12" x2="32" y2="32"/></svg>
+      </div>
+      <div class="step-num">Step 02</div>
+      <h2 class="step-title">Write the refusals first</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Start with what you turn down</div>
+      <ul>
+        <li>Refusals are harder to fake than aspirations and they cost you something, which is exactly why they are evidence. Write them before a single positive intention.</li>
+        <li>Pull two kinds from the audit. <strong>Refusals of technique:</strong> the move the genre treats as mandatory that you decline — the drop, the riser, the key change, the new element late in the piece. <strong>Refusals of intent:</strong> the chase you opt out of — the floor, the algorithm, the trend, the resolution the listener expects.</li>
+        <li>Convert your recurring crutch into a refusal. If "reverb when unsure" appeared in every row, write either "no reverb send I cannot justify by purpose" or a deliberate carve-out — but decide, do not drift.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Test each refusal for teeth</div>
+      <table class="param-table">
+        <caption>A refusal must close a door you would otherwise walk through</caption>
+        <tr><td>"No drop"</td><td>Real — you reach for drops; this costs you. Keep it.</td></tr>
+        <tr><td>"No bad sounds"</td><td>Fake — nobody chooses bad sounds. Cut it.</td></tr>
+        <tr><td>"No element after 3:00"</td><td>Real — bans your habit of rescuing a piece by adding. Keep it.</td></tr>
+        <tr><td>"Stay true to myself"</td><td>Fake — cannot be broken, cannot be checked. Cut it.</td></tr>
+      </table>
+      <ul>
+        <li>Keep only refusals you could be caught breaking. Three sharp refusals beat ten vague ones.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><line x1="8" y1="22" x2="36" y2="22"/><line x1="14" y1="14" x2="14" y2="30"/><line x1="30" y1="14" x2="30" y2="30"/></svg>
+      </div>
+      <div class="step-num">Step 03</div>
+      <h2 class="step-title">Design the constraint budget</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Name the felt result and the load-bearing variable</div>
+      <ul>
+        <li>Write one sentence about what should happen in the listener's body — "time should feel suspended," "the room should feel larger than the speakers." No gear named.</li>
+        <li>Across the seven layers — Material, Signal, Control, Time, Decision, Human, Archive — choose the single layer that carries this work. Your audit usually points straight at it: if "the withheld arrival" recurred, your variable is <strong>Time</strong>.</li>
+        <li>Everything else now becomes a constraint in service of that one variable. A system with three load-bearing variables is three half-systems.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Write three to six constraints as numbers or refusals</div>
+      <table class="param-table">
+        <caption>Each rule must be countable or bannable</caption>
+        <tr><td>Element budget</td><td>"No more than five sounding elements at any instant."</td></tr>
+        <tr><td>Movement source</td><td>"All change is modulation or automation; no element enters after minute three."</td></tr>
+        <tr><td>Palette</td><td>"One synth voice, one sampler, stock effects only."</td></tr>
+        <tr><td>Time floor</td><td>"No transition shorter than eight bars."</td></tr>
+        <tr><td>Refusal list</td><td>The bans you wrote in Step 02, restated as a single line.</td></tr>
+      </table>
+      <ul>
+        <li>For each constraint, ask the generative test from page 03: <em>what does this force me toward?</em> "Bans new elements after 3:00" forces movement out of modulation. If a rule forbids without forcing anything, rewrite it until it points somewhere.</li>
+        <li>Stop at six. Twelve constraints is a cage you will resent and abandon by the second piece. The discipline is choosing the few that matter.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Pressure-test the budget before you commit to it</div>
+      <ul>
+        <li>Read the constraints together and ask whether they <em>cohere</em> — do they all serve the one load-bearing variable, or are two of them pulling in different directions? A palette rule that wants density and a budget rule that wants emptiness will fight, and the piece will show the fight.</li>
+        <li>Imagine a piece that satisfies every constraint and is still boring. If that piece is easy to imagine, a constraint is missing — usually the one that names the felt result as a measurable thing. Add it.</li>
+        <li>Imagine the most tempting way to cheat each rule. Write the counter-rule that closes that loophole, or accept the loophole on purpose. Either is a decision; drifting into it later is not.</li>
+        <li>Remember that the constraints are a budget, not a wishlist. A budget is something you spend against and run out of. If you never feel the limit while building, the budget was too generous to do any work.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Is every constraint a number or a refusal, never a vibe?</li>
+        <li>Could each one be caught being broken?</li>
+        <li>Does each constraint force me <em>toward</em> something, not just away?</li>
+        <li>Do I have between three and six? More is a cage; fewer is not yet a system.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><line x1="10" y1="16" x2="34" y2="16"/><line x1="10" y1="24" x2="28" y2="24"/><line x1="10" y1="32" x2="22" y2="32"/></svg>
+      </div>
+      <div class="step-num">Step 04</div>
+      <h2 class="step-title">Draft the thesis sentence</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Compress the System Spec to one falsifiable claim</div>
+      <ul>
+        <li>Use the form: <em>"I make [kind of work] in which [the one variable] does the work, while refusing [the thing others rely on]."</em></li>
+        <li>Draft it from the parts you already have: the load-bearing variable from Step 03, the recurring move from Step 01, the sharpest refusal from Step 02. The sentence is those three facts, joined.</li>
+        <li>Example: <em>"I make long-form electronic music where time feels suspended because a few elements drift, refusing every dramatic event the genre expects."</em></li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Run the falsifiability test</div>
+      <ul>
+        <li>Ask: could a piece <em>fail</em> this thesis? Describe the piece that would betray it. If a track with a big drop would obviously violate your sentence, the sentence is doing its job.</li>
+        <li>A thesis nothing can violate is a slogan. "I make honest music" cannot be failed; cut it. "I make music where nothing arrives dramatically" can be failed by a single drop; keep it.</li>
+        <li>From recurring habit to deliberate signature — this is the chain you have just walked:</li>
+      </ul>
+      <div class="signal-flow">
+        <span class="signal-node">Recurring habit</span>
+        <span class="signal-arrow">→</span>
+        <span class="signal-node">Name it</span>
+        <span class="signal-arrow">→</span>
+        <span class="signal-node">Refuse its opposite</span>
+        <span class="signal-arrow">→</span>
+        <span class="signal-node">Thesis sentence</span>
+        <span class="signal-arrow">→</span>
+        <span class="signal-node">Signature</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 5 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="14" cy="14" r="5"/><circle cx="30" cy="30" r="5"/><line x1="18" y1="14" x2="30" y2="14"/><line x1="30" y1="14" x2="30" y2="25"/><line x1="14" y1="19" x2="14" y2="30"/><line x1="14" y1="30" x2="25" y2="30"/></svg>
+      </div>
+      <div class="step-num">Step 05</div>
+      <h2 class="step-title">Write the Engineering Spec and sort every line</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Translate each system rule into a mechanism</div>
+      <ul>
+        <li>"Five elements maximum" becomes a track list and a routing diagram. "All change is modulation" becomes a list of mod sources and automation lanes — and a ban on duplicating clips into new sections.</li>
+        <li>Declare the clock master once, in writing: Ableton sends sync; the boxes receive only. One clock, one truth.</li>
+        <li>Specify parameter ranges, not just parameters: "the load-bearing filter rides 600&nbsp;Hz–3.5&nbsp;kHz" so a mapped controller can never overshoot into harshness.</li>
+        <li>List every device, so "stock effects only" is auditable rather than aspirational.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Sort every line into System or Engineering</div>
+      <ul>
+        <li>Go through your whole document line by line. For each, ask: does this stay true if I sell the rig tomorrow? Yes → System. No → Engineering. Move it to the right file.</li>
+        <li>The split made physical, the chain you read backward when something feels wrong:</li>
+      </ul>
+      <div class="signal-flow">
+        <span class="signal-node">System Spec</span>
+        <span class="signal-arrow">→</span>
+        <span class="signal-node">Constraints</span>
+        <span class="signal-arrow">→</span>
+        <span class="signal-node">Engineering Spec</span>
+        <span class="signal-arrow">→</span>
+        <span class="signal-node">Rig &amp; routing</span>
+        <span class="signal-arrow">→</span>
+        <span class="signal-node">The piece</span>
+      </div>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Can I sort every line cleanly into System or Engineering, with none straddling?</li>
+        <li>Did I name exactly one clock master?</li>
+        <li>Does each load-bearing control have a written Min/Max range?</li>
+        <li>If I lost my whole rig tomorrow, would the System Spec still stand on a different one?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 6 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="10" width="32" height="24" rx="2"/><line x1="6" y1="18" x2="38" y2="18"/><line x1="14" y1="18" x2="14" y2="34"/></svg>
+      </div>
+      <div class="step-num">Step 06</div>
+      <h2 class="step-title">Compile the spec into a session</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Build the template from the Engineering Spec</div>
+      <ul>
+        <li><kbd>⌘ N</kbd> for a new Live Set, <kbd>Tab</kbd> to Arrangement view. Set tempo and time signature per your spec.</li>
+        <li>Create exactly as many audio tracks as your element budget allows — no more — with <kbd>⌘ T</kbd>, and rename each with <kbd>⌘ R</kbd> after its <em>role</em>: <span class="code">FOUNDATION</span>, <span class="code">VOICE</span>, <span class="code">SPACE</span>, <span class="code">TEXTURE</span>, <span class="code">ACCENT</span>. A track named after gear is engineering leaking into intention.</li>
+        <li><kbd>⌘ ⌥ T</kbd> for the returns your device list permits: <span class="code">A — REVERB</span>, <span class="code">B — ECHO</span>, both 100&nbsp;% wet, the Echo high-passed around <span class="code">250 Hz</span>.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Enforce the clock and the ranges</div>
+      <ul>
+        <li><kbd>⌘ ,</kbd> → <strong>Link, Tempo &amp; MIDI</strong>. Enable <strong>Sync</strong> on the Digitakt II and MicroFreak output rows. On the boxes, receive clock and transport, send neither. Press play and confirm both follow Ableton — the single most common silent spec violation lives here.</li>
+        <li><kbd>⌘ M</kbd> for MIDI map. Map only the controls your spec permits — usually four. For each, type the spec's range into the mapping's <strong>Min</strong> and <strong>Max</strong> so the controller cannot overshoot. The range in the document is now physically enforced.</li>
+        <li>Set record preferences: WAV, 24-bit, Auto-Warp Long Samples <strong>off</strong>, so clock-synced takes stay untouched audio.</li>
+        <li><span class="menu">File → Save Live Set As</span> → <span class="code">spec_template.als</span>. This file is the Engineering Spec, compiled.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 7 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 22 Q22 6 38 22"/><path d="M6 22 Q22 38 38 22"/><circle cx="22" cy="22" r="4"/></svg>
+      </div>
+      <div class="step-num">Step 07</div>
+      <h2 class="step-title">Build a short piece to your own spec</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Make a three-minute piece, not a finished release</div>
+      <ul>
+        <li>The goal is to prove the spec produces work, not to make a masterpiece. Three minutes is enough to test every constraint.</li>
+        <li>Record long <strong>static takes</strong> for each budgeted element — printed movement from MicroFreak LFOs and Digitakt p-locks living inside the audio. A static take can be reshaped forever; a take with baked-in knob moves cannot be un-moved.</li>
+        <li>Build the arc entirely from <strong>drawn movement</strong>: Auto Filter, sends, Saturator, volume — automation on top of the static takes. If your spec says "all change is modulation," this is where you keep that promise.</li>
+        <li>When tempted to add a sixth element or a late arrival, stop. That temptation is the spec working — it is showing you exactly the door you chose to close.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Obey the refusals in the heat of building</div>
+      <ul>
+        <li>Keep the refusal list visible on a second screen or a sticky note. The 2&nbsp;a.m. instinct to add a riser is precisely the thing the document exists to overrule.</li>
+        <li>No ramp shorter than the time floor you wrote — most will be 16 to 48 bars. Bend ramps into S-curves so they read as intention, not as a ruler.</li>
+        <li>If a moment genuinely needs more movement, re-record the take with deeper modulation; do not fake it with an extreme plugin automation that violates a range you set.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Did every change come from modulation or automation, with no element entering late?</li>
+        <li>Is the element count at or under budget for the whole piece?</li>
+        <li>Did I hit any refusal and stop, or did I quietly break one?</li>
+        <li>Does the energy arrive by <em>opening</em>, not by <em>adding</em>?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 8 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M14 22 l6 6 l12 -14"/><circle cx="22" cy="22" r="16"/></svg>
+      </div>
+      <div class="step-num">Step 08</div>
+      <h2 class="step-title">Verify the piece against the spec</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Read the spec backward over the finished piece</div>
+      <ul>
+        <li>Open the System Spec next to the rendered audio. Go down the constraints one at a time and mark each <strong>kept</strong> or <strong>broken</strong>, with the timestamp where it broke.</li>
+        <li>When a constraint broke, read the chain backward — <span class="code">piece → rig → Engineering → constraint → System</span>. The fault is almost always a constraint you wrote loosely, not a knob you set wrong. Tighten the document, not just the mix.</li>
+        <li>Run the blind test: play the piece to someone who holds only your thesis sentence. Can they tell it obeys the thesis? Can they tell it is yours? "Only with the others" is an honest answer for a young voice.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Archive the day in three recoverable layers</div>
+      <ul>
+        <li><span class="menu">File → Collect All and Save</span> so the project is self-contained. Save the Digitakt II project and any MicroFreak patches.</li>
+        <li>Save the spec itself next to the WAV: <span class="code">spec_v1.txt</span> and <span class="code">piece_v1.wav</span> together. The piece is one output; the spec is the generator, and it is the more valuable file.</li>
+        <li>Write a single line of what the spec made you do that you would not have done otherwise. That line is the evidence the system, not your hands, did the work.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Decide what the spec earns going forward</div>
+      <ul>
+        <li>A spec that produced one good piece is a draft that survived contact. Mark the constraints that pulled their weight and the ones that only got in the way; the latter are candidates for the cut on page 07.</li>
+        <li>The hardest and most valuable outcome is a refusal you now want to keep even though it cost you a moment you liked. That is a constraint becoming a voice — the limit you have stopped resenting.</li>
+        <li>Keep both files versioned. <span class="code">spec_v1.txt</span> is a dated snapshot of your taste; in six months <span class="code">spec_v4.txt</span> will read differently, and the diff between them is the truest record of how your voice moved.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Did the piece keep every constraint, or did I learn which ones were written too loosely?</li>
+        <li>When a stranger held the thesis, could they recognise the piece as obeying it?</li>
+        <li>Is the spec saved alongside the audio, as the more important artefact?</li>
+        <li>Can I name one thing the spec forced me to do that improved the piece?</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-nav">
+    <a href="palette.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 05 / Palette
+    </a>
+    <a href="reflection.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      07 / Reflection →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B8-001 — Spec &amp; Voice</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B7-002 — Live Resampling — Setup</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B7-002<span class="labnote-topic">Live Resampling</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html" class="active"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Capture palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B7-002</div>
+    <div class="eyebrow">Live Resampling · 04 — Setup</div>
+    <h1>The rig and the signal path</h1>
+    <p class="lede">The wiring reference the <a href="build.html">build page</a> assumes. One capture engine, one clock master, one return channel with a gain ceiling — and a measured round-trip offset so the replay lands on the grid. Set this up cold, in rehearsal, before any of it has to work in front of a room.</p>
+  </header>
+
+  <h2>The capture signal path</h2>
+
+  <div class="signal-flow">
+    <div class="signal-node">Live mix bus</div>
+    <div class="signal-arrow">→</div>
+    <div class="signal-node">Resample input</div>
+    <div class="signal-arrow">→</div>
+    <div class="signal-node">Capture buffer</div>
+    <div class="signal-arrow">→</div>
+    <div class="signal-node">Transform</div>
+    <div class="signal-arrow">→</div>
+    <div class="signal-node">Return (limiter)</div>
+    <div class="signal-arrow">→</div>
+    <div class="signal-node">Back to mix bus</div>
+  </div>
+
+  <h2>Path A — Ableton resampling input</h2>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Create the capture track.</strong> <kbd>⌘ T</kbd> for an audio track named <span class="code">RS CAPTURE</span>. Audio From → <span class="menu">Resampling</span>. This taps the full internal mix post-master-fader — exactly the live output, nothing more.</li>
+      <li><strong>Create the return track.</strong> A second audio/MIDI path named <span class="code">RS RETURN</span> that plays the captured clip back into the mix. Keep capture and return separate so the engine never records its own output.</li>
+      <li><strong>Set the clip record length.</strong> In Session view, give the capture clip slot a fixed length so the capture quantises to the grid, never to your reflexes. Record Quantization → <span class="code">1 Bar</span>.</li>
+      <li><strong>Mind the post-fader tap.</strong> Resampling is post-master-fader, so the master fader level <em>is</em> your capture level. Leave the master at unity during a capture; ride sends and channel faders instead.</li>
+    </ul>
+  </div>
+
+  <h2>Path B — Digitakt II / Octatrack capture</h2>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Digitakt II.</strong> Route the source into the Digitakt's inputs (or sample its own main output) and use the sampling page to grab the buffer. The capture lands on a track you can immediately p-lock, pitch, and sequence — the tightest clock of the three paths.</li>
+      <li><strong>Octatrack MKII.</strong> Assign a Recorder buffer to capture the incoming mix continuously; trigger the recording quantised, then play it from a Flex machine. The buffer and the playback share the same clock by design.</li>
+      <li><strong>Feed the box, not a loop.</strong> Capture the source <em>before</em> the resample return re-enters it. Sampling a signal that already contains the previous capture is how the loop runs away.</li>
+    </ul>
+  </div>
+
+  <table class="param-table">
+    <caption>Clock — exactly one master</caption>
+    <tr><td>Ableton</td><td>Clock + transport master. Sends clock out to all hardware; receives from none.</td></tr>
+    <tr><td>Digitakt II</td><td>Clock <em>receive</em> on, transport <em>receive</em> on, clock <em>send</em> off.</td></tr>
+    <tr><td>Octatrack / MicroFreak</td><td>Sync source set to the same clock. No second device sends clock — ever.</td></tr>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">Clock before compensation</div>
+    <p>A buffer recorded against free-running audio drifts and never loops clean — no latency offset can fix that. Lock one master clock first, confirm every box starts and stops with Ableton's transport, and only then measure the round-trip offset below.</p>
+  </div>
+
+  <h2>Round-trip latency compensation</h2>
+
+  <p style="color:var(--text-muted);">Output → converter → capture → converter → replay adds delay at every hop. Measure it once, in rehearsal, and bake the correction into the return so the captured transient lands on the grid instead of a few milliseconds behind it.</p>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="14"/><path d="M22 14v8l6 4"/></svg>
+      </div>
+      <div class="step-num">Measure</div>
+      <h2 class="step-title">Find the round-trip offset</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">The click-capture test</div>
+      <ul>
+        <li>Program a single click on the downbeat of an empty 1-bar pattern, clocked to the master.</li>
+        <li>Arm the capture engine and capture that one bar, quantised to <span class="code">1 Bar</span>.</li>
+        <li>Drop the captured clip on the timeline and zoom all the way into bar 1. The click transient will sit a few milliseconds <em>after</em> the grid line. That gap is the round-trip latency.</li>
+        <li>At <span class="code">48 kHz</span> with a <span class="code">256-sample</span> buffer, expect roughly <span class="code">5–12 ms</span> per direction plus converter latency — a typical total of <span class="code">10–20 ms</span>. Measure yours; do not trust the estimate.</li>
+      </ul>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Apply the correction</div>
+      <ul>
+        <li><strong>Ableton, global:</strong> enter the measured value in <kbd>⌘ ,</kbd> → <span class="menu">Audio</span> → <span class="menu">Driver Error Compensation</span> so monitored captures align automatically.</li>
+        <li><strong>Per replay, manual:</strong> nudge the replay clip start <em>earlier</em> by the measured offset (e.g. drag it left ~15 ms, or set a negative track delay on <span class="code">RS RETURN</span>).</li>
+        <li><strong>Digitakt/Octatrack:</strong> use the sample start trim or track micro-timing to pull the replay a few ticks early until its transient lands on the source's transient.</li>
+        <li>Re-run the click test after correcting. The captured click should now sit <em>on</em> the grid line. Do this once; it holds for the whole set as long as the buffer size doesn't change.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>The return channel and its ceiling</h2>
+
+  <table class="param-table">
+    <caption>RS RETURN chain — in this order</caption>
+    <tr><td>1 — Channel fader</td><td>Replay enters at least <span class="code">-6 dB</span> below the source. The capture is the whole mix; it does not need to match the live level.</td></tr>
+    <tr><td>2 — EQ / filter (optional)</td><td>High-pass around <span class="code">200 Hz</span> if the capture is a bed, so it never doubles the source's low end.</td></tr>
+    <tr><td>3 — Limiter</td><td>Ceiling <span class="code">-1 dBFS</span>, fast release. The hard backstop that catches a runaway loop before it hits the master.</td></tr>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">Gain ceiling on the loop</div>
+    <p>The limiter on <span class="code">RS RETURN</span> is not for sound — it is a safety device. If a capture ever contains a previous capture, the level compounds; the limiter holds the line at <span class="code">-1 dBFS</span> while you pull the fader. Set it now and never raise the return's headroom live.</p>
+  </div>
+
+  <h2>Pre-set checklist</h2>
+  <div class="checklist">
+    <ul>
+      <li>One capture engine chosen, wired, and rehearsed.</li>
+      <li>Capture track taps the live mix; return track is a separate channel.</li>
+      <li>One clock master; every box confirmed to start/stop with the transport.</li>
+      <li>Record quantization set to 1 Bar on both capture and replay.</li>
+      <li>Round-trip offset measured with the click test and corrected.</li>
+      <li>Return fader at -6 dB or lower, with a -1 dBFS limiter last in the chain.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="decisions.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 03 / Decisions
+    </a>
+    <a href="palette.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      05 / Capture palette →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B7-002 — Live Resampling</div>
+
+</div>
+
+</body>
+</html>

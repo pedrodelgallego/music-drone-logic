@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B7-002 — Live Resampling — Reflection</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B7-002<span class="labnote-topic">Live Resampling</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Capture palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html" class="active"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B7-002</div>
+    <div class="eyebrow">Live Resampling · 07 — Reflection</div>
+    <h1>Fault, carry-forward, principle</h1>
+    <p class="lede">Most of the learning happens here, not while the loop is running. Diagnose what went wrong, decide what travels to the next set, and name the one principle the whole technique rests on. Answer slowly. Write the answers down.</p>
+  </header>
+
+  <h2>How you know it worked</h2>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="16"/><polyline points="14 22 20 28 30 16"/></svg>
+      </div>
+      <div class="checklist-label">Success signals</div>
+    </div>
+    <ul>
+      <li>Every capture started exactly on a bar boundary.</li>
+      <li>Each return read as a new voice, not as a doubled mix.</li>
+      <li>Only one return generation was ever live at once.</li>
+      <li>The captured transients landed on the source's transients — no flam.</li>
+      <li>The return never exceeded the source; the limiter only caught peaks.</li>
+      <li>The section built by replacing layers, not by stacking them.</li>
+      <li>You could pull the return to silence without looking.</li>
+      <li>A listener could not tell the new layer was the set's own output.</li>
+      <li>The section sounded like it generated its own material live.</li>
+    </ul>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon">
+        <svg viewBox="0 0 44 44"><polygon points="22 6 40 36 4 36"/><line x1="22" y1="16" x2="22" y2="24"/><circle cx="22" cy="29" r="1.4" fill="currentColor"/></svg>
+      </div>
+      <div class="checklist-label">Fault signals</div>
+    </div>
+    <ul>
+      <li>The replay sounded like the source with a delay on it — no real transform.</li>
+      <li>A flam or smeared transient — the latency offset was wrong or unmeasured.</li>
+      <li>The loop built into a wall — captures stacked instead of being retired.</li>
+      <li>The return drifted out of time — the clock was not locked to one master.</li>
+      <li>You armed late and missed the bar you wanted.</li>
+      <li>You raised the return ceiling live instead of pulling the fader.</li>
+      <li>You switched capture engines mid-set and lost the routing.</li>
+      <li>The captured bar was sparse and carried no character.</li>
+    </ul>
+  </div>
+
+  <h2>Carry-forward — what travels to the next set</h2>
+
+  <ol class="reflection-list">
+    <li>Which transform made the most convincing new voice: reverse, pitch, chop, or freeze?</li>
+    <li>What was your measured round-trip offset, and at what buffer size?</li>
+    <li>Which capture engine felt most reliable under pressure — and will you commit to it?</li>
+    <li>Did you ever let two generations live at once, and what did it cost?</li>
+    <li>At what return level did the loop start to feel like it was taking over?</li>
+    <li>Which bar of the source carried the most character when captured?</li>
+    <li>Did arming early actually catch the moment, or did you still fumble the trigger?</li>
+    <li>How fast was your panic-path recovery — and can it get to four bars or under?</li>
+    <li>Did the section build by replacing layers, or did it quietly start stacking?</li>
+    <li>What one thing will you change before the next performance?</li>
+  </ol>
+
+  <div class="callout">
+    <div class="callout-label">Carry-forward note</div>
+    <p>Write the round-trip offset, the chosen engine, and the working transform on a card and tape it to the rig. These three numbers are the difference between a self-feeding section that works first time and one you rebuild from scratch every set.</p>
+  </div>
+
+  <div class="final">
+    <div class="final-icon">
+      <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="16"/><circle cx="22" cy="22" r="10"/><circle cx="22" cy="22" r="3" fill="currentColor"/></svg>
+    </div>
+    <div class="final-label">Final principle</div>
+    <p>The output becomes the input. A resampling loop is a system that listens to itself — transform what it hears, time it to the grid, and cap its gain, and it makes new music from its own breath. Skip any one of those, and the same loop becomes feedback.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="build.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 06 / The build
+    </a>
+    <a href="../workshop/block-7/index.html" class="next">
+      <span class="page-nav-direction">Back to the block</span>
+      Block 7 →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B7-002 — Live Resampling</div>
+
+</div>
+
+</body>
+</html>

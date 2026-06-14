@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B3-003 — Polymeter &amp; Phase — Decisions</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B3-003<span class="labnote-topic">Polymeter &amp; Phase</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen first</a>
+  <a href="decisions.html" class="active"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Rig &amp; setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Length palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B3-003</div>
+    <div class="eyebrow">Polymeter &amp; Phase · 03 — Decisions</div>
+    <h1>Choose your disagreement</h1>
+    <p class="lede">Three techniques get confused constantly, and choosing the wrong one — or blending them — is the single most common way this track fails. This page draws the distinctions sharply, works the realignment math you will use to build the form, and lays out the decisions to settle before any cable is plugged in.</p>
+  </header>
+
+  <h2>Three words people confuse</h2>
+
+  <div class="cards three">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><line x1="8" y1="16" x2="36" y2="16"/><line x1="8" y1="28" x2="28" y2="28"/></svg>
+      </div>
+      <h3 class="card-title">Polymeter</h3>
+      <ul class="card-points">
+        <li>Same pulse, different bar lengths</li>
+        <li>A 16-step part against a 15-step part, both in 16ths</li>
+        <li>The steps line up; the loops don't</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><line x1="8" y1="16" x2="36" y2="16"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="22" y1="16" x2="22" y2="12"/><line x1="32" y1="16" x2="32" y2="12"/><line x1="8" y1="28" x2="36" y2="28"/><line x1="15" y1="28" x2="15" y2="32"/><line x1="29" y1="28" x2="29" y2="32"/></svg>
+      </div>
+      <h3 class="card-title">Polyrhythm</h3>
+      <ul class="card-points">
+        <li>Same span, different subdivisions</li>
+        <li>3 evenly-spaced hits against 2, inside one beat</li>
+        <li>The classic 3:2 cross-rhythm</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M8 22 Q16 12 24 22 T40 22"/><path d="M6 26 Q15 16 24 26 T42 26"/></svg>
+      </div>
+      <h3 class="card-title">Phase</h3>
+      <ul class="card-points">
+        <li>Identical patterns, drifting tempo</li>
+        <li>One copy creeps ahead of the other</li>
+        <li>Reich's gradual process — the pattern shifts against itself</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The distinction, in one line</div>
+    <p>Polymeter changes <em>length</em>, polyrhythm changes <em>division</em>, phase changes <em>tempo</em>. This Lab Note is about the first and the third — length and tempo. Polyrhythm is here only as the thing they are <em>not</em>.</p>
+  </div>
+
+  <h2>Polymeter vs polyrhythm vs phase — worked out</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="12" width="32" height="8" rx="2"/><rect x="6" y="24" width="22" height="8" rx="2"/></svg>
+      </div>
+      <div class="step-num">Concept 01</div>
+      <h2 class="step-title">Polymeter — when the loops are different lengths</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">How it works</div>
+      <ul>
+        <li>Keep the kick on a 16-step track. Put a percussion figure on a track set to <strong>15 steps</strong>. Both run at the same 16th-note pulse, but the perc pattern restarts one step earlier each bar.</li>
+        <li>Every cycle the perc lands one step further left relative to the kick. After 15 of the perc's cycles the two realign — a long super-pattern that never wrote a single new note.</li>
+        <li>Crucially the <em>pulse is shared</em>. Each step is still a 16th note; what differs is how many steps before the loop wraps. That is why polymeter stays danceable while feeling like it's rotating.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The two patterns crossing — read it left to right</div>
+      <div class="pattern-wrap">
+        <div class="pattern">
+          <div class="pattern-label">Kick · 16</div>
+          <div class="pattern-step on">1</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+          <div class="pattern-step on">5</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+          <div class="pattern-step on">9</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+          <div class="pattern-step on">13</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+
+          <div class="pattern-label">Perc · 15</div>
+          <div class="pattern-step on">1</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step accent">4</div>
+          <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step on">7</div><div class="pattern-step"></div>
+          <div class="pattern-step"></div><div class="pattern-step accent">10</div><div class="pattern-step"></div><div class="pattern-step"></div>
+          <div class="pattern-step on">13</div><div class="pattern-step"></div><div class="pattern-step"></div>
+        </div>
+      </div>
+      <ul>
+        <li>The perc track has only 15 cells. On the next bar it has already wrapped, so its step 1 now sits under the kick's step 16 — and the whole figure walks leftward one step per bar.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><line x1="8" y1="22" x2="36" y2="22"/><circle cx="8" cy="22" r="2" fill="currentColor"/><circle cx="22" cy="22" r="2" fill="currentColor"/><circle cx="36" cy="22" r="2" fill="currentColor"/><circle cx="8" cy="34" r="2"/><circle cx="17" cy="34" r="2"/><circle cx="27" cy="34" r="2"/><circle cx="36" cy="34" r="2"/></svg>
+      </div>
+      <div class="step-num">Concept 02</div>
+      <h2 class="step-title">Polyrhythm — the thing this is not</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Why we set it aside</div>
+      <ul>
+        <li>Polyrhythm fits a different number of hits into the <em>same</em> span — 3 against 2 inside one beat. The loops are the same length; the subdivisions disagree. That is a vertical tension, felt in the body, that resolves on every downbeat.</li>
+        <li>Polymeter and phase are <em>horizontal</em> — the disagreement plays out over many bars, not within one beat. That long timescale is what this Lab Note is built around.</li>
+        <li>You can use a polyrhythmic figure as <em>one of</em> your polymetric parts (e.g. a 12-step triplet feel on a track that also has an odd length), but don't make polyrhythm the engine. It resolves too fast to carry an 8-minute form.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 22 Q14 10 22 22 T38 22"/><path d="M9 22 Q17 10 25 22 T41 22"/></svg>
+      </div>
+      <div class="step-num">Concept 03</div>
+      <h2 class="step-title">Phase — the gradual process</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">How it differs from polymeter</div>
+      <ul>
+        <li>In polymeter the patterns are <em>locked to the same clock</em> — they only disagree because their lengths differ, and the realignment is exact and predictable.</li>
+        <li>In phase the patterns are the <em>same length</em> but one runs at a fractionally different tempo, so it slides continuously rather than in step-sized jumps. The drift is analog and smooth; there is no grid to it.</li>
+        <li>Reich's <em>Piano Phase</em>: two copies of one figure, one speeding up imperceptibly, sliding one note ahead, then a full cycle, then back to unison. Every interim position sounds composed; nothing was.</li>
+      </ul>
+    </div>
+
+    <div class="note-block">
+      <ul>
+        <li><strong>The realignment is the event.</strong> In both polymeter and phase, the moment the parts snap back into unison is a structural turn you didn't have to write — the texture simplifies and the room seems to open. Place your section boundaries on these points and the form draws itself.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>The LCM realignment math</h2>
+
+  <p style="text-align:center; max-width:660px; margin:0 auto 18px; color:var(--text-muted);">For polymeter, the realignment is pure arithmetic. Two patterns of length <span class="code">a</span> and <span class="code">b</span> steps return to their starting alignment after the <strong>least common multiple</strong> of <span class="code">a</span> and <span class="code">b</span> steps. Divide by 16 to get the bar count.</p>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><text x="22" y="28" font-size="20" text-anchor="middle" fill="currentColor" font-family="monospace">×</text><circle cx="22" cy="22" r="16"/></svg>
+      </div>
+      <div class="step-num">Math 01</div>
+      <h2 class="step-title">Computing when the clocks agree</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The formula</div>
+      <ul>
+        <li><strong>LCM(a, b) = (a × b) ÷ GCD(a, b)</strong>, where GCD is the greatest common divisor.</li>
+        <li>When <span class="code">a</span> and <span class="code">b</span> share no common factor (they are <em>coprime</em>), the GCD is 1 and the LCM is simply <span class="code">a × b</span> — the longest possible cycle. That is why <strong>16 vs 15</strong> takes a full <span class="code">240</span> steps to realign: 16 and 15 are coprime.</li>
+        <li>When they share a factor, the cycle collapses. <span class="code">16</span> and <span class="code">12</span> share a factor of 4, so LCM = <span class="code">(16 × 12) ÷ 4 = 48</span> steps — only 3 bars.</li>
+      </ul>
+      <table class="param-table">
+        <caption>Realignment against a 16-step kick (16th-note grid, 16 steps = 1 bar)</caption>
+        <tr><td>16 vs 15</td><td>GCD 1 → LCM 240 steps = <strong>15 bars</strong>. A near-static drift; the figure feels like it is slowly rotating.</td></tr>
+        <tr><td>16 vs 14</td><td>GCD 2 → LCM 112 steps = <strong>7 bars</strong>. A gentle, periodic wander.</td></tr>
+        <tr><td>16 vs 12</td><td>GCD 4 → LCM 48 steps = <strong>3 bars</strong>. Tight, danceable 3-against-4 feel.</td></tr>
+        <tr><td>16 vs 13</td><td>GCD 1 → LCM 208 steps = <strong>13 bars</strong>. Prime, restless; almost never agrees.</td></tr>
+        <tr><td>16 vs 7</td><td>GCD 1 → LCM 112 steps = <strong>7 bars</strong>. Short odd loop, fast-rotating, busy.</td></tr>
+        <tr><td>15 vs 14</td><td>GCD 1 → LCM 210 steps = <strong>13.125 bars</strong>. Two odd lengths against each other — neither ever sits on the bar line.</td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Reading the table for arrangement</div>
+      <ul>
+        <li>A <strong>long</strong> realignment (16 vs 15 = 15 bars) gives you a slow, hypnotic super-pattern and one big structural event you can build a whole section turn around.</li>
+        <li>A <strong>short</strong> realignment (16 vs 12 = 3 bars) gives a tight repeating groove that never sounds static but also never wanders far — good as a foundation, less so as the headline.</li>
+        <li><strong>Stacking</strong> three lengths multiplies the cycle. 16 + 15 + 14 only all realign at LCM(16,15,14) = 1680 steps = 105 bars — practically the length of the track. Use this deliberately, not by accident.</li>
+      </ul>
+      <div class="reveal">
+        <details>
+          <summary>Phase has no clean LCM — here is its equivalent</summary>
+          <p>Because phase drift is continuous, you don't get an integer step count. Instead you choose a <em>drift rate</em>: how long the slipping copy takes to travel one full pattern-length ahead and return to unison. Pick that duration directly — e.g. "one full phase cycle over 32 bars" — and that span becomes your structural unit, the way the LCM bar count is for polymeter. The palette page tabulates usable rates.</p>
+        </details>
+      </div>
+    </div>
+  </div>
+
+  <h2>The decisions to settle now</h2>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Decision check</div>
+    <ul>
+      <li><strong>Engine:</strong> polymeter (predictable, grid-locked, danceable) or phase (smooth, analog, meditative)? Pick one. If unsure, choose polymeter for a first build — it is easier to control and to hear.</li>
+      <li><strong>The fixed clock:</strong> which element stays steady? Almost always the kick. Everything else disagrees <em>with</em> it; it never disagrees with anything.</li>
+      <li><strong>The lengths:</strong> which pair from the table? Long realignment (15 bars) for a hypnotic headline, short (3 bars) for a foundation groove.</li>
+      <li><strong>The realignment bar:</strong> compute it now and write it down. Your section turns will land on it.</li>
+      <li><strong>Originality:</strong> the figures are yours. Studying <em>Discipline</em> teaches the mechanism; copying its intervals does not make a Block 3 track.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="listen.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 02 / Listen first
+    </a>
+    <a href="setup.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      04 / Rig &amp; setup →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B3-003 — Polymeter &amp; Phase</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B6-001 — Rule-based Sequencing — Rule vocabulary</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Lab Note contents">
+  <p class="nav-label labnote-code">Lab Note B6-001<span class="labnote-topic">Rule-based Sequencing</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html" class="active"><span class="nav-num">05</span>Rule vocabulary</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B6-001</div>
+    <div class="eyebrow">Rule-based Sequencing · 05 — Rule vocabulary</div>
+    <h1>A vocabulary of rules, with worked examples</h1>
+    <p class="lede">A rule-set is built from a small number of recurring shapes. Learn these as named building blocks — each stated in one sentence, with where to write it and a worked example you can run today. The build page assembles a piece out of exactly these.</p>
+  </header>
+
+  <h2>The seven rule shapes</h2>
+
+  <p style="text-align:center; max-width:640px; margin:0 auto 24px; color:var(--text-muted);">Each shape answers one question — when does a thing happen, which thing, or how much. Reach for them in the order on the Decisions page: deterministic, then counted/logical, then chance.</p>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><line x1="10" y1="34" x2="34" y2="10"/><circle cx="10" cy="34" r="2.5" fill="currentColor"/><circle cx="34" cy="10" r="2.5" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Shape 01</div>
+      <h2 class="step-title">Fixed — the unconditional spine</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">The rule in one sentence</div>
+      <ul>
+        <li>"This always plays." No condition, no chance. The element the listener locks to.</li>
+        <li><strong>Home:</strong> Digitakt trig with COND off; an unconditional MIDI note; <code>Pseq</code> in SuperCollider.</li>
+      </ul>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Worked example</div>
+      <ul>
+        <li>Kick on steps <span class="code">1, 5, 9, 13</span>, COND off. Closed hat on the offbeats, COND off.</li>
+        <li><strong>Why:</strong> every other shape below is judged <em>against</em> this. Without a fixed frame, variation reads as mess, not as choice.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="11" cy="22" r="3" fill="currentColor"/><circle cx="22" cy="22" r="3"/><circle cx="33" cy="22" r="3"/><path d="M14 22h5"/><path d="M25 22h5"/></svg>
+      </div>
+      <div class="step-num">Shape 02</div>
+      <h2 class="step-title">Counted — every Nth pass</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">The rule in one sentence</div>
+      <ul>
+        <li>"This fires on the Nth pass of every M loops." Predictable, countable variation.</li>
+        <li><strong>Home:</strong> Digitakt <span class="code">1:4</span> / <span class="code">2:4</span> / <span class="code">1:8</span>; TidalCycles <code>every 4</code>; a counter + comparison in Pd/VCV.</li>
+      </ul>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Worked example</div>
+      <ul>
+        <li>Rim on step 11, condition <span class="code">1:4</span>: a punctuation once every four loops. You can hear the bar it lands on coming.</li>
+        <li><strong>Why:</strong> this is the workhorse. It creates long-form motion without a coin flip and survives a defence — you authored exactly when it happens.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M10 14h10l4 8 4-8h6"/><path d="M10 30h10l4-8"/></svg>
+      </div>
+      <div class="step-num">Shape 03</div>
+      <h2 class="step-title">Conditional chain — if/else across steps</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">The rule in one sentence</div>
+      <ul>
+        <li>"This fires only if the previous conditional trig did (or did not)." Cause and effect between events.</li>
+        <li><strong>Home:</strong> Digitakt <span class="code">PRE</span> and <span class="code">NEI</span>; gate logic in Max/Pd/VCV.</li>
+      </ul>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Worked example</div>
+      <ul>
+        <li>Ghost snare on step 7, condition <span class="code">PRE</span>, placed after the rim in scan order: it answers only when the rim fired.</li>
+        <li>Add an alternative hat on the same step with <span class="code">NEI</span>: when the rim is silent, the hat fills the gap instead. One if/else, two outcomes.</li>
+        <li><strong>Why:</strong> chains make the loop feel like it remembers — the listener senses consequence without a new instrument.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M22 8v12"/><circle cx="22" cy="28" r="7"/></svg>
+      </div>
+      <div class="step-num">Shape 04</div>
+      <h2 class="step-title">Positional — first versus the rest</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">The rule in one sentence</div>
+      <ul>
+        <li>"This behaves differently on the loop's first cycle than on every repeat after."</li>
+        <li><strong>Home:</strong> Digitakt <span class="code">FIRST</span> / <span class="code">NOT FIRST</span>; a one-shot gate in code.</li>
+      </ul>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Worked example</div>
+      <ul>
+        <li>A tom on step 1 with <span class="code">FIRST</span> announces each new section once, then disappears for the repeats — an intro folded into the loop itself.</li>
+        <li><strong>Why:</strong> it gives a phrase a beginning without writing a second pattern.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="9" y="9" width="26" height="26" rx="3"/><rect x="16" y="16" width="12" height="12" rx="1"/></svg>
+      </div>
+      <div class="step-num">Shape 05</div>
+      <h2 class="step-title">Bounded choice — pick from an allowed set</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">The rule in one sentence</div>
+      <ul>
+        <li>"When this fires, choose one value from this fixed set." The fence and the freedom in one move.</li>
+        <li><strong>Home:</strong> Digitakt sample-lock or p-lock across a few trigs; Live's Random MIDI effect with limited Choices into a Scale effect; <code>Pwrand</code> over an allowed list in SuperCollider.</li>
+      </ul>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Worked example</div>
+      <ul>
+        <li>A bass note generator allowed only <span class="code">A1</span>, <span class="code">C2</span>, <span class="code">E2</span> (the root triad), chosen freely per trig but never leaving the set.</li>
+        <li>In Live: a one-note MIDI clip → <strong>Random</strong> (Choices = 3, Range fenced) → <strong>Scale</strong> (A minor) so any stray result is pulled back into key.</li>
+        <li><strong>Why:</strong> this is bounded randomness in its purest form — surprise that always lands in tune.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="14"/><line x1="22" y1="22" x2="22" y2="12"/><line x1="22" y1="22" x2="30" y2="26"/><circle cx="22" cy="22" r="2" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Shape 06</div>
+      <h2 class="step-title">Drift — a slow rule on a parameter</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">The rule in one sentence</div>
+      <ul>
+        <li>"Over N bars, parameter X moves from A to B." A process, not an event — the Spiegel idea.</li>
+        <li><strong>Home:</strong> a slow synced/unsynced LFO; Live automation drawn as a long ramp; a slow line/phasor in code.</li>
+      </ul>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Worked example</div>
+      <ul>
+        <li>"Filter cutoff opens from 600 Hz to 3 kHz over 64 bars, then closes back over 32." A single sentence that shapes minutes.</li>
+        <li>Stack two drifts at different rates that never align — the combination never repeats exactly. That non-repetition is the hypnosis mechanism.</li>
+        <li><strong>Why:</strong> drift is how a short rule-set fills a long piece without anything new entering.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="10" y="10" width="24" height="24" rx="3"/><circle cx="17" cy="17" r="2" fill="currentColor"/><circle cx="27" cy="27" r="2" fill="currentColor"/><circle cx="22" cy="22" r="2" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Shape 07</div>
+      <h2 class="step-title">Chance — the single coin</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">The rule in one sentence</div>
+      <ul>
+        <li>"This fires P % of the time." The system rolls a die. The weakest, most expensive condition.</li>
+        <li><strong>Home:</strong> Digitakt <span class="code">%</span> condition; Live per-note chance; <code>sometimesBy</code> in Tidal; a Bernoulli gate in VCV.</li>
+      </ul>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Worked example</div>
+      <ul>
+        <li>A single closed-hat flutter on step 15 at <span class="code">25 %</span>: rare, never the backbone, the one place you let chance author.</li>
+        <li><strong>Why:</strong> use it last and once. If muting it doesn't make the groove feel less alive, it was decoration — leave it muted.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Reading the shapes onto a grid</h2>
+
+  <p style="text-align:center; max-width:640px; margin:0 auto 24px; color:var(--text-muted);">Here is a single two-bar percussion lane with the conditions written under each step — the exact rule-set the build page will program. The spine is fixed; the rest is fenced.</p>
+
+  <div class="pattern-wrap">
+    <div class="pattern">
+      <div class="pattern-label">Kick (fixed)</div>
+      <div class="pattern-step on">1</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+      <div class="pattern-step on">5</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+      <div class="pattern-step on">9</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+      <div class="pattern-step on">13</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+
+      <div class="pattern-label">Rim 1:4</div>
+      <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+      <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+      <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step accent">11</div><div class="pattern-step"></div>
+      <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+
+      <div class="pattern-label">Ghost PRE</div>
+      <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+      <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step ghost">7</div><div class="pattern-step"></div>
+      <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+      <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+
+      <div class="pattern-label">Hat 25 %</div>
+      <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+      <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+      <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+      <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step on">15</div><div class="pattern-step"></div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Principle</div>
+    <p>You will only ever need a handful of these shapes. A piece feels designed not because the rules are clever, but because each one is named, placed on purpose, and could be removed and defended.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="setup.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 04 / Setup
+    </a>
+    <a href="build.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      06 / The build →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B6-001 — Rule-based Sequencing</div>
+
+</div>
+
+</body>
+</html>

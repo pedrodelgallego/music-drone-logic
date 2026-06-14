@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B3-003 — Polymeter &amp; Phase — The build</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B3-003<span class="labnote-topic">Polymeter &amp; Phase</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen first</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Rig &amp; setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Length palette</a>
+  <a href="build.html" class="active"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B3-003</div>
+    <div class="eyebrow">Polymeter &amp; Phase · 06 — The build</div>
+    <h1>Step-by-step: a track built from disagreement</h1>
+    <p class="lede">Now we touch the gear. The plan: a fixed 16-step kick, a 15-step perc drift and a 14-step texture drift on the Digitakt, and a MicroFreak figure phased over 32 bars in Ableton. Each step is small, each has a decision checkpoint, and the arrangement turns land exactly on the realignment bars you computed. Keep the <a href="setup.html">rig page</a> and <a href="palette.html">palette</a> open — this page assumes both.</p>
+  </header>
+
+  <!-- STEP 1 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 14 v20 a2 2 0 0 0 2 2 h28 a2 2 0 0 0 2 -2 v-16 a2 2 0 0 0 -2 -2 h-14 l-4 -4 h-10 a2 2 0 0 0 -2 2 z"/></svg>
+      </div>
+      <div class="step-num">Step 01</div>
+      <h2 class="step-title">Project, clock, and the realignment grid</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Open the set</div>
+      <ul>
+        <li><kbd>⌘ N</kbd> for a new Live Set, <kbd>Tab</kbd> to <strong>Arrangement</strong> view. Tempo <span class="code">124</span>, signature <span class="code">4/4</span>.</li>
+        <li>Right-click the timeline ruler → <span class="menu">Time Ruler Format → Bars:Beats</span>. For this study you think in <strong>bars</strong>, not minutes — the whole form is pinned to realignment bar counts.</li>
+        <li>Establish the master clock as on the <a href="setup.html">rig page</a>: Ableton sends MIDI clock + transport to Digitakt II and MicroFreak; nothing else sends clock. Press play and confirm both boxes follow and show <span class="code">124</span>.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Draw the realignment grid as locators</div>
+      <ul>
+        <li>Our headline polymeter is 16 vs 15 → realigns every <strong>15 bars</strong>. Our phase cycle is <strong>32 bars</strong>. The form lives on multiples of these.</li>
+        <li>Right-click the scrub area → <span class="menu">Add Locator</span> at bars that matter: <span class="code">1</span>, <span class="code">16</span> (first 15-bar realignment +1), <span class="code">31</span>, <span class="code">33</span> (phase cycle 1 ends), <span class="code">61</span>, <span class="code">91</span>, <span class="code">121</span>. Name them <span class="code">REALIGN-1</span>, <span class="code">PHASE-1</span>, and so on.</li>
+        <li>These locators turn the abstract math into physical targets. Every section change you make later snaps to one of them.</li>
+      </ul>
+      <table class="param-table">
+        <caption>The structural grid for this build (124 BPM)</caption>
+        <tr><td>Bar 1</td><td>Start — kick + 15-perc launched in alignment</td></tr>
+        <tr><td>Bar 16</td><td>First polymeter realignment (perc snaps back under the kick)</td></tr>
+        <tr><td>Bar 33</td><td>First phase cycle complete (MicroFreak copy back to unison)</td></tr>
+        <tr><td>Bar 31 / 46 / 61</td><td>Successive 15-bar polymeter realignments</td></tr>
+        <tr><td>Bar 65 / 97</td><td>Successive 32-bar phase cycles</td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Create the tracks</div>
+      <ul>
+        <li><kbd>⌘ T</kbd> for audio tracks: <span class="code">DT DRUMS</span>, <span class="code">MF FIGURE</span>, <span class="code">MF DRONE</span>.</li>
+        <li><kbd>⌘ ⌥ T</kbd> for returns: <span class="code">A — REVERB</span>, <span class="code">B — ECHO</span>. Reverb decay 5 s, Echo synced 3/16, 100% wet, high-passed at 250 Hz.</li>
+        <li>Don't make the phase-copy track yet — it is a duplicate created <em>after</em> the figure is recorded (Step 06).</li>
+        <li><kbd>⌘ S</kbd> → save as <span class="code">labnote_b3_003.als</span> in a dedicated folder.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="14"/><circle cx="22" cy="22" r="5"/></svg>
+      </div>
+      <div class="step-num">Step 02</div>
+      <h2 class="step-title">The fixed clock — kick + hat on 16</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Set up the Digitakt project</div>
+      <ul>
+        <li>On Digitakt II, create a project named <span class="code">B3-003</span>, pattern <span class="code">A01</span>. Confirm it follows Ableton's clock.</li>
+        <li>Switch the SCALE menu to <strong>PER TRACK</strong> mode now, before programming — see the <a href="setup.html">rig page</a>. This is the one switch the whole build depends on.</li>
+        <li>Assign four tracks: <span class="code">T1 KICK</span>, <span class="code">T2 HAT</span>, <span class="code">T3 PERC</span>, <span class="code">T4 TEXTURE</span>.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Program the steady backbone</div>
+      <ul>
+        <li>Set <span class="code">T1 KICK</span> to <span class="code">LEN 16</span>. Trigs on <span class="code">1, 5, 9, 13</span> — a four-on-the-floor anchor that never moves. This is the reference everything else disagrees with.</li>
+        <li>Set <span class="code">T2 HAT</span> to <span class="code">LEN 16</span>. Trigs on the offbeats <span class="code">3, 7, 11, 15</span>. Parameter-lock alternating velocity so it breathes.</li>
+        <li>Tune the kick's fundamental to your track's root (A or E) so it agrees tonally with the drone later.</li>
+      </ul>
+      <div class="pattern-wrap">
+        <div class="pattern">
+          <div class="pattern-label">Kick · 16</div>
+          <div class="pattern-step on">1</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+          <div class="pattern-step on">5</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+          <div class="pattern-step on">9</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+          <div class="pattern-step on">13</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+
+          <div class="pattern-label">Hat · 16</div>
+          <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step accent">3</div><div class="pattern-step"></div>
+          <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step accent">7</div><div class="pattern-step"></div>
+          <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step accent">11</div><div class="pattern-step"></div>
+          <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step accent">15</div><div class="pattern-step"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does the kick sit dead steady? It must — its job is to be the thing that does not move.</li>
+        <li>Is the kick tail short enough that the perc drift won't be smeared by it later?</li>
+        <li>Is the hat supporting, not competing? At <span class="code">LEN 16</span> it should feel locked to the kick, a calm backbone against the coming drift.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="6" y="14" width="22" height="7" rx="1.5"/><rect x="6" y="24" width="32" height="7" rx="1.5"/><circle cx="33" cy="17.5" r="2" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Step 03</div>
+      <h2 class="step-title">The drift — perc on 15, texture on 14</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Set the unequal lengths</div>
+      <ul>
+        <li>Select <span class="code">T3 PERC</span>. On the SCALE page (PER TRACK), set <span class="code">LEN 15</span>. The track now has only fifteen cells; on every bar it wraps one step before the kick, walking leftward.</li>
+        <li>Select <span class="code">T4 TEXTURE</span>, set <span class="code">LEN 14</span>. Leave <span class="code">SPD</span> at <span class="code">1×</span> on both — speed changes turn this into polyrhythm.</li>
+        <li>Leave <span class="code">CHNG</span> long/off so the short tracks loop within the pattern instead of advancing it.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Program the drifting figures sparsely</div>
+      <ul>
+        <li>On <span class="code">T3 PERC</span> (15 steps) place just 3 hits — a rim or click. Sparse is essential: the interest comes from <em>where</em> the few hits land relative to the kick, not from density.</li>
+        <li>On <span class="code">T4 TEXTURE</span> (14 steps) place 2 hits of a resampled fragment or noise tick. Give one a <span class="code">25–50%</span> trig probability so the drift also breathes irregularly.</li>
+        <li>Resist filling the odd tracks. Every extra hit makes the rotation harder to hear; the ear needs space to track a single voice walking across the bar.</li>
+      </ul>
+      <div class="pattern-wrap">
+        <div class="pattern">
+          <div class="pattern-label">Perc · 15</div>
+          <div class="pattern-step on">1</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+          <div class="pattern-step accent">5</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+          <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step on">11</div><div class="pattern-step"></div>
+          <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+
+          <div class="pattern-label">Texture · 14</div>
+          <div class="pattern-step on">1</div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+          <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step ghost">8</div>
+          <div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div><div class="pattern-step"></div>
+          <div class="pattern-step"></div><div class="pattern-step"></div>
+        </div>
+      </div>
+      <ul>
+        <li>Note the perc row has 15 cells and the texture row 14 — they are deliberately not the kick's 16. Read each row left to right and picture it sliding under the kick a step per bar.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Watching the LEDs: does T3 visibly wrap at step 15, walking its loop point left of the kick each bar? If it wraps at 16, you are still in PER PATTERN mode.</li>
+        <li>Listen for 30 seconds — can you hear a single perc hit travel across the bar relative to the kick? If it's a blur, you have too many hits.</li>
+        <li>At bar 16, does the perc audibly snap back under the kick? That is the realignment; mark it.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="14" cy="22" r="6"/><circle cx="30" cy="22" r="6"/><line x1="20" y1="22" x2="24" y2="22"/></svg>
+      </div>
+      <div class="step-num">Step 04</div>
+      <h2 class="step-title">Gain-stage and record the polymeter pass</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Connect and stage</div>
+      <ul>
+        <li>Digitakt II Main L/R → M4 inputs 3/4 (TRS). <span class="code">DT DRUMS</span> Audio From → Ext. In <span class="code">3/4</span>, Monitor <strong>Auto</strong>.</li>
+        <li>Digitakt main volume so Ableton peaks just below <span class="code">-6 dBFS</span>. Inputs 3/4 have no gain knobs; the box's own volume is the record level.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Record long — the cycle needs room</div>
+      <ul>
+        <li>This is the key discipline of the whole study: <strong>record at least 4 minutes</strong>. The 15-bar realignment happens roughly every 29 seconds; the full interplay of the 15 and 14 drifts only resolves over many bars. A short take captures none of it.</li>
+        <li>Arm <span class="code">DT DRUMS</span>, position playhead at bar 1, <kbd>⌘ ⇧ R</kbd>. Let it run hands-off for the first 2 minutes — the polymeter <em>is</em> the performance; you don't need to play anything.</li>
+        <li>In the back half, perform sparse mutes: drop the texture for 16 bars, bring it back, mute the hat briefly so the bare kick-vs-perc drift is exposed. These become arrangement options later.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Play back: can you hear the perc walk across the bar and resolve at the 15-bar points? Find one realignment on the waveform and confirm it lands where the math says (bar 16, 31, 46…).</li>
+        <li>Is the drift <em>legible</em> — anchored by the steady kick — or does it sound like random mistimed hits? If random, thin the odd tracks further.</li>
+        <li>Is the take long enough to contain at least three full realignments? If not, re-record longer.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 5 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="10" cy="22" r="3" fill="currentColor"/><circle cx="20" cy="14" r="3"/><circle cx="30" cy="30" r="3" fill="currentColor"/><circle cx="38" cy="22" r="3"/></svg>
+      </div>
+      <div class="step-num">Step 05</div>
+      <h2 class="step-title">Record the MicroFreak figure</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Design a phaseable figure</div>
+      <ul>
+        <li><kbd>Shift</kbd> + press Type to init a patch. Oscillator <span class="code">Wavetable</span> or <span class="code">KarplusStr</span> — a clear, percussive attack phases best; sustained pads smear into mush.</li>
+        <li>Short envelope: Attack 0, Decay ~25, low Sustain, short Release. Each note must speak distinctly so two copies crossing produce audible emergent patterns, exactly like Reich's pianos.</li>
+        <li>Program a tight <strong>1-bar (16-step)</strong> figure of 5–7 notes in your scale. Same length as the kick — phase needs <em>identical</em> patterns; the difference will be tempo, not length.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Record the anchor copy</div>
+      <ul>
+        <li>MicroFreak Out → M4 In 1. <span class="code">MF FIGURE</span> Audio From → Ext. In <span class="code">1</span>, Monitor <strong>Auto</strong>.</li>
+        <li>Confirm the MicroFreak is clocked to Ableton (<kbd>Shift</kbd> + <kbd>Tempo</kbd> → USB). Record a clean 4-minute pass of the looping figure, hands off the knobs — this is the static raw material both phase copies derive from.</li>
+        <li>Save the patch as <span class="code">B3 FIGURE</span>.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Is the figure short and distinct enough that you'll be able to hear it crossing itself?</li>
+        <li>Does each note have a clear transient? Wash-y notes ruin phase legibility.</li>
+        <li>Is it warped to the grid as a clean 1-bar loop, so the duplicate starts in perfect unison?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 6 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 22 Q14 10 22 22 T38 22"/><path d="M9 22 Q17 10 25 22 T41 22"/></svg>
+      </div>
+      <div class="step-num">Step 06</div>
+      <h2 class="step-title">Build the phase — duplicate and drift</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Make the drifting copy</div>
+      <ul>
+        <li>Select the <span class="code">MF FIGURE</span> track, <kbd>⌘ D</kbd> to duplicate it whole → rename the copy <span class="code">MF FIGURE (phase)</span>. Both now hold the same audio in perfect unison.</li>
+        <li>On the copy's clip, choose your drift method from the <a href="setup.html">rig page</a>. Recommended: set the clip BPM field to <span class="code">120.1</span> (from the palette table) for a <strong>32-bar phase cycle</strong> against the 124 project. The copy now slides ahead one bar-length every 32 bars and rejoins unison at bar 33, 65, 97.</li>
+        <li>High-pass the copy at ~<span class="code">200 Hz</span> and pull it down ~<span class="code">3 dB</span> so it sits behind the anchor rather than doubling its weight.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Verify the cycle lands</div>
+      <ul>
+        <li>Play from bar 1: the two should sound like one. By bar ~17 the copy is half a cycle out — emergent melodies from the two crossing should be clearly audible. At bar 33 they snap back to unison.</li>
+        <li>If they don't rejoin exactly on bar 33, your BPM offset is slightly off. Use the precise figure from the palette's reveal (124 × 32/33) or nudge the clip BPM in hundredths until the unison lands on the bar.</li>
+      </ul>
+    </div>
+
+    <div class="signal-flow">
+      <span class="signal-node">MF FIGURE (anchor, 124)</span>
+      <span class="signal-arrow">unison →</span>
+      <span class="signal-node">drift</span>
+      <span class="signal-arrow">→ half cycle</span>
+      <span class="signal-node">emergent pattern</span>
+      <span class="signal-arrow">→ bar 33</span>
+      <span class="signal-node">unison again</span>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Is the drift slow enough to be <em>felt, not heard happening</em>? If you can perceive "it's speeding up", widen the cycle (lower offset).</li>
+        <li>Do new melodies emerge mid-cycle that neither copy plays alone? That emergence is the entire point.</li>
+        <li>Does the unison return at bar 33 feel like a clearing — a small structural event? Mark it; the arrangement will use it.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 7 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 22 q9 -4 18 0 t18 0"/><path d="M6 28 q9 -2 18 0 t18 0"/></svg>
+      </div>
+      <div class="step-num">Step 07</div>
+      <h2 class="step-title">The drone bed that makes drift legible</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Why the drone matters here</div>
+      <ul>
+        <li>In <em>Drumming</em>, a steady pulse underneath is what lets the ear track the phasing voice. Your drone is that bed: a held, slow-moving tone that gives the rotating parts something stable to be measured against.</li>
+        <li>Init a fresh MicroFreak patch. Oscillator <span class="code">Harmo</span> or <span class="code">Wavetable</span>, Paraphonic on, long attack/release, dark filter. Hold the root + fifth, record a 4-minute pass with only the internal LFO moving.</li>
+        <li><span class="code">MF DRONE</span> chain: EQ HP at <span class="code">120 Hz</span>, Hybrid Reverb 6 s at 35% wet, Utility width 130%. Save the patch as <span class="code">B3 DRONE</span>.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>With the drone in, is the polymeter drift <em>easier</em> to follow? It should be — the steady bed is the ruler.</li>
+        <li>Is the drone staying out of the kick's and figure's way (HP at 120 Hz, sitting around -16 dB)?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 8 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="4" y="14" width="10" height="6" rx="1"/><rect x="16" y="14" width="14" height="6" rx="1"/><rect x="32" y="14" width="8" height="6" rx="1"/><rect x="8" y="24" width="16" height="6" rx="1"/><rect x="26" y="24" width="12" height="6" rx="1"/></svg>
+      </div>
+      <div class="step-num">Step 08</div>
+      <h2 class="step-title">Arrange on the realignment grid</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Let the math write the form</div>
+      <ul>
+        <li>This is the thesis of the study made concrete: <strong>every section turn lands on a realignment bar</strong>, not on an arbitrary 16-bar count. The drift cycles are the form.</li>
+        <li>Make every clip edit on a kick downbeat (<kbd>⌘ E</kbd> at the playhead, grid snap on). Overlap takes by a bar with 4-beat crossfades so seams never click.</li>
+      </ul>
+      <table class="param-table">
+        <caption>Section → bar → what carries it</caption>
+        <tr><td>INTRO — bar 1–15</td><td>Drone alone, then kick enters. One full polymeter cycle before anything else, so the realignment at bar 16 is the first "arrival".</td></tr>
+        <tr><td>DRIFT IN — bar 16–32</td><td>Perc (15) and texture (14) enter at the realignment. The phase figure (anchor only) joins quietly. The ear learns the rotating parts.</td></tr>
+        <tr><td>PHASE — bar 33–64</td><td>The drifting figure copy comes up at the bar-33 unison. Two full phase cycles. Polymeter and phase now run together — the densest interplay.</td></tr>
+        <tr><td>PEAK — bar 65–96</td><td><em>Nothing new enters.</em> The bar-65 phase unison and a near-coincident polymeter realignment stack into the biggest clearing. Energy from automation only.</td></tr>
+        <tr><td>STRIP — bar 97–120</td><td>Pull the phase copy out at the bar-97 unison. Bare kick-vs-perc drift exposed — the strip makes the earlier density retroactively bigger.</td></tr>
+        <tr><td>OUTRO — bar 121+</td><td>Drift parts fall away one realignment at a time; drone carries the exit. Final fade over the last ~30 s.</td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Editing craft</div>
+      <ul>
+        <li>When a section's edits are final, select its clips and <kbd>⌘ J</kbd> consolidate — one clean clip per section keeps the timeline legible.</li>
+        <li>Loop a suspicious seam with <kbd>⌘ L</kbd> and listen three times before accepting it.</li>
+        <li>Resist adding a new instrument to "lift" a section. The lift is supposed to come from a realignment arriving, not from a new sound. If a section sags, move its boundary onto a realignment bar instead.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does every section boundary sit on a realignment or phase-unison bar? If one doesn't, ask why and usually move it.</li>
+        <li>Play 64→65 blind: does the peak arrive because the clocks <em>agreed</em>, not because something was added?</li>
+        <li>Can you remove one drifting part without collapsing the form? If yes, it was decoration — cut it.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 9 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 34 Q22 6 38 14"/><circle cx="6" cy="34" r="2.5" fill="currentColor"/><circle cx="38" cy="14" r="2.5" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Step 09</div>
+      <h2 class="step-title">Automation that serves the clocks</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Light touch — the drift is the movement</div>
+      <ul>
+        <li>The polymeter and phase already supply nearly all the motion. Automation here is seasoning: it should <em>emphasise</em> the realignment events, never compete with them.</li>
+        <li><kbd>A</kbd> for automation lanes, pencil (<kbd>B</kbd>) to draw. No ramp shorter than 8 bars; most span a full drift cycle.</li>
+      </ul>
+      <table class="param-table">
+        <caption>The few moves worth drawing</caption>
+        <tr><td>Reverb send on MF FIGURE</td><td>Bloom up into each phase unison (bar 33, 65) then recede — the clearing gets a touch of space exactly as it arrives.</td></tr>
+        <tr><td>Auto Filter on DT DRUMS</td><td>Slowly open across the DRIFT and PHASE sections, brightest at the bar-65 peak, closing through STRIP.</td></tr>
+        <tr><td>Phase-copy volume</td><td>Fade in at bar 33, out at bar 97 — its entrances and exits land on unison bars so they feel inevitable.</td></tr>
+        <tr><td>Drone volume</td><td>-12 dB intro, -16 dB through the busy middle, back to -10 dB for the outro to close the circle.</td></tr>
+      </table>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>If you can hear the automation move as an event, it's too fast — slow it.</li>
+        <li>Mute all automation for a section: does the drift still carry it? It should. Automation is the garnish, the clocks are the meal.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 10 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><polyline points="14 18 22 26 30 18"/><line x1="22" y1="8" x2="22" y2="26"/><line x1="8" y1="34" x2="36" y2="34"/></svg>
+      </div>
+      <div class="step-num">Step 10</div>
+      <h2 class="step-title">Mix, export, and step away</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Quick mix pass</div>
+      <ul>
+        <li>Pull faders to a starting balance: drums -10, figure pair -12 (anchor a touch above copy), drone -16. The low end belongs to kick (40–80 Hz) and drone (above 120 Hz); keep the phasing figures out of the sub.</li>
+        <li><strong>Mono check:</strong> flip the master to mono periodically. Two phasing copies can comb-filter badly in mono — pan the anchor and copy slightly apart and high-pass the copy so the cancellation is harmless.</li>
+        <li>No limiter for this exercise. Peaks ≤ <span class="code">-3 dBFS</span> across the whole length, including the bar-65 bloom.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Export</div>
+      <ul>
+        <li>Select bar 1 to the end. <span class="menu">File → Export Audio / Video</span>. WAV, 48 kHz, 24-bit, Normalize OFF.</li>
+        <li>Filename <span class="code">labnote_b3_003_v1.wav</span>. <span class="menu">File → Collect All and Save</span>. Save the Digitakt project and both MicroFreak patches.</li>
+        <li>Listen elsewhere, wait a day, change <strong>one</strong> thing, render v2. The thing you change is almost always a length or a drift rate — not a new sound.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does the track stay alive for its full length with no new elements after the PHASE section?</li>
+        <li>Can a listener feel the realignments arrive without being able to say what changed?</li>
+        <li>Is it unmistakably your own figures — the engine studied, not a reference copied?</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-nav">
+    <a href="palette.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 05 / Length palette
+    </a>
+    <a href="reflection.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      07 / Reflection →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B3-003 — Polymeter &amp; Phase</div>
+
+</div>
+
+</body>
+</html>

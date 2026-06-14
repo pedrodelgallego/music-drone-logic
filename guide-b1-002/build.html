@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B1-002 — Unity · The build</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B1-002<span class="labnote-topic">Unity</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html" class="active"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B1-002</div>
+    <div class="eyebrow">Unity · 06 — The build</div>
+    <h1>Build one clean gain structure, stage by stage</h1>
+    <p class="lede">Now we touch the gear. We route one instrument from the oscillator all the way to the master, setting and justifying the level at every stage, then break the chain on purpose in four places to learn each fault's fingerprint. Every step is small and has a decision checkpoint. Keep the <a href="setup.html">setup page</a> and the <a href="palette.html">palette</a> open in other tabs.</p>
+  </header>
+
+  <!-- STEP 1 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 14 v20 a2 2 0 0 0 2 2 h28 a2 2 0 0 0 2 -2 v-16 a2 2 0 0 0 -2 -2 h-14 l-4 -4 h-10 a2 2 0 0 0 -2 2 z"/></svg>
+      </div>
+      <div class="step-num">Step 01</div>
+      <h2 class="step-title">Open the template and start everything at unity</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">New set</div>
+      <ul>
+        <li><kbd>⌘ N</kbd>. Save as <span class="code">unity_b1_002.als</span> in a dedicated folder.</li>
+        <li><kbd>⌘ ,</kbd> → <strong>Audio</strong>: device <strong>MOTU M4</strong> in and out, sample rate <span class="code">48000 Hz</span>, buffer <span class="code">256 samples</span>.</li>
+        <li>Input Config: enable mono input <span class="code">1</span> (MicroFreak) and stereo <span class="code">3/4</span> (Digitakt). Rename them in plain language.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Confirm unity everywhere downstream</div>
+      <ul>
+        <li>Create one audio track, <kbd>⌘ R</kbd> to name it <span class="code">MF SOURCE</span>. Set its In to <span class="menu">Ext. In</span> channel <span class="code">1</span>, Monitor <strong>In</strong>.</li>
+        <li>Track fader at <span class="code">0 dB</span>. Clip gain at <span class="code">0 dB</span>. Master fader at <span class="code">0 dB</span>. No effects, no Utility, no limiter.</li>
+        <li>Drop one metering plug-in on the master, set to show peaks. This is your dashboard for the whole build.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Is every digital stage at <span class="code">0 dB</span> — fader, clip gain, master?</li>
+        <li>Is the master metering plug-in the only thing on the master, with no limiter?</li>
+        <li>Can I name what unity means and why I'm starting there?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="14"/><circle cx="22" cy="22" r="5"/></svg>
+      </div>
+      <div class="step-num">Step 02</div>
+      <h2 class="step-title">Stage one — the source and instrument output</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Make a steady sound to gain-stage on</div>
+      <ul>
+        <li>On the MicroFreak, choose a preset that sustains — a held pad or a long bass note — so the level is steady enough to read on a meter. A short pluck is hard to gain-stage on.</li>
+        <li>Set the MicroFreak's rear master volume to about <span class="code">75 %</span>. This is the instrument-output stage. It should be healthy but not maxed — leave the box a little room too.</li>
+        <li>Hold a middle-register note. Confirm the M4's input 1 meter on the front panel moves.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Why 75 % and not 100 %</div>
+      <ul>
+        <li>A synth driven to its own maximum often distorts at the output before the interface even sees it. Around 75 % gives a strong, clean signal and leaves the interface trim room to do the fine setting.</li>
+        <li>This is the first place level is set — and already a decision you can justify: strong source, not maxed source.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does the M4 input 1 meter move when I hold the note?</li>
+        <li>Is the MicroFreak's own output strong but not maxed (≈ 75 %)?</li>
+        <li>Can I justify the source level in one sentence?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="13"/><line x1="22" y1="22" x2="22" y2="11"/><line x1="33" y1="22" x2="35" y2="22"/></svg>
+      </div>
+      <div class="step-num">Step 03</div>
+      <h2 class="step-title">Stage two — set the M4 input trim</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The most important knob in the chain</div>
+      <ul>
+        <li>Start the M4 input 1 trim fully down. Hold the loudest note you'll play.</li>
+        <li>Raise the trim slowly while watching Live's <span class="code">MF SOURCE</span> input meter. Stop when the peaks sit around <span class="code">−12 dBFS</span>.</li>
+        <li>Play your loudest, most aggressive note. The M4's clip LED must stay dark. If it flickers, you are clipping the converter — turn the trim down until it never lights.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The level is now set, once</div>
+      <ul>
+        <li>The recording's level is now entirely owned by this one trim, with everything downstream at unity. That is the whole point — one place to set, one place to check.</li>
+        <li>Write the trim position and the peak reading in the gain ledger: <span class="code">M4 In 1 trim · peaks −12 dBFS · clip LED dark</span>.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Do my loudest notes peak around <span class="code">−12 dBFS</span> in Live?</li>
+        <li>Does the M4 clip LED stay dark even on the hottest note?</li>
+        <li>Did I set this level at the trim and nowhere else?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 22 q9 -4 18 0 t18 0"/><path d="M6 28 q9 -2 18 0 t18 0"/></svg>
+      </div>
+      <div class="step-num">Step 04</div>
+      <h2 class="step-title">Record the source and confirm the noise floor</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Print a take</div>
+      <ul>
+        <li>Arm <span class="code">MF SOURCE</span>, monitor <strong>Auto</strong>. <kbd>⌘ ⇧ R</kbd> and record about 30 seconds of held notes with a few silent gaps between them.</li>
+        <li>Stop. Leave clip gain at <span class="code">0 dB</span> — the level should already be right from the trim, with nothing to make up.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Listen into the gaps</div>
+      <ul>
+        <li>Solo the take and turn the phones up to your marked level. In the silent gaps, listen for hiss under the silence. With the trim set correctly, the gaps should be clean — that is a healthy noise floor.</li>
+        <li>This confirms the recording captured a strong signal so you never have to amplify it (and its noise) later.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Are the silent gaps clean, or is there hiss I'd amplify if I pushed the fader?</li>
+        <li>Did I leave clip gain at unity because the level was already right?</li>
+        <li>Do the peaks of the recorded clip still sit near <span class="code">−12 dBFS</span>?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 5 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="8" y="10" width="28" height="24" rx="2"/><line x1="14" y1="22" x2="30" y2="22"/><circle cx="22" cy="22" r="2.5" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Step 05</div>
+      <h2 class="step-title">Stage three — gain inside the track with Utility</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Trim in, trim out</div>
+      <ul>
+        <li>Add a <strong>Saturator</strong> to <span class="code">MF SOURCE</span>, then a <strong>Utility</strong> <em>before</em> it and another <em>after</em> it.</li>
+        <li>Use the first Utility's Gain to drive the saturator harder or softer. Use the second Utility's Gain to bring the level back down to unity afterward.</li>
+        <li>Now bypass and enable the saturator. Because the after-Utility restored the level, you hear the <em>tone</em> change, not just a loudness jump — an honest A/B.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Why this is gain staging, not mixing</div>
+      <ul>
+        <li>Driving an effect is a gain decision: how hard the signal hits it changes the result. Setting that drive with Utility, and restoring the level after, keeps the channel's output at the level you intended.</li>
+        <li>If you skipped the after-Utility, the saturator's added harmonics would also push the level up — and you'd "fix" that at the fader, undoing the clean structure. Keep gain at the gain stage.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>When I A/B the saturator, do I hear tone change rather than just more loudness?</li>
+        <li>Is the channel's output level back near where it was before the effect?</li>
+        <li>Did I drive the effect with Utility, not with the fader?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 6 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="8" y="10" width="12" height="24" rx="2"/><rect x="24" y="10" width="12" height="24" rx="2"/><line x1="20" y1="22" x2="24" y2="22"/></svg>
+      </div>
+      <div class="step-num">Step 06</div>
+      <h2 class="step-title">Stage four — the group bus</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Route to a group</div>
+      <ul>
+        <li>Select <span class="code">MF SOURCE</span> and <kbd>⌘ G</kbd> to wrap it in a group named <span class="code">SYNTHS</span>. The group fader starts at <span class="code">0 dB</span> — unity, summing without adding gain.</li>
+        <li>Watch the group's meter. With one track in it the group level matches the track. As you add tracks later, the group will sum them — and can climb toward the ceiling.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The bus is a gain stage too</div>
+      <ul>
+        <li>Anything summed can clip. If the group meter ever nears <span class="code">0 dBFS</span>, the fix is to pull the group fader down a touch — or better, to have set each track lower so the sum lands right. Headroom on the bus is headroom for the master.</li>
+        <li>Leave the group at unity for now with one source; the discipline is to <em>watch</em> it, not to nudge it without reason.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Is the group fader at unity, summing without adding gain?</li>
+        <li>Is the group meter well below <span class="code">0 dBFS</span>, leaving room for the master?</li>
+        <li>Do I understand the group is just another place level can climb?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 7 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><line x1="8" y1="10" x2="36" y2="10"/><line x1="8" y1="34" x2="36" y2="34"/><rect x="14" y="18" width="16" height="16"/></svg>
+      </div>
+      <div class="step-num">Step 07</div>
+      <h2 class="step-title">Stage five — the master and the headroom check</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Read the master</div>
+      <ul>
+        <li>Play the source through. On the master metering plug-in, read the peak number. With everything set at −12 dBFS and unity downstream, the master should peak comfortably below <span class="code">−6 dBFS</span>.</li>
+        <li>Confirm at least <span class="code">6 dB</span> of headroom remains below <span class="code">0 dBFS</span>. That gap is what mastering will use; protect it.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Trace the whole chain</div>
+      <table class="param-table">
+        <caption>The full path, every stage justified</caption>
+        <tr><td>Source · MicroFreak vol</td><td>≈ <span class="code">75 %</span> — strong, not maxed</td></tr>
+        <tr><td>Trim · M4 In 1</td><td>peaks <span class="code">−12 dBFS</span>, clip LED dark — the recorded level</td></tr>
+        <tr><td>Clip gain</td><td><span class="code">0 dB</span> — nothing to make up</td></tr>
+        <tr><td>Utility · in/out of saturator</td><td>drive set, then restored to unity</td></tr>
+        <tr><td>Fader</td><td><span class="code">0 dB</span> — balance only, untouched so far</td></tr>
+        <tr><td>Group · SYNTHS</td><td><span class="code">0 dB</span> — summing without gain</td></tr>
+        <tr><td>Master</td><td>peaks below <span class="code">−6 dBFS</span> · ≥ <span class="code">6 dB</span> headroom</td></tr>
+      </table>
+    </div>
+
+    <div class="signal-flow">
+      <span class="signal-node">MicroFreak 75%</span>
+      <span class="signal-arrow">→ trim →</span>
+      <span class="signal-node">−12 dBFS in</span>
+      <span class="signal-arrow">→ unity →</span>
+      <span class="signal-node">channel</span>
+      <span class="signal-arrow">→ unity →</span>
+      <span class="signal-node">SYNTHS group</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">master ≥ 6 dB room</span>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does the master keep at least <span class="code">6 dB</span> of headroom?</li>
+        <li>Can I name the level at every stage and why it's set there?</li>
+        <li>Is there a single stage doing a job that belongs to another?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 8 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 22 L14 22 L14 12 L22 12 L22 32 L30 32 L30 22 L38 22"/></svg>
+      </div>
+      <div class="step-num">Step 08</div>
+      <h2 class="step-title">Break it on purpose — the four clipping loci</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Create each fault, one at a time, then undo it</div>
+      <ul>
+        <li><strong>Interface input.</strong> Turn the M4 trim up until the clip LED lights and Live's input goes red. Record two seconds. Listen: harsh, square. Now pull the trim back down — but notice the recorded clip is <em>permanently</em> damaged. This is analog clip: scissors, not a calculator.</li>
+        <li><strong>Track / device input.</strong> Push a Utility's Gain hard into the saturator so the device input overs. Hear it spit, then pull the Utility back. Recoverable — the level was just a big number inside Live.</li>
+        <li><strong>Group / bus.</strong> Raise the group fader until the group meter hits <span class="code">0 dBFS</span> red. Hear the sum break up, then pull it back. Recoverable, and a warning of what happens when many tracks sum.</li>
+        <li><strong>Master / output.</strong> Raise the master fader past <span class="code">0 dBFS</span>. The whole mix overs. Pull it back — recoverable here, but in mastering this is exactly the no-headroom mix that gets squashed.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Fill the clipping diagnosis table</div>
+      <table class="param-table">
+        <caption>Four loci — name each fingerprint</caption>
+        <tr><td>Interface input</td><td>M4 clip LED · permanent · fix at the trim or source</td></tr>
+        <tr><td>Track / device input</td><td>Live channel red · recoverable · fix the Utility / clip gain feeding it</td></tr>
+        <tr><td>Group / bus</td><td>Group meter red · recoverable · lower the sum or the group fader</td></tr>
+        <tr><td>Master / output</td><td>Master red · recoverable now, fatal for mastering · keep headroom</td></tr>
+      </table>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Can I tell analog input clip (permanent) from digital overs (recoverable) by what survives?</li>
+        <li>Can I point at which meter told the truth for each fault?</li>
+        <li>Have I returned every stage to its justified level afterward?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 9 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><line x1="12" y1="8" x2="12" y2="36"/><line x1="22" y1="8" x2="22" y2="36"/><line x1="32" y1="8" x2="32" y2="36"/><rect x="9" y="18" width="6" height="3" rx="0.5" fill="currentColor"/><rect x="19" y="24" width="6" height="3" rx="0.5" fill="currentColor"/><rect x="29" y="14" width="6" height="3" rx="0.5" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Step 09</div>
+      <h2 class="step-title">The three-level recording — hear what level decides</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Record the same phrase three ways</div>
+      <ul>
+        <li>Record the same held phrase three times: trim down so it peaks ≈ <span class="code">−40 dBFS</span>; trim correct at ≈ <span class="code">−12 dBFS</span>; trim too hot so the clip LED lights.</li>
+        <li>Level-match all three to the same loudness, then compare. The −40 take, brought up to match, drags its noise floor up with it. The hot take is harsh on the peaks. The −12 take is clean and full.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Defend one</div>
+      <ul>
+        <li>Write one sentence: which take you'd keep and why. The answer is the −12 take — strong enough to need no rescue, with room above for everything to come.</li>
+        <li>This is the whole lesson made audible: level is a decision at the source, and the trim is where it's made.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>At matched loudness, can I hear the noise floor rise on the −40 take?</li>
+        <li>Can I hear the harshness on the hot take?</li>
+        <li>Can I defend the −12 take in one sentence?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 10 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><polyline points="14 18 22 26 30 18"/><line x1="22" y1="8" x2="22" y2="26"/><line x1="8" y1="34" x2="36" y2="34"/></svg>
+      </div>
+      <div class="step-num">Step 10</div>
+      <h2 class="step-title">Add the stereo case and lock the structure</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Gain-stage the Digitakt stereo pair</div>
+      <ul>
+        <li>Create <span class="code">DT DRUMS</span>, In <span class="menu">Ext. In</span> <span class="code">3/4</span>. Play a pattern and set the level from the Digitakt's <em>one</em> Main Volume so both L and R peak ≈ <span class="code">−12 dBFS</span>.</li>
+        <li>Confirm both sides meter equally. A mismatch means a half-seated TRS cable — a wiring fault, not a gain one. Route <span class="code">DT DRUMS</span> to its own <span class="code">DRUMS</span> group.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Recheck the master with both sources</div>
+      <ul>
+        <li>Play synth and drums together. The master now sums two groups — watch it climb. If it nears <span class="code">−6 dBFS</span>, pull each group down a touch so the sum keeps ≥ <span class="code">6 dB</span> of headroom. Balance with the group faders, set level at the trims.</li>
+        <li>Save the gain ledger: one row per stage, nominal and actual. Save the set as a template — your clean structure, reusable on every track.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Final decision check</div>
+      <ul>
+        <li>Do both Digitakt channels meter equally at <span class="code">−12 dBFS</span>?</li>
+        <li>With both sources playing, does the master still keep ≥ <span class="code">6 dB</span> headroom and never clip?</li>
+        <li>Can I trace one signal from source to master and justify the level at every stage out loud?</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-nav">
+    <a href="palette.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 05 / Palette
+    </a>
+    <a href="reflection.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      07 / Reflection →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B1-002 — Unity</div>
+
+</div>
+
+</body>
+</html>

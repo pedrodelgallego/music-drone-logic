@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B3-001 — Groove · Decisions</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B3-001<span class="labnote-topic">Groove</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html" class="active"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B3-001</div>
+    <div class="eyebrow">Groove · 03 — Decisions</div>
+    <h1>The theory of groove, and the choices it forces</h1>
+    <p class="lede">Groove is what you decide to do with the distance between where a note lands and where the grid says it should. This page treats that distance as a compositional choice you can name, repeat, and share. Every decision here is made before a single cable is plugged in.</p>
+  </header>
+
+  <h2>What groove actually is</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><line x1="8" y1="22" x2="36" y2="22"/><line x1="14" y1="16" x2="14" y2="28"/><line x1="22" y1="16" x2="22" y2="28"/><line x1="30" y1="16" x2="30" y2="28"/></svg>
+      </div>
+      <h3 class="card-title">The grid</h3>
+      <ul class="card-points">
+        <li>An even division of the bar — 16 steps at 124 BPM</li>
+        <li>Perfectly quantized, perfectly mechanical, perfectly dead</li>
+        <li>Useful as a measuring stick, fatal as a destination</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M8 22c6-8 10 8 14 0s8-8 14 0"/><circle cx="14" cy="20" r="1.6" fill="currentColor"/><circle cx="30" cy="24" r="1.6" fill="currentColor"/></svg>
+      </div>
+      <h3 class="card-title">The groove</h3>
+      <ul class="card-points">
+        <li>The consistent way notes deviate from the grid</li>
+        <li>Timing offsets and velocity differences, repeated bar after bar</li>
+        <li>A rule, not noise — the same deviation every cycle is what the body learns to predict and lean into</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Principle</div>
+    <p>Groove is a deviation you can describe. If you can't say what it does in one sentence, it's an accident, not a groove.</p>
+  </div>
+
+  <h2>The unit of measurement: ticks</h2>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Resolution.</strong> The Digitakt II divides each step at 1/384-note resolution. Micro-timing nudges a single trig by up to roughly <span class="code">±23</span> ticks within its step — that is the whole vocabulary of per-hit feel on the box.</li>
+      <li><strong>What a tick is worth.</strong> At 124 BPM one 16th step lasts about <span class="code">121 ms</span>. The ±23-tick range spans roughly half a step, so one tick is around <span class="code">2.5 ms</span>. A <span class="code">3–6</span> tick nudge (≈ 8–15 ms) is felt; <span class="code">10+</span> ticks (≈ 25 ms) is heard as a deliberate flam.</li>
+      <li><strong>Why this matters for the decision.</strong> Once you can count feel in ticks, "make it groove" stops being a vibe and becomes a number you choose, write down, and repeat. That is the entire shift this Lab Note asks for.</li>
+    </ul>
+  </div>
+
+  <h2>Decision 1 — swing and shuffle</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><line x1="8" y1="30" x2="8" y2="14"/><line x1="18" y1="30" x2="18" y2="14"/><line x1="30" y1="30" x2="30" y2="14"/><path d="M8 14h10"/><path d="M30 14h6"/></svg>
+      </div>
+      <div class="step-num">Concept 01</div>
+      <h2 class="step-title">Delaying the even-numbered steps</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The mechanism</div>
+      <ul>
+        <li>Swing pushes the second of each pair of 16th notes later. Steps <span class="code">2, 4, 6, 8…</span> arrive late; the odd steps stay locked to the grid.</li>
+        <li>At <strong>50 %</strong> swing the pair is even — straight 16ths. At <strong>66 %</strong> you reach a true triplet feel, where the off-step lands two-thirds of the way through the beat.</li>
+        <li>Hypnotic and deep grooves live in the narrow band between them: <span class="code">52–58 %</span>. Enough to roll, never enough to announce itself as "swung".</li>
+      </ul>
+      <table class="param-table">
+        <caption>Swing amounts and what they feel like</caption>
+        <tr><td>50 %</td><td>Straight. Mechanical, clinical, correct.</td></tr>
+        <tr><td>53–56 %</td><td>The pocket. A lean, not a bounce.</td></tr>
+        <tr><td>58–62 %</td><td>Audible shuffle. Reads as house / garage; usually too much here.</td></tr>
+        <tr><td>66 %</td><td>Full triplet swing. A different genre entirely.</td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Swing on the Digitakt II</div>
+      <ul>
+        <li>Swing is set per track (or globally) on the <span class="menu">pattern / SCALE</span> page. It only affects the even 16th-note positions, so a kick on every quarter is untouched — only the in-between hats and percussion roll.</li>
+        <li>This is why hats and ghost percussion carry the groove: the kick stays metronomic while everything around it leans.</li>
+        <li><strong>The decision:</strong> apply swing to the hat and perc tracks only, kick straight. The contrast between a locked kick and a leaning hat <em>is</em> the pocket.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Decision 2 — push and pull</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><line x1="22" y1="10" x2="22" y2="34"/><polyline points="14 20 22 10 30 20"/></svg>
+      </div>
+      <h3 class="card-title">Pushing — playing ahead</h3>
+      <ul class="card-points">
+        <li>A hit lands a few ticks <em>before</em> the grid</li>
+        <li>Reads as urgency, drive, forward lean</li>
+        <li>Often the clap or a lead percussion accent</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><line x1="22" y1="10" x2="22" y2="34"/><polyline points="14 24 22 34 30 24"/></svg>
+      </div>
+      <h3 class="card-title">Pulling — playing behind</h3>
+      <ul class="card-points">
+        <li>A hit lands a few ticks <em>after</em> the grid</li>
+        <li>Reads as relaxed, heavy, dragging weight</li>
+        <li>The classic "behind the beat" feel that makes a loop sit deep</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>The trick of the pocket:</strong> a groove usually does both at once. Kick dead on the grid, hats pulled slightly late, one accent pushed slightly early. The body reads the kick as the truth and everything else as tension against it.</li>
+      <li><strong>The decision to make now:</strong> assign one direction per part before programming. Write it as a table — kick: on grid; hat: pull +4; perc accent: push −3. That table is your groove, and you'll commit it on the build page.</li>
+    </ul>
+  </div>
+
+  <h2>Decision 3 — humanization vs intention</h2>
+
+  <div class="callout">
+    <div class="callout-label">The distinction that decides everything</div>
+    <p>"Humanize" buttons add random jitter — every note moves a different unknown amount. Intention moves chosen notes by chosen amounts, the same way every cycle. Random jitter blurs a pattern; intentional offset gives it a body.</p>
+  </div>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><circle cx="12" cy="16" r="1.6" fill="currentColor"/><circle cx="20" cy="28" r="1.6" fill="currentColor"/><circle cx="28" cy="14" r="1.6" fill="currentColor"/><circle cx="34" cy="24" r="1.6" fill="currentColor"/><circle cx="16" cy="32" r="1.6" fill="currentColor"/></svg>
+      </div>
+      <h3 class="card-title">Random humanization — avoid</h3>
+      <ul class="card-points">
+        <li>A scatter of unrepeatable offsets</li>
+        <li>Sounds like a slightly sloppy machine, not a player</li>
+        <li>Cannot be described, so cannot be tightened or loosened</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><line x1="8" y1="30" x2="8" y2="14"/><line x1="20" y1="30" x2="20" y2="18"/><line x1="32" y1="30" x2="32" y2="14"/><path d="M8 14 Q20 10 32 14"/></svg>
+      </div>
+      <h3 class="card-title">Intentional offset — use</h3>
+      <ul class="card-points">
+        <li>Specific steps, specific tick amounts, repeated</li>
+        <li>Reads as a consistent body language</li>
+        <li>Can be named, copied to other tracks, dialled up or down</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>One sanctioned use of randomness:</strong> a tiny random amount in the Ableton Groove Pool (under 5 %) on a long ghost-percussion layer, to stop a 1/16 hat from sounding stamped. Even then, the systematic offset does the work and the randomness only takes the last edge off.</li>
+    </ul>
+  </div>
+
+  <h2>Decision 4 — one groove, shared</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="8" y="10" width="12" height="24" rx="2"/><rect x="24" y="10" width="12" height="24" rx="2"/><line x1="20" y1="22" x2="24" y2="22"/></svg>
+      </div>
+      <div class="step-num">Concept 02</div>
+      <h2 class="step-title">Groove as a portable object</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The Groove Pool in Ableton</div>
+      <ul>
+        <li>A groove is a separate file describing timing offsets, velocity, and "random" amounts. Drag any groove from the browser's <strong>Groove</strong> folder onto a clip and the clip's notes are pulled toward that template — without their positions being permanently rewritten.</li>
+        <li>Open the <strong>Groove Pool</strong> (the wave icon, bottom-left). <strong>Timing</strong> sets how strongly the template's offsets apply; <strong>Quantize</strong> blends toward the straight grid first; <strong>Velocity</strong> applies the template's accent pattern.</li>
+        <li>Commit a groove permanently with the clip's <span class="menu">Commit Groove</span> button — only once you're certain, because it bakes the offsets into the note positions.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Extract a groove from your own recording</div>
+      <ul>
+        <li>Record the Digitakt II drum pass into Ableton. Slice or transcribe one bar to MIDI, then right-click the clip → <span class="menu">Extract Groove</span>. Ableton reads your hand-nudged micro-timing and stores it as a reusable template.</li>
+        <li>Apply that extracted groove to the MicroFreak bass clip: the bass inherits exactly the lean you programmed into the hats, and the two instruments share one pocket instead of two slightly different ones.</li>
+        <li>This is the cleanest way to make hardware and software agree on feel: one groove, extracted once, applied to everything.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">The decision that holds the track together</div>
+    <p>Decide that there is exactly <em>one</em> groove in the project, and that every tonal part is bent toward it. Two slightly different feels — a Digitakt swing and a separately-quantized bass — fight each other in a way the ear reads as "not quite right" without being able to say why.</p>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon">
+        <svg viewBox="0 0 44 44"><polyline points="10 22 18 30 34 12"/></svg>
+      </div>
+      <div class="checklist-label">Decisions locked before setup</div>
+    </div>
+    <ul>
+      <li>I can state my groove as a small set of offsets, not "it feels good".</li>
+      <li>The kick is my reference clock and stays on the grid.</li>
+      <li>My swing sits in the 53–58 % pocket, felt rather than heard.</li>
+      <li>Each part has an assigned direction: pull, push, or locked.</li>
+      <li>Any randomness is under 5 % and never carries the groove on its own.</li>
+      <li>One groove is shared across bass and drums, not two competing feels.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="listen.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 02 / Listen
+    </a>
+    <a href="setup.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      04 / Setup →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B3-001 — Groove</div>
+
+</div>
+
+</body>
+</html>

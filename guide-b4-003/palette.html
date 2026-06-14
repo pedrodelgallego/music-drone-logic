@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B4-003 — Granular — Grain palette</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B4-003<span class="labnote-topic">Granular</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html" class="active"><span class="nav-num">05</span>Grain palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B4-003</div>
+    <div class="eyebrow">Granular · 05 — Grain palette</div>
+    <h1>Four recipes from one set of dials</h1>
+    <p class="lede">The same four controls produce wildly different material depending on where you set them. These are four reference recipes — pad, cloud, stutter, glitch — written as concrete Granulator III settings. They are starting points, not law. Dial one in, then move a single dial and listen; the gap between two recipes is itself a usable sound.</p>
+  </header>
+
+  <h2>The four dials at a glance</h2>
+
+  <table class="param-table">
+    <caption>Where each recipe sits on the four controls</caption>
+    <tr><td>Recipe</td><td>Size · Density · Spray · Position</td></tr>
+    <tr><td><strong>Pad</strong></td><td>Long · High · None/tiny · Frozen</td></tr>
+    <tr><td><strong>Cloud</strong></td><td>Medium · High · Moderate · Slow drift</td></tr>
+    <tr><td><strong>Stutter</strong></td><td>Short · Low · None · Stepped</td></tr>
+    <tr><td><strong>Glitch</strong></td><td>Very short · Low–medium · High · Jumping</td></tr>
+  </table>
+
+  <h2>Recipe 1 — Pad</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 22 h32" /><path d="M6 16 q16 -6 32 0" opacity="0.5"/><path d="M6 28 q16 6 32 0" opacity="0.5"/></svg>
+      </div>
+      <div class="step-num">Recipe 1</div>
+      <h2 class="step-title">A frozen instant becomes a held chord</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Granulator III settings</div>
+      <table class="param-table">
+        <caption>Pad — the spine of the track</caption>
+        <tr><td>Grain Size</td><td><span class="code">90–120 ms</span> — long enough that the source timbre survives intact</td></tr>
+        <tr><td>Density</td><td>High — many overlapping grains, fully continuous, no gaps</td></tr>
+        <tr><td>Spray</td><td><span class="code">0–8 ms</span> — just enough to hide the loop point, not enough to blur pitch</td></tr>
+        <tr><td>Position</td><td><strong>Frozen</strong> on the richest, most stable instant of the source</td></tr>
+        <tr><td>Window</td><td>Smooth bell — no grit</td></tr>
+        <tr><td>Pitch</td><td>Play polyphonically; the decoupled engine turns one instant into a chord</td></tr>
+      </table>
+      <ul>
+        <li>Use this as the foundation layer. Hold a triad and the frozen point sustains as a pad indefinitely.</li>
+        <li>For life without movement: add a <strong>slow LFO to Spray</strong> (one cycle per 15–20 s, depth ~5 ms) so the chord shimmers without anyone hearing a change.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Recipe 2 — Cloud</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 22 q4 -10 8 0 t8 0 t8 0 t8 0"/><circle cx="10" cy="16" r="1.4" fill="currentColor"/><circle cx="22" cy="14" r="1.4" fill="currentColor"/><circle cx="34" cy="16" r="1.4" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Recipe 2</div>
+      <h2 class="step-title">A slow scan through the source</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Granulator III settings</div>
+      <table class="param-table">
+        <caption>Cloud — evolving texture</caption>
+        <tr><td>Grain Size</td><td><span class="code">50–80 ms</span> — on the line between texture and pad</td></tr>
+        <tr><td>Density</td><td>High, but slightly lower than the pad — a little air between grains</td></tr>
+        <tr><td>Spray</td><td><span class="code">20–40 ms</span> — a moving haze, periodicity gone</td></tr>
+        <tr><td>Position</td><td><strong>Slow drift</strong> — unfrozen, or an LFO moving Position one full pass per 30–60 s</td></tr>
+        <tr><td>Window</td><td>Smooth bell</td></tr>
+      </table>
+      <ul>
+        <li>This is the layer that <em>evolves</em>. As Position scans, the timbre changes continuously — different instants of the source become the sound, one after another.</li>
+        <li>Keep the scan glacially slow. If you can hear the timbre "move" as an event, halve the LFO rate. The listener should notice it is different, never that it changed.</li>
+        <li>Send generously to the Grain Haze return for depth; it doubles the cloud at an offset pitch if you set Grain Delay Pitch to <span class="code">+12 st</span>.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Recipe 3 — Stutter</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="8" y="16" width="3" height="12" fill="currentColor"/><rect x="16" y="16" width="3" height="12" fill="currentColor"/><rect x="24" y="16" width="3" height="12" fill="currentColor"/><rect x="32" y="16" width="3" height="12" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Recipe 3</div>
+      <h2 class="step-title">Sparse grains become rhythm</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Granulator III settings</div>
+      <table class="param-table">
+        <caption>Stutter — rhythmic seasoning</caption>
+        <tr><td>Grain Size</td><td><span class="code">25–40 ms</span> — short, each grain is a discrete event</td></tr>
+        <tr><td>Density</td><td>Low — gaps between grains, so you hear them individually</td></tr>
+        <tr><td>Spray</td><td><span class="code">0 ms</span> — keep it tight and repeatable</td></tr>
+        <tr><td>Position</td><td><strong>Stepped</strong> — frozen, or moved in discrete jumps synced to the grid</td></tr>
+      </table>
+      <ul>
+        <li>This is where granular meets rhythm. Sync the grain rate (or an LFO on Position) to <span class="code">1/16</span> and the cloud becomes a pulse made of source fragments.</li>
+        <li>Best made <em>on the Digitakt</em>: slice a printed cloud, then use <strong>Retrig</strong> on one slice to machine-gun it. The sequencer resolution gives you tighter, more musical stutter than dragging an LFO.</li>
+        <li>Use sparingly. Stutter is the accent, never the bed — one stutter event every few bars reads as intent; constant stutter reads as a broken file.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Recipe 4 — Glitch</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M8 22 h6 l3 -8 4 16 3 -10 4 6 h8" /></svg>
+      </div>
+      <div class="step-num">Recipe 4</div>
+      <h2 class="step-title">Position jumps and high spray dissolve the source</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Granulator III settings</div>
+      <table class="param-table">
+        <caption>Glitch — the source coming apart</caption>
+        <tr><td>Grain Size</td><td><span class="code">10–20 ms</span> — very short, the grain itself is audible as a click or chirp</td></tr>
+        <tr><td>Density</td><td>Low to medium — sparse enough to hear the chaos</td></tr>
+        <tr><td>Spray</td><td><span class="code">60–90 ms</span> — heavy scatter, the source dissolves toward noise</td></tr>
+        <tr><td>Position</td><td><strong>Jumping</strong> — fast random or stepped position changes; the read point never settles</td></tr>
+        <tr><td>Window</td><td>Sharper edges add the grit; soften it if it becomes painful</td></tr>
+      </table>
+      <ul>
+        <li>This recipe deliberately destroys pitch and intelligibility. Use it as a transition, a tear in the fabric, or a one-off event — never the spine.</li>
+        <li>Pairs well with a hard pitch shift (<span class="code">−12</span> or random) and a short reverse on the Digitakt slices.</li>
+        <li>Resample a glitch pass and you have a brand-new noisy source to granulate again — a generation whose origin is unrecognisable.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Combining recipes in one track</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><line x1="8" y1="14" x2="36" y2="14"/><line x1="8" y1="22" x2="36" y2="22"/><line x1="8" y1="30" x2="30" y2="30"/></svg>
+      </div>
+      <h3 class="card-title">Stack by role</h3>
+      <ul class="card-points">
+        <li>Pad as the bed, frozen and constant</li>
+        <li>Cloud above it, slowly scanning, carrying the evolution</li>
+        <li>Stutter and glitch as rare events that puncture the calm</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><circle cx="14" cy="22" r="3" fill="currentColor"/><circle cx="24" cy="16" r="3"/><circle cx="32" cy="26" r="3" fill="currentColor"/><path d="M14 22 L24 16 L32 26"/></svg>
+      </div>
+      <h3 class="card-title">All from one source</h3>
+      <ul class="card-points">
+        <li>The same source file feeds every recipe — only the dials differ</li>
+        <li>Print each as its own generation so they can coexist</li>
+        <li>The shared DNA is what makes four layers sound like one piece</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Decision check</div>
+    <ul>
+      <li>Can I move from Pad to Cloud by turning <em>one</em> dial (Position from frozen to drifting) and hear the layer come alive? That single move is the whole arc in miniature.</li>
+      <li>Is my stutter coming from the grid (Digitakt retrig) or from a wobbling LFO? The grid version will sit in time; the LFO version usually won't.</li>
+      <li>Have I kept glitch rare? If glitch is present more than a few seconds at a time, it has become the bed — which is not what this track wants.</li>
+    </ul>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Carry forward:</strong> these four recipes are the vocabulary. Page 06 sequences them into a full track — record the source, freeze a pad, scan a cloud, slice on the Digitakt, glitch a transition, and resample generation after generation into a 6–8 minute textural piece.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="setup.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 04 / Setup
+    </a>
+    <a href="build.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      06 / The build →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B4-003 — Granular</div>
+
+</div>
+
+</body>
+</html>

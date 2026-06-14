@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B6-002 — Self-playing Patches — Overview</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B6-002<span class="labnote-topic">Self-playing Patches</span></p>
+  <a href="index.html" class="active"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B6-002</div>
+    <div class="eyebrow">Self-playing Patches · 01 — Overview</div>
+    <h1>Build a patch that plays itself while you leave the room</h1>
+    <p class="lede">A deep-reference Lab Note on Eno-style systems that run without you — several slow modulators cross-modulating at rates that never line up, so the combined motion never repeats inside the listening window. You design the habitat; the system plays the music. The deliverable is a ten-minute unattended recording you had no hand in performing. Fully original; no melodies or arrangements borrowed.</p>
+  </header>
+
+  <h2>The goal</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><circle cx="14" cy="22" r="8"/><circle cx="30" cy="22" r="8"/></svg>
+      </div>
+      <h3 class="card-title">A ten-minute self-player</h3>
+      <ul class="card-points">
+        <li>A patch built in VCV Rack, the MicroFreak matrix, or Live + Max for Live</li>
+        <li>Two or more slow modulators at unrelated, unsynced rates</li>
+        <li>Captured as a single hands-off take — your hands never touch it once it starts</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 22 q8 -12 16 0 t16 0"/><path d="M6 30 q11 -8 16 0 t16 0"/></svg>
+      </div>
+      <h3 class="card-title">Skills you'll practice</h3>
+      <ul class="card-points">
+        <li>Cross-modulation: one LFO shaping another LFO's rate or depth</li>
+        <li>Choosing prime-ish, unrelated periods so cycles never realign</li>
+        <li>Deciding what to fix and what to let move; the ten-minute unattended test</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Core objective</div>
+    <p>Understand how a handful of slow modulators, set once and left alone, can sustain ten minutes where no thirty-second window sounds quite like another — yet the whole thing clearly comes from one habitat.</p>
+  </div>
+
+  <h2>Why self-playing patches matter</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><line x1="22" y1="6" x2="22" y2="10"/><line x1="34" y1="10" x2="31" y2="13"/><line x1="38" y1="22" x2="34" y2="22"/><line x1="10" y1="22" x2="6" y2="22"/><line x1="13" y1="13" x2="10" y2="10"/><circle cx="22" cy="22" r="10"/><line x1="22" y1="32" x2="22" y2="38"/></svg>
+      </div>
+      <h3 class="card-title">The performer's instinct</h3>
+      <ul class="card-points">
+        <li>Ride the knobs constantly to "keep it interesting"</li>
+        <li>Treat every dull moment as a cue to intervene</li>
+        <li>Confuse your own boredom with the system's failure</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M10 22 a12 12 0 0 1 21 -8"/><polyline points="25 8 31 14 26 18"/><path d="M34 22 a12 12 0 0 1 -21 8"/><polyline points="19 36 13 30 18 26"/></svg>
+      </div>
+      <h3 class="card-title">The designer's discipline</h3>
+      <ul class="card-points">
+        <li>Set the rates, depths, and range once, then walk away</li>
+        <li>Fix the boundaries; let the system decide the moments</li>
+        <li>If you have to babysit it, it isn't self-playing yet — redesign</li>
+      </ul>
+    </div>
+  </div>
+
+  <p style="text-align: center; color: var(--text-muted); max-width: 640px; margin: 24px auto;">This skill transfers far beyond ambient. The same instinct — design a process, then let it run — drives generative installation work, long-form film scoring, modular performance, and any music meant to evolve without a hand on it. You are not learning a genre; you are learning to compose the conditions and let the music live in them.</p>
+
+  <div class="callout">
+    <div class="callout-label">Principle</div>
+    <p>Two slow modulators at unrelated rates produce a third motion neither of them contains. That emergent third thing is the music. Your job is to design it, then leave.</p>
+  </div>
+
+  <h2>How to read this Lab Note</h2>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>02 Listen</strong> — three reference recordings that demonstrate systems running themselves, and a structured way to hear the mechanism.</li>
+      <li><strong>03 Decisions</strong> — the theory: phasing vs. cross-modulation, why rates must be unsynced, and what to fix versus what to let move.</li>
+      <li><strong>04 Setup</strong> — three habitats and their signal paths: VCV Rack, the MicroFreak matrix (plus optional Strega), and Live + Max for Live.</li>
+      <li><strong>05 Palette</strong> — modulation-habitat recipes with exact rates and depths you can dial in and trust.</li>
+      <li><strong>06 The build</strong> — the deep page: an exhaustive, step-by-step construction of a self-playing patch and the ten-minute unattended capture.</li>
+      <li><strong>07 Reflection</strong> — fault-finding, what to carry forward, and the single principle that survives the session.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <span></span>
+    <a href="listen.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      02 / Listen &rarr;
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B6-002 — Self-playing Patches</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B6-002 — Self-playing Patches — Setup</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B6-002<span class="labnote-topic">Self-playing Patches</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html" class="active"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B6-002</div>
+    <div class="eyebrow">Self-playing Patches · 04 — Setup</div>
+    <h1>Three habitats, one idea</h1>
+    <p class="lede">The same self-playing principle works in free software, in owned hardware, or entirely in the box. Pick the rig you have. Each section below gives the audio path, the control path, and the recording route — so the build page can assume the wiring is done.</p>
+  </header>
+
+  <h2>Keep two paths separate in your head</h2>
+
+  <p style="text-align:center; max-width:640px; margin:0 auto 24px; color:var(--text-muted);">Every habitat has an <strong>audio path</strong> (oscillator &rarr; filter &rarr; amp &rarr; out) you set once and never touch again, and a <strong>control path</strong> (the LFOs and gates) that is the living part. The whole craft is in the control path. Wire the audio path, walk away from it, and spend your attention on the modulators.</p>
+
+  <div class="signal-flow">
+    <span class="signal-node">Audio path</span>
+    <span class="signal-arrow">VCO &rarr; VCF &rarr; VCA &rarr; out (set once)</span>
+    <span class="signal-node">Control path</span>
+    <span class="signal-arrow">LFOs + gates &rarr; the living part</span>
+  </div>
+
+  <h2>Rig A — VCV Rack (free, recommended first)</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="16"/><path d="M22 6v8M22 30v8M6 22h8M30 22h8"/><circle cx="22" cy="22" r="4"/></svg>
+      </div>
+      <div class="step-num">Rig A — free</div>
+      <h2 class="step-title">VCV Rack as habitat</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Modules to place (all stock VCV)</div>
+      <ul>
+        <li><span class="code">VCO-1</span> &rarr; <span class="code">VCF</span> &rarr; <span class="code">VCA-1</span> &rarr; <span class="code">Audio-8</span> output. That is the entire audio path; once it makes a tone you never touch it again.</li>
+        <li>Three <span class="code">LFO</span> modules. Set each to its bipolar low-frequency output, and switch the VCO down into low-frequency / drone territory or hold a fixed pitch with a <span class="code">Quantizer</span> + fixed CV.</li>
+        <li>One <span class="code">Bernoulli Gate</span> (a coin) fed by a slow <span class="code">LFO</span> square — for rare retriggered events.</li>
+        <li>One <span class="code">ADSR</span> + <span class="code">8vert</span> (attenuverter) to scale CV depths precisely.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Patch the control path</div>
+      <table class="param-table">
+        <caption>VCV cabling — the living part</caption>
+        <tr><td>LFO 1 out</td><td>&rarr; VCF <span class="code">CUTOFF</span> CV (via 8vert, ~40 %)</td></tr>
+        <tr><td>LFO 2 out</td><td>&rarr; LFO 1 <span class="code">FM</span> / rate input (via 8vert, ~25 %) — the cross-modulation</td></tr>
+        <tr><td>LFO 3 out</td><td>&rarr; VCO timbre / wave or VCA level (via 8vert, ~20 %)</td></tr>
+        <tr><td>Slow square &rarr; Bernoulli</td><td>Bernoulli <span class="code">A</span> out &rarr; ADSR gate &rarr; VCA — rare swells</td></tr>
+      </table>
+      <ul>
+        <li>Keep audio cables one colour habit and CV cables another. VCV makes the split visual — use it.</li>
+        <li><strong>Recording:</strong> drop a <span class="code">Recorder</span> module (or VCV's built-in audio recorder) on the master, or route <span class="code">Audio-8</span> into your DAW. This is what you will leave running for ten minutes.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Why VCV first</div>
+      <ul>
+        <li>Free and unlimited — build a 40-module habitat you could never afford in hardware.</li>
+        <li>Everything transfers directly to the MicroFreak matrix and any Eurorack rig later. The concepts are identical; only the cabling changes.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Rig B — MicroFreak matrix (owned hardware)</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="8" y="12" width="28" height="20" rx="2"/><circle cx="16" cy="22" r="3"/><circle cx="28" cy="22" r="3"/></svg>
+      </div>
+      <div class="step-num">Rig B — owned</div>
+      <h2 class="step-title">The MicroFreak matrix as habitat</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Audio path — set once</div>
+      <ul>
+        <li><kbd>Shift</kbd> + press the Type encoder to initialise a fresh patch. Engine <span class="code">Wavetable</span> or <span class="code">Harmo</span> for a smooth, controllable timbre.</li>
+        <li>Press <kbd>Hold</kbd> on. Play a chord — root and fifth, or a triad. It sustains hands-free; this is your fixed pitch world.</li>
+        <li>Filter cutoff to around 10 o'clock (dark), resonance low. Long attack and release on the amp envelope so nothing clicks.</li>
+        <li>MicroFreak <strong>Audio Out</strong> &rarr; MOTU M4 <strong>Input 1</strong> with one 1/4" TS cable. This is the recording feed.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Control path — wire the matrix, click by click</div>
+      <table class="param-table">
+        <caption>Mod matrix routes — unsynced, slow</caption>
+        <tr><td>LFO &rarr; Cutoff</td><td>amount ~15. LFO Shape <strong>Sine</strong>, Rate <strong>unsynced</strong>, ~1 cycle / 14 s</td></tr>
+        <tr><td>Cycling Env &rarr; Wave</td><td>amount ~15. Cycling Env in <strong>loop / Run</strong> mode, slow rise+fall, ~1 cycle / 23 s</td></tr>
+        <tr><td>Cycling Env &rarr; LFO area</td><td>optional ~10 — feeds a second slow motion into the timbre</td></tr>
+        <tr><td>Pressure &rarr; Timbre</td><td><strong>left at zero</strong> — no human hand on it. The point is unattended motion.</td></tr>
+      </table>
+      <ul>
+        <li>To set a route: rotate the <strong>Matrix</strong> encoder to the intersection, <strong>press</strong> to select, <strong>turn</strong> to set the amount, <strong>press again</strong> to confirm.</li>
+        <li>Two modulators at unrelated periods (14 s vs 23 s) is the same trick as Rig A. If you can clearly hear a wobble, halve the depth.</li>
+        <li>Confirm the LFO rate is <strong>not</strong> tempo-synced — for a self-player it must free-run.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Optional wildcard — Make Noise Strega</div>
+      <ul>
+        <li>The Strega's internal feedback and "no two patches the same" character makes it an unstable organism on its own. Patch its outputs back into its inputs and it self-modulates.</li>
+        <li>Treat it as a guest creature in the terrarium: sample a few minutes of it into the Digitakt II rather than trying to tame it live.</li>
+        <li>Keep it quiet underneath the MicroFreak habitat — a second organism, not a second lead.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Rig C — Live + Max for Live (in the box)</h2>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M10 34V10l24 12-24 12z"/></svg>
+      </div>
+      <div class="step-num">Rig C — in the box</div>
+      <h2 class="step-title">Live + Max for Live habitat</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Audio path — set once</div>
+      <ul>
+        <li>One instrument track with <strong>Wavetable</strong> or <strong>Operator</strong>, a sustained chord drawn as a long MIDI clip (or held via a single long note + sustain). Add an <strong>Auto Filter</strong> after it — this is the parameter the system will move most.</li>
+        <li>An audio track set to record the instrument track's output — the field recorder for the ten-minute capture.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Control path — modulators with no host hand</div>
+      <table class="param-table">
+        <caption>Max for Live LFO devices — free-running, not synced</caption>
+        <tr><td>LFO A</td><td>map to Auto Filter <strong>Frequency</strong>. Mode <strong>Hz (free)</strong>, ~0.07 Hz (~14 s), depth ~35 %</td></tr>
+        <tr><td>LFO B</td><td>map to a reverb <strong>send</strong> or the wavetable position. Mode <strong>Hz</strong>, ~0.043 Hz (~23 s), depth ~30 %</td></tr>
+        <tr><td>LFO C</td><td>map to LFO A's own <strong>Rate</strong> (via a mapped macro) — the cross-modulation. ~0.027 Hz (~37 s), shallow</td></tr>
+      </table>
+      <ul>
+        <li>The key switch on every LFO is <strong>free-running in Hz, not sync</strong>. Sync would lock the periods into musical ratios and defeat the whole exercise.</li>
+        <li>Mapping an LFO to another LFO's Rate is the in-the-box version of patching CV into a rate input. Use the Max LFO's Map button, target LFO A's Rate.</li>
+        <li>Arm the audio track and let it record the habitat for as long as you'll later want to curate. The Live set is the terrarium; the recording is the field footage.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Free code paths</h2>
+
+  <div class="note-block">
+    <ul>
+      <li>The unattended generator is a few lines of <strong>SuperCollider</strong> — <span class="code">{ SinOsc.kr }</span> modulators driving a filter and an oscillator at unrelated rates.</li>
+      <li>Or a <strong>Pure Data</strong> patch of <span class="code">[osc~]</span> LFOs cross-modulating one another's frequency inlets.</li>
+      <li>Or VCV Rack, above. None of these cost anything to try, and all of them implement the identical idea: unsynced slow motions, fixed pitch world, recorded hands-off.</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Before you build</div>
+    <p>Whichever rig you chose, confirm one thing: with your hands completely off the instrument, does it already <em>move</em>? If it sits still, the control path isn't wired yet. Fix that here, not on the build page.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="decisions.html">
+      <span class="page-nav-direction">Previous</span>
+      &larr; 03 / Decisions
+    </a>
+    <a href="palette.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      05 / Palette &rarr;
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B6-002 — Self-playing Patches</div>
+
+</div>
+
+</body>
+</html>

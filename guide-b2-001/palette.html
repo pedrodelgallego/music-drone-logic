@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B2-001 — Palette</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Lab Note contents">
+  <p class="nav-label labnote-code">Lab Note B2-001<span class="labnote-topic">Synthesis from Zero</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html" class="active"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html"><span class="nav-num">06</span>Build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B2-001</div>
+    <div class="eyebrow">Synthesis from Zero · 05 — Palette</div>
+    <h1>Seven recipes, every parameter spelled out</h1>
+    <p class="lede">These are the building blocks of the finished piece — kick, hat, clap, bass, lead, pad, drone. Each is a complete recipe: the method, the signal flow, and a parameter table with sane starting values you can dial without guessing. Read these, then assemble them on the Build page. Every value is a starting point you should be able to <em>defend</em>, not obey.</p>
+  </header>
+
+  <div class="callout">
+    <div class="callout-label">How to read a recipe</div>
+    <p>Each recipe names the method, draws the signal flow, and gives a parameter table. Numbers in <span class="code">ms</span> are envelope times; numbers in <span class="code">Hz</span> are frequencies; FM ratios are written carrier : modulator. Build the sound, then change one value and listen — the recipe is a launchpad, not a preset to copy.</p>
+  </div>
+
+  <!-- KICK -->
+  <h2>1 · Kick — a falling sine plus a click</h2>
+  <p style="color:var(--text-muted);">Method: pitch-enveloped sine (the body) summed with an ultra-short noise/high-sine generator (the click). The punch lives entirely in the first ~10 ms; the weight lives in the body's decay.</p>
+
+  <div class="signal-flow">
+    <span class="signal-node">sine osc A</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">pitch env<br>150 → 50 Hz, ~5 ms</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">amp env<br>0 ms atk · 250 ms dec</span>
+    <span class="signal-arrow">+</span>
+    <span class="signal-node">click osc B<br>noise, 3 ms dec</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">kick</span>
+  </div>
+
+  <table class="param-table">
+    <caption>Kick — Operator</caption>
+    <tr><td>Oscillator A</td><td>Sine, Coarse 1, level full — the body</td></tr>
+    <tr><td>Resting note</td><td>play ≈ <span class="code">50 Hz</span> (F1), tuned to the track root</td></tr>
+    <tr><td>Pitch env amount</td><td>+1 to +2 octaves (starts ≈ <span class="code">150 Hz</span>)</td></tr>
+    <tr><td>Pitch env time</td><td><span class="code">3–8 ms</span> decay — this is the "click → body" snap</td></tr>
+    <tr><td>Amp env (A)</td><td>A <span class="code">0 ms</span> · D <span class="code">250 ms</span> · S 0 · R <span class="code">10 ms</span></td></tr>
+    <tr><td>Oscillator B (click)</td><td>Noise or high sine, parallel (not modulating), amp D <span class="code">2–5 ms</span>, low level</td></tr>
+    <tr><td>FX</td><td>None — a dry kick cuts. Saturator <span class="code">+1–3 dB</span> only if it needs grit.</td></tr>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>MicroFreak alternative:</strong> low note, the single envelope assigned to Pitch with a very short attack/decay for the sweep. The separate click is hard with one envelope — layer a second short take or accept a softer transient.</li>
+      <li><strong>The fault to know:</strong> a pitch-env time of 80–150 ms turns the kick into a "boop" — a slow glide with no punch. Keep it short.</li>
+    </ul>
+  </div>
+
+  <!-- HAT -->
+  <h2>2 · Hat — gated high-passed noise</h2>
+  <p style="color:var(--text-muted);">Method: noise shaping. Noise has no pitch — the high-pass chooses the colour, the decay <em>is</em> the instrument. Closed and open hats are the same source at two decay times.</p>
+
+  <div class="signal-flow">
+    <span class="signal-node">white noise</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">high-pass<br>~7–8 kHz</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">amp env<br>0 ms atk · 40 ms dec</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">hat</span>
+  </div>
+
+  <table class="param-table">
+    <caption>Hat — Operator/Wavetable noise + filter</caption>
+    <tr><td>Source</td><td>White noise (Operator Noise waveform or Wavetable noise osc)</td></tr>
+    <tr><td>Filter</td><td>High-pass, cutoff ≈ <span class="code">7–8 kHz</span>, mild resonance</td></tr>
+    <tr><td>Amp env (closed)</td><td>A <span class="code">0 ms</span> · D <span class="code">40 ms</span> · S 0</td></tr>
+    <tr><td>Amp env (open)</td><td>A <span class="code">0 ms</span> · D <span class="code">300 ms</span> · S 0 — duplicate the patch, lengthen decay</td></tr>
+    <tr><td>Choke</td><td>Program the closed hat to cut the open hat (open on the off-beat)</td></tr>
+    <tr><td>Metallic option</td><td>Two square/saw oscillators at inharmonic ratio (≈ 1 : 1.41) instead of noise — FM-style metal</td></tr>
+  </table>
+
+  <!-- CLAP -->
+  <h2>3 · Clap — staggered band-passed bursts plus a tail</h2>
+  <p style="color:var(--text-muted);">Method: noise shaping with structure. Three or four short bursts fired ~12 ms apart imitate many hands; a band-pass gives the "hand" colour; a short reverb glues the bursts into one clap.</p>
+
+  <div class="signal-flow">
+    <span class="signal-node">white noise</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">band-pass<br>~1–1.5 kHz</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">3–4 bursts<br>~12 ms apart</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">reverb tail<br>~200 ms</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">clap</span>
+  </div>
+
+  <table class="param-table">
+    <caption>Clap — Operator noise + band-pass + reverb</caption>
+    <tr><td>Source</td><td>White noise</td></tr>
+    <tr><td>Filter</td><td>Band-pass, centre ≈ <span class="code">1–1.5 kHz</span>, moderate resonance</td></tr>
+    <tr><td>Burst envelope</td><td>A <span class="code">0 ms</span> · D <span class="code">15 ms</span> · S 0 (per burst)</td></tr>
+    <tr><td>Stagger</td><td>3–4 MIDI notes <span class="code">10–20 ms</span> apart in the clip, last one loudest/longest</td></tr>
+    <tr><td>Tail</td><td>Short reverb, decay <span class="code">150–300 ms</span>, small room, on a short send</td></tr>
+    <tr><td>Mono check</td><td>Confirm the tail survives in mono — the clap reads as one event, not separate ticks</td></tr>
+  </table>
+
+  <!-- BASS -->
+  <h2>4 · Bass — FM at an integer ratio</h2>
+  <p style="color:var(--text-muted);">Method: harmonic FM. A 1:1 or 1:2 ratio keeps it singable; the modulation index sets the brightness; an index envelope gives the attack bite without detuning the pitch.</p>
+
+  <div class="signal-flow">
+    <span class="signal-node">modulator B<br>ratio 1 or 2</span>
+    <span class="signal-arrow">→ modulates →</span>
+    <span class="signal-node">carrier A<br>ratio 1</span>
+    <span class="signal-arrow">↑ index env</span>
+    <span class="signal-node">B amp env<br>fast decay</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">harmonic bass</span>
+  </div>
+
+  <table class="param-table">
+    <caption>Bass — Operator (1 : 1 or 1 : 2)</caption>
+    <tr><td>Algorithm</td><td>B → A (two-operator stack), C/D off</td></tr>
+    <tr><td>Carrier A</td><td>Sine, Coarse 1, level full</td></tr>
+    <tr><td>Modulator B</td><td>Sine, Coarse 1 (or 2 for hollow/odd emphasis), level = chosen index</td></tr>
+    <tr><td>Ratio</td><td>1 : 1 (round) or 1 : 2 (hollow) — both harmonic, both singable</td></tr>
+    <tr><td>Index envelope (B amp)</td><td>A <span class="code">0 ms</span> · D <span class="code">120 ms</span> · S low — bright attack, mellow body</td></tr>
+    <tr><td>Amp env (A)</td><td>A <span class="code">0 ms</span> · D/S to taste · short R so notes leave gaps</td></tr>
+    <tr><td>Gain</td><td>Compensate A's output as you raise index, so brightness ≠ loudness</td></tr>
+  </table>
+
+  <!-- LEAD -->
+  <h2>5 · Lead — FM, harmonic body with an inharmonic attack</h2>
+  <p style="color:var(--text-muted);">Method: FM with a strong index envelope. Integer ratio keeps the body pitched; a brief high index at the attack adds a metallic "tine" that fades — the classic DX e-piano structure.</p>
+
+  <div class="signal-flow">
+    <span class="signal-node">modulator B<br>ratio 1</span>
+    <span class="signal-arrow">→ modulates →</span>
+    <span class="signal-node">carrier A<br>ratio 1</span>
+    <span class="signal-arrow">↑ steep index env</span>
+    <span class="signal-node">B env<br>150 ms decay</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">e-piano-like lead</span>
+  </div>
+
+  <table class="param-table">
+    <caption>Lead — Operator (1 : 1, enveloped index)</caption>
+    <tr><td>Algorithm</td><td>B → A, C/D off (add feedback on B for edge)</td></tr>
+    <tr><td>Ratio</td><td>1 : 1 harmonic; push B to ≈ 1.41 for a bell/mallet variant</td></tr>
+    <tr><td>Index env (B amp)</td><td>A <span class="code">0 ms</span> · D <span class="code">150 ms</span> · S low — the "tine fades to body"</td></tr>
+    <tr><td>Amp env (A)</td><td>A <span class="code">0 ms</span> · sustained, medium release for a struck-but-singing feel</td></tr>
+    <tr><td>Feedback (B)</td><td>seasoning only — small amounts add edge, large amounts push toward noise</td></tr>
+    <tr><td>Watch for</td><td>Aliasing on high notes when index is high — lower index or play lower</td></tr>
+  </table>
+
+  <!-- PAD -->
+  <h2>6 · Pad — additive-style wavetable morph</h2>
+  <p style="color:var(--text-muted);">Method: additive-style. A slow sweep through the wavetable position redistributes the partials, so the timbre evolves with no new notes — movement from the spectrum, not the arrangement.</p>
+
+  <div class="signal-flow">
+    <span class="signal-node">wavetable osc</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">slow LFO<br>→ table position</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">gentle LP filter</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">long amp env</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">evolving pad</span>
+  </div>
+
+  <table class="param-table">
+    <caption>Pad — Wavetable</caption>
+    <tr><td>Oscillator 1</td><td>A harmonically rich table (e.g. a "Basics" saw-to-sine sweep)</td></tr>
+    <tr><td>Table position mod</td><td>Slow LFO (≈ one cycle per <span class="code">10–20 s</span>), depth small — partials redistribute</td></tr>
+    <tr><td>Filter</td><td>Low-pass, gentle, cutoff mid; let the table do the work, not the filter</td></tr>
+    <tr><td>Amp env</td><td>A <span class="code">300–800 ms</span> · long S · long R — it swells, never clicks</td></tr>
+    <tr><td>Voices</td><td>Hold two notes (root + fifth) for a stable bed</td></tr>
+    <tr><td>Width</td><td>Stereo via Unison/Utility — mono-check it survives</td></tr>
+  </table>
+
+  <!-- DRONE -->
+  <h2>7 · Drone — noise shaping or west-coast fold</h2>
+  <p style="color:var(--text-muted);">Method A: filtered noise stretched into cloud. Method B (recommended for the texture): a folded sine through a low-pass gate, where brightness blooms with level. Pick one — don't stack.</p>
+
+  <div class="signal-flow">
+    <span class="signal-node">VCO sine/tri</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">wavefolder<br>↑ env on fold depth</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">low-pass gate<br>vactrol, "both"</span>
+    <span class="signal-arrow">↑ slow ping</span>
+    <span class="signal-node">→ drone</span>
+  </div>
+
+  <table class="param-table">
+    <caption>Drone A — Wavetable noise</caption>
+    <tr><td>Source</td><td>Wavetable noise oscillator</td></tr>
+    <tr><td>Filter</td><td>Band-pass ≈ <span class="code">1.2 kHz</span>, moved slowly by a slow LFO</td></tr>
+    <tr><td>Amp env</td><td>Very long A and R — a continuous bed</td></tr>
+    <tr><td>Stretch</td><td>If printed, Warp mode <strong>Texture</strong>, half-speed for clouds</td></tr>
+  </table>
+
+  <table class="param-table">
+    <caption>Drone B — VCV west-coast (recommended)</caption>
+    <tr><td>Oscillator</td><td>VCO sine or triangle (harmonically poor on purpose)</td></tr>
+    <tr><td>Wavefolder</td><td>Bogaudio FOLD / Befaco — fold depth from an attenuated AD envelope</td></tr>
+    <tr><td>Low-pass gate</td><td>Bogaudio LPG or Veils in LPG ("both") mode — vactrol curve</td></tr>
+    <tr><td>Ping</td><td>Slow trigger/clock; harder ping = brighter + louder + longer</td></tr>
+    <tr><td>The one move</td><td>Drive fold depth from a slow LFO/random — freeze it and the part should die</td></tr>
+  </table>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Decision check — before you commit a recipe</div>
+    <ul>
+      <li>For each sound, can I draw its signal flow from memory — source → shaper(s) → output?</li>
+      <li>For each pitched sound, did the Spectrum confirm my harmonic/inharmonic prediction?</li>
+      <li>For the kick: can I point to where the click ends (ms) and the body begins?</li>
+      <li>For the drone: is exactly one control carrying the movement, or did I stack three?</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="setup.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 04 / Setup
+    </a>
+    <a href="build.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      06 / Build →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B2-001 — Synthesis from Zero</div>
+
+</div>
+
+</body>
+</html>

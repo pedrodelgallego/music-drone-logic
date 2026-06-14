@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B2-001 — Reflection</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Lab Note contents">
+  <p class="nav-label labnote-code">Lab Note B2-001<span class="labnote-topic">Synthesis from Zero</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html"><span class="nav-num">06</span>Build</a>
+  <a href="reflection.html" class="active"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B2-001</div>
+    <div class="eyebrow">Synthesis from Zero · 07 — Reflection</div>
+    <h1>Criteria, faults &amp; carry-forward</h1>
+    <p class="lede">The track proves you can build sound from zero; this page proves you understand what you built. Answer slowly, in mechanism not adjective, and write the answers down. The required fault below is not optional — recognising it by ear is the skill this Lab Note certifies.</p>
+  </header>
+
+  <h2>How you know it worked</h2>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="16"/><polyline points="14 22 20 28 30 16"/></svg>
+      </div>
+      <div class="checklist-label">Success signals</div>
+    </div>
+    <ul>
+      <li>Every sound in the track is synthesized — drums included, no samples anywhere.</li>
+      <li>You can draw each voice's signal flow from memory: source → shaper(s) → output.</li>
+      <li>You predicted harmonic vs inharmonic from the patch and Spectrum confirmed it.</li>
+      <li>The kick has a defendable front edge: you can name where the click ends and the body begins.</li>
+      <li>The hat closes before the next kick; the clap reads as one event, not separate ticks.</li>
+      <li>The FM bass and lead brighten by index, not by getting louder — gain-compensated.</li>
+      <li>The pad evolves from a wavetable sweep, not from new notes.</li>
+      <li>One control carries the drone; freezing it kills the part.</li>
+      <li>The peak arrives because parameters opened, not because elements were added.</li>
+      <li>You can explain why each synthesis method was chosen for each sound.</li>
+    </ul>
+  </div>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon">
+        <svg viewBox="0 0 44 44"><polygon points="22 6 40 36 4 36"/><line x1="22" y1="16" x2="22" y2="24"/><circle cx="22" cy="29" r="1.4" fill="currentColor"/></svg>
+      </div>
+      <div class="checklist-label">Failure signals</div>
+    </div>
+    <ul>
+      <li>You reached for a sampled drum "just to fill it out."</li>
+      <li>The kick boops — a slow downward glide with no click and no punch.</li>
+      <li>The hats smear into a continuous wash and the groove disappears.</li>
+      <li>The clap sounds like one dry snap — the multi-burst stagger collapsed.</li>
+      <li>An FM "brightness" change was really just a volume change.</li>
+      <li>The FM lead is a static buzzer — the index never moves.</li>
+      <li>The "west-coast" drone has a resonant filter "wah" — that is east-coast.</li>
+      <li>Any sound you can only describe with an adjective, never a number.</li>
+    </ul>
+  </div>
+
+  <h2>The required fault — induce it, hear it, diagnose it</h2>
+
+  <div class="callout">
+    <div class="callout-label">Required</div>
+    <p>You must create at least one of these faults on purpose, hear it clearly, and write the diagnosis. Recognising these by ear later — when they happen by accident — is the certification of this Lab Note.</p>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="16"/><line x1="22" y1="14" x2="22" y2="24"/><circle cx="22" cy="29" r="1.6" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Fault</div>
+      <h2 class="step-title">The transient-less kick (and its siblings)</h2>
+    </div>
+    <div class="sub-block">
+      <div class="sub-label">Induce it</div>
+      <ul>
+        <li>On the kick, slow the <strong>pitch-envelope time</strong> from ~5 ms to <span class="code">80–150 ms</span> and mute the click oscillator.</li>
+        <li>Play it: the kick is now a "boooo" — a slow glide with no punch that will not cut through the hat and clap.</li>
+        <li>Restore the fast pitch envelope and the click. Compare at the same volume and write the rule.</li>
+      </ul>
+    </div>
+    <table class="param-table">
+      <caption>Diagnosis — symptom → cause → fix</caption>
+      <tr><td>Symptom</td><td>Cause</td><td>Fix</td></tr>
+      <tr><td>Kick boops, no click</td><td>Pitch env too slow / no separate click</td><td>Pitch env time 3–8 ms; add a 2–5 ms click in parallel</td></tr>
+      <tr><td>Hats smear into a wash</td><td>Decay too long / sustain above 0</td><td>Sustain 0, closed-hat decay ~40 ms</td></tr>
+      <tr><td>Clap is one dry snap</td><td>Stagger collapsed to a single burst</td><td>Restore 3–4 bursts ~12 ms apart + a glue tail</td></tr>
+      <tr><td>FM tone lifeless</td><td>Static, un-enveloped index</td><td>Add a decay envelope to the modulator level</td></tr>
+      <tr><td>"Brighter" is just louder</td><td>Index raised without gain-compensating</td><td>Trim carrier/output so loudness stays matched</td></tr>
+      <tr><td>West-coast pluck has a "wah"</td><td>A resonant VCF used as articulator</td><td>Replace with a low-pass gate in "both" mode</td></tr>
+    </table>
+  </div>
+
+  <h2>Carry-forward</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M8 22 h22"/><path d="M24 14 l8 8 -8 8" fill="none"/></svg>
+      </div>
+      <h3 class="card-title">Into the workshop</h3>
+      <ul class="card-points">
+        <li>Block 2 Lab 006b: the three-voice synth kit you can now extend</li>
+        <li>Block 4 Lab 013b: FM ratios and the Ratio Prediction Test</li>
+        <li>Block 6 Lab 024b: the west-coast voice and the Folder/LPG Test</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="16"/><circle cx="22" cy="22" r="6"/></svg>
+      </div>
+      <h3 class="card-title">As a method, not a preset</h3>
+      <ul class="card-points">
+        <li>Rebuild any voice on the MicroFreak by translating the envelopes and filters</li>
+        <li>Design a target sound by naming its method and ratio <em>first</em>, then dialing</li>
+        <li>Treat the sample library as a fallback, not the menu</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Reflection questions</h2>
+
+  <ol class="reflection-list">
+    <li>At what pitch-envelope time did the kick change from "boop" to "punch"? Name the number.</li>
+    <li>Which method gave you the most control, and which gave you the most surprise?</li>
+    <li>At which FM ratio did the tone stop being singable? Was the boundary as sharp as you expected?</li>
+    <li>What did enveloping the index (or fold depth) give you that raising it statically could not?</li>
+    <li>How did the low-pass gate's decay differ from an ADSR-closed VCA on the same pluck?</li>
+    <li>Which single control carried the drone, and did freezing it really kill the part?</li>
+    <li>After the A/B against samples, when would you choose a sampled kit — and what is the mechanical reason?</li>
+    <li>Did the peak arrive because parameters opened, or because you secretly added an element?</li>
+    <li>Which sound is still described by an adjective in your notes, and what number is missing?</li>
+    <li>What would you build entirely differently next session, now that you can predict the spectrum?</li>
+  </ol>
+
+  <div class="final">
+    <div class="final-icon">
+      <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="16"/><circle cx="22" cy="22" r="10"/><circle cx="22" cy="22" r="3" fill="currentColor"/></svg>
+    </div>
+    <div class="final-label">Final principle</div>
+    <p>Sound is built, not picked. A drum is an envelope around a moving frequency; a bell is a ratio; a pad is a stack of partials you chose. When you can predict the spectrum from the patch, the sample library becomes a fallback — and the cheapest way to sound like yourself is to manufacture your sounds.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="build.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 06 / Build
+    </a>
+    <a href="../workshop/block-2/index.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      Block 2 · Sources →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B2-001 — Synthesis from Zero</div>
+
+</div>
+
+</body>
+</html>

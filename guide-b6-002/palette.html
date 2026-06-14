@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B6-002 — Self-playing Patches — Palette</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B6-002<span class="labnote-topic">Self-playing Patches</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html" class="active"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B6-002</div>
+    <div class="eyebrow">Self-playing Patches · 05 — Palette</div>
+    <h1>Modulation-habitat recipes</h1>
+    <p class="lede">Four habitats with exact rates and depths. Each is a complete self-player you can dial in and trust. The numbers are starting points chosen so no two periods share a small factor — copy them, run the ten-minute test, then nudge to taste. Every rate here is <strong>free-running</strong>, never tempo-synced.</p>
+  </header>
+
+  <h2>How to read these recipes</h2>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Period</strong> is one full cycle of the modulator, given in seconds — easier to reason about than Hz. To convert: Hz = 1 / period. So 14 s = 0.071 Hz.</li>
+      <li><strong>Depth</strong> is how far the modulator pushes its target, as a rough percentage of the available range. Depth is the leash length; set it once and leave it.</li>
+      <li>The periods within a recipe are deliberately unrelated. If you change one, keep it from landing on a simple ratio of the others.</li>
+    </ul>
+  </div>
+
+  <h2>Recipe 1 — Minimum viable organism</h2>
+
+  <p style="text-align:center; max-width:640px; margin:0 auto 24px; color:var(--text-muted);">The smallest patch that passes the test: two modulators, one shaping the sound, one shaping the first. Build this before anything fancier.</p>
+
+  <table class="param-table">
+    <caption>Two unsynced modulators on a held chord</caption>
+    <tr><td>Audio</td><td>Held chord (root + fifth), filter dark, long attack/release</td></tr>
+    <tr><td>LFO 1 &rarr; Filter cutoff</td><td>Sine, period <span class="code">14 s</span>, depth <span class="code">40 %</span></td></tr>
+    <tr><td>LFO 2 &rarr; LFO 1 rate</td><td>Sine, period <span class="code">23 s</span>, depth <span class="code">25 %</span></td></tr>
+    <tr><td>Combined realignment</td><td>~322 s — longer than your listening window</td></tr>
+  </table>
+
+  <div class="signal-flow">
+    <span class="signal-node">LFO 2 · 23 s</span>
+    <span class="signal-arrow">&rarr; rate of &rarr;</span>
+    <span class="signal-node">LFO 1 · 14 s</span>
+    <span class="signal-arrow">&rarr; cutoff of &rarr;</span>
+    <span class="signal-node">Filter</span>
+  </div>
+
+  <h2>Recipe 2 — Three-body habitat</h2>
+
+  <p style="text-align:center; max-width:640px; margin:0 auto 24px; color:var(--text-muted);">Add a third independent motion on the timbre. Three unrelated periods push the full realignment past an hour — the richest you can get from sine LFOs alone.</p>
+
+  <table class="param-table">
+    <caption>Three modulators, three targets, three periods</caption>
+    <tr><td>LFO 1 &rarr; Filter cutoff</td><td>Sine, period <span class="code">14 s</span>, depth <span class="code">40 %</span></td></tr>
+    <tr><td>LFO 2 &rarr; Wave / timbre</td><td>Triangle, period <span class="code">23 s</span>, depth <span class="code">30 %</span></td></tr>
+    <tr><td>LFO 3 &rarr; LFO 1 rate</td><td>Sine, period <span class="code">37 s</span>, depth <span class="code">20 %</span></td></tr>
+    <tr><td>Filter range clamp</td><td>min ~600 Hz, max ~3.5 kHz — system never turns harsh or muddy</td></tr>
+  </table>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Decision check</div>
+    <ul>
+      <li>With hands off, does the timbre and the brightness drift on clearly different clocks?</li>
+      <li>Does the brightest moment still sit below harsh, and the darkest above inaudible?</li>
+      <li>Can you hear any one LFO as an obvious wobble? If yes, halve its depth.</li>
+    </ul>
+  </div>
+
+  <h2>Recipe 3 — Phasing loops (the Eno tape model)</h2>
+
+  <p style="text-align:center; max-width:640px; margin:0 auto 24px; color:var(--text-muted);">Instead of LFOs, use loops of different lengths — the literal <em>Music for Airports</em> mechanism. Record a few sustained notes, loop each at a different prime-ish length, and let them drift.</p>
+
+  <table class="param-table">
+    <caption>Loop lengths chosen to phase, not align</caption>
+    <tr><td>Loop A (note 1)</td><td>length <span class="code">17.3 s</span></td></tr>
+    <tr><td>Loop B (note 2)</td><td>length <span class="code">21.1 s</span></td></tr>
+    <tr><td>Loop C (note 3)</td><td>length <span class="code">29.7 s</span></td></tr>
+    <tr><td>Combined cycle</td><td>several minutes before any two re-coincide as they started</td></tr>
+    <tr><td>Treatment</td><td>long reverb on a 100 % wet send; each loop slightly different level</td></tr>
+  </table>
+  <ul>
+    <li>The notes should be consonant — pick from one chord so any overlap is harmonious. The <em>system</em> is the phasing; the <em>pitch world</em> is fixed by your choice of notes.</li>
+    <li>Avoid round lengths (16 s, 20 s, 24 s) — they realign too soon. The decimals are doing real work.</li>
+  </ul>
+
+  <h2>Recipe 4 — Coin-gated rare events</h2>
+
+  <p style="text-align:center; max-width:640px; margin:0 auto 24px; color:var(--text-muted);">Layer this on top of any recipe above. A slow clock through a probability gate fires an occasional swell or retrigger — the seasoning that keeps a calm habitat from feeling featureless.</p>
+
+  <table class="param-table">
+    <caption>Probabilistic events — sparse by design</caption>
+    <tr><td>Slow clock</td><td>one pulse every <span class="code">~11 s</span> (free, unsynced)</td></tr>
+    <tr><td>Probability (coin)</td><td><span class="code">25 %</span> — fires roughly once every 44 s, never on a schedule</td></tr>
+    <tr><td>Target</td><td>a slow ADSR &rarr; VCA swell, or a reverb send bump, or a brief filter open</td></tr>
+    <tr><td>Recovery</td><td>long release so the event fades back into the wash, no abrupt edges</td></tr>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">Restraint</div>
+    <p>One rare event source is enough. Two coins firing make the listener start predicting; the magic is in events that arrive seldom and never on a beat you could count.</p>
+  </div>
+
+  <h2>Reference table — periods that don't align</h2>
+
+  <table class="param-table">
+    <caption>Safe starting periods (seconds) — pick any two or three, no pair shares a small factor</caption>
+    <tr><td>Pair, gentle</td><td>14 &middot; 23</td></tr>
+    <tr><td>Trio, rich</td><td>14 &middot; 23 &middot; 37</td></tr>
+    <tr><td>Trio, very slow</td><td>29 &middot; 41 &middot; 53</td></tr>
+    <tr><td>Phasing loops</td><td>17.3 &middot; 21.1 &middot; 29.7</td></tr>
+    <tr><td>Avoid</td><td>any 1:2, 2:3, 3:4 ratio (e.g. 8 &amp; 16, 12 &amp; 18) — these audibly loop</td></tr>
+  </table>
+
+  <div class="page-nav">
+    <a href="setup.html">
+      <span class="page-nav-direction">Previous</span>
+      &larr; 04 / Setup
+    </a>
+    <a href="build.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      06 / The build &rarr;
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B6-002 — Self-playing Patches</div>
+
+</div>
+
+</body>
+</html>

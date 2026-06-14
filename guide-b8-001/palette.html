@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B8-001 — Spec &amp; Voice — Palette</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Lab Note contents">
+  <p class="nav-label labnote-code">Lab Note B8-001<span class="labnote-topic">Spec &amp; Voice</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html" class="active"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B8-001</div>
+    <div class="eyebrow">Spec &amp; Voice · 05 — Palette</div>
+    <h1>The spec template and the voice-audit worksheet</h1>
+    <p class="lede">Two reusable instruments. The spec template is the blank form you fill before any piece. The voice-audit worksheet is the lens you turn on your finished archive to find the move you cannot stop making. Both are shown blank and then filled with a worked example, so you can see the difference between a slogan and a rule with teeth.</p>
+  </header>
+
+  <h2>Instrument one — the spec template</h2>
+
+  <p style="text-align:center; max-width:660px; margin:0 auto 24px; color:var(--text-muted);">Copy this into a plain text file. The two halves stay separate on purpose — System above, Engineering below. If a line will not sit cleanly in one half, it is written at the wrong altitude.</p>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M12 6 h14 l8 8 v24 h-22 z"/><path d="M26 6 v8 h8"/><line x1="16" y1="24" x2="30" y2="24"/><line x1="16" y1="30" x2="26" y2="30"/></svg>
+      </div>
+      <div class="step-num">Template</div>
+      <h2 class="step-title">The blank form</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">System Spec — what must be true of the result</div>
+      <table class="param-table">
+        <caption>Fill before touching the rig</caption>
+        <tr><td>Thesis sentence</td><td>"I make ___ in which ___ does the work, while refusing ___."</td></tr>
+        <tr><td>Felt result</td><td>What should happen in the listener's body?</td></tr>
+        <tr><td>Load-bearing variable</td><td>Material / Signal / Control / Time / Decision / Human / Archive — pick one</td></tr>
+        <tr><td>Constraints (3–6)</td><td>Each a number or a refusal you could be caught breaking</td></tr>
+        <tr><td>Refusal list</td><td>What is off-limits, stated as plainly as what is allowed</td></tr>
+        <tr><td>Success signal</td><td>How a stranger could tell it worked</td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Engineering Spec — how the rig produces it</div>
+      <table class="param-table">
+        <caption>Fill while building, revise when gear changes</caption>
+        <tr><td>Rig</td><td>The boxes, the interface, the controller</td></tr>
+        <tr><td>Clock master</td><td>Exactly one. Named here.</td></tr>
+        <tr><td>Track list</td><td>One per budgeted element, named by role</td></tr>
+        <tr><td>Parameter ranges</td><td>The load-bearing controls and their Min/Max</td></tr>
+        <tr><td>Movement map</td><td>What is printed (recorded) vs drawn (automation)</td></tr>
+        <tr><td>Device list</td><td>Every effect, so "stock only" is auditable</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M14 22 l6 6 l12 -14"/><circle cx="22" cy="22" r="16"/></svg>
+      </div>
+      <div class="step-num">Worked example</div>
+      <h2 class="step-title">The same form, filled</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">System Spec — worked</div>
+      <table class="param-table">
+        <caption>A long-form drift system</caption>
+        <tr><td>Thesis sentence</td><td>"I make long-form electronic music where time feels suspended because a few elements drift, refusing every dramatic event."</td></tr>
+        <tr><td>Felt result</td><td>The listener stops tracking the clock; the room feels larger than the speakers.</td></tr>
+        <tr><td>Load-bearing variable</td><td>Time — slow evolution carries the work.</td></tr>
+        <tr><td>Constraints</td><td>Max five elements; all change is modulation or automation; no element after 3:00; no transition under eight bars; stock effects only.</td></tr>
+        <tr><td>Refusal list</td><td>No drop, no riser, no white-noise sweep, no key change, no effect I cannot justify.</td></tr>
+        <tr><td>Success signal</td><td>A stranger cannot point to the moment the energy peaked — it arrived by opening, not by adding.</td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Engineering Spec — worked</div>
+      <table class="param-table">
+        <caption>The same system on the workshop rig</caption>
+        <tr><td>Rig</td><td>Ableton, MicroFreak, Digitakt II, MOTU M4, Launchpad Pro MK3</td></tr>
+        <tr><td>Clock master</td><td>Ableton sends sync; both boxes receive only</td></tr>
+        <tr><td>Track list</td><td><span class="code">FOUNDATION</span>, <span class="code">VOICE</span>, <span class="code">SPACE</span>, <span class="code">TEXTURE</span>, <span class="code">ACCENT</span></td></tr>
+        <tr><td>Parameter ranges</td><td>VOICE filter 600 Hz–3.5 kHz; reverb send −10 to −3 dB</td></tr>
+        <tr><td>Movement map</td><td>Printed: MicroFreak LFOs, Digitakt p-locks. Drawn: Auto Filter, sends, Saturator.</td></tr>
+        <tr><td>Device list</td><td>Hybrid Reverb, Echo, EQ Eight, Auto Filter, Saturator, Utility — all stock</td></tr>
+      </table>
+      <ul>
+        <li>Notice how literally each System line maps down. "Max five elements" became a five-track list; "all change is modulation" became the movement map; "stock only" became a device list you can audit.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Instrument two — the voice-audit worksheet</h2>
+
+  <p style="text-align:center; max-width:660px; margin:0 auto 24px; color:var(--text-muted);">You cannot write a true thesis from imagination — only from the archive. This worksheet turns finished work into evidence. Run it over every piece you have made in the workshop, then read down the columns for what recurs.</p>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="20" cy="20" r="11"/><line x1="28" y1="28" x2="38" y2="38"/></svg>
+      </div>
+      <div class="step-num">Worksheet</div>
+      <h2 class="step-title">The blank columns</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">One row per finished piece</div>
+      <table class="param-table">
+        <caption>Fill honestly — what you did, not what you meant</caption>
+        <tr><td>Defining move</td><td>The single gesture that makes the piece what it is</td></tr>
+        <tr><td>What carried it</td><td>Which layer did the work — Material, Time, Control…</td></tr>
+        <tr><td>What I refused</td><td>The obvious move I declined, even if unconsciously</td></tr>
+        <tr><td>What I reached for too easily</td><td>The crutch — the thing I add when unsure</td></tr>
+        <tr><td>Would a stranger know it was mine?</td><td>Yes / no / only with the others</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><line x1="10" y1="14" x2="34" y2="14"/><line x1="10" y1="22" x2="34" y2="22"/><line x1="10" y1="30" x2="28" y2="30"/><circle cx="6" cy="14" r="1.6" fill="currentColor"/><circle cx="6" cy="22" r="1.6" fill="currentColor"/><circle cx="6" cy="30" r="1.6" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Worked example</div>
+      <h2 class="step-title">Three pieces audited</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Read down the "defining move" column for the habit</div>
+      <table class="param-table">
+        <caption>Piece → defining move → what carried it</caption>
+        <tr><td>Block 3 — rhythm study</td><td>One filter opening the whole arrangement; Control</td></tr>
+        <tr><td>Block 5 — texture piece</td><td>A slow swell that never resolves; Time</td></tr>
+        <tr><td>Block 7 — live take</td><td>An intro that refuses to start for ninety seconds; Time</td></tr>
+      </table>
+      <table class="param-table">
+        <caption>Piece → what I refused → my easy crutch</caption>
+        <tr><td>Block 3</td><td>Refused a drop; reached for reverb when unsure</td></tr>
+        <tr><td>Block 5</td><td>Refused resolution; reached for reverb when unsure</td></tr>
+        <tr><td>Block 7</td><td>Refused a dramatic arrival; reached for reverb when unsure</td></tr>
+      </table>
+      <ul>
+        <li><strong>The recurrence:</strong> patience and a withheld arrival appear in every row. That is the habit — the raw material of the voice.</li>
+        <li><strong>The crutch:</strong> reverb-when-unsure also appears in every row. That is not a signature; it is a tell. Either justify it in the spec or add it to the refusal list.</li>
+        <li><strong>The conversion:</strong> name the recurring move ("the withheld arrival"), refuse its opposite ("no dramatic event"), and you have the spine of the thesis from page 03.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Habit reads down the columns; signature reads across the spec.</strong> The worksheet finds what recurs; the template is where you decide to mean it.</li>
+      <li><strong>The crutch is as informative as the signature.</strong> What you reach for when unsure is a refusal waiting to be written. The audit surfaces both.</li>
+      <li><strong>"Only with the others" is the honest answer for a young voice.</strong> A single piece rarely declares the voice; the pattern across the archive does. That is why you audit the set, not the favourite.</li>
+    </ul>
+  </div>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Decision check</div>
+    <ul>
+      <li>Did I fill the worksheet from what I actually did, not what I intended?</li>
+      <li>Does one move recur across most rows — and can I name it in three words?</li>
+      <li>Did a crutch recur too, and have I decided to justify or refuse it?</li>
+      <li>Could I now fill the thesis line of the template from this audit alone?</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="setup.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 04 / Setup
+    </a>
+    <a href="build.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      06 / The build →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B8-001 — Spec &amp; Voice</div>
+
+</div>
+
+</body>
+</html>

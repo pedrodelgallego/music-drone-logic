@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B7-001 — Parameter Riding — The build</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B7-001<span class="labnote-topic">Parameter Riding</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup &amp; rig</a>
+  <a href="palette.html"><span class="nav-num">05</span>Ride map</a>
+  <a href="build.html" class="active"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B7-001</div>
+    <div class="eyebrow">Parameter Riding · 06 — The build</div>
+    <h1>Build a performable arrangement and record a ride take</h1>
+    <p class="lede">Now you perform. This page builds a set you can play with four controls, rehearses the gestures until they are slow and reliable, and records a live ride take into Arrangement that you could repeat in front of a room. Keep the <a href="palette.html">ride map</a> and <a href="setup.html">setup page</a> open — every step refers to the exact mappings and ranges you built there. Each step is small, each has a decision checkpoint, and every gesture is spelled out.</p>
+  </header>
+
+  <!-- STEP 1 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 14 v20 a2 2 0 0 0 2 2 h28 a2 2 0 0 0 2 -2 v-16 a2 2 0 0 0 -2 -2 h-14 l-4 -4 h-10 a2 2 0 0 0 -2 2 z"/></svg>
+      </div>
+      <div class="step-num">Step 01</div>
+      <h2 class="step-title">Prepare the project for performance</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Start from a finished track, not a blank set</div>
+      <ul>
+        <li>Open the Lab Note B1-001 project — or any project with a bass take, a drone take, drums, and an atmosphere layer already recorded. You are performing existing material, not designing sounds.</li>
+        <li><span class="menu">File → Save a Copy</span> as <span class="code">lab_b7_001_ride.als</span> in a dedicated folder. Never perform on your master arrangement; the ride session is a throwaway you re-record freely.</li>
+        <li><kbd>Tab</kbd> to confirm you are in <strong>Arrangement</strong> view. The ride is recorded here.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Lay the takes out as loopable clips</div>
+      <ul>
+        <li>The performance plays against looping material, not a fixed arrangement. In Session view, drag each recorded take into a clip slot: <span class="code">DT DRUMS</span>, <span class="code">MF BASS</span>, <span class="code">MF DRONE</span>, <span class="code">ATMOS</span>.</li>
+        <li>Set each clip to loop. Confirm the loop brace is exactly on bar boundaries so nothing drifts over a long set.</li>
+        <li>If your drum take is a single consolidated clip, split it into separate <span class="code">kick</span>, <span class="code">hat</span>, <span class="code">perc</span>, <span class="code">texture</span> clips (or use the Digitakt's own per-track mutes). Ride 04 needs independent mutes.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Set the global launch quantise</div>
+      <ul>
+        <li>Top-left of Live, set the global launch quantisation to <span class="code">1 Bar</span>. Every clip launch and mute now lands on the next bar line, not the instant you press.</li>
+        <li>Set the metronome count-in to <strong>1 Bar</strong> so your recorded take starts clean.</li>
+        <li>Raise the buffer to <span class="code">256</span> samples — low enough that encoder moves feel instant, stable enough for a long recording. If a turn feels laggy, drop to 128; latency on a continuous ride is felt as the hand and the sound disagreeing.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Why perform existing audio rather than the live hardware</div>
+      <ul>
+        <li>The hardware takes were captured once, clean, in the studio note. Performing against the recorded clips means the sound design is frozen and only the <em>movement</em> is live — which is exactly the skill this note isolates.</li>
+        <li>It also makes the take repeatable. A live MicroFreak patch drifts; a recorded clip does not. The only variable left is your hands, so a fault you hear is a fault in the riding, not in the source.</li>
+        <li>Later, once the four-control discipline is muscle memory, you can swap a recorded clip for the live box and ride its front-panel knobs too. Walk before that.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Do all four clips loop seamlessly when launched? Loop each for two minutes and listen for a click at the seam.</li>
+        <li>Can each drum element mute independently? Tap each mute and confirm only that element drops.</li>
+        <li>Is this a copy, not my master? Confirm the title bar reads <span class="code">lab_b7_001_ride</span>.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M10 22h24"/><path d="M28 16l6 6-6 6"/><circle cx="10" cy="22" r="2.5" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Step 02</div>
+      <h2 class="step-title">Confirm the four maps and their ranges</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Re-verify each mapping before you trust it</div>
+      <ul>
+        <li><kbd>⌘ M</kbd> into MIDI map mode and open the <strong>MIDI Mappings</strong> browser. You should see exactly four rows — three encoders and the mute pads. If there are more, delete the strays.</li>
+        <li>Confirm each Min/Max against the ride map: <span class="code">600 Hz / 3.5 kHz</span> on bass cutoff, <span class="code">35 % / 70 %</span> on echo feedback, <span class="code">-12 dB / -3 dB</span> on drone send.</li>
+        <li><kbd>⌘ M</kbd> out. Push each encoder to both physical stops and watch its parameter clamp at the range edges — never beyond.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Set the opening state</div>
+      <table class="param-table">
+        <caption>Where every control sits at bar 1</caption>
+        <tr><td>BASS FLT</td><td><span class="code">600 Hz</span> — closed, underwater</td></tr>
+        <tr><td>FEEDBK</td><td><span class="code">35 %</span> — floor, tension valve shut</td></tr>
+        <tr><td>VERB</td><td><span class="code">-12 dB</span> — dry, intimate</td></tr>
+        <tr><td>MUTES</td><td>Drone + atmos only. Kick, hat, perc all muted.</td></tr>
+      </table>
+      <ul>
+        <li>The set starts as a quiet drone in a small room. Everything you do for the next eight minutes opens out from this single state.</li>
+      </ul>
+    </div>
+
+    <div class="signal-flow">
+      <span class="signal-node">Bar 1: drone only</span>
+      <span class="signal-arrow">→ ride →</span>
+      <span class="signal-node">filter opens, kick in</span>
+      <span class="signal-arrow">→ ride →</span>
+      <span class="signal-node">peak: bright + wet</span>
+      <span class="signal-arrow">→ ride →</span>
+      <span class="signal-node">strip back</span>
+      <span class="signal-arrow">→</span>
+      <span class="signal-node">close to drone</span>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Exactly four mappings, each clamped to its musical range?</li>
+        <li>Does the opening state sound like a small, dark room — drone only, dry, closed?</li>
+        <li>Is the master off every surface? Wiggle every control; the master fader must not move.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="14"/><line x1="22" y1="22" x2="22" y2="10"/></svg>
+      </div>
+      <div class="step-num">Step 03</div>
+      <h2 class="step-title">Rehearse ride 01 — the bass filter, alone</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Isolate the gesture</div>
+      <ul>
+        <li>Launch the bass and drone clips. Mute everything else. You want to learn the filter gesture with nothing competing for your attention.</li>
+        <li>Hand on encoder 1 only. Start at 600 Hz. Over a slow count of <strong>16 bars</strong>, open to about half travel (~1.2 kHz). Stop. Listen for a full minute at that value.</li>
+        <li>Then continue, over another <strong>16 bars</strong>, to the top (~3.5 kHz). Hold. Then bring it all the way home over 16 bars.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Find the S-curve in your hand</div>
+      <ul>
+        <li>Notice your hand naturally wants to ease in and ease out — slow at the start, slow at the target. Lean into that; it is the S-curve that reads as intention.</li>
+        <li>If you can hear the filter move as an <em>event</em>, you moved too fast. Halve the speed and try the same 16 bars again.</li>
+        <li>Do this for a full <strong>five minutes</strong>. The gesture has to become muscle memory, because during the take your attention will be split across four things.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Can I open from 600 Hz to 3.5 kHz over 16 bars without the room hearing a single "moment of change"?</li>
+        <li>Does the bass stay musical at every point in the travel? (It should — the range guarantees it. If anything sounds wrong, re-check the Min/Max.)</li>
+        <li>Can I return to 600 Hz cleanly, so the take could loop?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 22 q9 -10 18 0 t18 0"/></svg>
+      </div>
+      <div class="step-num">Step 04</div>
+      <h2 class="step-title">Rehearse ride 02 — feedback as a transition</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The pile-and-resolve gesture</div>
+      <ul>
+        <li>With drums and bass looping, route a little of the perc to the echo (a send, or the Digitakt p-lock you already programmed). Hand on encoder 2.</li>
+        <li>From the 35 % floor, push feedback up over <strong>4 bars</strong> toward 65 %. The echoes pile and the tension climbs. Hold one bar at the top.</li>
+        <li>As the next section is about to land — a mute change, a filter open — pull feedback back to 35 % over <strong>2 bars</strong>. The pile resolves into the new section.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Learn where the edge is</div>
+      <ul>
+        <li>Carefully push to the 70 % ceiling and hold. Hear how close it is to runaway — the echoes nearly self-sustain. This is the edge Surgeon flirts with. Memorise how it feels so you never reach it by accident.</li>
+        <li>Then practise the recovery: from the ceiling, get back to 35 % fast but smoothly. This is your panic path if a pile gets away from you.</li>
+        <li>Never end this rehearsal with feedback parked high. Always leave it at the floor.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Can I build a pile over 4 bars and resolve it into the next section, on the bar?</li>
+        <li>Do I know exactly how the 70 % ceiling sounds and feels — and can I get back from it in two bars?</li>
+        <li>Did I leave the encoder at 35 %? It must never rest high.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 5 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M14 28 a6 6 0 0 1 0 -12 a8 8 0 0 1 15 -2 a6 6 0 0 1 1 14 z"/></svg>
+      </div>
+      <div class="step-num">Step 05</div>
+      <h2 class="step-title">Rehearse ride 03 — pair the reverb with the filter</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Two hands, one swell</div>
+      <ul>
+        <li>Hand 1 on encoder 1 (bass filter), hand 2 on encoder 3 (drone reverb send). Start both at their floors: 600 Hz and -12 dB.</li>
+        <li>Over <strong>32 bars</strong>, open both together — filter toward 3.5 kHz, send toward -3 dB. They reach their peaks at the same moment.</li>
+        <li>The room should feel one large swell — brighter and bigger at once — not two separate knob moves. If you can pick out which is which, your speeds are mismatched; sync them.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">The return</div>
+      <ul>
+        <li>Bring both home over <strong>16 bars</strong>. The track shrinks and darkens together — the peak deflates as one gesture.</li>
+        <li>Practise leading slightly with the filter and trailing with the reverb, so the brightness arrives a touch before the space. This tiny offset reads as anticipation.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Do filter and send read as a single swell, not two moves?</li>
+        <li>Can I run both hands for 48 bars without one stalling while I think about the other?</li>
+        <li>Does the return deflate cleanly back to the dark, dry state?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 6 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><rect x="8" y="10" width="8" height="24" rx="1"/><rect x="28" y="10" width="8" height="24" rx="1"/></svg>
+      </div>
+      <div class="step-num">Step 06</div>
+      <h2 class="step-title">Rehearse ride 04 — the mutes as structure</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Prepare, then release on the bar</div>
+      <ul>
+        <li>With launch quantise at 1 bar, a mute you trigger anywhere in a bar lands at the next bar line. Use that: prepare the change a beat early, let the quantise place it.</li>
+        <li>Rehearse the core arrangement moves in order: bring the <span class="code">kick</span> in, then <span class="code">hat</span>, then <span class="code">perc</span>; later drop <span class="code">perc</span>, thin the <span class="code">hat</span>; finally strip back to <span class="code">kick</span> + drone.</li>
+        <li>Never drop the kick mid-floor without a plan. The room feels a missing kick instantly — keep it on unless a deliberate breakdown is the point.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Mutes plus rides together</div>
+      <ul>
+        <li>Combine: as you bring the kick in, the bass filter is already climbing. As you drop the perc for a strip-back, the reverb send recedes. Mutes mark the sections; the encoders shape the energy inside them.</li>
+        <li>This is the whole performance in miniature. Run the full sequence — drone only → kick → bass-open → full → peak → strip → close — once, slowly, before you ever hit record.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Do all mutes land on the bar, never mid-bar?</li>
+        <li>Can I run a section change (mute) and an energy ride (encoder) at the same moment without fumbling either?</li>
+        <li>Is the kick always on except where I deliberately want a breakdown?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 7 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 34 Q22 6 38 14"/><circle cx="6" cy="34" r="2.5" fill="currentColor"/><circle cx="38" cy="14" r="2.5" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Step 07</div>
+      <h2 class="step-title">Write the ride sheet — the eight-minute plan</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">One page, on paper, beside the rig</div>
+      <ul>
+        <li>A performance is rehearsed, not improvised from nothing. Write a ride sheet: time, section, and the one move that defines it. You will glance at this, not the screen.</li>
+      </ul>
+      <table class="param-table">
+        <caption>The ride sheet — your map of the eight minutes</caption>
+        <tr><td>0:00 — INTRO</td><td>Drone only, dry, closed. Hands off. Let the patch's own LFOs breathe.</td></tr>
+        <tr><td>1:00 — KICK IN</td><td>Unmute kick on the bar. Begin opening BASS FLT off the floor.</td></tr>
+        <tr><td>2:00 — BASS / HAT IN</td><td>Unmute hat. Bass clip surfacing; filter climbing toward 1.2 kHz.</td></tr>
+        <tr><td>3:00 — FULL</td><td>Unmute perc. Both hands begin the paired filter+reverb swell.</td></tr>
+        <tr><td>4:30 — PEAK</td><td>BASS FLT + VERB at their tops. One short FEEDBK pile into the moment. Nothing new enters.</td></tr>
+        <tr><td>5:30 — STRIP</td><td>Drop perc, thin hat. Filter and reverb recede together.</td></tr>
+        <tr><td>6:30 — OUTRO</td><td>Drop bass, then kick. Close filter to 600 Hz. Drone + atmos carry the exit.</td></tr>
+        <tr><td>8:00 — END</td><td>Everything back at the opening state — the take loops.</td></tr>
+      </table>
+      <ul>
+        <li>Note the thesis of the genre in the PEAK row: the biggest moment arrives because things <em>opened</em>, not because things were <em>added</em>. That is the move this whole note exists to teach.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Is the ride sheet on paper, beside the rig, readable in dim light?</li>
+        <li>Does each section have exactly one defining move — not a list of things to juggle?</li>
+        <li>Does the peak come from opening, not from new elements arriving?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 8 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="16"/><circle cx="22" cy="22" r="6" fill="currentColor"/></svg>
+      </div>
+      <div class="step-num">Step 08</div>
+      <h2 class="step-title">Record the ride take</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Arm automation recording</div>
+      <ul>
+        <li>In Arrangement, enable the <strong>Automation Arm</strong> button (the red switch near transport) so encoder and mute moves are written as automation envelopes onto the timeline.</li>
+        <li>Confirm all four controls are at their opening-state values (Step 02). Position the playhead at bar 1.</li>
+        <li><kbd>F9</kbd> for Arrangement Record. Play the full eight minutes and ride the four controls against your sheet — <em>slower than feels natural</em>, the whole way.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Perform the whole arc in one pass</div>
+      <ul>
+        <li>Do not stop to fix a fumble. A take is a performance — finish it. Mistakes are information about what to rehearse, not reasons to abort.</li>
+        <li>Keep the FEEDBK encoder honest: visit the pile, resolve it, return to 35 %. Never let it sit high while your hands are elsewhere.</li>
+        <li>Watch the master meter stays under <span class="code">-3 dBFS</span> through the peak's reverb bloom. If it spikes, the VERB ride is too wet — note it for the next take, do not fix it live.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Where most first takes break</div>
+      <ul>
+        <li><strong>The lull at 5:00.</strong> After the peak, attention drops and a control freezes. The strip-back is not a rest — it is an active recede on filter and reverb. Keep both hands moving through it.</li>
+        <li><strong>Rushing the open.</strong> The intro feels long while you wait, so the hand opens the filter early. Trust the sheet: nothing happens for the first minute, on purpose.</li>
+        <li><strong>Forgetting the feedback floor.</strong> A pile resolves but the encoder is left at 50 %, and the next pile starts from a danger position. Always return it to 35 % the moment a transition lands.</li>
+        <li><strong>Muting on the press, not the bar.</strong> If a mute lurches, your finger is fighting the quantise — prepare the change a beat early and let Live place it.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Two takes, keep the calmer one</div>
+      <ul>
+        <li>Record the eight minutes twice. The second take is almost always calmer — the first burns off nervous energy, and only on the second does your hand trust the slow speed.</li>
+        <li>Listen to both back to back. Keep the one where you cannot hear the moves as events. Calm beats busy every time; a performance that draws attention to the performer has failed at hypnosis.</li>
+        <li>Do not comp the two together. A ride is a single continuous gesture across eight minutes — splicing two performances re-introduces exactly the seams and lurches the slow riding was meant to avoid. Pick one whole take.</li>
+        <li>After: right-click each automation lane → <span class="menu">Simplify Envelope</span> to thin breakpoint clutter while keeping the shape your hand drew. This removes the micro-jitter of an encoder without flattening the intentional curve.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Did the peak arrive because things opened, not because things were added? Play 4:00–5:00 blind and check.</li>
+        <li>Can I hear any move as a discrete "event"? If yes, that gesture was too fast — rehearse it slower and re-record.</li>
+        <li>Did the take return to the opening state so it loops? Play the seam between 8:00 and 0:00.</li>
+        <li>Was the master ever in danger? Confirm peaks stayed under -3 dBFS across the whole take.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STEP 9 -->
+  <div class="step">
+    <div class="step-head">
+      <div class="step-icon">
+        <svg viewBox="0 0 44 44"><polyline points="14 18 22 26 30 18"/><line x1="22" y1="8" x2="22" y2="26"/><line x1="8" y1="34" x2="36" y2="34"/></svg>
+      </div>
+      <div class="step-num">Step 09</div>
+      <h2 class="step-title">Review, refine, and capture the keeper</h2>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Audition the recorded ride</div>
+      <ul>
+        <li>Play the kept take from the top with your hands off. This is the test: a good ride sounds intentional even when no one is touching anything.</li>
+        <li>Find the weakest 16 bars. Usually it is a gesture that rushed or a mute that landed without a ride to support it. Note it on the ride sheet.</li>
+        <li>If one section is wrong, you can <strong>punch in</strong>: loop that region, arm automation, and re-ride only those bars over the existing take. Surgery after performance — same discipline as the studio note.</li>
+      </ul>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Export the performance</div>
+      <table class="param-table">
+        <caption>Render the ride take</caption>
+        <tr><td>Region</td><td>0:00 → 8:00, full span</td></tr>
+        <tr><td>File Type</td><td>WAV</td></tr>
+        <tr><td>Sample Rate / Bit Depth</td><td><span class="code">48000 Hz</span> / <span class="code">24-bit</span></td></tr>
+        <tr><td>Normalize</td><td>OFF — the headroom you protected is part of the sound</td></tr>
+        <tr><td>Filename</td><td><span class="code">lab_b7_001_ride_v1.wav</span></td></tr>
+      </table>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">Archive the performance, not just the audio</div>
+      <ul>
+        <li><span class="menu">File → Collect All and Save</span> so the ride session is self-contained.</li>
+        <li>Save the ride sheet alongside the WAV. The sheet is the reproducible part — the thing that lets you play this set again, in a room, next month.</li>
+        <li>Write five lines of timestamped notes: <span class="code">4:40 feedback pile rushed</span>, not <span class="code">peak felt off</span>. These drive the next rehearsal.</li>
+      </ul>
+    </div>
+
+    <div class="decision-check">
+      <div class="decision-check-label">Decision check</div>
+      <ul>
+        <li>Does the take sound intentional with my hands off it?</li>
+        <li>Could I sit at the rig and play this set again from the ride sheet alone?</li>
+        <li>Is there one move I now know I must rehearse before the next take? Name it.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-nav">
+    <a href="palette.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 05 / Ride map
+    </a>
+    <a href="reflection.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      07 / Reflection →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B7-001 — Parameter Riding</div>
+
+</div>
+
+</body>
+</html>

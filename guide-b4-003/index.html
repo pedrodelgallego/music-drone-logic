@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B4-003 — Granular — Overview</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B4-003<span class="labnote-topic">Granular</span></p>
+  <a href="index.html" class="active"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Grain palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B4-003</div>
+    <div class="eyebrow">Granular · 01 — Overview</div>
+    <h1>Granular synthesis &amp; slicing as the engine</h1>
+    <p class="lede">Take one short recording, chop it into windows of a few dozen milliseconds, and reassemble those windows into clouds the source never played. Freeze a single instant into a held chord. Slice a phrase at its transients and re-sequence it into a new rhythm. Resample the result and start again. This Lab Note treats granular processing as the whole instrument — a textural piece grown from one source cloud, not a granular preset dropped onto a finished track.</p>
+  </header>
+
+  <h2>The goal</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><circle cx="12" cy="16" r="2.5" fill="currentColor"/><circle cx="22" cy="24" r="2.5" fill="currentColor"/><circle cx="32" cy="14" r="2.5" fill="currentColor"/><circle cx="16" cy="32" r="2.5" fill="currentColor"/><circle cx="30" cy="30" r="2.5" fill="currentColor"/></svg>
+      </div>
+      <h3 class="card-title">A textural original from one cloud</h3>
+      <ul class="card-points">
+        <li>A 6–8 minute piece grown from a single recorded source — one drone note, one struck string, one vowel</li>
+        <li>Every layer is a generation of that source: granulated, frozen, sliced, resampled</li>
+        <li>Fully original — the source is yours and the grammar is yours; no reference track is copied</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M6 22 q4 -10 8 0 t8 0 t8 0 t8 0"/></svg>
+      </div>
+      <h3 class="card-title">Fundamentals you'll practice</h3>
+      <ul class="card-points">
+        <li>The four grain controls: size, position, density, spray — and freezing</li>
+        <li>Slicing by transient and reassembling slices into a pattern the source never played</li>
+        <li>Resampling a granular result back as new material — generations stacked on tape logic</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Core objective</div>
+    <p>Understand how <em>which slice of time</em> enters the grain engine — not how loud the source is — becomes the load-bearing sound-design decision. Position is the new gain.</p>
+  </div>
+
+  <h2>Why this exercise matters</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><line x1="14" y1="14" x2="34" y2="14"/><line x1="14" y1="22" x2="34" y2="22"/><line x1="14" y1="30" x2="30" y2="30"/><circle cx="9" cy="14" r="1.4" fill="currentColor"/><circle cx="9" cy="22" r="1.4" fill="currentColor"/><circle cx="9" cy="30" r="1.4" fill="currentColor"/></svg>
+      </div>
+      <h3 class="card-title">The beginner instinct</h3>
+      <ul class="card-points">
+        <li>Drop a granular preset on a finished sound and turn the wet knob up</li>
+        <li>Load a longer, busier sample so there is "more to granulate"</li>
+        <li>Treat the stutter and the click as glitches to fix rather than material to compose with</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M10 22 a12 12 0 0 1 21 -8"/><polyline points="25 8 31 14 26 18"/><path d="M34 22 a12 12 0 0 1 -21 8"/><polyline points="19 36 13 30 18 26"/></svg>
+      </div>
+      <h3 class="card-title">The opposite discipline</h3>
+      <ul class="card-points">
+        <li>Start from one short, well-chosen source and earn every layer from it</li>
+        <li>Move position and size slowly; let the cloud evolve over minutes, not bars</li>
+        <li>Commit each transformation by resampling — and write down what entered each generation</li>
+      </ul>
+    </div>
+  </div>
+
+  <p style="text-align: center; color: var(--text-muted); max-width: 640px; margin: 24px auto;">Lab Note B4-003 sits behind Block 4 — transformation systems. It narrows that block to one engine: the grain. The skill transfers anywhere a sound needs to be decoupled from its own timeline — ambient, musique concrète, sound design, generative patches, film scoring, live texture performance.</p>
+
+  <div class="callout">
+    <div class="callout-label">Principle</div>
+    <p>Granular decouples time from pitch. Once a sound no longer has to play forward at its own speed, a half-second of audio becomes a whole piece.</p>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>How to read this Lab Note:</strong> page 02 sends you listening to three pieces that treat grains and slices as the subject; page 03 builds the parameter theory and the choices behind it; page 04 wires the rig — Granulator III, Grain Delay, the resampling loop, Digitakt slicing; page 05 is a reference of grain recipes; page 06 is the long, exhaustive build of a full granular track; page 07 closes the loop. Read in order the first time.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <span></span>
+    <a href="listen.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      02 / Listen →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B4-003 — Granular</div>
+
+</div>
+
+</body>
+</html>

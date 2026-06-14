@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B6-005 — The Score — Setup</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Lab Note contents">
+  <p class="nav-label labnote-code">Lab Note B6-005<span class="labnote-topic">The Score</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html" class="active"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html"><span class="nav-num">05</span>Score primitives</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B6-005</div>
+    <div class="eyebrow">The Score · 04 — Setup</div>
+    <h1>A rig that realizes a score honestly — twice</h1>
+    <p class="lede">The score is written away from the rig. The rig's only job is to <em>realize</em> it — to perform the rules and print the result — and to do it twice under conditions identical in everything except the score's free zones. If R1 records hotter than R2, or against a grid R2 didn't use, the delta lies. This page sets the rig so the only thing that varies between takes is what the score allowed to vary.</p>
+  </header>
+
+  <h2>The two flows: written and sounding</h2>
+  <p>Before any cable, hold the shape in your head. The score lives on paper or in a text file or a drawing app. The rig turns one reading of it into audio. Nothing about the rig should make a musical decision the score didn't delegate to it.</p>
+
+  <div class="signal-flow">
+    <span class="signal-node">the score (paper / text / drawing)</span>
+    <span class="signal-arrow">→ read →</span>
+    <span class="signal-node">you, as realizer</span>
+    <span class="signal-arrow">→ perform →</span>
+    <span class="signal-node">MicroFreak + Digitakt II + sources</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">MOTU M4</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">Ableton print track</span>
+    <span class="signal-arrow">→ render →</span>
+    <span class="signal-node">R1 / R2 WAV</span>
+  </div>
+
+  <h2>Audio path on the rig</h2>
+  <table>
+    <thead><tr><th>From</th><th>To</th><th>Cable</th><th>Carries</th></tr></thead>
+    <tbody>
+      <tr><td>MicroFreak <span class="code">Audio Out</span> (mono, unbalanced)</td><td>M4 <span class="code">Input 1</span></td><td>1 × 1/4" TS</td><td>Any pitched / textural source the score's free zone calls for</td></tr>
+      <tr><td>Digitakt II <span class="code">Main L / R</span> (impedance-balanced)</td><td>M4 <span class="code">Inputs 3/4</span></td><td>2 × 1/4" TRS</td><td>Sampled, percussive, or resampled material — and field recordings loaded as samples</td></tr>
+      <tr><td>M4 <span class="code">Phones</span></td><td>DT 990 Pro</td><td>1/4" headphone plug</td><td>Your monitoring — the level you A/B both realizations at</td></tr>
+      <tr><td>M4 <span class="code">USB-C</span></td><td>Computer</td><td>USB-C</td><td>Audio in/out and the clock, when the score uses one</td></tr>
+    </tbody>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Sources are open by design.</strong> The score may call for "any source not yet heard" — that can be the MicroFreak, a Digitakt sample, a field recording, or a struck object miked into the M4. Keep input 1 free for whatever you grab; load samples and field recordings onto Digitakt tracks ahead of time so they're available without browsing mid-take.</li>
+      <li><strong>One print track per realization.</strong> Record each realization to a single stereo track. A realization is a <em>performance</em>, not an edit — resist comping it together from fragments.</li>
+    </ul>
+  </div>
+
+  <h2>The decision the score forces: grid or no grid</h2>
+  <p>This is the one rig setting the score itself dictates. Set it from your fix/free choice on the timing dimension, made on the Decisions page.</p>
+
+  <table class="param-table">
+    <caption>Clock / sync follows the score</caption>
+    <tr><td>Score <em>fixes</em> timing (event-list with durations, a pulse, a process tempo)</td><td>Work on the grid. Tempo <span class="code">120</span> or whatever the score states. Ableton is clock master; Digitakt II receives clock + transport; MicroFreak source <kbd>Shift</kbd>+<kbd>Tempo</kbd> → USB. Both realizations use the identical tempo.</td></tr>
+    <tr><td>Score <em>frees</em> timing (graphic, text response rules, free durations)</td><td>Work gridless. Right-click the timeline ruler → <span class="menu">Time Ruler Format → Time</span> so positions read <span class="code">m:ss</span>. No metronome. R2's timing can then genuinely differ from R1's without the grid quietly forcing them into agreement.</td></tr>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">Why this matters for the delta</div>
+    <p>If your score frees timing but you record both takes locked to a click, the grid becomes a hidden <span class="code">D</span> rule you never wrote — both realizations will share a rhythm the score never specified, and your delta map will credit a "rule" that doesn't exist. Match the clock to the score, or the delta is a lie.</p>
+  </div>
+
+  <h2>Project setup in Ableton</h2>
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><rect x="8" y="10" width="28" height="24" rx="2"/><line x1="8" y1="18" x2="36" y2="18"/><circle cx="13" cy="14" r="1.5" fill="currentColor"/></svg>
+      </div>
+      <h3 class="card-title">One set, two arrangements</h3>
+      <ul class="card-points">
+        <li>Save as <span class="code">B6-005-score</span>. Keep <span class="code">R1</span> and <span class="code">R2</span> in two named arrangements (or two saved sets) so neither overwrites the other.</li>
+        <li>Audio prefs: MOTU M4 in and out, <span class="code">48 kHz</span>, buffer <span class="code">256</span>. Input config: mono <span class="code">1</span> and stereo <span class="code">3/4</span>.</li>
+        <li>Record prefs: WAV, 24-bit. Turn <strong>off</strong> Auto-Warp Long Samples — a realization is untouched audio.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><line x1="14" y1="10" x2="14" y2="34"/><line x1="22" y1="10" x2="22" y2="34"/><line x1="30" y1="10" x2="30" y2="34"/><rect x="11" y="20" width="6" height="3" fill="currentColor"/><rect x="19" y="16" width="6" height="3" fill="currentColor"/></svg>
+      </div>
+      <h3 class="card-title">Controls held constant</h3>
+      <ul class="card-points">
+        <li>Same gain target for both takes — peaks ≈ <span class="code">-12 dBFS</span>. A loudness difference in the delta should be a choice the score allowed, not a record-level accident.</li>
+        <li>Same monitoring level, same room, same print format, same duration window.</li>
+        <li>Everything except the score's free zones must match across R1 and R2.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Gain plan — set once, identical for both</h2>
+  <table class="param-table">
+    <caption>Set in this order, then leave it for both realizations</caption>
+    <tr><td>1 — Source level (MicroFreak ~70–80 %, Digitakt main ~12 o'clock)</td><td>Healthy line level without clipping the M4's fixed 3/4 inputs.</td></tr>
+    <tr><td>2 — M4 Input 1 gain (for whatever is on input 1)</td><td>Meter green, occasional amber, never red. Note the setting so R2 matches it.</td></tr>
+    <tr><td>3 — Ableton print-track meter</td><td>Peaks ≈ <span class="code">-12 dBFS</span>. This is the number to match between takes.</td></tr>
+    <tr><td>4 — Phones knob</td><td>Comfortable, then do not touch — this is your A/B reference level for reading the delta.</td></tr>
+  </table>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Rig ready check</div>
+    <ul>
+      <li>Can I record a 2–5 minute take to one stereo track and render it 24-bit WAV named <span class="code">R1</span>?</li>
+      <li>Is the clock set to match the score — grid if timing is fixed, gridless <span class="code">m:ss</span> if timing is free?</li>
+      <li>Have I written down the gain settings so R2 can be recorded identically?</li>
+      <li>Are the sources the score's free zone allows all reachable without browsing mid-take?</li>
+      <li>Is there a paper / text / drawing surface for the score itself, separate from the rig?</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="decisions.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 03 / Decisions
+    </a>
+    <a href="palette.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      05 / Score primitives →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B6-005 — The Score</div>
+
+</div>
+
+</body>
+</html>

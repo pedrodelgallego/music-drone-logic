@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Note B6-004 — Tuning · Palette</title>
+<link rel="stylesheet" href="../guide-b1-001/styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Guide contents">
+  <p class="nav-label labnote-code">Lab Note B6-004<span class="labnote-topic">Tuning</span></p>
+  <a href="index.html"><span class="nav-num">01</span>Overview</a>
+  <a href="listen.html"><span class="nav-num">02</span>Listen</a>
+  <a href="decisions.html"><span class="nav-num">03</span>Decisions</a>
+  <a href="setup.html"><span class="nav-num">04</span>Setup</a>
+  <a href="palette.html" class="active"><span class="nav-num">05</span>Palette</a>
+  <a href="build.html"><span class="nav-num">06</span>The build</a>
+  <a href="reflection.html"><span class="nav-num">07</span>Reflection</a>
+</nav>
+
+<div class="container">
+
+  <header class="page-header">
+    <div class="labnote-badge">Lab Note B6-004</div>
+    <div class="eyebrow">Tuning · 05 — Palette</div>
+    <h1>A scale you can hold in one hand</h1>
+    <p class="lede">A drone piece does not need a chromatic scale — it needs a small set of pure intervals you understand completely. This page lays out the worked just-intonation scale this Lab Note builds on, every degree as a ratio and in cents, with its exact frequency from a chosen root. Then it shows which of those intervals to actually build on, and which to use as colour. The palette is the whole compositional vocabulary of the piece; keep it deliberately small.</p>
+  </header>
+
+  <h2>The worked scale — a 7-limit drone set</h2>
+
+  <p style="text-align:center; max-width:660px; margin:0 auto 24px; color:var(--text-muted);">Six degrees, octave inclusive, built only from the harmonics 1, 9/8, 5, 3, and 7. It reaches up to the 7th harmonic — far enough that the seventh sounds genuinely other, near enough that the root, third, and fifth stay grounded. Root chosen as <strong>A1 = 55 Hz</strong>. Cents are rounded; the ratio is the truth.</p>
+
+  <table class="param-table">
+    <caption>The scale — ratio, cents above root, frequency from A1 = 55 Hz, and what it is</caption>
+    <tr><td>1/1</td><td>0.0 cents — 55.00 Hz — the root; everything is measured from here</td></tr>
+    <tr><td>9/8</td><td>203.9 cents — 61.88 Hz — the just whole tone (the 9th harmonic, octave-reduced); a gentle step, slightly wide of 12-TET</td></tr>
+    <tr><td>5/4</td><td>386.3 cents — 68.75 Hz — the just major third; calm and glassy, ~14 cents below the tempered third</td></tr>
+    <tr><td>3/2</td><td>702.0 cents — 82.50 Hz — the just perfect fifth; the anchor interval, beatless against the root</td></tr>
+    <tr><td>7/4</td><td>968.8 cents — 96.25 Hz — the harmonic seventh; flat, dark, "bluesy," with no 12-TET equivalent</td></tr>
+    <tr><td>2/1</td><td>1200.0 cents — 110.00 Hz — the octave; the scale repeats from here</td></tr>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>How to read a degree:</strong> the frequency is the root times the ratio. The fifth is 55 × 3/2 = 82.5 Hz. The third is 55 × 5/4 = 68.75 Hz. You can dial these exact frequencies into a tuner or an oscillator to check the tuning file by hand — if the synth under your tuning plays the third-degree key and a frequency meter reads 68.75 Hz, the grid is correct.</li>
+    </ul>
+  </div>
+
+  <h2>Which intervals to build on</h2>
+
+  <div class="cards three">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="15"/><circle cx="22" cy="22" r="5"/><circle cx="22" cy="22" r="1.5" fill="currentColor"/></svg>
+      </div>
+      <h3 class="card-title">The foundation — 1/1 + 3/2</h3>
+      <ul class="card-points">
+        <li>Root and fifth: the most stable, most beatless pair in the set</li>
+        <li>Hold these as the drone's spine — the bed everything sits on</li>
+        <li>If only two notes ever sound, these are the two</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M8 30 q7 -18 14 0 t14 0"/><line x1="8" y1="34" x2="36" y2="34"/></svg>
+      </div>
+      <h3 class="card-title">The colour — 5/4</h3>
+      <ul class="card-points">
+        <li>The major third: adds warmth and makes a full just triad</li>
+        <li>Bring it in slowly; it changes the whole emotional cast</li>
+        <li>Pure here in a way it never is in 12-TET — that contrast is the point</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><path d="M10 22 a12 12 0 0 1 24 0"/><line x1="22" y1="34" x2="22" y2="22"/><circle cx="22" cy="22" r="2.5" fill="currentColor"/></svg>
+      </div>
+      <h3 class="card-title">The strangeness — 7/4</h3>
+      <ul class="card-points">
+        <li>The harmonic seventh: the sound your ear can't get from a piano</li>
+        <li>Use sparingly, as the moment the tuning announces itself</li>
+        <li>Against the root it locks; against the fifth it leans — use that tension</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Intervals between the degrees — the inner chords</h2>
+
+  <p style="text-align:center; max-width:660px; margin:0 auto 24px; color:var(--text-muted);">A drone is not just intervals against the root — it is also the intervals the upper notes make with each other. In just intonation those inner intervals are themselves simple ratios, and knowing them tells you which pairs lock and which create motion.</p>
+
+  <table class="param-table">
+    <caption>Selected interval relationships inside the scale</caption>
+    <tr><td>1/1 → 3/2</td><td>Pure fifth (3:2) — the rock-solid foundation</td></tr>
+    <tr><td>1/1 → 5/4</td><td>Pure major third (5:4) — warm, glassy</td></tr>
+    <tr><td>5/4 → 3/2</td><td>Just minor third (6:5) — the upper interval of a just major triad; also pure</td></tr>
+    <tr><td>3/2 → 7/4</td><td>7:6 (a "septimal" minor third) — narrow and dark; this is where the tuning gets exotic</td></tr>
+    <tr><td>1/1 → 9/8</td><td>Whole tone (9:8) — close to the root, mildly dissonant; good for slow internal beating you can control</td></tr>
+    <tr><td>5/4 → 7/4</td><td>7:5 ("septimal tritone") — restless and unresolved; reserve it for a single tense moment</td></tr>
+  </table>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Building a full just triad:</strong> sound 1/1 + 5/4 + 3/2 together (root, third, fifth = 4:5:6). All three intervals are pure simultaneously — this is the chord 12-TET can only approximate. Let it ring and it is utterly still. This single chord can be most of a piece.</li>
+      <li><strong>The septimal voicing:</strong> 1/1 + 3/2 + 7/4 (4:6:7) is the foundation plus the harmonic seventh — open, dark, and unmistakably outside the 12-TET world. Use it as the piece's "other" colour, the place the tuning becomes the subject.</li>
+    </ul>
+  </div>
+
+  <h2>What stays out of the palette</h2>
+
+  <div class="cards two">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><line x1="10" y1="10" x2="34" y2="34"/><line x1="34" y1="10" x2="10" y2="34"/></svg>
+      </div>
+      <h3 class="card-title">Resist these</h3>
+      <ul class="card-points">
+        <li>A full twelve-degree just scale — you are composing with a chord, not a keyboard</li>
+        <li>12-TET pads sneaking in alongside the just drone — they will beat against it</li>
+        <li>Vibrato or chorus on the drone — both smear the exact pitch you worked to set</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 44 44"><polyline points="12 24 20 30 32 14"/><circle cx="22" cy="22" r="16"/></svg>
+      </div>
+      <h3 class="card-title">Keep these</h3>
+      <ul class="card-points">
+        <li>Slow filter and timbre movement — colour that doesn't touch pitch</li>
+        <li>Long reverb — space is allowed; pitch-bending modulation is not</li>
+        <li>One percussion voice in 12-TET, tuned only so its fundamental agrees with 55 Hz</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="decision-check">
+    <div class="decision-check-label">Decision check</div>
+    <ul>
+      <li>Can you name every degree of your scale as both a ratio and a frequency from the root?</li>
+      <li>Do you know which two notes are your unshakeable foundation, and which one is your "strangeness" colour?</li>
+      <li>Have you kept the palette small enough to hold in your head — five or six pitches, not twelve?</li>
+      <li>Is anything in the set that bends pitch (vibrato, chorus, detune)? If so, remove it — it fights the tuning you built.</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Palette rule</div>
+    <p>A small set of pure intervals you understand completely beats a large scale you half-trust. The point is not how many notes — it is that every note is exactly where the harmonic series put it.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="setup.html">
+      <span class="page-nav-direction">Previous</span>
+      ← 04 / Setup
+    </a>
+    <a href="build.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      06 / The build →
+    </a>
+  </div>
+
+  <div class="footer">Lab Note B6-004 — Tuning</div>
+
+</div>
+
+</body>
+</html>
