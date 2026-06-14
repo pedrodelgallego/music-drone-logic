@@ -160,9 +160,35 @@ a { color: var(--accent); text-decoration: none; }
 
 /* === LAYOUT === */
 .container {
-  max-width: 920px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 100px 28px 120px;
+  padding: 100px 40px 120px;
+}
+
+/* === LAB NOTE IDENTITY === */
+.nav-label.labnote-code {
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+.nav-label.labnote-code .labnote-topic {
+  display: block;
+  color: var(--text-muted);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  margin-top: 2px;
+}
+.labnote-badge {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  padding: 3px 9px;
+  margin: 0 auto 16px;
 }
 
 .page-header {
@@ -885,4 +911,38 @@ kbd, .kbd {
   .checklist { padding: 24px 22px; }
   .page-nav { flex-direction: column; }
   .final { padding: 44px 24px; }
+}
+
+/* === REVEAL (collapsible answers, ported for Lab Note pages) === */
+details.reveal {
+  background: var(--bg);
+  border-radius: 8px;
+  margin: 10px 0 4px;
+}
+details.reveal summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 9px 14px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+details.reveal summary::-webkit-details-marker { display: none; }
+details.reveal summary::after {
+  content: "+";
+  margin-left: auto;
+  font-size: 18px;
+  transition: transform 0.2s ease;
+}
+details.reveal[open] summary::after { transform: rotate(45deg); }
+details.reveal .reveal-body { padding: 0 14px 12px; }
+details.reveal .reveal-body p {
+  color: var(--text-muted);
+  font-size: 14.5px;
+  line-height: 1.6;
+  margin: 0 0 8px;
 }
