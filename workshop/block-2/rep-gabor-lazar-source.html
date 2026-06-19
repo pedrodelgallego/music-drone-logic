@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Replicate: the generator as the source — Gábor Lázár</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page-type-rep" id="top">
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+<label for="nav-toggle" class="hamburger" aria-label="Menu">
+  <span class="hamburger-lines"><span></span><span></span><span></span></span>
+</label>
+<label for="nav-toggle" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" aria-label="Workshop contents">
+  <p class="nav-label">Workshop</p>
+  <a href="../index.html"><span class="nav-num">00</span>Overview</a>
+  <a href="../dashboard.html"><span class="nav-num">DB</span>Dashboard</a>
+  <a href="../block-1/index.html"><span class="nav-num">01</span>The Bench</a>
+  <a href="index.html" class="active"><span class="nav-num">02</span>Sources</a>
+  <a href="../block-3/index.html"><span class="nav-num">03</span>Time</a>
+  <a href="../block-4/index.html"><span class="nav-num">04</span>Transformation</a>
+  <a href="../block-5/index.html"><span class="nav-num">05</span>Space &amp; Mix</a>
+  <a href="../block-6/index.html"><span class="nav-num">06</span>Decision Systems</a>
+  <a href="../block-7/index.html"><span class="nav-num">07</span>Performance</a>
+  <a href="../block-8/index.html"><span class="nav-num">08</span>Synthesis &amp; Voice</a>
+  <a href="../references.html"><span class="nav-num">RF</span>References</a>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Workshop</a><span class="breadcrumb-sep">/</span><a href="index.html">Block 2 · Sources</a><span class="breadcrumb-sep">/</span><span>Replicate: the generator as the source</span></nav>
+
+  <header class="page-header">
+    <div class="eyebrow">Block 2 · Replication lesson</div>
+    <h1>Replicate: the generator as the source</h1>
+    <p class="lede">Copy one clear section of Gábor Lázár — “Source”. Build a short study from purely synthetic material — no acoustic recording anywhere — and compare it to the reference at the same loudness.</p>
+  </header>
+
+  <nav class="block-jump" aria-label="Block navigation"><a href="index.html" data-section="overview">Overview</a><a href="listening-l2.html" data-section="listening">Listening</a><a href="index.html#labs" data-section="labs">Labs</a><a href="lab-r2.html" data-section="rebuild">Rebuild</a><a href="index.html#capstone" data-section="capstone">Capstone</a><a href="index.html#replication-lessons" data-section="rep" class="current">Rep lessons</a><a href="../dashboard.html" data-section="dashboard">Dashboard</a></nav>
+  <div class="callout">
+    <div class="callout-label">The point</div>
+    <p>This drill is about one decision: build a whole piece from purely synthetic source material, with no acoustic recording anywhere in the chain. The raw generator — an oscillator, a noise source, a feedback loop — is foregrounded <em>as</em> the source rather than hidden behind samples of the world. Do only the steps that make that foregrounded generator audible.</p>
+  </div>
+
+  <table class="param-table">
+    <caption>The system you are replicating</caption>
+    <tr><td>Source record</td><td>Gábor Lázár — “Source” (general citation)</td></tr>
+    <tr><td>The effect</td><td>a piece that is unmistakably electronic — every sound traces back to a generator, never a microphone — and the bare synthetic material is the subject, not a stand-in for something recorded</td></tr>
+    <tr><td>The mechanism</td><td>a whole piece from purely synthetic source material, no acoustic recording — the raw generator is foregrounded as the source</td></tr>
+    <tr><td>Related page</td><td><a href="lab-005.html">Lab 005</a></td></tr>
+  </table>
+
+  <p class="listen-rep">Listen: <a href="https://www.youtube.com/results?search_query=Gábor+Lázár+Source" target="_blank" rel="noopener">YouTube</a> · <a href="spotify:search:Gábor%20Lázár%20Source">Spotify</a></p>
+
+  <div class="checklist">
+    <div class="checklist-head">
+      <div class="checklist-icon"><svg viewBox="0 0 44 44"><path d="M8 24l10 10L36 12"></path></svg></div>
+      <div class="checklist-label">Before you start</div>
+    </div>
+    <ul>
+      <li>Gear: one synth voice you trust — MicroFreak, an Operator/Wavetable instance, or a feedback patch; DT 990 Pro for judging; the lab-006 capture log, repurposed with a column for <em>which generator and which setting</em> rather than place and distance</li>
+      <li>New set saved as <span class="code">REP-SOURCE</span> — a tempo grid is optional; the study is timed in seconds, and the pulse can come from the generator itself</li>
+      <li>Synthetic peaks are stable but can run hot fast — set gain on the loudest single tone you intend to use, peaks ≈ <span class="code">−12 dBFS</span>; phones at the lab-001 mark, because pure tones invite the knob up</li>
+      <li>Timebox: 90–120 minutes — one generator round, one shaping pass, one short study, then file it and stop</li>
+    </ul>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>What you will make:</strong> a short replica of Gábor Lázár — “Source”. Focus on this effect: a piece built entirely from synthetic material where the generator itself is the subject.</li>
+      <li><strong>What you will turn off:</strong> every sample of the world, every field recording, every disguise that makes a synth sound “organic.”</li>
+      <li><strong>What you will prove:</strong> your version and <span class="code">REF</span> use the same core mechanism: a whole piece from purely synthetic source material, no acoustic recording — the raw generator is foregrounded as the source.</li>
+      <li><strong>What counts as success:</strong> remaining differences are generator choices or rig limits, not a recording sneaking back in.</li>
+    </ul>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Reference pass · 10 minutes</div>
+      <h3 class="step-title">Listen before you build</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Listen to about one minute of Gábor Lázár — “Source”. Choose the clearest short section. Write one short answer for each question before you touch the gear.</p>
+    <ol class="rules-list">
+      <li>Can you hear a single recording of the physical world anywhere?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>No — and that absence is the point. There is no room, no air, no object being struck. Everything has the seamless, edgeless quality of a signal that was generated, not captured. The ear keeps reaching for a cause and finds only the machine.</p></div></details>
+      </li>
+      <li>What is the “instrument,” if there is no recording?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>The generator itself — an oscillator, a noise source, a feedback network. It is not pretending to be a flute or a drum. The raw output of the synthesis process is the material, presented plainly.</p></div></details>
+      </li>
+      <li>How does the sound change over time?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>By moving a parameter, not by editing clips. Pitch, timbre, density, or filter cutoff sweeps; the same generator is heard from many angles. The composition lives in how the controls are driven, not in arranging recorded fragments.</p></div></details>
+      </li>
+      <li>Why keep it synthetic on purpose?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>Because the constraint forces honesty. With no recording to lean on, every interesting moment has to be earned from the generator. The piece becomes a study of what one synthetic source can do when nothing is allowed to hide it.</p></div></details>
+      </li>
+      <li>Where is the composition, if it is one machine?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>In the parameter path and the cuts between states. Choosing the generator, choosing which controls move, deciding how fast and how far, and where one state hands to the next — those decisions are the form.</p></div></details>
+      </li>
+    </ol>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Now build the section you described. Do not build from memory.</p>
+  </div>
+
+  <h2>Steps</h2>
+
+  <div class="note-block control-map">
+    <ul>
+      <li><strong>Button map for the steps below:</strong> use these controls whenever the lesson names the device.</li>
+      <li><strong>Live 12:</strong> <kbd>⌘ T</kbd> creates an audio track, <kbd>⇧⌘ T</kbd> creates a MIDI track, <kbd>⌘ R</kbd> renames the selected track, <kbd>⌘ ,</kbd> opens Settings, <kbd>⌘ M</kbd> enters MIDI Map mode, and <kbd>⌘ J</kbd> consolidates the selected clip.</li>
+      <li><strong>MicroFreak:</strong> turn the oscillator <span class="code">Type</span> to choose the engine, hold <span class="code">Shift</span> for the second function of each knob, and use the recorded mod sequence to drive a parameter hands-free during the take.</li>
+    </ul>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Sound target:</strong> one 60-second study where every sound is synthetic and the generator is plainly the subject.</li>
+      <li>One generator, three or four distinct states reached by moving parameters — no samples, no field recordings, no acoustic layers.</li>
+      <li>The interest comes from driving the controls, never from arranging recorded clips.</li>
+      <li>Level and the parameter moves only — if you reach for a sampler of the world, you have left the lesson.</li>
+    </ul>
+  </div>
+
+  <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); max-width: 640px; margin: 0 auto 14px; text-align: center;">The whole system in one row: one generator, a small set of parameter moves, three or four states, and one short study where the synthetic source is foregrounded the whole way through.</p>
+
+  <div class="signal-flow">
+    <span class="signal-node">one generator · no mic</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">parameter moves · not clips</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">three or four states</span>
+    <span class="signal-arrow">→</span>
+    <span class="signal-node">one 60-second study</span>
+  </div>
+
+  <!-- PHASE 1 -->
+  <div class="gear-switch"><input type="radio" name="gear" id="gear-hw" class="gear-radio" checked><input type="radio" name="gear" id="gear-sw" class="gear-radio"><input type="radio" name="gear" id="gear-tg" class="gear-radio"><div class="gear-labels"><span class="gear-lead">Your rig</span><label for="gear-hw">Live + current rig</label><label for="gear-sw">Ableton Live only</label><label for="gear-tg">Octatrack MKII · target</label></div><div class="gear-scope"><div class="step">
+    <div class="step-head">
+      <div class="step-num">Phase 1 · ≈ 10 min</div>
+      <h3 class="step-title">The reference and the one-generator rule</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: the reference and the one-generator rule. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li><kbd>⌘ T</kbd>, rename the track <span class="code">REF</span> (<kbd>⌘ R</kbd>), drag the reference section in, and loop it at ≈ <span class="code">−12 dBFS</span> with <span class="menu">Audio Effects → Utility</span>.</li>
+        <li>Pick exactly one generator — MicroFreak oscillator, a single Operator/Wavetable patch, or a feedback loop — and write it at the top of the logbook page.</li>
+        <li>Write the rule in full: <em>no acoustic recording enters this set — no field clips, no sampled objects, no “organic” layers.</em></li>
+        <li>List the parameters you are allowed to move: usually pitch, timbre/wavetable position, filter cutoff, and one density or modulation amount.</li>
+        <li>Mute everything else on the device — one voice, plainly heard.</li>
+        <li>Decide the membership test: <em>if I cannot trace a sound back to this generator, it does not belong in the study.</em></li>
+      </ol>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Gábor Lázár — “Source” and use one instrument — Operator or Wavetable — plus MIDI clips and parameter automation.</li><li>Build the phase goal — <em>the reference and the one-generator rule</em> — as the smallest Live set that proves <em>a whole piece from purely synthetic source material, no acoustic recording — the raw generator is foregrounded as the source</em>.</li><li>Keep the single generator on a named track, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects whether the generator stays foregrounded.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Octatrack MKII for this phase: with no acoustic source, build from the internal test tones, white/pink noise, or a single resampled synth pass, then drive Flex/Static machines, scenes, and the crossfader.</li><li>Program the control path so it demonstrates <em>a whole piece from purely synthetic source material, no acoustic recording — the raw generator is foregrounded as the source</em>, not just the surface of Gábor Lázár — “Source”.</li><li>Keep one clear performance control for the main parameter move in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the synthetic source stays foregrounded.</li></ol></div></div></div></div>
+
+    <div class="sub-block">
+      <div class="sub-label">Expected result</div>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">The reference loops at ≈ −12 dBFS, one generator is chosen and named, and the no-recording rule plus the allowed-parameters list are on paper before any sound is shaped.</p>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">If it fails</div>
+      <table>
+        <thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead>
+        <tbody>
+          <tr><td>You keep wanting to “add a little texture” from a sample</td><td>Old habit — leaning on recordings to make synthesis feel finished</td><td>Delete the sampler track entirely; if the study feels thin, the fix is a parameter move, not a recording</td></tr>
+          <tr><td>Two generators creep in before you start</td><td>Reaching for a layer to cover a weak source</td><td>One voice only — a second generator is next week’s study; prove what one can do first</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Phase 2 · ≈ 30 min</div>
+      <h3 class="step-title">Find the states — drive the generator, not the keyboard</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: find the states. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>Hold one note and sweep each allowed parameter slowly from minimum to maximum, listening for where the timbre changes character — those edges are your states.</li>
+        <li>Mark three or four distinct states: e.g. pure tone, gritted/folded tone, noise-edge, and a fast-modulated state.</li>
+        <li>For each state, find the exact knob positions and write them in the log next to the generator name.</li>
+        <li>Record a 10–15 second pass of each state alone, peaks ≈ <span class="code">−12 dBFS</span>, into named clips: <span class="code">STATE·1</span>, <span class="code">STATE·2</span>.</li>
+        <li>Each clip must be the generator only — no reverb tail standing in for a room, no sample underneath.</li>
+        <li>If a state sounds “recorded,” find what is faking it and remove it; the synthetic origin should be obvious.</li>
+      </ol>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Gábor Lázár — “Source” and use the single instrument plus clip envelopes and resampling.</li><li>Build the phase goal — <em>find the states</em> — as the smallest Live set that proves <em>a whole piece from purely synthetic source material, no acoustic recording — the raw generator is foregrounded as the source</em>.</li><li>Keep the generator on a named track, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample each state to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects whether the generator stays foregrounded.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Octatrack MKII for this phase: translate <em>find the states</em> into Flex/Static machines, slices, recorder buffers, scenes, the crossfader, and main-out recording.</li><li>Program the control path so it demonstrates <em>a whole piece from purely synthetic source material, no acoustic recording — the raw generator is foregrounded as the source</em>, not just the surface of Gábor Lázár — “Source”.</li><li>Keep one clear performance control for the main parameter move in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the synthetic source stays foregrounded.</li></ol></div></div></div></div>
+
+    <div class="sub-block">
+      <div class="sub-label">Expected result</div>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">Three or four named state clips, each the generator alone, each clearly different from its neighbors, with knob positions logged so any state is repeatable.</p>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">If it fails</div>
+      <table>
+        <thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead>
+        <tbody>
+          <tr><td>All states sound nearly the same</td><td>Parameters moved too little, or the wrong one moved</td><td>Push each control to its extreme to learn the range, then place your states across the whole sweep, not bunched at one end</td></tr>
+          <tr><td>A state only sounds good with reverb on it</td><td>The room is doing the work, not the generator</td><td>Bypass the reverb and re-find a state that holds interest dry; effects come later, the source must stand alone</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-head">
+      <div class="step-num">Phase 3 · ≈ 35 min</div>
+      <h3 class="step-title">The study — compose the parameter path</h3>
+    </div>
+    <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin-bottom: 14px;">Phase focus: the study. Follow the steps in order, then compare against <span class="code">REF</span> before moving on.</p>
+
+    <div class="sub-block">
+      <div class="sub-label">Do this</div>
+      <div class="phase-tabs"><div class="phase-tab-panels"><div class="phase-tab-panel"><ol>
+        <li>Build one 60-second study in Arrangement that moves through your states in an order you choose.</li>
+        <li>Prefer driving the live parameter (record automation or the MicroFreak mod sequence) over butting state clips end to end — motion beats montage here.</li>
+        <li>Decide each transition: a hard cut between states, or a slow morph as a knob crosses the boundary; both are valid, choose on purpose.</li>
+        <li>Keep one parameter as the “lead” the listener follows — pitch, or cutoff, or density — so the study has a through-line.</li>
+        <li>Resist adding anything from outside the generator; if the study needs more, find it in an unused corner of the same source.</li>
+        <li>Print the study to one audio track named <span class="code">PRINT</span>.</li>
+      </ol>
+    </div><div class="phase-tab-panel"><ol><li>Work in Live 12 only for this phase: keep <span class="code">REF</span> looped from Gábor Lázár — “Source” and use the single instrument, MIDI clips, and parameter automation.</li><li>Build the phase goal — <em>the study</em> — as the smallest Live set that proves <em>a whole piece from purely synthetic source material, no acoustic recording — the raw generator is foregrounded as the source</em>.</li><li>Keep the generator on a named track, then use <span class="menu">Utility</span> to match the level against <span class="code">REF</span> before judging it.</li><li>Record or resample the result to a fresh audio track named <span class="code">PRINT</span>; do not leave the proof only as devices and MIDI.</li><li>A/B ten seconds of <span class="code">PRINT</span> against <span class="code">REF</span> and change only the setting that most affects whether the generator stays foregrounded.</li></ol></div><div class="phase-tab-panel"><ol><li>Use Octatrack MKII for this phase: translate <em>the study</em> into Flex/Static machines, slices, recorder buffers, scenes, the crossfader, and main-out recording.</li><li>Program the control path so it demonstrates <em>a whole piece from purely synthetic source material, no acoustic recording — the raw generator is foregrounded as the source</em>, not just the surface of Gábor Lázár — “Source”.</li><li>Keep one clear performance control for the main parameter move in this phase; name it before recording so the move is repeatable.</li><li>Record the device into Live or a recorder as a full pass, then compare it with <span class="code">REF</span> at matched level.</li><li>If the target box suggests an easier shortcut, use it only when the synthetic source stays foregrounded.</li></ol></div></div></div></div>
+
+    <div class="sub-block">
+      <div class="sub-label">Expected result</div>
+      <p style="color: var(--text-muted); font-size: var(--fs-lg-plus); margin: 0;">One 60-second study, purely synthetic, that moves through its states by parameter motion — a single generator heard from several angles, with nothing recorded anywhere in it.</p>
+    </div>
+
+    <div class="sub-block">
+      <div class="sub-label">If it fails</div>
+      <table>
+        <thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead>
+        <tbody>
+          <tr><td>The study sounds like four clips glued together</td><td>States placed end to end with no movement between them</td><td>Automate the parameter across the boundary so one state grows out of the last; let the knob, not the cut, do the work</td></tr>
+          <tr><td>It feels static even while moving</td><td>No lead parameter — everything drifts at once</td><td>Choose one control as the through-line and make it the most obvious motion; let the others support it</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  </div></div><!-- end gear-scope -->
+  <div class="decision-check">
+    <div class="decision-check-label">Verify against the record</div>
+    <p>Solo-flip between <span class="code">REF</span> and your study at matched loudness — phones at the mark, no level riding while you judge.</p>
+    <ul>
+      <li>Can a listener tell every sound is synthetic?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>That is the pass condition. Play the study to fresh ears and ask “does any of this sound recorded?” A working version gets a clear “no — it is all machine.” If something reads as a room, an object, or a field, find it and cut it; one stray recording undoes the whole premise. The record passes this test from the first second — there is nothing to mistake for the world.</p></div></details>
+      </li>
+      <li>Is the generator the subject, or just a means?
+        <details class="reveal"><summary>Answer</summary><div class="reveal-body"><p>In a working study the listener is plainly hearing <em>a generator being explored</em>, not a synth pretending to be an instrument. The interest is in the timbre and its motion, not in melody or a recognizable patch. If your study leans on a tune to stay interesting, the source is not foregrounded enough — strip the melody and make the parameter motion carry it, the way the reference does.</p></div></details>
+      </li>
+    </ul>
+  </div>
+
+  <div class="note-block">
+    <ul>
+      <li><strong>Logbook — three-line miss list.</strong> <strong>Matched:</strong> where your version produces the record’s effect. <strong>Missed:</strong> where it doesn’t — and your best guess why. <strong>Change next:</strong> the one move you’d try first.</li>
+      <li>These three lines feed the full miss list in <a href="lab-r2.html">replication lab R2</a>.</li>
+      <li><strong>Carries into the lab:</strong> Lab 005 builds sound from a bare oscillator up. This record is the discipline that goes with it: prove the source can carry a whole piece before you ever reach for a recording to help it.</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="rep-de-natura.html">
+      <span class="page-nav-direction">Previous</span>
+      ← Replicate: capture sorted by physics
+    </a>
+    <a href="rep-felicia-atkinson-hand-in-hand.html" class="next">
+      <span class="page-nav-direction">Next</span>
+      Replicate: voice, field and synth as one palette →
+    </a>
+  </div>
+
+  <div class="footer">Experimental Music Workshop — Block 2 · Replication lesson</div>
+
+</div>
+
+  <script src="../nav.js"></script>
+</body>
+</html>
